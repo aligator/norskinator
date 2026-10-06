@@ -19,6 +19,10 @@ COPY . .
 ARG SOURCE_URL=""
 ENV VITE_SOURCE_URL=${SOURCE_URL}
 
+# Shown as "Versjon" in Innstillinger → Om; CI passes the git tag or main-<sha>.
+ARG APP_VERSION=""
+ENV VITE_APP_VERSION=${APP_VERSION}
+
 # A broken build or a failing test must never become an image.
 RUN pnpm run verify
 

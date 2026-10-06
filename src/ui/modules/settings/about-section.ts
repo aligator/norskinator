@@ -1,9 +1,9 @@
 /** Version, licences, attribution and the source link the AGPL asks for. */
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
-import { version } from '../../../../package.json';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { requestTour } from '../onboarding/tour-state.ts';
+import { appVersion } from '../shared/app-version.ts';
 import { sourceUrl } from '../shared/source-url.ts';
 
 export class AboutSection extends LitElement {
@@ -24,7 +24,7 @@ export class AboutSection extends LitElement {
 
     return html`
       <h2 class="eyebrow">Om</h2>
-      <p>Norskinator ${version}</p>
+      <p class="version">Versjon <strong class="tabular">${appVersion()}</strong></p>
       <p>
         Setninger fra <a href="https://tatoeba.org" target="_blank" rel="noopener">Tatoeba</a>, lisens
         <a href="https://creativecommons.org/licenses/by/2.0/fr/" target="_blank" rel="noopener">CC BY 2.0 FR</a>.
