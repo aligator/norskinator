@@ -31,6 +31,7 @@ FROM nginxinc/nginx-unprivileged:stable-alpine
 
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --chmod=755 docker/40-basic-auth.sh /docker-entrypoint.d/40-basic-auth.sh
+COPY --chmod=755 docker/50-legal.sh /docker-entrypoint.d/50-legal.sh
 COPY --from=build /app/dist /usr/share/nginx/html
 
 EXPOSE 8080

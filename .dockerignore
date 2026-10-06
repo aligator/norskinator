@@ -9,3 +9,6 @@ coverage
 *.log
 .env
 .env.*
+
+# Local Impressum test data must never end up in an image
+public/legal.json

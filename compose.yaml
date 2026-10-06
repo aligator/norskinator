@@ -13,3 +13,8 @@ services:
       # Optional login. Leave both empty for an open app.
       BASIC_AUTH_USER: ${BASIC_AUTH_USER:-}
       BASIC_AUTH_PASSWORD: ${BASIC_AUTH_PASSWORD:-}
+      # Optional "Impressum og personvern" page under Innstillinger → Om.
+      IMPRESSUM_NAME: ${IMPRESSUM_NAME:-}
+      IMPRESSUM_ADDRESS: ${IMPRESSUM_ADDRESS:-}
+      IMPRESSUM_EMAIL: ${IMPRESSUM_EMAIL:-}
+      IMPRESSUM_NOTE: ${IMPRESSUM_NOTE:-}

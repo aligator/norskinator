@@ -6,6 +6,8 @@ import { requestTour } from '../onboarding/tour-state.ts';
 import { appVersion } from '../shared/app-version.ts';
 import { sourceUrl } from '../shared/source-url.ts';
 
+import '../legal/legal-link.ts';
+
 export class AboutSection extends LitElement {
   static override styles = [
     sharedStyles,
@@ -24,6 +26,7 @@ export class AboutSection extends LitElement {
 
     return html`
       <h2 class="eyebrow">Om</h2>
+      <legal-link></legal-link>
       <p class="version">Versjon <strong class="tabular">${appVersion()}</strong></p>
       <p>
         Setninger fra <a href="https://tatoeba.org" target="_blank" rel="noopener">Tatoeba</a>, lisens

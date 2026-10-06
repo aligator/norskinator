@@ -13,6 +13,7 @@ import { ROUTE_TITLES, currentRoute, navigate, type Route } from './router.ts';
 import '../modules/onboarding/welcome-tour.ts';
 import '../modules/update/update-banner.ts';
 import './home-page.ts';
+import './legal-page.ts';
 import './practice-page.ts';
 import './settings-page.ts';
 import './stats-page.ts';
@@ -238,6 +239,10 @@ export class AppRoot extends LitElement {
 
       case 'innstillinger': {
         return html`<settings-page></settings-page>`;
+      }
+
+      case 'impressum': {
+        return html`<legal-page></legal-page>`;
       }
     }
   }

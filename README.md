@@ -119,9 +119,15 @@ ved bygging, så vises den under Innstillinger → Om:
 docker build --build-arg SOURCE_URL=https://github.com/aligator/norskinator -t norskinator .
 ```
 
-**Merk (Tyskland):** kjører appen bare lokalt eller i et privat nettverk, er
-den rent privat. Gjøres den offentlig tilgjengelig på internett, trengs
-sannsynligvis et Impressum (§ 18 (1) MStV). Dette er ingen juridisk rådgivning.
+Valgfritt kan containeren vise en side med kontaktinformasjon («Impressum og
+personvern»). Den vises bare når disse variablene er satt:
+
+| Variabel | Innhold |
+| --- | --- |
+| `IMPRESSUM_NAME` | Navn |
+| `IMPRESSUM_ADDRESS` | Adresse, linjer skilt med `\|` |
+| `IMPRESSUM_EMAIL` | E-post (valgfri) |
+| `IMPRESSUM_NOTE` | Valgfri tekst under adressen, f.eks. `Nicht-kommerzielles, privates Lernangebot ohne Werbung und ohne Einnahmen.` |
 
 ## Nye temaer og oppgavetyper
 

@@ -8,3 +8,5 @@ coverage
 .playwright-mcp/
 .env.local
 .env.*.local
+# Local Impressum test data (production gets it from container env)
+public/legal.json
