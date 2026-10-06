@@ -1,0 +1,11 @@
+node_modules
+dist
+dev-dist
+.cache
+coverage
+.git
+.github
+.playwright-mcp
+*.log
+.env
+.env.*

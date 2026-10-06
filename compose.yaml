@@ -1,0 +1,15 @@
+# Example: `docker compose up -d --build`, then open http://localhost:8080
+services:
+  norskinator:
+    build:
+      context: .
+      args:
+        SOURCE_URL: ${SOURCE_URL:-}
+    image: norskinator:latest
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      # Optional login. Leave both empty for an open app.
+      BASIC_AUTH_USER: ${BASIC_AUTH_USER:-}
+      BASIC_AUTH_PASSWORD: ${BASIC_AUTH_PASSWORD:-}

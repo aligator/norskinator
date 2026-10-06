@@ -1,0 +1,30 @@
+/** Hash routing: any static file server can host the app without rewrite rules. */
+
+export type Route = 'hjem' | 'ovelse' | 'statistikk' | 'innstillinger';
+
+const ROUTES: readonly Route[] = ['hjem', 'ovelse', 'statistikk', 'innstillinger'];
+
+export const ROUTE_TITLES: Readonly<Record<Route, string>> = {
+  hjem: 'Hjem',
+  ovelse: 'Øving',
+  statistikk: 'Statistikk',
+  innstillinger: 'Innstillinger',
+};
+
+function isRoute(value: string): value is Route {
+  return ROUTES.some((route) => route === value);
+}
+
+export function currentRoute(): Route {
+  const hash = globalThis.location.hash.replace(/^#/, '');
+
+  return isRoute(hash) ? hash : 'hjem';
+}
+
+export function navigate(route: Route): void {
+  if (currentRoute() === route) {
+    return;
+  }
+
+  globalThis.location.hash = route;
+}
