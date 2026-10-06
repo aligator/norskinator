@@ -102,7 +102,7 @@ export class SessionSummary extends LitElement {
   declare progress: Progress;
 
   focusHeading(): void {
-    this.renderRoot.querySelector<HTMLElement>('h2')?.focus();
+    this.renderRoot.querySelector<HTMLElement>('h2')?.focus({ preventScroll: true });
   }
 
   protected override render(): TemplateResult {

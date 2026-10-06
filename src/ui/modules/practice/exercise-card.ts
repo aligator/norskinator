@@ -7,7 +7,7 @@
  */
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
-import { gapParts } from '../../../core/checker.ts';
+import { gapParts, type GapParts } from '../../../core/checker.ts';
 import type { Feedback } from '../../../core/store.ts';
 import type { TranslationLanguage } from '../../../core/storage.ts';
 import type { Exercise } from '../../../core/types.ts';
@@ -58,24 +58,20 @@ export class ExerciseCard extends LitElement {
       .gap {
         display: inline-block;
         min-width: 4ch;
+        padding: 0 var(--sp-1);
         border-bottom: 2px solid var(--border-strong);
         text-align: center;
       }
 
       .gap.filled {
-        padding: 0 var(--sp-1);
         border-radius: var(--r-sm);
         border-bottom-color: transparent;
         background: var(--correct-bg);
         color: var(--correct);
-        font-weight: 600;
+        /* Same weight as the empty gap: bold glyphs are wider and would change its ch-based width. */
         animation: settle var(--dur-base) var(--ease-out);
       }
 
-      .given {
-        color: var(--wrong);
-        text-decoration-thickness: 2px;
-      }
 
       .spacer {
         flex: 1;
@@ -165,10 +161,10 @@ export class ExerciseCard extends LitElement {
         font: 400 var(--fs-lg) var(--font-ui);
       }
 
+      /* Colour and opacity only: anything that moves would shift the sentence. */
       @keyframes settle {
         from {
           opacity: 0;
-          transform: translateY(4px);
         }
       }
 
@@ -218,6 +214,16 @@ export class ExerciseCard extends LitElement {
     `;
   }
 
+  /**
+   * The gap is as wide as the longest option from the start, so filling in the
+   * answer never re-wraps the sentence.
+   */
+  #gapWidth(parts: GapParts): string {
+    const longest = Math.max(parts.filled.length, ...this.options.map((option) => option.length), 3);
+
+    return `min-width: ${longest + 1}ch`;
+  }
+
   #renderPrompt(): TemplateResult {
     const parts = gapParts(this.exercise);
 
@@ -226,16 +232,14 @@ export class ExerciseCard extends LitElement {
     }
 
     if (this.feedback === null) {
-      return html`${parts.before}<span class="gap"><span class="sr-only">luke</span>&nbsp;</span>${parts.after}`;
+      return html`${parts.before}<span class="gap" style=${this.#gapWidth(parts)}
+          ><span class="sr-only">luke</span>&nbsp;</span
+        >${parts.after}`;
     }
 
-    const wrongGiven = this.feedback.correct
-      ? nothing
-      : html`<del class="given"><span class="sr-only">ditt svar: </span>${this.feedback.given}</del> `;
-    const correctLabel = this.feedback.correct ? nothing : html`<span class="sr-only">riktig: </span>`;
-
-    return html`${parts.before}${wrongGiven}<span class="gap filled">${correctLabel}${parts.filled}</span>${parts.after}`;
+    return html`${parts.before}<span class="gap filled" style=${this.#gapWidth(parts)}>${parts.filled}</span>${parts.after}`;
   }
+
 
   #renderTranslation(): TemplateResult | typeof nothing {
     // After answering, the feedback sheet shows the translation instead.

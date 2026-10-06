@@ -36,9 +36,9 @@ describe('recordAnswer', () => {
       recordAnswer(withProgress({ combo }), true, DAY_ONE).xpGained;
 
     expect(atCombo(0)).toBe(10);
-    expect(atCombo(1)).toBe(12);
-    expect(atCombo(20)).toBe(30);
-    expect(atCombo(100)).toBe(30);
+    expect(atCombo(1)).toBe(11);
+    expect(atCombo(5)).toBe(15);
+    expect(atCombo(100)).toBe(15);
   });
 
   it('resets the combo on a wrong answer but keeps the best', () => {
@@ -154,6 +154,20 @@ describe('recordSessionCompleted', () => {
 });
 
 describe('levelInfo', () => {
+  it('takes a whole good session to reach level 2, and more than one for level 3', () => {
+    let progress = withProgress({ dailyGoal: 1000 });
+
+    // 20 answers, 17 right: two short slips break the combo.
+    for (let answer = 0; answer < 20; answer += 1) {
+      const correct = answer !== 6 && answer !== 13 && answer !== 19;
+
+      progress = recordAnswer(progress, correct, DAY_ONE).progress;
+    }
+
+    expect(levelInfo(progress.xp).level).toBe(2);
+    expect(progress.xp).toBeLessThan(xpForLevel(3));
+  });
+
   it('starts at level 1 and matches the level thresholds', () => {
     expect(levelInfo(0).level).toBe(1);
     expect(levelInfo(xpForLevel(5)).level).toBe(5);

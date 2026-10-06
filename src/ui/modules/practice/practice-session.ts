@@ -57,6 +57,9 @@ export class PracticeSession extends LitElement {
         display: flex;
         flex-direction: column;
         min-height: 100dvh;
+        /* The feedback sheet slides in from below; without clipping, its start
+           position extends the page and the browser scrolls to it. */
+        overflow: clip;
       }
 
       exercise-card {
@@ -190,7 +193,7 @@ export class PracticeSession extends LitElement {
     if (this.confirmingQuit) {
       if (this.#lastFocusedKey !== 'quit') {
         this.#lastFocusedKey = 'quit';
-        this.renderRoot.querySelector<HTMLButtonElement>('.quit .stay')?.focus();
+        this.renderRoot.querySelector<HTMLButtonElement>('.quit .stay')?.focus({ preventScroll: true });
       }
 
       return;
@@ -227,7 +230,9 @@ export class PracticeSession extends LitElement {
       }
 
       case 'question': {
-        this.renderRoot.querySelector<HTMLElement>('#question-heading')?.focus();
+        // A new question always starts at the top, wherever the last feedback left the page.
+        globalThis.scrollTo({ top: 0 });
+        this.renderRoot.querySelector<HTMLElement>('#question-heading')?.focus({ preventScroll: true });
       }
     }
   }

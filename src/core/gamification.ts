@@ -64,12 +64,19 @@ export const INITIAL_PROGRESS: Progress = {
 };
 
 const BASE_XP_CORRECT = 10;
-const XP_PER_COMBO_STEP = 2;
-const MAX_COMBO_BONUS = 20;
+
+/** A streak of right answers adds a little, but never outweighs answering at all. */
+const XP_PER_COMBO_STEP = 1;
+const MAX_COMBO_BONUS = 5;
 export const XP_GOAL_BONUS = 50;
 
-/** XP needed to reach level n is LEVEL_SPAN * (n - 1)^2. */
-const LEVEL_SPAN = 50;
+/**
+ * XP needed to reach level n is LEVEL_SPAN * (n - 1)^2. A typical session
+ * (20 answers, ~85 % right) earns ~270 XP, so with one session a day:
+ * level 2 after the first session, 4 after a week, 5 after two weeks,
+ * 10 after about two months.
+ */
+const LEVEL_SPAN = 200;
 
 export interface LevelInfo {
   readonly level: number;

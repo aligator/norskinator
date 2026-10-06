@@ -61,7 +61,7 @@ export class FeedbackSheet extends LitElement {
         padding: var(--sp-5) var(--sp-5) calc(var(--sp-5) + env(safe-area-inset-bottom));
         border-radius: var(--r-xl) var(--r-xl) 0 0;
         box-shadow: var(--shadow-sheet);
-        animation: rise var(--dur-slow) var(--ease-out) 120ms backwards;
+        animation: rise var(--dur-slow) var(--ease-out);
       }
 
       .sheet.correct {
@@ -170,6 +170,16 @@ export class FeedbackSheet extends LitElement {
         text-decoration-color: var(--wrong);
       }
 
+      .given {
+        color: var(--fg-muted);
+      }
+
+      .given del {
+        color: var(--wrong);
+        font-weight: 600;
+        text-decoration-thickness: 2px;
+      }
+
       .solution-row {
         display: flex;
         align-items: flex-start;
@@ -254,7 +264,7 @@ export class FeedbackSheet extends LitElement {
   }
 
   focusContinue(): void {
-    this.renderRoot.querySelector<HTMLButtonElement>('.continue')?.focus();
+    this.renderRoot.querySelector<HTMLButtonElement>('.continue')?.focus({ preventScroll: true });
   }
 
   protected override render(): TemplateResult {
@@ -286,6 +296,9 @@ export class FeedbackSheet extends LitElement {
             : nothing}
         </h2>
 
+        ${feedback.correct
+          ? nothing
+          : html`<p class="given">Ditt svar: <del lang="nb">${feedback.given}</del></p>`}
         <div class="solution-row">
           <p class="solution" lang="nb">${this.#renderSolution()}</p>
           ${this.#voice.available
