@@ -59,6 +59,20 @@ Appen kjører da på <http://localhost:8080>. Bygget bruker relative stier, så
 den kan også ligge bak en reverse proxy under en undermappe. `GET /healthz`
 svarer `ok` for helsesjekker. Konfigurasjonen ligger i `docker/nginx.conf`.
 
+### Ferdig image fra GitHub
+
+`.github/workflows/ci.yml` kjører typesjekk, tester og bygg på hver push og
+pull request. Ved push til `main` og ved tags `v*` publiseres imaget for
+`amd64` og `arm64` til GitHub Container Registry:
+
+```bash
+docker pull ghcr.io/aligator/norskinator:latest   # eller :1.2.3, :sha-abc1234
+```
+
+Pakken er privat første gang den publiseres. Gjør den offentlig under
+*Packages → norskinator → Package settings* hvis klyngen skal hente den uten
+innlogging.
+
 ### Valgfri innlogging (basic auth)
 
 ```bash
@@ -102,7 +116,7 @@ Driver du appen for andre, skal de kunne finne kildekoden (AGPL). Sett lenken
 ved bygging, så vises den under Innstillinger → Om:
 
 ```bash
-docker build --build-arg SOURCE_URL=https://github.com/<deg>/norskinator -t norskinator .
+docker build --build-arg SOURCE_URL=https://github.com/aligator/norskinator -t norskinator .
 ```
 
 **Merk (Tyskland):** kjører appen bare lokalt eller i et privat nettverk, er

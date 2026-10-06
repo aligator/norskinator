@@ -1,7 +1,9 @@
 # syntax=docker/dockerfile:1
 
 # --- Build: install, verify, bundle ------------------------------------------
-FROM node:24-alpine AS build
+# The bundle is platform-independent: build and test once on the build machine's
+# own architecture, even for a multi-arch image (no slow emulated test run).
+FROM --platform=$BUILDPLATFORM node:24-alpine AS build
 
 WORKDIR /app
 
