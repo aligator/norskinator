@@ -5,7 +5,7 @@
  * what to study and in which order.
  */
 import { dueCards, isDue, type CardState } from './srs.ts';
-import type { Exercise } from './types.ts';
+import type { ItemMeta } from './types.ts';
 
 export const SESSION_SIZE = 20;
 
@@ -25,29 +25,29 @@ export interface SessionOptions {
   readonly random?: () => number;
 }
 
-interface Pools {
-  readonly due: Exercise[];
-  readonly fresh: Exercise[];
+interface Pools<Item> {
+  readonly due: Item[];
+  readonly fresh: Item[];
 }
 
-function splitPools(
-  exercises: readonly Exercise[],
+function splitPools<Item extends ItemMeta>(
+  items: readonly Item[],
   cards: Readonly<Record<string, CardState>>,
   now: number,
-): Pools {
-  const byId = new Map(exercises.map((exercise) => [exercise.id, exercise]));
-  const due: Exercise[] = [];
+): Pools<Item> {
+  const byId = new Map(items.map((item) => [item.id, item]));
+  const due: Item[] = [];
 
   for (const card of dueCards(Object.values(cards), now)) {
-    const exercise = byId.get(card.exerciseId);
+    const item = byId.get(card.exerciseId);
 
-    // The exercise can be gone after a deck was disabled or data regenerated.
-    if (exercise !== undefined) {
-      due.push(exercise);
+    // The item can be gone after a deck was disabled or data regenerated.
+    if (item !== undefined) {
+      due.push(item);
     }
   }
 
-  const fresh = exercises.filter((exercise) => cards[exercise.id] === undefined);
+  const fresh = items.filter((item) => cards[item.id] === undefined);
 
   return { due, fresh };
 }
@@ -74,32 +74,29 @@ function sample<T>(items: readonly T[], count: number, random: () => number): T[
 }
 
 /** Mixes new items into the review stream rather than appending them. */
-function interleave(
-  reviews: readonly Exercise[],
-  fresh: readonly Exercise[],
-  random: () => number,
-): Exercise[] {
+function interleave<Item>(reviews: readonly Item[], fresh: readonly Item[], random: () => number): Item[] {
   const result = [...reviews];
 
-  for (const exercise of fresh) {
+  for (const item of fresh) {
     const position = result.length === 0 ? 0 : Math.floor(random() * (result.length + 1));
 
-    result.splice(position, 0, exercise);
+    result.splice(position, 0, item);
   }
 
   return result;
 }
 
-export function buildSession(
-  exercises: readonly Exercise[],
+/** Picks the items of a session; the caller decides how each one is presented. */
+export function buildSession<Item extends ItemMeta>(
+  items: readonly Item[],
   cards: Readonly<Record<string, CardState>>,
   options: SessionOptions,
   now: number,
-): Exercise[] {
+): Item[] {
   const random = options.random ?? Math.random;
   const size = options.sessionSize ?? SESSION_SIZE;
 
-  const { due, fresh } = splitPools(exercises, cards, now);
+  const { due, fresh } = splitPools(items, cards, now);
   const reviewPart = due.slice(0, size);
 
   const freshSlots = Math.max(0, Math.min(size - reviewPart.length, options.newPerSession));
@@ -113,11 +110,11 @@ export function buildSession(
 }
 
 /** Re-inserts a failed exercise a few steps later in the same session. */
-export function requeue(queue: readonly Exercise[], index: number, exercise: Exercise): Exercise[] {
+export function requeue<Item>(queue: readonly Item[], index: number, item: Item): Item[] {
   const next = [...queue];
   const position = Math.min(index + 1 + REQUEUE_GAP, next.length);
 
-  next.splice(position, 0, exercise);
+  next.splice(position, 0, item);
 
   return next;
 }
@@ -177,12 +174,12 @@ export interface SessionPreview {
 
 /** What `buildSession` would pick right now, without building the queue. */
 export function sessionPreview(
-  exercises: readonly Exercise[],
+  items: readonly ItemMeta[],
   cards: Readonly<Record<string, CardState>>,
   newPerSession: number,
   now: number,
 ): SessionPreview {
-  const { due, fresh } = splitPools(exercises, cards, now);
+  const { due, fresh } = splitPools(items, cards, now);
   const sessionDue = Math.min(due.length, SESSION_SIZE);
   const sessionFresh = Math.max(0, Math.min(fresh.length, newPerSession, SESSION_SIZE - sessionDue));
 

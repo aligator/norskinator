@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { MAX_RESUME_AGE_MS, restoreSession, snapshotSession } from './resume.ts';
 import type { PersistedFeedback, PersistedSession } from './storage.ts';
 import type { Feedback, SessionState } from './store.ts';
-import type { Exercise } from './types.ts';
+import type { Exercise, ExerciseKind } from './types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 
@@ -22,9 +22,15 @@ function exercise(id: string): Exercise {
 
 const POOL = [exercise('a'), exercise('b'), exercise('c'), exercise('d')];
 
+/** Rebuilds queue entries from a fixed pool, as the store does from its items. */
+function lookup(pool: readonly Exercise[]): (id: string, kind: ExerciseKind) => Exercise | null {
+  return (id, kind) => pool.find((entry) => entry.id === id && entry.kind === kind) ?? null;
+}
+
 function persisted(overrides: Partial<PersistedSession> = {}): PersistedSession {
   return {
     queue: ['a', 'b', 'c', 'd'],
+    kinds: ['multiple-choice', 'multiple-choice', 'multiple-choice', 'multiple-choice'],
     index: 2,
     options: ['til', 'i', 'på'],
     answered: 2,
@@ -87,7 +93,7 @@ describe('snapshotSession', () => {
     };
 
     const snapshot = snapshotSession(session, feedback);
-    const restored = restoreSession(snapshot, POOL, NOW, reshuffle);
+    const restored = restoreSession(snapshot, lookup(POOL), NOW, reshuffle);
 
     expect(snapshot.queue).toEqual(['a', 'b', 'c', 'd']);
     expect(snapshot.feedback?.exerciseId).toBe('b');
@@ -98,16 +104,16 @@ describe('snapshotSession', () => {
 
 describe('restoreSession', () => {
   it('drops completed and stale sessions', () => {
-    expect(restoreSession(persisted({ completed: true }), POOL, NOW, reshuffle)).toBeNull();
+    expect(restoreSession(persisted({ completed: true }), lookup(POOL), NOW, reshuffle)).toBeNull();
     expect(
-      restoreSession(persisted({ startedAt: NOW - MAX_RESUME_AGE_MS - 1 }), POOL, NOW, reshuffle),
+      restoreSession(persisted({ startedAt: NOW - MAX_RESUME_AGE_MS - 1 }), lookup(POOL), NOW, reshuffle),
     ).toBeNull();
   });
 
   it('keeps the current exercise when earlier ones were removed', () => {
     const pool = POOL.filter((item) => item.id !== 'a');
 
-    const restored = restoreSession(persisted(), pool, NOW, reshuffle);
+    const restored = restoreSession(persisted(), lookup(pool), NOW, reshuffle);
 
     expect(restored?.session.queue.map((item) => item.id)).toEqual(['b', 'c', 'd']);
     expect(restored?.session.index).toBe(1);
@@ -117,7 +123,7 @@ describe('restoreSession', () => {
   it('moves on to the next exercise when the current one was removed', () => {
     const pool = POOL.filter((item) => item.id !== 'c');
 
-    const restored = restoreSession(persisted({ feedback: PENDING_FEEDBACK }), pool, NOW, reshuffle);
+    const restored = restoreSession(persisted({ feedback: PENDING_FEEDBACK }), lookup(pool), NOW, reshuffle);
 
     expect(restored?.session.queue[restored.session.index]?.id).toBe('d');
     expect(restored?.feedback).toBeNull();
@@ -126,7 +132,7 @@ describe('restoreSession', () => {
   it('skips an exercise whose stored feedback does not match it', () => {
     const feedback = { ...PENDING_FEEDBACK, exerciseId: 'b' };
 
-    const restored = restoreSession(persisted({ feedback }), POOL, NOW, reshuffle);
+    const restored = restoreSession(persisted({ feedback }), lookup(POOL), NOW, reshuffle);
 
     expect(restored?.session.index).toBe(3);
     expect(restored?.feedback).toBeNull();
@@ -135,12 +141,22 @@ describe('restoreSession', () => {
   it('drops a session with nothing left to show', () => {
     const pool = POOL.filter((item) => item.id === 'a' || item.id === 'b');
 
-    expect(restoreSession(persisted(), pool, NOW, reshuffle)).toBeNull();
-    expect(restoreSession(persisted({ queue: [], index: 0 }), POOL, NOW, reshuffle)).toBeNull();
+    expect(restoreSession(persisted(), lookup(pool), NOW, reshuffle)).toBeNull();
+    expect(restoreSession(persisted({ queue: [], kinds: [], index: 0 }), lookup(POOL), NOW, reshuffle)).toBeNull();
+  });
+
+  it('rebuilds every entry as the task type it was shown as', () => {
+    const typed: Exercise = { ...exercise('c'), kind: 'type-in', answer: 'i' };
+    const kinds: ExerciseKind[] = ['multiple-choice', 'multiple-choice', 'type-in', 'multiple-choice'];
+
+    const restored = restoreSession(persisted({ kinds }), lookup([...POOL, typed]), NOW, reshuffle);
+
+    expect(restored?.session.queue.map((entry) => entry.kind)).toEqual(kinds);
+    expect(restored?.session.options).toEqual(['reshuffled']);
   });
 
   it('reshuffles options that no longer match the exercise', () => {
-    const restored = restoreSession(persisted({ options: ['i', 'av'] }), POOL, NOW, reshuffle);
+    const restored = restoreSession(persisted({ options: ['i', 'av'] }), lookup(POOL), NOW, reshuffle);
 
     expect(restored?.session.options).toEqual(['reshuffled']);
   });

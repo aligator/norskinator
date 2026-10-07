@@ -8,7 +8,7 @@ import { ANNOUNCE_EVENT } from '../modules/shared/announce.ts';
 import { TOUR_REQUESTED_EVENT, tourDone } from '../modules/onboarding/tour-state.ts';
 import { StoreController, store } from '../modules/shared/store.ts';
 import { startUpdateWatch } from '../modules/update/app-update.ts';
-import { ROUTE_TITLES, currentRoute, navigate, type Route } from './router.ts';
+import { ROUTE_TITLES, currentRoute, navigate, tabOf, type Route } from './router.ts';
 
 import '../modules/onboarding/welcome-tour.ts';
 import '../modules/update/update-banner.ts';
@@ -16,6 +16,7 @@ import './home-page.ts';
 import './legal-page.ts';
 import './practice-page.ts';
 import './settings-page.ts';
+import './settings-subpages.ts';
 import './stats-page.ts';
 
 interface Tab {
@@ -241,6 +242,18 @@ export class AppRoot extends LitElement {
         return html`<settings-page></settings-page>`;
       }
 
+      case 'innstillinger/ovelse': {
+        return html`<settings-practice-page></settings-practice-page>`;
+      }
+
+      case 'innstillinger/visning': {
+        return html`<settings-display-page></settings-display-page>`;
+      }
+
+      case 'innstillinger/om': {
+        return html`<settings-about-page></settings-about-page>`;
+      }
+
       case 'impressum': {
         return html`<legal-page></legal-page>`;
       }
@@ -252,7 +265,7 @@ export class AppRoot extends LitElement {
       <nav aria-label="Hovedmeny">
         ${TABS.map(
           (tab) => html`
-            <a href=${`#${tab.route}`} aria-current=${tab.route === this.route ? 'page' : 'false'}>
+            <a href=${`#${tab.route}`} aria-current=${tab.route === tabOf(this.route) ? 'page' : 'false'}>
               <span class="pill">${tab.icon()}</span>
               <span>${tab.label}</span>
             </a>

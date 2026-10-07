@@ -1,0 +1,5908 @@
+{
+  "version": 1,
+  "entries": [
+    {
+      "id": "p-curated-sted-bor-norge",
+      "pattern": "Jeg bor ___ Norge.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "til",
+        "hos"
+      ],
+      "explanation": "Land og byer tar «i»: Jeg bor i Norge, i Oslo.",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Ich wohne in Norwegen.",
+        "en": "I live in Norway."
+      }
+    },
+    {
+      "id": "p-curated-sted-studerer-universitetet",
+      "pattern": "Hun studerer ___ universitetet i Oslo.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "til",
+        "hos"
+      ],
+      "alternatives": [
+        "ved"
+      ],
+      "explanation": "Institusjoner tar oftest «på»: på universitetet, på sykehuset, på skolen. Formelt sier man også «ved universitetet».",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Sie studiert an der Universität Oslo.",
+        "en": "She studies at the University of Oslo."
+      }
+    },
+    {
+      "id": "p-curated-sted-bok-bordet",
+      "pattern": "Boka ligger ___ bordet.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "til",
+        "hos"
+      ],
+      "explanation": "Oppå en flate: «på». «I bordet» ville betydd inni treverket.",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Das Buch liegt auf dem Tisch.",
+        "en": "The book is lying on the table."
+      }
+    },
+    {
+      "id": "p-curated-sted-melk-kjoleskapet",
+      "pattern": "Melka må stå ___ kjøleskapet, ellers blir den sur.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "ved",
+        "hos"
+      ],
+      "explanation": "Inni et lukket rom: «i». «På kjøleskapet» = oppå det, og der blir melka sur.",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Die Milch muss im Kühlschrank stehen, sonst wird sie sauer.",
+        "en": "The milk has to be kept in the fridge, otherwise it goes sour."
+      }
+    },
+    {
+      "id": "p-curated-sted-lunsj-kafe",
+      "pattern": "Vi spiste lunsj ___ kafé i går.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "ved",
+        "hos"
+      ],
+      "explanation": "Offentlige steder man oppsøker: på kafé, på kino, på restaurant.",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Wir haben gestern im Café zu Mittag gegessen.",
+        "en": "We had lunch at a café yesterday."
+      }
+    },
+    {
+      "id": "p-curated-sted-hos-legen",
+      "pattern": "Jeg var ___ legen i går.",
+      "answer": "hos",
+      "options": [
+        "hos",
+        "ved",
+        "i",
+        "mot"
+      ],
+      "explanation": "«Hos» + person: hos legen, hos tannlegen, hos bestemor. Tysk «beim Arzt» blir ikke «ved».",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Ich war gestern beim Arzt.",
+        "en": "I was at the doctor's yesterday."
+      }
+    },
+    {
+      "id": "p-curated-sted-huset-sjoen",
+      "pattern": "Huset ligger ___ sjøen.",
+      "answer": "ved",
+      "options": [
+        "ved",
+        "på",
+        "i",
+        "til"
+      ],
+      "explanation": "«Ved» = like inntil, i nærheten av: ved sjøen, ved vinduet, ved døra.",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Das Haus liegt am Meer.",
+        "en": "The house is by the sea."
+      }
+    },
+    {
+      "id": "p-curated-sted-bilen-bak-huset",
+      "pattern": "Bilen står ___ huset, så du ser den ikke fra gata.",
+      "answer": "bak",
+      "options": [
+        "bak",
+        "foran",
+        "over",
+        "mellom"
+      ],
+      "explanation": "«Bak» = på baksiden av. Stod bilen «foran» huset, ville du sett den fra gata.",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Das Auto steht hinter dem Haus, sodass man es von der Straße aus nicht sieht.",
+        "en": "The car is behind the house, so you can't see it from the street."
+      },
+      "allowedContrasts": [
+        "foran"
+      ]
+    },
+    {
+      "id": "p-curated-sted-mellom-banken-apoteket",
+      "pattern": "Butikken ligger ___ banken og apoteket.",
+      "answer": "mellom",
+      "options": [
+        "mellom",
+        "blant",
+        "hos",
+        "gjennom"
+      ],
+      "explanation": "«Mellom» med to størrelser, «blant» med en gruppe på flere.",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Der Laden liegt zwischen der Bank und der Apotheke.",
+        "en": "The shop is between the bank and the pharmacy."
+      }
+    },
+    {
+      "id": "p-curated-sted-blant-gjestene",
+      "pattern": "Hun var den eneste nordmannen ___ gjestene.",
+      "answer": "blant",
+      "options": [
+        "blant",
+        "i",
+        "hos",
+        "ved"
+      ],
+      "explanation": "En gruppe på flere enn to: «blant». Med nøyaktig to: «mellom».",
+      "level": 3,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Sie war die einzige Norwegerin unter den Gästen.",
+        "en": "She was the only Norwegian among the guests."
+      }
+    },
+    {
+      "id": "p-curated-sted-bildet-veggen",
+      "pattern": "Bildet henger ___ veggen i stua.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "til",
+        "av"
+      ],
+      "explanation": "Ting som henger på en loddrett flate, tar også «på»: på veggen, på døra.",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Das Bild hängt an der Wand im Wohnzimmer.",
+        "en": "The picture hangs on the wall in the living room."
+      }
+    },
+    {
+      "id": "p-curated-sted-leker-hagen",
+      "pattern": "Barna leker ute ___ hagen.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "til",
+        "hos"
+      ],
+      "explanation": "Et område med gjerde eller grenser rundt tar «i»: i hagen, i parken.",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Die Kinder spielen draußen im Garten.",
+        "en": "The children are playing outside in the garden."
+      }
+    },
+    {
+      "id": "p-curated-sted-kjokkenet",
+      "pattern": "Pappa lager middag ___ kjøkkenet.",
+      "answer": "på",
+      "options": [
+        "på",
+        "til",
+        "hos",
+        "av"
+      ],
+      "explanation": "Mange rom i huset tar «på»: på kjøkkenet, på badet, på soverommet. Stua tar oftest «i».",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Papa kocht in der Küche Abendessen.",
+        "en": "Dad is making dinner in the kitchen."
+      }
+    },
+    {
+      "id": "p-curated-sted-time-hos-frisoren",
+      "pattern": "Jeg har time ___ frisøren i morgen.",
+      "answer": "hos",
+      "options": [
+        "hos",
+        "ved",
+        "i",
+        "mot"
+      ],
+      "explanation": "«Time hos» + fagperson: hos frisøren, hos legen, hos tannlegen.",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Ich habe morgen einen Termin beim Friseur.",
+        "en": "I have an appointment at the hairdresser's tomorrow."
+      }
+    },
+    {
+      "id": "p-curated-sted-overnatter-hos",
+      "pattern": "Barna overnatter ___ besteforeldrene i helgen.",
+      "answer": "hos",
+      "options": [
+        "hos",
+        "ved",
+        "på",
+        "mot"
+      ],
+      "explanation": "Hjemme hos noen: «hos». Tysk «bei den Großeltern» blir ikke «ved».",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Die Kinder übernachten am Wochenende bei den Großeltern.",
+        "en": "The children are staying overnight at their grandparents' this weekend."
+      }
+    },
+    {
+      "id": "p-curated-sted-bo-hos-meg",
+      "pattern": "Du kan bo ___ meg mens du er i Oslo.",
+      "answer": "hos",
+      "options": [
+        "hos",
+        "til",
+        "i",
+        "på"
+      ],
+      "explanation": "«Hos» + person = hjemme hos den personen: bo hos meg, sove hos en venn.",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Du kannst bei mir wohnen, solange du in Oslo bist.",
+        "en": "You can stay with me while you're in Oslo."
+      }
+    },
+    {
+      "id": "p-curated-sted-bord-ved-vinduet",
+      "pattern": "Kan vi få et bord ___ vinduet?",
+      "answer": "ved",
+      "options": [
+        "ved",
+        "hos",
+        "på",
+        "til"
+      ],
+      "explanation": "«Ved» = like inntil: ved vinduet, ved døra, ved veggen.",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Können wir einen Tisch am Fenster bekommen?",
+        "en": "Can we have a table by the window?"
+      }
+    },
+    {
+      "id": "p-curated-sted-ved-siden-av",
+      "pattern": "På kino satt hun ___ siden av meg.",
+      "answer": "ved",
+      "options": [
+        "ved",
+        "i",
+        "hos",
+        "til"
+      ],
+      "explanation": "Fast uttrykk: «ved siden av» = rett inntil, på siden av.",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Im Kino saß sie neben mir.",
+        "en": "At the cinema she sat next to me."
+      }
+    },
+    {
+      "id": "p-curated-sted-katten-under-senga",
+      "pattern": "Katten gjemmer seg ___ senga, så vi ser bare halen som stikker ut.",
+      "answer": "under",
+      "options": [
+        "under",
+        "mellom",
+        "blant",
+        "gjennom"
+      ],
+      "explanation": "«Under» = lavere enn og dekket av noe: under senga, under bordet.",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Die Katze versteckt sich unter dem Bett, sodass wir nur den Schwanz herausragen sehen.",
+        "en": "The cat is hiding under the bed, so we can only see its tail sticking out."
+      }
+    },
+    {
+      "id": "p-curated-sted-lampa-over-bordet",
+      "pattern": "Lampa henger ___ bordet på kjøkkenet.",
+      "answer": "over",
+      "options": [
+        "over",
+        "mellom",
+        "gjennom",
+        "mot"
+      ],
+      "explanation": "«Over» = høyere enn, uten berøring. Ligger noe oppå, bruker vi «på».",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Die Lampe hängt über dem Tisch in der Küche.",
+        "en": "The lamp hangs above the table in the kitchen."
+      }
+    },
+    {
+      "id": "p-curated-sted-kosten-bak-dora",
+      "pattern": "Kosten står ___ døra, så du ser den ikke når døra er åpen.",
+      "answer": "bak",
+      "options": [
+        "bak",
+        "mellom",
+        "gjennom",
+        "blant"
+      ],
+      "explanation": "«Bak» = på baksiden av noe, skjult for den som står foran.",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Der Besen steht hinter der Tür, sodass man ihn nicht sieht, wenn die Tür offen ist.",
+        "en": "The broom is behind the door, so you can't see it when the door is open."
+      }
+    },
+    {
+      "id": "p-curated-sted-bak-meg-i-koen",
+      "pattern": "Han sto rett ___ meg i køen, så jeg kom før ham.",
+      "answer": "bak",
+      "options": [
+        "bak",
+        "over",
+        "mellom",
+        "gjennom"
+      ],
+      "explanation": "I en kø står den som kommer etter deg, «bak» deg.",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Er stand direkt hinter mir in der Schlange, also kam ich vor ihm dran.",
+        "en": "He was standing right behind me in the queue, so I went before him."
+      }
+    },
+    {
+      "id": "p-curated-sted-bilen-foran-huset",
+      "pattern": "Bilen er parkert ___ huset, rett ved inngangen.",
+      "answer": "foran",
+      "options": [
+        "foran",
+        "over",
+        "mellom",
+        "gjennom"
+      ],
+      "explanation": "«Foran» = på forsiden av noe. Inngangen er på forsiden, så bilen står der.",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Das Auto ist vor dem Haus geparkt, direkt am Eingang.",
+        "en": "The car is parked in front of the house, right by the entrance."
+      }
+    },
+    {
+      "id": "p-curated-sted-foran-tv",
+      "pattern": "Barna sitter ___ TV-en hele kvelden.",
+      "answer": "foran",
+      "options": [
+        "foran",
+        "over",
+        "mellom",
+        "gjennom"
+      ],
+      "explanation": "Man sitter «foran» skjermen, med ansiktet vendt mot den.",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Die Kinder sitzen den ganzen Abend vor dem Fernseher.",
+        "en": "The children sit in front of the TV all evening."
+      }
+    },
+    {
+      "id": "p-curated-sted-tale-foran-klassen",
+      "pattern": "Hun holdt en tale ___ hele klassen.",
+      "answer": "foran",
+      "options": [
+        "foran",
+        "mellom",
+        "gjennom",
+        "blant"
+      ],
+      "explanation": "«Foran» + publikum: stå foran klassen, synge foran mange. «For klassen» er også mulig.",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Sie hielt eine Rede vor der ganzen Klasse.",
+        "en": "She gave a speech in front of the whole class."
+      }
+    },
+    {
+      "id": "p-curated-sted-mellom-oss-to",
+      "pattern": "Dette blir ___ oss to, ikke si det til noen.",
+      "answer": "mellom",
+      "options": [
+        "mellom",
+        "blant",
+        "gjennom",
+        "over"
+      ],
+      "explanation": "«Mellom oss» = en hemmelighet. Med to personer brukes «mellom», ikke «blant».",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Das bleibt unter uns beiden, sag es niemandem.",
+        "en": "This stays between the two of us, don't tell anyone."
+      }
+    },
+    {
+      "id": "p-curated-sted-bygda-mellom-fjell",
+      "pattern": "Bygda ligger ___ to høye fjell.",
+      "answer": "mellom",
+      "options": [
+        "mellom",
+        "blant",
+        "gjennom",
+        "hos"
+      ],
+      "explanation": "Med nøyaktig to størrelser: «mellom». Med flere: «blant».",
+      "level": 1,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Das Dorf liegt zwischen zwei hohen Bergen.",
+        "en": "The village lies between two high mountains."
+      }
+    },
+    {
+      "id": "p-curated-sted-blant-de-beste",
+      "pattern": "Han er ___ de beste spillerne i landet.",
+      "answer": "blant",
+      "options": [
+        "blant",
+        "mellom",
+        "over",
+        "gjennom"
+      ],
+      "explanation": "«Blant» = en del av en større gruppe: blant de beste, blant vennene mine.",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Er gehört zu den besten Spielern des Landes.",
+        "en": "He is among the best players in the country."
+      }
+    },
+    {
+      "id": "p-curated-sted-populaer-blant",
+      "pattern": "Læreren er populær ___ elevene.",
+      "answer": "blant",
+      "options": [
+        "blant",
+        "mellom",
+        "gjennom",
+        "over"
+      ],
+      "alternatives": [
+        "hos"
+      ],
+      "explanation": "«Populær blant» + en gruppe. «Populær hos» brukes også.",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Der Lehrer ist bei den Schülern beliebt.",
+        "en": "The teacher is popular with the students."
+      }
+    },
+    {
+      "id": "p-curated-sted-under-null",
+      "pattern": "Det er ti grader ___ null i dag, så kle deg godt.",
+      "answer": "under",
+      "options": [
+        "under",
+        "mellom",
+        "bak",
+        "uten"
+      ],
+      "explanation": "«Under null» = kaldere enn null grader, det samme som «minus ti».",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Heute sind es zehn Grad unter null.",
+        "en": "It's ten degrees below zero today, so dress warmly."
+      }
+    },
+    {
+      "id": "p-curated-sted-over-hundre",
+      "pattern": "Det kom ___ hundre mennesker på festen, flere enn vi hadde regnet med.",
+      "answer": "over",
+      "options": [
+        "over",
+        "blant",
+        "gjennom",
+        "ved"
+      ],
+      "explanation": "«Over» + tall = mer enn: over hundre, over 18 år.",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Es kamen über hundert Leute zur Party, mehr als wir erwartet hatten.",
+        "en": "Over a hundred people came to the party, more than we had expected."
+      }
+    },
+    {
+      "id": "p-curated-sted-under-18",
+      "pattern": "Ungdom ___ 18 år får ikke kjøpe alkohol.",
+      "answer": "under",
+      "options": [
+        "under",
+        "mellom",
+        "blant",
+        "uten"
+      ],
+      "explanation": "«Under» + alder = yngre enn: under 18 år.",
+      "level": 2,
+      "tags": [
+        "tema:sted"
+      ],
+      "translations": {
+        "de": "Jugendliche unter 18 Jahren dürfen keinen Alkohol kaufen.",
+        "en": "Young people under 18 are not allowed to buy alcohol."
+      }
+    },
+    {
+      "id": "p-curated-stedsnavn-regner-bergen",
+      "pattern": "Det regner mye ___ Bergen.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "til",
+        "hos"
+      ],
+      "explanation": "De fleste byer tar «i»: i Bergen, i Oslo, i Tromsø.",
+      "level": 1,
+      "tags": [
+        "tema:stedsnavn"
+      ],
+      "translations": {
+        "de": "In Bergen regnet es viel.",
+        "en": "It rains a lot in Bergen."
+      }
+    },
+    {
+      "id": "p-curated-stedsnavn-vokste-opp-hamar",
+      "pattern": "Hun vokste opp ___ Hamar, men studerer i Oslo nå.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "til",
+        "hos"
+      ],
+      "explanation": "Noen byer, særlig på Østlandet, tar «på»: på Hamar, på Gjøvik, på Lillehammer. Det er tradisjon, ikke regel.",
+      "level": 3,
+      "tags": [
+        "tema:stedsnavn"
+      ],
+      "translations": {
+        "de": "Sie ist in Hamar aufgewachsen, studiert jetzt aber in Oslo.",
+        "en": "She grew up in Hamar, but is studying in Oslo now."
+      }
+    },
+    {
+      "id": "p-curated-stedsnavn-ol-lillehammer",
+      "pattern": "De olympiske vinterlekene i 1994 ble arrangert ___ Lillehammer.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "til",
+        "fra"
+      ],
+      "explanation": "Lillehammer tar «på», som Hamar og Gjøvik. Slike unntak må læres ett for ett.",
+      "level": 3,
+      "tags": [
+        "tema:stedsnavn"
+      ],
+      "translations": {
+        "de": "Die Olympischen Winterspiele 1994 fanden in Lillehammer statt.",
+        "en": "The 1994 Winter Olympics were held in Lillehammer."
+      }
+    },
+    {
+      "id": "p-curated-stedsnavn-nordlys-island",
+      "pattern": "Vi så nordlys ___ Island.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "til",
+        "hos"
+      ],
+      "explanation": "Øyer tar «på», også når øya er et eget land: på Island, på Malta, på Kreta.",
+      "level": 3,
+      "tags": [
+        "tema:stedsnavn"
+      ],
+      "translations": {
+        "de": "Wir haben auf Island Polarlichter gesehen.",
+        "en": "We saw the northern lights in Iceland."
+      }
+    },
+    {
+      "id": "p-curated-stedsnavn-isbjorn-svalbard",
+      "pattern": "Det finnes isbjørn ___ Svalbard.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "til",
+        "hos"
+      ],
+      "explanation": "Svalbard tar «på», som mange øyer. Lofoten og Vesterålen tar derimot «i».",
+      "level": 2,
+      "tags": [
+        "tema:stedsnavn"
+      ],
+      "translations": {
+        "de": "Auf Spitzbergen gibt es Eisbären.",
+        "en": "There are polar bears on Svalbard."
+      }
+    },
+    {
+      "id": "p-curated-stedsnavn-vestlandet",
+      "pattern": "Det regner mer ___ Vestlandet enn på Østlandet.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "til",
+        "hos"
+      ],
+      "explanation": "Landsdelene tar «på»: på Vestlandet, på Sørlandet. Men: i Nord-Norge og i Trøndelag.",
+      "level": 2,
+      "tags": [
+        "tema:stedsnavn"
+      ],
+      "translations": {
+        "de": "In Westnorwegen regnet es mehr als in Ostnorwegen.",
+        "en": "It rains more in Western Norway than in Eastern Norway."
+      }
+    },
+    {
+      "id": "p-curated-stedsnavn-nord-norge",
+      "pattern": "Han kommer fra en liten bygd ___ Nord-Norge.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "til",
+        "hos"
+      ],
+      "explanation": "«I Nord-Norge» og «i Trøndelag», men «på Vestlandet» og «på Østlandet».",
+      "level": 2,
+      "tags": [
+        "tema:stedsnavn"
+      ],
+      "translations": {
+        "de": "Er kommt aus einem kleinen Dorf in Nordnorwegen.",
+        "en": "He comes from a small village in Northern Norway."
+      }
+    },
+    {
+      "id": "p-curated-stedsnavn-leilighet-kreta",
+      "pattern": "De har kjøpt en leilighet ___ Kreta.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "til",
+        "hos"
+      ],
+      "explanation": "Øyer tar «på»: på Kreta, på Mallorca, på Gran Canaria.",
+      "level": 2,
+      "tags": [
+        "tema:stedsnavn"
+      ],
+      "translations": {
+        "de": "Sie haben eine Wohnung auf Kreta gekauft.",
+        "en": "They have bought a flat on Crete."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-reiser-bergen",
+      "pattern": "Vi reiser ___ Bergen på fredag.",
+      "answer": "til",
+      "options": [
+        "til",
+        "på",
+        "hos",
+        "ved"
+      ],
+      "explanation": "Bevegelse med et mål: «til». Å være der = «i Bergen».",
+      "level": 1,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Wir reisen am Freitag nach Bergen.",
+        "en": "We're travelling to Bergen on Friday."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-katten-opp-pa-bordet",
+      "pattern": "Katten hoppet opp ___ bordet og la seg der.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "til",
+        "ved"
+      ],
+      "explanation": "Retning mot en flate: «opp på». Resultatet er at katten ligger på bordet.",
+      "level": 2,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Die Katze sprang auf den Tisch und legte sich dort hin.",
+        "en": "The cat jumped up onto the table and lay down there."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-kommer-fra-tyskland",
+      "pattern": "Hun kommer opprinnelig ___ Tyskland, men bor i Norge nå.",
+      "answer": "fra",
+      "options": [
+        "fra",
+        "i",
+        "av",
+        "hos"
+      ],
+      "explanation": "«Fra» markerer utgangspunkt og opprinnelse: komme fra Tyskland.",
+      "level": 1,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Sie kommt ursprünglich aus Deutschland, wohnt aber jetzt in Norwegen.",
+        "en": "She is originally from Germany, but lives in Norway now."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-gjennom-skogen",
+      "pattern": "Vi gikk ___ skogen og kom ut på den andre siden.",
+      "answer": "gjennom",
+      "options": [
+        "gjennom",
+        "mot",
+        "mellom",
+        "hos"
+      ],
+      "explanation": "«Gjennom» = inn på én side og ut på den andre.",
+      "level": 2,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Wir gingen durch den Wald und kamen auf der anderen Seite heraus.",
+        "en": "We walked through the forest and came out on the other side."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-mot-vinden",
+      "pattern": "Vi syklet ___ vinden hele veien hjem, så det gikk tregt.",
+      "answer": "mot",
+      "options": [
+        "mot",
+        "med",
+        "til",
+        "fra"
+      ],
+      "explanation": "«Mot» = i motsatt retning av: mot vinden, mot strømmen. «Med vinden» ville gått lett.",
+      "level": 2,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Wir sind den ganzen Heimweg gegen den Wind geradelt, deshalb ging es langsam.",
+        "en": "We cycled against the wind all the way home, so it was slow going."
+      },
+      "allowedContrasts": [
+        "fra"
+      ]
+    },
+    {
+      "id": "p-curated-bevegelse-opp-av-lommen",
+      "pattern": "Hun tok brevet opp ___ lommen.",
+      "answer": "av",
+      "options": [
+        "av",
+        "fra",
+        "i",
+        "på"
+      ],
+      "explanation": "Ut fra innsiden av noe: «opp av lommen», «ut av vesken». Det speiler «i lommen».",
+      "level": 3,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Sie nahm den Brief aus der Tasche.",
+        "en": "She took the letter out of her pocket."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-hjem-fra-jobben",
+      "pattern": "Når kommer du hjem ___ jobben?",
+      "answer": "fra",
+      "options": [
+        "fra",
+        "av",
+        "i",
+        "ved"
+      ],
+      "explanation": "«Fra» = utgangspunktet for bevegelsen: hjem fra jobben, hjem fra skolen.",
+      "level": 1,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Wann kommst du von der Arbeit nach Hause?",
+        "en": "When are you coming home from work?"
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-flyttet-fra-polen",
+      "pattern": "Familien flyttet ___ Polen til Norge for ti år siden.",
+      "answer": "fra",
+      "options": [
+        "fra",
+        "av",
+        "i",
+        "ved"
+      ],
+      "explanation": "Fast par: «fra» et utgangspunkt «til» et mål.",
+      "level": 1,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Die Familie ist vor zehn Jahren von Polen nach Norwegen gezogen.",
+        "en": "The family moved from Poland to Norway ten years ago."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-toget-fra-oslo",
+      "pattern": "Toget ___ Oslo er forsinket, så vi må vente på stasjonen.",
+      "answer": "fra",
+      "options": [
+        "fra",
+        "av",
+        "ved",
+        "hos"
+      ],
+      "explanation": "«Toget fra Oslo» kommer derfra. «Toget til Oslo» skal dit.",
+      "level": 1,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Der Zug aus Oslo hat Verspätung, also müssen wir am Bahnhof warten.",
+        "en": "The train from Oslo is delayed, so we have to wait at the station."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-ned-fra-taket",
+      "pattern": "Katten klatret ned ___ taket.",
+      "answer": "fra",
+      "options": [
+        "fra",
+        "i",
+        "ved",
+        "hos"
+      ],
+      "explanation": "«Ned fra» = bort fra et høyere sted. «Ned av taket» er også mulig.",
+      "level": 2,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Die Katze kletterte vom Dach herunter.",
+        "en": "The cat climbed down from the roof."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-over-gata",
+      "pattern": "Se deg godt for før du går ___ gata.",
+      "answer": "over",
+      "options": [
+        "over",
+        "mellom",
+        "blant",
+        "hos"
+      ],
+      "explanation": "«Over» = fra den ene siden til den andre: gå over gata, over brua.",
+      "level": 1,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Schau dich gut um, bevor du über die Straße gehst.",
+        "en": "Look carefully before you cross the street."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-over-brua",
+      "pattern": "Vi kjørte ___ brua til Sverige.",
+      "answer": "over",
+      "options": [
+        "over",
+        "gjennom",
+        "mellom",
+        "blant"
+      ],
+      "explanation": "Man kjører «over» en bru, men «gjennom» en tunnel.",
+      "level": 2,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Wir sind über die Brücke nach Schweden gefahren.",
+        "en": "We drove over the bridge to Sweden."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-gjennom-vinduet",
+      "pattern": "Sola skinner inn ___ vinduet.",
+      "answer": "gjennom",
+      "options": [
+        "gjennom",
+        "mellom",
+        "over",
+        "blant"
+      ],
+      "explanation": "Lyset kommer inn på den ene siden av glasset og ut på den andre: «gjennom».",
+      "level": 1,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Die Sonne scheint durch das Fenster herein.",
+        "en": "The sun is shining in through the window."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-gjennom-kjokkenet",
+      "pattern": "Vi må gå ___ kjøkkenet for å komme ut i hagen.",
+      "answer": "gjennom",
+      "options": [
+        "gjennom",
+        "mellom",
+        "blant",
+        "over"
+      ],
+      "explanation": "«Gjennom» et rom = inn i det og ut på den andre siden.",
+      "level": 2,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Wir müssen durch die Küche gehen, um in den Garten zu kommen.",
+        "en": "We have to go through the kitchen to get out into the garden."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-gikk-mot-dora",
+      "pattern": "Hun gikk ___ døra, men snudde før hun kom fram.",
+      "answer": "mot",
+      "options": [
+        "mot",
+        "til",
+        "av",
+        "hos"
+      ],
+      "explanation": "«Mot» = i retning av, uten at man når fram. «Til» betyr at man kommer fram.",
+      "level": 3,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Sie ging auf die Tür zu, drehte aber um, bevor sie dort ankam.",
+        "en": "She walked towards the door, but turned around before she got there."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-til-fjells",
+      "pattern": "Om vinteren drar vi ___ fjells hver helg.",
+      "answer": "til",
+      "options": [
+        "til",
+        "på",
+        "i",
+        "mot"
+      ],
+      "explanation": "Fast uttrykk med gammel s-ending: til fjells, til sjøs, til sengs.",
+      "level": 3,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Im Winter fahren wir jedes Wochenende in die Berge.",
+        "en": "In winter we go to the mountains every weekend."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-til-sengs",
+      "pattern": "Barna må gå ___ sengs klokka åtte.",
+      "answer": "til",
+      "options": [
+        "til",
+        "i",
+        "på",
+        "mot"
+      ],
+      "explanation": "Fast uttrykk: «gå til sengs» = legge seg. Samme mønster: til fots, til fjells.",
+      "level": 3,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Die Kinder müssen um acht Uhr ins Bett gehen.",
+        "en": "The children have to go to bed at eight o'clock."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-til-fots",
+      "pattern": "Jeg går ___ fots til jobben.",
+      "answer": "til",
+      "options": [
+        "til",
+        "på",
+        "med",
+        "i"
+      ],
+      "explanation": "Fast uttrykk: «til fots» = gående. Tysk «zu Fuß».",
+      "level": 2,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Ich gehe zu Fuß zur Arbeit.",
+        "en": "I walk to work."
+      }
+    },
+    {
+      "id": "p-curated-bevegelse-toget-til-oslo",
+      "pattern": "Toget ___ Oslo går fra spor tre.",
+      "answer": "til",
+      "options": [
+        "til",
+        "hos",
+        "ved",
+        "av"
+      ],
+      "explanation": "Målet for reisen tar «til»: toget til Oslo, flyet til Paris.",
+      "level": 1,
+      "tags": [
+        "tema:bevegelse"
+      ],
+      "translations": {
+        "de": "Der Zug nach Oslo fährt von Gleis drei ab.",
+        "en": "The train to Oslo leaves from platform three."
+      }
+    },
+    {
+      "id": "p-curated-tid-om-morgenen",
+      "pattern": "Jeg står opp klokka sju ___ morgenen.",
+      "answer": "om",
+      "options": [
+        "om",
+        "i",
+        "ved",
+        "til"
+      ],
+      "explanation": "Del av døgnet som gjentar seg: «om morgenen», «om kvelden». «I morgen» (uten -en) betyr dagen etter i dag.",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Ich stehe morgens um sieben Uhr auf.",
+        "en": "I get up at seven o'clock in the morning."
+      }
+    },
+    {
+      "id": "p-curated-tid-pa-mandag",
+      "pattern": "Vi sees ___ mandag.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "om",
+        "ved"
+      ],
+      "explanation": "Ukedager tar «på»: på mandag, på lørdag. «Om mandagen» = hver mandag.",
+      "level": 1,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Wir sehen uns am Montag.",
+        "en": "See you on Monday."
+      }
+    },
+    {
+      "id": "p-curated-tid-om-fem-minutter",
+      "pattern": "Filmen begynner ___ fem minutter.",
+      "answer": "om",
+      "options": [
+        "om",
+        "i",
+        "på",
+        "ved"
+      ],
+      "explanation": "«Om» + tidsrom = så lang tid fra nå: om fem minutter, om en uke. «I fem minutter» = varighet.",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Der Film beginnt in fünf Minuten.",
+        "en": "The film starts in five minutes."
+      }
+    },
+    {
+      "id": "p-curated-tid-i-fem-ar",
+      "pattern": "Jeg har bodd her ___ fem år.",
+      "answer": "i",
+      "options": [
+        "i",
+        "om",
+        "på",
+        "siden"
+      ],
+      "explanation": "Varighet: «i fem år». Tysk «seit fünf Jahren» blir ikke «siden»: «siden» tar et startpunkt (siden 2020).",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Ich wohne seit fünf Jahren hier.",
+        "en": "I have lived here for five years."
+      }
+    },
+    {
+      "id": "p-curated-tid-siden-mandag",
+      "pattern": "Hun har vært syk ___ mandag.",
+      "answer": "siden",
+      "options": [
+        "siden",
+        "i",
+        "om",
+        "på"
+      ],
+      "explanation": "«Siden» + startpunkt når tilstanden fortsatt varer.",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Sie ist seit Montag krank.",
+        "en": "She has been ill since Monday."
+      }
+    },
+    {
+      "id": "p-curated-tid-etter-jobb",
+      "pattern": "Vi spiser middag ___ jobb, når vi kommer hjem.",
+      "answer": "etter",
+      "options": [
+        "etter",
+        "før",
+        "under",
+        "ved"
+      ],
+      "explanation": "«Etter» = senere enn. «Når vi kommer hjem» utelukker «før» og «under».",
+      "level": 1,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Wir essen nach der Arbeit zu Abend, wenn wir nach Hause kommen.",
+        "en": "We have dinner after work, when we get home."
+      },
+      "allowedContrasts": [
+        "før",
+        "under"
+      ]
+    },
+    {
+      "id": "p-curated-tid-under-forelesningen",
+      "pattern": "Han sovnet ___ forelesningen.",
+      "answer": "under",
+      "options": [
+        "under",
+        "ved",
+        "mot",
+        "hos"
+      ],
+      "explanation": "«Under» = mens noe pågår: under forelesningen, under møtet, under krigen.",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Er ist während der Vorlesung eingeschlafen.",
+        "en": "He fell asleep during the lecture."
+      }
+    },
+    {
+      "id": "p-curated-tid-pa-ti-minutter",
+      "pattern": "Jeg klarte oppgaven ___ ti minutter.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "om",
+        "til"
+      ],
+      "explanation": "Tid brukt på å fullføre noe: «på ti minutter». «I ti minutter» = varighet uten mål.",
+      "level": 3,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Ich habe die Aufgabe in zehn Minuten geschafft.",
+        "en": "I managed the task in ten minutes."
+      }
+    },
+    {
+      "id": "p-curated-tid-fra-atte-til-fire",
+      "pattern": "Butikken er åpen ___ åtte til fire.",
+      "answer": "fra",
+      "options": [
+        "fra",
+        "i",
+        "mellom",
+        "siden"
+      ],
+      "explanation": "Fast par: «fra … til …» for et tidsrom. «Mellom» krever «og»: mellom åtte og fire.",
+      "level": 1,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Der Laden ist von acht bis vier geöffnet.",
+        "en": "The shop is open from eight to four."
+      }
+    },
+    {
+      "id": "p-curated-tid-fodt-i-1990",
+      "pattern": "Han ble født ___ 1990.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "ved",
+        "om"
+      ],
+      "explanation": "År og måneder tar «i»: i 1990, i mai, i fjor.",
+      "level": 1,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Er wurde 1990 geboren.",
+        "en": "He was born in 1990."
+      }
+    },
+    {
+      "id": "p-curated-tid-for-to-ar-siden",
+      "pattern": "Jeg flyttet hit for to år ___.",
+      "answer": "siden",
+      "options": [
+        "siden",
+        "om",
+        "etter",
+        "i"
+      ],
+      "explanation": "«For … siden» peker bakover i tid. Tysk «vor zwei Jahren» blir ikke «før to år».",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Ich bin vor zwei Jahren hierher gezogen.",
+        "en": "I moved here two years ago."
+      }
+    },
+    {
+      "id": "p-curated-tid-siden-2015",
+      "pattern": "Vi har bodd i Trondheim ___ 2015.",
+      "answer": "siden",
+      "options": [
+        "siden",
+        "om",
+        "på",
+        "ved"
+      ],
+      "explanation": "«Siden» + startpunkt, og tilstanden varer fortsatt.",
+      "level": 1,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Wir wohnen seit 2015 in Trondheim.",
+        "en": "We have lived in Trondheim since 2015."
+      }
+    },
+    {
+      "id": "p-curated-tid-lenge-siden-sist",
+      "pattern": "Lenge ___ sist! Hvordan har du hatt det?",
+      "answer": "siden",
+      "options": [
+        "siden",
+        "om",
+        "fra",
+        "på"
+      ],
+      "explanation": "Fast hilsen når man ikke har sett hverandre på lenge.",
+      "level": 3,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Lange nicht gesehen! Wie geht es dir?",
+        "en": "Long time no see! How have you been?"
+      }
+    },
+    {
+      "id": "p-curated-tid-for-maten",
+      "pattern": "Husk å vaske hendene ___ maten.",
+      "answer": "før",
+      "options": [
+        "før",
+        "om",
+        "i",
+        "hos"
+      ],
+      "explanation": "«Før» = tidligere enn. «Før maten» = før man begynner å spise.",
+      "level": 1,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Denk daran, dir vor dem Essen die Hände zu waschen.",
+        "en": "Remember to wash your hands before the meal."
+      }
+    },
+    {
+      "id": "p-curated-tid-for-klokka-ti",
+      "pattern": "Du må levere oppgaven ___ klokka ti på fredag.",
+      "answer": "før",
+      "options": [
+        "før",
+        "om",
+        "i",
+        "på"
+      ],
+      "explanation": "En frist: «før klokka ti». «Innen klokka ti» betyr det samme.",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Du musst die Aufgabe am Freitag vor zehn Uhr abgeben.",
+        "en": "You have to hand in the assignment before ten o'clock on Friday."
+      }
+    },
+    {
+      "id": "p-curated-tid-for-avgang",
+      "pattern": "Han var på stasjonen to minutter ___ avgang, så han rakk toget.",
+      "answer": "før",
+      "options": [
+        "før",
+        "om",
+        "i",
+        "mot"
+      ],
+      "explanation": "Han kom tidligere enn toget gikk: «før avgang».",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Er war zwei Minuten vor der Abfahrt am Bahnhof, also hat er den Zug noch erwischt.",
+        "en": "He was at the station two minutes before departure, so he made the train."
+      }
+    },
+    {
+      "id": "p-curated-tid-for-i-tiden",
+      "pattern": "Folk gikk mye mer til fots ___ i tiden.",
+      "answer": "før",
+      "options": [
+        "før",
+        "om",
+        "ved",
+        "mot"
+      ],
+      "explanation": "Fast uttrykk: «før i tiden» = i gamle dager.",
+      "level": 3,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Früher sind die Leute viel mehr zu Fuß gegangen.",
+        "en": "People used to walk a lot more in the old days."
+      }
+    },
+    {
+      "id": "p-curated-tid-etter-hvert",
+      "pattern": "Det er vanskelig nå, men du blir vant til det ___ hvert.",
+      "answer": "etter",
+      "options": [
+        "etter",
+        "for",
+        "om",
+        "på"
+      ],
+      "explanation": "Fast uttrykk: «etter hvert» = gradvis, litt etter litt.",
+      "level": 3,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Es ist jetzt schwer, aber du gewöhnst dich nach und nach daran.",
+        "en": "It's hard now, but you'll get used to it eventually."
+      }
+    },
+    {
+      "id": "p-curated-tid-en-etter-en",
+      "pattern": "Elevene kom inn i klasserommet én ___ én.",
+      "answer": "etter",
+      "options": [
+        "etter",
+        "av",
+        "hos",
+        "ved"
+      ],
+      "explanation": "«Én etter én» = i rekkefølge, én om gangen.",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Die Schüler kamen einer nach dem anderen ins Klassenzimmer.",
+        "en": "The pupils came into the classroom one by one."
+      }
+    },
+    {
+      "id": "p-curated-tid-i-morges",
+      "pattern": "Jeg drakk bare kaffe ___ morges, så nå er jeg sulten.",
+      "answer": "i",
+      "options": [
+        "i",
+        "om",
+        "på",
+        "til"
+      ],
+      "explanation": "«I morges» = tidligere i dag. «I morgen» = dagen etter i dag.",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Ich habe heute Morgen nur Kaffee getrunken.",
+        "en": "I only had coffee this morning, so now I'm hungry."
+      }
+    },
+    {
+      "id": "p-curated-tid-i-fjor",
+      "pattern": "Vi flyttet hit ___ fjor.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "om",
+        "til"
+      ],
+      "explanation": "«I fjor» = året før i år. Samme mønster: i går, i forgårs.",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Wir sind letztes Jahr hierher gezogen.",
+        "en": "We moved here last year."
+      }
+    },
+    {
+      "id": "p-curated-tid-i-natt",
+      "pattern": "Jeg sov dårlig ___ natt, så nå er jeg trøtt.",
+      "answer": "i",
+      "options": [
+        "i",
+        "om",
+        "på",
+        "ved"
+      ],
+      "explanation": "«I natt» = natten som var eller natten som kommer. Vaner tar «om natta».",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Ich habe letzte Nacht schlecht geschlafen.",
+        "en": "I slept badly last night, so now I'm tired."
+      }
+    },
+    {
+      "id": "p-curated-tid-om-natta",
+      "pattern": "Ugler jakter mest ___ natta.",
+      "answer": "om",
+      "options": [
+        "om",
+        "i",
+        "ved",
+        "til"
+      ],
+      "explanation": "Det som gjentar seg, tar «om» + bestemt form: om natta, om dagen, om sommeren.",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Eulen jagen meistens nachts.",
+        "en": "Owls hunt mostly at night."
+      }
+    },
+    {
+      "id": "p-curated-tid-tidlig-pa-morgenen",
+      "pattern": "Det var kaldt tidlig ___ morgenen, men varmt om ettermiddagen.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "ved",
+        "til"
+      ],
+      "alternatives": [
+        "om"
+      ],
+      "explanation": "Med «tidlig» og «sent» brukes ofte «på»: tidlig på morgenen, sent på kvelden.",
+      "level": 3,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Früh am Morgen war es kalt, aber am Nachmittag warm.",
+        "en": "It was cold early in the morning, but warm in the afternoon."
+      }
+    },
+    {
+      "id": "p-curated-tid-i-tide",
+      "pattern": "Toget var forsinket, men vi kom fram ___ tide.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "om",
+        "til"
+      ],
+      "explanation": "«I tide» = tidsnok. «Det er på tide» betyr at noe bør skje nå.",
+      "level": 3,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Der Zug hatte Verspätung, aber wir sind rechtzeitig angekommen.",
+        "en": "The train was delayed, but we arrived in time."
+      }
+    },
+    {
+      "id": "p-curated-tid-pa-tide",
+      "pattern": "Det er ___ tide at du rydder rommet ditt.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "om",
+        "til"
+      ],
+      "explanation": "«Det er på tide» = nå bør det skje. «I tide» betyr tidsnok.",
+      "level": 3,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Es wird Zeit, dass du dein Zimmer aufräumst.",
+        "en": "It's about time you tidied your room."
+      }
+    },
+    {
+      "id": "p-curated-tid-under-middagen",
+      "pattern": "Vi snakker ikke i telefonen ___ middagen.",
+      "answer": "under",
+      "options": [
+        "under",
+        "mot",
+        "hos",
+        "blant"
+      ],
+      "explanation": "«Under» om tid = mens noe pågår: under middagen, under kampen.",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Während des Abendessens telefonieren wir nicht.",
+        "en": "We don't talk on the phone during dinner."
+      }
+    },
+    {
+      "id": "p-curated-tid-om-gangen",
+      "pattern": "Han spiste tre kaker ___ gangen.",
+      "answer": "om",
+      "options": [
+        "om",
+        "av",
+        "ved",
+        "til"
+      ],
+      "alternatives": [
+        "av"
+      ],
+      "explanation": "Fast uttrykk: «tre om gangen» = tre samtidig.",
+      "level": 3,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Er hat drei Kuchen auf einmal gegessen.",
+        "en": "He ate three cakes at a time."
+      }
+    },
+    {
+      "id": "p-curated-tid-for-forste-gang",
+      "pattern": "Jeg var i Norge ___ første gang i 2010.",
+      "answer": "for",
+      "options": [
+        "for",
+        "i",
+        "på",
+        "til"
+      ],
+      "explanation": "Fast uttrykk: «for første gang». Tysk «zum ersten Mal» blir ikke «til».",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Ich war 2010 zum ersten Mal in Norwegen.",
+        "en": "I was in Norway for the first time in 2010."
+      }
+    },
+    {
+      "id": "p-curated-tid-mellom-to-og-tre",
+      "pattern": "Jeg er hjemme ___ to og tre i ettermiddag.",
+      "answer": "mellom",
+      "options": [
+        "mellom",
+        "fra",
+        "blant",
+        "om"
+      ],
+      "explanation": "«Mellom» + «og» for et tidsrom. Med «fra» må det være «til»: fra to til tre.",
+      "level": 2,
+      "tags": [
+        "tema:tid"
+      ],
+      "translations": {
+        "de": "Ich bin heute Nachmittag zwischen zwei und drei zu Hause.",
+        "en": "I'm at home between two and three this afternoon."
+      }
+    },
+    {
+      "id": "p-curated-verb-venter-pa-bussen",
+      "pattern": "Jeg venter ___ bussen.",
+      "answer": "på",
+      "options": [
+        "på",
+        "for",
+        "til",
+        "etter"
+      ],
+      "explanation": "Fast verbpar: «vente på» noe eller noen.",
+      "level": 1,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Ich warte auf den Bus.",
+        "en": "I'm waiting for the bus."
+      }
+    },
+    {
+      "id": "p-curated-verb-snakket-om-ferien",
+      "pattern": "Vi snakket ___ ferien i går.",
+      "answer": "om",
+      "options": [
+        "om",
+        "av",
+        "for",
+        "til"
+      ],
+      "explanation": "«Snakke om» = tema. «Snakke med» = samtalepartner.",
+      "level": 1,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Wir haben gestern über den Urlaub gesprochen.",
+        "en": "We talked about the holiday yesterday."
+      }
+    },
+    {
+      "id": "p-curated-verb-ba-om-vann",
+      "pattern": "Hun ba meg ___ et glass vann.",
+      "answer": "om",
+      "options": [
+        "om",
+        "for",
+        "av",
+        "mot"
+      ],
+      "explanation": "«Be noen om noe» — be om, ikke be for. «Be noen på middag» = invitere.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Sie bat mich um ein Glas Wasser.",
+        "en": "She asked me for a glass of water."
+      }
+    },
+    {
+      "id": "p-curated-verb-handler-om",
+      "pattern": "Boka handler ___ en ung jente.",
+      "answer": "om",
+      "options": [
+        "om",
+        "av",
+        "med",
+        "på"
+      ],
+      "explanation": "«Handle om» = ha som tema. «Handle med» = drive handel.",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Das Buch handelt von einem jungen Mädchen.",
+        "en": "The book is about a young girl."
+      },
+      "allowedContrasts": [
+        "med"
+      ]
+    },
+    {
+      "id": "p-curated-verb-tror-pa-deg",
+      "pattern": "Jeg tror ___ deg.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "til",
+        "av"
+      ],
+      "explanation": "«Tro på» noen eller noe. Uten preposisjon: «jeg tror at …».",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Ich glaube an dich.",
+        "en": "I believe in you."
+      }
+    },
+    {
+      "id": "p-curated-verb-gleder-seg-til",
+      "pattern": "Vi gleder oss ___ sommeren.",
+      "answer": "til",
+      "options": [
+        "til",
+        "på",
+        "for",
+        "om"
+      ],
+      "explanation": "«Glede seg til» noe som kommer. Tysk «sich freuen auf» blir ikke «på».",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Wir freuen uns auf den Sommer.",
+        "en": "We're looking forward to the summer."
+      }
+    },
+    {
+      "id": "p-curated-verb-kommer-an-pa",
+      "pattern": "Det kommer an ___ været.",
+      "answer": "på",
+      "options": [
+        "på",
+        "av",
+        "i",
+        "med"
+      ],
+      "explanation": "Fast uttrykk: «komme an på» = avhenge av.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Das hängt vom Wetter ab.",
+        "en": "It depends on the weather."
+      }
+    },
+    {
+      "id": "p-curated-verb-passer-pa-barna",
+      "pattern": "Han passer ___ barna hver torsdag.",
+      "answer": "på",
+      "options": [
+        "på",
+        "av",
+        "med",
+        "om"
+      ],
+      "explanation": "«Passe på» = ta vare på, holde øye med. «Passe til» = stemme overens med.",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Er passt jeden Donnerstag auf die Kinder auf.",
+        "en": "He looks after the children every Thursday."
+      }
+    },
+    {
+      "id": "p-curated-verb-leter-etter",
+      "pattern": "Jeg leter ___ nøklene mine.",
+      "answer": "etter",
+      "options": [
+        "etter",
+        "på",
+        "for",
+        "om"
+      ],
+      "explanation": "«Lete etter» = prøve å finne. Tysk «suchen nach».",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Ich suche nach meinen Schlüsseln.",
+        "en": "I'm looking for my keys."
+      }
+    },
+    {
+      "id": "p-curated-verb-oppkalt-etter",
+      "pattern": "Hun er oppkalt ___ bestemoren sin.",
+      "answer": "etter",
+      "options": [
+        "etter",
+        "fra",
+        "til",
+        "om"
+      ],
+      "explanation": "Fast uttrykk: «oppkalt etter» noen = har fått navnet sitt fra den personen.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Sie ist nach ihrer Großmutter benannt.",
+        "en": "She is named after her grandmother."
+      }
+    },
+    {
+      "id": "p-curated-verb-lengter-etter",
+      "pattern": "Jeg lengter ___ sommeren.",
+      "answer": "etter",
+      "options": [
+        "etter",
+        "på",
+        "for",
+        "av"
+      ],
+      "explanation": "«Lengte etter» = savne og ønske seg. Tysk «sich sehnen nach».",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Ich sehne mich nach dem Sommer.",
+        "en": "I'm longing for the summer."
+      }
+    },
+    {
+      "id": "p-curated-verb-gikk-etter-planen",
+      "pattern": "Alt gikk ___ planen, og vi ble ferdige i tide.",
+      "answer": "etter",
+      "options": [
+        "etter",
+        "av",
+        "om",
+        "for"
+      ],
+      "explanation": "«Etter planen» = slik det var planlagt.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Alles lief nach Plan, und wir wurden rechtzeitig fertig.",
+        "en": "Everything went according to plan, and we finished in time."
+      }
+    },
+    {
+      "id": "p-curated-verb-hjelpe-med",
+      "pattern": "Kan du hjelpe meg ___ leksene?",
+      "answer": "med",
+      "options": [
+        "med",
+        "på",
+        "for",
+        "til"
+      ],
+      "explanation": "«Hjelpe noen med noe». Tysk «bei den Hausaufgaben» blir ikke «ved».",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Kannst du mir bei den Hausaufgaben helfen?",
+        "en": "Can you help me with my homework?"
+      }
+    },
+    {
+      "id": "p-curated-verb-sluttet-med",
+      "pattern": "Han har sluttet ___ å røyke.",
+      "answer": "med",
+      "options": [
+        "med",
+        "av",
+        "på",
+        "til"
+      ],
+      "explanation": "«Slutte med» + aktivitet. Med jobb eller skole: «slutte i jobben».",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Er hat mit dem Rauchen aufgehört.",
+        "en": "He has stopped smoking."
+      }
+    },
+    {
+      "id": "p-curated-verb-slo-opp-med",
+      "pattern": "Hun slo opp ___ kjæresten sin i helgen.",
+      "answer": "med",
+      "options": [
+        "med",
+        "fra",
+        "av",
+        "til"
+      ],
+      "explanation": "Fast uttrykk: «slå opp med» noen = avslutte et kjæresteforhold.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Sie hat am Wochenende mit ihrem Freund Schluss gemacht.",
+        "en": "She broke up with her boyfriend at the weekend."
+      }
+    },
+    {
+      "id": "p-curated-verb-ble-kjent-med",
+      "pattern": "Vi ble kjent ___ hverandre på universitetet.",
+      "answer": "med",
+      "options": [
+        "med",
+        "av",
+        "til",
+        "for"
+      ],
+      "explanation": "«Bli kjent med» = møte og lære å kjenne. «Kjent for» = berømt for.",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Wir haben uns an der Universität kennengelernt.",
+        "en": "We got to know each other at university."
+      }
+    },
+    {
+      "id": "p-curated-verb-sporre-om",
+      "pattern": "Kan jeg spørre deg ___ noe?",
+      "answer": "om",
+      "options": [
+        "om",
+        "for",
+        "på",
+        "av"
+      ],
+      "explanation": "«Spørre noen om noe». Tysk «jemanden etwas fragen» har ingen preposisjon.",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Darf ich dich etwas fragen?",
+        "en": "Can I ask you something?"
+      }
+    },
+    {
+      "id": "p-curated-verb-bryr-seg-om",
+      "pattern": "Han bryr seg ikke ___ hva andre mener.",
+      "answer": "om",
+      "options": [
+        "om",
+        "for",
+        "på",
+        "av"
+      ],
+      "explanation": "Fast uttrykk: «bry seg om» = være opptatt av, ta hensyn til.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Es ist ihm egal, was andere denken.",
+        "en": "He doesn't care what other people think."
+      }
+    },
+    {
+      "id": "p-curated-verb-dromte-om",
+      "pattern": "Jeg drømte ___ deg i natt.",
+      "answer": "om",
+      "options": [
+        "om",
+        "av",
+        "for",
+        "til"
+      ],
+      "explanation": "«Drømme om» noe eller noen. Tysk «von dir träumen» blir ikke «av».",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Ich habe heute Nacht von dir geträumt.",
+        "en": "I dreamt about you last night."
+      }
+    },
+    {
+      "id": "p-curated-verb-la-merke-til",
+      "pattern": "La du merke ___ den nye frisyren hennes?",
+      "answer": "til",
+      "options": [
+        "til",
+        "på",
+        "om",
+        "av"
+      ],
+      "explanation": "Fast uttrykk: «legge merke til» = oppdage, se.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Hast du ihre neue Frisur bemerkt?",
+        "en": "Did you notice her new hairstyle?"
+      }
+    },
+    {
+      "id": "p-curated-verb-ta-hensyn-til",
+      "pattern": "Vi må ta hensyn ___ naboene og ikke spille høy musikk.",
+      "answer": "til",
+      "options": [
+        "til",
+        "på",
+        "for",
+        "om"
+      ],
+      "explanation": "Fast uttrykk: «ta hensyn til». Tysk «Rücksicht nehmen auf» blir ikke «på».",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Wir müssen Rücksicht auf die Nachbarn nehmen.",
+        "en": "We have to be considerate of the neighbours and not play loud music."
+      }
+    },
+    {
+      "id": "p-curated-verb-gar-ut-fra",
+      "pattern": "Jeg går ut ___ at du kommer på festen.",
+      "answer": "fra",
+      "options": [
+        "fra",
+        "av",
+        "om",
+        "for"
+      ],
+      "explanation": "«Gå ut fra at» = regne med, anta. Tysk «davon ausgehen».",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Ich gehe davon aus, dass du zur Party kommst.",
+        "en": "I assume you're coming to the party."
+      }
+    },
+    {
+      "id": "p-curated-verb-bestemt-seg-for",
+      "pattern": "Hun har bestemt seg ___ å flytte til Bergen.",
+      "answer": "for",
+      "options": [
+        "for",
+        "på",
+        "av",
+        "med"
+      ],
+      "explanation": "«Bestemme seg for» noe = ta en beslutning.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Sie hat sich entschieden, nach Bergen zu ziehen.",
+        "en": "She has decided to move to Bergen."
+      }
+    },
+    {
+      "id": "p-curated-verb-deltok-i",
+      "pattern": "Alle elevene deltok ___ konkurransen.",
+      "answer": "i",
+      "options": [
+        "i",
+        "til",
+        "med",
+        "for"
+      ],
+      "explanation": "«Delta i» noe. I talespråk hører man også «delta på».",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Alle Schüler haben an dem Wettbewerb teilgenommen.",
+        "en": "All the pupils took part in the competition."
+      }
+    },
+    {
+      "id": "p-curated-verb-setter-pris-pa",
+      "pattern": "Jeg setter stor pris ___ hjelpen din.",
+      "answer": "på",
+      "options": [
+        "på",
+        "for",
+        "til",
+        "av"
+      ],
+      "explanation": "Fast uttrykk: «sette pris på» = være takknemlig for, like godt.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Ich weiß deine Hilfe sehr zu schätzen.",
+        "en": "I really appreciate your help."
+      }
+    },
+    {
+      "id": "p-curated-verb-horer-pa-musikk",
+      "pattern": "Hun hører ___ musikk hele dagen.",
+      "answer": "på",
+      "options": [
+        "på",
+        "for",
+        "i",
+        "med"
+      ],
+      "explanation": "«Høre på» = lytte til. Tysk «Musik hören» har ingen preposisjon.",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Sie hört den ganzen Tag Musik.",
+        "en": "She listens to music all day."
+      }
+    },
+    {
+      "id": "p-curated-verb-tenker-pa",
+      "pattern": "Jeg tenker ofte ___ barndommen min.",
+      "answer": "på",
+      "options": [
+        "på",
+        "for",
+        "til",
+        "av"
+      ],
+      "explanation": "«Tenke på» noe eller noen. «Tenke over» = vurdere grundig.",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Ich denke oft an meine Kindheit.",
+        "en": "I often think about my childhood."
+      }
+    },
+    {
+      "id": "p-curated-verb-har-lyst-pa",
+      "pattern": "Jeg har lyst ___ is.",
+      "answer": "på",
+      "options": [
+        "på",
+        "for",
+        "om",
+        "av"
+      ],
+      "explanation": "«Lyst på» + noe man vil ha, «lyst til å» + verb.",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Ich habe Lust auf Eis.",
+        "en": "I feel like having ice cream."
+      }
+    },
+    {
+      "id": "p-curated-verb-har-rad-til",
+      "pattern": "Vi har ikke råd ___ ny bil i år.",
+      "answer": "til",
+      "options": [
+        "til",
+        "på",
+        "for",
+        "av"
+      ],
+      "explanation": "«Ha råd til» = ha nok penger til noe.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Wir können uns dieses Jahr kein neues Auto leisten.",
+        "en": "We can't afford a new car this year."
+      }
+    },
+    {
+      "id": "p-curated-verb-gikk-glipp-av",
+      "pattern": "Du gikk glipp ___ en fin konsert i går.",
+      "answer": "av",
+      "options": [
+        "av",
+        "på",
+        "fra",
+        "om"
+      ],
+      "explanation": "Fast uttrykk: «gå glipp av» = ikke få med seg.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Du hast gestern ein schönes Konzert verpasst.",
+        "en": "You missed a great concert yesterday."
+      }
+    },
+    {
+      "id": "p-curated-verb-ta-vare-pa",
+      "pattern": "Ta godt vare ___ deg selv!",
+      "answer": "på",
+      "options": [
+        "på",
+        "for",
+        "om",
+        "til"
+      ],
+      "explanation": "«Ta vare på» = passe på, stelle godt med.",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Pass gut auf dich auf!",
+        "en": "Take good care of yourself!"
+      }
+    },
+    {
+      "id": "p-curated-verb-ta-av-skoene",
+      "pattern": "Ta ___ deg skoene i gangen.",
+      "answer": "av",
+      "options": [
+        "av",
+        "fra",
+        "til",
+        "om"
+      ],
+      "explanation": "«Ta av seg» klær og sko. Det motsatte er «ta på seg».",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Zieh dir im Flur die Schuhe aus.",
+        "en": "Take your shoes off in the hall."
+      }
+    },
+    {
+      "id": "p-curated-verb-dode-av",
+      "pattern": "Han døde ___ kreft i fjor.",
+      "answer": "av",
+      "options": [
+        "av",
+        "fra",
+        "for",
+        "om"
+      ],
+      "explanation": "«Dø av» en sykdom. «Dø for» brukes om en sak: dø for landet.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Er ist letztes Jahr an Krebs gestorben.",
+        "en": "He died of cancer last year."
+      }
+    },
+    {
+      "id": "p-curated-verb-bestar-av",
+      "pattern": "Vann består ___ hydrogen og oksygen.",
+      "answer": "av",
+      "options": [
+        "av",
+        "fra",
+        "med",
+        "for"
+      ],
+      "explanation": "«Bestå av» = være satt sammen av. Tysk «bestehen aus» blir ikke «fra».",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Wasser besteht aus Wasserstoff und Sauerstoff.",
+        "en": "Water consists of hydrogen and oxygen."
+      }
+    },
+    {
+      "id": "p-curated-verb-stemte-mot",
+      "pattern": "Flertallet stemte ___ forslaget, så det ble ikke vedtatt.",
+      "answer": "mot",
+      "options": [
+        "mot",
+        "til",
+        "av",
+        "gjennom"
+      ],
+      "explanation": "«Stemme mot» = si nei. Det motsatte er «stemme for».",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Die Mehrheit stimmte gegen den Vorschlag, also wurde er nicht angenommen.",
+        "en": "The majority voted against the proposal, so it was not adopted."
+      }
+    },
+    {
+      "id": "p-curated-verb-spiller-mot",
+      "pattern": "Norge spiller ___ Sverige i kveld.",
+      "answer": "mot",
+      "options": [
+        "mot",
+        "til",
+        "av",
+        "over"
+      ],
+      "explanation": "Motstanderen i en kamp tar «mot»: Norge mot Sverige.",
+      "level": 1,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Norwegen spielt heute Abend gegen Schweden.",
+        "en": "Norway is playing against Sweden tonight."
+      }
+    },
+    {
+      "id": "p-curated-verb-star-bak",
+      "pattern": "Politiet vet ikke hvem som står ___ ranet.",
+      "answer": "bak",
+      "options": [
+        "bak",
+        "over",
+        "mellom",
+        "gjennom"
+      ],
+      "explanation": "«Stå bak» noe = ha planlagt eller utført det.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Die Polizei weiß nicht, wer hinter dem Raubüberfall steckt.",
+        "en": "The police don't know who is behind the robbery."
+      }
+    },
+    {
+      "id": "p-curated-verb-bak-rattet",
+      "pattern": "Hvem satt ___ rattet da ulykken skjedde?",
+      "answer": "bak",
+      "options": [
+        "bak",
+        "over",
+        "gjennom",
+        "blant"
+      ],
+      "explanation": "«Bak rattet» = den som kjører. «Ved rattet» betyr det samme.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Wer saß am Steuer, als der Unfall passierte?",
+        "en": "Who was behind the wheel when the accident happened?"
+      }
+    },
+    {
+      "id": "p-curated-verb-les-gjennom",
+      "pattern": "Les ___ teksten en gang til før du leverer.",
+      "answer": "gjennom",
+      "options": [
+        "gjennom",
+        "mellom",
+        "mot",
+        "blant"
+      ],
+      "explanation": "«Lese gjennom» = lese hele, fra start til slutt.",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Lies den Text noch einmal durch, bevor du ihn abgibst.",
+        "en": "Read through the text once more before you hand it in."
+      }
+    },
+    {
+      "id": "p-curated-verb-jobben-gjennom-en-venn",
+      "pattern": "Hun fikk jobben ___ en venn som jobbet der.",
+      "answer": "gjennom",
+      "options": [
+        "gjennom",
+        "mellom",
+        "mot",
+        "over"
+      ],
+      "alternatives": [
+        "via"
+      ],
+      "explanation": "«Gjennom» kan bety «ved hjelp av»: fikk jobben gjennom en venn.",
+      "level": 3,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Sie hat den Job über einen Freund bekommen, der dort arbeitete.",
+        "en": "She got the job through a friend who worked there."
+      }
+    },
+    {
+      "id": "p-curated-verb-gikk-uten-a-si",
+      "pattern": "Han gikk ___ å si ha det.",
+      "answer": "uten",
+      "options": [
+        "uten",
+        "av",
+        "om",
+        "til"
+      ],
+      "explanation": "«Uten å» + verb = og gjorde ikke det. Tysk «ohne … zu».",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Er ging, ohne Tschüss zu sagen.",
+        "en": "He left without saying goodbye."
+      }
+    },
+    {
+      "id": "p-curated-verb-hils-fra-meg",
+      "pattern": "Hils dem ___ meg!",
+      "answer": "fra",
+      "options": [
+        "fra",
+        "av",
+        "med",
+        "om"
+      ],
+      "explanation": "«Hilse fra» noen = gi videre en hilsen. Tysk «Grüß sie von mir».",
+      "level": 2,
+      "tags": [
+        "tema:verb"
+      ],
+      "translations": {
+        "de": "Grüß sie von mir!",
+        "en": "Say hello to them from me!"
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-flink-i",
+      "pattern": "Hun er flink ___ matematikk.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "om",
+        "for"
+      ],
+      "explanation": "«Flink i» et fag, men «flink til å» gjøre noe.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Sie ist gut in Mathematik.",
+        "en": "She is good at mathematics."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-gift-med",
+      "pattern": "Han er gift ___ en lærer.",
+      "answer": "med",
+      "options": [
+        "med",
+        "til",
+        "av",
+        "på"
+      ],
+      "explanation": "Fast uttrykk: «gift med». Tysk «verheiratet mit» stemmer her.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Er ist mit einer Lehrerin verheiratet.",
+        "en": "He is married to a teacher."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-glad-i",
+      "pattern": "Jeg er glad ___ deg.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "om",
+        "til"
+      ],
+      "explanation": "«Glad i» = å like noen eller noe svært godt. «Glad for» = takknemlig eller fornøyd med noe.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ich habe dich lieb.",
+        "en": "I love you."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-takk-for",
+      "pattern": "Takk ___ hjelpen!",
+      "answer": "for",
+      "options": [
+        "for",
+        "av",
+        "til",
+        "om"
+      ],
+      "explanation": "«Takk for» + det du takker for, «takk til» + personen: takk til deg for hjelpen.",
+      "level": 1,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Danke für die Hilfe!",
+        "en": "Thanks for the help!"
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-interessert-i",
+      "pattern": "Han er interessert ___ musikk.",
+      "answer": "i",
+      "options": [
+        "i",
+        "for",
+        "på",
+        "om"
+      ],
+      "explanation": "Fast uttrykk: «interessert i». Tysk «sich interessieren für» frister til «for», men det er feil.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Er interessiert sich für Musik.",
+        "en": "He is interested in music."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-redd-for",
+      "pattern": "Hun er redd ___ hunder.",
+      "answer": "for",
+      "options": [
+        "for",
+        "av",
+        "på",
+        "mot"
+      ],
+      "explanation": "Fast uttrykk: «redd for».",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Sie hat Angst vor Hunden.",
+        "en": "She is afraid of dogs."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-lei-av",
+      "pattern": "Jeg er lei ___ å vente.",
+      "answer": "av",
+      "options": [
+        "av",
+        "for",
+        "på",
+        "med"
+      ],
+      "explanation": "«Lei av» = har fått nok av noe. «Lei for» = lei seg over noe: «Jeg er lei for det».",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ich habe es satt zu warten.",
+        "en": "I'm tired of waiting."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-ga-pa-kino",
+      "pattern": "Vi går ___ kino i kveld.",
+      "answer": "på",
+      "options": [
+        "på",
+        "til",
+        "i",
+        "mot"
+      ],
+      "explanation": "Fast uttrykk: «gå på kino», selv om det er bevegelse.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Wir gehen heute Abend ins Kino.",
+        "en": "We're going to the cinema tonight."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-pa-ferie",
+      "pattern": "Hun er ___ ferie denne uka.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "til",
+        "med"
+      ],
+      "explanation": "Fast uttrykk: «på ferie», «på tur», «på jobb».",
+      "level": 1,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Sie ist diese Woche im Urlaub.",
+        "en": "She is on holiday this week."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-pa-skolen",
+      "pattern": "Barna er ___ skolen nå.",
+      "answer": "på",
+      "options": [
+        "på",
+        "hos",
+        "til",
+        "av"
+      ],
+      "explanation": "«På skolen» = der undervisningen skjer. «I skolen» brukes om skolesystemet.",
+      "level": 1,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Die Kinder sind jetzt in der Schule.",
+        "en": "The children are at school now."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-hjemme-hos",
+      "pattern": "Jeg er hjemme ___ Kari i kveld.",
+      "answer": "hos",
+      "options": [
+        "hos",
+        "ved",
+        "på",
+        "til"
+      ],
+      "explanation": "«Hjemme hos» + person: hjemme hos meg, hjemme hos Kari.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ich bin heute Abend bei Kari zu Hause.",
+        "en": "I'm at Kari's place tonight."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-pa-landet",
+      "pattern": "Han bor ___ landet, ikke i byen.",
+      "answer": "på",
+      "options": [
+        "på",
+        "ved",
+        "hos",
+        "til"
+      ],
+      "explanation": "Fast uttrykk: «på landet» = på bygda. «I landet» betyr i staten, ikke på bygda.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Er wohnt auf dem Land, nicht in der Stadt.",
+        "en": "He lives in the countryside, not in the city."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-i-telefonen",
+      "pattern": "Snakker du ___ telefonen?",
+      "answer": "i",
+      "options": [
+        "i",
+        "ved",
+        "til",
+        "av"
+      ],
+      "explanation": "Fast uttrykk: «snakke i telefonen». «På telefonen» høres også, men «i» er normen.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Sprichst du am Telefon?",
+        "en": "Are you on the phone?"
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-i-avisa",
+      "pattern": "Det står ___ avisa i dag.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "ved",
+        "over"
+      ],
+      "explanation": "Tekstkilder tar «i»: i avisa, i boka, i brevet.",
+      "level": 1,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Das steht heute in der Zeitung.",
+        "en": "It's in the newspaper today."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-ved-bordet",
+      "pattern": "Vi sitter ___ bordet og spiser.",
+      "answer": "ved",
+      "options": [
+        "ved",
+        "på",
+        "i",
+        "hos"
+      ],
+      "explanation": "Fast uttrykk: «sitte ved bordet». «På bordet» ville plassert deg oppå det.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Wir sitzen am Tisch und essen.",
+        "en": "We're sitting at the table eating."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-pa-vei",
+      "pattern": "Hun er ___ vei til jobben.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "under",
+        "ved"
+      ],
+      "explanation": "Fast uttrykk: «på vei». Adverbet «underveis» skrives i ett ord.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Sie ist auf dem Weg zur Arbeit.",
+        "en": "She is on her way to work."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-pa-nett",
+      "pattern": "Jeg kjøpte det ___ nett.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "til",
+        "hos"
+      ],
+      "explanation": "Fast uttrykk: «på nett», «på internett».",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ich habe es online gekauft.",
+        "en": "I bought it online."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-allergisk-mot",
+      "pattern": "Jeg er allergisk ___ nøtter.",
+      "answer": "mot",
+      "options": [
+        "mot",
+        "av",
+        "på",
+        "med"
+      ],
+      "explanation": "«Allergisk mot» noe. Tysk «allergisch gegen».",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ich bin allergisch gegen Nüsse.",
+        "en": "I'm allergic to nuts."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-snill-mot",
+      "pattern": "Hun er alltid snill ___ dyr.",
+      "answer": "mot",
+      "options": [
+        "mot",
+        "for",
+        "av",
+        "til"
+      ],
+      "explanation": "«Snill mot» noen. Samme mønster: grei mot, slem mot.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Sie ist immer lieb zu Tieren.",
+        "en": "She is always kind to animals."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-sint-pa",
+      "pattern": "Mamma er sint ___ meg fordi jeg kom for sent.",
+      "answer": "på",
+      "options": [
+        "på",
+        "til",
+        "av",
+        "i"
+      ],
+      "explanation": "«Sint på» noen. Tysk «böse auf».",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Mama ist böse auf mich, weil ich zu spät gekommen bin.",
+        "en": "Mum is angry with me because I came late."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-sjalu-pa",
+      "pattern": "Han er sjalu ___ broren sin.",
+      "answer": "på",
+      "options": [
+        "på",
+        "av",
+        "for",
+        "mot"
+      ],
+      "explanation": "«Sjalu på» noen. Tysk «eifersüchtig auf».",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Er ist eifersüchtig auf seinen Bruder.",
+        "en": "He is jealous of his brother."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-god-til",
+      "pattern": "Hun er god ___ å lage mat.",
+      "answer": "til",
+      "options": [
+        "til",
+        "i",
+        "om",
+        "av"
+      ],
+      "explanation": "«God til å» eller «flink til å» + verb. Med fag: «god i matte».",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Sie kann gut kochen.",
+        "en": "She is good at cooking."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-vant-til",
+      "pattern": "Jeg er ikke vant ___ kulda ennå.",
+      "answer": "til",
+      "options": [
+        "til",
+        "for",
+        "på",
+        "av"
+      ],
+      "explanation": "«Vant til» noe = det føles normalt. Tysk «gewöhnt an».",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ich bin die Kälte noch nicht gewöhnt.",
+        "en": "I'm not used to the cold yet."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-opptatt-av",
+      "pattern": "Han er veldig opptatt ___ miljøet.",
+      "answer": "av",
+      "options": [
+        "av",
+        "for",
+        "på",
+        "om"
+      ],
+      "explanation": "«Opptatt av» = interessert i og engasjert. «Opptatt med» = har det travelt med.",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ihm liegt die Umwelt sehr am Herzen.",
+        "en": "He cares a lot about the environment."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-fornoyd-med",
+      "pattern": "Jeg er fornøyd ___ resultatet.",
+      "answer": "med",
+      "options": [
+        "med",
+        "av",
+        "for",
+        "på"
+      ],
+      "explanation": "«Fornøyd med» noe. Tysk «zufrieden mit».",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ich bin mit dem Ergebnis zufrieden.",
+        "en": "I'm pleased with the result."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-enig-med",
+      "pattern": "Jeg er helt enig ___ deg.",
+      "answer": "med",
+      "options": [
+        "med",
+        "til",
+        "av",
+        "på"
+      ],
+      "explanation": "«Enig med» en person, «enig i» en påstand.",
+      "level": 1,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ich bin ganz deiner Meinung.",
+        "en": "I completely agree with you."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-ferdig-med",
+      "pattern": "Er du ferdig ___ boka? Da vil jeg låne den.",
+      "answer": "med",
+      "options": [
+        "med",
+        "av",
+        "for",
+        "til"
+      ],
+      "explanation": "«Ferdig med» noe = har gjort det ferdig.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Bist du mit dem Buch fertig?",
+        "en": "Have you finished the book? Then I'd like to borrow it."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-kjent-for",
+      "pattern": "Bergen er kjent ___ mye regn.",
+      "answer": "for",
+      "options": [
+        "for",
+        "på",
+        "om",
+        "til"
+      ],
+      "explanation": "«Kjent for» = berømt på grunn av. «Kjent med» = har kunnskap om.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Bergen ist für viel Regen bekannt.",
+        "en": "Bergen is known for a lot of rain."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-ansvarlig-for",
+      "pattern": "Hvem er ansvarlig ___ dette prosjektet?",
+      "answer": "for",
+      "options": [
+        "for",
+        "om",
+        "på",
+        "til"
+      ],
+      "explanation": "«Ansvarlig for». Tysk «verantwortlich für» stemmer her.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Wer ist für dieses Projekt verantwortlich?",
+        "en": "Who is responsible for this project?"
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-viktig-for",
+      "pattern": "Familien er viktig ___ meg.",
+      "answer": "for",
+      "options": [
+        "for",
+        "til",
+        "av",
+        "på"
+      ],
+      "explanation": "«Viktig for» noen.",
+      "level": 1,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Die Familie ist mir wichtig.",
+        "en": "Family is important to me."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-skuffet-over",
+      "pattern": "Treneren var skuffet ___ resultatet.",
+      "answer": "over",
+      "options": [
+        "over",
+        "om",
+        "til",
+        "for"
+      ],
+      "explanation": "«Skuffet over» noe. Samme mønster: overrasket over, glad over.",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Der Trainer war vom Ergebnis enttäuscht.",
+        "en": "The coach was disappointed with the result."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-overrasket-over",
+      "pattern": "Jeg ble overrasket ___ hvor kaldt det var.",
+      "answer": "over",
+      "options": [
+        "over",
+        "om",
+        "for",
+        "til"
+      ],
+      "explanation": "«Overrasket over» noe. «Overrasket av» brukes også.",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ich war überrascht, wie kalt es war.",
+        "en": "I was surprised at how cold it was."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-avhengig-av",
+      "pattern": "Planen er avhengig ___ været.",
+      "answer": "av",
+      "options": [
+        "av",
+        "på",
+        "fra",
+        "om"
+      ],
+      "explanation": "«Avhengig av». Tysk «abhängig von» blir ikke «fra».",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Der Plan ist vom Wetter abhängig.",
+        "en": "The plan depends on the weather."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-full-av",
+      "pattern": "Glasset er fullt ___ vann.",
+      "answer": "av",
+      "options": [
+        "av",
+        "fra",
+        "for",
+        "om"
+      ],
+      "explanation": "«Full av» noe. I talespråk hører man også «full med».",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Das Glas ist voller Wasser.",
+        "en": "The glass is full of water."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-grunn-til",
+      "pattern": "Det er ingen grunn ___ bekymring.",
+      "answer": "til",
+      "options": [
+        "til",
+        "av",
+        "om",
+        "på"
+      ],
+      "explanation": "«Grunn til» noe = årsak til det. «På grunn av» er et eget uttrykk.",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Es gibt keinen Grund zur Sorge.",
+        "en": "There is no reason to worry."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-sans-for",
+      "pattern": "Hun har god sans ___ humor.",
+      "answer": "for",
+      "options": [
+        "for",
+        "av",
+        "til",
+        "om"
+      ],
+      "explanation": "«Sans for» noe = evne til å forstå og sette pris på det.",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Sie hat viel Sinn für Humor.",
+        "en": "She has a good sense of humour."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-interesse-for",
+      "pattern": "Han har stor interesse ___ historie.",
+      "answer": "for",
+      "options": [
+        "for",
+        "på",
+        "om",
+        "til"
+      ],
+      "explanation": "Substantivet tar «for»: interesse for. Adjektivet tar «i»: interessert i.",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Er hat großes Interesse an Geschichte.",
+        "en": "He has a great interest in history."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-pa-grunn-av",
+      "pattern": "Toget er forsinket på grunn ___ snøen.",
+      "answer": "av",
+      "options": [
+        "av",
+        "for",
+        "fra",
+        "om"
+      ],
+      "explanation": "Fast uttrykk: «på grunn av» + årsak. Tysk «wegen».",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Der Zug hat wegen des Schnees Verspätung.",
+        "en": "The train is delayed because of the snow."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-i-stedet-for",
+      "pattern": "Jeg drikker te i stedet ___ kaffe.",
+      "answer": "for",
+      "options": [
+        "for",
+        "av",
+        "til",
+        "om"
+      ],
+      "explanation": "Fast uttrykk: «i stedet for». Tysk «statt».",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ich trinke Tee statt Kaffee.",
+        "en": "I drink tea instead of coffee."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-for-eksempel",
+      "pattern": "Mange land, ___ eksempel Sverige, har en konge.",
+      "answer": "for",
+      "options": [
+        "for",
+        "av",
+        "med",
+        "på"
+      ],
+      "explanation": "Fast uttrykk: «for eksempel», forkortet «f.eks.».",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Viele Länder, zum Beispiel Schweden, haben einen König.",
+        "en": "Many countries, for example Sweden, have a king."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-i-hvert-fall",
+      "pattern": "Jeg kommer ___ hvert fall i morgen, kanskje i dag også.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "for",
+        "om"
+      ],
+      "explanation": "Fast uttrykk: «i hvert fall» = uansett, i alle fall.",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ich komme auf jeden Fall morgen, vielleicht auch heute.",
+        "en": "I'm coming tomorrow at any rate, maybe today as well."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-i-ferd-med",
+      "pattern": "Hun er ___ ferd med å pakke kofferten.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "om",
+        "med"
+      ],
+      "explanation": "«I ferd med å» = holder på med å, akkurat nå.",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Sie ist gerade dabei, den Koffer zu packen.",
+        "en": "She is in the middle of packing her suitcase."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-til-tross-for",
+      "pattern": "Vi gikk tur ___ tross for regnet.",
+      "answer": "til",
+      "options": [
+        "til",
+        "på",
+        "i",
+        "med"
+      ],
+      "explanation": "Fast uttrykk: «til tross for». Tysk «trotz».",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Wir sind trotz des Regens spazieren gegangen.",
+        "en": "We went for a walk despite the rain."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-til-frokost",
+      "pattern": "Hva spiser du ___ frokost?",
+      "answer": "til",
+      "options": [
+        "til",
+        "for",
+        "på",
+        "i"
+      ],
+      "explanation": "Måltider tar «til»: til frokost, til middag. Tysk «zum Frühstück».",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Was isst du zum Frühstück?",
+        "en": "What do you eat for breakfast?"
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-til-slutt",
+      "pattern": "Laget vant ___ slutt etter en lang kamp.",
+      "answer": "til",
+      "options": [
+        "til",
+        "på",
+        "i",
+        "om"
+      ],
+      "explanation": "Fast uttrykk: «til slutt» = til sist. «På slutten» betyr i den siste delen.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Die Mannschaft hat nach einem langen Spiel schließlich gewonnen.",
+        "en": "The team finally won after a long match."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-blant-annet",
+      "pattern": "Vi besøkte ___ annet Oslo og Bergen.",
+      "answer": "blant",
+      "options": [
+        "blant",
+        "mellom",
+        "med",
+        "over"
+      ],
+      "explanation": "Fast uttrykk: «blant annet», forkortet «bl.a.».",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Wir haben unter anderem Oslo und Bergen besucht.",
+        "en": "We visited Oslo and Bergen, among other places."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-uten-tvil",
+      "pattern": "Det var ___ tvil den beste konserten i år.",
+      "answer": "uten",
+      "options": [
+        "uten",
+        "av",
+        "for",
+        "om"
+      ],
+      "explanation": "Fast uttrykk: «uten tvil» = helt sikkert.",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Das war zweifellos das beste Konzert des Jahres.",
+        "en": "It was without doubt the best concert this year."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-sto-uten-penger",
+      "pattern": "Jeg sto plutselig ___ penger i en fremmed by.",
+      "answer": "uten",
+      "options": [
+        "uten",
+        "av",
+        "for",
+        "om"
+      ],
+      "explanation": "«Stå uten» noe = ikke ha det lenger.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ich stand plötzlich ohne Geld in einer fremden Stadt.",
+        "en": "Suddenly I found myself without money in a foreign city."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-kaffe-uten",
+      "pattern": "Jeg drikker kaffen svart, ___ melk og sukker.",
+      "answer": "uten",
+      "options": [
+        "uten",
+        "av",
+        "for",
+        "om"
+      ],
+      "explanation": "Svart kaffe har verken melk eller sukker i seg.",
+      "level": 1,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Ich trinke meinen Kaffee schwarz, ohne Milch und Zucker.",
+        "en": "I drink my coffee black, without milk and sugar."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-ved-hjelp-av",
+      "pattern": "Vi løste oppgaven ___ hjelp av en kalkulator.",
+      "answer": "ved",
+      "options": [
+        "ved",
+        "for",
+        "i",
+        "til"
+      ],
+      "explanation": "Fast uttrykk: «ved hjelp av» = med bruk av.",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Wir haben die Aufgabe mithilfe eines Taschenrechners gelöst.",
+        "en": "We solved the task with the help of a calculator."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-under-annet-navn",
+      "pattern": "Hun skriver bøker ___ et annet navn.",
+      "answer": "under",
+      "options": [
+        "under",
+        "av",
+        "mot",
+        "til"
+      ],
+      "explanation": "«Under et annet navn» = med et dekknavn. Tysk «unter einem anderen Namen».",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Sie schreibt Bücher unter einem anderen Namen.",
+        "en": "She writes books under a different name."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-ligger-foran",
+      "pattern": "Norge ligger to poeng ___ Sverige etter første omgang.",
+      "answer": "foran",
+      "options": [
+        "foran",
+        "mellom",
+        "gjennom",
+        "blant"
+      ],
+      "explanation": "Den som leder i en konkurranse, «ligger foran».",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Norwegen liegt nach der ersten Halbzeit zwei Punkte vor Schweden.",
+        "en": "Norway is two points ahead of Sweden after the first half."
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-forskjellen-mellom",
+      "pattern": "Hva er forskjellen ___ «i» og «på»?",
+      "answer": "mellom",
+      "options": [
+        "mellom",
+        "blant",
+        "av",
+        "gjennom"
+      ],
+      "alternatives": [
+        "på"
+      ],
+      "explanation": "«Forskjellen mellom» to ting. «Forskjellen på» brukes også.",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Was ist der Unterschied zwischen «i» und «på»?",
+        "en": "What is the difference between «i» and «på»?"
+      }
+    },
+    {
+      "id": "p-curated-uttrykk-om-igjen",
+      "pattern": "Det ble feil, så vi må gjøre alt ___ igjen.",
+      "answer": "om",
+      "options": [
+        "om",
+        "på",
+        "i",
+        "for"
+      ],
+      "explanation": "«Om igjen» = en gang til, fra begynnelsen.",
+      "level": 3,
+      "tags": [
+        "tema:fast-uttrykk"
+      ],
+      "translations": {
+        "de": "Es war falsch, also müssen wir alles noch einmal machen.",
+        "en": "It went wrong, so we have to do everything over again."
+      }
+    },
+    {
+      "id": "p-curated-middel-med-bussen",
+      "pattern": "Jeg drar ___ bussen til byen.",
+      "answer": "med",
+      "options": [
+        "med",
+        "i",
+        "ved",
+        "av"
+      ],
+      "explanation": "Transportmiddel: «med bussen, med tog, med bil». Er du allerede om bord, sitter du «på bussen».",
+      "level": 1,
+      "tags": [
+        "tema:middel"
+      ],
+      "translations": {
+        "de": "Ich fahre mit dem Bus in die Stadt.",
+        "en": "I'm taking the bus into town."
+      }
+    },
+    {
+      "id": "p-curated-middel-for-hand",
+      "pattern": "Han skrev brevet ___ hånd.",
+      "answer": "for",
+      "options": [
+        "for",
+        "på",
+        "i",
+        "av"
+      ],
+      "explanation": "Fast uttrykk: «for hånd» = ikke på maskin.",
+      "level": 3,
+      "tags": [
+        "tema:middel"
+      ],
+      "translations": {
+        "de": "Er hat den Brief mit der Hand geschrieben.",
+        "en": "He wrote the letter by hand."
+      }
+    },
+    {
+      "id": "p-curated-middel-bygd-av-tre",
+      "pattern": "Huset er bygd ___ tre.",
+      "answer": "av",
+      "options": [
+        "av",
+        "fra",
+        "til",
+        "om"
+      ],
+      "alternatives": [
+        "i"
+      ],
+      "explanation": "Materiale: «av tre, av stein, av glass». Tysk «aus Holz» blir ikke «fra».",
+      "level": 2,
+      "tags": [
+        "tema:middel"
+      ],
+      "translations": {
+        "de": "Das Haus ist aus Holz gebaut.",
+        "en": "The house is built of wood."
+      }
+    },
+    {
+      "id": "p-curated-middel-venn-av-meg",
+      "pattern": "Dette er en venn ___ meg.",
+      "answer": "av",
+      "options": [
+        "av",
+        "fra",
+        "med",
+        "om"
+      ],
+      "explanation": "Én av flere: «en venn av meg», «en kollega av meg».",
+      "level": 3,
+      "tags": [
+        "tema:middel"
+      ],
+      "translations": {
+        "de": "Das ist ein Freund von mir.",
+        "en": "This is a friend of mine."
+      }
+    },
+    {
+      "id": "p-curated-middel-gave-til-deg",
+      "pattern": "Gaven er ___ deg.",
+      "answer": "til",
+      "options": [
+        "til",
+        "av",
+        "med",
+        "om"
+      ],
+      "explanation": "Mottaker: «til». Gaven er til deg, brevet er til mamma.",
+      "level": 2,
+      "tags": [
+        "tema:middel"
+      ],
+      "translations": {
+        "de": "Das Geschenk ist für dich.",
+        "en": "The present is for you."
+      }
+    },
+    {
+      "id": "p-curated-middel-uten-hjelp",
+      "pattern": "Vi klarte det helt alene, ___ hjelp fra noen.",
+      "answer": "uten",
+      "options": [
+        "uten",
+        "med",
+        "av",
+        "for"
+      ],
+      "explanation": "«Uten» = mangel på noe: uten hjelp, uten penger. «Helt alene» utelukker «med».",
+      "level": 1,
+      "tags": [
+        "tema:middel"
+      ],
+      "translations": {
+        "de": "Wir haben es ganz allein geschafft, ohne Hilfe von irgendjemandem.",
+        "en": "We managed it all on our own, without help from anyone."
+      },
+      "allowedContrasts": [
+        "med"
+      ]
+    },
+    {
+      "id": "p-curated-middel-kjopte-for-tusen",
+      "pattern": "Jeg kjøpte sykkelen ___ tusen kroner.",
+      "answer": "for",
+      "options": [
+        "for",
+        "av",
+        "om",
+        "med"
+      ],
+      "explanation": "Pris: «kjøpe eller selge noe for tusen kroner».",
+      "level": 3,
+      "tags": [
+        "tema:middel"
+      ],
+      "translations": {
+        "de": "Ich habe das Fahrrad für tausend Kronen gekauft.",
+        "en": "I bought the bike for a thousand kroner."
+      }
+    },
+    {
+      "id": "p-curated-middel-betale-med-kort",
+      "pattern": "Kan jeg betale ___ kort?",
+      "answer": "med",
+      "options": [
+        "med",
+        "av",
+        "i",
+        "til"
+      ],
+      "explanation": "Betalingsmiddel tar «med»: med kort, med kontanter.",
+      "level": 1,
+      "tags": [
+        "tema:middel"
+      ],
+      "translations": {
+        "de": "Kann ich mit Karte bezahlen?",
+        "en": "Can I pay by card?"
+      }
+    },
+    {
+      "id": "p-curated-middel-skriv-med-blyant",
+      "pattern": "Skriv navnet ditt ___ blyant.",
+      "answer": "med",
+      "options": [
+        "med",
+        "av",
+        "på",
+        "for"
+      ],
+      "explanation": "Redskap tar «med»: skrive med blyant, spise med gaffel.",
+      "level": 1,
+      "tags": [
+        "tema:middel"
+      ],
+      "translations": {
+        "de": "Schreib deinen Namen mit Bleistift.",
+        "en": "Write your name in pencil."
+      }
+    },
+    {
+      "pattern": "Jeg bor ___ {sted}.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "til",
+        "fra"
+      ],
+      "explanation": "De fleste byer og land tar «i»: i Bergen, i Norge.",
+      "explanationByAnswer": {
+        "på": "Øyer og en del byer og tettsteder tar «på»: på Island, på Hamar, på Voss. Slike unntak må læres ett for ett."
+      },
+      "level": 1,
+      "tags": [
+        "tema:stedsnavn",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-bor-i-pa-sted-oslo",
+          "text": "Oslo",
+          "translations": {
+            "de": "Ich wohne in Oslo.",
+            "en": "I live in Oslo."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-drammen",
+          "text": "Drammen",
+          "translations": {
+            "de": "Ich wohne in Drammen.",
+            "en": "I live in Drammen."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-bergen",
+          "text": "Bergen",
+          "translations": {
+            "de": "Ich wohne in Bergen.",
+            "en": "I live in Bergen."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-trondheim",
+          "text": "Trondheim",
+          "translations": {
+            "de": "Ich wohne in Trondheim.",
+            "en": "I live in Trondheim."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-stavanger",
+          "text": "Stavanger",
+          "translations": {
+            "de": "Ich wohne in Stavanger.",
+            "en": "I live in Stavanger."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-tromso",
+          "text": "Tromsø",
+          "translations": {
+            "de": "Ich wohne in Tromsø.",
+            "en": "I live in Tromsø."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-kristiansand",
+          "text": "Kristiansand",
+          "translations": {
+            "de": "Ich wohne in Kristiansand.",
+            "en": "I live in Kristiansand."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-bodo",
+          "text": "Bodø",
+          "translations": {
+            "de": "Ich wohne in Bodø.",
+            "en": "I live in Bodø."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-hamar",
+          "text": "Hamar",
+          "answer": "på",
+          "level": 3,
+          "translations": {
+            "de": "Ich wohne in Hamar.",
+            "en": "I live in Hamar."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-lillehammer",
+          "text": "Lillehammer",
+          "answer": "på",
+          "level": 3,
+          "translations": {
+            "de": "Ich wohne in Lillehammer.",
+            "en": "I live in Lillehammer."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-gjovik",
+          "text": "Gjøvik",
+          "answer": "på",
+          "level": 3,
+          "translations": {
+            "de": "Ich wohne in Gjøvik.",
+            "en": "I live in Gjøvik."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-kongsberg",
+          "text": "Kongsberg",
+          "answer": "på",
+          "level": 3,
+          "translations": {
+            "de": "Ich wohne in Kongsberg.",
+            "en": "I live in Kongsberg."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-roros",
+          "text": "Røros",
+          "answer": "på",
+          "level": 3,
+          "translations": {
+            "de": "Ich wohne in Røros.",
+            "en": "I live in Røros."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-voss",
+          "text": "Voss",
+          "answer": "på",
+          "level": 3,
+          "translations": {
+            "de": "Ich wohne in Voss.",
+            "en": "I live in Voss."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-island",
+          "text": "Island",
+          "answer": "på",
+          "level": 2,
+          "translations": {
+            "de": "Ich wohne auf Island.",
+            "en": "I live in Iceland."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-kreta",
+          "text": "Kreta",
+          "answer": "på",
+          "level": 2,
+          "translations": {
+            "de": "Ich wohne auf Kreta.",
+            "en": "I live on Crete."
+          }
+        },
+        {
+          "id": "p-tpl-bor-i-pa-sted-malta",
+          "text": "Malta",
+          "answer": "på",
+          "level": 2,
+          "translations": {
+            "de": "Ich wohne auf Malta.",
+            "en": "I live in Malta."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Hvor langt er det ___ {sted} herfra?",
+      "answer": "til",
+      "options": [
+        "til",
+        "i",
+        "på",
+        "hos"
+      ],
+      "explanation": "Avstand og retning mot et mål tar «til», uansett om stedet ellers tar «i» eller «på».",
+      "level": 1,
+      "tags": [
+        "tema:bevegelse",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-avstand-til-sted-bergen",
+          "text": "Bergen",
+          "translations": {
+            "de": "Wie weit ist es von hier bis nach Bergen?",
+            "en": "How far is it to Bergen from here?"
+          }
+        },
+        {
+          "id": "p-tpl-avstand-til-sted-trondheim",
+          "text": "Trondheim",
+          "translations": {
+            "de": "Wie weit ist es von hier bis nach Trondheim?",
+            "en": "How far is it to Trondheim from here?"
+          }
+        },
+        {
+          "id": "p-tpl-avstand-til-sted-stavanger",
+          "text": "Stavanger",
+          "translations": {
+            "de": "Wie weit ist es von hier bis nach Stavanger?",
+            "en": "How far is it to Stavanger from here?"
+          }
+        },
+        {
+          "id": "p-tpl-avstand-til-sted-tromso",
+          "text": "Tromsø",
+          "translations": {
+            "de": "Wie weit ist es von hier bis nach Tromsø?",
+            "en": "How far is it to Tromsø from here?"
+          }
+        },
+        {
+          "id": "p-tpl-avstand-til-sted-hamar",
+          "text": "Hamar",
+          "translations": {
+            "de": "Wie weit ist es von hier bis nach Hamar?",
+            "en": "How far is it to Hamar from here?"
+          }
+        },
+        {
+          "id": "p-tpl-avstand-til-sted-lillehammer",
+          "text": "Lillehammer",
+          "translations": {
+            "de": "Wie weit ist es von hier bis nach Lillehammer?",
+            "en": "How far is it to Lillehammer from here?"
+          }
+        },
+        {
+          "id": "p-tpl-avstand-til-sted-gjovik",
+          "text": "Gjøvik",
+          "translations": {
+            "de": "Wie weit ist es von hier bis nach Gjøvik?",
+            "en": "How far is it to Gjøvik from here?"
+          }
+        },
+        {
+          "id": "p-tpl-avstand-til-sted-kongsberg",
+          "text": "Kongsberg",
+          "translations": {
+            "de": "Wie weit ist es von hier bis nach Kongsberg?",
+            "en": "How far is it to Kongsberg from here?"
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Hun kommer opprinnelig ___ {sted}, men bor i Oslo nå.",
+      "answer": "fra",
+      "options": [
+        "fra",
+        "i",
+        "på",
+        "av"
+      ],
+      "explanation": "«Fra» = opprinnelse, både for steder som tar «i» og for steder som tar «på».",
+      "level": 1,
+      "tags": [
+        "tema:bevegelse",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-kommer-fra-sted-bergen",
+          "text": "Bergen",
+          "translations": {
+            "de": "Sie kommt ursprünglich aus Bergen, wohnt aber jetzt in Oslo.",
+            "en": "She is originally from Bergen, but lives in Oslo now."
+          }
+        },
+        {
+          "id": "p-tpl-kommer-fra-sted-trondheim",
+          "text": "Trondheim",
+          "translations": {
+            "de": "Sie kommt ursprünglich aus Trondheim, wohnt aber jetzt in Oslo.",
+            "en": "She is originally from Trondheim, but lives in Oslo now."
+          }
+        },
+        {
+          "id": "p-tpl-kommer-fra-sted-stavanger",
+          "text": "Stavanger",
+          "translations": {
+            "de": "Sie kommt ursprünglich aus Stavanger, wohnt aber jetzt in Oslo.",
+            "en": "She is originally from Stavanger, but lives in Oslo now."
+          }
+        },
+        {
+          "id": "p-tpl-kommer-fra-sted-tromso",
+          "text": "Tromsø",
+          "translations": {
+            "de": "Sie kommt ursprünglich aus Tromsø, wohnt aber jetzt in Oslo.",
+            "en": "She is originally from Tromsø, but lives in Oslo now."
+          }
+        },
+        {
+          "id": "p-tpl-kommer-fra-sted-hamar",
+          "text": "Hamar",
+          "translations": {
+            "de": "Sie kommt ursprünglich aus Hamar, wohnt aber jetzt in Oslo.",
+            "en": "She is originally from Hamar, but lives in Oslo now."
+          }
+        },
+        {
+          "id": "p-tpl-kommer-fra-sted-lillehammer",
+          "text": "Lillehammer",
+          "translations": {
+            "de": "Sie kommt ursprünglich aus Lillehammer, wohnt aber jetzt in Oslo.",
+            "en": "She is originally from Lillehammer, but lives in Oslo now."
+          }
+        },
+        {
+          "id": "p-tpl-kommer-fra-sted-voss",
+          "text": "Voss",
+          "translations": {
+            "de": "Sie kommt ursprünglich aus Voss, wohnt aber jetzt in Oslo.",
+            "en": "She is originally from Voss, but lives in Oslo now."
+          }
+        },
+        {
+          "id": "p-tpl-kommer-fra-sted-island",
+          "text": "Island",
+          "translations": {
+            "de": "Sie kommt ursprünglich aus Island, wohnt aber jetzt in Oslo.",
+            "en": "She is originally from Iceland, but lives in Oslo now."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Hun jobber ___ {arbeidsplass}.",
+      "answer": "på",
+      "options": [
+        "på",
+        "til",
+        "av",
+        "om"
+      ],
+      "explanation": "Arbeidsplasser og institusjoner tar oftest «på»: på kontoret, på sykehuset, på skolen.",
+      "level": 1,
+      "tags": [
+        "tema:sted",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-jobber-pa-arbeidsplass-kontoret",
+          "text": "kontoret",
+          "translations": {
+            "de": "Sie arbeitet im Büro.",
+            "en": "She works at the office."
+          }
+        },
+        {
+          "id": "p-tpl-jobber-pa-arbeidsplass-sykehuset",
+          "text": "sykehuset",
+          "alternatives": [
+            "ved"
+          ],
+          "translations": {
+            "de": "Sie arbeitet im Krankenhaus.",
+            "en": "She works at the hospital."
+          }
+        },
+        {
+          "id": "p-tpl-jobber-pa-arbeidsplass-skolen",
+          "text": "skolen",
+          "alternatives": [
+            "ved"
+          ],
+          "translations": {
+            "de": "Sie arbeitet an der Schule.",
+            "en": "She works at the school."
+          }
+        },
+        {
+          "id": "p-tpl-jobber-pa-arbeidsplass-flyplassen",
+          "text": "flyplassen",
+          "translations": {
+            "de": "Sie arbeitet am Flughafen.",
+            "en": "She works at the airport."
+          }
+        },
+        {
+          "id": "p-tpl-jobber-pa-arbeidsplass-hotellet",
+          "text": "hotellet",
+          "translations": {
+            "de": "Sie arbeitet im Hotel.",
+            "en": "She works at the hotel."
+          }
+        },
+        {
+          "id": "p-tpl-jobber-pa-arbeidsplass-fabrikken",
+          "text": "fabrikken",
+          "translations": {
+            "de": "Sie arbeitet in der Fabrik.",
+            "en": "She works at the factory."
+          }
+        },
+        {
+          "id": "p-tpl-jobber-pa-arbeidsplass-kjopesenteret",
+          "text": "kjøpesenteret",
+          "translations": {
+            "de": "Sie arbeitet im Einkaufszentrum.",
+            "en": "She works at the shopping centre."
+          }
+        },
+        {
+          "id": "p-tpl-jobber-pa-arbeidsplass-sykehjemmet",
+          "text": "sykehjemmet",
+          "translations": {
+            "de": "Sie arbeitet im Pflegeheim.",
+            "en": "She works at the nursing home."
+          }
+        },
+        {
+          "id": "p-tpl-jobber-pa-arbeidsplass-bensinstasjonen",
+          "text": "bensinstasjonen",
+          "translations": {
+            "de": "Sie arbeitet an der Tankstelle.",
+            "en": "She works at the petrol station."
+          }
+        },
+        {
+          "id": "p-tpl-jobber-pa-arbeidsplass-biblioteket",
+          "text": "biblioteket",
+          "translations": {
+            "de": "Sie arbeitet in der Bibliothek.",
+            "en": "She works at the library."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Vi var ___ {person} hele ettermiddagen.",
+      "answer": "hos",
+      "options": [
+        "hos",
+        "ved",
+        "i",
+        "mot"
+      ],
+      "explanation": "«Hos» + person: hjemme hos eller på kontoret til den personen. Tysk «beim Arzt» blir «hos legen».",
+      "level": 2,
+      "tags": [
+        "tema:sted",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-hos-person-legen",
+          "text": "legen",
+          "translations": {
+            "de": "Wir waren den ganzen Nachmittag beim Arzt.",
+            "en": "We were at the doctor's all afternoon."
+          }
+        },
+        {
+          "id": "p-tpl-hos-person-tannlegen",
+          "text": "tannlegen",
+          "translations": {
+            "de": "Wir waren den ganzen Nachmittag beim Zahnarzt.",
+            "en": "We were at the dentist's all afternoon."
+          }
+        },
+        {
+          "id": "p-tpl-hos-person-frisoren",
+          "text": "frisøren",
+          "translations": {
+            "de": "Wir waren den ganzen Nachmittag beim Friseur.",
+            "en": "We were at the hairdresser's all afternoon."
+          }
+        },
+        {
+          "id": "p-tpl-hos-person-bestemor",
+          "text": "bestemor",
+          "translations": {
+            "de": "Wir waren den ganzen Nachmittag bei Oma.",
+            "en": "We were at Grandma's all afternoon."
+          }
+        },
+        {
+          "id": "p-tpl-hos-person-mormor",
+          "text": "mormor",
+          "translations": {
+            "de": "Wir waren den ganzen Nachmittag bei Oma.",
+            "en": "We were at Grandma's all afternoon."
+          }
+        },
+        {
+          "id": "p-tpl-hos-person-naboen",
+          "text": "naboen",
+          "translations": {
+            "de": "Wir waren den ganzen Nachmittag beim Nachbarn.",
+            "en": "We were at the neighbour's all afternoon."
+          }
+        },
+        {
+          "id": "p-tpl-hos-person-kari",
+          "text": "Kari",
+          "translations": {
+            "de": "Wir waren den ganzen Nachmittag bei Kari.",
+            "en": "We were at Kari's all afternoon."
+          }
+        },
+        {
+          "id": "p-tpl-hos-person-fysioterapeuten",
+          "text": "fysioterapeuten",
+          "translations": {
+            "de": "Wir waren den ganzen Nachmittag beim Physiotherapeuten.",
+            "en": "We were at the physiotherapist's all afternoon."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Vi skal ha møte ___ {ukedag}.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "ved",
+        "hos"
+      ],
+      "explanation": "«På» + ukedag om en dag som kommer. «I mandag» betyr forrige mandag og passer ikke med «skal».",
+      "level": 1,
+      "tags": [
+        "tema:tid",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-ukedag-pa-mandag",
+          "text": "mandag",
+          "translations": {
+            "de": "Wir haben am Montag ein Meeting.",
+            "en": "We are having a meeting on Monday."
+          }
+        },
+        {
+          "id": "p-tpl-ukedag-pa-tirsdag",
+          "text": "tirsdag",
+          "translations": {
+            "de": "Wir haben am Dienstag ein Meeting.",
+            "en": "We are having a meeting on Tuesday."
+          }
+        },
+        {
+          "id": "p-tpl-ukedag-pa-onsdag",
+          "text": "onsdag",
+          "translations": {
+            "de": "Wir haben am Mittwoch ein Meeting.",
+            "en": "We are having a meeting on Wednesday."
+          }
+        },
+        {
+          "id": "p-tpl-ukedag-pa-torsdag",
+          "text": "torsdag",
+          "translations": {
+            "de": "Wir haben am Donnerstag ein Meeting.",
+            "en": "We are having a meeting on Thursday."
+          }
+        },
+        {
+          "id": "p-tpl-ukedag-pa-fredag",
+          "text": "fredag",
+          "translations": {
+            "de": "Wir haben am Freitag ein Meeting.",
+            "en": "We are having a meeting on Friday."
+          }
+        },
+        {
+          "id": "p-tpl-ukedag-pa-lordag",
+          "text": "lørdag",
+          "translations": {
+            "de": "Wir haben am Samstag ein Meeting.",
+            "en": "We are having a meeting on Saturday."
+          }
+        },
+        {
+          "id": "p-tpl-ukedag-pa-sondag",
+          "text": "søndag",
+          "translations": {
+            "de": "Wir haben am Sonntag ein Meeting.",
+            "en": "We are having a meeting on Sunday."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Vi skal på ferie ___ {måned}.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "om",
+        "ved"
+      ],
+      "explanation": "Måneder tar «i»: i mai, i juli. Ukedager tar «på».",
+      "level": 1,
+      "tags": [
+        "tema:tid",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-maned-i-januar",
+          "text": "januar",
+          "translations": {
+            "de": "Wir fahren im Januar in den Urlaub.",
+            "en": "We are going on holiday in January."
+          }
+        },
+        {
+          "id": "p-tpl-maned-i-mars",
+          "text": "mars",
+          "translations": {
+            "de": "Wir fahren im März in den Urlaub.",
+            "en": "We are going on holiday in March."
+          }
+        },
+        {
+          "id": "p-tpl-maned-i-mai",
+          "text": "mai",
+          "translations": {
+            "de": "Wir fahren im Mai in den Urlaub.",
+            "en": "We are going on holiday in May."
+          }
+        },
+        {
+          "id": "p-tpl-maned-i-juni",
+          "text": "juni",
+          "translations": {
+            "de": "Wir fahren im Juni in den Urlaub.",
+            "en": "We are going on holiday in June."
+          }
+        },
+        {
+          "id": "p-tpl-maned-i-juli",
+          "text": "juli",
+          "translations": {
+            "de": "Wir fahren im Juli in den Urlaub.",
+            "en": "We are going on holiday in July."
+          }
+        },
+        {
+          "id": "p-tpl-maned-i-august",
+          "text": "august",
+          "translations": {
+            "de": "Wir fahren im August in den Urlaub.",
+            "en": "We are going on holiday in August."
+          }
+        },
+        {
+          "id": "p-tpl-maned-i-oktober",
+          "text": "oktober",
+          "translations": {
+            "de": "Wir fahren im Oktober in den Urlaub.",
+            "en": "We are going on holiday in October."
+          }
+        },
+        {
+          "id": "p-tpl-maned-i-desember",
+          "text": "desember",
+          "translations": {
+            "de": "Wir fahren im Dezember in den Urlaub.",
+            "en": "We are going on holiday in December."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Huset ble bygd ___ {tiår}.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "om",
+        "ved"
+      ],
+      "explanation": "Tiår og århundrer tar «på»: på 1970-tallet, på 1800-tallet. Enkeltår tar «i»: i 1975.",
+      "level": 2,
+      "tags": [
+        "tema:tid",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-tiar-pa-1700-tallet",
+          "text": "1700-tallet",
+          "translations": {
+            "de": "Das Haus wurde im 18. Jahrhundert gebaut.",
+            "en": "The house was built in the 18th century."
+          }
+        },
+        {
+          "id": "p-tpl-tiar-pa-1800-tallet",
+          "text": "1800-tallet",
+          "translations": {
+            "de": "Das Haus wurde im 19. Jahrhundert gebaut.",
+            "en": "The house was built in the 19th century."
+          }
+        },
+        {
+          "id": "p-tpl-tiar-pa-1920-tallet",
+          "text": "1920-tallet",
+          "translations": {
+            "de": "Das Haus wurde in den 20er-Jahren gebaut.",
+            "en": "The house was built in the 1920s."
+          }
+        },
+        {
+          "id": "p-tpl-tiar-pa-1950-tallet",
+          "text": "1950-tallet",
+          "translations": {
+            "de": "Das Haus wurde in den 50er-Jahren gebaut.",
+            "en": "The house was built in the 1950s."
+          }
+        },
+        {
+          "id": "p-tpl-tiar-pa-1970-tallet",
+          "text": "1970-tallet",
+          "translations": {
+            "de": "Das Haus wurde in den 70er-Jahren gebaut.",
+            "en": "The house was built in the 1970s."
+          }
+        },
+        {
+          "id": "p-tpl-tiar-pa-1990-tallet",
+          "text": "1990-tallet",
+          "translations": {
+            "de": "Das Haus wurde in den 90er-Jahren gebaut.",
+            "en": "The house was built in the 1990s."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Jeg trener alltid ___ {tid}.",
+      "answer": "om",
+      "options": [
+        "om",
+        "i",
+        "ved",
+        "av"
+      ],
+      "explanation": "«Om» + bestemt form om noe som gjentar seg: om morgenen, om sommeren. «I sommer» uten -en betyr denne sommeren.",
+      "level": 2,
+      "tags": [
+        "tema:tid",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-om-vane-morgenen",
+          "text": "morgenen",
+          "alternatives": [
+            "på"
+          ],
+          "translations": {
+            "de": "Ich trainiere immer morgens.",
+            "en": "I always work out in the morning."
+          }
+        },
+        {
+          "id": "p-tpl-om-vane-formiddagen",
+          "text": "formiddagen",
+          "alternatives": [
+            "på"
+          ],
+          "translations": {
+            "de": "Ich trainiere immer vormittags.",
+            "en": "I always work out in the late morning."
+          }
+        },
+        {
+          "id": "p-tpl-om-vane-ettermiddagen",
+          "text": "ettermiddagen",
+          "alternatives": [
+            "på"
+          ],
+          "translations": {
+            "de": "Ich trainiere immer nachmittags.",
+            "en": "I always work out in the afternoon."
+          }
+        },
+        {
+          "id": "p-tpl-om-vane-kvelden",
+          "text": "kvelden",
+          "alternatives": [
+            "på"
+          ],
+          "translations": {
+            "de": "Ich trainiere immer abends.",
+            "en": "I always work out in the evening."
+          }
+        },
+        {
+          "id": "p-tpl-om-vane-varen",
+          "text": "våren",
+          "alternatives": [
+            "på"
+          ],
+          "translations": {
+            "de": "Ich trainiere immer im Frühling.",
+            "en": "I always work out in the spring."
+          }
+        },
+        {
+          "id": "p-tpl-om-vane-sommeren",
+          "text": "sommeren",
+          "alternatives": [
+            "på"
+          ],
+          "translations": {
+            "de": "Ich trainiere immer im Sommer.",
+            "en": "I always work out in the summer."
+          }
+        },
+        {
+          "id": "p-tpl-om-vane-hosten",
+          "text": "høsten",
+          "alternatives": [
+            "på"
+          ],
+          "translations": {
+            "de": "Ich trainiere immer im Herbst.",
+            "en": "I always work out in the autumn."
+          }
+        },
+        {
+          "id": "p-tpl-om-vane-vinteren",
+          "text": "vinteren",
+          "alternatives": [
+            "på"
+          ],
+          "translations": {
+            "de": "Ich trainiere immer im Winter.",
+            "en": "I always work out in the winter."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Vi drar til Italia ___ {tid}.",
+      "answer": "i",
+      "options": [
+        "i",
+        "om",
+        "på",
+        "ved"
+      ],
+      "explanation": "«I» + tidsord uten endelse peker på et bestemt, nært tidspunkt: i sommer, i kveld, i morgen. Vaner tar «om sommeren».",
+      "level": 2,
+      "tags": [
+        "tema:tid",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-i-naert-tidspunkt-morgen",
+          "text": "morgen",
+          "translations": {
+            "de": "Wir fahren morgen nach Italien.",
+            "en": "We are going to Italy tomorrow."
+          }
+        },
+        {
+          "id": "p-tpl-i-naert-tidspunkt-ettermiddag",
+          "text": "ettermiddag",
+          "translations": {
+            "de": "Wir fahren heute Nachmittag nach Italien.",
+            "en": "We are going to Italy this afternoon."
+          }
+        },
+        {
+          "id": "p-tpl-i-naert-tidspunkt-kveld",
+          "text": "kveld",
+          "translations": {
+            "de": "Wir fahren heute Abend nach Italien.",
+            "en": "We are going to Italy this evening."
+          }
+        },
+        {
+          "id": "p-tpl-i-naert-tidspunkt-var",
+          "text": "vår",
+          "translations": {
+            "de": "Wir fahren diesen Frühling nach Italien.",
+            "en": "We are going to Italy this spring."
+          }
+        },
+        {
+          "id": "p-tpl-i-naert-tidspunkt-sommer",
+          "text": "sommer",
+          "translations": {
+            "de": "Wir fahren diesen Sommer nach Italien.",
+            "en": "We are going to Italy this summer."
+          }
+        },
+        {
+          "id": "p-tpl-i-naert-tidspunkt-host",
+          "text": "høst",
+          "translations": {
+            "de": "Wir fahren diesen Herbst nach Italien.",
+            "en": "We are going to Italy this autumn."
+          }
+        },
+        {
+          "id": "p-tpl-i-naert-tidspunkt-vinter",
+          "text": "vinter",
+          "translations": {
+            "de": "Wir fahren diesen Winter nach Italien.",
+            "en": "We are going to Italy this winter."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Jeg traff henne ___ {tid}.",
+      "answer": "i",
+      "options": [
+        "i",
+        "på",
+        "om",
+        "ved"
+      ],
+      "explanation": "Faste tidsuttrykk for det som nettopp var, tar «i»: i går, i morges, i fjor.",
+      "level": 2,
+      "tags": [
+        "tema:tid",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-i-fortid-gar",
+          "text": "går",
+          "translations": {
+            "de": "Ich habe sie gestern getroffen.",
+            "en": "I met her yesterday."
+          }
+        },
+        {
+          "id": "p-tpl-i-fortid-gar-kveld",
+          "text": "går kveld",
+          "translations": {
+            "de": "Ich habe sie gestern Abend getroffen.",
+            "en": "I met her last night."
+          }
+        },
+        {
+          "id": "p-tpl-i-fortid-forgars",
+          "text": "forgårs",
+          "translations": {
+            "de": "Ich habe sie vorgestern getroffen.",
+            "en": "I met her the day before yesterday."
+          }
+        },
+        {
+          "id": "p-tpl-i-fortid-morges",
+          "text": "morges",
+          "translations": {
+            "de": "Ich habe sie heute Morgen getroffen.",
+            "en": "I met her this morning."
+          }
+        },
+        {
+          "id": "p-tpl-i-fortid-fjor",
+          "text": "fjor",
+          "translations": {
+            "de": "Ich habe sie letztes Jahr getroffen.",
+            "en": "I met her last year."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Møtet starter ___ {tidsrom}, så vi må skynde oss.",
+      "answer": "om",
+      "options": [
+        "om",
+        "i",
+        "på",
+        "ved"
+      ],
+      "explanation": "«Om» + tidsrom = så lang tid fra nå. «I fem minutter» betyr varighet.",
+      "level": 2,
+      "tags": [
+        "tema:tid",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-om-tidsrom-framover-to-minutter",
+          "text": "to minutter",
+          "translations": {
+            "de": "Das Meeting beginnt in zwei Minuten, also müssen wir uns beeilen.",
+            "en": "The meeting starts in two minutes, so we have to hurry."
+          }
+        },
+        {
+          "id": "p-tpl-om-tidsrom-framover-fem-minutter",
+          "text": "fem minutter",
+          "translations": {
+            "de": "Das Meeting beginnt in fünf Minuten, also müssen wir uns beeilen.",
+            "en": "The meeting starts in five minutes, so we have to hurry."
+          }
+        },
+        {
+          "id": "p-tpl-om-tidsrom-framover-ti-minutter",
+          "text": "ti minutter",
+          "translations": {
+            "de": "Das Meeting beginnt in zehn Minuten, also müssen wir uns beeilen.",
+            "en": "The meeting starts in ten minutes, so we have to hurry."
+          }
+        },
+        {
+          "id": "p-tpl-om-tidsrom-framover-et-kvarter",
+          "text": "et kvarter",
+          "translations": {
+            "de": "Das Meeting beginnt in einer Viertelstunde, also müssen wir uns beeilen.",
+            "en": "The meeting starts in a quarter of an hour, so we have to hurry."
+          }
+        },
+        {
+          "id": "p-tpl-om-tidsrom-framover-en-halvtime",
+          "text": "en halvtime",
+          "translations": {
+            "de": "Das Meeting beginnt in einer halben Stunde, also müssen wir uns beeilen.",
+            "en": "The meeting starts in half an hour, so we have to hurry."
+          }
+        },
+        {
+          "id": "p-tpl-om-tidsrom-framover-en-time",
+          "text": "en time",
+          "translations": {
+            "de": "Das Meeting beginnt in einer Stunde, also müssen wir uns beeilen.",
+            "en": "The meeting starts in an hour, so we have to hurry."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Vi var i Spania ___ {tidsrom}.",
+      "answer": "i",
+      "options": [
+        "i",
+        "om",
+        "på",
+        "siden"
+      ],
+      "explanation": "Varighet tar «i»: i to uker. «Om» peker framover, og «siden» krever et startpunkt.",
+      "level": 2,
+      "tags": [
+        "tema:tid",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-i-varighet-tre-dager",
+          "text": "tre dager",
+          "translations": {
+            "de": "Wir waren drei Tage in Spanien.",
+            "en": "We were in Spain for three days."
+          }
+        },
+        {
+          "id": "p-tpl-i-varighet-ti-dager",
+          "text": "ti dager",
+          "translations": {
+            "de": "Wir waren zehn Tage in Spanien.",
+            "en": "We were in Spain for ten days."
+          }
+        },
+        {
+          "id": "p-tpl-i-varighet-to-uker",
+          "text": "to uker",
+          "translations": {
+            "de": "Wir waren zwei Wochen in Spanien.",
+            "en": "We were in Spain for two weeks."
+          }
+        },
+        {
+          "id": "p-tpl-i-varighet-en-maned",
+          "text": "en måned",
+          "translations": {
+            "de": "Wir waren einen Monat in Spanien.",
+            "en": "We were in Spain for a month."
+          }
+        },
+        {
+          "id": "p-tpl-i-varighet-et-halvt-ar",
+          "text": "et halvt år",
+          "translations": {
+            "de": "Wir waren ein halbes Jahr in Spanien.",
+            "en": "We were in Spain for six months."
+          }
+        },
+        {
+          "id": "p-tpl-i-varighet-fire-ar",
+          "text": "fire år",
+          "translations": {
+            "de": "Wir waren vier Jahre in Spanien.",
+            "en": "We were in Spain for four years."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Vi flyttet hit for {tidsrom} ___.",
+      "answer": "siden",
+      "options": [
+        "siden",
+        "om",
+        "etter",
+        "i"
+      ],
+      "explanation": "«For … siden» = så lang tid tilbake fra nå. Tysk «vor zwei Jahren» blir ikke «før».",
+      "level": 2,
+      "tags": [
+        "tema:tid",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-for-siden-en-uke",
+          "text": "en uke",
+          "translations": {
+            "de": "Wir sind vor einer Woche hierher gezogen.",
+            "en": "We moved here a week ago."
+          }
+        },
+        {
+          "id": "p-tpl-for-siden-tre-maneder",
+          "text": "tre måneder",
+          "translations": {
+            "de": "Wir sind vor drei Monaten hierher gezogen.",
+            "en": "We moved here three months ago."
+          }
+        },
+        {
+          "id": "p-tpl-for-siden-et-halvt-ar",
+          "text": "et halvt år",
+          "translations": {
+            "de": "Wir sind vor einem halben Jahr hierher gezogen.",
+            "en": "We moved here six months ago."
+          }
+        },
+        {
+          "id": "p-tpl-for-siden-to-ar",
+          "text": "to år",
+          "translations": {
+            "de": "Wir sind vor zwei Jahren hierher gezogen.",
+            "en": "We moved here two years ago."
+          }
+        },
+        {
+          "id": "p-tpl-for-siden-ti-ar",
+          "text": "ti år",
+          "translations": {
+            "de": "Wir sind vor zehn Jahren hierher gezogen.",
+            "en": "We moved here ten years ago."
+          }
+        },
+        {
+          "id": "p-tpl-for-siden-lenge",
+          "text": "lenge",
+          "translations": {
+            "de": "Wir sind vor langer Zeit hierher gezogen.",
+            "en": "We moved here a long time ago."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Jeg har lært norsk ___ {start}.",
+      "answer": "siden",
+      "options": [
+        "siden",
+        "om",
+        "på",
+        "ved"
+      ],
+      "explanation": "«Siden» + startpunkt når noe fortsatt pågår. Med en varighet bruker man «i»: i to år.",
+      "level": 2,
+      "tags": [
+        "tema:tid",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-siden-startpunkt-2019",
+          "text": "2019",
+          "translations": {
+            "de": "Ich lerne seit 2019 Norwegisch.",
+            "en": "I have been learning Norwegian since 2019."
+          }
+        },
+        {
+          "id": "p-tpl-siden-startpunkt-2021",
+          "text": "2021",
+          "translations": {
+            "de": "Ich lerne seit 2021 Norwegisch.",
+            "en": "I have been learning Norwegian since 2021."
+          }
+        },
+        {
+          "id": "p-tpl-siden-startpunkt-januar",
+          "text": "januar",
+          "translations": {
+            "de": "Ich lerne seit Januar Norwegisch.",
+            "en": "I have been learning Norwegian since January."
+          }
+        },
+        {
+          "id": "p-tpl-siden-startpunkt-mars",
+          "text": "mars",
+          "translations": {
+            "de": "Ich lerne seit März Norwegisch.",
+            "en": "I have been learning Norwegian since March."
+          }
+        },
+        {
+          "id": "p-tpl-siden-startpunkt-oktober",
+          "text": "oktober",
+          "translations": {
+            "de": "Ich lerne seit Oktober Norwegisch.",
+            "en": "I have been learning Norwegian since October."
+          }
+        },
+        {
+          "id": "p-tpl-siden-startpunkt-forrige-uke",
+          "text": "forrige uke",
+          "translations": {
+            "de": "Ich lerne seit letzter Woche Norwegisch.",
+            "en": "I have been learning Norwegian since last week."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Det er forbudt å bruke mobilen ___ {hendelse}.",
+      "answer": "under",
+      "options": [
+        "under",
+        "mot",
+        "hos",
+        "blant"
+      ],
+      "explanation": "«Under» om tid = mens noe pågår: under eksamen, under møtet.",
+      "level": 2,
+      "tags": [
+        "tema:tid",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-under-hendelse-eksamen",
+          "text": "eksamen",
+          "translations": {
+            "de": "Es ist verboten, während der Prüfung das Handy zu benutzen.",
+            "en": "It is forbidden to use your phone during the exam."
+          }
+        },
+        {
+          "id": "p-tpl-under-hendelse-moetet",
+          "text": "møtet",
+          "translations": {
+            "de": "Es ist verboten, während des Meetings das Handy zu benutzen.",
+            "en": "It is forbidden to use your phone during the meeting."
+          }
+        },
+        {
+          "id": "p-tpl-under-hendelse-forestillingen",
+          "text": "forestillingen",
+          "translations": {
+            "de": "Es ist verboten, während der Vorstellung das Handy zu benutzen.",
+            "en": "It is forbidden to use your phone during the performance."
+          }
+        },
+        {
+          "id": "p-tpl-under-hendelse-filmen",
+          "text": "filmen",
+          "translations": {
+            "de": "Es ist verboten, während des Films das Handy zu benutzen.",
+            "en": "It is forbidden to use your phone during the film."
+          }
+        },
+        {
+          "id": "p-tpl-under-hendelse-gudstjenesten",
+          "text": "gudstjenesten",
+          "translations": {
+            "de": "Es ist verboten, während des Gottesdienstes das Handy zu benutzen.",
+            "en": "It is forbidden to use your phone during the church service."
+          }
+        },
+        {
+          "id": "p-tpl-under-hendelse-kjoringen",
+          "text": "kjøringen",
+          "translations": {
+            "de": "Es ist verboten, während der Fahrt das Handy zu benutzen.",
+            "en": "It is forbidden to use your phone while driving."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Butikken er stengt ___ {tidsrom}.",
+      "answer": "mellom",
+      "options": [
+        "mellom",
+        "fra",
+        "blant",
+        "om"
+      ],
+      "explanation": "«Mellom» + to tidspunkter bundet sammen med «og». Etter «fra» følger «til».",
+      "level": 2,
+      "tags": [
+        "tema:tid",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-mellom-klokkeslett-tolv-og-ett",
+          "text": "tolv og ett",
+          "translations": {
+            "de": "Das Geschäft ist zwischen zwölf und eins geschlossen.",
+            "en": "The shop is closed between twelve and one."
+          }
+        },
+        {
+          "id": "p-tpl-mellom-klokkeslett-to-og-tre",
+          "text": "to og tre",
+          "translations": {
+            "de": "Das Geschäft ist zwischen zwei und drei geschlossen.",
+            "en": "The shop is closed between two and three."
+          }
+        },
+        {
+          "id": "p-tpl-mellom-klokkeslett-fire-og-fem",
+          "text": "fire og fem",
+          "translations": {
+            "de": "Das Geschäft ist zwischen vier und fünf geschlossen.",
+            "en": "The shop is closed between four and five."
+          }
+        },
+        {
+          "id": "p-tpl-mellom-klokkeslett-halv-tolv-og-halv-ett",
+          "text": "halv tolv og halv ett",
+          "translations": {
+            "de": "Das Geschäft ist zwischen halb zwölf und halb eins geschlossen.",
+            "en": "The shop is closed between half past eleven and half past twelve."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Vi har ventet ___ {noe} i over en time.",
+      "answer": "på",
+      "options": [
+        "på",
+        "for",
+        "etter",
+        "om"
+      ],
+      "explanation": "«Vente på» noe eller noen. Tysk «warten auf».",
+      "level": 1,
+      "tags": [
+        "tema:verb",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-venter-pa-toget",
+          "text": "toget",
+          "translations": {
+            "de": "Wir warten seit über einer Stunde auf den Zug.",
+            "en": "We have been waiting for the train for over an hour."
+          }
+        },
+        {
+          "id": "p-tpl-venter-pa-bussen",
+          "text": "bussen",
+          "translations": {
+            "de": "Wir warten seit über einer Stunde auf den Bus.",
+            "en": "We have been waiting for the bus for over an hour."
+          }
+        },
+        {
+          "id": "p-tpl-venter-pa-taxien",
+          "text": "taxien",
+          "translations": {
+            "de": "Wir warten seit über einer Stunde auf das Taxi.",
+            "en": "We have been waiting for the taxi for over an hour."
+          }
+        },
+        {
+          "id": "p-tpl-venter-pa-deg",
+          "text": "deg",
+          "translations": {
+            "de": "Wir warten seit über einer Stunde auf dich.",
+            "en": "We have been waiting for you for over an hour."
+          }
+        },
+        {
+          "id": "p-tpl-venter-pa-legen",
+          "text": "legen",
+          "translations": {
+            "de": "Wir warten seit über einer Stunde auf den Arzt.",
+            "en": "We have been waiting for the doctor for over an hour."
+          }
+        },
+        {
+          "id": "p-tpl-venter-pa-pizzaen",
+          "text": "pizzaen",
+          "translations": {
+            "de": "Wir warten seit über einer Stunde auf die Pizza.",
+            "en": "We have been waiting for the pizza for over an hour."
+          }
+        },
+        {
+          "id": "p-tpl-venter-pa-svar",
+          "text": "svar",
+          "translations": {
+            "de": "Wir warten seit über einer Stunde auf eine Antwort.",
+            "en": "We have been waiting for an answer for over an hour."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Jeg ser fram ___ {noe}.",
+      "answer": "til",
+      "options": [
+        "til",
+        "på",
+        "for",
+        "etter"
+      ],
+      "explanation": "«Se fram til» noe hyggelig som kommer. Tysk «sich freuen auf» blir ikke «på».",
+      "level": 2,
+      "tags": [
+        "tema:verb",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-ser-fram-til-helgen",
+          "text": "helgen",
+          "translations": {
+            "de": "Ich freue mich aufs Wochenende.",
+            "en": "I am looking forward to the weekend."
+          }
+        },
+        {
+          "id": "p-tpl-ser-fram-til-ferien",
+          "text": "ferien",
+          "translations": {
+            "de": "Ich freue mich auf den Urlaub.",
+            "en": "I am looking forward to the holidays."
+          }
+        },
+        {
+          "id": "p-tpl-ser-fram-til-sommeren",
+          "text": "sommeren",
+          "translations": {
+            "de": "Ich freue mich auf den Sommer.",
+            "en": "I am looking forward to the summer."
+          }
+        },
+        {
+          "id": "p-tpl-ser-fram-til-jula",
+          "text": "jula",
+          "translations": {
+            "de": "Ich freue mich auf Weihnachten.",
+            "en": "I am looking forward to Christmas."
+          }
+        },
+        {
+          "id": "p-tpl-ser-fram-til-konserten",
+          "text": "konserten",
+          "translations": {
+            "de": "Ich freue mich auf das Konzert.",
+            "en": "I am looking forward to the concert."
+          }
+        },
+        {
+          "id": "p-tpl-ser-fram-til-bryllupet",
+          "text": "bryllupet",
+          "translations": {
+            "de": "Ich freue mich auf die Hochzeit.",
+            "en": "I am looking forward to the wedding."
+          }
+        },
+        {
+          "id": "p-tpl-ser-fram-til-a-mote-deg",
+          "text": "å møte deg",
+          "translations": {
+            "de": "Ich freue mich darauf, dich kennenzulernen.",
+            "en": "I am looking forward to meeting you."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Mange barn er redde ___ {noe}.",
+      "answer": "for",
+      "options": [
+        "for",
+        "av",
+        "på",
+        "før"
+      ],
+      "explanation": "«Redd for» noe. Tysk «Angst vor» blir ikke «før».",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-redd-for-morket",
+          "text": "mørket",
+          "translations": {
+            "de": "Viele Kinder haben Angst vor der Dunkelheit.",
+            "en": "Many children are afraid of the dark."
+          }
+        },
+        {
+          "id": "p-tpl-redd-for-hunder",
+          "text": "hunder",
+          "translations": {
+            "de": "Viele Kinder haben Angst vor Hunden.",
+            "en": "Many children are afraid of dogs."
+          }
+        },
+        {
+          "id": "p-tpl-redd-for-edderkopper",
+          "text": "edderkopper",
+          "translations": {
+            "de": "Viele Kinder haben Angst vor Spinnen.",
+            "en": "Many children are afraid of spiders."
+          }
+        },
+        {
+          "id": "p-tpl-redd-for-slanger",
+          "text": "slanger",
+          "translations": {
+            "de": "Viele Kinder haben Angst vor Schlangen.",
+            "en": "Many children are afraid of snakes."
+          }
+        },
+        {
+          "id": "p-tpl-redd-for-tordenvaer",
+          "text": "tordenvær",
+          "translations": {
+            "de": "Viele Kinder haben Angst vor Gewitter.",
+            "en": "Many children are afraid of thunderstorms."
+          }
+        },
+        {
+          "id": "p-tpl-redd-for-tannlegen",
+          "text": "tannlegen",
+          "translations": {
+            "de": "Viele Kinder haben Angst vor dem Zahnarzt.",
+            "en": "Many children are afraid of the dentist."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Han er veldig interessert ___ {emne}.",
+      "answer": "i",
+      "options": [
+        "i",
+        "for",
+        "på",
+        "om"
+      ],
+      "explanation": "«Interessert i» noe. Tysk «sich interessieren für» blir ikke «for».",
+      "level": 2,
+      "tags": [
+        "tema:fast-uttrykk",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-interessert-i-historie",
+          "text": "historie",
+          "translations": {
+            "de": "Er interessiert sich sehr für Geschichte.",
+            "en": "He is very interested in history."
+          }
+        },
+        {
+          "id": "p-tpl-interessert-i-fotball",
+          "text": "fotball",
+          "translations": {
+            "de": "Er interessiert sich sehr für Fußball.",
+            "en": "He is very interested in football."
+          }
+        },
+        {
+          "id": "p-tpl-interessert-i-politikk",
+          "text": "politikk",
+          "translations": {
+            "de": "Er interessiert sich sehr für Politik.",
+            "en": "He is very interested in politics."
+          }
+        },
+        {
+          "id": "p-tpl-interessert-i-kunst",
+          "text": "kunst",
+          "translations": {
+            "de": "Er interessiert sich sehr für Kunst.",
+            "en": "He is very interested in art."
+          }
+        },
+        {
+          "id": "p-tpl-interessert-i-matlaging",
+          "text": "matlaging",
+          "translations": {
+            "de": "Er interessiert sich sehr für Kochen.",
+            "en": "He is very interested in cooking."
+          }
+        },
+        {
+          "id": "p-tpl-interessert-i-sprak",
+          "text": "språk",
+          "translations": {
+            "de": "Er interessiert sich sehr für Sprachen.",
+            "en": "He is very interested in languages."
+          }
+        },
+        {
+          "id": "p-tpl-interessert-i-film",
+          "text": "film",
+          "translations": {
+            "de": "Er interessiert sich sehr für Filme.",
+            "en": "He is very interested in films."
+          }
+        },
+        {
+          "id": "p-tpl-interessert-i-fugler",
+          "text": "fugler",
+          "translations": {
+            "de": "Er interessiert sich sehr für Vögel.",
+            "en": "He is very interested in birds."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Vi reiser ___ {transport} til Trondheim.",
+      "answer": "med",
+      "options": [
+        "med",
+        "av",
+        "ved",
+        "for"
+      ],
+      "explanation": "Transportmiddel tar «med»: med toget, med fly, med bil.",
+      "level": 1,
+      "tags": [
+        "tema:middel",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-med-transport-toget",
+          "text": "toget",
+          "translations": {
+            "de": "Wir reisen mit dem Zug nach Trondheim.",
+            "en": "We are travelling to Trondheim by train."
+          }
+        },
+        {
+          "id": "p-tpl-med-transport-nattoget",
+          "text": "nattoget",
+          "translations": {
+            "de": "Wir reisen mit dem Nachtzug nach Trondheim.",
+            "en": "We are travelling to Trondheim on the night train."
+          }
+        },
+        {
+          "id": "p-tpl-med-transport-bussen",
+          "text": "bussen",
+          "translations": {
+            "de": "Wir reisen mit dem Bus nach Trondheim.",
+            "en": "We are travelling to Trondheim by bus."
+          }
+        },
+        {
+          "id": "p-tpl-med-transport-ekspressbussen",
+          "text": "ekspressbussen",
+          "translations": {
+            "de": "Wir reisen mit dem Expressbus nach Trondheim.",
+            "en": "We are travelling to Trondheim on the express bus."
+          }
+        },
+        {
+          "id": "p-tpl-med-transport-fly",
+          "text": "fly",
+          "translations": {
+            "de": "Wir reisen mit dem Flugzeug nach Trondheim.",
+            "en": "We are travelling to Trondheim by plane."
+          }
+        },
+        {
+          "id": "p-tpl-med-transport-bil",
+          "text": "bil",
+          "translations": {
+            "de": "Wir reisen mit dem Auto nach Trondheim.",
+            "en": "We are travelling to Trondheim by car."
+          }
+        },
+        {
+          "id": "p-tpl-med-transport-hurtigruten",
+          "text": "Hurtigruten",
+          "translations": {
+            "de": "Wir reisen mit der Hurtigruten nach Trondheim.",
+            "en": "We are travelling to Trondheim on the Hurtigruten."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Denne romanen er skrevet ___ {forfatter}.",
+      "answer": "av",
+      "options": [
+        "av",
+        "fra",
+        "hos",
+        "ved"
+      ],
+      "explanation": "Den som utfører handlingen i en passiv setning, tar «av»: skrevet av, malt av, laget av.",
+      "level": 1,
+      "tags": [
+        "tema:middel",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-skrevet-av-forfatter-knut-hamsun",
+          "text": "Knut Hamsun",
+          "translations": {
+            "de": "Dieser Roman wurde von Knut Hamsun geschrieben.",
+            "en": "This novel was written by Knut Hamsun."
+          }
+        },
+        {
+          "id": "p-tpl-skrevet-av-forfatter-sigrid-undset",
+          "text": "Sigrid Undset",
+          "translations": {
+            "de": "Dieser Roman wurde von Sigrid Undset geschrieben.",
+            "en": "This novel was written by Sigrid Undset."
+          }
+        },
+        {
+          "id": "p-tpl-skrevet-av-forfatter-jon-fosse",
+          "text": "Jon Fosse",
+          "translations": {
+            "de": "Dieser Roman wurde von Jon Fosse geschrieben.",
+            "en": "This novel was written by Jon Fosse."
+          }
+        },
+        {
+          "id": "p-tpl-skrevet-av-forfatter-jo-nesbo",
+          "text": "Jo Nesbø",
+          "translations": {
+            "de": "Dieser Roman wurde von Jo Nesbø geschrieben.",
+            "en": "This novel was written by Jo Nesbø."
+          }
+        },
+        {
+          "id": "p-tpl-skrevet-av-forfatter-karl-ove-knausgard",
+          "text": "Karl Ove Knausgård",
+          "translations": {
+            "de": "Dieser Roman wurde von Karl Ove Knausgård geschrieben.",
+            "en": "This novel was written by Karl Ove Knausgård."
+          }
+        },
+        {
+          "id": "p-tpl-skrevet-av-forfatter-maja-lunde",
+          "text": "Maja Lunde",
+          "translations": {
+            "de": "Dieser Roman wurde von Maja Lunde geschrieben.",
+            "en": "This novel was written by Maja Lunde."
+          }
+        },
+        {
+          "id": "p-tpl-skrevet-av-forfatter-jostein-gaarder",
+          "text": "Jostein Gaarder",
+          "translations": {
+            "de": "Dieser Roman wurde von Jostein Gaarder geschrieben.",
+            "en": "This novel was written by Jostein Gaarder."
+          }
+        },
+        {
+          "id": "p-tpl-skrevet-av-forfatter-anne-b-ragde",
+          "text": "Anne B. Ragde",
+          "translations": {
+            "de": "Dieser Roman wurde von Anne B. Ragde geschrieben.",
+            "en": "This novel was written by Anne B. Ragde."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Bordet er laget ___ {materiale}.",
+      "answer": "av",
+      "options": [
+        "av",
+        "fra",
+        "til",
+        "om"
+      ],
+      "explanation": "Materiale tar «av»: laget av tre, bygd av stein. Tysk «aus» blir ikke «fra».",
+      "level": 2,
+      "tags": [
+        "tema:middel",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-laget-av-materiale-tre",
+          "text": "tre",
+          "alternatives": [
+            "i"
+          ],
+          "translations": {
+            "de": "Der Tisch ist aus Holz.",
+            "en": "The table is made of wood."
+          }
+        },
+        {
+          "id": "p-tpl-laget-av-materiale-eik",
+          "text": "eik",
+          "alternatives": [
+            "i"
+          ],
+          "translations": {
+            "de": "Der Tisch ist aus Eiche.",
+            "en": "The table is made of oak."
+          }
+        },
+        {
+          "id": "p-tpl-laget-av-materiale-glass",
+          "text": "glass",
+          "alternatives": [
+            "i"
+          ],
+          "translations": {
+            "de": "Der Tisch ist aus Glas.",
+            "en": "The table is made of glass."
+          }
+        },
+        {
+          "id": "p-tpl-laget-av-materiale-stein",
+          "text": "stein",
+          "alternatives": [
+            "i"
+          ],
+          "translations": {
+            "de": "Der Tisch ist aus Stein.",
+            "en": "The table is made of stone."
+          }
+        },
+        {
+          "id": "p-tpl-laget-av-materiale-marmor",
+          "text": "marmor",
+          "alternatives": [
+            "i"
+          ],
+          "translations": {
+            "de": "Der Tisch ist aus Marmor.",
+            "en": "The table is made of marble."
+          }
+        },
+        {
+          "id": "p-tpl-laget-av-materiale-plast",
+          "text": "plast",
+          "alternatives": [
+            "i"
+          ],
+          "translations": {
+            "de": "Der Tisch ist aus Kunststoff.",
+            "en": "The table is made of plastic."
+          }
+        },
+        {
+          "id": "p-tpl-laget-av-materiale-metall",
+          "text": "metall",
+          "alternatives": [
+            "i"
+          ],
+          "translations": {
+            "de": "Der Tisch ist aus Metall.",
+            "en": "The table is made of metal."
+          }
+        }
+      ]
+    },
+    {
+      "pattern": "Hun skrev brevet ___ {språk}.",
+      "answer": "på",
+      "options": [
+        "på",
+        "i",
+        "med",
+        "av"
+      ],
+      "explanation": "Språk tar «på»: på norsk, på engelsk. Tysk «auf Norwegisch» stemmer her.",
+      "level": 1,
+      "tags": [
+        "tema:middel",
+        "kilde:mal"
+      ],
+      "fillers": [
+        {
+          "id": "p-tpl-pa-sprak-norsk",
+          "text": "norsk",
+          "translations": {
+            "de": "Sie hat den Brief auf Norwegisch geschrieben.",
+            "en": "She wrote the letter in Norwegian."
+          }
+        },
+        {
+          "id": "p-tpl-pa-sprak-nynorsk",
+          "text": "nynorsk",
+          "translations": {
+            "de": "Sie hat den Brief auf Nynorsk geschrieben.",
+            "en": "She wrote the letter in Nynorsk."
+          }
+        },
+        {
+          "id": "p-tpl-pa-sprak-engelsk",
+          "text": "engelsk",
+          "translations": {
+            "de": "Sie hat den Brief auf Englisch geschrieben.",
+            "en": "She wrote the letter in English."
+          }
+        },
+        {
+          "id": "p-tpl-pa-sprak-tysk",
+          "text": "tysk",
+          "translations": {
+            "de": "Sie hat den Brief auf Deutsch geschrieben.",
+            "en": "She wrote the letter in German."
+          }
+        },
+        {
+          "id": "p-tpl-pa-sprak-svensk",
+          "text": "svensk",
+          "translations": {
+            "de": "Sie hat den Brief auf Schwedisch geschrieben.",
+            "en": "She wrote the letter in Swedish."
+          }
+        },
+        {
+          "id": "p-tpl-pa-sprak-fransk",
+          "text": "fransk",
+          "translations": {
+            "de": "Sie hat den Brief auf Französisch geschrieben.",
+            "en": "She wrote the letter in French."
+          }
+        },
+        {
+          "id": "p-tpl-pa-sprak-spansk",
+          "text": "spansk",
+          "translations": {
+            "de": "Sie hat den Brief auf Spanisch geschrieben.",
+            "en": "She wrote the letter in Spanish."
+          }
+        }
+      ]
+    }
+  ]
+}

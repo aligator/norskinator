@@ -9,7 +9,7 @@ keeps its own license:
 
 | Part | License | Where |
 | --- | --- | --- |
-| Tatoeba sentences and generated exercises | CC BY 2.0 FR | `src/decks/prepositions/exercises.json` |
+| Tatoeba sentences and generated exercises | CC BY 2.0 FR | `src/decks/prepositions/tatoeba.json` |
 | Fonts (Literata, Atkinson Hyperlegible) | SIL OFL 1.1 | bundled via Fontsource |
 | Lit | BSD-3-Clause | bundled into the app's JavaScript |
 
@@ -34,10 +34,12 @@ button on an exercise lists them and links each sentence back to
 no longer exists on Tatoeba are listed without a name.
 
 Sentences are used as published, apart from blanking out the word an exercise
-asks for; the © panel says so.
+asks for; the © panel says so. Where Tatoeba has no German or English
+translation, the app shows one written by AI (`overrides.json`), marked as
+an AI translation in the © panel; the Norwegian sentence keeps its credit.
 
-Hand-written exercises (the curated set in `src/decks/`) are original to this
-project.
+The authored exercises (`src/decks/prepositions/authored.json`) and their
+translations were written with AI for this project and are part of it.
 
 ## Fonts
 

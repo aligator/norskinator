@@ -99,7 +99,7 @@ export class DeckList extends LitElement {
   protected readonly storeController = new StoreController(this);
 
   protected override render(): TemplateResult {
-    const counts = deckCounts(store.state.exercises, store.state.cards, Date.now());
+    const counts = deckCounts(store.state.items, store.state.cards, Date.now());
     const disabled = store.state.settings.disabledDeckIds;
 
     return html`
@@ -112,7 +112,7 @@ export class DeckList extends LitElement {
 
   #renderDeck(deck: Deck, counts: DeckCounts | undefined, disabled: boolean): TemplateResult {
     // Only the very first load shows skeletons; a reload after a toggle keeps the rows (and focus).
-    if (store.state.exercises.length === 0 && store.state.status !== 'ready' && !disabled) {
+    if (store.state.items.length === 0 && store.state.status !== 'ready' && !disabled) {
       return html`<li><div class="skeleton" aria-hidden="true"></div></li>`;
     }
 

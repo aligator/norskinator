@@ -232,7 +232,24 @@ export class PracticeSession extends LitElement {
       case 'question': {
         // A new question always starts at the top, wherever the last feedback left the page.
         globalThis.scrollTo({ top: 0 });
-        this.renderRoot.querySelector<HTMLElement>('#question-heading')?.focus({ preventScroll: true });
+
+        // Typing needs the field focused (and the keyboard up on phones); choices start at the heading.
+        const card = this.renderRoot.querySelector<ExerciseCard>('exercise-card');
+        const focusHeading = (): void => {
+          this.renderRoot.querySelector<HTMLElement>('#question-heading')?.focus({ preventScroll: true });
+        };
+
+        if (card === null) {
+          focusHeading();
+
+          return;
+        }
+
+        void card.updateComplete.then(() => {
+          if (!card.focusAnswerField()) {
+            focusHeading();
+          }
+        });
       }
     }
   }

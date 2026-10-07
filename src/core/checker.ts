@@ -2,7 +2,7 @@
 import type { Exercise } from './types.ts';
 
 /** Case- and whitespace-insensitive, and trailing punctuation never fails an answer. */
-function normalize(value: string): string {
+export function normalizeAnswer(value: string): string {
   return value
     .replace(/[\s.!?]+$/u, '')
     .trim()
@@ -11,21 +11,21 @@ function normalize(value: string): string {
 }
 
 export function isCorrect(exercise: Exercise, given: string): boolean {
-  const candidate = normalize(given);
+  const candidate = normalizeAnswer(given);
 
   switch (exercise.kind) {
     case 'multiple-choice': {
-      return candidate === normalize(exercise.answer);
+      return candidate === normalizeAnswer(exercise.answer);
     }
 
     case 'type-in': {
-      if (candidate === normalize(exercise.answer)) {
+      if (candidate === normalizeAnswer(exercise.answer)) {
         return true;
       }
 
       const alternatives = exercise.alternatives ?? [];
 
-      return alternatives.some((alternative) => normalize(alternative) === candidate);
+      return alternatives.some((alternative) => normalizeAnswer(alternative) === candidate);
     }
   }
 }

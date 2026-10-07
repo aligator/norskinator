@@ -107,7 +107,7 @@ export class MasteryList extends LitElement {
       return html`<p class="empty">Laster …</p>`;
     }
 
-    const groups = groupByDeck(tagMastery(store.state.exercises, store.state.cards));
+    const groups = groupByDeck(tagMastery(store.state.items, store.state.cards));
 
     return html`${[...groups.entries()].map(([deckId, entries]) => this.#renderDeck(deckId, entries))}`;
   }

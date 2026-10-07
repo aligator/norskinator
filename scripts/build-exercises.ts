@@ -1,6 +1,6 @@
 /**
  * Turns the raw Tatoeba exports in .cache/ into
- * src/decks/prepositions/exercises.json.
+ * src/decks/prepositions/tatoeba.json.
  *
  * Strategy: find bokmål sentences that contain exactly one occurrence of a
  * target preposition, blank it out, and offer distractors from the same
@@ -30,7 +30,7 @@ import type {
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CACHE_DIR = join(ROOT, '.cache');
-const OUT_FILE = join(ROOT, 'src', 'decks', 'prepositions', 'exercises.json');
+const OUT_FILE = join(ROOT, 'src', 'decks', 'prepositions', 'tatoeba.json');
 
 const BUNDLE_VERSION = 1;
 
@@ -730,7 +730,8 @@ async function main(): Promise<void> {
   };
 
   await mkdir(dirname(OUT_FILE), { recursive: true });
-  await writeFile(OUT_FILE, `${JSON.stringify(bundle)}\n`, 'utf8');
+  // Indented for readable diffs; Vite strips the whitespace when bundling.
+  await writeFile(OUT_FILE, `${JSON.stringify(bundle, null, 2)}\n`, 'utf8');
 
   console.log(`wrote ${items.length} items -> ${OUT_FILE}`);
   console.log(summarize(items));

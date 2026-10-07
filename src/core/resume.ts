@@ -1,13 +1,13 @@
 /**
  * Turns a running session into a storable snapshot and back.
  *
- * The snapshot holds exercise ids only. Restoring maps them back onto the
- * exercises that are loaded now, so a deck that was disabled or regenerated
- * in the meantime shrinks the session instead of breaking it.
+ * The snapshot holds item ids and task types only. Restoring rebuilds the
+ * exercises from the items that are loaded now, so a deck that was disabled
+ * or regenerated in the meantime shrinks the session instead of breaking it.
  */
 import type { PersistedSession } from './storage.ts';
 import type { Feedback, SessionState } from './store.ts';
-import type { Exercise } from './types.ts';
+import type { Exercise, ExerciseKind } from './types.ts';
 
 /** A session untouched for longer than this is not resumed; the learner has moved on. */
 export const MAX_RESUME_AGE_MS = 12 * 60 * 60 * 1000;
@@ -20,6 +20,7 @@ export interface ResumedSession {
 export function snapshotSession(session: SessionState, feedback: Feedback | null): PersistedSession {
   return {
     queue: session.queue.map((exercise) => exercise.id),
+    kinds: session.queue.map((exercise) => exercise.kind),
     index: session.index,
     options: session.options,
     answered: session.answered,
@@ -72,13 +73,14 @@ function optionsOf(exercise: Exercise): readonly string[] {
  * nothing worth resuming: a completed or stale session, or one whose
  * remaining exercises no longer exist.
  *
- * `optionsFor` shuffles fresh options when the stored ones no longer match
- * the exercise. `questionShownAt` restarts at `now`, so the reload itself
- * does not count as a slow answer.
+ * `exerciseFor` rebuilds one queue entry, or returns null when its item is
+ * gone. `optionsFor` shuffles fresh options when the stored ones no longer
+ * match the exercise. `questionShownAt` restarts at `now`, so the reload
+ * itself does not count as a slow answer.
  */
 export function restoreSession(
   persisted: PersistedSession,
-  exercises: readonly Exercise[],
+  exerciseFor: (id: string, kind: ExerciseKind) => Exercise | null,
   now: number,
   optionsFor: (exercise: Exercise) => readonly string[],
 ): ResumedSession | null {
@@ -86,14 +88,14 @@ export function restoreSession(
     return null;
   }
 
-  const byId = new Map(exercises.map((exercise) => [exercise.id, exercise]));
+  const rebuilt = persisted.queue.map((id, position) =>
+    exerciseFor(id, persisted.kinds[position] ?? 'multiple-choice'),
+  );
   const queue: Exercise[] = [];
   let index = 0;
 
-  for (const [position, id] of persisted.queue.entries()) {
-    const exercise = byId.get(id);
-
-    if (exercise === undefined) {
+  for (const [position, exercise] of rebuilt.entries()) {
+    if (exercise === null) {
       continue;
     }
 
@@ -107,11 +109,11 @@ export function restoreSession(
   }
 
   const shownId = persisted.queue[persisted.index];
-  const shownExercise = shownId === undefined ? undefined : byId.get(shownId);
+  const shownExercise = rebuilt[persisted.index] ?? null;
   const pending = persisted.feedback;
   let feedback: Feedback | null = null;
 
-  if (pending !== null && shownExercise !== undefined) {
+  if (pending !== null && shownExercise !== null) {
     if (pending.exerciseId === shownId) {
       feedback = {
         exercise: shownExercise,

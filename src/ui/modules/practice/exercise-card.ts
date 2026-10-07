@@ -19,6 +19,9 @@ import { pickTranslation } from './translation.ts';
 /** Above this length options get a full row each instead of a 2×2 grid. */
 const LONG_OPTION = 12;
 
+/** Gap width for typed answers: as wide as the longest common answer («gjennom»). */
+const TYPED_GAP = 7;
+
 const NORWEGIAN_LETTERS = ['æ', 'ø', 'å'] as const;
 
 export class ExerciseCard extends LitElement {
@@ -202,6 +205,15 @@ export class ExerciseCard extends LitElement {
     this.typed = '';
   }
 
+  /** Focuses the text field of a type-in exercise; false when there is none. */
+  focusAnswerField(): boolean {
+    const input = this.renderRoot.querySelector<HTMLInputElement>('input[type="text"]');
+
+    input?.focus({ preventScroll: true });
+
+    return input !== null;
+  }
+
   /** Called by the practice view for the `T` shortcut. */
   toggleTranslation(): void {
     this.showTranslation = !this.showTranslation;
@@ -232,7 +244,9 @@ export class ExerciseCard extends LitElement {
    * answer never re-wraps the sentence.
    */
   #gapWidth(parts: GapParts): string {
-    const longest = Math.max(parts.filled.length, ...this.options.map((option) => option.length), 3);
+    // Without options the gap would otherwise give away the answer's length.
+    const floor = this.exercise.kind === 'type-in' ? TYPED_GAP : 3;
+    const longest = Math.max(parts.filled.length, ...this.options.map((option) => option.length), floor);
 
     return `min-width: ${longest + 1}ch`;
   }

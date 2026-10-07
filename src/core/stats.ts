@@ -1,6 +1,6 @@
 /** Read-only aggregates for the dashboard and statistics views. */
 import { isDue, type CardState } from './srs.ts';
-import type { Exercise } from './types.ts';
+import type { ItemMeta } from './types.ts';
 
 export interface TagMastery {
   readonly deckId: string;
@@ -29,7 +29,7 @@ interface MutableTally {
  * first so the list doubles as "what to practise next".
  */
 export function tagMastery(
-  exercises: readonly Exercise[],
+  exercises: readonly ItemMeta[],
   cards: Readonly<Record<string, CardState>>,
 ): TagMastery[] {
   const tallies = new Map<string, MutableTally & { deckId: string; tag: string }>();
@@ -103,7 +103,7 @@ export interface DeckCounts {
 }
 
 export function deckCounts(
-  exercises: readonly Exercise[],
+  exercises: readonly ItemMeta[],
   cards: Readonly<Record<string, CardState>>,
   now: number,
 ): Map<string, DeckCounts> {

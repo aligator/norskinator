@@ -4,34 +4,38 @@ import { INITIAL_PROGRESS } from './gamification.ts';
 import { MAX_RESUME_AGE_MS } from './resume.ts';
 import { Store } from './store.ts';
 import { SESSION_STORAGE_KEY, type StorageLike } from './storage.ts';
-import type { Deck, Exercise } from './types.ts';
+import type { ClozeItem, DataItem, Deck } from './types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 
-function exercise(id: string): Exercise {
+function item(id: string): ClozeItem {
   return {
-    kind: 'multiple-choice',
+    dataKind: 'cloze',
     id,
     deckId: 'test',
     prompt: 'Jeg bor ___ Norge.',
     solution: 'Jeg bor i Norge.',
     answer: 'i',
-    options: ['i', 'på', 'til', 'av'],
+    distractors: ['på', 'til', 'av'],
     level: 1,
     tags: ['i'],
   };
 }
 
-function deckOf(exercises: readonly Exercise[]): Deck {
+function deckFrom(id: string, load: () => Promise<readonly DataItem[]>): Deck {
   return {
-    id: 'test',
+    id,
     title: 'Test',
     shortTitle: 'Test',
     description: '',
     icon: '🧪',
     tagLabel: 'Tag',
-    load: async () => exercises,
+    sources: [{ dataKind: 'cloze', tasks: ['multiple-choice'], load }],
   };
+}
+
+function deckOf(items: readonly DataItem[]): Deck {
+  return deckFrom('test', async () => items);
 }
 
 function fakeStorage(): StorageLike {
@@ -54,7 +58,7 @@ interface Harness {
   setNow(value: number): void;
 }
 
-async function createHarness(exercises: readonly Exercise[]): Promise<Harness> {
+async function createHarness(exercises: readonly DataItem[]): Promise<Harness> {
   const storage = fakeStorage();
   let clock = NOW;
 
@@ -77,7 +81,7 @@ async function createHarness(exercises: readonly Exercise[]): Promise<Harness> {
 }
 
 /** A second store on the same storage, as after a page reload. */
-async function reopen(storage: StorageLike, exercises: readonly Exercise[], now: number): Promise<Store> {
+async function reopen(storage: StorageLike, exercises: readonly DataItem[], now: number): Promise<Store> {
   const store = new Store({ decks: [deckOf(exercises)], storage, now: () => now, random: () => 0 });
 
   await store.init();
@@ -86,14 +90,14 @@ async function reopen(storage: StorageLike, exercises: readonly Exercise[], now:
 }
 
 /** A deck whose load resolves only when the test says so. */
-function deferredDeck(id: string, exercises: readonly Exercise[]): { deck: Deck; resolve: () => void } {
+function deferredDeck(id: string, exercises: readonly DataItem[]): { deck: Deck; resolve: () => void } {
   let release: () => void = () => undefined;
   const gate = new Promise<void>((resolve) => {
     release = resolve;
   });
 
   return {
-    deck: { ...deckOf(exercises), id, load: async () => gate.then(() => exercises) },
+    deck: deckFrom(id, async () => gate.then(() => exercises)),
     resolve: () => {
       release();
     },
@@ -102,7 +106,7 @@ function deferredDeck(id: string, exercises: readonly Exercise[]): { deck: Deck;
 
 describe('Store', () => {
   it('stops saving when a newer app version has written the data', async () => {
-    const { store, storage } = await createHarness([exercise('a')]);
+    const { store, storage } = await createHarness([item('a')]);
     const newer = JSON.stringify({ version: 99, progress: { xp: 5000 }, futureField: true });
 
     storage.setItem('norskinator.state', newer);
@@ -116,7 +120,7 @@ describe('Store', () => {
   });
 
   it('extends the streak only when the whole session is completed', async () => {
-    const { store } = await createHarness([exercise('a')]);
+    const { store } = await createHarness([item('a')]);
     store.startSession();
     store.answer('i');
 
@@ -130,7 +134,7 @@ describe('Store', () => {
   });
 
   it('does not count a quit session towards the streak', async () => {
-    const { store } = await createHarness([exercise('a'), exercise('b')]);
+    const { store } = await createHarness([item('a'), item('b')]);
     store.startSession();
     store.answer('i');
     store.next();
@@ -140,20 +144,17 @@ describe('Store', () => {
     expect(store.state.progress.lastSessionDay).toBeNull();
   });
 
-  it('loads decks and exposes their exercises', async () => {
-    const { store } = await createHarness([exercise('a')]);
+  it('loads decks and exposes their items', async () => {
+    const { store } = await createHarness([item('a')]);
 
     expect(store.state.status).toBe('ready');
-    expect(store.state.exercises).toHaveLength(1);
+    expect(store.state.items).toHaveLength(1);
   });
 
   it('reports an error instead of throwing when a deck fails to load', async () => {
-    const failing: Deck = {
-      ...deckOf([]),
-      load: async () => {
-        throw new Error('nettverk nede');
-      },
-    };
+    const failing = deckFrom('test', async () => {
+      throw new Error('nettverk nede');
+    });
 
     const store = new Store({ decks: [failing], storage: fakeStorage(), now: () => NOW });
     await store.init();
@@ -163,7 +164,7 @@ describe('Store', () => {
   });
 
   it('scores a correct answer, awards XP and advances', async () => {
-    const { store } = await createHarness([exercise('a')]);
+    const { store } = await createHarness([item('a')]);
     store.startSession();
 
     store.answer('i');
@@ -178,7 +179,7 @@ describe('Store', () => {
   });
 
   it('requeues an exercise only once, however often it is missed', async () => {
-    const { store } = await createHarness([exercise('a')]);
+    const { store } = await createHarness([item('a')]);
     store.startSession();
 
     store.answer('på');
@@ -196,7 +197,7 @@ describe('Store', () => {
   });
 
   it('requeues a wrong answer so the exercise comes back in the same session', async () => {
-    const { store } = await createHarness([exercise('a')]);
+    const { store } = await createHarness([item('a')]);
     store.startSession();
 
     store.answer('på');
@@ -207,7 +208,7 @@ describe('Store', () => {
   });
 
   it('ignores a second answer while the feedback is showing', async () => {
-    const { store } = await createHarness([exercise('a')]);
+    const { store } = await createHarness([item('a')]);
     store.startSession();
 
     store.answer('i');
@@ -217,7 +218,7 @@ describe('Store', () => {
   });
 
   it('shuffles options per presentation without losing any', async () => {
-    const { store } = await createHarness([exercise('a')]);
+    const { store } = await createHarness([item('a')]);
     store.startSession();
 
     const shown = store.state.session?.options ?? [];
@@ -229,12 +230,12 @@ describe('Store', () => {
     vi.useFakeTimers();
 
     try {
-      const { store, storage } = await createHarness([exercise('a')]);
+      const { store, storage } = await createHarness([item('a')]);
       store.startSession();
       store.answer('i');
       store.flush();
 
-      const revived = new Store({ decks: [deckOf([exercise('a')])], storage, now: () => NOW });
+      const revived = new Store({ decks: [deckOf([item('a')])], storage, now: () => NOW });
 
       expect(revived.state.progress.totalAnswers).toBe(1);
       expect(revived.state.cards['a']?.reps).toBe(1);
@@ -244,7 +245,7 @@ describe('Store', () => {
   });
 
   it('starts an empty session when nothing is due', async () => {
-    const { store, setNow } = await createHarness([exercise('a')]);
+    const { store, setNow } = await createHarness([item('a')]);
     store.startSession();
     store.answer('i');
     store.next();
@@ -256,7 +257,7 @@ describe('Store', () => {
   });
 
   it('clears progress and session on reset but keeps settings and the daily goal', async () => {
-    const { store, storage } = await createHarness([exercise('a')]);
+    const { store, storage } = await createHarness([item('a')]);
     store.updateSettings({ theme: 'dark', newPerSession: 5 });
     store.setDailyGoal(40);
     store.startSession();
@@ -270,7 +271,7 @@ describe('Store', () => {
     expect(store.state.settings.theme).toBe('dark');
     expect(storage.getItem(SESSION_STORAGE_KEY)).toBeNull();
 
-    const revived = new Store({ decks: [deckOf([exercise('a')])], storage, now: () => NOW });
+    const revived = new Store({ decks: [deckOf([item('a')])], storage, now: () => NOW });
 
     expect(revived.state.progress.totalAnswers).toBe(0);
     expect(revived.state.progress.dailyGoal).toBe(40);
@@ -278,7 +279,7 @@ describe('Store', () => {
   });
 
   it('ignores next() until the current exercise is answered', async () => {
-    const { store } = await createHarness([exercise('a'), exercise('b')]);
+    const { store } = await createHarness([item('a'), item('b')]);
     store.startSession();
 
     store.next();
@@ -289,7 +290,7 @@ describe('Store', () => {
   });
 
   it('clamps the number of new exercises per session', async () => {
-    const { store } = await createHarness([exercise('a')]);
+    const { store } = await createHarness([item('a')]);
 
     store.updateSettings({ newPerSession: 999 });
     expect(store.state.settings.newPerSession).toBe(50);
@@ -299,8 +300,8 @@ describe('Store', () => {
   });
 
   it('keeps the newest deck selection when an older load finishes last', async () => {
-    const slow = deferredDeck('slow', [{ ...exercise('old'), deckId: 'slow' }]);
-    const fast = deferredDeck('fast', [{ ...exercise('new'), deckId: 'fast' }]);
+    const slow = deferredDeck('slow', [{ ...item('old'), deckId: 'slow' }]);
+    const fast = deferredDeck('fast', [{ ...item('new'), deckId: 'fast' }]);
     const store = new Store({ decks: [slow.deck, fast.deck], storage: fakeStorage(), now: () => NOW });
 
     const firstLoad = store.init();
@@ -314,11 +315,11 @@ describe('Store', () => {
     slow.resolve();
     await firstLoad;
 
-    expect(store.state.exercises.map((item) => item.id)).toEqual(['new']);
+    expect(store.state.items.map((entry) => entry.id)).toEqual(['new']);
   });
 
   it('keeps disabled decks disabled across a reset', async () => {
-    const { store } = await createHarness([exercise('a')]);
+    const { store } = await createHarness([item('a')]);
 
     store.updateSettings({ disabledDeckIds: ['test'] });
     await vi.waitFor(() => {
@@ -328,15 +329,15 @@ describe('Store', () => {
     store.resetProgress();
 
     expect(store.state.settings.disabledDeckIds).toEqual(['test']);
-    expect(store.state.exercises).toHaveLength(0);
+    expect(store.state.items).toHaveLength(0);
   });
 
   it('adopts progress written by another tab without ending the session', async () => {
     vi.useFakeTimers();
 
     try {
-      const { store, storage } = await createHarness([exercise('a'), exercise('b')]);
-      const otherTab = new Store({ decks: [deckOf([exercise('a')])], storage, now: () => NOW });
+      const { store, storage } = await createHarness([item('a'), item('b')]);
+      const otherTab = new Store({ decks: [deckOf([item('a')])], storage, now: () => NOW });
 
       store.startSession();
       otherTab.setDailyGoal(50);
@@ -352,7 +353,7 @@ describe('Store', () => {
   });
 
   it('notifies subscribers and stops after unsubscribe', async () => {
-    const { store } = await createHarness([exercise('a')]);
+    const { store } = await createHarness([item('a')]);
     const listener = vi.fn();
 
     const unsubscribe = store.subscribe(listener);
@@ -368,7 +369,7 @@ describe('Store', () => {
   });
 
   it('resumes a session after a reload with its exercise, index and feedback', async () => {
-    const exercises = [exercise('a'), exercise('b'), exercise('c')];
+    const exercises = [item('a'), item('b'), item('c')];
     const { store, storage } = await createHarness(exercises);
     store.startSession();
     store.answer('i');
@@ -391,7 +392,7 @@ describe('Store', () => {
   });
 
   it('grades a resumed exercise from the moment it is shown again', async () => {
-    const exercises = [exercise('a'), exercise('b')];
+    const exercises = [item('a'), item('b')];
     const { store, storage } = await createHarness(exercises);
     store.startSession();
 
@@ -402,7 +403,7 @@ describe('Store', () => {
   });
 
   it('drops a stale session instead of resuming it', async () => {
-    const exercises = [exercise('a'), exercise('b')];
+    const exercises = [item('a'), item('b')];
     const { store, storage } = await createHarness(exercises);
     store.startSession();
     store.answer('i');
@@ -414,7 +415,7 @@ describe('Store', () => {
   });
 
   it('resumes without exercises that were removed in the meantime', async () => {
-    const exercises = [exercise('a'), exercise('b'), exercise('c')];
+    const exercises = [item('a'), item('b'), item('c')];
     const { store, storage } = await createHarness(exercises);
     store.startSession();
     store.answer('i');
@@ -430,7 +431,7 @@ describe('Store', () => {
   });
 
   it('forgets the session once it is ended or completed', async () => {
-    const exercises = [exercise('a'), exercise('b')];
+    const exercises = [item('a'), item('b')];
     const { store, storage } = await createHarness(exercises);
 
     store.startSession();
@@ -450,7 +451,7 @@ describe('Store', () => {
   });
 
   it('does not adopt the session of another tab', async () => {
-    const exercises = [exercise('a'), exercise('b')];
+    const exercises = [item('a'), item('b')];
     const { store, storage } = await createHarness(exercises);
     const otherTab = await reopen(storage, exercises, NOW);
 

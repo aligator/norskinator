@@ -1,11 +1,17 @@
 /**
  * Small © button on an exercise that opens who wrote its sentence and
  * translations, and under which licence. CC BY asks for the author of every
- * sentence; tucking it behind a button keeps the exercise uncluttered.
+ * corpus sentence; tucking it behind a button keeps the exercise uncluttered.
  */
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
-import { LANGUAGE_CODES, type ExerciseSource, type LanguageCode, type SourceCredit } from '../../../core/types.ts';
+import {
+  LANGUAGE_CODES,
+  type ExerciseSource,
+  type LanguageCode,
+  type SourceCredit,
+  type TranslationCredit,
+} from '../../../core/types.ts';
 import { creditIcon } from '../../components/icons.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 
@@ -130,17 +136,30 @@ export class ExerciseCredits extends LitElement {
             return credit === undefined
               ? nothing
               : html`<dt>${LANGUAGE_NAMES[lang]}</dt>
-                  <dd>${this.#renderCredit(credit)}</dd>`;
+                  <dd>${this.#renderTranslationCredit(credit)}</dd>`;
           })}
         </dl>
-        <p class="note">Setningen vises med en luke i stedet for det ordet du skal finne.</p>
+        ${this.source.url === undefined
+          ? nothing
+          : html`<p class="note">Setningen vises med en luke i stedet for det ordet du skal finne.</p>`}
       </div>
     `;
   }
 
+  #renderTranslationCredit(credit: TranslationCredit): TemplateResult {
+    if ('machine' in credit) {
+      return html`KI-oversettelse av den norske setningen`;
+    }
+
+    return this.#renderCredit(credit);
+  }
+
+  /** Corpus sentences are named by id and linked; the project's own ones by name only. */
   #renderCredit(credit: SourceCredit): TemplateResult {
-    const label = `${this.source.name} #${credit.id}`;
-    const link = credit.url === undefined ? label : html`<a href=${credit.url} target="_blank" rel="noopener">${label}</a>`;
+    const link =
+      credit.url === undefined
+        ? this.source.name
+        : html`<a href=${credit.url} target="_blank" rel="noopener">${this.source.name} #${credit.id}</a>`;
     const author = credit.author === undefined ? nothing : html` av <span translate="no">${credit.author}</span>`;
     const license = credit.license === undefined ? nothing : html` · ${credit.license}`;
 

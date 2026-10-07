@@ -25,7 +25,6 @@ export class AboutSection extends LitElement {
     const source = sourceUrl();
 
     return html`
-      <h2 class="eyebrow">Om</h2>
       <legal-link></legal-link>
       <p class="version">Versjon <strong class="tabular">${appVersion()}</strong></p>
       <p>

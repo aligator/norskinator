@@ -1,11 +1,11 @@
 /**
- * Result of one answer: verdict, solution, explanation, translation
- * and the continue button. Sits in the thumb zone where the options were.
+ * Result of one answer: verdict, solution, other accepted answers,
+ * explanation, translation and the continue button. Sits in the thumb zone where the options were.
  */
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
 import { XP_GOAL_BONUS, badgeById } from '../../../core/gamification.ts';
-import { gapParts, solutionText } from '../../../core/checker.ts';
+import { gapParts, normalizeAnswer, solutionText } from '../../../core/checker.ts';
 import type { Feedback } from '../../../core/store.ts';
 import type { TranslationLanguage } from '../../../core/storage.ts';
 import { checkIcon, crossIcon, speakerIcon } from '../../components/icons.ts';
@@ -199,6 +199,10 @@ export class FeedbackSheet extends LitElement {
         max-width: 60ch;
       }
 
+      .also-correct {
+        color: var(--fg-muted);
+      }
+
       @keyframes rise {
         from {
           transform: translateY(100%);
@@ -254,6 +258,27 @@ export class FeedbackSheet extends LitElement {
     this.dailyGoal = 20;
   }
 
+  /** A typed answer can be right in more than one way; show the ones the learner did not use. */
+  #renderAlsoCorrect(): TemplateResult | typeof nothing {
+    const exercise = this.feedback.exercise;
+
+    if (exercise.kind !== 'type-in') {
+      return nothing;
+    }
+
+    // The solution line already shows the main answer, so it only repeats here when another word was accepted.
+    const given = normalizeAnswer(this.feedback.given);
+    const others = [exercise.answer, ...(exercise.alternatives ?? [])].filter(
+      (word) => normalizeAnswer(word) !== given && (this.feedback.correct || word !== exercise.answer),
+    );
+
+    if (others.length === 0) {
+      return nothing;
+    }
+
+    return html`<p class="also-correct">Også riktig: <span lang="nb">${others.join(', ')}</span></p>`;
+  }
+
   focusContinue(): void {
     this.renderRoot.querySelector<HTMLButtonElement>('.continue')?.focus({ preventScroll: true });
   }
@@ -298,6 +323,7 @@ export class FeedbackSheet extends LitElement {
               </button>`
             : nothing}
         </div>
+        ${this.#renderAlsoCorrect()}
         ${exercise.explanation === undefined
           ? nothing
           : html`<p id="explanation" class="explanation" lang="nb">${exercise.explanation}</p>`}

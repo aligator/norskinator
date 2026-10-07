@@ -120,7 +120,7 @@ export class TodayCard extends LitElement {
     const now = Date.now();
     const info = levelInfo(state.progress.xp);
 
-    const preview = sessionPreview(state.exercises, state.cards, state.settings.newPerSession, now);
+    const preview = sessionPreview(state.items, state.cards, state.settings.newPerSession, now);
 
     return html`
       <div class="grid">

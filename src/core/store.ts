@@ -25,7 +25,8 @@ import {
   type Settings,
   type StorageLike,
 } from './storage.ts';
-import type { Deck, Exercise } from './types.ts';
+import { loadDeck, presentAs, presentItem } from './tasks.ts';
+import type { Deck, Exercise, ExerciseKind, PlayableItem } from './types.ts';
 
 export type LoadStatus = 'idle' | 'loading' | 'ready' | 'error';
 
@@ -64,7 +65,8 @@ export interface SessionState {
 export interface AppState {
   readonly status: LoadStatus;
   readonly error: string | null;
-  readonly exercises: readonly Exercise[];
+  /** Items of every enabled deck; a session presents them as exercises. */
+  readonly items: readonly PlayableItem[];
   readonly progress: Progress;
   readonly cards: Readonly<Record<string, CardState>>;
   readonly settings: Settings;
@@ -123,7 +125,7 @@ export class Store {
     this.#state = {
       status: 'idle',
       error: null,
-      exercises: [],
+      items: [],
       progress: persisted.progress,
       cards: persisted.cards,
       settings: persisted.settings,
@@ -174,9 +176,9 @@ export class Store {
   startSession(deckIds?: readonly string[], options: StartOptions = {}): void {
     const now = this.#now();
     const scope = deckIds ?? this.#decks.map((deck) => deck.id);
-    const pool = this.#state.exercises.filter((exercise) => scope.includes(exercise.deckId));
+    const pool = this.#state.items.filter((item) => scope.includes(item.deckId));
 
-    const queue = buildSession(
+    const picked = buildSession(
       pool,
       this.#state.cards,
       {
@@ -185,6 +187,12 @@ export class Store {
       },
       now,
     );
+
+    const queue = picked.flatMap((item) => {
+      const exercise = presentItem(item, this.#state.settings.taskWeights, this.#random);
+
+      return exercise === null ? [] : [exercise];
+    });
 
     if (queue.length === 0) {
       this.#patch({ session: null, feedback: null });
@@ -324,7 +332,7 @@ export class Store {
     this.#persist();
 
     if (!sameIds(previous.disabledDeckIds, settings.disabledDeckIds)) {
-      this.#patch({ status: 'idle', exercises: [], session: null, feedback: null });
+      this.#patch({ status: 'idle', items: [], session: null, feedback: null });
       void this.init();
     }
   }
@@ -406,13 +414,13 @@ export class Store {
     try {
       const disabled = this.#state.settings.disabledDeckIds;
       const enabled = this.#decks.filter((deck) => !disabled.includes(deck.id));
-      const loaded = await Promise.all(enabled.map((deck) => deck.load()));
+      const loaded = await Promise.all(enabled.map((deck) => loadDeck(deck)));
 
       if (generation !== this.#loadGeneration) {
         return;
       }
 
-      this.#patch({ status: 'ready', exercises: loaded.flat() });
+      this.#patch({ status: 'ready', items: loaded.flat() });
       this.#resumePending();
     } catch (error) {
       if (generation !== this.#loadGeneration) {
@@ -436,8 +444,11 @@ export class Store {
       return;
     }
 
-    const resumed = restoreSession(pending, this.#state.exercises, this.#now(), (exercise) =>
-      this.#optionsFor(exercise),
+    const resumed = restoreSession(
+      pending,
+      (id, kind) => this.#exerciseFor(id, kind),
+      this.#now(),
+      (exercise) => this.#optionsFor(exercise),
     );
 
     if (resumed === null) {
@@ -447,6 +458,20 @@ export class Store {
     }
 
     this.#patch({ session: resumed.session, feedback: resumed.feedback });
+  }
+
+  /**
+   * Rebuilds a stored queue entry as the task type it was shown as. If that
+   * type no longer fits (deck changed, item edited), a new one is picked.
+   */
+  #exerciseFor(id: string, kind: ExerciseKind): Exercise | null {
+    const item = this.#state.items.find((candidate) => candidate.id === id);
+
+    if (item === undefined) {
+      return null;
+    }
+
+    return presentAs(item, kind) ?? presentItem(item, this.#state.settings.taskWeights, this.#random);
   }
 
   #optionsFor(exercise: Exercise): string[] {

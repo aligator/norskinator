@@ -1,0 +1,5688 @@
+{
+  "version": 1,
+  "items": {
+    "p-t10269629": {
+      "exclude": true,
+      "translations": {
+        "de": "Früher kam er jeden Tag bei uns vorbei."
+      },
+      "note": "Spelling errors in sentence: 'og komme' should be 'å komme', 'vær dag' should be 'hver dag'."
+    },
+    "p-t1035128": {
+      "translations": {
+        "de": "Früher habe ich davon geträumt, Astronaut zu werden."
+      }
+    },
+    "p-t1035140": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Ich wäre zufrieden, wenn du mich mit Bargeld bezahlen würdest."
+      },
+      "note": "'betale i kontanter' is at least as idiomatic as 'med kontanter'; 'i' is one of the MC options."
+    },
+    "p-t1063561": {
+      "translations": {
+        "de": "Was für ein Glückspilz er ist!"
+      }
+    },
+    "p-t10717618": {
+      "translations": {
+        "de": "Lass uns essen, bevor das Essen kalt wird."
+      }
+    },
+    "p-t10726819": {
+      "translations": {
+        "de": "Ein Fluss fließt durch das Tal."
+      }
+    },
+    "p-t10841209": {
+      "translations": {
+        "de": "Dieses Auto musste direkt vor der Bank anhalten."
+      }
+    },
+    "p-t10843952": {
+      "translations": {
+        "de": "Du hast nur drei Möglichkeiten, zwischen denen du wählen kannst."
+      }
+    },
+    "p-t10940128": {
+      "translations": {
+        "de": "Er gehört zu meinen Lieblingsautoren."
+      }
+    },
+    "p-t10940790": {
+      "translations": {
+        "en": "Tom actually managed to swim across the river."
+      }
+    },
+    "p-t10940814": {
+      "translations": {
+        "de": "Er baute eine Hütte am Meer."
+      }
+    },
+    "p-t10941235": {
+      "translations": {
+        "de": "Wir müssen ohne Tom anfangen."
+      }
+    },
+    "p-t10942655": {
+      "translations": {
+        "de": "Ich habe mir seinen Bleistift ausgeliehen, ohne zu fragen."
+      }
+    },
+    "p-t10942813": {
+      "translations": {
+        "en": "She was at my place."
+      }
+    },
+    "p-t10942996": {
+      "translations": {
+        "de": "Tom ist nicht weit hinter uns."
+      }
+    },
+    "p-t10943026": {
+      "alternatives": [
+        "til"
+      ],
+      "translations": {
+        "de": "Kann Algerien Produkte in die ganze Welt exportieren?"
+      },
+      "note": "'eksportere produkter til hele verden' is fully natural with the same meaning."
+    },
+    "p-t10943155": {
+      "translations": {
+        "de": "Wir sehen uns bei Tom."
+      }
+    },
+    "p-t10943228": {
+      "translations": {
+        "de": "Tom sitzt am Fenster."
+      }
+    },
+    "p-t10943556": {
+      "translations": {
+        "de": "Wirf mich nicht über Bord."
+      }
+    },
+    "p-t10943885": {
+      "translations": {
+        "de": "Ein Auto hielt vor mir an."
+      }
+    },
+    "p-t10944124": {
+      "translations": {
+        "de": "Ich war direkt vor Tom."
+      }
+    },
+    "p-t11063911": {
+      "translations": {
+        "de": "Was hast du unter dem Hut?"
+      }
+    },
+    "p-t11070998": {
+      "translations": {
+        "de": "Warum bist du unter dem Tisch?"
+      }
+    },
+    "p-t11148555": {
+      "exclude": true,
+      "translations": {
+        "de": "Die Schüler haben das Gedicht auswendig gelernt und es vor ihren Klassenkameraden und ihrer Lehrerin heruntergeleiert.",
+        "en": "The pupils learned the poem by heart and rattled it off in front of their classmates and teacher."
+      },
+      "note": "Ungrammatical: 'dikten' should be 'diktet'; tense mix 'har pugget ... og lirte'."
+    },
+    "p-t11148588": {
+      "exclude": true,
+      "translations": {
+        "de": "Ich muss diesen Stoff durchackern und mir die wichtigsten Informationen und Daten einprägen."
+      },
+      "note": "Ungrammatical: 'denne materialen' should be 'dette materialet'; 'viktigste informasjonene og datene' is malformed."
+    },
+    "p-t11923740": {
+      "translations": {
+        "en": "It was dark under the bridge."
+      }
+    },
+    "p-t11923858": {
+      "translations": {
+        "en": "Tom held the coin between his thumb and index finger."
+      }
+    },
+    "p-t11923983": {
+      "translations": {
+        "en": "He hid behind a bush."
+      }
+    },
+    "p-t11926214": {
+      "translations": {
+        "en": "You look ten years younger without a beard."
+      }
+    },
+    "p-t11931276": {
+      "translations": {
+        "en": "Only one thing helps against that: chocolate!"
+      }
+    },
+    "p-t11931391": {
+      "translations": {
+        "en": "Without air we would die."
+      }
+    },
+    "p-t11931464": {
+      "translations": {
+        "en": "Tom spent Christmas behind bars."
+      }
+    },
+    "p-t12259512": {
+      "translations": {
+        "de": "Er stand an der Tür.",
+        "en": "He stood by the door."
+      }
+    },
+    "p-t12474168": {
+      "exclude": true,
+      "translations": {
+        "de": "Wir sind stolz auf unsere Fortschritte."
+      },
+      "note": "Ungrammatical agreement: 'Vi er stolt' should be 'Vi er stolte'."
+    },
+    "p-t12576053": {
+      "translations": {
+        "de": "Er hat etwas unter dem Arm."
+      }
+    },
+    "p-t12576078": {
+      "translations": {
+        "de": "Tom nahm eine Abkürzung durch eine dunkle Gasse."
+      }
+    },
+    "p-t12576121": {
+      "translations": {
+        "de": "Ich war direkt vor ihm."
+      }
+    },
+    "p-t13158727": {
+      "translations": {
+        "de": "Wie können wir uns vor dem Coronavirus schützen?",
+        "en": "How can we protect ourselves against the coronavirus?"
+      }
+    },
+    "p-t13205028": {
+      "translations": {
+        "de": "Was ist eigentlich zwischen Tom und Mary passiert?"
+      }
+    },
+    "p-t1346434": {
+      "alternatives": [
+        "forbi"
+      ],
+      "translations": {
+        "de": "Der Winter ist vorbei und der Frühling ist gekommen."
+      },
+      "note": "'Vinteren er forbi' means exactly the same."
+    },
+    "p-t1346439": {
+      "translations": {
+        "de": "Tom ist es egal, was Mary macht."
+      }
+    },
+    "p-t1346442": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Kakerlaken verstecken sich tagsüber."
+      },
+      "note": "'på dagen' (= during the daytime) is common and natural in this habitual sense."
+    },
+    "p-t1346444": {
+      "translations": {
+        "de": "Was für eine schöne Rose das ist!"
+      }
+    },
+    "p-t1346449": {
+      "translations": {
+        "de": "Ein großer Junge steht am Tor."
+      }
+    },
+    "p-t1346460": {
+      "translations": {
+        "de": "Ihr wurde heiß vor Wut."
+      }
+    },
+    "p-t1400853": {
+      "translations": {
+        "de": "Er ist nicht aus Hokkaido."
+      }
+    },
+    "p-t14047512": {
+      "translations": {
+        "de": "Ich bin überrascht, dass das so billig ist."
+      }
+    },
+    "p-t14047513": {
+      "translations": {
+        "de": "Ich bin überrascht, dass hier nicht mehr Leute sind."
+      }
+    },
+    "p-t14047560": {
+      "translations": {
+        "de": "Wir müssen das fertig machen, bevor Tom kommt."
+      }
+    },
+    "p-t14047579": {
+      "translations": {
+        "de": "Tom kam drei Minuten vor Mary an."
+      }
+    },
+    "p-t14047581": {
+      "translations": {
+        "de": "Warum bist du gegangen, ohne etwas zu sagen?"
+      }
+    },
+    "p-t14047582": {
+      "translations": {
+        "de": "Warum seid ihr gegangen, ohne etwas zu sagen?"
+      }
+    },
+    "p-t14047583": {
+      "translations": {
+        "de": "Warum bist du abgehauen, ohne etwas zu sagen?"
+      }
+    },
+    "p-t14047584": {
+      "translations": {
+        "de": "Warum seid ihr abgehauen, ohne etwas zu sagen?"
+      }
+    },
+    "p-t14047612": {
+      "translations": {
+        "de": "Ich versuche, Geld zu sparen, indem ich zu Hause esse."
+      }
+    },
+    "p-t14048188": {
+      "translations": {
+        "de": "Ich habe seit dem Frühstück nichts gegessen und bin sehr hungrig."
+      }
+    },
+    "p-t14048214": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Ich war von ihr enttäuscht."
+      },
+      "note": "'skuffet på henne' is equally common and keeps the meaning."
+    },
+    "p-t14048286": {
+      "translations": {
+        "de": "Wasch dir vor dem Essen die Hände."
+      }
+    },
+    "p-t14048287": {
+      "translations": {
+        "de": "Wasch dir vor den Mahlzeiten die Hände."
+      }
+    },
+    "p-t1425509": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Mein Großvater war während des Krieges Soldat."
+      },
+      "note": "'var soldat i krigen' is natural and means the same."
+    },
+    "p-t1437936": {
+      "translations": {
+        "de": "Ich suche meine Uhr."
+      }
+    },
+    "p-t1437955": {
+      "translations": {
+        "en": "I didn't expect Marie to come so early."
+      }
+    },
+    "p-t1437965": {
+      "translations": {
+        "de": "Eines ihrer Autos ist blau und die anderen sind rot."
+      }
+    },
+    "p-t1451088": {
+      "translations": {
+        "de": "Der Burj Khalifa ist derzeit der höchste Wolkenkratzer der Welt."
+      }
+    },
+    "p-t1472183": {
+      "translations": {
+        "en": "The day is drawing to a close."
+      }
+    },
+    "p-t1472206": {
+      "translations": {
+        "en": "No one can take away from you what you have experienced and seen."
+      }
+    },
+    "p-t1489916": {
+      "translations": {
+        "de": "Er bezahlt mit Kreditkarte."
+      }
+    },
+    "p-t1632947": {
+      "translations": {
+        "en": "This shirt will look good with a purple tie."
+      }
+    },
+    "p-t1680119": {
+      "translations": {
+        "de": "Kein Lebewesen kann ohne Luft leben."
+      }
+    },
+    "p-t1680248": {
+      "translations": {
+        "de": "Gäbe es kein Wasser, gäbe es kein Leben."
+      }
+    },
+    "p-t1680251": {
+      "translations": {
+        "de": "Nichts kann ohne Sauerstoff leben."
+      }
+    },
+    "p-t1680423": {
+      "translations": {
+        "de": "Menschen waren nie dazu bestimmt, ewig zu leben."
+      }
+    },
+    "p-t1680426": {
+      "translations": {
+        "de": "Es ist gar nicht selten, über neunzig Jahre alt zu werden."
+      }
+    },
+    "p-t1680427": {
+      "alternatives": [
+        "ved"
+      ],
+      "translations": {
+        "de": "Die Fantasie beeinflusst alle Bereiche unseres Lebens."
+      },
+      "note": "'alle sider ved livene våre' is equally idiomatic."
+    },
+    "p-t1680428": {
+      "translations": {
+        "de": "Ich kann nicht ohne Fernseher leben."
+      }
+    },
+    "p-t1680432": {
+      "alternatives": [
+        "til"
+      ],
+      "translations": {
+        "de": "Das Leben beginnt, wenn du bereit bist zu leben."
+      },
+      "note": "'klar til å leve' is standard and means the same."
+    },
+    "p-t1680433": {
+      "translations": {
+        "de": "Kannst du dir vorstellen, wie unser Leben ohne Elektrizität gewesen wäre?"
+      }
+    },
+    "p-t1680435": {
+      "translations": {
+        "de": "Du solltest nach deinen Prinzipien leben."
+      }
+    },
+    "p-t1680437": {
+      "translations": {
+        "de": "Du musst nach deinen Prinzipien leben."
+      }
+    },
+    "p-t1680613": {
+      "translations": {
+        "en": "I come from Norway."
+      }
+    },
+    "p-t1680621": {
+      "translations": {
+        "de": "Sprachen wie Französisch, Italienisch und Spanisch stammen vom Lateinischen ab."
+      }
+    },
+    "p-t1680624": {
+      "alternatives": [
+        "hvis"
+      ],
+      "translations": {
+        "de": "Es wäre viel besser gewesen, wenn die Spanier nicht in Lateinamerika eingefallen wären."
+      },
+      "note": "Conditional 'om' = 'hvis' here; same meaning."
+    },
+    "p-t1680627": {
+      "exclude": true,
+      "note": "Ungrammatical: 'utvikle' needs the reflexive here ('Fransk utviklet seg fra latin')."
+    },
+    "p-t1680638": {
+      "translations": {
+        "de": "Die Hälfte des Englischen ist bloß schlechtes Latein."
+      }
+    },
+    "p-t1680744": {
+      "exclude": true,
+      "translations": {
+        "de": "Er ist ganz in das Lateinstudium vertieft."
+      },
+      "note": "'oppslukt med' is unidiomatic; the correct collocation is 'oppslukt av', so the given answer is wrong."
+    },
+    "p-t1680889": {
+      "translations": {
+        "de": "Ich sollte dich nicht darum bitten müssen, deine Hausaufgaben zu machen."
+      }
+    },
+    "p-t1681112": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Während des Sturms ist der Strom ausgefallen."
+      },
+      "note": "'Strømmen gikk i stormen' is natural and means the same."
+    },
+    "p-t1681133": {
+      "translations": {
+        "de": "Das Kaninchen versteckte sich hinter dem Baum."
+      }
+    },
+    "p-t1681159": {
+      "translations": {
+        "de": "Wird das von meiner Versicherung abgedeckt?"
+      }
+    },
+    "p-t1681251": {
+      "translations": {
+        "de": "Ganz in der Nähe des Waldes steht eine Hütte."
+      }
+    },
+    "p-t1681253": {
+      "alternatives": [
+        "for",
+        "i"
+      ],
+      "translations": {
+        "de": "Diese Theorie trifft auf Japan zu."
+      },
+      "note": "'sann for Japan' is the most idiomatic; 'sann i Japan' (MC option) also fits the meaning 'holds for Japan'."
+    },
+    "p-t1681255": {
+      "translations": {
+        "de": "Über wen redet ihr?"
+      }
+    },
+    "p-t1681256": {
+      "translations": {
+        "de": "Mein Bruder ist mit seinem neuen Auto nicht zufrieden."
+      }
+    },
+    "p-t1681260": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "en": "What I know of Norwegian, I taught myself."
+      },
+      "note": "'Det jeg kan i norsk' (knowledge in a subject) is equally natural."
+    },
+    "p-t1681748": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Dieses Haus ist aus Stein gebaut.",
+        "en": "This house is made of stone."
+      },
+      "note": "'i' for material ('laget i stein') is idiomatic Norwegian."
+    },
+    "p-t1681808": {
+      "translations": {
+        "de": "Er ging durch den Wald.",
+        "en": "He walked through the forest."
+      }
+    },
+    "p-t1681816": {
+      "translations": {
+        "de": "Die Welt ist voller Idioten.",
+        "en": "The world is full of idiots."
+      }
+    },
+    "p-t1682627": {
+      "translations": {
+        "de": "Matias kommt aus Uruguay. Er ist Uruguayer.",
+        "en": "Matias is from Uruguay. He is Uruguayan."
+      }
+    },
+    "p-t1682640": {
+      "translations": {
+        "de": "Ich bin zu Hause geblieben, um mich auszuruhen.",
+        "en": "I stayed at home to rest."
+      }
+    },
+    "p-t1682763": {
+      "translations": {
+        "de": "Die Kinder spielen hinter dem Haus.",
+        "en": "The children are playing behind the house."
+      }
+    },
+    "p-t1683362": {
+      "translations": {
+        "de": "Ich opfere viel, um meiner Tochter eine gute Ausbildung zu ermöglichen."
+      }
+    },
+    "p-t1683401": {
+      "alternatives": [
+        "ved",
+        "med"
+      ],
+      "translations": {
+        "de": "Er hat sich den Preis durch harte Arbeit verdient."
+      },
+      "note": "'ved hardt arbeid' and 'med hardt arbeid' are both idiomatic for 'by means of hard work'."
+    },
+    "p-t1683417": {
+      "exclude": true,
+      "translations": {
+        "de": "Um den Garten herum stand eine hohe Mauer."
+      },
+      "note": "'en vegg om hagen' is archaic/unnatural; modern bokmål uses 'rundt hagen'."
+    },
+    "p-t1683428": {
+      "translations": {
+        "de": "Er hat seinen Erfolg dem Glück zu verdanken."
+      }
+    },
+    "p-t1683487": {
+      "alternatives": [
+        "til"
+      ],
+      "translations": {
+        "de": "Wie viel kostet eine Karte für das Konzert?"
+      },
+      "note": "'billett til konserten' is the most common phrasing, same meaning."
+    },
+    "p-t1683505": {
+      "translations": {
+        "de": "Diese Fachbegriffe stammen aus dem Griechischen."
+      }
+    },
+    "p-t1683511": {
+      "exclude": true,
+      "translations": {
+        "de": "John ist seine Kleidung gleichgültig."
+      },
+      "note": "'likegyldig med' is wrong; correct is 'likegyldig til/overfor', and 'til' is an MC option."
+    },
+    "p-t1683512": {
+      "translations": {
+        "de": "Von wem wurde das Buch geschrieben?"
+      }
+    },
+    "p-t1683514": {
+      "translations": {
+        "de": "Ich habe aus tiefster Seele gesprochen."
+      }
+    },
+    "p-t1683516": {
+      "translations": {
+        "de": "Das ist eine wichtige Sache für euch alle."
+      }
+    },
+    "p-t1683518": {
+      "translations": {
+        "en": "Mette Marit's ex-fiancé is still crazy about her."
+      }
+    },
+    "p-t1683628": {
+      "translations": {
+        "de": "Wenn du mir nicht geholfen hättest, wäre ich ertrunken."
+      }
+    },
+    "p-t1683633": {
+      "alternatives": [
+        "til"
+      ],
+      "translations": {
+        "de": "Tom hat ein interessantes Buch für Maria ausgesucht."
+      },
+      "note": "'valgte en bok til Maria' is natural and means the same."
+    },
+    "p-t1683654": {
+      "translations": {
+        "de": "Sie kamen herein, einer nach dem anderen."
+      }
+    },
+    "p-t1685597": {
+      "translations": {
+        "de": "Disketten sind längst veraltet, aber ich habe noch welche und benutze sie weiterhin."
+      }
+    },
+    "p-t1685619": {
+      "translations": {
+        "de": "Bist du schon einmal mit dem Flugzeug gereist?"
+      }
+    },
+    "p-t1685622": {
+      "translations": {
+        "de": "Als ich am Flughafen ankam, sah ich das Flugzeug abheben."
+      }
+    },
+    "p-t1685637": {
+      "translations": {
+        "de": "Unser Flugzeug hob pünktlich um sechs Uhr ab."
+      }
+    },
+    "p-t1685638": {
+      "translations": {
+        "de": "Nach mehreren Verspätungen flog das Flugzeug endlich ab."
+      }
+    },
+    "p-t1686419": {
+      "translations": {
+        "de": "Sie wollte nicht mit ihm sprechen."
+      }
+    },
+    "p-t1686438": {
+      "alternatives": [
+        "forbi"
+      ],
+      "translations": {
+        "de": "Das Spiel ist bald vorbei."
+      },
+      "note": "'Kampen er snart forbi' means the same."
+    },
+    "p-t1686441": {
+      "alternatives": [
+        "forbi"
+      ],
+      "note": "'Spillet er snart forbi' means the same."
+    },
+    "p-t1686448": {
+      "translations": {
+        "de": "Sie gab mir eine Tasse Tee ohne Zucker."
+      }
+    },
+    "p-t1686515": {
+      "exclude": true,
+      "translations": {
+        "de": "Manchmal fällt es ihm schwer, seine Ansichten richtig auszudrücken."
+      },
+      "note": "Reflexive possessive error: 'synspunktene hans' should be 'synspunktene sine' (refers to the subject)."
+    },
+    "p-t1686551": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Der vermisste Junge wurde anhand seiner Kleidung identifiziert."
+      },
+      "note": "'identifisert på klærne' is the more idiomatic collocation, same meaning."
+    },
+    "p-t1686559": {
+      "translations": {
+        "de": "Er wäre beinahe von einem Auto angefahren und getötet worden."
+      }
+    },
+    "p-t1686576": {
+      "translations": {
+        "de": "Wann hast du sie mit ihm tanzen sehen?"
+      }
+    },
+    "p-t1686622": {
+      "translations": {
+        "de": "Ich suche ein gutes Hotel."
+      }
+    },
+    "p-t1688343": {
+      "alternatives": [
+        "for"
+      ],
+      "translations": {
+        "de": "Es gibt nichts, worüber du wütend sein müsstest."
+      },
+      "note": "'sint for noe' is equally idiomatic as 'sint over noe'."
+    },
+    "p-t1688356": {
+      "translations": {
+        "de": "Er nahm seinen Hut ab und verbeugte sich höflich."
+      }
+    },
+    "p-t1688359": {
+      "translations": {
+        "de": "Tom hat mit seiner Freundin Schluss gemacht."
+      }
+    },
+    "p-t1688917": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Dieser Schreibtisch ist aus Holz."
+      },
+      "note": "'i' for material ('laget i tre') is idiomatic Norwegian."
+    },
+    "p-t1688932": {
+      "translations": {
+        "de": "Ich kann nicht durch die Nase atmen."
+      }
+    },
+    "p-t1693091": {
+      "translations": {
+        "en": "The strange celestial object could be seen with the naked eye."
+      }
+    },
+    "p-t1693139": {
+      "translations": {
+        "de": "Ich möchte gern eine Bitte äußern."
+      }
+    },
+    "p-t1693163": {
+      "translations": {
+        "de": "Bitte sehen Sie vom Rauchen ab."
+      }
+    },
+    "p-t1699908": {
+      "alternatives": [
+        "ved"
+      ],
+      "note": "'utfordringen ved å oversette' is equally idiomatic."
+    },
+    "p-t1724769": {
+      "translations": {
+        "de": "Tom wird des Mordes angeklagt."
+      }
+    },
+    "p-t1724787": {
+      "translations": {
+        "de": "Ich mache mir nicht besonders viel aus Blumen."
+      }
+    },
+    "p-t1733069": {
+      "translations": {
+        "en": "Language can seem like a bottomless sea with no boundaries other than the horizon."
+      }
+    },
+    "p-t1763533": {
+      "translations": {
+        "de": "Er starb, bevor der Krankenwagen kam."
+      }
+    },
+    "p-t1789900": {
+      "translations": {
+        "de": "Ich weiß nichts über Frauen."
+      }
+    },
+    "p-t1792088": {
+      "translations": {
+        "en": "Algeria is an important partner for the European Union."
+      }
+    },
+    "p-t1794758": {
+      "translations": {
+        "en": "The future depends on us and our generation."
+      }
+    },
+    "p-t1794763": {
+      "translations": {
+        "en": "The balance between feminine and masculine energy is important."
+      }
+    },
+    "p-t1795344": {
+      "translations": {
+        "en": "Their place is a terrible mess."
+      }
+    },
+    "p-t1800574": {
+      "translations": {
+        "en": "Working, eating, drinking, sleeping, loving: you should do everything in moderation."
+      }
+    },
+    "p-t1838502": {
+      "translations": {
+        "en": "The most important beliefs we have about ourselves, others and the future are called core beliefs."
+      }
+    },
+    "p-t1839701": {
+      "translations": {
+        "de": "Der Gewinner einer Meisterschaft wird Meister genannt.",
+        "en": "The winner of a championship is called a champion."
+      }
+    },
+    "p-t1839789": {
+      "alternatives": [
+        "til"
+      ],
+      "translations": {
+        "en": "What does Maria say about the matter?"
+      },
+      "note": "'Hva sier Maria til saken?' is idiomatic for asking her opinion."
+    },
+    "p-t1839992": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "en": "There is no general, internationally accepted definition of the concept of a city."
+      },
+      "note": "'definisjon på' is at least as common as 'definisjon av'."
+    },
+    "p-t1842578": {
+      "translations": {
+        "en": "I want to make a new proposal – very different from the first one."
+      }
+    },
+    "p-t1846764": {
+      "translations": {
+        "en": "Each researcher will probably devise their own theory to explain this phenomenon."
+      }
+    },
+    "p-t1846779": {
+      "exclude": true,
+      "translations": {
+        "en": "Each researcher will probably work out their own theory to explain this phenomenon."
+      },
+      "note": "V2 word-order error: should be 'Sannsynligvis vil hver forsker ...'."
+    },
+    "p-t1846780": {
+      "translations": {
+        "en": "Each researcher will probably devise their own theory to explain this phenomenon."
+      }
+    },
+    "p-t1846792": {
+      "translations": {
+        "en": "Each researcher will probably work out their own theory to explain this phenomenon."
+      }
+    },
+    "p-t1846862": {
+      "exclude": true,
+      "translations": {
+        "de": "Wahrscheinlich wird jeder Wissenschaftler eine eigene Theorie zur Erklärung dieses Phänomens entwickeln.",
+        "en": "Each researcher will probably develop their own theory to explain this phenomenon."
+      },
+      "note": "V2 word-order error: should be 'Sannsynligvis vil hver forsker ...'."
+    },
+    "p-t1847100": {
+      "translations": {
+        "en": "What do you mean by the word talent?"
+      }
+    },
+    "p-t1850486": {
+      "exclude": true,
+      "translations": {
+        "en": "Unfortunately, many projects remain mere statements of intent – without implementation."
+      },
+      "note": "V2 word-order error: should be 'Mange prosjekter forblir dessverre ...'."
+    },
+    "p-t1865927": {
+      "translations": {
+        "de": "Meiner Meinung nach kann er nicht arbeiten."
+      }
+    },
+    "p-t1866344": {
+      "translations": {
+        "de": "Möchtest du abgesehen davon noch etwas?"
+      }
+    },
+    "p-t1866345": {
+      "translations": {
+        "de": "Sie stritt sich immer mit ihren Brüdern."
+      }
+    },
+    "p-t1866403": {
+      "translations": {
+        "de": "Wir müssen ein Gleichgewicht zwischen Problemen und Lösungen finden.",
+        "en": "We have to find a balance between problems and solutions."
+      }
+    },
+    "p-t1866438": {
+      "translations": {
+        "de": "Jeder Mensch muss ein Gleichgewicht zwischen Problemen und Lösungen finden.",
+        "en": "Every person has to find a balance between problems and solutions."
+      }
+    },
+    "p-t1867086": {
+      "translations": {
+        "en": "Family life is threatened by crises, because it is difficult to combine work and family."
+      }
+    },
+    "p-t1870018": {
+      "alternatives": [
+        "på"
+      ],
+      "note": "'stå opp på morgenen' is as natural as 'om morgenen'."
+    },
+    "p-t1878204": {
+      "translations": {
+        "en": "But this is also a question of time."
+      }
+    },
+    "p-t1878754": {
+      "translations": {
+        "de": "Ich bin mit einem Norweger verheiratet und habe zwei Kinder.",
+        "en": "I am married to a Norwegian and have two children."
+      }
+    },
+    "p-t1902528": {
+      "translations": {
+        "en": "We fear that something has gone wrong with the weather."
+      }
+    },
+    "p-t1906472": {
+      "translations": {
+        "de": "Daran gibt es keinen Zweifel."
+      }
+    },
+    "p-t1906547": {
+      "translations": {
+        "de": "Die Maus läuft vor der hungrigen Katze davon."
+      }
+    },
+    "p-t1906567": {
+      "translations": {
+        "de": "San Marino ist vollständig von Italien umgeben.",
+        "en": "San Marino is completely surrounded by Italy."
+      }
+    },
+    "p-t1906582": {
+      "translations": {
+        "de": "Ich hatte keine Ahnung, wo sich der Platz befand, an dem ich schlafen sollte.",
+        "en": "I had no idea where the place I was supposed to sleep was."
+      }
+    },
+    "p-t1906635": {
+      "translations": {
+        "en": "I had seen a great deal of what the city had to offer."
+      }
+    },
+    "p-t1906718": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "en": "They were surprised by an action that no one had imagined possible."
+      },
+      "note": "'overrasket av' (surprised by) fits equally well and matches the translations."
+    },
+    "p-t1955683": {
+      "alternatives": [
+        "på"
+      ],
+      "note": "'spasere på natten' is as natural as 'om natten'."
+    },
+    "p-t1971185": {
+      "translations": {
+        "de": "Er ist von einem Dämon besessen.",
+        "en": "He is possessed by a demon."
+      }
+    },
+    "p-t1971187": {
+      "translations": {
+        "de": "Sie ist von einem Dämon besessen.",
+        "en": "She is possessed by a demon."
+      }
+    },
+    "p-t1971189": {
+      "translations": {
+        "de": "Es ist von einem Dämon besessen.",
+        "en": "It is possessed by a demon."
+      }
+    },
+    "p-t1971214": {
+      "translations": {
+        "de": "Armut lehrt dich, Brot ohne Butter zu essen."
+      }
+    },
+    "p-t1971271": {
+      "translations": {
+        "de": "Ich nehme an, du musst ein enger Freund von Tom sein."
+      }
+    },
+    "p-t1971288": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "de": "Ich bin klug genug, mir kein Geld von Freunden zu leihen."
+      },
+      "note": "'låne penger av noen' is equally idiomatic."
+    },
+    "p-t1971291": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "de": "Ich habe gelernt, mir nie Geld von Freunden zu leihen."
+      },
+      "note": "'låne penger av noen' is equally idiomatic."
+    },
+    "p-t1971461": {
+      "translations": {
+        "de": "Der Rhein ist die Grenze zwischen Frankreich und Deutschland."
+      }
+    },
+    "p-t1971463": {
+      "translations": {
+        "de": "Der Rhein fließt zwischen Frankreich und Deutschland."
+      }
+    },
+    "p-t1971491": {
+      "translations": {
+        "de": "Wann bist du aus Deutschland zurückgekommen?"
+      }
+    },
+    "p-t1971506": {
+      "translations": {
+        "de": "Die Schweiz liegt zwischen Frankreich, Italien, Österreich und Deutschland."
+      }
+    },
+    "p-t1971507": {
+      "translations": {
+        "de": "Das ist ein Auto, das aus Deutschland importiert wurde."
+      }
+    },
+    "p-t1971511": {
+      "translations": {
+        "de": "Hier ist eine große Karte von Deutschland."
+      }
+    },
+    "p-t1971519": {
+      "translations": {
+        "de": "Ich habe diese Bücher aus Deutschland bestellt."
+      }
+    },
+    "p-t1971523": {
+      "translations": {
+        "de": "Fast alle meine Schallplatten sind aus Deutschland importiert."
+      }
+    },
+    "p-t1971772": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Ich sehe eine Kette aus Gold.",
+        "en": "I see a gold necklace."
+      },
+      "note": "'i' for material ('et kjede i gull') is idiomatic."
+    },
+    "p-t1974082": {
+      "translations": {
+        "de": "Entschuldigung, ich habe eine Frage."
+      }
+    },
+    "p-t1974128": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Dieser Stuhl ist aus Plastik."
+      },
+      "note": "'i' for material ('laget i plastikk') is idiomatic."
+    },
+    "p-t1979500": {
+      "translations": {
+        "de": "Dieses Buch handelt von den Sternen."
+      }
+    },
+    "p-t1979561": {
+      "translations": {
+        "de": "Ich habe das Buch, von dem du sprichst, noch nicht gelesen.",
+        "en": "I still haven't read the book you're talking about."
+      }
+    },
+    "p-t1979607": {
+      "translations": {
+        "de": "Das Mädchen liest unter dem Baum.",
+        "en": "The girl is reading under the tree."
+      }
+    },
+    "p-t1979610": {
+      "translations": {
+        "de": "Da ist ein Mädchen, das unter dem Baum liest."
+      }
+    },
+    "p-t1979649": {
+      "translations": {
+        "de": "Ohne Latein gibt es keine Medizin.",
+        "en": "Without Latin, there is no medicine."
+      }
+    },
+    "p-t1979662": {
+      "translations": {
+        "de": "Die Sonne geht hinter dem Berg unter."
+      }
+    },
+    "p-t1981793": {
+      "translations": {
+        "de": "Sie war nach der Krankheit noch schwach."
+      }
+    },
+    "p-t1983428": {
+      "translations": {
+        "de": "Ich bin in zehn Minuten fertig."
+      }
+    },
+    "p-t1983805": {
+      "alternatives": [
+        "forbi"
+      ],
+      "translations": {
+        "de": "Mit Toms Unruhestiften ist es endlich vorbei."
+      },
+      "note": "'er endelig forbi' means the same."
+    },
+    "p-t1983925": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Toms Finger wurden zerquetscht, als er am Fließband arbeitete."
+      },
+      "note": "'jobbe på samlebåndet' is very common; 'på' is an MC option."
+    },
+    "p-t1983973": {
+      "translations": {
+        "de": "Toms Firma bohrt nach Öl."
+      }
+    },
+    "p-t1983976": {
+      "translations": {
+        "de": "Toms Firma importiert Tee aus Indien."
+      }
+    },
+    "p-t1983978": {
+      "translations": {
+        "de": "Toms Firma importiert Kaffee aus Brasilien."
+      }
+    },
+    "p-t1985253": {
+      "translations": {
+        "de": "Tom ist in wenigen Augenblicken hier."
+      }
+    },
+    "p-t1985280": {
+      "translations": {
+        "de": "Tom kommt bald aus Australien hierher."
+      }
+    },
+    "p-t1985345": {
+      "translations": {
+        "de": "Tom ging um Mitternacht ins Bett."
+      }
+    },
+    "p-t2056538": {
+      "translations": {
+        "en": "I think we are descended from protozoa."
+      }
+    },
+    "p-t2064385": {
+      "translations": {
+        "en": "What do you know about the CIA?"
+      }
+    },
+    "p-t2077312": {
+      "translations": {
+        "de": "Wir kommen aus Russland."
+      }
+    },
+    "p-t2112549": {
+      "translations": {
+        "de": "Er verkaufte sein Auto, ohne zu zögern."
+      }
+    },
+    "p-t2146770": {
+      "translations": {
+        "en": "He gave his assurance that he was not afraid."
+      }
+    },
+    "p-t2195443": {
+      "translations": {
+        "en": "I don't need anything from you."
+      }
+    },
+    "p-t2213916": {
+      "translations": {
+        "en": "How many times a day do you brush your teeth?"
+      }
+    },
+    "p-t2217386": {
+      "translations": {
+        "en": "We should free ourselves from the mistaken notion that Africa is an indivisible whole."
+      }
+    },
+    "p-t2224290": {
+      "alternatives": [
+        "om"
+      ],
+      "translations": {
+        "en": "Tom warned of a meteor."
+      },
+      "note": "'advarte om en meteor' is equally natural; 'om' is an MC option."
+    },
+    "p-t2261092": {
+      "translations": {
+        "en": "We started from scratch."
+      }
+    },
+    "p-t2263470": {
+      "translations": {
+        "en": "Between the head and the body is the neck."
+      }
+    },
+    "p-t2263472": {
+      "translations": {
+        "de": "Der Hals ist das Organ, das zwischen dem Rumpf und dem Kopf sitzt.",
+        "en": "The neck is the organ that sits between the body and the head."
+      }
+    },
+    "p-t2263480": {
+      "translations": {
+        "de": "Die Schulter bildet die Gelenkverbindung zwischen dem Arm und dem Rumpf.",
+        "en": "The shoulder forms the joint between the arm and the body."
+      }
+    },
+    "p-t2280044": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "en": "We were really impressed by this hotel."
+      },
+      "note": "'imponert av' is as standard as 'imponert over'."
+    },
+    "p-t2310582": {
+      "translations": {
+        "en": "I want to learn more about telecommunication systems."
+      }
+    },
+    "p-t2334289": {
+      "translations": {
+        "en": "Quantity says nothing about quality."
+      }
+    },
+    "p-t2335217": {
+      "translations": {
+        "en": "Cyprus is fighting against state bankruptcy."
+      }
+    },
+    "p-t2364253": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "en": "I grabbed his hand and pulled him out of the mud and the bog."
+      },
+      "note": "'trakk ham ut av gjørmen' is the more idiomatic choice, same meaning."
+    },
+    "p-t2389485": {
+      "alternatives": [
+        "på"
+      ],
+      "note": "'på høsten' is equally standard for 'in autumn' (habitual)."
+    },
+    "p-t2417383": {
+      "translations": {
+        "en": "And you expect it to fall from the sky?"
+      }
+    },
+    "p-t2417648": {
+      "translations": {
+        "en": "The light of the new day is already streaming in through the window."
+      }
+    },
+    "p-t2420031": {
+      "translations": {
+        "en": "The couple is still together after forty years of marriage."
+      }
+    },
+    "p-t2420391": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "en": "Who among us doesn't like being famous?"
+      },
+      "note": "'Hvem av oss' is fully natural with the same meaning."
+    },
+    "p-t2421100": {
+      "translations": {
+        "en": "The conflict between Israel and Syria is escalating."
+      }
+    },
+    "p-t2421440": {
+      "translations": {
+        "en": "It's about you and me."
+      }
+    },
+    "p-t2421443": {
+      "translations": {
+        "de": "Es handelt sich um eine exakte Kopie.",
+        "en": "It's a matter of an exact copy."
+      }
+    },
+    "p-t2421445": {
+      "translations": {
+        "en": "I suppose it's about my wording."
+      }
+    },
+    "p-t2430190": {
+      "translations": {
+        "en": "Between the two houses stands a very old and very large linden tree."
+      }
+    },
+    "p-t2430333": {
+      "translations": {
+        "en": "He has proven to have a deep knowledge of the subject."
+      }
+    },
+    "p-t2431353": {
+      "translations": {
+        "en": "He talked without doing anything."
+      }
+    },
+    "p-t2431367": {
+      "translations": {
+        "en": "He has talked without doing anything."
+      }
+    },
+    "p-t2433280": {
+      "alternatives": [
+        "ved"
+      ],
+      "note": "'sitter ved datamaskinen' (at the computer) is equally natural; matches the English 'at my computer'."
+    },
+    "p-t2438174": {
+      "translations": {
+        "de": "Wir haben über viele Dinge gesprochen."
+      }
+    },
+    "p-t2438465": {
+      "translations": {
+        "en": "What is the difference between faith and trust?"
+      }
+    },
+    "p-t2438472": {
+      "exclude": true,
+      "note": "Sentence is unnatural ('Hva er forskjellig fra troen og tillit?') and does not match its translations (difference between faith and trust)."
+    },
+    "p-t2439820": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "en": "Knowledge of foreign languages stimulates brain activity."
+      },
+      "note": "'kunnskaper i fremmede språk' is the standard collocation for language skills."
+    },
+    "p-t2440264": {
+      "translations": {
+        "en": "Do you know of any writers who use several languages?"
+      }
+    },
+    "p-t2440300": {
+      "translations": {
+        "de": "Die Haare wachsen nach Abschluss der Behandlung wieder nach."
+      }
+    },
+    "p-t2440527": {
+      "translations": {
+        "de": "Ich kann mir das Leben ohne dich nicht vorstellen."
+      }
+    },
+    "p-t2440858": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Wann hast du zuletzt Bücher aus der Bibliothek ausgeliehen?"
+      },
+      "note": "'låne bøker på biblioteket' is very common and keeps the meaning; 'på' is one of the MC options."
+    },
+    "p-t2442319": {
+      "translations": {
+        "en": "Maria is gradually beginning to doubt whether her friend is reliable."
+      }
+    },
+    "p-t2455801": {
+      "translations": {
+        "en": "I don't want to learn words without any context."
+      }
+    },
+    "p-t2462453": {
+      "translations": {
+        "de": "Ich habe keine Ahnung, worum es geht.",
+        "en": "I have no idea what it's about."
+      }
+    },
+    "p-t2462456": {
+      "translations": {
+        "en": "I have absolutely no idea what it's about."
+      }
+    },
+    "p-t2469556": {
+      "translations": {
+        "en": "Let me explain to you what I think about all this."
+      }
+    },
+    "p-t2476453": {
+      "translations": {
+        "de": "Tom spielt nicht nach den Regeln."
+      }
+    },
+    "p-t2480851": {
+      "exclude": true,
+      "translations": {
+        "en": "After visiting the music school, our daughter hasn't come home."
+      },
+      "note": "V2 word order violated: should be 'Etter å ha besøkt musikkskolen har datteren vår ikke kommet hjem'."
+    },
+    "p-t2481138": {
+      "translations": {
+        "en": "It's something I've always dreamed of."
+      }
+    },
+    "p-t2493745": {
+      "translations": {
+        "en": "I'm convinced that Maria will never lose hope."
+      }
+    },
+    "p-t2501692": {
+      "alternatives": [
+        "i"
+      ],
+      "note": "'arrangert i alfabetisk rekkefølge' is equally (more) natural; 'i' is one of the MC options."
+    },
+    "p-t2521766": {
+      "translations": {
+        "en": "He gets up at ten past seven."
+      }
+    },
+    "p-t2573084": {
+      "exclude": true,
+      "translations": {
+        "en": "I can't pay the money back before the child benefit comes."
+      },
+      "note": "Typo: duplicated 'ikke ikke' makes the sentence ungrammatical."
+    },
+    "p-t2573246": {
+      "translations": {
+        "en": "But the hysteria subsided and everything stayed as it was."
+      }
+    },
+    "p-t2573251": {
+      "translations": {
+        "en": "He stuck to his opinion."
+      }
+    },
+    "p-t2573756": {
+      "translations": {
+        "en": "You can't just disappear like that without further ado."
+      }
+    },
+    "p-t2575391": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "en": "If a tire punctures at high speed, it can be very dangerous."
+      },
+      "note": "'i høy fart' is an equally idiomatic way to say 'at high speed'."
+    },
+    "p-t2578024": {
+      "translations": {
+        "en": "Almost all medieval philosophy revolved around this question."
+      }
+    },
+    "p-t2581523": {
+      "translations": {
+        "en": "Is there a contradiction between the Bible and reason, or are faith and knowledge compatible?"
+      }
+    },
+    "p-t2582424": {
+      "translations": {
+        "en": "I'm going to start working right after school."
+      }
+    },
+    "p-t2591732": {
+      "translations": {
+        "en": "Even anger that isn't directed at me weighs on me."
+      }
+    },
+    "p-t2591963": {
+      "translations": {
+        "de": "Ich denke mehr über Dinge nach als die meisten anderen.",
+        "en": "I think about things more than most other people do."
+      }
+    },
+    "p-t2592548": {
+      "translations": {
+        "en": "I'm usually among the last to leave a party."
+      }
+    },
+    "p-t2602963": {
+      "exclude": true,
+      "translations": {
+        "de": "Ich habe viel aus seinen Büchern gelernt."
+      },
+      "note": "Not bokmål: Danish/Riksmål spelling 'bøger' (bokmål 'bøker'); 'lærte mye av' would also be more natural."
+    },
+    "p-t2605377": {
+      "translations": {
+        "en": "She is talking about how we have worked."
+      }
+    },
+    "p-t2612154": {
+      "translations": {
+        "en": "My dog is lying at my feet."
+      }
+    },
+    "p-t2613577": {
+      "translations": {
+        "en": "Red are your lips that smile at me."
+      }
+    },
+    "p-t2630152": {
+      "translations": {
+        "en": "The whole relationship is suffering from this, after all."
+      }
+    },
+    "p-t2633920": {
+      "translations": {
+        "en": "Tom rides his moped every day after school."
+      }
+    },
+    "p-t2633970": {
+      "alternatives": [
+        "på"
+      ],
+      "note": "'på morgenen' (habitual) is widely used and accepted alongside 'om morgenen'."
+    },
+    "p-t2633988": {
+      "translations": {
+        "en": "You're not allowed to ride a heavy motorcycle until you're eighteen."
+      }
+    },
+    "p-t2635512": {
+      "translations": {
+        "en": "We have a lot to talk about together."
+      }
+    },
+    "p-t2635555": {
+      "translations": {
+        "en": "After a few days she asked me again."
+      }
+    },
+    "p-t2635565": {
+      "translations": {
+        "en": "Maria lives quite far from the school."
+      }
+    },
+    "p-t2635600": {
+      "alternatives": [
+        "hvis"
+      ],
+      "translations": {
+        "en": "Imagine if her mother is strict!"
+      },
+      "note": "'Tenk hvis ...' is an equally natural way to say 'imagine if'."
+    },
+    "p-t2637091": {
+      "translations": {
+        "en": "Estonia is improving child protection following the Norwegian model."
+      }
+    },
+    "p-t2638728": {
+      "translations": {
+        "en": "I hope he won't say anything about the price."
+      }
+    },
+    "p-t2656844": {
+      "translations": {
+        "en": "She spoke very nicely about you."
+      }
+    },
+    "p-t2659546": {
+      "translations": {
+        "de": "Die Polizei war die ganze Zeit hinter uns her.",
+        "en": "The police were after us the whole time."
+      }
+    },
+    "p-t2659726": {
+      "translations": {
+        "de": "Ohne Ehrlichkeit gibt es keine Ehre.",
+        "en": "Without honesty there is no honor."
+      }
+    },
+    "p-t2659734": {
+      "translations": {
+        "en": "Without honesty there is no honor either."
+      }
+    },
+    "p-t2659876": {
+      "translations": {
+        "en": "People are constantly talking about self-esteem."
+      }
+    },
+    "p-t2660822": {
+      "translations": {
+        "en": "We were far too different and lived separate lives under the same roof."
+      }
+    },
+    "p-t2665580": {
+      "translations": {
+        "en": "What is it you're really striving for?"
+      }
+    },
+    "p-t2665936": {
+      "translations": {
+        "en": "Losing a child is the worst thing you can go through."
+      }
+    },
+    "p-t2665976": {
+      "translations": {
+        "en": "I had to go through a lot."
+      }
+    },
+    "p-t2668546": {
+      "translations": {
+        "en": "I don't care about new contacts."
+      }
+    },
+    "p-t2669971": {
+      "translations": {
+        "en": "The children were with me, after all."
+      }
+    },
+    "p-t2670888": {
+      "exclude": true,
+      "translations": {
+        "en": "After this disappointment I felt that life was meaningless."
+      },
+      "note": "V2 word order violated ('Etter denne skuffelsen jeg syntes' -> 'syntes jeg'); also 'meningsløs' should be 'meningsløst'."
+    },
+    "p-t2671127": {
+      "exclude": true,
+      "translations": {
+        "en": "After this disappointment I need comfort."
+      },
+      "note": "V2 word order violated: should be 'Etter denne skuffelsen trenger jeg trøst'."
+    },
+    "p-t2671258": {
+      "translations": {
+        "en": "We distinguish between living and non-living objects."
+      }
+    },
+    "p-t2671291": {
+      "translations": {
+        "en": "We distinguish between coordinating and subordinating conjunctions."
+      }
+    },
+    "p-t2671303": {
+      "translations": {
+        "en": "We distinguish between a personal identity and a social identity."
+      }
+    },
+    "p-t2672240": {
+      "translations": {
+        "en": "Sometimes the world seems meaningless to me."
+      }
+    },
+    "p-t2674684": {
+      "translations": {
+        "en": "We must take this under our care."
+      }
+    },
+    "p-t2682765": {
+      "translations": {
+        "en": "He held his protecting hand over me."
+      }
+    },
+    "p-t2683678": {
+      "translations": {
+        "en": "Potatoes, especially when boiled, are a valuable food, among other things because they lower blood pressure."
+      }
+    },
+    "p-t2686837": {
+      "translations": {
+        "en": "The distance between the whorls of branches shows how much the conifer has grown."
+      }
+    },
+    "p-t2686841": {
+      "translations": {
+        "en": "You find a tree's age by counting the growth rings."
+      }
+    },
+    "p-t2687061": {
+      "translations": {
+        "en": "Knowledgeable guides talk about the cultural history of the plants."
+      }
+    },
+    "p-t2739836": {
+      "translations": {
+        "en": "I don't understand why fate is so hard on me."
+      }
+    },
+    "p-t2739838": {
+      "translations": {
+        "en": "Fate used to be so good to me."
+      }
+    },
+    "p-t2758427": {
+      "translations": {
+        "de": "Unter dem Tisch ist eine Katze."
+      }
+    },
+    "p-t2816013": {
+      "translations": {
+        "de": "Das ist eine Frage des persönlichen Geschmacks."
+      }
+    },
+    "p-t2818441": {
+      "translations": {
+        "de": "Ein Leben ohne ihn ist leer."
+      }
+    },
+    "p-t2819329": {
+      "translations": {
+        "de": "Ohne Kommunikation kann es keinen Fortschritt geben.",
+        "en": "There can be no progress without communication."
+      }
+    },
+    "p-t2819338": {
+      "translations": {
+        "de": "Es ist aus zwischen uns. Gib mir den Ring zurück!"
+      }
+    },
+    "p-t2824459": {
+      "translations": {
+        "de": "Wir setzen die Sitzung nach der Teepause fort."
+      }
+    },
+    "p-t2827425": {
+      "translations": {
+        "de": "Du solltest dich für dein Verhalten schämen."
+      }
+    },
+    "p-t2827428": {
+      "translations": {
+        "de": "Du solltest dich für dein Verhalten schämen."
+      }
+    },
+    "p-t2827433": {
+      "alternatives": [
+        "gjennom"
+      ],
+      "translations": {
+        "de": "Der Lehrer ermutigte die Schüler, indem er sie lobte."
+      },
+      "note": "'gjennom å rose dem' is equally natural for 'by praising them'."
+    },
+    "p-t2827435": {
+      "translations": {
+        "de": "Sie kämpften einen fairen Kampf gegen das feindliche Heer."
+      }
+    },
+    "p-t2866902": {
+      "translations": {
+        "de": "Er verschwand spurlos."
+      }
+    },
+    "p-t2866911": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "de": "Ich erwarte nichts von dir."
+      },
+      "note": "'forvente noe av noen' is the more common collocation, same meaning."
+    },
+    "p-t2867084": {
+      "translations": {
+        "de": "Der Flughafen ist ganz in der Nähe."
+      }
+    },
+    "p-t2875578": {
+      "translations": {
+        "de": "Ich warne dich davor, das noch einmal zu tun, sonst bekommst du eine Geldstrafe."
+      }
+    },
+    "p-t2879784": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Er schoss auf mich."
+      },
+      "note": "'skjøt på meg' is standard for 'shot at me'."
+    },
+    "p-t2881793": {
+      "alternatives": [
+        "om"
+      ],
+      "translations": {
+        "de": "Er gibt ihr alles, worum sie bittet."
+      },
+      "note": "'spørre om' also means 'ask for' (request); 'alt hun spør om' is natural here and 'om' is an MC option."
+    },
+    "p-t2881929": {
+      "translations": {
+        "de": "Ich kann nicht ohne Fernseher leben."
+      }
+    },
+    "p-t2881930": {
+      "translations": {
+        "de": "Ich kann nicht ohne Fernseher leben."
+      }
+    },
+    "p-t2882069": {
+      "translations": {
+        "de": "Wonach suchst du?"
+      }
+    },
+    "p-t2882114": {
+      "translations": {
+        "de": "Was hat dich davon abgehalten, früher zu kommen?"
+      }
+    },
+    "p-t2887476": {
+      "translations": {
+        "en": "This chocolate has a taste between sweet and bitter."
+      }
+    },
+    "p-t2894457": {
+      "translations": {
+        "en": "She thought he would spend the night at her place."
+      }
+    },
+    "p-t2894460": {
+      "translations": {
+        "en": "He thought she would spend the night at his place."
+      }
+    },
+    "p-t2895223": {
+      "translations": {
+        "en": "Has Bulgaria declared war on Turkey?"
+      }
+    },
+    "p-t2895339": {
+      "translations": {
+        "en": "This amulet protects me against all evil."
+      }
+    },
+    "p-t2895381": {
+      "translations": {
+        "de": "Ich habe aus Versehen deinen Regenschirm genommen."
+      }
+    },
+    "p-t2898486": {
+      "translations": {
+        "de": "Du musst dich an die Regeln halten."
+      }
+    },
+    "p-t2902137": {
+      "translations": {
+        "en": "The murderer is probably among us now."
+      }
+    },
+    "p-t2904004": {
+      "translations": {
+        "en": "Who knows what is hiding behind the facade?"
+      }
+    },
+    "p-t2907202": {
+      "translations": {
+        "de": "Unter der Brücke war es dunkel."
+      }
+    },
+    "p-t2911597": {
+      "translations": {
+        "en": "After a few warm days, winter weather was forecast for Thursday."
+      }
+    },
+    "p-t2912357": {
+      "translations": {
+        "de": "Es regnet seit Dienstag."
+      }
+    },
+    "p-t2916765": {
+      "alternatives": [
+        "til"
+      ],
+      "translations": {
+        "de": "Ich habe einen Termin beim Arzt."
+      },
+      "note": "'ha time til legen' is very common and means the same; 'til' is an MC option."
+    },
+    "p-t2916984": {
+      "alternatives": [
+        "for",
+        "i"
+      ],
+      "translations": {
+        "en": "I am the managing director of the museum."
+      },
+      "note": "'direktør for museet' and 'direktør i museet' are both natural for a position at an institution; 'i' is an MC option."
+    },
+    "p-t2917876": {
+      "translations": {
+        "de": "Es regnete Stunde um Stunde weiter."
+      }
+    },
+    "p-t2918132": {
+      "translations": {
+        "de": "Es war Liebe auf den ersten Blick."
+      }
+    },
+    "p-t2918190": {
+      "translations": {
+        "de": "Ich habe immer noch nichts von ihm gehört."
+      }
+    },
+    "p-t2918195": {
+      "translations": {
+        "de": "Geh nicht nach draußen, wenn es dunkel geworden ist."
+      }
+    },
+    "p-t2918214": {
+      "translations": {
+        "de": "Wir importieren Tee aus Indien."
+      }
+    },
+    "p-t2918219": {
+      "translations": {
+        "de": "Ich habe ein Buch aus London bestellt."
+      }
+    },
+    "p-t2918222": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Bitte zahlen Sie an der Kasse."
+      },
+      "note": "'Betal i kassen' is the everyday phrasing with the same meaning; 'i' is an MC option."
+    },
+    "p-t2919694": {
+      "translations": {
+        "de": "Tom hat angefangen, sich nach einer neuen Stelle umzusehen."
+      }
+    },
+    "p-t2919702": {
+      "translations": {
+        "de": "Soll ich einen Krankenwagen rufen?"
+      }
+    },
+    "p-t2923255": {
+      "translations": {
+        "de": "Bist du gegen irgendetwas allergisch?"
+      }
+    },
+    "p-t2923256": {
+      "translations": {
+        "de": "Gibt es etwas, wogegen du allergisch bist?"
+      }
+    },
+    "p-t2924470": {
+      "translations": {
+        "de": "Sag Bescheid, wenn du fertig bist."
+      }
+    },
+    "p-t2925500": {
+      "exclude": true,
+      "translations": {
+        "de": "Du schwarze Seele, durch und durch verdorben.",
+        "en": "You black soul, rotten through and through."
+      },
+      "note": "'rotten' is not the bokmål adjective (should be 'råtten'); as written it reads 'the rat'."
+    },
+    "p-t2925518": {
+      "translations": {
+        "de": "Vor dem Gebäude steht ein Auto."
+      }
+    },
+    "p-t2925927": {
+      "translations": {
+        "de": "Du kannst dieses Medikament ohne Rezept bekommen."
+      }
+    },
+    "p-t2927099": {
+      "translations": {
+        "de": "Ich brauche keine Aufenthaltsgenehmigung, weil ich aus Island komme."
+      }
+    },
+    "p-t2927124": {
+      "translations": {
+        "de": "Ich bin überrascht, dass du das übersehen hast."
+      }
+    },
+    "p-t2927172": {
+      "translations": {
+        "de": "Tom sucht immer noch Arbeit."
+      }
+    },
+    "p-t2928600": {
+      "translations": {
+        "de": "Ohne die Karte hätte er sich wohl verlaufen."
+      }
+    },
+    "p-t2930201": {
+      "translations": {
+        "en": "Tom bit off more than he could chew."
+      }
+    },
+    "p-t2930352": {
+      "translations": {
+        "de": "Unter manchem alten Hut steckt ein kluger Kopf.",
+        "en": "Many a good head hides under an old hat."
+      }
+    },
+    "p-t2930364": {
+      "translations": {
+        "de": "Vorsicht ist besser als Nachsicht."
+      }
+    },
+    "p-t2930379": {
+      "translations": {
+        "de": "Der Apfel fällt nicht weit vom Stamm."
+      }
+    },
+    "p-t2930392": {
+      "translations": {
+        "de": "Man wird erst richtig klug, wenn man dreimal dumm gewesen ist.",
+        "en": "You don't become truly wise until you have been a fool three times."
+      }
+    },
+    "p-t2931829": {
+      "translations": {
+        "de": "Ich bin durch das Fenster hineingeklettert."
+      }
+    },
+    "p-t2932225": {
+      "exclude": true,
+      "note": "Wrong verb form: 'ville ikke ha lykket' should be 'ville ikke ha lyktes'."
+    },
+    "p-t2935171": {
+      "translations": {
+        "de": "Man kann nicht ohne Wasser leben."
+      }
+    },
+    "p-t2941303": {
+      "translations": {
+        "de": "Sie hat nichts dagegen."
+      }
+    },
+    "p-t2941388": {
+      "translations": {
+        "de": "Jetzt, da der Präsident tot ist, müssen die neuen Richtlinien auf die Genehmigung der Regierung warten."
+      }
+    },
+    "p-t2943555": {
+      "translations": {
+        "de": "Du wirst bald von uns hören."
+      }
+    },
+    "p-t2943569": {
+      "translations": {
+        "de": "Er ist verrückt nach Tennis."
+      }
+    },
+    "p-t2943585": {
+      "translations": {
+        "de": "Was ist das beste Medikament gegen Krebs?"
+      }
+    },
+    "p-t2943597": {
+      "translations": {
+        "de": "Wenn du kein Geld hast, musst du ohne auskommen."
+      }
+    },
+    "p-t2943598": {
+      "translations": {
+        "de": "Die Kluft zwischen Arm und Reich wird größer."
+      }
+    },
+    "p-t2943619": {
+      "translations": {
+        "de": "Ist es billiger, nach neun anzurufen?"
+      }
+    },
+    "p-t2945257": {
+      "alternatives": [
+        "overfor"
+      ],
+      "translations": {
+        "de": "Ich will nicht unhöflich zu Tom sein."
+      },
+      "note": "'frekk overfor Tom' is equally natural with the same meaning."
+    },
+    "p-t2946019": {
+      "translations": {
+        "de": "Der Einbrecher kam durch das Fenster herein."
+      }
+    },
+    "p-t2948954": {
+      "translations": {
+        "de": "Sie schwamm über den Fluss."
+      }
+    },
+    "p-t2948955": {
+      "translations": {
+        "de": "Sie kommt nach ihrem Vater."
+      }
+    },
+    "p-t2948956": {
+      "translations": {
+        "de": "Sie kommt nach ihrer Mutter."
+      }
+    },
+    "p-t2949012": {
+      "translations": {
+        "de": "Sie war nett zu mir."
+      }
+    },
+    "p-t2949936": {
+      "translations": {
+        "de": "Er hat aus Versehen den falschen Zug genommen."
+      }
+    },
+    "p-t2950024": {
+      "exclude": true,
+      "translations": {
+        "de": "Das Flugzeug glitt über unsere Köpfe hinweg."
+      },
+      "note": "'hodene våres' is dialectal/non-standard; bokmål is 'hodene våre'."
+    },
+    "p-t2950199": {
+      "translations": {
+        "de": "Ich bin gegen dieses Projekt."
+      }
+    },
+    "p-t2950204": {
+      "alternatives": [
+        "av"
+      ],
+      "note": "'forbløffet av' is equally standard and keeps the meaning."
+    },
+    "p-t2950205": {
+      "translations": {
+        "de": "Ich bin völlig dagegen."
+      }
+    },
+    "p-t2950206": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "de": "Ich war über die Ergebnisse erstaunt."
+      },
+      "note": "'forbauset av' is equally standard and keeps the meaning."
+    },
+    "p-t2950215": {
+      "translations": {
+        "de": "Wir verstecken uns hinter dem Vorhang."
+      }
+    },
+    "p-t2950216": {
+      "translations": {
+        "de": "Verstecken wir uns hinter dem Vorhang."
+      }
+    },
+    "p-t2963825": {
+      "translations": {
+        "en": "Can you tell truth from lies?"
+      }
+    },
+    "p-t2963826": {
+      "alternatives": [
+        "mot"
+      ],
+      "translations": {
+        "en": "This amulet protects me from making linguistic mistakes."
+      },
+      "note": "'beskytte mot' is the standard collocation and keeps the meaning."
+    },
+    "p-t2970598": {
+      "translations": {
+        "de": "Warum stehen Feuerwehrautos vor unserem Gebäude?"
+      }
+    },
+    "p-t2971358": {
+      "translations": {
+        "en": "We are facing a historic choice of direction."
+      }
+    },
+    "p-t2971679": {
+      "translations": {
+        "de": "Er hat sich selbst einen Bärendienst erwiesen, indem er seine Meinung laut gesagt hat.",
+        "en": "He did himself a disservice by speaking his mind out loud."
+      }
+    },
+    "p-t2974711": {
+      "translations": {
+        "de": "Dieser hier ist aus Australien."
+      }
+    },
+    "p-t2974713": {
+      "translations": {
+        "de": "Das ist aus Australien."
+      }
+    },
+    "p-t2977264": {
+      "alternatives": [
+        "tidligere"
+      ],
+      "translations": {
+        "de": "Früher habe ich Pizza gegessen, aber jetzt nie mehr."
+      },
+      "note": "Gap is an adverb; 'tidligere' means the same as 'før' here."
+    },
+    "p-t2980851": {
+      "translations": {
+        "de": "Ist es dieses Wörterbuch, das du suchst?",
+        "en": "Is this the dictionary you are looking for?"
+      }
+    },
+    "p-t2995891": {
+      "translations": {
+        "de": "Er ist ohne Zweifel viel besser als du."
+      }
+    },
+    "p-t2996363": {
+      "translations": {
+        "de": "In den letzten Jahren haben säkulare Ideen in der ganzen Region floriert."
+      }
+    },
+    "p-t3017193": {
+      "exclude": true,
+      "translations": {
+        "de": "Ich trinke weder Kaffee noch Bier. Ihr bitterer Geschmack widert mich an.",
+        "en": "I drink neither coffee nor beer. Their bitter taste disgusts me."
+      },
+      "note": "Ungrammatical: 'Deres bitter smak' needs the weak form 'bitre'."
+    },
+    "p-t3030487": {
+      "translations": {
+        "en": "The house stood between two crooked trees."
+      }
+    },
+    "p-t3044957": {
+      "translations": {
+        "en": "We must help those who are trying to fight addiction."
+      }
+    },
+    "p-t3083370": {
+      "translations": {
+        "de": "Er schloss die Tür, die hinter ihm war."
+      }
+    },
+    "p-t3153319": {
+      "translations": {
+        "de": "Es gab keine richtigen Beweise gegen Tom."
+      }
+    },
+    "p-t3214140": {
+      "translations": {
+        "en": "I am aware of that fact."
+      }
+    },
+    "p-t3214174": {
+      "translations": {
+        "en": "You cannot commit suicide by holding your breath."
+      }
+    },
+    "p-t3214217": {
+      "alternatives": [
+        "da",
+        "ettersom",
+        "fordi"
+      ],
+      "translations": {
+        "de": "Da das Eis sehr dünn ist, kann es dein Körpergewicht nicht tragen.",
+        "en": "Since the ice is very thin, it cannot hold your body weight."
+      },
+      "note": "Causal conjunction gap; 'da', 'ettersom' and 'fordi' are all correct here with the same meaning."
+    },
+    "p-t3214236": {
+      "translations": {
+        "en": "The actress fell backwards off the stage."
+      }
+    },
+    "p-t3217528": {
+      "translations": {
+        "de": "Mama ist jetzt verrückt nach Tennis.",
+        "en": "Mom is crazy about tennis now."
+      }
+    },
+    "p-t3229006": {
+      "translations": {
+        "en": "I couldn't have done it without your help."
+      }
+    },
+    "p-t3229009": {
+      "translations": {
+        "en": "I wouldn't have managed it without your help."
+      }
+    },
+    "p-t3229889": {
+      "translations": {
+        "de": "Ich habe einen Termin beim Augenarzt."
+      }
+    },
+    "p-t3300017": {
+      "translations": {
+        "de": "Natürlich gibt es viele Varianten zwischen diesen beiden Extremen."
+      }
+    },
+    "p-t3300088": {
+      "translations": {
+        "de": "Die Sprachform verändert sich mit der Zeit."
+      }
+    },
+    "p-t3300106": {
+      "translations": {
+        "de": "Alles verändert sich mit der Zeit."
+      }
+    },
+    "p-t3300657": {
+      "translations": {
+        "de": "Es gibt selbstverständlich Abgrenzungen zwischen den Guten und den Besten."
+      }
+    },
+    "p-t3304868": {
+      "translations": {
+        "de": "Die Übersetzung ist bei Weitem nicht so einfach, wie viele es gerne gedacht hätten."
+      }
+    },
+    "p-t3362268": {
+      "exclude": true,
+      "translations": {
+        "de": "Der Forscher glaubt, dass die Entdeckung immer wie ein Blitz aus heiterem Himmel kommt.",
+        "en": "The researcher believes the discovery always comes like a bolt from the blue."
+      },
+      "note": "Spelling error in sentence: 'altid' should be 'alltid'."
+    },
+    "p-t3362302": {
+      "exclude": true,
+      "translations": {
+        "de": "Warum herrscht zwischen uns ein peinliches Schweigen?"
+      },
+      "note": "Typo in sentence: 'tauset' should be 'taushet'."
+    },
+    "p-t3402037": {
+      "alternatives": [
+        "av"
+      ],
+      "note": "'stolt av' is as common as 'stolt over' in Norwegian and keeps the meaning."
+    },
+    "p-t342184": {
+      "translations": {
+        "de": "Du darfst das Auto nicht in dieser Straße parken."
+      }
+    },
+    "p-t342185": {
+      "translations": {
+        "de": "Ich mag die Art, wie du gehst."
+      }
+    },
+    "p-t3421988": {
+      "translations": {
+        "de": "Ich liebe die Landschaft, die man vom Hochgeschwindigkeitszug aus sehen kann."
+      }
+    },
+    "p-t342206": {
+      "translations": {
+        "de": "Nancy, hier ist ein Brief für dich."
+      }
+    },
+    "p-t342209": {
+      "translations": {
+        "de": "Lauf nicht so schnell! Ich komme nicht mit dir mit."
+      }
+    },
+    "p-t342210": {
+      "translations": {
+        "de": "Ich stecke in einem schrecklichen Dilemma."
+      }
+    },
+    "p-t342213": {
+      "translations": {
+        "de": "Ohne hart zu arbeiten, kannst du keine gute Note bekommen."
+      }
+    },
+    "p-t342215": {
+      "translations": {
+        "de": "Sag ihr, welches sie nehmen soll."
+      }
+    },
+    "p-t342217": {
+      "translations": {
+        "de": "Ich tue alles, worum du mich bittest."
+      }
+    },
+    "p-t342220": {
+      "translations": {
+        "de": "Warst du schon einmal in Mexiko?"
+      }
+    },
+    "p-t342222": {
+      "alternatives": [
+        "over"
+      ],
+      "translations": {
+        "de": "Ich mache mir Sorgen um das Prüfungsergebnis."
+      },
+      "note": "'bekymret over' is also idiomatic for being concerned about an existing result."
+    },
+    "p-t342226": {
+      "translations": {
+        "de": "Vor dem Gebäude steht ein Auto."
+      }
+    },
+    "p-t342227": {
+      "translations": {
+        "de": "Es ist an der Zeit, dass du anfängst, den Tisch abzuwischen."
+      }
+    },
+    "p-t342233": {
+      "translations": {
+        "de": "Am besten bittet man einen Experten, es zu reparieren."
+      }
+    },
+    "p-t342237": {
+      "translations": {
+        "de": "Warum hast du mich gestern Abend nicht angerufen?"
+      }
+    },
+    "p-t342238": {
+      "translations": {
+        "de": "Ich glaube nicht, dass es regnet, aber ich nehme für alle Fälle einen Regenschirm mit."
+      }
+    },
+    "p-t342241": {
+      "translations": {
+        "de": "Deine Arbeit ist alles andere als zufriedenstellend."
+      }
+    },
+    "p-t342243": {
+      "translations": {
+        "de": "Ich gehe lieber zu Fuß, als auf einen Bus zu warten."
+      }
+    },
+    "p-t342246": {
+      "translations": {
+        "de": "Der Schiefe Turm von Pisa ist höher als die Kirche."
+      }
+    },
+    "p-t342273": {
+      "translations": {
+        "de": "Kann ich bitte Bill sprechen?"
+      }
+    },
+    "p-t342387": {
+      "translations": {
+        "de": "Er traf seinen Freund, während er im Meer badete."
+      }
+    },
+    "p-t342389": {
+      "translations": {
+        "de": "Ich war schlecht in Englisch."
+      }
+    },
+    "p-t342398": {
+      "translations": {
+        "de": "Ich bin mit den Hausaufgaben noch nicht fertig."
+      }
+    },
+    "p-t342402": {
+      "translations": {
+        "de": "Du musst zwischen den Zeilen lesen."
+      }
+    },
+    "p-t342408": {
+      "translations": {
+        "de": "Ihr Sohn ist schon als Kind an Krebs gestorben."
+      }
+    },
+    "p-t342409": {
+      "translations": {
+        "de": "Er ist seit drei Jahren tot."
+      }
+    },
+    "p-t342411": {
+      "translations": {
+        "de": "Er hat letztes Jahr mit dem Rauchen aufgehört."
+      }
+    },
+    "p-t342412": {
+      "translations": {
+        "de": "Mutter ist wegen des Prüfungsergebnisses nervöser als ich."
+      }
+    },
+    "p-t342416": {
+      "translations": {
+        "de": "Was auf den ersten Blick leicht aussieht, erweist sich als schwierig."
+      }
+    },
+    "p-t342417": {
+      "translations": {
+        "de": "Ich glaube, es wird ein schöner Tag."
+      }
+    },
+    "p-t342421": {
+      "alternatives": [
+        "til"
+      ],
+      "translations": {
+        "de": "Ich habe Jane zum Abendessen eingeladen."
+      },
+      "note": "'invitere til middag' is as standard as 'invitere på middag'; 'til' is one of the MC options."
+    },
+    "p-t342423": {
+      "translations": {
+        "de": "Vater hat mir das Buch gekauft."
+      }
+    },
+    "p-t342425": {
+      "alternatives": [
+        "med"
+      ],
+      "translations": {
+        "de": "Er hat wenig Erfahrung im Unterrichten."
+      },
+      "note": "'erfaring med å undervise' is fully natural with the same meaning."
+    },
+    "p-t342426": {
+      "translations": {
+        "de": "Katzenaugen sind sehr lichtempfindlich."
+      }
+    },
+    "p-t342459": {
+      "translations": {
+        "de": "Rom wurde nicht an einem Tag erbaut."
+      }
+    },
+    "p-t342492": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Rosen blühen im Frühling."
+      },
+      "note": "'på våren' is also standard for habitual season reference."
+    },
+    "p-t342496": {
+      "translations": {
+        "de": "Setzen wir uns auf die Bank dort."
+      }
+    },
+    "p-t342499": {
+      "alternatives": [
+        "gjennom"
+      ],
+      "note": "'så gjennom eksamenspapirene' means the same (looked through/over)."
+    },
+    "p-t342505": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Ich war in den Bergen."
+      },
+      "note": "'i fjellet' (in the mountains) is as natural as 'på fjellet'; 'i' is one of the MC options."
+    },
+    "p-t342508": {
+      "translations": {
+        "de": "Ich rufe sie morgen an, wenn ich nach Hause komme."
+      }
+    },
+    "p-t342529": {
+      "translations": {
+        "de": "Uns ist fast das Geld ausgegangen."
+      }
+    },
+    "p-t342534": {
+      "translations": {
+        "de": "Zu meiner Überraschung lehnte er das Angebot ab."
+      }
+    },
+    "p-t342544": {
+      "alternatives": [
+        "om"
+      ],
+      "translations": {
+        "de": "Sie treffen sich einmal in der Woche."
+      },
+      "note": "'en gang om uka' is equally standard for frequency."
+    },
+    "p-t342549": {
+      "translations": {
+        "de": "Er achtet immer auf das Verhalten seiner Kinder."
+      }
+    },
+    "p-t342554": {
+      "translations": {
+        "de": "Der Junge sammelte eine Handvoll Erdnüsse und steckte sie in eine kleine Schachtel."
+      }
+    },
+    "p-t342567": {
+      "translations": {
+        "de": "Ich freue mich sehr, dich wiederzusehen."
+      }
+    },
+    "p-t342579": {
+      "translations": {
+        "de": "Ich war schon in Amerika."
+      }
+    },
+    "p-t342589": {
+      "translations": {
+        "de": "Ich komme aus Tokio, Japan."
+      }
+    },
+    "p-t342597": {
+      "translations": {
+        "de": "Ich bin noch nicht so gut in Englisch."
+      }
+    },
+    "p-t342603": {
+      "translations": {
+        "de": "Ich habe ein Konto auf den Namen meiner Tochter eröffnet."
+      }
+    },
+    "p-t342606": {
+      "translations": {
+        "de": "Tokio ist eine der größten Städte."
+      }
+    },
+    "p-t342609": {
+      "translations": {
+        "de": "Warum hast du den Zahnarztbesuch aufgeschoben?"
+      }
+    },
+    "p-t342625": {
+      "translations": {
+        "de": "Was möchtest du zum Mittagessen?"
+      }
+    },
+    "p-t344009": {
+      "translations": {
+        "de": "Es gibt viele Dinge, an die wir denken müssen."
+      }
+    },
+    "p-t344011": {
+      "translations": {
+        "de": "Mit dieser Waschmaschine stimmt etwas nicht."
+      }
+    },
+    "p-t344171": {
+      "translations": {
+        "de": "Wie lange hast du vor, in diesem Land zu bleiben?"
+      }
+    },
+    "p-t344172": {
+      "translations": {
+        "de": "Es waren wenige Menschen am Strand."
+      }
+    },
+    "p-t344173": {
+      "translations": {
+        "de": "Sie ist neidisch auf meinen Erfolg."
+      }
+    },
+    "p-t3454572": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Worauf bist du so scharf?"
+      },
+      "note": "'sikle på' (covet) is equally idiomatic and keeps the meaning."
+    },
+    "p-t3458430": {
+      "translations": {
+        "de": "Es weht aus Norden."
+      }
+    },
+    "p-t3458431": {
+      "translations": {
+        "de": "Der Wind weht aus Norden."
+      }
+    },
+    "p-t3458436": {
+      "translations": {
+        "de": "Es weht aus Osten."
+      }
+    },
+    "p-t3458437": {
+      "translations": {
+        "de": "Der Wind weht aus Osten."
+      }
+    },
+    "p-t346796": {
+      "alternatives": [
+        "etter"
+      ],
+      "translations": {
+        "de": "Der Junge warf Steine nach dem Hund."
+      },
+      "note": "'kaste steiner etter noen' is the idiomatic 'throw stones at'."
+    },
+    "p-t347996": {
+      "translations": {
+        "de": "Wir machen uns Sorgen um dich."
+      }
+    },
+    "p-t347998": {
+      "translations": {
+        "de": "Achte darauf, wie der Spieler seine Ellbogen einsetzt."
+      }
+    },
+    "p-t348287": {
+      "translations": {
+        "de": "Ich wusste nicht, wann ich die Maschine ausschalten sollte."
+      }
+    },
+    "p-t348289": {
+      "translations": {
+        "de": "Selbst Experten hielten das Gemälde für einen echten Rembrandt."
+      }
+    },
+    "p-t348290": {
+      "translations": {
+        "de": "Er wurde von einem vorbeifahrenden Schiff aufgenommen."
+      }
+    },
+    "p-t348292": {
+      "translations": {
+        "de": "Rotwein passt gut zu Fleisch."
+      }
+    },
+    "p-t348294": {
+      "translations": {
+        "de": "Lässt du es mich ansehen?"
+      }
+    },
+    "p-t348297": {
+      "translations": {
+        "de": "Wir verbanden den Namen Lincoln mit Freiheit."
+      }
+    },
+    "p-t348300": {
+      "translations": {
+        "de": "Er ist ungefähr in deinem Alter."
+      }
+    },
+    "p-t348302": {
+      "translations": {
+        "de": "Sie hat sich während der Vorlesung sehr gelangweilt."
+      }
+    },
+    "p-t348308": {
+      "translations": {
+        "de": "Ich sah den Hund des Nachbarn auf dem Hof herumlaufen."
+      }
+    },
+    "p-t348309": {
+      "translations": {
+        "de": "Versuch, eine positive Einstellung zu allem zu haben."
+      }
+    },
+    "p-t348310": {
+      "translations": {
+        "de": "Kinder spielen sehr gern am Strand."
+      }
+    },
+    "p-t348314": {
+      "translations": {
+        "de": "Wir fangen immer mit den schwierigsten Aufgaben an."
+      }
+    },
+    "p-t348315": {
+      "translations": {
+        "de": "Er beschuldigte den Mann des Diebstahls."
+      }
+    },
+    "p-t348317": {
+      "translations": {
+        "de": "Ich habe deinen Brief gestern bekommen."
+      }
+    },
+    "p-t348320": {
+      "translations": {
+        "de": "Es besteht die Möglichkeit, dass der Mann ermordet wurde."
+      }
+    },
+    "p-t348323": {
+      "translations": {
+        "de": "Er wird die Firma übernehmen, wenn sein Vater in Rente geht."
+      }
+    },
+    "p-t348327": {
+      "translations": {
+        "de": "Er ist der kleinere der beiden Jungen."
+      }
+    },
+    "p-t348328": {
+      "translations": {
+        "de": "Urteile nicht nach dem Aussehen."
+      }
+    },
+    "p-t348329": {
+      "translations": {
+        "de": "Ich erinnere mich, dass sie einen grünen Hut trug."
+      }
+    },
+    "p-t348332": {
+      "translations": {
+        "de": "Mit dieser Maschine stimmt etwas nicht."
+      }
+    },
+    "p-t348334": {
+      "translations": {
+        "de": "Lauf nicht über die Straße."
+      }
+    },
+    "p-t348335": {
+      "translations": {
+        "de": "Ich bat ihn, hier zu warten."
+      }
+    },
+    "p-t348338": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "de": "Ich hielt vor Spannung den Atem an."
+      },
+      "note": "'holdt pusten av spenning' (out of excitement) is equally natural."
+    },
+    "p-t348339": {
+      "translations": {
+        "de": "Es ist überraschend, dass er so etwas über mich gesagt haben soll."
+      }
+    },
+    "p-t348343": {
+      "translations": {
+        "de": "Habe ich dir nicht gestern Geld geliehen?"
+      }
+    },
+    "p-t348344": {
+      "alternatives": [
+        "over"
+      ],
+      "translations": {
+        "de": "Er freute sich über die guten Nachrichten."
+      },
+      "note": "'glad over' is an equally standard construction with the same meaning."
+    },
+    "p-t348346": {
+      "translations": {
+        "de": "Sie macht sich große Sorgen um seine Gesundheit."
+      }
+    },
+    "p-t348351": {
+      "translations": {
+        "de": "Ich möchte, dass du dieses Buch ins Englische übersetzt."
+      }
+    },
+    "p-t348357": {
+      "translations": {
+        "de": "Schlag es im Wörterbuch nach."
+      }
+    },
+    "p-t348364": {
+      "translations": {
+        "de": "Wie weit ist es von hier bis zum Park?"
+      }
+    },
+    "p-t348366": {
+      "translations": {
+        "de": "Isst du im Klassenzimmer?"
+      }
+    },
+    "p-t348369": {
+      "translations": {
+        "de": "Allein der Gedanke an Schlangen lässt sie erblassen."
+      }
+    },
+    "p-t348371": {
+      "translations": {
+        "de": "Lass uns hier aufhören und morgen weitermachen."
+      }
+    },
+    "p-t348372": {
+      "translations": {
+        "de": "Kannst du nicht noch ein bisschen bleiben?"
+      }
+    },
+    "p-t3484298": {
+      "translations": {
+        "en": "You have the choice between two alternatives."
+      }
+    },
+    "p-t3484708": {
+      "translations": {
+        "de": "Du hast zwischen zwei Alternativen gewählt.",
+        "en": "You have chosen between two alternatives."
+      }
+    },
+    "p-t3485208": {
+      "translations": {
+        "de": "Wir sind ohne ihn gegangen, weil er nicht fertig war."
+      }
+    },
+    "p-t3487134": {
+      "alternatives": [
+        "gjennom"
+      ],
+      "translations": {
+        "en": "The problems had piled up over several years."
+      },
+      "note": "'gjennom flere år' expresses the same duration."
+    },
+    "p-t3495760": {
+      "alternatives": [
+        "hos"
+      ],
+      "note": "'et nytt tankesett hos dagens ansatte' is natural and keeps the meaning."
+    },
+    "p-t3496437": {
+      "alternatives": [
+        "over"
+      ],
+      "translations": {
+        "de": "Es ist eine ganz einzigartige Freundschaft, die über viele Jahre hinweg weiterentwickelt wurde."
+      },
+      "note": "'over mange år' expresses the same span of time."
+    },
+    "p-t349696": {
+      "alternatives": [
+        "mot"
+      ],
+      "note": "'grense mot' is as standard as 'grense til' for bordering a country."
+    },
+    "p-t3497114": {
+      "translations": {
+        "de": "Er ist ein Übeltäter, ist dir das klar?"
+      }
+    },
+    "p-t3497137": {
+      "translations": {
+        "de": "Er ist ein Missetäter, ist dir das bewusst?"
+      }
+    },
+    "p-t3497854": {
+      "alternatives": [
+        "for"
+      ],
+      "translations": {
+        "de": "Ich mache mir Sorgen wegen dieses Muttermals."
+      },
+      "note": "'bekymret for' is equally natural and keeps the meaning."
+    },
+    "p-t3503579": {
+      "translations": {
+        "de": "Dieses Schiff hat Kurs auf Vancouver.",
+        "en": "This ship is headed for Vancouver."
+      }
+    },
+    "p-t3505301": {
+      "exclude": true,
+      "translations": {
+        "de": "Ich brauche das Öl, das gegen Ausschlag und trockene Haut hilft."
+      },
+      "note": "Ungrammatical: 'det olje' has wrong gender/form (should be 'den oljen')."
+    },
+    "p-t3514943": {
+      "translations": {
+        "de": "Tom sah einige Papiere durch."
+      }
+    },
+    "p-t3519446": {
+      "translations": {
+        "de": "Suchst du immer noch nach einer Beschäftigung?"
+      }
+    },
+    "p-t3522444": {
+      "translations": {
+        "de": "Tom kam bei einem Unfall ums Leben."
+      }
+    },
+    "p-t3525362": {
+      "translations": {
+        "de": "Ich kann ohne dich nicht leben."
+      }
+    },
+    "p-t3529701": {
+      "translations": {
+        "de": "Ich musste über die Mauer klettern."
+      }
+    },
+    "p-t3529709": {
+      "translations": {
+        "de": "Ich bin gegen Leute, die große Autos fahren."
+      }
+    },
+    "p-t352990": {
+      "translations": {
+        "de": "Viele englische Wörter stammen aus dem Lateinischen."
+      }
+    },
+    "p-t3530372": {
+      "translations": {
+        "de": "Was ist eine Beziehung ohne Sex und Nähe?",
+        "en": "What is a relationship without sex and intimacy?"
+      }
+    },
+    "p-t3539755": {
+      "translations": {
+        "en": "As he said that, he turned towards the door."
+      }
+    },
+    "p-t3540619": {
+      "translations": {
+        "en": "Two glasses stood beneath the mirror."
+      }
+    },
+    "p-t3541311": {
+      "translations": {
+        "de": "Wir müssen uns alle dagegen auflehnen."
+      }
+    },
+    "p-t3542679": {
+      "translations": {
+        "en": "This is the only way to ensure that everyone gets legal protection against discrimination."
+      }
+    },
+    "p-t354640": {
+      "translations": {
+        "de": "Brich die Schokolade in kleine Stücke."
+      }
+    },
+    "p-t354647": {
+      "translations": {
+        "en": "Add the honey, the lemon juice, the toasted almonds and the grated apples."
+      }
+    },
+    "p-t354648": {
+      "translations": {
+        "de": "Ich kenne keinen von ihnen."
+      }
+    },
+    "p-t354653": {
+      "translations": {
+        "de": "Ich fragte ihn, warum er so traurig ist."
+      }
+    },
+    "p-t354654": {
+      "translations": {
+        "de": "Ich bereue es, dorthin gegangen zu sein."
+      }
+    },
+    "p-t354684": {
+      "translations": {
+        "de": "Sie isst sehr gern Kuchen."
+      }
+    },
+    "p-t354693": {
+      "translations": {
+        "de": "Versteck dich nicht unter dem Bett."
+      }
+    },
+    "p-t354694": {
+      "translations": {
+        "de": "Worüber redet er?"
+      }
+    },
+    "p-t354703": {
+      "translations": {
+        "de": "Was ist die Hauptstadt von Finnland?"
+      }
+    },
+    "p-t3547525": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Die Mole hatte keine Wirkung gegen die Tsunamiwelle."
+      },
+      "note": "Option 'på' is also correct: 'ingen effekt på tsunamibølgen' is the most common collocation, same meaning."
+    },
+    "p-t355092": {
+      "translations": {
+        "de": "Mein Hobby ist es, altes Spielzeug zu sammeln."
+      }
+    },
+    "p-t355094": {
+      "translations": {
+        "de": "Du musst spätestens um fünf Uhr am Bahnhof sein."
+      }
+    },
+    "p-t355095": {
+      "translations": {
+        "de": "Die Arbeitslosigkeit stieg auf fünf Prozent."
+      }
+    },
+    "p-t3565489": {
+      "translations": {
+        "en": "Behind the large desk sat a woman."
+      }
+    },
+    "p-t363396": {
+      "translations": {
+        "en": "How hot it is today!"
+      }
+    },
+    "p-t363415": {
+      "alternatives": [
+        "om"
+      ],
+      "translations": {
+        "de": "Sein Vater isst dort zweimal pro Woche."
+      },
+      "note": "'to ganger om uken' is equally common for frequency (option 'om')."
+    },
+    "p-t363421": {
+      "translations": {
+        "de": "An der Wand hängt eine Landkarte.",
+        "en": "There is a map hanging on the wall."
+      }
+    },
+    "p-t363427": {
+      "translations": {
+        "de": "Das ist für meine Familie.",
+        "en": "It's for my family."
+      }
+    },
+    "p-t363460": {
+      "translations": {
+        "de": "Er ist aus Amerika zurückgekommen.",
+        "en": "He has come back from America."
+      }
+    },
+    "p-t363467": {
+      "translations": {
+        "de": "Mach dir keine Sorgen um uns."
+      }
+    },
+    "p-t363470": {
+      "translations": {
+        "de": "Es hatte eine Woche lang geschneit."
+      }
+    },
+    "p-t363475": {
+      "translations": {
+        "de": "Ich habe sie zur Party eingeladen."
+      }
+    },
+    "p-t363477": {
+      "translations": {
+        "en": "I spent the whole day at the beach."
+      }
+    },
+    "p-t363480": {
+      "translations": {
+        "de": "Er ist etwas über vierzig."
+      }
+    },
+    "p-t363495": {
+      "translations": {
+        "de": "Wir treffen uns um sieben Uhr am Bahnhof."
+      }
+    },
+    "p-t363498": {
+      "translations": {
+        "de": "Der Junge kommt nach seinem Vater."
+      }
+    },
+    "p-t363501": {
+      "translations": {
+        "de": "Ich habe meinen Regenschirm verloren. Ich muss einen neuen kaufen."
+      }
+    },
+    "p-t363507": {
+      "translations": {
+        "de": "Wir wohnen seit Juli hier."
+      }
+    },
+    "p-t364315": {
+      "translations": {
+        "de": "Kaoru ist nach Amerika gereist."
+      }
+    },
+    "p-t367266": {
+      "translations": {
+        "de": "Sie zitterte vor Angst."
+      }
+    },
+    "p-t367269": {
+      "translations": {
+        "de": "Wie weit ist es von hier bis zur Bibliothek?"
+      }
+    },
+    "p-t367270": {
+      "translations": {
+        "de": "Ich habe seine langen Reden satt."
+      }
+    },
+    "p-t367281": {
+      "translations": {
+        "de": "Herr, ich frage mich, welcher Narr wohl das Küssen erfunden hat."
+      }
+    },
+    "p-t367283": {
+      "translations": {
+        "de": "Laut der Bibel erschuf Gott die Welt in sechs Tagen."
+      }
+    },
+    "p-t367284": {
+      "translations": {
+        "de": "Wie wäre es mit etwas Kaffee?",
+        "en": "How about some coffee?"
+      }
+    },
+    "p-t367286": {
+      "translations": {
+        "de": "Mein Haus stand in Flammen."
+      }
+    },
+    "p-t367289": {
+      "translations": {
+        "de": "Kannst du mir den Weg zum Bahnhof sagen?"
+      }
+    },
+    "p-t367290": {
+      "translations": {
+        "de": "Diese Raupe wird zu einem wunderschönen Schmetterling."
+      }
+    },
+    "p-t367487": {
+      "translations": {
+        "de": "In einer Demokratie haben alle Bürger die gleichen Rechte."
+      }
+    },
+    "p-t367489": {
+      "translations": {
+        "de": "Ich war schon dreimal in Kyoto."
+      }
+    },
+    "p-t367493": {
+      "translations": {
+        "de": "Der Weizen ist reif für die Ernte."
+      }
+    },
+    "p-t367496": {
+      "translations": {
+        "de": "Sie ist einkaufen gegangen."
+      }
+    },
+    "p-t367508": {
+      "translations": {
+        "de": "Gibt es ein entsprechendes Sprichwort auf Japanisch?"
+      }
+    },
+    "p-t367518": {
+      "translations": {
+        "de": "Der Regen schlug gegen das Fenster."
+      }
+    },
+    "p-t367519": {
+      "translations": {
+        "de": "Gibt es hier in der Nähe ein Postamt?"
+      }
+    },
+    "p-t3682881": {
+      "translations": {
+        "de": "Du solltest besser vor Mitternacht zu Hause sein."
+      }
+    },
+    "p-t368639": {
+      "translations": {
+        "de": "Ich habe einige Schwierigkeiten, diese Software zu kompilieren."
+      }
+    },
+    "p-t368838": {
+      "translations": {
+        "de": "Diese Tasche ist aus Papier."
+      }
+    },
+    "p-t369913": {
+      "translations": {
+        "de": "Zwei Fliegen mit einer Klappe schlagen."
+      }
+    },
+    "p-t369959": {
+      "translations": {
+        "de": "Hast du Lust, einen Spaziergang zu machen?"
+      }
+    },
+    "p-t369962": {
+      "translations": {
+        "de": "Wir sind nicht die Einzigen, die den Plan unterstützen."
+      }
+    },
+    "p-t370182": {
+      "alternatives": [
+        "om"
+      ],
+      "translations": {
+        "de": "Wir treffen uns hier einmal pro Woche."
+      },
+      "note": "'en gang om uken' is equally common for frequency (option 'om')."
+    },
+    "p-t370399": {
+      "translations": {
+        "de": "Sie hat große Angst vor Schlangen."
+      }
+    },
+    "p-t370400": {
+      "translations": {
+        "de": "Schreib mir, wenn du angekommen bist.",
+        "en": "Write to me when you get there."
+      }
+    },
+    "p-t371747": {
+      "translations": {
+        "de": "Ich kann mir ein Leben ohne dich nicht vorstellen."
+      }
+    },
+    "p-t371748": {
+      "translations": {
+        "de": "Er kam bei einem Unfall ums Leben."
+      }
+    },
+    "p-t371749": {
+      "translations": {
+        "de": "Nicht jeder hat Erfolg in diesem Leben.",
+        "en": "Not everyone succeeds in this life."
+      }
+    },
+    "p-t371750": {
+      "translations": {
+        "de": "Er hätte bei diesem Unfall beinahe sein Leben verloren."
+      }
+    },
+    "p-t372294": {
+      "translations": {
+        "de": "Alle Arbeiter bis auf einen gingen nach Hause."
+      }
+    },
+    "p-t372300": {
+      "translations": {
+        "de": "Es sieht nach Regen aus."
+      }
+    },
+    "p-t372344": {
+      "translations": {
+        "de": "Er hatte vor, sie zu heiraten."
+      }
+    },
+    "p-t372345": {
+      "translations": {
+        "de": "Katzen können im Dunkeln sehen.",
+        "en": "Cats can see in the dark."
+      }
+    },
+    "p-t372346": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Dieses Medikament wirkt nicht gegen Grippe.",
+        "en": "This medicine has no effect on the flu."
+      },
+      "note": "'ingen effekt på influensa' is equally natural with the same meaning."
+    },
+    "p-t372348": {
+      "translations": {
+        "de": "Es ist am besten, regelmäßig zum Zahnarzt zu gehen.",
+        "en": "It's best to go to the dentist regularly."
+      }
+    },
+    "p-t372351": {
+      "translations": {
+        "en": "Japanese people like to travel in groups."
+      }
+    },
+    "p-t372730": {
+      "translations": {
+        "de": "Ich bin jetzt am Flughafen."
+      }
+    },
+    "p-t372743": {
+      "translations": {
+        "en": "They awarded him a gold medal for his performance."
+      }
+    },
+    "p-t372747": {
+      "translations": {
+        "de": "Heute ist es windstill.",
+        "en": "There is no wind today."
+      }
+    },
+    "p-t372757": {
+      "translations": {
+        "de": "Ich war noch nie in England."
+      }
+    },
+    "p-t372759": {
+      "translations": {
+        "de": "Mit dem Motor stimmt etwas nicht."
+      }
+    },
+    "p-t372760": {
+      "translations": {
+        "de": "Er war ein enger Freund von mir.",
+        "en": "He was a close friend of mine."
+      }
+    },
+    "p-t372963": {
+      "translations": {
+        "de": "Nach der fünfstündigen Reise waren wir völlig erschöpft."
+      }
+    },
+    "p-t372976": {
+      "translations": {
+        "de": "Er spricht nur Englisch und Deutsch, und ich verstehe keine der beiden Sprachen.",
+        "en": "He only speaks English and German, and I don't understand either of them."
+      }
+    },
+    "p-t372980": {
+      "translations": {
+        "de": "Das Telefon klingelte, während ich unter der Dusche war.",
+        "en": "The phone rang while I was in the shower."
+      }
+    },
+    "p-t372986": {
+      "translations": {
+        "de": "Das Volk machte ihn unter Jubel zum König.",
+        "en": "The people joyfully made him their king."
+      }
+    },
+    "p-t373062": {
+      "translations": {
+        "de": "Suchst du jemanden?",
+        "en": "Are you looking for someone?"
+      }
+    },
+    "p-t373163": {
+      "translations": {
+        "de": "Atomenergie kann für friedliche Zwecke genutzt werden."
+      }
+    },
+    "p-t373164": {
+      "translations": {
+        "de": "Welche Sprache spricht man in Mexiko?"
+      }
+    },
+    "p-t373165": {
+      "translations": {
+        "de": "Was war die Ursache der Explosion?"
+      }
+    },
+    "p-t374611": {
+      "translations": {
+        "de": "Was hältst du von Japanisch?"
+      }
+    },
+    "p-t375447": {
+      "translations": {
+        "de": "Ohne ihren Rat wäre er gescheitert."
+      }
+    },
+    "p-t375448": {
+      "translations": {
+        "de": "Mir geht es gut."
+      }
+    },
+    "p-t375452": {
+      "alternatives": [
+        "til"
+      ],
+      "translations": {
+        "de": "Wir sind zum Abendessen eingeladen."
+      },
+      "note": "'invitert til middag' is as natural as 'invitert på middag'."
+    },
+    "p-t375453": {
+      "translations": {
+        "de": "Ihr Mann wohnt jetzt in Tokio."
+      }
+    },
+    "p-t375455": {
+      "translations": {
+        "de": "Ein Junge geht über die Straße."
+      }
+    },
+    "p-t375456": {
+      "translations": {
+        "de": "Was er sagt, ist in gewisser Weise wahr."
+      }
+    },
+    "p-t375468": {
+      "translations": {
+        "de": "Was versuchst du da eigentlich?"
+      }
+    },
+    "p-t375919": {
+      "translations": {
+        "de": "Es ist schwierig, ein Gedicht in eine andere Sprache zu übersetzen."
+      }
+    },
+    "p-t376153": {
+      "translations": {
+        "de": "Wir übernachteten in Hakone."
+      }
+    },
+    "p-t376740": {
+      "alternatives": [
+        "mot"
+      ],
+      "translations": {
+        "de": "Der Lastwagen bog scharf nach links ab.",
+        "en": "The truck turned sharply to the left."
+      },
+      "note": "'svingte hardt mot venstre' is also natural with the same meaning (option 'mot')."
+    },
+    "p-t376741": {
+      "translations": {
+        "de": "Zucker löst sich in heißem Kaffee auf."
+      }
+    },
+    "p-t377708": {
+      "translations": {
+        "de": "Wasser besteht aus Wasserstoff und Sauerstoff."
+      }
+    },
+    "p-t377802": {
+      "translations": {
+        "de": "Gestern war Donnerstag."
+      }
+    },
+    "p-t3779248": {
+      "translations": {
+        "de": "Ich hätte lieber ein Zimmer mit Blick aufs Meer."
+      }
+    },
+    "p-t378248": {
+      "translations": {
+        "de": "Wir treffen uns um neun Uhr am Bahnhof.",
+        "en": "We are meeting at the station at nine o'clock."
+      }
+    },
+    "p-t378510": {
+      "translations": {
+        "de": "Die Polizei nahm den Verdächtigen in dem Fall fest."
+      }
+    },
+    "p-t378511": {
+      "translations": {
+        "de": "Sie wurde verdächtigt, eine Spionin zu sein."
+      }
+    },
+    "p-t378516": {
+      "translations": {
+        "de": "Er liegt im Krankenhaus.",
+        "en": "He has been admitted to hospital."
+      }
+    },
+    "p-t378615": {
+      "translations": {
+        "de": "Er kann sich auf Englisch verständlich machen."
+      }
+    },
+    "p-t378616": {
+      "translations": {
+        "de": "Das Problem lässt sich leichter lösen, wenn du das Gleichungssystem in Matrixform aufstellst."
+      }
+    },
+    "p-t378636": {
+      "translations": {
+        "de": "Dein Fahrrad ähnelt meinem."
+      }
+    },
+    "p-t378642": {
+      "translations": {
+        "de": "Sein Leben liegt in meinen Händen."
+      }
+    },
+    "p-t378646": {
+      "translations": {
+        "de": "Heute fehlen zwei Schüler.",
+        "en": "Two pupils are absent today."
+      }
+    },
+    "p-t378647": {
+      "translations": {
+        "de": "Sie setzte sich den Hut auf.",
+        "en": "She put on her hat."
+      }
+    },
+    "p-t378649": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "de": "Sie ist sehr stolz auf ihre Briefmarkensammlung."
+      },
+      "note": "'stolt av' is as standard as 'stolt over' (not among the options)."
+    },
+    "p-t378777": {
+      "alternatives": [
+        "med"
+      ],
+      "translations": {
+        "de": "Der Berg ist das ganze Jahr über mit Schnee bedeckt.",
+        "en": "The mountain is covered with snow all year round."
+      },
+      "note": "'dekket med snø' is equally natural (option 'med')."
+    },
+    "p-t378908": {
+      "translations": {
+        "de": "Ein Stück Brot reichte nicht, um seinen Hunger zu stillen."
+      }
+    },
+    "p-t378915": {
+      "translations": {
+        "de": "Ich habe ein angeborenes Talent für Mathematik.",
+        "en": "I have a natural talent for mathematics."
+      }
+    },
+    "p-t378916": {
+      "translations": {
+        "de": "Wie weit bist du mit der Arbeit gekommen?",
+        "en": "How far have you got with the job?"
+      }
+    },
+    "p-t378920": {
+      "translations": {
+        "en": "She called me from Tokyo."
+      }
+    },
+    "p-t378924": {
+      "translations": {
+        "de": "Es dauerte eine Weile, bis das Feuer gelöscht war.",
+        "en": "It took a while before the fire was put out."
+      }
+    },
+    "p-t378925": {
+      "translations": {
+        "de": "Vonseiten der Studenten gab es keinen Protest.",
+        "en": "There was no protest on the part of the students."
+      }
+    },
+    "p-t378926": {
+      "translations": {
+        "en": "The bus almost hit him."
+      }
+    },
+    "p-t378927": {
+      "translations": {
+        "de": "Ich lese nicht so viele Bücher dieser Art.",
+        "en": "I don't read that many books of this kind."
+      }
+    },
+    "p-t378933": {
+      "translations": {
+        "de": "Damals gab es nicht viele Ärztinnen."
+      }
+    },
+    "p-t378935": {
+      "translations": {
+        "de": "Ich bin überzeugt, dass du unschuldig bist."
+      }
+    },
+    "p-t378936": {
+      "translations": {
+        "de": "Der Turm neigte sich leicht nach Westen.",
+        "en": "The tower leaned slightly to the west."
+      }
+    },
+    "p-t378938": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Arbeiter arbeiten in der Regel acht Stunden am Tag.",
+        "en": "Workers usually work eight hours a day."
+      },
+      "note": "'åtte timer i dagen' is also standard for frequency, like 'om dagen'."
+    },
+    "p-t378939": {
+      "translations": {
+        "de": "Wir freuen uns alle darauf, dass du kommst.",
+        "en": "We are all looking forward to your coming."
+      }
+    },
+    "p-t378940": {
+      "translations": {
+        "de": "Der Taschendieb verschwand in der Menschenmenge.",
+        "en": "The pickpocket disappeared into the crowd."
+      }
+    },
+    "p-t378943": {
+      "translations": {
+        "de": "Er schob den Schreibtisch nach rechts.",
+        "en": "He moved the desk to the right."
+      }
+    },
+    "p-t378947": {
+      "translations": {
+        "de": "Ich bin mit meiner Arbeit zufrieden."
+      }
+    },
+    "p-t378959": {
+      "translations": {
+        "de": "Ich habe die Hausaufgaben satt.",
+        "en": "I'm fed up with homework."
+      }
+    },
+    "p-t378962": {
+      "translations": {
+        "de": "Er geht jeden Tag zu Fuß zur Arbeit, außer wenn es regnet.",
+        "en": "He walks to work every day except when it rains."
+      }
+    },
+    "p-t378963": {
+      "translations": {
+        "de": "Sie sind nicht klug genug, um das zu verstehen.",
+        "en": "They aren't smart enough to understand this."
+      }
+    },
+    "p-t378964": {
+      "translations": {
+        "de": "Sie schickten Spione hinein, um die einheimische Bevölkerung aufzuwiegeln.",
+        "en": "They sent in spies to stir up the local population."
+      }
+    },
+    "p-t378967": {
+      "translations": {
+        "de": "Wir brachen auf, als der Regen nachgelassen hatte."
+      }
+    },
+    "p-t378971": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Was hast du in den Ferien gemacht?",
+        "en": "What did you do during the holidays?"
+      },
+      "note": "'Hva gjorde du på ferien?' is equally natural (option 'på')."
+    },
+    "p-t378974": {
+      "translations": {
+        "de": "Ich bin in den Zoo gegangen.",
+        "en": "I went to the zoo."
+      }
+    },
+    "p-t378976": {
+      "translations": {
+        "de": "Er nahm seine kleine Schwester mit."
+      }
+    },
+    "p-t378978": {
+      "translations": {
+        "de": "Er hat eine große Farm in Colorado."
+      }
+    },
+    "p-t378982": {
+      "translations": {
+        "de": "Bis jetzt hatten wir eine sehr angenehme Reise.",
+        "en": "Up to now we have had a very pleasant trip."
+      }
+    },
+    "p-t378983": {
+      "translations": {
+        "de": "Kannst du mir den Weg zum Hafen sagen?"
+      }
+    },
+    "p-t378985": {
+      "translations": {
+        "de": "Es waren fast keine Kinder im Zimmer."
+      }
+    },
+    "p-t378986": {
+      "translations": {
+        "de": "Sind Briefe für mich gekommen?",
+        "en": "Have any letters come for me?"
+      }
+    },
+    "p-t378988": {
+      "translations": {
+        "de": "Wie lange hast du vor, in Japan zu bleiben?",
+        "en": "How long are you planning to stay in Japan?"
+      }
+    },
+    "p-t378990": {
+      "translations": {
+        "de": "Wir begriffen, dass es für uns unmöglich sein würde, den Fluss zu überqueren.",
+        "en": "We realized that it would be impossible for us to cross the river."
+      }
+    },
+    "p-t378991": {
+      "translations": {
+        "de": "Sie bekommt gute Noten in Englisch.",
+        "en": "She gets good grades in English."
+      }
+    },
+    "p-t378997": {
+      "translations": {
+        "de": "Unser neuer Hauptsitz befindet sich in Tokio.",
+        "en": "Our new head office is in Tokyo."
+      }
+    },
+    "p-t378998": {
+      "translations": {
+        "de": "Sein Name steht nicht auf der Liste.",
+        "en": "His name is not on the list."
+      }
+    },
+    "p-t380847": {
+      "translations": {
+        "de": "Hab keine Angst, Fehler zu machen, wenn du Englisch sprichst."
+      }
+    },
+    "p-t380848": {
+      "translations": {
+        "de": "Er besitzt ein großes Restaurant am See.",
+        "en": "He owns a large restaurant by the lake."
+      }
+    },
+    "p-t380849": {
+      "translations": {
+        "de": "Der Prinz verliebte sich in die Tochter eines Holzfällers."
+      }
+    },
+    "p-t380855": {
+      "translations": {
+        "de": "Man soll das Fell des Bären nicht verkaufen, bevor man ihn erlegt hat."
+      }
+    },
+    "p-t380858": {
+      "translations": {
+        "de": "Ich hörte in der Ferne einen Hund bellen."
+      }
+    },
+    "p-t380862": {
+      "translations": {
+        "de": "Die Menschen haben Angst vor Krieg.",
+        "en": "People are afraid of war."
+      }
+    },
+    "p-t380876": {
+      "translations": {
+        "de": "Ich bin ihr zufällig auf der Straße begegnet."
+      }
+    },
+    "p-t380895": {
+      "translations": {
+        "de": "Tom ist völlig in dieses Spiel vertieft.",
+        "en": "Tom is completely absorbed in that game."
+      }
+    },
+    "p-t380897": {
+      "translations": {
+        "de": "Ich gab ihm das bisschen Geld, das ich hatte."
+      }
+    },
+    "p-t380898": {
+      "translations": {
+        "de": "Der Arzt bat Herrn Smith, mit dem Rauchen aufzuhören.",
+        "en": "The doctor asked Mr. Smith to stop smoking."
+      }
+    },
+    "p-t380901": {
+      "translations": {
+        "en": "The president usually takes his wife with him when he travels abroad."
+      }
+    },
+    "p-t380903": {
+      "translations": {
+        "de": "Ich kann gut singen."
+      }
+    },
+    "p-t380917": {
+      "translations": {
+        "de": "Kyoto ist berühmt für seine alten Tempel."
+      }
+    },
+    "p-t380918": {
+      "translations": {
+        "de": "In Kyoto gibt es viele alte Tempel."
+      }
+    },
+    "p-t380919": {
+      "translations": {
+        "de": "Die meisten japanischen Tempel sind aus Holz gebaut."
+      }
+    },
+    "p-t380960": {
+      "translations": {
+        "de": "Die Studenten standen da und warteten auf einen Bus."
+      }
+    },
+    "p-t380972": {
+      "translations": {
+        "de": "Ann ist sehr gut im Tennis."
+      }
+    },
+    "p-t381063": {
+      "translations": {
+        "de": "Ich habe mir die Hand an einem Bügeleisen verbrannt.",
+        "en": "I burned my hand on an iron."
+      }
+    },
+    "p-t386525": {
+      "translations": {
+        "de": "Ich suchte nach etwas, das es nicht gab."
+      }
+    },
+    "p-t386529": {
+      "translations": {
+        "de": "Er wohnt jetzt in Tokio."
+      }
+    },
+    "p-t386540": {
+      "translations": {
+        "de": "Ich habe meinen Hund auf dem Tierfriedhof begraben."
+      }
+    },
+    "p-t386542": {
+      "translations": {
+        "de": "Wohin wollt ihr im Sommer fahren?"
+      }
+    },
+    "p-t386545": {
+      "translations": {
+        "de": "Noch drei Blocks, halte durch!",
+        "en": "Three more blocks, keep going!"
+      }
+    },
+    "p-t386552": {
+      "translations": {
+        "de": "Mir tut der ganze Körper weh.",
+        "en": "My whole body hurts."
+      }
+    },
+    "p-t386556": {
+      "translations": {
+        "de": "Er hielt sie am Ärmel fest.",
+        "en": "He held her by the sleeve."
+      }
+    },
+    "p-t386560": {
+      "translations": {
+        "de": "Das ist das größte Hotel der Stadt."
+      }
+    },
+    "p-t386565": {
+      "translations": {
+        "de": "Warum fragst du ihn nicht um Rat?"
+      }
+    },
+    "p-t386567": {
+      "translations": {
+        "de": "Sie verteilt zwei Äpfel an jedes Kind."
+      }
+    },
+    "p-t386576": {
+      "translations": {
+        "de": "Der Schmerz ist größtenteils verschwunden."
+      }
+    },
+    "p-t386582": {
+      "translations": {
+        "de": "Tauben können das Magnetfeld der Erde nutzen, um den Weg nach Hause zu finden.",
+        "en": "Pigeons can use the earth's magnetic field to find their way home."
+      }
+    },
+    "p-t386591": {
+      "translations": {
+        "de": "Ich wohne in diesem Hotel."
+      }
+    },
+    "p-t386592": {
+      "translations": {
+        "de": "Das Schiff wird morgen den Äquator überqueren.",
+        "en": "The ship will cross the equator tomorrow."
+      }
+    },
+    "p-t386606": {
+      "translations": {
+        "de": "Es schneite vier Tage lang."
+      }
+    },
+    "p-t386617": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Der General befahl ein Massaker an allen Kriegsgefangenen."
+      },
+      "note": "'en massakre på' is equally standard (not among the options)."
+    },
+    "p-t386625": {
+      "translations": {
+        "de": "Die alte Dame stieg aus dem Bus.",
+        "en": "The old lady got off the bus."
+      }
+    },
+    "p-t386641": {
+      "translations": {
+        "de": "Zwanzig Menschen kamen bei dem Brand ums Leben.",
+        "en": "Twenty people died in the fire."
+      }
+    },
+    "p-t386644": {
+      "alternatives": [
+        "ved"
+      ],
+      "translations": {
+        "de": "Sie arbeitet als Krankenschwester im örtlichen Krankenhaus."
+      },
+      "note": "'jobber ved sykehuset' is standard for a workplace institution (not among the options)."
+    },
+    "p-t386654": {
+      "translations": {
+        "de": "Ich werde oft mit meinem Bruder verwechselt."
+      }
+    },
+    "p-t386664": {
+      "alternatives": [
+        "for"
+      ],
+      "translations": {
+        "de": "Ich habe keine Worte dafür, wie dankbar ich bin."
+      },
+      "note": "'ikke ord for' is equally idiomatic (not among the options)."
+    },
+    "p-t386669": {
+      "translations": {
+        "de": "Schau dir die schwarzen Wolken an."
+      }
+    },
+    "p-t386670": {
+      "translations": {
+        "de": "Auf dem Heimweg bin ich einem Hund begegnet."
+      }
+    },
+    "p-t386674": {
+      "translations": {
+        "de": "Der Mann sprach mit leiser Stimme."
+      }
+    },
+    "p-t386675": {
+      "translations": {
+        "de": "Gestern gab es einen Autounfall.",
+        "en": "There was a car accident yesterday."
+      }
+    },
+    "p-t386885": {
+      "translations": {
+        "de": "Du musst hungrig sein, nachdem du so weit gelaufen bist."
+      }
+    },
+    "p-t386888": {
+      "translations": {
+        "de": "Er hatte keine anderen Kleider als die, die er am Leib trug."
+      }
+    },
+    "p-t386891": {
+      "translations": {
+        "de": "Ich arbeite nicht gern in der Bank."
+      }
+    },
+    "p-t386892": {
+      "translations": {
+        "de": "Er mag Baseball sehr.",
+        "en": "He really likes baseball."
+      }
+    },
+    "p-t386898": {
+      "alternatives": [
+        "med",
+        "bak"
+      ],
+      "translations": {
+        "de": "Mir gefällt das Konzept dieser Webseite wirklich."
+      },
+      "note": "'konseptet med' (option) and 'konseptet bak' are both natural with the same meaning."
+    },
+    "p-t386904": {
+      "translations": {
+        "de": "Es ist schwer vorherzusagen, wie das Wetter morgen wird."
+      }
+    },
+    "p-t386929": {
+      "translations": {
+        "de": "Ich gebe dir die Telefonnummer von Dr. Shiegal."
+      }
+    },
+    "p-t386932": {
+      "translations": {
+        "de": "Nach dem langen Spaziergang waren wir völlig erschöpft."
+      }
+    },
+    "p-t386970": {
+      "translations": {
+        "de": "Der Frühling kommt nach dem Winter."
+      }
+    },
+    "p-t386971": {
+      "translations": {
+        "de": "Verwechsle Begierde nicht mit Liebe."
+      }
+    },
+    "p-t386973": {
+      "translations": {
+        "de": "Diese Kiste ist voller Äpfel."
+      }
+    },
+    "p-t386974": {
+      "alternatives": [
+        "ved"
+      ],
+      "note": "'side ved side' is an equally standard bokmål idiom for 'side by side'."
+    },
+    "p-t387028": {
+      "alternatives": [
+        "nedenfor"
+      ],
+      "note": "'skjemaet nedenfor' means the same as 'skjemaet under' (the form below)."
+    },
+    "p-t387036": {
+      "translations": {
+        "de": "Er sucht eine Arbeit."
+      }
+    },
+    "p-t387043": {
+      "translations": {
+        "de": "Ist diese Leiter stabil genug, um mich zu tragen?"
+      }
+    },
+    "p-t387173": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Er schnitzte eine Buddhafigur aus Holz."
+      },
+      "note": "'i tre' is a natural way to state the material (carved in wood)."
+    },
+    "p-t387176": {
+      "translations": {
+        "de": "Welchen Grund hat er dafür angegeben, dass er so spät war?"
+      }
+    },
+    "p-t387177": {
+      "translations": {
+        "de": "Der alte Mann war nicht so mürrisch, wie er aussah."
+      }
+    },
+    "p-t387182": {
+      "translations": {
+        "de": "Woran erinnert dich dieser Hut?"
+      }
+    },
+    "p-t387193": {
+      "translations": {
+        "de": "Dein Name steht als erster auf der Liste."
+      }
+    },
+    "p-t387197": {
+      "translations": {
+        "de": "Welcher von den beiden ist teurer?"
+      }
+    },
+    "p-t387202": {
+      "translations": {
+        "de": "Möge die Macht mit dir sein."
+      }
+    },
+    "p-t387213": {
+      "translations": {
+        "de": "Er versuchte mehrmals, mit dem Rauchen aufzuhören, ohne Erfolg."
+      }
+    },
+    "p-t387381": {
+      "translations": {
+        "de": "Möchtest du noch eine Tasse Tee?"
+      }
+    },
+    "p-t387390": {
+      "alternatives": [
+        "med"
+      ],
+      "translations": {
+        "de": "Sie fing an, mit dem Hund zu sprechen."
+      },
+      "note": "'snakke med hunden' is equally natural and means the same."
+    },
+    "p-t387681": {
+      "alternatives": [
+        "mellom"
+      ],
+      "note": "'forskjell mellom A og B' is also standard and keeps the meaning."
+    },
+    "p-t387712": {
+      "translations": {
+        "de": "Er wurde vergiftet, weil er Fugu gegessen hatte.",
+        "en": "He was poisoned by eating fugu."
+      }
+    },
+    "p-t387714": {
+      "translations": {
+        "de": "Ich bin vielleicht unsozial, aber das heißt nicht, dass ich nicht mit Leuten rede."
+      }
+    },
+    "p-t387956": {
+      "translations": {
+        "de": "Ich frage mich, was passiert ist."
+      }
+    },
+    "p-t387959": {
+      "translations": {
+        "de": "Sie ist alles andere als ehrlich."
+      }
+    },
+    "p-t387960": {
+      "translations": {
+        "de": "Er schaufelte den Schnee vom Dach."
+      }
+    },
+    "p-t387961": {
+      "translations": {
+        "de": "Es hat mehrmals angebissen, aber ich habe nichts an den Haken bekommen.",
+        "en": "I got several bites, but I couldn't get anything on the hook."
+      }
+    },
+    "p-t388228": {
+      "translations": {
+        "en": "We listened to the exchange of fire."
+      }
+    },
+    "p-t390811": {
+      "translations": {
+        "de": "Ich musste früh aufstehen."
+      }
+    },
+    "p-t391002": {
+      "translations": {
+        "de": "Es ist so heiß, dass man auf einer Motorhaube Eier braten könnte."
+      }
+    },
+    "p-t392121": {
+      "translations": {
+        "de": "Mike kann gut singen."
+      }
+    },
+    "p-t392123": {
+      "translations": {
+        "de": "Der Sturm richtete großen Schaden an ihrem Grundstück an."
+      }
+    },
+    "p-t392125": {
+      "translations": {
+        "de": "Wir haben ein Baseballspiel im Fernsehen angeschaut."
+      }
+    },
+    "p-t392129": {
+      "translations": {
+        "de": "Ich habe genug von seiner Frechheit."
+      }
+    },
+    "p-t392133": {
+      "translations": {
+        "en": "I have nothing in particular to say about the matter."
+      }
+    },
+    "p-t392134": {
+      "translations": {
+        "de": "Er beeilte sich, um den Bus zu erwischen.",
+        "en": "He hurried to catch the bus."
+      }
+    },
+    "p-t392136": {
+      "translations": {
+        "de": "Mein Vater tat, was ich ihm empfohlen hatte, und aß weniger salziges Essen.",
+        "en": "My father did as I had recommended and cut down on salty food."
+      }
+    },
+    "p-t392137": {
+      "translations": {
+        "de": "Die Pflanze darf nicht direktem Sonnenlicht ausgesetzt werden.",
+        "en": "The plant must not be exposed to direct sunlight."
+      }
+    },
+    "p-t392138": {
+      "translations": {
+        "de": "Ich habe nicht die leiseste Ahnung, was er als Nächstes tun wird."
+      }
+    },
+    "p-t392189": {
+      "translations": {
+        "de": "Mir ist sehr schlecht. Ich muss gleich kotzen."
+      }
+    },
+    "p-t392366": {
+      "translations": {
+        "de": "Pass gut auf, ich zeige dir, wie man es macht.",
+        "en": "Watch closely, I'll show you how it's done."
+      }
+    },
+    "p-t392367": {
+      "translations": {
+        "de": "Aus irgendeinem Grund hat das Mikrofon vorhin nicht funktioniert."
+      }
+    },
+    "p-t392409": {
+      "alternatives": [
+        "i",
+        "som"
+      ],
+      "translations": {
+        "de": "Der Lehrer gab uns zehn Aufgaben als Hausaufgabe auf.",
+        "en": "The teacher gave us ten exercises as homework."
+      },
+      "note": "'ti oppgaver i (hjemme)lekse' is the most idiomatic phrasing; 'som hjemmelekse' is also natural."
+    },
+    "p-t392411": {
+      "translations": {
+        "de": "Du bist frustriert über deine Arbeit."
+      }
+    },
+    "p-t392457": {
+      "translations": {
+        "de": "Ich trat vorsichtig aufs Gaspedal."
+      }
+    },
+    "p-t393123": {
+      "translations": {
+        "de": "Es steht dir frei, zu reisen, wohin du willst."
+      }
+    },
+    "p-t393192": {
+      "translations": {
+        "de": "Ich lege jeden Monat zehn Dollar zur Seite."
+      }
+    },
+    "p-t393194": {
+      "translations": {
+        "de": "Wie geht's? Ich habe dich seit einer Ewigkeit nicht gesehen!"
+      }
+    },
+    "p-t393195": {
+      "alternatives": [
+        "til"
+      ],
+      "translations": {
+        "de": "Er macht ihr zum Geburtstag immer ein Geschenk."
+      },
+      "note": "'en gave til fødselsdagen' (a present for her birthday) is equally natural."
+    },
+    "p-t394098": {
+      "translations": {
+        "de": "Bitte zieh deine Socken aus."
+      }
+    },
+    "p-t394100": {
+      "translations": {
+        "de": "Sie verkauft Drogen auf Konzerten."
+      }
+    },
+    "p-t394107": {
+      "translations": {
+        "de": "Niederländisch ist eng mit dem Deutschen verwandt."
+      }
+    },
+    "p-t394784": {
+      "translations": {
+        "de": "Ich habe sie nicht geheiratet, weil ich sie liebte."
+      }
+    },
+    "p-t394796": {
+      "alternatives": [
+        "til"
+      ],
+      "translations": {
+        "de": "Ich dachte, er würde zu dem Treffen kommen."
+      },
+      "note": "Option 'til' is also correct: 'komme til møtet' = come to the meeting."
+    },
+    "p-t394811": {
+      "translations": {
+        "de": "Ich gehe mit ihr zusammen."
+      }
+    },
+    "p-t394827": {
+      "translations": {
+        "de": "Wir zeigen nun, wie dieses Lemma verwendet werden kann, um unser Haupttheorem zu beweisen."
+      }
+    },
+    "p-t394828": {
+      "translations": {
+        "de": "Das Theorem gilt offensichtlich für endliche Mengen."
+      }
+    },
+    "p-t394829": {
+      "translations": {
+        "de": "Der Beweis wird dem Leser überlassen."
+      }
+    },
+    "p-t395659": {
+      "translations": {
+        "de": "Du hättest auf mich hören sollen."
+      }
+    },
+    "p-t396009": {
+      "translations": {
+        "de": "Wir eilten zum Bahnhof."
+      }
+    },
+    "p-t396900": {
+      "translations": {
+        "de": "Wo ist das ganze Brot geblieben?"
+      }
+    },
+    "p-t397222": {
+      "translations": {
+        "de": "Aus billigem Fleisch wird keine gute Suppe."
+      }
+    },
+    "p-t399281": {
+      "translations": {
+        "de": "Er sagte mir, dass er nach Amerika fahren würde."
+      }
+    },
+    "p-t399634": {
+      "translations": {
+        "de": "Ich habe vergessen, eine Briefmarke auf den Umschlag zu kleben."
+      }
+    },
+    "p-t400064": {
+      "translations": {
+        "de": "Welche CD willst du hören?"
+      }
+    },
+    "p-t400380": {
+      "translations": {
+        "de": "Ich muss lernen."
+      }
+    },
+    "p-t400404": {
+      "translations": {
+        "de": "Es ist nicht leicht, einen Liebesbrief auf Englisch zu schreiben."
+      }
+    },
+    "p-t400423": {
+      "alternatives": [
+        "mellom"
+      ],
+      "translations": {
+        "de": "Wie kann man gutes und schlechtes Englisch unterscheiden?"
+      },
+      "note": "'forskjell mellom A og B' is also standard and keeps the meaning."
+    },
+    "p-t400428": {
+      "alternatives": [
+        "til"
+      ],
+      "translations": {
+        "de": "Sie zog den Stuhl zu sich heran."
+      },
+      "note": "'dra noe til seg' is idiomatic and means the same (pull it towards oneself)."
+    },
+    "p-t400479": {
+      "translations": {
+        "de": "Dunkelheit ist die Abwesenheit von Licht."
+      }
+    },
+    "p-t400571": {
+      "translations": {
+        "de": "Du solltest besser darauf achten, was du sagst."
+      }
+    },
+    "p-t402452": {
+      "translations": {
+        "de": "Das Fahrrad gehört unserer Schule."
+      }
+    },
+    "p-t402513": {
+      "translations": {
+        "de": "Hab keine Angst, Fehler zu machen, wenn du Englisch sprichst."
+      }
+    },
+    "p-t406823": {
+      "translations": {
+        "de": "Diese Blume ist die schönste von allen Blumen."
+      }
+    },
+    "p-t406956": {
+      "translations": {
+        "de": "Entschuldigung, können Sie mir erklären, wie man zum Central Park kommt?"
+      }
+    },
+    "p-t406959": {
+      "translations": {
+        "de": "Sie hat hart gearbeitet, um Geld zu verdienen."
+      }
+    },
+    "p-t407547": {
+      "translations": {
+        "de": "Ich würde gern die Bäume sehen, von denen du diese Äpfel gepflückt hast."
+      }
+    },
+    "p-t413072": {
+      "alternatives": [
+        "under"
+      ],
+      "translations": {
+        "de": "Alle langweilten sich bei seiner langen Rede."
+      },
+      "note": "'kjedet seg under talen' (bored during the speech) is fully natural with the same meaning."
+    },
+    "p-t413087": {
+      "translations": {
+        "de": "Das Haus mit dem beschädigten Dach ist repariert worden."
+      }
+    },
+    "p-t413089": {
+      "translations": {
+        "de": "Die Übersetzung ist dem Original sehr treu."
+      }
+    },
+    "p-t4394599": {
+      "translations": {
+        "de": "Du kannst dich nicht umbringen, indem du die Luft anhältst."
+      }
+    },
+    "p-t4394618": {
+      "translations": {
+        "de": "Liebe ist nie ohne Eifersucht."
+      }
+    },
+    "p-t4398053": {
+      "alternatives": [
+        "til"
+      ],
+      "note": "'all oppmerksomheten min går til John' is natural and keeps the meaning."
+    },
+    "p-t4452390": {
+      "alternatives": [
+        "av"
+      ],
+      "note": "'den yngste av alle brødrene' is equally natural with the same meaning."
+    },
+    "p-t4452471": {
+      "translations": {
+        "de": "Es gibt viele Sätze ohne Übersetzung."
+      }
+    },
+    "p-t4547450": {
+      "translations": {
+        "de": "Sie ist ein Mensch, ohne den ich nicht leben kann."
+      }
+    },
+    "p-t4733053": {
+      "translations": {
+        "de": "Tom hat genug durchgemacht."
+      }
+    },
+    "p-t4733058": {
+      "translations": {
+        "de": "Du hast viel durchgemacht."
+      }
+    },
+    "p-t4754002": {
+      "translations": {
+        "en": "I can't see anything without glasses."
+      }
+    },
+    "p-t4754109": {
+      "alternatives": [
+        "med"
+      ],
+      "translations": {
+        "de": "Sei nett zu ihm.",
+        "en": "Be nice to him."
+      },
+      "note": "'snill med' is also standard usage with the same meaning."
+    },
+    "p-t4935945": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Ich habe den Unterschied zwischen ihnen nicht erkannt."
+      },
+      "note": "'forskjellen på dem' is the common Norwegian collocation, same meaning."
+    },
+    "p-t4994846": {
+      "translations": {
+        "de": "Er sitzt am Tisch."
+      }
+    },
+    "p-t4994925": {
+      "translations": {
+        "de": "Ich bin nach meinem Vater benannt."
+      }
+    },
+    "p-t501489": {
+      "translations": {
+        "de": "Er stand auf dem Boden."
+      }
+    },
+    "p-t501496": {
+      "translations": {
+        "de": "Es geht nichts über Eis im Sommer."
+      }
+    },
+    "p-t501508": {
+      "alternatives": [
+        "med"
+      ],
+      "translations": {
+        "de": "Er blieb lange auf, während er an den Dokumenten arbeitete."
+      },
+      "note": "'jobbe med dokumentene' is at least as natural and means the same."
+    },
+    "p-t501528": {
+      "translations": {
+        "de": "Er fuhr mit gleichmäßiger Geschwindigkeit Rad."
+      }
+    },
+    "p-t501600": {
+      "translations": {
+        "de": "Ich habe jetzt Lust, spazieren zu gehen."
+      }
+    },
+    "p-t501614": {
+      "translations": {
+        "de": "Nicht weniger als hundert Leute waren bei der Versammlung anwesend."
+      }
+    },
+    "p-t501631": {
+      "translations": {
+        "de": "Ich lief der Sonne hinterher."
+      }
+    },
+    "p-t501641": {
+      "translations": {
+        "de": "Ich habe meine Kamera mitgenommen."
+      }
+    },
+    "p-t501644": {
+      "translations": {
+        "de": "Kannst du dich zwingen einzuschlafen?"
+      }
+    },
+    "p-t501648": {
+      "translations": {
+        "de": "Um es kurz zu machen: Wir haben das Kriegsbeil begraben."
+      }
+    },
+    "p-t501652": {
+      "translations": {
+        "de": "Du hättest eine Jacke anziehen sollen."
+      }
+    },
+    "p-t501657": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Wir mussten uns in einer Reihe aufstellen."
+      },
+      "note": "Option 'i' is also correct: 'stilt i rekke' means the same as 'på rekke'."
+    },
+    "p-t501668": {
+      "translations": {
+        "de": "Ich möchte gern ein paar Freunde von mir vorstellen."
+      }
+    },
+    "p-t501678": {
+      "translations": {
+        "de": "Sie wurde von ihrer Tante großgezogen."
+      }
+    },
+    "p-t501680": {
+      "translations": {
+        "de": "Wir haben uns beeilt, damit wir den letzten Bus nicht verpassen."
+      }
+    },
+    "p-t501683": {
+      "translations": {
+        "de": "Er stritt es sofort ab."
+      }
+    },
+    "p-t501746": {
+      "translations": {
+        "de": "Wir haben von nichts genug."
+      }
+    },
+    "p-t501750": {
+      "translations": {
+        "de": "Dieser Zug fährt nach New York."
+      }
+    },
+    "p-t501757": {
+      "translations": {
+        "de": "Rechne nicht damit, dass er dir Geld leiht."
+      }
+    },
+    "p-t501777": {
+      "translations": {
+        "de": "Ich bin alt genug, um allein zu wohnen."
+      }
+    },
+    "p-t501780": {
+      "alternatives": [
+        "for"
+      ],
+      "translations": {
+        "de": "Er hat mich angelogen."
+      },
+      "note": "'lyve for noen' is the most common bokmål construction for lying to someone."
+    },
+    "p-t501807": {
+      "translations": {
+        "de": "Du hast nie Zeit für wichtige Dinge!"
+      }
+    },
+    "p-t501811": {
+      "translations": {
+        "de": "Kannst du mit den Regeln nicht etwas flexibler sein?"
+      }
+    },
+    "p-t501813": {
+      "translations": {
+        "de": "Es gab einen stetigen Anstieg der Einwohnerzahl."
+      }
+    },
+    "p-t501815": {
+      "translations": {
+        "de": "Ich war fast zehn, als meine Eltern mir einen Chemiebaukasten zu Weihnachten schenkten."
+      }
+    },
+    "p-t501829": {
+      "translations": {
+        "de": "Sie träumte von wilden Jaguaren."
+      }
+    },
+    "p-t501834": {
+      "translations": {
+        "de": "Die wenigsten Elefanten würden freiwillig nach Europa ziehen."
+      }
+    },
+    "p-t502242": {
+      "translations": {
+        "de": "Yumi wird Lehrerin werden."
+      }
+    },
+    "p-t502247": {
+      "translations": {
+        "de": "Er ist nicht nett zu ihr."
+      }
+    },
+    "p-t508792": {
+      "translations": {
+        "de": "Reibe den Fleck mit Essig ein."
+      }
+    },
+    "p-t508804": {
+      "translations": {
+        "de": "Er schrieb ein Buch über China."
+      }
+    },
+    "p-t508813": {
+      "alternatives": [
+        "om"
+      ],
+      "translations": {
+        "de": "Nach ein paar Tagen wirst du Auto fahren können."
+      },
+      "note": "Option 'om' is also correct: 'om noen dager' (in a few days) fits the meaning, matching the English."
+    },
+    "p-t508842": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "de": "Ich verlange absolute Loyalität von all meinen Angestellten."
+      },
+      "note": "'kreve noe av noen' is the idiomatic construction, same meaning."
+    },
+    "p-t508846": {
+      "translations": {
+        "de": "Wenn ich einen Beispielsatz schreibe, kannst du ihn für mich korrigieren?"
+      }
+    },
+    "p-t508848": {
+      "translations": {
+        "de": "Ich nahm ein Taxi, um den Zug zu erreichen."
+      }
+    },
+    "p-t509430": {
+      "translations": {
+        "de": "Ich habe herzlich über ihren Witz gelacht."
+      }
+    },
+    "p-t509553": {
+      "alternatives": [
+        "i",
+        "ved"
+      ],
+      "translations": {
+        "de": "Ich kann keinen Fehler in seiner Theorie finden."
+      },
+      "note": "'feil i/ved teorien' are at least as idiomatic as 'feil med' and mean the same."
+    },
+    "p-t509752": {
+      "translations": {
+        "de": "Zamenhof, der Schöpfer der Plansprache Esperanto, war Augenarzt."
+      }
+    },
+    "p-t511788": {
+      "translations": {
+        "de": "Wir sind sehr froh, sie hier zu haben."
+      }
+    },
+    "p-t511963": {
+      "translations": {
+        "de": "Ist es schwierig, mit Stäbchen zu essen?"
+      }
+    },
+    "p-t5129255": {
+      "translations": {
+        "de": "Das haben wir schon durchgemacht."
+      }
+    },
+    "p-t513835": {
+      "translations": {
+        "de": "Jeder weiß, dass der Mond aus Käse ist."
+      }
+    },
+    "p-t5144989": {
+      "translations": {
+        "de": "Das war mir bewusst."
+      }
+    },
+    "p-t5145267": {
+      "alternatives": [
+        "for"
+      ],
+      "translations": {
+        "de": "Das ist es, worüber wir uns am meisten Sorgen machen.",
+        "en": "That is what we worry about most."
+      },
+      "note": "'bekymre seg for' is equally natural with the same meaning."
+    },
+    "p-t5145353": {
+      "translations": {
+        "de": "Mein Vater hat während des Abendessens kein einziges Wort gesagt."
+      }
+    },
+    "p-t514895": {
+      "translations": {
+        "de": "Wenn zwei Männer immer derselben Meinung sind, ist einer von ihnen überflüssig."
+      }
+    },
+    "p-t514917": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "de": "Diese Felder bringen Ernten von guter Qualität."
+      },
+      "note": "'avlinger av god kvalitet' is equally natural and means the same."
+    },
+    "p-t514994": {
+      "translations": {
+        "de": "Ohne deine Hilfe wäre ich gescheitert."
+      }
+    },
+    "p-t515008": {
+      "translations": {
+        "de": "Ich habe noch nie eine so große Wassermelone gesehen."
+      }
+    },
+    "p-t515013": {
+      "translations": {
+        "de": "Was zum Teufel glaubst du, was du da treibst?"
+      }
+    },
+    "p-t5154215": {
+      "translations": {
+        "de": "Ein Typ namens Tom hat gesagt, dass er dich sucht."
+      }
+    },
+    "p-t5154380": {
+      "translations": {
+        "de": "Tom hat es geschafft, über den Fluss zu schwimmen."
+      }
+    },
+    "p-t515799": {
+      "translations": {
+        "de": "Du bist verantwortlich für das, was du getan hast."
+      }
+    },
+    "p-t516423": {
+      "translations": {
+        "de": "Dieser Berg ist das ganze Jahr über mit Schnee bedeckt."
+      }
+    },
+    "p-t516440": {
+      "translations": {
+        "de": "Der Hund lief der Katze hinterher."
+      }
+    },
+    "p-t5164730": {
+      "alternatives": [
+        "innen"
+      ],
+      "translations": {
+        "de": "Ich will, dass du vor Sonnenaufgang weg bist."
+      },
+      "note": "'innen soloppgangen' (by sunrise) keeps the meaning."
+    },
+    "p-t516567": {
+      "translations": {
+        "de": "Verglichen mit Tigern sind Bären nette Tiere."
+      }
+    },
+    "p-t516571": {
+      "translations": {
+        "de": "Sie hat großen Respekt vor ihrer Klassenlehrerin.",
+        "en": "She has great respect for her form teacher."
+      }
+    },
+    "p-t5169456": {
+      "translations": {
+        "de": "Ich wünschte, ich könnte herausfinden, wie ich das System schlagen kann."
+      }
+    },
+    "p-t518557": {
+      "translations": {
+        "de": "Sie holte die Flasche Champagner hervor, die sie für einen besonderen Anlass aufgehoben hatte."
+      }
+    },
+    "p-t519368": {
+      "translations": {
+        "de": "Wie viel hast du dafür bezahlt?"
+      }
+    },
+    "p-t519410": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Die Verletzten wurden mit dem Krankenwagen transportiert."
+      },
+      "note": "Option 'i' is also correct: 'fraktet i sykebil/ambulanse' is common and means the same."
+    },
+    "p-t519458": {
+      "translations": {
+        "de": "Es sieht so aus, als würde er nächsten Monat herkommen."
+      }
+    },
+    "p-t519473": {
+      "translations": {
+        "de": "Weißt du, wie man nur mit Holzstöcken ein Feuer macht?"
+      }
+    },
+    "p-t519592": {
+      "translations": {
+        "de": "Seine Arbeit hat mit Drucken zu tun."
+      }
+    },
+    "p-t519829": {
+      "translations": {
+        "de": "Die Insel liegt westlich von Japan."
+      }
+    },
+    "p-t519842": {
+      "translations": {
+        "de": "Hilf mir, eine Krawatte auszusuchen, die zu diesem Anzug passt."
+      }
+    },
+    "p-t5220735": {
+      "translations": {
+        "de": "Manchmal spart man Zeit, indem man den längeren Weg nimmt."
+      }
+    },
+    "p-t525767": {
+      "translations": {
+        "de": "Ich habe es für zehn Dollar verkauft."
+      }
+    },
+    "p-t526098": {
+      "translations": {
+        "de": "Um sechs Uhr aufzustehen ist für mich in Ordnung."
+      }
+    },
+    "p-t526617": {
+      "translations": {
+        "de": "Das Kind wurde Strahlung ausgesetzt.",
+        "en": "The child has been exposed to radiation."
+      }
+    },
+    "p-t529755": {
+      "translations": {
+        "de": "Ich putze mir zweimal am Tag die Zähne."
+      }
+    },
+    "p-t529781": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Mein Großvater wurde im Zweiten Weltkrieg getötet."
+      },
+      "note": "'drept i andre verdenskrig' is equally natural and means the same."
+    },
+    "p-t530648": {
+      "translations": {
+        "de": "Was für eine wunderbare Familie!"
+      }
+    },
+    "p-t5339331": {
+      "translations": {
+        "de": "Putz dir nach jeder Mahlzeit die Zähne."
+      }
+    },
+    "p-t5339508": {
+      "translations": {
+        "en": "All the students protested against the war."
+      }
+    },
+    "p-t534288": {
+      "translations": {
+        "de": "Jeder hält seine eigenen Kinder für die besten."
+      }
+    },
+    "p-t534891": {
+      "translations": {
+        "de": "Kannst du mir helfen, diese Sätze ins Chinesische zu übersetzen?"
+      }
+    },
+    "p-t534897": {
+      "translations": {
+        "de": "Übersetze diesen Satz ins Englische."
+      }
+    },
+    "p-t5412005": {
+      "translations": {
+        "de": "Ich habe dich gesucht."
+      }
+    },
+    "p-t5528487": {
+      "translations": {
+        "de": "Der Hund rannte einem Fuchs hinterher."
+      }
+    },
+    "p-t5549830": {
+      "translations": {
+        "en": "Close the door behind you."
+      }
+    },
+    "p-t5642638": {
+      "translations": {
+        "en": "He is staying the night at his uncle's."
+      }
+    },
+    "p-t5870442": {
+      "translations": {
+        "de": "Ich habe mich aus Versehen vergiftet."
+      }
+    },
+    "p-t5870453": {
+      "translations": {
+        "de": "Am Notausgang lauern haarige Monster."
+      }
+    },
+    "p-t5893936": {
+      "translations": {
+        "de": "Sonntag kommt nach Samstag."
+      }
+    },
+    "p-t5999556": {
+      "alternatives": [
+        "utover"
+      ],
+      "translations": {
+        "de": "Tom hat Kaffee über mein ganzes Hemd verschüttet."
+      },
+      "note": "'sølte kaffe utover hele skjorten' is equally natural, same meaning."
+    },
+    "p-t6053693": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "de": "Sie ist stolz auf ihre Tochter."
+      },
+      "note": "'stolt av' is as common as 'stolt over' and keeps the meaning."
+    },
+    "p-t6082759": {
+      "translations": {
+        "de": "Es ist zufällig passiert."
+      }
+    },
+    "p-t6082760": {
+      "translations": {
+        "de": "Ich habe sie zufällig getroffen."
+      }
+    },
+    "p-t613706": {
+      "translations": {
+        "de": "Haben Sie einen Tisch am Fenster?"
+      }
+    },
+    "p-t613727": {
+      "translations": {
+        "de": "Tennis ist bei Studenten sehr beliebt."
+      }
+    },
+    "p-t613777": {
+      "translations": {
+        "de": "Ihr müsst aus euren Fehlern lernen."
+      }
+    },
+    "p-t6142584": {
+      "translations": {
+        "de": "Es ist mir peinlich, Chinese zu sein."
+      }
+    },
+    "p-t6153499": {
+      "alternatives": [
+        "tidligere"
+      ],
+      "translations": {
+        "de": "Ich war schon einmal dort, also kann ich dir den Weg zeigen."
+      },
+      "note": "Gap is an adverb; 'tidligere' means the same as 'før' here."
+    },
+    "p-t6156184": {
+      "translations": {
+        "de": "Was für eine Arbeit suchst du?"
+      }
+    },
+    "p-t625987": {
+      "translations": {
+        "de": "Interlingua ist ein modernes Werkzeug für die internationale Kommunikation."
+      }
+    },
+    "p-t6330853": {
+      "translations": {
+        "de": "Ich habe dich schon einmal irgendwo gesehen."
+      }
+    },
+    "p-t6331275": {
+      "translations": {
+        "de": "Wir sollten die Zeitung lesen, damit wir nicht hinterherhinken."
+      }
+    },
+    "p-t6331306": {
+      "translations": {
+        "de": "Er kam zurück, nachdem es dunkel geworden war."
+      }
+    },
+    "p-t6364662": {
+      "translations": {
+        "de": "Was hätte ich ohne ihn gemacht?"
+      }
+    },
+    "p-t6364686": {
+      "translations": {
+        "de": "Was suchst du da drinnen?"
+      }
+    },
+    "p-t6364734": {
+      "translations": {
+        "de": "Wir können nach dem Mittagessen gehen."
+      }
+    },
+    "p-t6366596": {
+      "alternatives": [
+        "om"
+      ],
+      "note": "Option 'om' is also correct: 'det hun spurte om' (what she asked for) is fully natural, same meaning."
+    },
+    "p-t6371993": {
+      "translations": {
+        "de": "Tom muss sehr froh sein, nachdem er das Rennen gewonnen hat."
+      }
+    },
+    "p-t6388811": {
+      "translations": {
+        "de": "Was ist zwischen dir und Tom passiert?"
+      }
+    },
+    "p-t6441154": {
+      "translations": {
+        "de": "Er holte die verlorene Zeit auf, indem er schnell lief."
+      }
+    },
+    "p-t6455123": {
+      "translations": {
+        "de": "Ich hoffe wider alle Hoffnung.",
+        "en": "I'm hoping against hope."
+      }
+    },
+    "p-t6994930": {
+      "translations": {
+        "de": "Tom blätterte hektisch durch die Seiten."
+      }
+    },
+    "p-t719130": {
+      "alternatives": [
+        "på"
+      ],
+      "translations": {
+        "de": "Ich habe kein Geld bei mir."
+      },
+      "note": "'ha penger på seg' is the most idiomatic way to say having money on/with you."
+    },
+    "p-t7245147": {
+      "translations": {
+        "de": "Ich habe seit dem Morgen nichts gegessen.",
+        "en": "I haven't eaten anything since the morning."
+      }
+    },
+    "p-t7251114": {
+      "translations": {
+        "de": "Ich werde das ohne Hilfe nicht schaffen können.",
+        "en": "I won't be able to do this without help."
+      }
+    },
+    "p-t734446": {
+      "translations": {
+        "de": "Ich komme nicht mit dir mit, wenn du so schnell gehst."
+      }
+    },
+    "p-t734447": {
+      "translations": {
+        "de": "Geh nicht so schnell. Ich komme nicht mit dir mit."
+      }
+    },
+    "p-t737212": {
+      "translations": {
+        "de": "Das Flugzeug landet in einer Stunde."
+      }
+    },
+    "p-t8138435": {
+      "translations": {
+        "en": "I'm sitting at the table."
+      }
+    },
+    "p-t8138858": {
+      "exclude": true,
+      "note": "'ved' here is the noun 'firewood', not a preposition; in free text many nouns fit the gap ('Tørr ___ brenner godt')."
+    },
+    "p-t8139073": {
+      "translations": {
+        "en": "I live with my parents."
+      }
+    },
+    "p-t815760": {
+      "translations": {
+        "de": "Sie machen gerade Pause."
+      }
+    },
+    "p-t815764": {
+      "translations": {
+        "de": "Es ist sehr schwer, mit ihm auszukommen."
+      }
+    },
+    "p-t815771": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "de": "Dieses Problem entstand aus einem gegenseitigen Missverständnis."
+      },
+      "note": "'komme av' (be caused by) is idiomatic and keeps the meaning."
+    },
+    "p-t815783": {
+      "translations": {
+        "de": "Die Regierung will die Inflation unbedingt niedrig halten."
+      }
+    },
+    "p-t815792": {
+      "alternatives": [
+        "under"
+      ],
+      "translations": {
+        "de": "Die Wahrheit kam schließlich bei seinem Prozess ans Licht."
+      },
+      "note": "'kom ut under rettssaken' (during the trial) is fully natural with the same meaning."
+    },
+    "p-t815797": {
+      "translations": {
+        "de": "Ich schäme mich für die Faulheit meines Sohnes."
+      }
+    },
+    "p-t815800": {
+      "translations": {
+        "de": "Das reicht fürs Erste."
+      }
+    },
+    "p-t815805": {
+      "alternatives": [
+        "i"
+      ],
+      "translations": {
+        "de": "Bist du Mitglied dieser Gesellschaft?"
+      },
+      "note": "'medlem i' is the most common bokmål construction, equally correct."
+    },
+    "p-t815821": {
+      "translations": {
+        "de": "Er dankte mir dafür, dass ich gekommen war.",
+        "en": "He thanked me for coming."
+      }
+    },
+    "p-t815823": {
+      "translations": {
+        "en": "A large rock rose out of the sea."
+      }
+    },
+    "p-t815824": {
+      "translations": {
+        "en": "He is always worried about his daughter."
+      }
+    },
+    "p-t815830": {
+      "alternatives": [
+        "til"
+      ],
+      "translations": {
+        "de": "Besteht die Möglichkeit, dass ich mir deine Schreibmaschine ausleihe?"
+      },
+      "note": "'sjanse til å låne' (opportunity to borrow) is equally natural here."
+    },
+    "p-t815832": {
+      "translations": {
+        "de": "Muss ich mit Tinte schreiben?"
+      }
+    },
+    "p-t815833": {
+      "translations": {
+        "de": "Der Fahrer ist für die Sicherheit der Fahrgäste verantwortlich."
+      }
+    },
+    "p-t815836": {
+      "translations": {
+        "de": "Wirst du das als Paket verschicken?"
+      }
+    },
+    "p-t815837": {
+      "translations": {
+        "de": "Wirst du das als Paket verschicken?"
+      }
+    },
+    "p-t815851": {
+      "exclude": true,
+      "translations": {
+        "de": "Ich muss zugeben, dass meine Theorie diese Tatsache nicht erklärt."
+      },
+      "note": "Unnatural/ungrammatical: 'dekker for' is not idiomatic for 'account for', and 'det fakta' mixes singular determiner with plural noun."
+    },
+    "p-t815865": {
+      "translations": {
+        "de": "Sie ist drei Jahre älter als ich."
+      }
+    },
+    "p-t815866": {
+      "translations": {
+        "de": "Die Hälfte der Klasse sagt, dass sie Kaffee trinkt."
+      }
+    },
+    "p-t815867": {
+      "translations": {
+        "de": "Er täuscht andere mit seinem Aussehen."
+      }
+    },
+    "p-t815873": {
+      "translations": {
+        "de": "Er heiratete eine Schauspielerin."
+      }
+    },
+    "p-t815875": {
+      "translations": {
+        "de": "Die Zuschauer lachten über den Witz des Komikers."
+      }
+    },
+    "p-t815879": {
+      "translations": {
+        "de": "Ruf mich um sieben Uhr morgens an."
+      }
+    },
+    "p-t815880": {
+      "translations": {
+        "de": "Ich leihe dir ein paar von den Büchern meines Bruders."
+      }
+    },
+    "p-t815893": {
+      "translations": {
+        "de": "Sie sind außer Kontrolle."
+      }
+    },
+    "p-t815896": {
+      "translations": {
+        "de": "Was hast du unternommen, um das Auto zu reparieren?"
+      }
+    },
+    "p-t815900": {
+      "translations": {
+        "de": "Lass uns ihr die Verantwortung dafür geben."
+      }
+    },
+    "p-t815907": {
+      "alternatives": [
+        "til"
+      ],
+      "translations": {
+        "de": "Er hegte einen Groll gegen mich."
+      },
+      "note": "Option 'til' is also correct: 'bære/holde nag til noen' is the standard idiom."
+    },
+    "p-t815915": {
+      "alternatives": [
+        "hos"
+      ],
+      "translations": {
+        "de": "Nichts ist einfacher, als Fehler bei anderen zu finden."
+      },
+      "note": "Option 'hos' is also correct: 'finne feil hos andre' is natural and means the same."
+    },
+    "p-t815919": {
+      "translations": {
+        "de": "Es sollte angemerkt werden, dass Dole nicht beabsichtigte, die Konfiguration des Kommunikationsprotokolls zu ändern."
+      }
+    },
+    "p-t815922": {
+      "exclude": true,
+      "translations": {
+        "de": "Sei nicht frech zu mir, junge Dame!"
+      },
+      "note": "Ungrammatical: plural adjective 'frekke' addressed to a single 'unge dame'; p-t815923 is the correct version."
+    },
+    "p-t815923": {
+      "alternatives": [
+        "mot"
+      ],
+      "translations": {
+        "de": "Sei nicht frech zu mir, junge Dame!"
+      },
+      "note": "'frekk mot noen' is the standard construction, same meaning."
+    },
+    "p-t815925": {
+      "translations": {
+        "de": "Du musst einsehen, dass Reichtum nicht ewig währt."
+      }
+    },
+    "p-t815936": {
+      "alternatives": [
+        "mot"
+      ],
+      "translations": {
+        "de": "Ich habe ihn vor den Gefahren gewarnt."
+      },
+      "note": "'advare mot farene' is equally standard and means the same."
+    },
+    "p-t815940": {
+      "translations": {
+        "de": "Er suchte geduldig nach Fakten."
+      }
+    },
+    "p-t815942": {
+      "translations": {
+        "de": "Geschichte ist ein Zweig der Geisteswissenschaften."
+      }
+    },
+    "p-t815943": {
+      "translations": {
+        "de": "Irland ist berühmt für Spitze."
+      }
+    },
+    "p-t815947": {
+      "translations": {
+        "de": "Eine Perserkatze schlief unter dem Tisch."
+      }
+    },
+    "p-t815956": {
+      "translations": {
+        "de": "Einige japanische College-Studenten lernen, wie es bei ihnen oft der Fall ist, nicht besonders viel."
+      }
+    },
+    "p-t815961": {
+      "alternatives": [
+        "med",
+        "over"
+      ],
+      "translations": {
+        "de": "Er hat etwas Geheimnisvolles an sich."
+      },
+      "note": "'noe mystisk med ham' and 'noe mystisk over ham' are both idiomatic with the same meaning."
+    },
+    "p-t815962": {
+      "translations": {
+        "de": "Du kannst ihm keinen Diebstahl vorwerfen, wenn du keine Beweise hast."
+      }
+    },
+    "p-t815963": {
+      "translations": {
+        "de": "Ich gehe nicht mit dir, wenn du mir nicht sagst, wohin wir gehen."
+      }
+    },
+    "p-t816104": {
+      "translations": {
+        "de": "Ich treffe ihn, nachdem ich zurückgekommen bin."
+      }
+    },
+    "p-t816116": {
+      "translations": {
+        "de": "Kann ich mit Bill sprechen?"
+      }
+    },
+    "p-t816117": {
+      "alternatives": [
+        "overfor"
+      ],
+      "translations": {
+        "de": "Er hat mir gegenüber deinen Namen erwähnt."
+      },
+      "note": "'nevne noe overfor noen' is standard and means the same."
+    },
+    "p-t8210009": {
+      "translations": {
+        "de": "Tom ist beim Nachbarn.",
+        "en": "Tom is at the neighbour's."
+      }
+    },
+    "p-t8423379": {
+      "translations": {
+        "de": "Ich habe nicht unter dem Sofa nachgesehen."
+      }
+    },
+    "p-t8798488": {
+      "translations": {
+        "de": "Tom und Mary saßen am Kamin."
+      }
+    },
+    "p-t8825605": {
+      "alternatives": [
+        "etter"
+      ],
+      "translations": {
+        "de": "Sie sind im Verzug."
+      },
+      "note": "'ligge etter skjema' is the more common idiom, same meaning."
+    },
+    "p-t892225": {
+      "translations": {
+        "de": "Ich will mit Getter Jaani sterben."
+      }
+    },
+    "p-t9211143": {
+      "translations": {
+        "de": "Er ging mein Manuskript schnell durch.",
+        "en": "He quickly went through my manuscript."
+      }
+    },
+    "p-t9211742": {
+      "translations": {
+        "de": "Tu mir das nie wieder an.",
+        "en": "Never do that to me again."
+      }
+    },
+    "p-t9214086": {
+      "translations": {
+        "de": "Ich bin allergisch gegen Erdnüsse.",
+        "en": "I'm allergic to peanuts."
+      }
+    },
+    "p-t9215077": {
+      "translations": {
+        "de": "Ein Flugzeug fliegt über die Stadt.",
+        "en": "A plane is flying over the city."
+      }
+    },
+    "p-t9216076": {
+      "alternatives": [
+        "av"
+      ],
+      "translations": {
+        "de": "Er war von ihrer Schönheit verblüfft.",
+        "en": "He was amazed by her beauty."
+      },
+      "note": "'forbløffet av' is equally standard and keeps the meaning."
+    },
+    "p-t9225092": {
+      "translations": {
+        "de": "Der Ball rollte über die Straße.",
+        "en": "The ball rolled across the street."
+      }
+    },
+    "p-t9249917": {
+      "translations": {
+        "de": "Zwischen ihnen lagen zwanzig Meter.",
+        "en": "There were twenty metres between them."
+      }
+    },
+    "p-t951597": {
+      "translations": {
+        "en": "All Quiet on the Western Front."
+      }
+    }
+  }
+}

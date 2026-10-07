@@ -7,6 +7,8 @@
  */
 import { INITIAL_PROGRESS, clampDailyGoal, type Progress } from './gamification.ts';
 import { MAX_EASE, MIN_EASE, START_EASE, type CardState, type Grade } from './srs.ts';
+import { DEFAULT_TASK_WEIGHTS, parseTaskWeights, type TaskWeights } from './task-weights.ts';
+import { EXERCISE_KINDS, type ExerciseKind } from './types.ts';
 
 export const STORAGE_KEY = 'norskinator.state';
 export const STATE_VERSION = 1;
@@ -24,6 +26,8 @@ export interface Settings {
   readonly soundEffects: boolean;
   /** Read the Norwegian solution aloud after an answer, if the device has a voice. */
   readonly speakSolution: boolean;
+  /** Share of each task type in percent, adding up to 100. */
+  readonly taskWeights: TaskWeights;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -33,6 +37,7 @@ export const DEFAULT_SETTINGS: Settings = {
   disabledDeckIds: [],
   soundEffects: false,
   speakSolution: false,
+  taskWeights: DEFAULT_TASK_WEIGHTS,
 };
 
 export interface PersistedState {
@@ -218,6 +223,7 @@ function parseSettings(value: unknown): Settings {
     disabledDeckIds: readStringArray(value['disabledDeckIds']),
     soundEffects: readBoolean(value['soundEffects'], DEFAULT_SETTINGS.soundEffects),
     speakSolution: readBoolean(value['speakSolution'], DEFAULT_SETTINGS.speakSolution),
+    taskWeights: parseTaskWeights(value['taskWeights']),
   };
 }
 
@@ -395,6 +401,8 @@ export interface PersistedFeedback {
 /** A running session, stored by exercise ids so it survives a reload. */
 export interface PersistedSession {
   readonly queue: readonly string[];
+  /** Task type of each queue entry, same positions as `queue`. */
+  readonly kinds: readonly ExerciseKind[];
   readonly index: number;
   readonly options: readonly string[];
   readonly answered: number;
@@ -451,6 +459,15 @@ function parseFeedback(value: unknown): PersistedFeedback | null {
   };
 }
 
+/** Sessions saved before task types existed have no `kinds`: everything was multiple choice then. */
+function readKinds(value: unknown, length: number): ExerciseKind[] {
+  const stored: readonly unknown[] = Array.isArray(value) ? value : [];
+
+  return Array.from({ length }, (_unused, position) =>
+    readEnum(stored[position], EXERCISE_KINDS, 'multiple-choice'),
+  );
+}
+
 /**
  * Returns `null` unless the stored session is structurally sound. Whether it
  * is still worth resuming (age, completion, exercises that still exist) is
@@ -494,6 +511,7 @@ export function parseSession(raw: string | null): PersistedSession | null {
 
   return {
     queue,
+    kinds: readKinds(parsed['kinds'], queue.length),
     index,
     options: readStringArray(parsed['options']),
     answered,

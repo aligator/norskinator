@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { DAILY_GOAL_BOUNDS, INITIAL_PROGRESS } from './gamification.ts';
+import { DEFAULT_TASK_WEIGHTS } from './task-weights.ts';
 import {
   DEFAULT_SETTINGS,
   INITIAL_STATE,
@@ -133,6 +134,22 @@ describe('parseState', () => {
     expect(restored.lastSessionDay).toBeNull();
   });
 
+  it('loads settings stored before task types existed with the default mix', () => {
+    const settings: Record<string, unknown> = { ...DEFAULT_SETTINGS };
+    delete settings['taskWeights'];
+
+    expect(parseState(JSON.stringify({ settings })).settings.taskWeights).toEqual(DEFAULT_TASK_WEIGHTS);
+  });
+
+  it('rescales stored task weights that do not add up to 100', () => {
+    const settings = { ...DEFAULT_SETTINGS, taskWeights: { 'multiple-choice': 1, 'type-in': 3, unknown: 9 } };
+
+    expect(parseState(JSON.stringify({ settings })).settings.taskWeights).toEqual({
+      'multiple-choice': 25,
+      'type-in': 75,
+    });
+  });
+
   it('derives the session day from the active day when the key is missing', () => {
     const progress: Record<string, unknown> = { ...INITIAL_PROGRESS, lastActiveDay: '2026-01-15' };
     delete progress['lastSessionDay'];
@@ -143,6 +160,7 @@ describe('parseState', () => {
 
 const SESSION: PersistedSession = {
   queue: ['a', 'b', 'a'],
+  kinds: ['multiple-choice', 'type-in', 'type-in'],
   index: 1,
   options: ['i', 'på'],
   answered: 2,
@@ -171,6 +189,13 @@ const SESSION: PersistedSession = {
 describe('parseSession', () => {
   it('round-trips a stored session', () => {
     expect(parseSession(JSON.stringify(SESSION))).toEqual(SESSION);
+  });
+
+  it('reads a session saved before task types existed as multiple choice', () => {
+    const legacy: Record<string, unknown> = { ...SESSION };
+    delete legacy['kinds'];
+
+    expect(parseSession(JSON.stringify(legacy))?.kinds).toEqual(['multiple-choice', 'multiple-choice', 'multiple-choice']);
   });
 
   it('returns null for missing, unparsable or non-object data', () => {
