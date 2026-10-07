@@ -25,14 +25,14 @@ function isRecord(value: unknown): value is Readonly<Record<string, unknown>> {
   return typeof value === 'object' && value !== null;
 }
 
-function readWords(value: unknown): string[] {
+function readAlternatives(deck: ReviewDeck, value: unknown): string[] {
   if (!Array.isArray(value)) {
     return [];
   }
 
   return value
     .filter((entry): entry is string => typeof entry === 'string')
-    .map((entry) => entry.trim().toLowerCase())
+    .map((entry) => (deck.dataKind === 'cloze' ? entry.trim().toLowerCase() : entry.trim()))
     .filter((entry) => entry !== '');
 }
 
@@ -46,7 +46,7 @@ function toEntry(deck: ReviewDeck, item: GeneratedItem, review: Readonly<Record<
 
   const entry: OverrideEntry = {};
   const known = new Set([item.answer, ...(item.alternatives ?? [])]);
-  const alternatives = readWords(review['alternatives']).filter((word) => !known.has(word));
+  const alternatives = readAlternatives(deck, review['alternatives']).filter((word) => !known.has(word));
 
   if (alternatives.length > 0) {
     entry.alternatives = alternatives;

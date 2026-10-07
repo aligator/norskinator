@@ -6,7 +6,7 @@
  */
 import {
   LANGUAGE_CODES,
-  type ClozeItem,
+  type DataItem,
   type LanguageCode,
   type TranslationCredit,
   type Translations,
@@ -89,7 +89,7 @@ export function parseOverrides(raw: unknown): Overrides {
   return overrides;
 }
 
-function applyOverride(item: ClozeItem, override: ItemOverride): ClozeItem {
+function applyOverride<Item extends DataItem>(item: Item, override: ItemOverride): Item {
   const existing = item.translations ?? {};
   const translations: Partial<Record<LanguageCode, string>> = { ...existing };
   const machineCredits: Partial<Record<LanguageCode, TranslationCredit>> = {};
@@ -122,7 +122,7 @@ function applyOverride(item: ClozeItem, override: ItemOverride): ClozeItem {
   };
 }
 
-export function applyOverrides(items: readonly ClozeItem[], overrides: Overrides): ClozeItem[] {
+export function applyOverrides<Item extends DataItem>(items: readonly Item[], overrides: Overrides): Item[] {
   return items.flatMap((item) => {
     const override = overrides.get(item.id);
 

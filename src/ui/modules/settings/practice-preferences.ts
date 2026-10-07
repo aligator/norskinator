@@ -1,11 +1,11 @@
 /** What and how much to practise: translation hint, task mix, session size and daily goal. */
-import { LitElement, html, type TemplateResult } from 'lit';
+import { LitElement, html, nothing, type TemplateResult } from 'lit';
 
 import { DAILY_GOAL_BOUNDS } from '../../../core/gamification.ts';
 import { NEW_PER_SESSION_BOUNDS, type Settings, type TranslationLanguage } from '../../../core/storage.ts';
-import { rebalance } from '../../../core/task-weights.ts';
+import { kindsOf, rebalance } from '../../../core/task-weights.ts';
 import { TASK_TYPES } from '../../../core/tasks.ts';
-import { EXERCISE_KINDS, type ExerciseKind } from '../../../core/types.ts';
+import { DATA_KINDS, EXERCISE_KINDS, type DataKind, type ExerciseKind } from '../../../core/types.ts';
 import type { SegmentOption } from '../../components/segmented-control.ts';
 import type { Share } from '../../components/share-sliders.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
@@ -22,6 +22,14 @@ const TRANSLATIONS: readonly SegmentOption[] = [
   { value: 'en', label: 'Engelsk' },
   { value: 'none', label: 'Av' },
 ];
+
+const DATA_KIND_LABELS: Readonly<Record<DataKind, string>> = {
+  cloze: 'Luke-oppgaver',
+  sentence: 'Setningsoppgaver',
+};
+
+/** A task type alone in its data kind always gets 100 %, so it has nothing to adjust. */
+const ADJUSTABLE_DATA_KINDS = DATA_KINDS.filter((dataKind) => kindsOf(dataKind).length >= 2);
 
 const DAILY_GOALS: readonly SegmentOption[] = [10, 20, 30, 50]
   .filter((goal) => goal >= DAILY_GOAL_BOUNDS.min && goal <= DAILY_GOAL_BOUNDS.max)
@@ -69,15 +77,7 @@ export class PracticePreferences extends LitElement {
     const settings = store.state.settings;
 
     return html`
-      <section>
-        <ui-share-sliders
-          label="Oppgavetyper"
-          .shares=${this.#taskShares(settings)}
-          @share-input=${this.#onTaskShare}
-          @share-change=${this.#onTaskShareDone}
-        ></ui-share-sliders>
-        <p class="hint">Til sammen alltid 100 %. Flytter du én, justeres de andre.</p>
-      </section>
+      ${this.#renderTaskShares(settings)}
 
       <ui-segmented
         label="Oversettelse"
@@ -107,8 +107,28 @@ export class PracticePreferences extends LitElement {
     `;
   }
 
-  #taskShares(settings: Settings): Share[] {
-    return EXERCISE_KINDS.map((kind) => ({
+  #renderTaskShares(settings: Settings): TemplateResult | typeof nothing {
+    if (ADJUSTABLE_DATA_KINDS.length === 0) {
+      return nothing;
+    }
+
+    return html`
+      <section>
+        ${ADJUSTABLE_DATA_KINDS.map(
+          (dataKind) => html`<ui-share-sliders
+            label=${DATA_KIND_LABELS[dataKind]}
+            .shares=${this.#taskShares(settings, dataKind)}
+            @share-input=${this.#onTaskShare}
+            @share-change=${this.#onTaskShareDone}
+          ></ui-share-sliders>`,
+        )}
+        <p class="hint">Til sammen alltid 100 %. Flytter du én, justeres de andre.</p>
+      </section>
+    `;
+  }
+
+  #taskShares(settings: Settings, dataKind: DataKind): Share[] {
+    return kindsOf(dataKind).map((kind) => ({
       id: kind,
       label: TASK_TYPES[kind].label,
       value: settings.taskWeights[kind],

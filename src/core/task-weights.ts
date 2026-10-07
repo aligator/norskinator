@@ -1,14 +1,15 @@
 /**
- * How often each task type is used, as whole percentages that always add up
- * to 100. Moving one share moves the others the opposite way.
+ * How often each task type is used, as whole percentages. The shares of the
+ * task types of one data kind always add up to 100 (multiple choice and
+ * type-in for cloze items); moving one moves the others the opposite way.
  */
-import { EXERCISE_KINDS, type ExerciseKind } from './types.ts';
+import { DATA_KINDS, EXERCISE_KINDS, TASK_DATA_KIND, type DataKind, type ExerciseKind } from './types.ts';
 
 export type TaskWeights = Readonly<Record<ExerciseKind, number>>;
 
 export const WEIGHT_TOTAL = 100;
 
-export const DEFAULT_TASK_WEIGHTS: TaskWeights = { 'multiple-choice': 70, 'type-in': 30 };
+export const DEFAULT_TASK_WEIGHTS: TaskWeights = { 'multiple-choice': 70, 'type-in': 30, 'word-order': 100 };
 
 /**
  * Splits `total` into whole numbers proportional to `shares` (largest
@@ -41,20 +42,20 @@ function isRecord(value: unknown): value is Readonly<Record<string, unknown>> {
   return typeof value === 'object' && value !== null;
 }
 
-function fromList(values: readonly number[]): TaskWeights {
-  const weights: Record<ExerciseKind, number> = { ...DEFAULT_TASK_WEIGHTS };
-
-  for (const [position, kind] of EXERCISE_KINDS.entries()) {
-    weights[kind] = values[position] ?? 0;
-  }
-
-  return weights;
+/** The task types that share one 100 % budget. */
+export function kindsOf(dataKind: DataKind): ExerciseKind[] {
+  return EXERCISE_KINDS.filter((kind) => TASK_DATA_KIND[kind] === dataKind);
 }
 
-/** Sets one share and spreads the rest over the others in their current proportion. */
+/** Sets one share and spreads the rest over the other task types of its data kind, in their current proportion. */
 export function rebalance(weights: TaskWeights, changed: ExerciseKind, requested: number): TaskWeights {
   const value = Math.min(WEIGHT_TOTAL, Math.max(0, Math.round(requested)));
-  const others = EXERCISE_KINDS.filter((kind) => kind !== changed);
+  const others = kindsOf(TASK_DATA_KIND[changed]).filter((kind) => kind !== changed);
+
+  if (others.length === 0) {
+    return weights;
+  }
+
   const spread = apportion(
     WEIGHT_TOTAL - value,
     others.map((kind) => weights[kind]),
@@ -69,21 +70,38 @@ export function rebalance(weights: TaskWeights, changed: ExerciseKind, requested
   return result;
 }
 
-/** Reads stored weights; anything unusable falls back to the defaults, anything off-total is rescaled. */
+function readShare(value: Readonly<Record<string, unknown>>, kind: ExerciseKind): number {
+  const entry = value[kind];
+
+  return typeof entry === 'number' && Number.isFinite(entry) && entry > 0 ? entry : 0;
+}
+
+/**
+ * Reads stored weights per data kind: a group that is missing or all zero
+ * (e.g. a task type added since) gets its defaults, anything off-total is
+ * rescaled.
+ */
 export function parseTaskWeights(value: unknown): TaskWeights {
+  const result: Record<ExerciseKind, number> = { ...DEFAULT_TASK_WEIGHTS };
+
   if (!isRecord(value)) {
-    return DEFAULT_TASK_WEIGHTS;
+    return result;
   }
 
-  const raw = EXERCISE_KINDS.map((kind) => {
-    const entry = value[kind];
+  for (const dataKind of DATA_KINDS) {
+    const kinds = kindsOf(dataKind);
+    const raw = kinds.map((kind) => readShare(value, kind));
 
-    return typeof entry === 'number' && Number.isFinite(entry) && entry > 0 ? entry : 0;
-  });
+    if (raw.every((entry) => entry === 0)) {
+      continue;
+    }
 
-  if (raw.every((entry) => entry === 0)) {
-    return DEFAULT_TASK_WEIGHTS;
+    const shares = apportion(WEIGHT_TOTAL, raw);
+
+    for (const [position, kind] of kinds.entries()) {
+      result[kind] = shares[position] ?? 0;
+    }
   }
 
-  return fromList(apportion(WEIGHT_TOTAL, raw));
+  return result;
 }

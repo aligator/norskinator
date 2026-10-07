@@ -161,6 +161,21 @@ export function shuffleOptions(
   return result;
 }
 
+/**
+ * Shuffles word-order tiles; reshuffles a few times when the result happens to
+ * be the right order, which with short sentences is not rare.
+ */
+export function shuffleTiles(tiles: readonly string[], random: () => number = Math.random): string[] {
+  const attempts = 5;
+  let shuffled = shuffleOptions(tiles, random);
+
+  for (let attempt = 1; attempt < attempts && shuffled.join(' ') === tiles.join(' '); attempt += 1) {
+    shuffled = shuffleOptions(tiles, random);
+  }
+
+  return shuffled;
+}
+
 export interface SessionPreview {
   /** Review cards the next session will contain. */
   readonly due: number;

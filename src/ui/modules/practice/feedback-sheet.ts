@@ -5,7 +5,7 @@
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
 import { XP_GOAL_BONUS, badgeById } from '../../../core/gamification.ts';
-import { gapParts, normalizeAnswer, solutionText } from '../../../core/checker.ts';
+import { gapParts, isCorrect, normalizeAnswer, solutionText } from '../../../core/checker.ts';
 import type { Feedback } from '../../../core/store.ts';
 import type { TranslationLanguage } from '../../../core/storage.ts';
 import { checkIcon, crossIcon, speakerIcon } from '../../components/icons.ts';
@@ -36,6 +36,18 @@ function headline(feedback: Feedback): string {
       return 'Riktig!';
     }
   }
+}
+
+/** A built word order is shown as a sentence: capital letter and a full stop, like the solution. */
+function givenText(feedback: Feedback): string {
+  if (feedback.exercise.kind !== 'word-order' || feedback.given === '') {
+    return feedback.given;
+  }
+
+  const sentence = `${feedback.given.charAt(0).toLocaleUpperCase('nb-NO')}${feedback.given.slice(1)}`;
+  const ending = /[.!?]$/u.exec(feedback.exercise.answer)?.[0] ?? '.';
+
+  return `${sentence}${ending}`;
 }
 
 export class FeedbackSheet extends LitElement {
@@ -203,6 +215,13 @@ export class FeedbackSheet extends LitElement {
         color: var(--fg-muted);
       }
 
+      .also-correct ul {
+        margin: var(--sp-1) 0 0;
+        padding: 0;
+        list-style: none;
+        font-family: var(--font-prompt);
+      }
+
       @keyframes rise {
         from {
           transform: translateY(100%);
@@ -258,25 +277,47 @@ export class FeedbackSheet extends LitElement {
     this.dailyGoal = 20;
   }
 
-  /** A typed answer can be right in more than one way; show the ones the learner did not use. */
+  /** An answer can be right in more than one way; show the ones the learner did not use. */
   #renderAlsoCorrect(): TemplateResult | typeof nothing {
     const exercise = this.feedback.exercise;
 
-    if (exercise.kind !== 'type-in') {
-      return nothing;
+    switch (exercise.kind) {
+      case 'multiple-choice': {
+        return nothing;
+      }
+
+      case 'type-in': {
+        // The solution line already shows the main answer, so it only repeats here when another word was accepted.
+        const given = normalizeAnswer(this.feedback.given);
+        const others = [exercise.answer, ...(exercise.alternatives ?? [])].filter(
+          (word) => normalizeAnswer(word) !== given && (this.feedback.correct || word !== exercise.answer),
+        );
+
+        if (others.length === 0) {
+          return nothing;
+        }
+
+        return html`<p class="also-correct">Også riktig: <span lang="nb">${others.join(', ')}</span></p>`;
+      }
+
+      case 'word-order': {
+        // Checked against one sentence at a time, so the comparison is exactly the grader's.
+        const others = (exercise.alternatives ?? []).filter(
+          (sentence) => !isCorrect({ ...exercise, answer: sentence, alternatives: [] }, this.feedback.given),
+        );
+
+        if (others.length === 0) {
+          return nothing;
+        }
+
+        return html`<div class="also-correct">
+          Også riktig:
+          <ul lang="nb">
+            ${others.map((sentence) => html`<li>${sentence}</li>`)}
+          </ul>
+        </div>`;
+      }
     }
-
-    // The solution line already shows the main answer, so it only repeats here when another word was accepted.
-    const given = normalizeAnswer(this.feedback.given);
-    const others = [exercise.answer, ...(exercise.alternatives ?? [])].filter(
-      (word) => normalizeAnswer(word) !== given && (this.feedback.correct || word !== exercise.answer),
-    );
-
-    if (others.length === 0) {
-      return nothing;
-    }
-
-    return html`<p class="also-correct">Også riktig: <span lang="nb">${others.join(', ')}</span></p>`;
   }
 
   focusContinue(): void {
@@ -314,7 +355,7 @@ export class FeedbackSheet extends LitElement {
 
         ${feedback.correct
           ? nothing
-          : html`<p class="given">Ditt svar: <del lang="nb">${feedback.given}</del></p>`}
+          : html`<p class="given">Ditt svar: <del lang="nb">${givenText(feedback)}</del></p>`}
         <div class="solution-row">
           <p class="solution" lang="nb">${this.#renderSolution()}</p>
           ${this.#voice.available

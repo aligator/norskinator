@@ -7,7 +7,7 @@
 import { isCorrect } from './checker.ts';
 import { clampDailyGoal, levelInfo, recordAnswer, recordSessionCompleted, type Progress } from './gamification.ts';
 import { restoreSession, snapshotSession } from './resume.ts';
-import { buildSession, canRequeue, requeue, shuffleOptions } from './session.ts';
+import { buildSession, canRequeue, requeue, shuffleOptions, shuffleTiles } from './session.ts';
 import { createCard, gradeFromAnswer, review, type CardState, type Grade } from './srs.ts';
 import {
   INITIAL_STATE,
@@ -474,13 +474,23 @@ export class Store {
     return presentAs(item, kind) ?? presentItem(item, this.#state.settings.taskWeights, this.#random);
   }
 
+  /** Choices shuffled once per presentation; word-order tiles never start out already solved. */
   #optionsFor(exercise: Exercise): string[] {
-    if (exercise.kind !== 'multiple-choice') {
-      return [];
-    }
+    switch (exercise.kind) {
+      case 'multiple-choice': {
+        return shuffleOptions(exercise.options, this.#random);
+      }
 
-    return shuffleOptions(exercise.options, this.#random);
+      case 'type-in': {
+        return [];
+      }
+
+      case 'word-order': {
+        return shuffleTiles(exercise.tiles, this.#random);
+      }
+    }
   }
+
 
   #patch(patch: Partial<AppState>): void {
     const previousSession = this.#state.session;

@@ -328,10 +328,17 @@ export class PracticeSession extends LitElement {
         parts.push(`Kombo ${combo}.`);
       }
     } else {
-      parts.push(`Feil. Riktig svar: ${feedback.exercise.answer}. ${solutionText(feedback.exercise)}`);
+      const exercise = feedback.exercise;
 
-      if (feedback.exercise.explanation !== undefined) {
-        parts.push(feedback.exercise.explanation);
+      // A word-order answer is the whole sentence; saying it twice adds nothing.
+      parts.push(
+        exercise.kind === 'word-order'
+          ? `Feil. Riktig svar: ${solutionText(exercise)}`
+          : `Feil. Riktig svar: ${exercise.answer}. ${solutionText(exercise)}`,
+      );
+
+      if (exercise.explanation !== undefined) {
+        parts.push(exercise.explanation);
       }
     }
 
@@ -461,9 +468,45 @@ export class PracticeSession extends LitElement {
   }
 
   #handleQuestionKey(event: KeyboardEvent): void {
-    if (event.key === 't' || event.key === 'T') {
-      this.renderRoot.querySelector<ExerciseCard>('exercise-card')?.toggleTranslation();
+    const card = this.renderRoot.querySelector<ExerciseCard>('exercise-card');
+    const exercise = store.currentExercise;
 
+    if (card === null || exercise === null) {
+      return;
+    }
+
+    switch (exercise.kind) {
+      case 'multiple-choice': {
+        this.#handleChoiceKey(event, card);
+
+        return;
+      }
+
+      case 'type-in': {
+        this.#handleTranslationKey(event, card);
+
+        return;
+      }
+
+      case 'word-order': {
+        this.#handleWordOrderKey(event, card);
+      }
+    }
+  }
+
+  /** True when the key toggled the translation. */
+  #handleTranslationKey(event: KeyboardEvent, card: ExerciseCard): boolean {
+    if (event.key !== 't' && event.key !== 'T') {
+      return false;
+    }
+
+    card.toggleTranslation();
+
+    return true;
+  }
+
+  #handleChoiceKey(event: KeyboardEvent, card: ExerciseCard): void {
+    if (this.#handleTranslationKey(event, card)) {
       return;
     }
 
@@ -476,6 +519,35 @@ export class PracticeSession extends LitElement {
 
     event.preventDefault();
     this.#submit(option);
+  }
+
+  /** Digits pick the n-th pool tile, Backspace takes the last one back, Enter checks. */
+  #handleWordOrderKey(event: KeyboardEvent, card: ExerciseCard): void {
+    const digit = Number.parseInt(event.key, 10);
+
+    if (digit >= 1 && digit <= 9) {
+      event.preventDefault();
+      card.pickTile(digit - 1);
+
+      return;
+    }
+
+    if (event.key === 'Backspace') {
+      event.preventDefault();
+      card.undoTile();
+
+      return;
+    }
+
+    // Enter on a focused tile or link already does what that control means.
+    const onControl = event
+      .composedPath()
+      .some((target) => target instanceof HTMLButtonElement || target instanceof HTMLAnchorElement);
+
+    if (event.key === 'Enter' && !onControl) {
+      event.preventDefault();
+      card.submitTiles();
+    }
   }
 }
 

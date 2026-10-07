@@ -10,6 +10,14 @@ export function normalizeAnswer(value: string): string {
     .replace(/\s+/gu, ' ');
 }
 
+/** Tiles carry no commas, so a built sentence is compared by its words alone. */
+function withoutPunctuation(value: string): string {
+  return value
+    .replace(/[,.!?;:]/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim();
+}
+
 export function isCorrect(exercise: Exercise, given: string): boolean {
   const candidate = normalizeAnswer(given);
 
@@ -26,6 +34,14 @@ export function isCorrect(exercise: Exercise, given: string): boolean {
       const alternatives = exercise.alternatives ?? [];
 
       return alternatives.some((alternative) => normalizeAnswer(alternative) === candidate);
+    }
+
+    case 'word-order': {
+      const ordered = withoutPunctuation(candidate);
+
+      return [exercise.answer, ...(exercise.alternatives ?? [])].some(
+        (sentence) => withoutPunctuation(normalizeAnswer(sentence)) === ordered,
+      );
     }
   }
 }

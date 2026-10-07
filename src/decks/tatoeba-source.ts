@@ -9,7 +9,7 @@
 import { applyOverrides, parseOverrides, type Overrides } from '../core/overrides.ts';
 import {
   LANGUAGE_CODES,
-  type ClozeItem,
+  type DataItem,
   type GeneratedCredit,
   type GeneratedItem,
   type LanguageCode,
@@ -48,9 +48,9 @@ function isUsableItem(value: unknown): value is GeneratedItem {
     return false;
   }
 
-  const options = value['options'];
+  const choices = value['options'] ?? value['tiles'];
 
-  return isLevel(value['level']) && isUnknownArray(options) && options.length >= 2;
+  return isLevel(value['level']) && isUnknownArray(choices) && choices.length >= 2;
 }
 
 export interface TatoebaBundle {
@@ -104,22 +104,20 @@ function translationCredits(
   return credits;
 }
 
-function toItem(item: GeneratedItem, defaultLicense: string, ids: TatoebaDeckIds): ClozeItem {
+/** A bundle with `tiles` holds whole sentences to order; one with `options` holds cloze items. */
+function toItem(item: GeneratedItem, defaultLicense: string, ids: TatoebaDeckIds): DataItem {
   const sentenceCredit: GeneratedCredit = {
     id: item.sourceId,
     ...(item.author === undefined ? {} : { author: item.author }),
     ...(item.license === undefined ? {} : { license: item.license }),
   };
   const alternatives = (item.alternatives ?? []).filter((word) => word !== item.answer);
-
-  return {
-    dataKind: 'cloze',
+  const content = {
     id: `${ids.idPrefix}${item.id}`,
     deckId: ids.deckId,
     prompt: item.prompt,
     solution: item.solution,
     answer: item.answer,
-    distractors: item.options.filter((option) => option !== item.answer),
     level: item.level,
     tags: item.tags,
     source: {
@@ -131,10 +129,20 @@ function toItem(item: GeneratedItem, defaultLicense: string, ids: TatoebaDeckIds
     ...(alternatives.length > 0 ? { alternatives } : {}),
     ...(item.translations === undefined ? {} : { translations: item.translations }),
   };
+
+  if (item.tiles !== undefined) {
+    return { ...content, dataKind: 'sentence', tiles: item.tiles };
+  }
+
+  return {
+    ...content,
+    dataKind: 'cloze',
+    distractors: (item.options ?? []).filter((option) => option !== item.answer),
+  };
 }
 
-/** Maps a raw `tatoeba.json` to cloze items; throws when the bundle itself is malformed. */
-export function tatoebaItems(bundle: unknown, ids: TatoebaDeckIds): ClozeItem[] {
+/** Maps a raw `tatoeba.json` to items; throws when the bundle itself is malformed. */
+export function tatoebaItems(bundle: unknown, ids: TatoebaDeckIds): DataItem[] {
   const { license, items } = readTatoebaBundle(bundle);
 
   return items.map((item) => toItem(item, license, ids));
@@ -148,7 +156,7 @@ export function reviewedTatoebaLoader(
   ids: TatoebaDeckIds,
   loadBundle: () => Promise<unknown>,
   loadOverrides: () => Promise<unknown>,
-): () => Promise<ClozeItem[]> {
+): () => Promise<DataItem[]> {
   let overrides: Promise<Overrides> | null = null;
 
   return async () => {

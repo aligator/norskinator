@@ -147,6 +147,7 @@ describe('parseState', () => {
     expect(parseState(JSON.stringify({ settings })).settings.taskWeights).toEqual({
       'multiple-choice': 25,
       'type-in': 75,
+      'word-order': 100,
     });
   });
 

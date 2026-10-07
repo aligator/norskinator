@@ -52,18 +52,18 @@ describe('presentAs', () => {
 
 describe('presentItem', () => {
   it('follows the weights', () => {
-    const typed = { 'multiple-choice': 0, 'type-in': 100 } as const;
-    const chosen = { 'multiple-choice': 100, 'type-in': 0 } as const;
+    const typed = { 'multiple-choice': 0, 'type-in': 100, 'word-order': 100 } as const;
+    const chosen = { 'multiple-choice': 100, 'type-in': 0, 'word-order': 100 } as const;
 
     expect(presentItem(ITEM, typed, () => 0.99)?.kind).toBe('type-in');
     expect(presentItem(ITEM, chosen, () => 0.99)?.kind).toBe('multiple-choice');
-    expect(presentItem(ITEM, { 'multiple-choice': 50, 'type-in': 50 }, () => 0.75)?.kind).toBe('type-in');
+    expect(presentItem(ITEM, { 'multiple-choice': 50, 'type-in': 50, 'word-order': 100 }, () => 0.75)?.kind).toBe('type-in');
   });
 
   it('still shows an item whose only task type is set to 0 %', () => {
     const onlyTyped: PlayableItem = { ...ITEM, tasks: ['type-in'] };
 
-    expect(presentItem(onlyTyped, { 'multiple-choice': 100, 'type-in': 0 }, () => 0)?.kind).toBe('type-in');
+    expect(presentItem(onlyTyped, { 'multiple-choice': 100, 'type-in': 0, 'word-order': 100 }, () => 0)?.kind).toBe('type-in');
   });
 });
 

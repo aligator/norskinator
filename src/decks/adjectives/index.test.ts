@@ -36,7 +36,7 @@ describe('adjective deck', () => {
   });
 
   it('never offers the answer as a wrong choice', () => {
-    const problems = ITEMS.filter((item) => item.distractors.includes(item.answer));
+    const problems = ITEMS.filter((item) => item.dataKind === 'cloze' && item.distractors.includes(item.answer));
 
     expect(problems.map((item) => item.id)).toEqual([]);
   });

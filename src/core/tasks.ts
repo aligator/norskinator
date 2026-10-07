@@ -9,7 +9,6 @@
  */
 import type { TaskWeights } from './task-weights.ts';
 import type {
-  ClozeItem,
   DataItem,
   DataKind,
   Deck,
@@ -19,6 +18,7 @@ import type {
   MultipleChoiceExercise,
   PlayableItem,
   TypeInExercise,
+  WordOrderExercise,
 } from './types.ts';
 
 export interface TaskType {
@@ -33,8 +33,8 @@ export interface TaskType {
 /** With fewer wrong choices than this, multiple choice turns into guessing. */
 const MIN_DISTRACTORS = 2;
 
-/** The fields every presentation of a cloze item carries over unchanged. */
-function clozeContent(item: ClozeItem): Omit<MultipleChoiceExercise, 'kind' | 'answer' | 'options'> {
+/** The fields every presentation of an item carries over unchanged. */
+function sharedContent(item: DataItem): Omit<MultipleChoiceExercise, 'kind' | 'answer' | 'options'> {
   return {
     id: item.id,
     deckId: item.deckId,
@@ -49,7 +49,11 @@ function clozeContent(item: ClozeItem): Omit<MultipleChoiceExercise, 'kind' | 'a
   };
 }
 
-function buildChoice(item: ClozeItem): MultipleChoiceExercise | null {
+function buildChoice(item: DataItem): MultipleChoiceExercise | null {
+  if (item.dataKind !== 'cloze') {
+    return null;
+  }
+
   const accepted = new Set([item.answer, ...(item.alternatives ?? [])]);
   const distractors = [...new Set(item.distractors)].filter((distractor) => !accepted.has(distractor));
 
@@ -57,14 +61,35 @@ function buildChoice(item: ClozeItem): MultipleChoiceExercise | null {
     return null;
   }
 
-  return { ...clozeContent(item), kind: 'multiple-choice', answer: item.answer, options: [item.answer, ...distractors] };
+  return { ...sharedContent(item), kind: 'multiple-choice', answer: item.answer, options: [item.answer, ...distractors] };
 }
 
-function buildTypeIn(item: ClozeItem): TypeInExercise {
+function buildTypeIn(item: DataItem): TypeInExercise | null {
+  if (item.dataKind !== 'cloze') {
+    return null;
+  }
+
   return {
-    ...clozeContent(item),
+    ...sharedContent(item),
     kind: 'type-in',
     answer: item.answer,
+    ...(item.alternatives === undefined ? {} : { alternatives: item.alternatives }),
+  };
+}
+
+/** A single word leaves nothing to order. */
+const MIN_TILES = 3;
+
+function buildWordOrder(item: DataItem): WordOrderExercise | null {
+  if (item.dataKind !== 'sentence' || item.tiles.length < MIN_TILES) {
+    return null;
+  }
+
+  return {
+    ...sharedContent(item),
+    kind: 'word-order',
+    answer: item.answer,
+    tiles: item.tiles,
     ...(item.alternatives === undefined ? {} : { alternatives: item.alternatives }),
   };
 }
@@ -72,6 +97,7 @@ function buildTypeIn(item: ClozeItem): TypeInExercise {
 export const TASK_TYPES: Readonly<Record<ExerciseKind, TaskType>> = {
   'multiple-choice': { kind: 'multiple-choice', dataKind: 'cloze', label: 'Flervalg', build: buildChoice },
   'type-in': { kind: 'type-in', dataKind: 'cloze', label: 'Skriv inn', build: buildTypeIn },
+  'word-order': { kind: 'word-order', dataKind: 'sentence', label: 'Ordstilling', build: buildWordOrder },
 };
 
 function assertSourceFits(deck: Deck, source: DeckSource): void {

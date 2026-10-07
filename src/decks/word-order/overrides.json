@@ -1,0 +1,5726 @@
+{
+  "version": 1,
+  "items": {
+    "w-t1035128": {
+      "translations": {
+        "de": "Früher habe ich davon geträumt, Astronaut zu werden."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, så verbet «pleide». Etter det kommer «å drømme om å bli»."
+    },
+    "w-t1035142": {
+      "alternatives": [
+        "Uansett hva som skjer, vil jeg alltid elske deg.",
+        "Uansett hva som skjer, jeg vil alltid elske deg."
+      ],
+      "translations": {
+        "de": "Ich werde dich immer lieben, egal was passiert."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Alltid» står etter det første verbet «vil»: «vil alltid elske».",
+      "note": "'uansett' clause can be fronted, with or without inversion"
+    },
+    "w-t1039977": {
+      "alternatives": [
+        "Broren din har den samme ordboken som jeg."
+      ],
+      "translations": {
+        "de": "Ich habe dasselbe Wörterbuch wie dein Bruder."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, så verbet «har». «Som broren din» står til slutt.",
+      "note": "Symmetric comparison, same meaning"
+    },
+    "w-t1041635": {
+      "translations": {
+        "de": "Gott hilft dem, der sich selbst hilft."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «Gud» står først, så verbet «hjelper». «Den som hjelper seg selv» er objektet."
+    },
+    "w-t1346435": {
+      "translations": {
+        "de": "Es riecht, als ob hier drinnen jemand geraucht hätte."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Etter «som om» står subjektet «noen» før verbet «har». «Her inne» står til slutt."
+    },
+    "w-t1346462": {
+      "translations": {
+        "de": "Er gehört nicht in die Stadt."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «hører», før «til»: «hører ikke til»."
+    },
+    "w-t1400853": {
+      "translations": {
+        "de": "Er ist nicht aus Hokkaido."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «er»."
+    },
+    "w-t1418452": {
+      "exclude": true,
+      "note": "Two clauses joined by a colon, which is not added automatically"
+    },
+    "w-t1422559": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «er»."
+    },
+    "w-t1449877": {
+      "translations": {
+        "de": "Ich werde dich nie verlassen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Aldri» står etter det første verbet «vil»: «vil aldri forlate»."
+    },
+    "w-t1472201": {
+      "alternatives": [
+        "Et år kan gå så fort."
+      ],
+      "translations": {
+        "en": "That's how fast a year can go by."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «så fort», så verbet «kan» står før subjektet «et år».",
+      "note": "Plain subject-first order also natural"
+    },
+    "w-t1680795": {
+      "alternatives": [
+        "Det finnes fem deklinasjoner i latin."
+      ],
+      "translations": {
+        "de": "Im Lateinischen gibt es fünf Deklinationen."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i latin», så verbet «finnes» står før «det».",
+      "note": "Place adverbial can also go last"
+    },
+    "w-t1681249": {
+      "exclude": true,
+      "note": "Odd, unnatural sentence; translation does not match"
+    },
+    "w-t1681740": {
+      "exclude": true,
+      "note": "Fragment without a verb, nothing to order"
+    },
+    "w-t1685621": {
+      "exclude": true,
+      "note": "Two sentences; inner full stop not added automatically"
+    },
+    "w-t1685622": {
+      "alternatives": [
+        "Jeg så flyet ta av da jeg ankom flyplassen."
+      ],
+      "translations": {
+        "de": "Als ich am Flughafen ankam, sah ich das Flugzeug abheben."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Leddsetningen med «da» står først, så verbet «så» kommer før subjektet «jeg».",
+      "note": "Subordinate clause can also go last"
+    },
+    "w-t1685638": {
+      "exclude": true,
+      "note": "Wrong comma after short adverbial, archaic 'drog', and many valid orders"
+    },
+    "w-t1685640": {
+      "exclude": true,
+      "note": "Exclamative; 'Så fort går flyet' also valid; translation mismatch"
+    },
+    "w-t1686540": {
+      "exclude": true,
+      "note": "Exclamative; both orders valid, does not fit the categories"
+    },
+    "w-t1693168": {
+      "alternatives": [
+        "Alt er i orden her."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «her», så verbet «er» står før subjektet «alt».",
+      "note": "Place adverbial can also go last"
+    },
+    "w-t1763687": {
+      "alternatives": [
+        "Du kan krysse veien nå."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «nå», så verbet «kan» står før subjektet «du».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t1795342": {
+      "alternatives": [
+        "Det er et forferdelig rot her!"
+      ],
+      "translations": {
+        "en": "What a terrible mess it is here!"
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «her», så verbet «er» står før «det».",
+      "note": "Place adverbial can also go last"
+    },
+    "w-t1846964": {
+      "exclude": true,
+      "note": "Ungrammatical: V3 order after fronted adverbial"
+    },
+    "w-t1857735": {
+      "exclude": true,
+      "note": "Calque of English proverb; Norwegian says 'er det vei'"
+    },
+    "w-t1865925": {
+      "alternatives": [
+        "Han er ikke arbeidsdyktig etter min mening."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «etter min mening», så verbet «er» står før subjektet «han».",
+      "note": "Adverbial can also go last"
+    },
+    "w-t1865927": {
+      "alternatives": [
+        "Han kan ikke arbeide etter min mening."
+      ],
+      "translations": {
+        "de": "Meiner Meinung nach kann er nicht arbeiten."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «etter min mening», så verbet «kan» står før subjektet «han».",
+      "note": "Adverbial can also go last"
+    },
+    "w-t1866249": {
+      "alternatives": [
+        "Jeg går til sengs tidlig i dag.",
+        "I dag går jeg tidlig til sengs.",
+        "Jeg går tidlig til sengs i dag."
+      ],
+      "translations": {
+        "de": "Heute gehe ich früh ins Bett."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i dag», så verbet «går» står før subjektet «jeg».",
+      "note": "'tidlig' can precede 'til sengs'; time adverbial can go last"
+    },
+    "w-t1870202": {
+      "alternatives": [
+        "Dessverre er ikke svaret enkelt.",
+        "Svaret er dessverre ikke enkelt."
+      ],
+      "translations": {
+        "en": "Unfortunately, the answer is not simple."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «dessverre», så verbet «er» står før subjektet «svaret».",
+      "note": "'ikke' may precede a full noun subject; adverb can follow the verb"
+    },
+    "w-t1876794": {
+      "alternatives": [
+        "I Tyskland betaler spøkelser ikke skatt.",
+        "Spøkelser betaler ikke skatt i Tyskland."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i Tyskland», så verbet «betaler» står før subjektet «spøkelser».",
+      "note": "'ikke' before or after noun subject; place adverbial can go last"
+    },
+    "w-t1906452": {
+      "alternatives": [
+        "En mann i politiuniform kommer etter en stund."
+      ],
+      "translations": {
+        "de": "Nach einer Weile kommt ein Mann in Polizeiuniform."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «etter en stund», så verbet «kommer» står før subjektet «en mann».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t1906660": {
+      "alternatives": [
+        "Jeg begynner å forstå etter å ha lest dette."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «etter å ha lest dette», så verbet «begynner» står før subjektet «jeg».",
+      "note": "Adverbial can also go last"
+    },
+    "w-t1906690": {
+      "alternatives": [
+        "Det skjer feil i en slik situasjon."
+      ],
+      "translations": {
+        "en": "In such a situation, mistakes happen."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i en slik situasjon», så verbet «skjer» står før «det».",
+      "note": "Adverbial can also go last"
+    },
+    "w-t1934491": {
+      "alternatives": [
+        "Min mor var veldig vakker i sin ungdom."
+      ],
+      "translations": {
+        "de": "In ihrer Jugend war meine Mutter sehr schön."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i sin ungdom», så verbet «var» står før subjektet «min mor».",
+      "note": "Adverbial can also go last"
+    },
+    "w-t1971511": {
+      "translations": {
+        "de": "Hier ist eine große Karte von Deutschland."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «her», så verbet «er» står før subjektet «et stort kart»."
+    },
+    "w-t1979517": {
+      "alternatives": [
+        "Jeg hørte på radio i går kveld."
+      ],
+      "translations": {
+        "en": "Last night I listened to the radio."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i går kveld», så verbet «hørte» står før subjektet «jeg».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t1979591": {
+      "translations": {
+        "de": "Hier ist ein Buch."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «her», så verbet «er» står før subjektet «en bok»."
+    },
+    "w-t1979706": {
+      "alternatives": [
+        "Jeg skal besøke Nara neste uke."
+      ],
+      "translations": {
+        "de": "Nächste Woche werde ich Nara besuchen."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «neste uke», så verbet «skal» står før subjektet «jeg».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2176939": {
+      "alternatives": [
+        "Jeg spiste en stor tallerken ertesuppe i går."
+      ],
+      "translations": {
+        "en": "Yesterday I ate a big plate of pea soup."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i går», så verbet «spiste» står før subjektet «jeg».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2176963": {
+      "alternatives": [
+        "Det er mange varianter av erter i India."
+      ],
+      "translations": {
+        "en": "In India there are many varieties of peas."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i India», så verbet «er» står før «det».",
+      "note": "Place adverbial can also go last"
+    },
+    "w-t2176971": {
+      "alternatives": [
+        "Mange varianter av erter vokser i India."
+      ],
+      "translations": {
+        "en": "Many varieties of peas grow in India."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i India», så verbet «vokser» står før subjektet «mange varianter».",
+      "note": "Place adverbial can also go last"
+    },
+    "w-t2187533": {
+      "alternatives": [
+        "Verden rundt oss forsvinner hver gang vi er sammen."
+      ],
+      "translations": {
+        "en": "Every time we are together, the world around us disappears."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Leddsetningen med «hver gang» står først, så verbet «forsvinner» kommer før subjektet «verden».",
+      "note": "Subordinate clause can also go last"
+    },
+    "w-t2222591": {
+      "alternatives": [
+        "Alt her er gjennomsyret av historiens ånd."
+      ],
+      "translations": {
+        "en": "Here everything is steeped in the spirit of history."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «her», så verbet «er» står før subjektet «alt».",
+      "note": "'Alt her' as subject is equally natural"
+    },
+    "w-t2231826": {
+      "alternatives": [
+        "Det var svært vindig i går."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i går», så verbet «var» står før «det».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2232743": {
+      "exclude": true,
+      "note": "'Der' as formal subject is archaic/Danish-like; learners should use 'det'"
+    },
+    "w-t2275423": {
+      "alternatives": [
+        "Vi vil snart ha syttifemtusen russiske setninger.",
+        "Vi vil ha syttifemtusen russiske setninger snart."
+      ],
+      "translations": {
+        "en": "Soon we will have seventy-five thousand Russian sentences."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «snart», så verbet «vil» står før subjektet «vi».",
+      "note": "'snart' can follow the verb or go last"
+    },
+    "w-t2364929": {
+      "alternatives": [
+        "Du vil snart høste gevinsten av din innsats.",
+        "Du vil høste gevinsten av din innsats snart."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «snart», så verbet «vil» står før subjektet «du».",
+      "note": "'snart' can follow the verb or go last"
+    },
+    "w-t2381834": {
+      "exclude": true,
+      "note": "Ungrammatical: V3 order and 'eierens personligheten'"
+    },
+    "w-t2391248": {
+      "alternatives": [
+        "Han reiste seg og gikk da han så det."
+      ],
+      "translations": {
+        "en": "When he saw it, he got up and left."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Leddsetningen med «da» står først, så verbet «reiste» kommer før subjektet «han».",
+      "note": "Subordinate clause can also go last"
+    },
+    "w-t2399436": {
+      "alternatives": [
+        "De frykter å miste innflytelse nå."
+      ],
+      "translations": {
+        "en": "Now they are afraid of losing influence."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «nå», så verbet «frykter» står før subjektet «de».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2399441": {
+      "alternatives": [
+        "Han frykter for livet sitt nå."
+      ],
+      "translations": {
+        "en": "Now he fears for his life."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «nå», så verbet «frykter» står før subjektet «han».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2399442": {
+      "alternatives": [
+        "Hun frykter ensomheten nå."
+      ],
+      "translations": {
+        "en": "Now she is afraid of loneliness."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «nå», så verbet «frykter» står før subjektet «hun».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2418945": {
+      "alternatives": [
+        "Det var heldigvis ingen trafikkork."
+      ],
+      "translations": {
+        "en": "Luckily, there was no traffic jam."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «heldigvis», så verbet «var» står før «det».",
+      "note": "Sentence adverb can follow the verb"
+    },
+    "w-t2427180": {
+      "alternatives": [
+        "Det er ingen byrde der det er kjærlighet."
+      ],
+      "translations": {
+        "en": "Where there is love, there is no burden."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Leddsetningen med «der» står først, så verbet «er» kommer før «det».",
+      "note": "Subordinate clause can also go last"
+    },
+    "w-t2431193": {
+      "alternatives": [
+        "Jeg har lært en verdifull lekse i dag."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i dag», så verbet «har» står før subjektet «jeg».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2433280": {
+      "alternatives": [
+        "Jeg sitter foran datamaskinen min nå."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «nå», så verbet «sitter» står før subjektet «jeg».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2433658": {
+      "exclude": true,
+      "note": "Ungrammatical: V3 order 'Her Tom stoppet'"
+    },
+    "w-t2434248": {
+      "exclude": true,
+      "note": "Ungrammatical: V3 order 'vi sov' after fronted clause"
+    },
+    "w-t2444799": {
+      "exclude": true,
+      "note": "Ungrammatical: V3 order"
+    },
+    "w-t2459421": {
+      "exclude": true,
+      "note": "'På denne anledning' is wrong (ved denne anledning); stray comma"
+    },
+    "w-t2469598": {
+      "exclude": true,
+      "note": "Unnatural sentence; archaic 'der' subject, meaning unclear"
+    },
+    "w-t2474421": {
+      "alternatives": [
+        "Jeg så inn i ugjennomtrengelig mørke uten et ord."
+      ],
+      "translations": {
+        "en": "Without a word, I looked into impenetrable darkness."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «uten et ord», så verbet «så» står før subjektet «jeg».",
+      "note": "Adverbial can also go last"
+    },
+    "w-t2493800": {
+      "alternatives": [
+        "Jeg ble plutselig grepet av ekstrem trøtthet."
+      ],
+      "translations": {
+        "en": "Suddenly I was overcome by extreme tiredness."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «plutselig», så verbet «ble» står før subjektet «jeg».",
+      "note": "Adverb can follow the verb"
+    },
+    "w-t2501307": {
+      "exclude": true,
+      "note": "List items can be permuted: too many correct orders"
+    },
+    "w-t2501308": {
+      "exclude": true,
+      "note": "List items can be permuted: too many correct orders"
+    },
+    "w-t2501309": {
+      "exclude": true,
+      "note": "List items can be permuted: too many correct orders"
+    },
+    "w-t2515966": {
+      "exclude": true,
+      "note": "Ungrammatical: V3 order after 'dessverre'"
+    },
+    "w-t2516010": {
+      "exclude": true,
+      "note": "Ungrammatical: V3 order and infinitive 'tjene'"
+    },
+    "w-t2571194": {
+      "alternatives": [
+        "Han har det travelt nå."
+      ],
+      "translations": {
+        "en": "Now he is in a hurry."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «nå», så verbet «har» står før subjektet «han».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2571210": {
+      "exclude": true,
+      "note": "Ungrammatical: V3 order 'Nå alt er'"
+    },
+    "w-t2571233": {
+      "translations": {
+        "en": "Then he runs down the stairs."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «så», så verbet «løper» står før subjektet «han»."
+    },
+    "w-t2575431": {
+      "alternatives": [
+        "Strømmen var stengt av i flere timer etter stormen."
+      ],
+      "translations": {
+        "en": "After the storm, the power was off for several hours."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «etter stormen», så verbet «var» står før subjektet «strømmen».",
+      "note": "Adverbial can also go last"
+    },
+    "w-t2581991": {
+      "alternatives": [
+        "En blir jo skitten da."
+      ],
+      "translations": {
+        "en": "Then you get dirty, of course."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «da», så verbet «blir» står før subjektet «en». «Jo» står etter subjektet.",
+      "note": "'da' can also go last"
+    },
+    "w-t2585463": {
+      "alternatives": [
+        "Vi skal lage pannekaker i dag."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i dag», så verbet «skal» står før subjektet «vi».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2597518": {
+      "exclude": true,
+      "note": "Ungrammatical V3 'Nå du må'; two sentences"
+    },
+    "w-t2605214": {
+      "alternatives": [
+        "Alle er ferdige nå."
+      ],
+      "translations": {
+        "en": "Now everyone is done."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «nå», så verbet «er» står før subjektet «alle».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2605246": {
+      "translations": {
+        "en": "Then I put everything into the cupboard."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «så», så verbet «setter» står før subjektet «jeg»."
+    },
+    "w-t2613440": {
+      "alternatives": [
+        "Så går vi sammen ut."
+      ],
+      "translations": {
+        "en": "Then we go out together."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «så», så verbet «går» står før subjektet «vi».",
+      "note": "'sammen' can precede 'ut'"
+    },
+    "w-t2635555": {
+      "alternatives": [
+        "Hun spurte meg igjen etter noen dager."
+      ],
+      "translations": {
+        "en": "After a few days, she asked me again."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «etter noen dager», så verbet «spurte» står før subjektet «hun».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2635560": {
+      "alternatives": [
+        "Jeg ble kjempeglad da."
+      ],
+      "translations": {
+        "en": "Then I was really happy."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «da», så verbet «ble» står før subjektet «jeg».",
+      "note": "'da' can also go last"
+    },
+    "w-t2637632": {
+      "exclude": true,
+      "note": "Ungrammatical: V3 order"
+    },
+    "w-t2638117": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Her er «i går» subjektet, så verbet «var» kommer rett etter. Det er ikke inversjon."
+    },
+    "w-t2638137": {
+      "alternatives": [
+        "Alt er galt nå."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «nå», så verbet «er» står før subjektet «alt».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2638821": {
+      "alternatives": [
+        "De sitter på kafe etter en stund."
+      ],
+      "translations": {
+        "en": "After a while, they are sitting in a café."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «etter en stund», så verbet «sitter» står før subjektet «de».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2650234": {
+      "alternatives": [
+        "Jeg tåler ikke flere overraskelser nå."
+      ],
+      "translations": {
+        "en": "I can't take any more surprises now."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «nå», så verbet «tåler» står før subjektet «jeg». «Ikke» kommer etter subjektet.",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2652829": {
+      "alternatives": [
+        "Det gikk bra i seks uker."
+      ],
+      "translations": {
+        "en": "For six weeks it went well."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i seks uker», så verbet «gikk» står før «det».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2655990": {
+      "exclude": true,
+      "note": "'På sommertid' is unnatural/ambiguous (daylight saving time); should be 'om sommeren'"
+    },
+    "w-t2659576": {
+      "alternatives": [
+        "Du kan føle deg trygg her."
+      ],
+      "translations": {
+        "en": "Here you can feel safe."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «her», så verbet «kan» står før subjektet «du».",
+      "note": "Place adverbial can also go last"
+    },
+    "w-t2659734": {
+      "alternatives": [
+        "Det er heller ingen ære uten ærlighet."
+      ],
+      "translations": {
+        "en": "Without honesty there is no honour either."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «uten ærlighet», så verbet «er» står før «det».",
+      "note": "Adverbial can also go last"
+    },
+    "w-t2661149": {
+      "alternatives": [
+        "Jeg kan dessverre ikke finne teksten til denne sangen."
+      ],
+      "translations": {
+        "en": "Unfortunately, I can't find the lyrics to this song."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «dessverre», så verbet «kan» står før subjektet «jeg». «Ikke» kommer etter subjektet.",
+      "note": "Sentence adverb can follow the verb"
+    },
+    "w-t2661200": {
+      "alternatives": [
+        "Jeg kan dessverre ikke finne større bilder."
+      ],
+      "translations": {
+        "en": "Unfortunately, I can't find any larger pictures."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «dessverre», så verbet «kan» står før subjektet «jeg». «Ikke» kommer etter subjektet.",
+      "note": "Sentence adverb can follow the verb"
+    },
+    "w-t2661204": {
+      "alternatives": [
+        "Jeg kan dessverre ikke finne noen tegnforklaring."
+      ],
+      "translations": {
+        "en": "Unfortunately, I can't find a legend for the symbols."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «dessverre», så verbet «kan» står før subjektet «jeg». «Ikke» kommer etter subjektet.",
+      "note": "Sentence adverb can follow the verb"
+    },
+    "w-t2661208": {
+      "alternatives": [
+        "Jeg kan dessverre ikke finne bruksanvisningen."
+      ],
+      "translations": {
+        "en": "Unfortunately, I can't find the user manual."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «dessverre», så verbet «kan» står før subjektet «jeg». «Ikke» kommer etter subjektet.",
+      "note": "Sentence adverb can follow the verb"
+    },
+    "w-t2661213": {
+      "alternatives": [
+        "Jeg kan dessverre ikke finne denne artikkelen."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «dessverre», så verbet «kan» står før subjektet «jeg». «Ikke» kommer etter subjektet.",
+      "note": "Sentence adverb can follow the verb"
+    },
+    "w-t2661292": {
+      "alternatives": [
+        "Jeg kan dessverre ikke finne batteriet til kameraet mitt."
+      ],
+      "translations": {
+        "en": "Unfortunately, I can't find the battery for my camera."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «dessverre», så verbet «kan» står før subjektet «jeg». «Ikke» kommer etter subjektet.",
+      "note": "Sentence adverb can follow the verb"
+    },
+    "w-t2661344": {
+      "alternatives": [
+        "Jeg har plukket mye blåbær og tyttebær i dag.",
+        "I dag har jeg plukket mye tyttebær og blåbær.",
+        "Jeg har plukket mye tyttebær og blåbær i dag."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i dag», så verbet «har» står før subjektet «jeg».",
+      "note": "Time adverbial can go last; the two berries can be swapped"
+    },
+    "w-t2665309": {
+      "exclude": true,
+      "note": "Ungrammatical: V3 order 'jeg gikk' after fronted clause"
+    },
+    "w-t2670308": {
+      "alternatives": [
+        "Jeg ble skuffet hver gang."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «hver gang», så verbet «ble» står før subjektet «jeg».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2670519": {
+      "exclude": true,
+      "note": "Three movable adverbials: too many correct orders"
+    },
+    "w-t2671051": {
+      "alternatives": [
+        "Lærerorganisasjonene har økt press på regjeringen etter denne skuffelsen."
+      ],
+      "translations": {
+        "en": "After this disappointment, the teachers' unions have increased pressure on the government."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «etter denne skuffelsen», så verbet «har» står før subjektet «lærerorganisasjonene».",
+      "note": "Adverbial can also go last"
+    },
+    "w-t2671127": {
+      "exclude": true,
+      "note": "Ungrammatical: V3 order"
+    },
+    "w-t2672053": {
+      "alternatives": [
+        "Folk lever lenger nå."
+      ],
+      "translations": {
+        "en": "People live longer now."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «nå», så verbet «lever» står før subjektet «folk».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t2672696": {
+      "alternatives": [
+        "Jeg har endelig blitt voksen."
+      ],
+      "translations": {
+        "en": "Finally I have grown up."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «endelig», så verbet «har» står før subjektet «jeg».",
+      "note": "Adverb can follow the verb"
+    },
+    "w-t2674872": {
+      "alternatives": [
+        "Han har blitt utsatt for grusom behandling i Guantanamobukta."
+      ],
+      "translations": {
+        "en": "In Guantanamo Bay he has been subjected to cruel treatment."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i Guantanamobukta», så verbet «har» står før subjektet «han».",
+      "note": "Place adverbial can also go last"
+    },
+    "w-t2682447": {
+      "alternatives": [
+        "Hun har plukket tyttebær og blåbær i dag.",
+        "I dag har hun plukket blåbær og tyttebær.",
+        "Hun har plukket blåbær og tyttebær i dag."
+      ],
+      "translations": {
+        "en": "Today she has picked lingonberries and blueberries."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i dag», så verbet «har» står før subjektet «hun».",
+      "note": "Time adverbial can go last; the two berries can be swapped"
+    },
+    "w-t2682692": {
+      "alternatives": [
+        "Vi spiste fårikål på denne dagen."
+      ],
+      "translations": {
+        "en": "On this day we ate mutton and cabbage stew."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «på denne dagen», så verbet «spiste» står før subjektet «vi».",
+      "note": "Adverbial can also go last"
+    },
+    "w-t2683464": {
+      "exclude": true,
+      "note": "s-passive with several movable adverbials: too many correct orders"
+    },
+    "w-t2683978": {
+      "alternatives": [
+        "Han var veldig unnselig i slike situasjoner."
+      ],
+      "translations": {
+        "en": "In such situations he was very shy."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i slike situasjoner», så verbet «var» står før subjektet «han».",
+      "note": "Adverbial can also go last"
+    },
+    "w-t2686669": {
+      "exclude": true,
+      "note": "Two coordinated clauses can be swapped and adverbial moved: too many orders"
+    },
+    "w-t2697542": {
+      "exclude": true,
+      "note": "s-passive; German translation is active, order hard to infer; several valid orders"
+    },
+    "w-t2816171": {
+      "exclude": true,
+      "note": "Exclamative; 'Så dyp er denne innsjøen' also valid; does not fit categories"
+    },
+    "w-t2824475": {
+      "alternatives": [
+        "En overraskelse ventet da jeg kom hjem."
+      ],
+      "translations": {
+        "en": "When I came home, a surprise was waiting."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Leddsetningen med «da» står først, så verbet «ventet» kommer før subjektet «en overraskelse».",
+      "note": "Subordinate clause can also go last"
+    },
+    "w-t2847347": {
+      "alternatives": [
+        "Jeg blir veldig fort sliten i det siste.",
+        "I det siste blir jeg sliten veldig fort."
+      ],
+      "translations": {
+        "en": "Lately I get tired very quickly."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i det siste», så verbet «blir» står før subjektet «jeg».",
+      "note": "Time adverbial can go last; 'veldig fort' can follow 'sliten'"
+    },
+    "w-t2866825": {
+      "exclude": true,
+      "note": "'ankom på flyplassen' is ungrammatical"
+    },
+    "w-t2874853": {
+      "alternatives": [
+        "Mario klarte til slutt å vinne prinsessens kjærlighet.",
+        "Mario klarte å vinne prinsessens kjærlighet til slutt."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «til slutt», så verbet «klarte» står før subjektet «Mario».",
+      "note": "Adverbial can follow the verb or go last"
+    },
+    "w-t2879678": {
+      "alternatives": [
+        "Kanskje har du rett.",
+        "Du har kanskje rett."
+      ],
+      "translations": {
+        "de": "Vielleicht hast du recht."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Kanskje» kan stå først uten inversjon: «Kanskje du har rett». «Kanskje har du rett» er også riktig.",
+      "note": "'kanskje' allows both orders first; can also follow the verb"
+    },
+    "w-t2879682": {
+      "translations": {
+        "de": "Hier ist deine Tasche."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «her», så verbet «er» står før subjektet «baggen din»."
+    },
+    "w-t341131": {
+      "translations": {
+        "de": "Ich spreche kein Japanisch."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «snakker» i en hovedsetning."
+    },
+    "w-t341134": {
+      "translations": {
+        "de": "Das ist nicht wichtig."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» kommer rett etter verbet «er»."
+    },
+    "w-t341219": {
+      "exclude": true,
+      "note": "Unnatural Norwegian ('har tid før det'), missing comma; translation odd."
+    },
+    "w-t342063": {
+      "alternatives": [
+        "Av hva består aspirin?"
+      ],
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hva» står først, så verbet «består», så subjektet «aspirin». Preposisjonen «av» står til slutt.",
+      "note": "Fronted preposition is formal but correct."
+    },
+    "w-t342065": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hva» står først, så verbet «ville» og subjektet «verden»."
+    },
+    "w-t342182": {
+      "alternatives": [
+        "Her må du ikke snakke så høyt."
+      ],
+      "translations": {
+        "de": "Du darfst hier nicht so laut sprechen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter det første verbet «må», før infinitiven «snakke».",
+      "note": "Fronting 'her' with inversion is correct."
+    },
+    "w-t342183": {
+      "translations": {
+        "de": "Es ist zu dunkel, als dass ich lesen könnte."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen «til at jeg kan lese» står subjektet «jeg» før verbet «kan»."
+    },
+    "w-t342184": {
+      "alternatives": [
+        "I denne gaten må du ikke parkere bilen."
+      ],
+      "translations": {
+        "de": "Du darfst das Auto nicht in dieser Straße parken."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» kommer etter «må» og før «parkere».",
+      "note": "Fronting the place adverbial with inversion is correct."
+    },
+    "w-t342185": {
+      "translations": {
+        "de": "Ich mag die Art, wie du gehst."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Leddsetningen «du går på» kommer etter «måten», og preposisjonen «på» står til slutt."
+    },
+    "w-t342206": {
+      "alternatives": [
+        "Her er et brev til deg, Nancy."
+      ],
+      "translations": {
+        "de": "Nancy, hier ist ein Brief für dich."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «her», så verbet «er» kommer før subjektet «et brev».",
+      "note": "Vocative may also come at the end."
+    },
+    "w-t342207": {
+      "exclude": true,
+      "note": "Complex imperative with two clauses; several orders possible, little word-order value."
+    },
+    "w-t342208": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvilke filmer» står først, så kommer verbet «går»."
+    },
+    "w-t342210": {
+      "translations": {
+        "de": "Ich stecke in einem schrecklichen Dilemma."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, verbet «er» kommer på plass to."
+    },
+    "w-t342211": {
+      "exclude": true,
+      "note": "Two utterances (question + answer fragment); not a single sentence."
+    },
+    "w-t342212": {
+      "translations": {
+        "de": "Nur wenige Menschen werden hundert Jahre alt."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «få mennesker» står først, så verbet «lever». I leddsetningen står «de» før «er»."
+    },
+    "w-t342214": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Også» står etter verbet «snakker» i den andre hovedsetningen."
+    },
+    "w-t342215": {
+      "translations": {
+        "de": "Sag ihr, welchen sie nehmen soll."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I den indirekte spørresetningen «hvilken hun skal ta» står subjektet «hun» før verbet «skal»."
+    },
+    "w-t342216": {
+      "translations": {
+        "de": "Aber wie können sie das tun?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "«Men» teller ikke. Så kommer spørreordet «hvordan», verbet «kan» og subjektet «de»."
+    },
+    "w-t342217": {
+      "translations": {
+        "de": "Ich tue alles, worum du mich bittest."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Leddsetningen «du ber meg om» står etter «alt», med subjektet «du» før verbet."
+    },
+    "w-t342219": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «ordboken» står først, verbet «inneholder» kommer på plass to."
+    },
+    "w-t342220": {
+      "alternatives": [
+        "Har du vært i Mexico noen gang?"
+      ],
+      "translations": {
+        "de": "Warst du schon einmal in Mexiko?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «har» står først, så subjektet «du».",
+      "note": "'noen gang' can also go at the end."
+    },
+    "w-t342221": {
+      "alternatives": [
+        "Faktisk er dette tv-programmet ganske interessant."
+      ],
+      "translations": {
+        "de": "Diese Fernsehsendung ist eigentlich ganz interessant."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Faktisk» står rett etter verbet «er».",
+      "note": "Fronted 'faktisk' with inversion is correct."
+    },
+    "w-t342222": {
+      "translations": {
+        "de": "Ich mache mir Sorgen um das Prüfungsergebnis."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, verbet «er» kommer på plass to."
+    },
+    "w-t342224": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Virkelig» står rett etter verbet «er»."
+    },
+    "w-t342226": {
+      "alternatives": [
+        "Foran bygningen står det en bil."
+      ],
+      "translations": {
+        "de": "Vor dem Gebäude steht ein Auto."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Det formelle subjektet «det» står først, så verbet «står», så «en bil».",
+      "note": "Fronting the place adverbial with inversion is correct."
+    },
+    "w-t342229": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Det lange subjektet «Sakuras måte å snakke på» står først, så verbet «går»."
+    },
+    "w-t342230": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «disse to brødrene» står først, så verbet «ligner»."
+    },
+    "w-t342231": {
+      "alternatives": [
+        "Om legen bare hadde kommet litt fortere."
+      ],
+      "translations": {
+        "de": "Wenn der Arzt doch nur etwas schneller gekommen wäre."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen står «bare» før verbet «hadde».",
+      "note": "'bare' may stand before or after the subject in the clause."
+    },
+    "w-t342232": {
+      "translations": {
+        "de": "Das ist gegen meine Prinzipien."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «det» står først, verbet «er» kommer på plass to."
+    },
+    "w-t342234": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «denne brosjyren» står først, så verbet «er»."
+    },
+    "w-t342235": {
+      "translations": {
+        "de": "Ich muss genau herausfinden, was schiefgelaufen ist."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen «hva som gikk galt» står «som» etter «hva», før verbet."
+    },
+    "w-t342236": {
+      "translations": {
+        "de": "Sollen wir bei einer Tasse Kaffee darüber reden?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «skal» står først, så subjektet «vi»."
+    },
+    "w-t342237": {
+      "translations": {
+        "de": "Warum hast du mich gestern Abend nicht angerufen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvorfor», så verbet «ringte» og subjektet «du». Pronomenet «meg» står før «ikke»."
+    },
+    "w-t342239": {
+      "alternatives": [
+        "Da jeg var student, ble jeg kjent med ham."
+      ],
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Hovedsetningen kommer først. I leddsetningen «da jeg var student» står «jeg» før «var».",
+      "note": "Fronted 'da' clause with inversion is correct."
+    },
+    "w-t342240": {
+      "translations": {
+        "de": "Kannst du Gitarre spielen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så subjektet «du»."
+    },
+    "w-t342241": {
+      "translations": {
+        "de": "Deine Arbeit ist alles andere als zufriedenstellend."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «ditt arbeid» står først, verbet «er» kommer på plass to."
+    },
+    "w-t342244": {
+      "translations": {
+        "de": "Gib mir bitte das Salz."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Setningen er en bønn. Den starter med verbet «vær», så «snill å sende meg saltet»."
+    },
+    "w-t342246": {
+      "exclude": true,
+      "note": "'i Pisa' can attach to tower or church; old fixed name form; order partly guesswork."
+    },
+    "w-t342250": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, verbet «har» kommer på plass to."
+    },
+    "w-t342252": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «du» står først, verbet «er» kommer på plass to."
+    },
+    "w-t342256": {
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen «hvem som blir med oss» står «som» etter «hvem»."
+    },
+    "w-t342257": {
+      "translations": {
+        "de": "Das ist nicht meine Schuld!"
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «er»."
+    },
+    "w-t342262": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «ses» står først, så subjektet «vi»."
+    },
+    "w-t342269": {
+      "translations": {
+        "de": "Du bist mein Typ."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «du» står først, verbet «er» kommer på plass to."
+    },
+    "w-t342271": {
+      "alternatives": [
+        "Med hvem snakker jeg?"
+      ],
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvem» står først, så verbet «snakker» og subjektet «jeg». «Med» står til slutt.",
+      "note": "Fronted preposition is formal but correct."
+    },
+    "w-t342273": {
+      "translations": {
+        "de": "Kann ich bitte mit Bill sprechen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så subjektet «jeg»."
+    },
+    "w-t342379": {
+      "alternatives": [
+        "En annen gang ringer jeg deg."
+      ],
+      "translations": {
+        "de": "Ich rufe dich ein anderes Mal an."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, så verbet «ringer». Tiden «en annen gang» står til slutt.",
+      "note": "Fronted time adverbial with inversion is correct."
+    },
+    "w-t342380": {
+      "translations": {
+        "de": "Beide Brüder sind Musiker."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «begge brødrene» står først, så verbet «er»."
+    },
+    "w-t342381": {
+      "exclude": true,
+      "note": "Quote with broken punctuation/capitalisation ('Spurte'); two sentences."
+    },
+    "w-t342382": {
+      "translations": {
+        "de": "Ken hörte auf zu reden und fing an zu essen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «Ken» står først, så to verb: «sluttet» og «begynte»."
+    },
+    "w-t342385": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, så verbet «fortsatte». Tiden «i to timer» står til slutt."
+    },
+    "w-t342387": {
+      "alternatives": [
+        "Mens han badet i sjøen, møtte han sin venn."
+      ],
+      "translations": {
+        "de": "Er traf seinen Freund, während er im Meer badete."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen «mens han badet i sjøen» står «han» før verbet «badet».",
+      "note": "Fronted 'mens' clause with inversion is correct."
+    },
+    "w-t342389": {
+      "translations": {
+        "de": "Ich war schlecht in Englisch."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, verbet «var» kommer på plass to."
+    },
+    "w-t342391": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, verbet «har» kommer på plass to."
+    },
+    "w-t342393": {
+      "exclude": true,
+      "note": "'feilet' for 'failed' is an anglicism; natural would be 'mislyktes'."
+    },
+    "w-t342397": {
+      "translations": {
+        "de": "Der Sport hat ihn zu dem gemacht, der er ist."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «idrett» står først, så «har gjort». Leddsetningen «den han er» står til slutt."
+    },
+    "w-t342398": {
+      "alternatives": [
+        "Jeg er ennå ikke ferdig med leksene."
+      ],
+      "translations": {
+        "de": "Ich bin mit den Hausaufgaben noch nicht fertig."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «er». «Ennå» står til slutt.",
+      "note": "'ennå ikke' before the predicate is equally natural."
+    },
+    "w-t342399": {
+      "translations": {
+        "de": "Du darfst nicht hereinkommen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter «får» og før «komme»."
+    },
+    "w-t342400": {
+      "exclude": true,
+      "note": "'i en alder av' is an anglicism and 'søtten' a rarer variant of 'sytten'."
+    },
+    "w-t342401": {
+      "translations": {
+        "de": "Er ist nicht Lehrer, sondern Arzt."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «er». Så kommer «lærer, men lege»."
+    },
+    "w-t342402": {
+      "translations": {
+        "de": "Du musst zwischen den Zeilen lesen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «du» står først, så «må lese»."
+    },
+    "w-t342407": {
+      "alternatives": [
+        "Den morgenen sto jeg opp klokken fem.",
+        "Klokken fem den morgenen sto jeg opp."
+      ],
+      "translations": {
+        "de": "Ich bin an jenem Morgen um fünf Uhr aufgestanden."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, så verbet «sto opp». Tiden står til slutt.",
+      "note": "Fronted time adverbials with inversion are correct."
+    },
+    "w-t342408": {
+      "exclude": true,
+      "note": "Awkward placement of 'allerede som barn'; several orders possible."
+    },
+    "w-t342409": {
+      "translations": {
+        "de": "Er ist seit drei Jahren tot."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, så «har vært død»."
+    },
+    "w-t342410": {
+      "translations": {
+        "de": "Die Leute sagen, dass er nie stirbt."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen «at han aldri dør» står «aldri» før verbet «dør»."
+    },
+    "w-t342411": {
+      "alternatives": [
+        "I fjor sluttet han å røyke."
+      ],
+      "translations": {
+        "de": "Er hat letztes Jahr mit dem Rauchen aufgehört."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, så verbet «sluttet». «I fjor» står til slutt.",
+      "note": "Fronted time adverbial with inversion is correct."
+    },
+    "w-t342412": {
+      "translations": {
+        "de": "Mutter ist wegen des Prüfungsergebnisses nervöser als ich."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «mor» står først, så verbet «er». Sammenligningen «enn jeg er» står til slutt."
+    },
+    "w-t342414": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så subjektet «jeg»."
+    },
+    "w-t342419": {
+      "alternatives": [
+        "Her pleide det å være en stor park."
+      ],
+      "translations": {
+        "de": "Hier war früher ein großer Park."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Det formelle subjektet «det» står først, så verbet «pleide».",
+      "note": "Fronted 'her' with inversion is correct."
+    },
+    "w-t342420": {
+      "alternatives": [
+        "I går la hønene våre mange egg."
+      ],
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «hønene våre» står først, så verbet «la». «I går» står til slutt.",
+      "note": "Fronted time adverbial with inversion is correct."
+    },
+    "w-t342421": {
+      "translations": {
+        "de": "Ich habe Jane zum Abendessen eingeladen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, så verbet «inviterte» og objektet «Jane»."
+    },
+    "w-t342422": {
+      "exclude": true,
+      "note": "Two coordinated imperatives; order of the parts is free, little word-order value."
+    },
+    "w-t342423": {
+      "translations": {
+        "de": "Vater hat mir das Buch gekauft."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «far» står først, så verbet «kjøpte» og objektet «boken»."
+    },
+    "w-t342424": {
+      "alternatives": [
+        "Ta det ikke personlig."
+      ],
+      "translations": {
+        "de": "Nimm es nicht persönlich."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "I en negativ ordre kan «ikke» stå helt først, før verbet «ta».",
+      "note": "'ikke' after verb and pronoun is also correct in imperatives."
+    },
+    "w-t342425": {
+      "exclude": true,
+      "note": "'erfaring i å undervise' is unnatural; normal is 'erfaring med å undervise'."
+    },
+    "w-t342426": {
+      "translations": {
+        "de": "Katzenaugen sind sehr lichtempfindlich."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «katteøyne» står først, verbet «er» kommer på plass to."
+    },
+    "w-t342427": {
+      "translations": {
+        "de": "Sie geht selten aus."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Sjelden» står rett etter verbet «går»."
+    },
+    "w-t342428": {
+      "translations": {
+        "de": "Sie hat keine Brüder."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «hun» står først, verbet «har» kommer på plass to."
+    },
+    "w-t342440": {
+      "translations": {
+        "de": "Wie spät ist es?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvor mye» står først, så verbet «er» og subjektet «klokka»."
+    },
+    "w-t342442": {
+      "alternatives": [
+        "Han er forsvunnet sporløst."
+      ],
+      "translations": {
+        "de": "Er ist spurlos verschwunden."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, så verbet «er» og «sporløst forsvunnet».",
+      "note": "Adverb after the participle is also natural."
+    },
+    "w-t342447": {
+      "exclude": true,
+      "note": "Two fragments, no clause; nothing to train."
+    },
+    "w-t342453": {
+      "exclude": true,
+      "note": "Fragment without finite verb; nothing to train."
+    },
+    "w-t342459": {
+      "translations": {
+        "de": "Rom wurde nicht an einem Tag erbaut."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «ble»."
+    },
+    "w-t342488": {
+      "translations": {
+        "de": "Er stand auf und atmete tief durch."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, så to verb: «reiste seg» og «trakk»."
+    },
+    "w-t342490": {
+      "translations": {
+        "de": "Meine Stadt ist nicht mehr das, was sie einmal war."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «er» i hovedsetningen."
+    },
+    "w-t342491": {
+      "exclude": true,
+      "note": "Indirect question wrongly ends with '?'; auto punctuation would be wrong."
+    },
+    "w-t342492": {
+      "alternatives": [
+        "Om våren blomstrer roser."
+      ],
+      "translations": {
+        "de": "Rosen blühen im Frühling."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «roser» står først, verbet «blomstrer» kommer på plass to.",
+      "note": "Fronted time adverbial with inversion is correct."
+    },
+    "w-t342493": {
+      "translations": {
+        "de": "Indien ist das siebtgrößte Land der Welt."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «India» står først, verbet «er» kommer på plass to."
+    },
+    "w-t342495": {
+      "alternatives": [
+        "Mens du var ute, kom dette brevet."
+      ],
+      "translations": {
+        "de": "Dieser Brief kam, während du weg warst."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen «mens du var ute» står «du» før verbet «var».",
+      "note": "Fronted 'mens' clause with inversion is correct."
+    },
+    "w-t342496": {
+      "translations": {
+        "de": "Lass uns uns auf die Bank dort setzen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Setningen starter med «la oss», så kommer «sette oss»."
+    },
+    "w-t342498": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Det formelle subjektet «det» står først, så verbet «er». Det egentlige subjektet kommer til slutt."
+    },
+    "w-t342499": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «læreren» står først, så verbet «så over»."
+    },
+    "w-t342503": {
+      "translations": {
+        "de": "Ich bin gleich zurück."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Straks» står rett etter verbet «er»."
+    },
+    "w-t342505": {
+      "translations": {
+        "de": "Ich war in den Bergen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, verbet «var» kommer på plass to."
+    },
+    "w-t342508": {
+      "exclude": true,
+      "note": "Too many correct orders (time adverbial and 'når' clause can move)."
+    },
+    "w-t342509": {
+      "translations": {
+        "de": "Ich mochte Biologie nie."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Aldri» står rett etter verbet «likte»."
+    },
+    "w-t342510": {
+      "translations": {
+        "de": "Das überrascht mich nicht."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Pronomenflytting: et trykklett pronomen («meg») står før «ikke» når det bare er ett verb. «Ikke meg» bare med trykk: ikke MEG, men andre."
+    },
+    "w-t342511": {
+      "alternatives": [
+        "Jeg vil bli konge når jeg blir stor."
+      ],
+      "translations": {
+        "de": "Wenn ich groß bin, will ich König werden."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Leddsetningen «når jeg blir stor» står først, så verbet «vil» kommer før subjektet «jeg».",
+      "note": "Main clause first is also correct."
+    },
+    "w-t342529": {
+      "exclude": true,
+      "note": "English translation lacks 'nesten' (almost); placement cannot be inferred."
+    },
+    "w-t342532": {
+      "translations": {
+        "de": "Sechs Uhr passt mir sehr gut."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «klokka seks» står først, så verbet «passer»."
+    },
+    "w-t342534": {
+      "alternatives": [
+        "Han avslo tilbudet til min overraskelse."
+      ],
+      "translations": {
+        "de": "Zu meiner Überraschung lehnte er das Angebot ab."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «til min overraskelse», så verbet «avslo» kommer før subjektet «han».",
+      "note": "Adverbial at the end is also correct."
+    },
+    "w-t342535": {
+      "translations": {
+        "de": "Ihre Namen sind Tom und Ken."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «navnene deres» står først, verbet «er» kommer på plass to."
+    },
+    "w-t342536": {
+      "exclude": true,
+      "note": "Too many correct orders (two movable time adverbials)."
+    },
+    "w-t342538": {
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I den indirekte spørresetningen «hvor han er nå» står subjektet «han» før verbet «er»."
+    },
+    "w-t342541": {
+      "translations": {
+        "de": "Der Mann benahm sich sehr seltsam."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «mannen» står først, så verbet «oppførte seg»."
+    },
+    "w-t342543": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «har»."
+    },
+    "w-t342544": {
+      "alternatives": [
+        "En gang i uka møtes de."
+      ],
+      "translations": {
+        "de": "Sie treffen sich einmal pro Woche."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «de» står først, så verbet «møtes». Tiden står til slutt.",
+      "note": "Fronted time adverbial with inversion is correct."
+    },
+    "w-t342545": {
+      "exclude": true,
+      "note": "Long sentence; fronted 'da' clause with pronoun before referent makes accepted orders unclear."
+    },
+    "w-t342547": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Setningen starter med «la oss», så kommer verbet «gå» og «hjem»."
+    },
+    "w-t342549": {
+      "translations": {
+        "de": "Er achtet immer auf das Verhalten seiner Kinder."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Alltid» står rett etter verbet «er»."
+    },
+    "w-t342550": {
+      "translations": {
+        "de": "Möchtest du etwas zu essen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «vil» står først, så subjektet «du»."
+    },
+    "w-t342551": {
+      "alternatives": [
+        "Han sovnet fort siden han var så trøtt."
+      ],
+      "translations": {
+        "de": "Weil er so müde war, schlief er schnell ein."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Leddsetningen «siden han var så trøtt» står først, så verbet «sovnet» kommer før «han».",
+      "note": "Main clause first is also correct."
+    },
+    "w-t342556": {
+      "translations": {
+        "de": "Er wollte dich nicht verletzen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «mente»."
+    },
+    "w-t342559": {
+      "translations": {
+        "de": "Du hättest es geheim halten sollen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «du» står først, så «skulle holdt». «Det» står før «hemmelig»."
+    },
+    "w-t342563": {
+      "translations": {
+        "de": "Sein kindliches Lachen ist charmant."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «hans barnslige latter» står først, så verbet «er»."
+    },
+    "w-t342564": {
+      "translations": {
+        "de": "Er arbeitete so hart, dass er seine Gesundheit ruinierte."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Leddsetningen «at han ødela helsen sin» kommer til slutt, med «han» før verbet."
+    },
+    "w-t342565": {
+      "translations": {
+        "de": "Die Preise sind gesunken."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «prisene» står først, så «har gått ned»."
+    },
+    "w-t342567": {
+      "translations": {
+        "de": "Ich freue mich sehr, dich wiederzusehen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, så verbet «er» og «veldig glad»."
+    },
+    "w-t342568": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «du» står først, så «må være forberedt»."
+    },
+    "w-t342573": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «spiller» står først, så subjektet «du»."
+    },
+    "w-t342579": {
+      "translations": {
+        "de": "Ich war schon einmal in Amerika."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Allerede» står etter verbet «har» og før «vært»."
+    },
+    "w-t342582": {
+      "translations": {
+        "de": "Nara ist eine Stadt, die ich sehr mag."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Leddsetningen «jeg liker veldig godt» står rett etter «en by»."
+    },
+    "w-t342585": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «fem tusen dollar» står først, så verbet «er»."
+    },
+    "w-t342589": {
+      "exclude": true,
+      "note": "Trivial; 'Tokyo, Japan' with comma, no word-order value."
+    },
+    "w-t342595": {
+      "translations": {
+        "de": "Es scheint, als wäre der Lehrer enttäuscht gewesen."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen «som om læreren var skuffet» står subjektet før verbet «var»."
+    },
+    "w-t342596": {
+      "exclude": true,
+      "note": "Spelling error: 'tilstede' should be 'til stede'."
+    },
+    "w-t342597": {
+      "alternatives": [
+        "Jeg er ennå ikke så god i engelsk."
+      ],
+      "translations": {
+        "de": "Ich bin noch nicht so gut in Englisch."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «er». «Ennå» står til slutt.",
+      "note": "'ennå ikke' before the predicate is equally natural."
+    },
+    "w-t342603": {
+      "translations": {
+        "de": "Ich habe ein Konto auf den Namen meiner Tochter eröffnet."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, så verbet «åpnet» og objektet «en konto»."
+    },
+    "w-t342606": {
+      "translations": {
+        "de": "Tokio ist eine der größten Städte."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «Tokyo» står først, verbet «er» kommer på plass to."
+    },
+    "w-t342609": {
+      "exclude": true,
+      "note": "'utsatt å gå til tannlegen' is awkward Norwegian."
+    },
+    "w-t342610": {
+      "translations": {
+        "de": "Er ist alles andere als ehrlich."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, og verbet «er» kommer på plass to. «Alt annet enn» står samlet foran «ærlig»."
+    },
+    "w-t342616": {
+      "translations": {
+        "de": "Die Schule ähnelt einem Gefängnis."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «skolen» står først, verbet «ligner» kommer på plass to, og objektet «et fengsel» til slutt."
+    },
+    "w-t342617": {
+      "translations": {
+        "de": "Ich kann diese Maschine nicht benutzen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Verbet «kan» står på plass to. «Ikke» kommer rett etter det første verbet, før infinitiven «bruke»."
+    },
+    "w-t342625": {
+      "translations": {
+        "de": "Was möchtest du zum Mittagessen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hva» står først, så kommer verbet «vil» og deretter subjektet «du»."
+    },
+    "w-t344004": {
+      "alternatives": [
+        "Som ung må din mor ha vært vakker."
+      ],
+      "translations": {
+        "de": "Deine Mutter muss als junge Frau schön gewesen sein."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «din mor» står først, så verbet «må». Verbene «ha vært» følger rett etter, og «som ung» kommer til slutt.",
+      "note": "Fronting 'som ung' with inversion is natural."
+    },
+    "w-t344006": {
+      "translations": {
+        "de": "Er fragt sich, ob du Angst vor Schlangen hast."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen med «om» står subjektet «du» før verbet «er», uten inversjon."
+    },
+    "w-t344007": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter det første verbet «kan» og før infinitiven «ta imot»."
+    },
+    "w-t344008": {
+      "translations": {
+        "de": "Es ist nicht weit vom Hotel entfernt."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» kommer rett etter verbet «er» i hovedsetningen."
+    },
+    "w-t344009": {
+      "translations": {
+        "de": "Es gibt viele Dinge, an die wir denken müssen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "«Det er» står først. «Vi må tenke på» beskriver tingene, og preposisjonen «på» står helt til slutt."
+    },
+    "w-t344010": {
+      "alternatives": [
+        "Aldri har jeg sett en så stor hval."
+      ],
+      "translations": {
+        "de": "Ich habe noch nie einen so großen Wal gesehen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Aldri» står etter det første verbet «har» og før «sett».",
+      "note": "Fronted 'aldri' with inversion is correct and mirrors the English 'Never have I'."
+    },
+    "w-t344011": {
+      "translations": {
+        "de": "Mit dieser Waschmaschine stimmt etwas nicht."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «noe» står først, verbet «er» på plass to, og «med denne vaskemaskinen» til slutt."
+    },
+    "w-t344013": {
+      "translations": {
+        "de": "Ich verstehe kein Deutsch."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» kommer rett etter verbet «forstår» og før objektet «tysk»."
+    },
+    "w-t344172": {
+      "alternatives": [
+        "På stranden var det få mennesker."
+      ],
+      "translations": {
+        "de": "Es waren wenige Leute am Strand."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "«Det» står først som formelt subjekt, verbet «var» på plass to, så «få mennesker på stranden».",
+      "note": "Fronting the place adverbial with inversion is natural."
+    },
+    "w-t344173": {
+      "translations": {
+        "de": "Sie ist neidisch auf meinen Erfolg."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «hun» står først, verbet «er» på plass to, så «misunnelig på min suksess»."
+    },
+    "w-t344174": {
+      "translations": {
+        "de": "Was magst du lieber, Physik oder Chemie?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hva» står først, så verbet «liker» og subjektet «du». Valgene «fysikk eller kjemi» kommer til slutt."
+    },
+    "w-t344264": {
+      "translations": {
+        "de": "Diese Perlen sind echt, nicht künstlich."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «disse perlene» står først, så verbet «er». «Ikke» står foran det ordet det nekter: «ikke kunstige»."
+    },
+    "w-t346796": {
+      "translations": {
+        "de": "Der Junge warf Steine auf den Hund."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «gutten» står først, verbet «kastet» på plass to, så objektet «steiner» og «på hunden»."
+    },
+    "w-t346798": {
+      "alternatives": [
+        "Til han kommer tilbake, venter jeg her."
+      ],
+      "translations": {
+        "de": "Ich warte hier, bis er zurückkommt."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Hovedsetningen kommer først. I leddsetningen med «til» står subjektet «han» før verbet «kommer».",
+      "note": "Fronted subordinate clause with inversion in the main clause is correct."
+    },
+    "w-t347681": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, verbet «er» på plass to. «Min» står etter substantivet: «broren min»."
+    },
+    "w-t347996": {
+      "translations": {
+        "de": "Wir machen uns Sorgen um dich."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «vi» står først, verbet «er» på plass to, så «bekymret for deg»."
+    },
+    "w-t347997": {
+      "alternatives": [
+        "Jeg var veldig trøtt, så la jeg meg tidlig."
+      ],
+      "translations": {
+        "de": "Ich war sehr müde, also bin ich früh ins Bett gegangen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "«Så» binder to hovedsetninger. Etter «så» kommer subjektet «jeg» før verbet «la».",
+      "note": "Adverbial 'så' with inversion is also common and correct."
+    },
+    "w-t347998": {
+      "translations": {
+        "de": "Achte darauf, wie der Spieler seine Ellbogen einsetzt."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen med «hvordan» står subjektet «spilleren» før verbet «bruker»."
+    },
+    "w-t348287": {
+      "alternatives": [
+        "Jeg visste ikke når jeg skulle slå maskinen av."
+      ],
+      "translations": {
+        "de": "Ich wusste nicht, wann ich die Maschine ausschalten sollte."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "«Ikke» står etter «visste». I leddsetningen med «når» står subjektet «jeg» før verbet «skulle».",
+      "note": "Particle 'av' after the object is also correct."
+    },
+    "w-t348288": {
+      "translations": {
+        "de": "Hast du in letzter Zeit von ihm gehört?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «har» står først, så subjektet «du». «I det siste» kommer til slutt."
+    },
+    "w-t348290": {
+      "translations": {
+        "de": "Er wurde von einem vorbeifahrenden Schiff aufgenommen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, så «ble plukket opp». «Av et passerende skip» kommer til slutt."
+    },
+    "w-t348292": {
+      "translations": {
+        "de": "Rotwein passt gut zu Fleisch."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «rødvin» står først, verbet «passer» på plass to, så «bra til kjøtt»."
+    },
+    "w-t348293": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Etter «men» kommer subjektet «vi» og verbet «tar». «Ikke» står rett etter verbet."
+    },
+    "w-t348294": {
+      "translations": {
+        "de": "Lässt du mich das mal ansehen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «vil» står først, så subjektet «du», og deretter «la meg se på det»."
+    },
+    "w-t348296": {
+      "translations": {
+        "de": "Sie ist eine ruhige Frau."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «hun» står først, verbet «er» på plass to, så «en stille kvinne»."
+    },
+    "w-t348297": {
+      "exclude": true,
+      "note": "Name-based and tense mismatch: 'assosierte' (past) vs. English 'associate'."
+    },
+    "w-t348298": {
+      "translations": {
+        "de": "Hast du Äpfel?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «har» står først, så subjektet «du»."
+    },
+    "w-t348300": {
+      "translations": {
+        "de": "Er ist ungefähr in deinem Alter."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, verbet «er» på plass to, så «omtrent på din alder»."
+    },
+    "w-t348301": {
+      "translations": {
+        "de": "Er singt gern populäre Lieder."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, verbet «liker» på plass to, så «å synge populære sanger»."
+    },
+    "w-t348302": {
+      "alternatives": [
+        "Under forelesningen kjedet hun seg veldig."
+      ],
+      "translations": {
+        "de": "Sie langweilte sich sehr während der Vorlesung."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «hun» står først, så «kjedet seg». «Veldig» kommer etter «seg», og tiden til slutt.",
+      "note": "Fronted time adverbial with inversion is natural."
+    },
+    "w-t348303": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, verbet «ser» på plass to, så «på bildene av Jane»."
+    },
+    "w-t348304": {
+      "translations": {
+        "de": "Sie ist nicht seine Schwester, sondern seine Mutter."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter verbet «er». «Ikke … men» viser motsetningen mellom søster og mor."
+    },
+    "w-t348305": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «hun» står først, verbet «begynte» på plass to, så «å synge»."
+    },
+    "w-t348306": {
+      "alternatives": [
+        "Spis nå middagen din."
+      ],
+      "translations": {
+        "de": "Iss jetzt dein Abendessen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Imperativ: verbet «spis» står først, så objektet «middagen din» og «nå».",
+      "note": "'nå' directly after the imperative is also natural."
+    },
+    "w-t348307": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvem» står først, så verbet «skal» og subjektet «jeg»."
+    },
+    "w-t348308": {
+      "translations": {
+        "de": "Ich sah den Hund meines Nachbarn auf dem Hof herumlaufen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, verbet «så» på plass to, så «naboens hund løpe rundt på gårdsplassen»."
+    },
+    "w-t348309": {
+      "translations": {
+        "de": "Versuch, zu allem eine positive Einstellung zu haben."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Imperativ: verbet «prøv» står først, så «å ha en positiv innstilling til alt»."
+    },
+    "w-t348310": {
+      "translations": {
+        "de": "Kinder lieben es, am Strand zu spielen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «barn» står først, verbet «elsker» på plass to, så «å leke på stranden»."
+    },
+    "w-t348311": {
+      "exclude": true,
+      "note": "Too many correct orders (I Japan / Om sommeren / Det er ... fronted, adverbials swappable)."
+    },
+    "w-t348312": {
+      "translations": {
+        "de": "Kinder sollen ihren Eltern gehorchen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «barn» står først, verbet «skal» på plass to, så «adlyde sine foreldre»."
+    },
+    "w-t348313": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «dyr» står først, verbet «er» på plass to, så «redde for brann»."
+    },
+    "w-t348314": {
+      "translations": {
+        "de": "Wir beginnen immer mit den schwierigsten Aufgaben."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Alltid» kommer rett etter verbet «begynner» i hovedsetningen."
+    },
+    "w-t348315": {
+      "exclude": true,
+      "note": "'beskyldte ... for stjeling' is unnatural; Norwegian would say 'for tyveri' or 'for å stjele'."
+    },
+    "w-t348316": {
+      "translations": {
+        "de": "Ich bin seit drei Jahren in Japan."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, så «har vært». Stedet «i Japan» kommer før tiden «i tre år»."
+    },
+    "w-t348317": {
+      "alternatives": [
+        "I går mottok jeg brevet ditt."
+      ],
+      "translations": {
+        "de": "Ich habe deinen Brief gestern erhalten."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, verbet «mottok» på plass to, så objektet og tiden «i går» til slutt.",
+      "note": "Fronted 'i går' with inversion is natural."
+    },
+    "w-t348319": {
+      "translations": {
+        "de": "Es war dieser Junge, der die Fensterscheibe zerbrochen hat."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "«Det var» står først, så «denne gutten». «Som knuste vindusruten» forteller hva gutten gjorde."
+    },
+    "w-t348320": {
+      "translations": {
+        "de": "Es besteht die Möglichkeit, dass der Mann ermordet wurde."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen med «at» står subjektet «mannen» før verbet «ble»."
+    },
+    "w-t348322": {
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen med «slik at» står «ikke» foran verbet «forstod»."
+    },
+    "w-t348323": {
+      "alternatives": [
+        "Når faren pensjonerer seg, skal han ta over firmaet."
+      ],
+      "translations": {
+        "de": "Er wird die Firma übernehmen, wenn sein Vater in Rente geht."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen med «når» står subjektet «faren» før verbet «pensjonerer».",
+      "note": "Fronted 'når' clause with inversion is correct."
+    },
+    "w-t348324": {
+      "translations": {
+        "de": "Er mag Musik sehr gern."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, verbet «liker» på plass to, så objektet «musikk» og «veldig godt»."
+    },
+    "w-t348325": {
+      "exclude": true,
+      "note": "Archaic proverb ('skyr ilden'); rare words, not useful for word order."
+    },
+    "w-t348326": {
+      "alternatives": [
+        "Jeg fant en boks der en dag."
+      ],
+      "translations": {
+        "de": "Eines Tages fand ich dort eine Kiste."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «en dag», så verbet «fant» kommer før subjektet «jeg».",
+      "note": "Unfronted time adverbial is also correct."
+    },
+    "w-t348327": {
+      "translations": {
+        "de": "Er ist der kleinere der beiden Jungen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, verbet «er» på plass to, så «den korteste av de to guttene»."
+    },
+    "w-t348328": {
+      "alternatives": [
+        "Døm ikke etter utseende."
+      ],
+      "translations": {
+        "de": "Urteile nicht nach dem Äußeren."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Nektet imperativ: «ikke» står først, så verbet «døm».",
+      "note": "'Døm ikke' is also correct (more formal)."
+    },
+    "w-t348330": {
+      "translations": {
+        "de": "Könnte ich deine Telefonnummer bekommen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kunne» står først, så subjektet «jeg»."
+    },
+    "w-t348332": {
+      "translations": {
+        "de": "Mit dieser Maschine stimmt etwas nicht."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "«Det» står først, verbet «er» på plass to, så «noe galt med denne maskinen»."
+    },
+    "w-t348333": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, verbet «har» på plass to, så objektet «tre barn»."
+    },
+    "w-t348334": {
+      "alternatives": [
+        "Løp ikke over gata."
+      ],
+      "translations": {
+        "de": "Lauf nicht über die Straße."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Nektet imperativ: «ikke» står først, så verbet «løp».",
+      "note": "'Løp ikke' is also correct."
+    },
+    "w-t348335": {
+      "translations": {
+        "de": "Ich bat ihn, hier zu warten."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, verbet «ba» på plass to, så «ham om å vente her»."
+    },
+    "w-t348336": {
+      "translations": {
+        "de": "Ihre Mutter hat sie zu der gemacht, die sie ist."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «moren» står først, så «har gjort henne». I «den hun er» står subjektet «hun» før verbet."
+    },
+    "w-t348337": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «håp» står først, verbet «er» på plass to, så «ingen strategi»."
+    },
+    "w-t348338": {
+      "translations": {
+        "de": "Ich hielt vor Spannung den Atem an."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, verbet «holdt» på plass to, så «pusten i spenning»."
+    },
+    "w-t348340": {
+      "exclude": true,
+      "note": "Typo 'colloege'; also place name Kobe."
+    },
+    "w-t348341": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «drømmen hans» står først, verbet «er» på plass to, så «å dra til Sveits»."
+    },
+    "w-t348342": {
+      "alternatives": [
+        "I april begynner skolen."
+      ],
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «skolen» står først, verbet «begynner» på plass to, og tiden «i april» til slutt.",
+      "note": "Fronted time adverbial with inversion is natural."
+    },
+    "w-t348343": {
+      "translations": {
+        "de": "Habe ich dir gestern nicht Geld geliehen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «lånte» står først, så «jeg». Det korte pronomenet «deg» står før «ikke»."
+    },
+    "w-t348344": {
+      "translations": {
+        "de": "Er freute sich über die guten Nachrichten."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, verbet «var» på plass to, så «glad for de gode nyhetene»."
+    },
+    "w-t348345": {
+      "alternatives": [
+        "Denne måneden har vi hatt mye regn."
+      ],
+      "translations": {
+        "de": "Wir hatten diesen Monat viel Regen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «vi» står først, så «har hatt mye regn», og tiden «denne måneden» til slutt.",
+      "note": "Fronted time adverbial with inversion is natural."
+    },
+    "w-t348346": {
+      "translations": {
+        "de": "Sie macht sich große Sorgen um seine Gesundheit."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «hun» står først, verbet «er» på plass to, så «veldig bekymret for helsen hans»."
+    },
+    "w-t348347": {
+      "translations": {
+        "de": "Warum willst du Krankenpfleger werden?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvorfor» står først, så verbet «vil» og subjektet «du»."
+    },
+    "w-t348348": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, verbet «har» på plass to, så «mange venner»."
+    },
+    "w-t348349": {
+      "alternatives": [
+        "Snømannen hadde smeltet helt neste morgen."
+      ],
+      "translations": {
+        "de": "Am nächsten Morgen war der Schneemann ganz geschmolzen."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «neste morgen», så verbet «hadde» kommer før subjektet «snømannen».",
+      "note": "Unfronted time adverbial is also correct."
+    },
+    "w-t348350": {
+      "translations": {
+        "de": "Kinder brauchen viel Schlaf."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «barn» står først, verbet «trenger» på plass to, så «mye søvn»."
+    },
+    "w-t348352": {
+      "translations": {
+        "de": "Er hörte die Musik mit geschlossenen Augen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, så «hørte på musikken». «Med øynene lukket» kommer til slutt."
+    },
+    "w-t348353": {
+      "alternatives": [
+        "Som ung var jeg tynn."
+      ],
+      "translations": {
+        "de": "In meiner Jugend war ich dünn."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, verbet «var» på plass to, og «som ung» til slutt.",
+      "note": "Fronted 'som ung' with inversion is natural."
+    },
+    "w-t348354": {
+      "translations": {
+        "de": "Orangen haben einen hohen Vitamingehalt."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «appelsiner» står først, verbet «har» på plass to, så «høyt vitamininnhold»."
+    },
+    "w-t348355": {
+      "translations": {
+        "de": "Sie ist keine Sängerin."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «hun» står først, verbet «er» på plass to, så «ingen sanger»."
+    },
+    "w-t348356": {
+      "translations": {
+        "de": "Es ist einen Versuch wert."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "«Det» står først, verbet «er» på plass to, så «verdt et forsøk»."
+    },
+    "w-t348357": {
+      "translations": {
+        "de": "Schlag es im Wörterbuch nach."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Imperativ: verbet «slå» står først, så «det opp». Stedet «i ordboken» kommer til slutt."
+    },
+    "w-t348358": {
+      "translations": {
+        "de": "Wer hat dir das Tanzen beigebracht?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvem» er subjektet og står først, så verbet «lærte» og «deg å danse»."
+    },
+    "w-t348363": {
+      "translations": {
+        "de": "Es ist fünf Jahre her, dass wir hierhergezogen sind."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen med «siden» står subjektet «vi» før verbet «flyttet»."
+    },
+    "w-t348364": {
+      "alternatives": [
+        "Hvor langt er det til parken herfra?"
+      ],
+      "translations": {
+        "de": "Wie weit ist es von hier bis zum Park?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordene «hvor langt» står først, så verbet «er» og subjektet «det».",
+      "note": "'herfra' at the end is equally natural."
+    },
+    "w-t348366": {
+      "exclude": true,
+      "note": "English adds 'it', which is not in the Norwegian sentence."
+    },
+    "w-t348372": {
+      "translations": {
+        "de": "Kannst du nicht noch ein bisschen bleiben?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så «du», så «ikke» før infinitiven «bli»."
+    },
+    "w-t348381": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordene «hvilken vei» står først, så verbet «skal» og subjektet «vi»."
+    },
+    "w-t349690": {
+      "exclude": true,
+      "note": "Exclamative order fits none of the categories; 'Så stor er du' is also possible."
+    },
+    "w-t349693": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «blir» står først, så «du», «hjemme» og tiden «i kveld»."
+    },
+    "w-t349694": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvordan» står først, så verbet «kan» og subjektet «du», og «ha laptop men ingen mobil»."
+    },
+    "w-t352992": {
+      "translations": {
+        "de": "Wie lange ist sie schon krank?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordene «hvor lenge» står først, så verbet «har» og subjektet «hun»."
+    },
+    "w-t352993": {
+      "alternatives": [
+        "Spørsmålet kan tolkes på bare en måte."
+      ],
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Bare» står etter det første verbet «kan» og før «tolkes».",
+      "note": "'bare' directly before 'en måte' is also correct."
+    },
+    "w-t352994": {
+      "translations": {
+        "de": "Ich habe keine Fahrkarte."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» kommer rett etter verbet «har» og før objektet «billett»."
+    },
+    "w-t354622": {
+      "translations": {
+        "de": "Das kann jedem passieren."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "«Det» står først, verbet «kan» på plass to, så «skje hvem som helst»."
+    },
+    "w-t354623": {
+      "translations": {
+        "de": "Du bist nicht eingeloggt."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» kommer rett etter verbet «er»."
+    },
+    "w-t354653": {
+      "exclude": true,
+      "note": "'spurte ham om hvorfor' is unnatural, and tense mismatch 'spurte ... er'."
+    },
+    "w-t354657": {
+      "translations": {
+        "de": "Sind diese Bananen reif?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «er» står først, så subjektet «disse bananene»."
+    },
+    "w-t354694": {
+      "translations": {
+        "de": "Wovon redet er?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hva» står først, så verbet «snakker» og «han». Preposisjonen «om» står til slutt."
+    },
+    "w-t354703": {
+      "translations": {
+        "de": "Was ist die Hauptstadt von Finnland?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hva» står først, så verbet «er» og «hovedstaden i Finland»."
+    },
+    "w-t358584": {
+      "translations": {
+        "de": "Bitte komm, wenn es dir passt."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen med «når» står subjektet «det» før verbet «passer»."
+    },
+    "w-t358586": {
+      "exclude": true,
+      "note": "'bøyde av for' is unnatural (would be 'bøyde seg for' / 'ga etter for'); English missing."
+    },
+    "w-t363396": {
+      "exclude": true,
+      "note": "Exclamative order fits no category; 'I dag er det så varmt' etc. also buildable."
+    },
+    "w-t363429": {
+      "translations": {
+        "de": "Man sagt, dass er dieses Buch geschrieben hat."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen med «at» står subjektet «han» før verbet «skrev»."
+    },
+    "w-t363481": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvor» står først, så verbet «går» og subjektet «dette toget»."
+    },
+    "w-t363487": {
+      "translations": {
+        "de": "Kannst du Auto fahren?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så subjektet «du» og «kjøre bil»."
+    },
+    "w-t363489": {
+      "translations": {
+        "de": "Er gab zu, dass er das Gold gestohlen hatte."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen med «at» står subjektet «han» før verbet «stjal»."
+    },
+    "w-t363499": {
+      "translations": {
+        "de": "Kannst du mir zeigen, was du gekauft hast?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Verbet «kan» står først, så «du». I «hva du har kjøpt» står subjektet «du» før verbet."
+    },
+    "w-t363500": {
+      "translations": {
+        "de": "Du solltest hier nicht essen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter det første verbet «burde» og før infinitiven «spise»."
+    },
+    "w-t363503": {
+      "exclude": true,
+      "note": "Profanity and cleft 'er det du' make it a poor drill item."
+    },
+    "w-t363507": {
+      "alternatives": [
+        "Siden juli har vi bodd her."
+      ],
+      "translations": {
+        "de": "Wir wohnen seit Juli hier."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «vi» står først, så «har bodd her», og tiden «siden juli» til slutt.",
+      "note": "Fronted time adverbial with inversion is natural."
+    },
+    "w-t364314": {
+      "translations": {
+        "de": "Ich bin nicht deine Puppe."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» kommer rett etter verbet «er»."
+    },
+    "w-t364318": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så «jeg», så «parkere bilen min» og «her»."
+    },
+    "w-t364319": {
+      "exclude": true,
+      "note": "Names only; 'Bill er like høy som Ken' means the same, so the order is a guess."
+    },
+    "w-t366511": {
+      "translations": {
+        "de": "Der Mann, der dort drüben die Zeitung liest, ist mein Onkel."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "«Som leser avisen der borte» står rett etter «mannen». Så kommer verbet «er» i hovedsetningen."
+    },
+    "w-t367267": {
+      "alternatives": [
+        "Har du strikket den genseren ferdig?"
+      ],
+      "translations": {
+        "de": "Hast du den Pullover fertig gestrickt?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «har» står først, så «du» og «strikket ferdig den genseren».",
+      "note": "'ferdig' after the object is also correct."
+    },
+    "w-t367269": {
+      "alternatives": [
+        "Hvor langt er det herfra til biblioteket?"
+      ],
+      "translations": {
+        "de": "Wie weit ist es von hier bis zur Bibliothek?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordene «hvor langt» står først, så verbet «er» og subjektet «det».",
+      "note": "'herfra' before 'til biblioteket' is equally natural."
+    },
+    "w-t367278": {
+      "exclude": true,
+      "note": "Long and stiff ('skal være iført'); English paraphrases freely."
+    },
+    "w-t367282": {
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "«Ikke» står etter «vet». I «hva det er» står subjektet «det» før verbet «er»."
+    },
+    "w-t367289": {
+      "translations": {
+        "de": "Kannst du mir den Weg zum Bahnhof sagen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så «du» og «si meg veien til stasjonen»."
+    },
+    "w-t367291": {
+      "alternatives": [
+        "Hvis du forlater Japan, vil jeg savne deg veldig."
+      ],
+      "translations": {
+        "de": "Ich werde dich sehr vermissen, wenn du Japan verlässt."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen med «hvis» står subjektet «du» før verbet «forlater».",
+      "note": "Fronted 'hvis' clause with inversion is correct."
+    },
+    "w-t367292": {
+      "translations": {
+        "de": "Gibt es Fragen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «er» står først, så «det» og «noen spørsmål»."
+    },
+    "w-t367294": {
+      "translations": {
+        "de": "Meine Mutter ist immer beschäftigt."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Alltid» kommer rett etter verbet «er» i hovedsetningen."
+    },
+    "w-t367297": {
+      "alternatives": [
+        "Man kan se Fuji-fjellet på klare dager."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «på klare dager», så verbet «kan» kommer før subjektet «man».",
+      "note": "Unfronted adverbial is also correct."
+    },
+    "w-t367487": {
+      "alternatives": [
+        "Alle innbyggere har like rettigheter i et demokrati."
+      ],
+      "translations": {
+        "de": "In einer Demokratie haben alle Bürger gleiche Rechte."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i et demokrati», så verbet «har» kommer før subjektet «alle innbyggere».",
+      "note": "Unfronted place adverbial is also correct."
+    },
+    "w-t367488": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hva» står først, så verbet «synes» og subjektet «du»."
+    },
+    "w-t367494": {
+      "translations": {
+        "de": "Ich mag diese Kamera nicht."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» kommer rett etter verbet «liker» og før objektet «dette kameraet»."
+    },
+    "w-t367508": {
+      "exclude": true,
+      "note": "English 'Do you have' does not match 'Finnes det'."
+    },
+    "w-t367519": {
+      "translations": {
+        "de": "Gibt es hier in der Nähe ein Postamt?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «er» står først, så «det» og «et postkontor i nærheten»."
+    },
+    "w-t367898": {
+      "translations": {
+        "de": "Ich bin überhaupt nicht überzeugt."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Slett ikke» er et setningsadverb. Det står rett etter verbet «er» i hovedsetningen."
+    },
+    "w-t368375": {
+      "alternatives": [
+        "Hvis du spiser så mye, vil du bli dårlig."
+      ],
+      "translations": {
+        "de": "Du wirst krank, wenn du so viel isst."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Hovedsetningen «du vil bli dårlig» kommer først. I leddsetningen etter «hvis» står subjektet «du» før verbet «spiser».",
+      "note": "Fronted if-clause with inversion is equally correct (matches the English order)."
+    },
+    "w-t368380": {
+      "translations": {
+        "de": "Weißt du, wie alt Fräulein Nakano ist?"
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Spørsmålet starter med verbet «vet». Den indirekte spørresetningen har subjektet «frøken Nakano» før verbet «er», og verbet står sist."
+    },
+    "w-t369756": {
+      "translations": {
+        "de": "Mein Hund tut oft so, als ob er schläft."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Subjektet «hunden min» står først, så verbet «later». Adverbet «ofte» kommer rett etter verbet."
+    },
+    "w-t369869": {
+      "exclude": true,
+      "note": "Archaic Socrates quote; object 'intet' before the verb is not modern word order and would teach a wrong pattern."
+    },
+    "w-t369929": {
+      "alternatives": [
+        "Min sønn er gutten som står der borte."
+      ],
+      "translations": {
+        "de": "Der Junge, der dort drüben steht, ist mein Sohn."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Leddsetningen «som står der borte» forklarer «gutten». Hele uttrykket er subjekt, og så kommer verbet «er».",
+      "note": "Reversed identity statement uses the same words and is correct."
+    },
+    "w-t369935": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvor» står først, så verbet «er» og deretter subjektet «det vakreste stedet»."
+    },
+    "w-t369959": {
+      "translations": {
+        "de": "Hast du Lust, einen Spaziergang zu machen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «har» står først, så subjektet «du»."
+    },
+    "w-t369962": {
+      "translations": {
+        "de": "Wir sind nicht die Einzigen, die den Plan unterstützen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Subjektet «vi» og verbet «er» kommer først. «Ikke» står rett etter verbet."
+    },
+    "w-t370183": {
+      "exclude": true,
+      "note": "Unstressed pronoun should precede 'ikke' (elsker meg ikke); 'elsker ikke meg' is marked, and duplicate adjacent tiles confuse."
+    },
+    "w-t370393": {
+      "translations": {
+        "de": "Kannst du hier unterschreiben?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: modalverbet «kan» står først, så subjektet «du» og infinitiven «signere»."
+    },
+    "w-t370396": {
+      "exclude": true,
+      "note": "Imperative with comparative 'så ... som mulig'; trains none of the five word-order rules."
+    },
+    "w-t370401": {
+      "translations": {
+        "de": "Ich wusste nicht, dass sie krank war."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "I hovedsetningen står «ikke» etter verbet «visste». Leddsetningen «at hun var syk» har vanlig rekkefølge."
+    },
+    "w-t371747": {
+      "translations": {
+        "de": "Ich kann mir ein Leben ohne dich nicht vorstellen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter det første verbet «kan» og før infinitiven «forestille»."
+    },
+    "w-t372340": {
+      "translations": {
+        "de": "Kannst du einen Dollar wechseln?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» kommer først, så subjektet «du»."
+    },
+    "w-t372353": {
+      "translations": {
+        "en": "What is your blood type?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hva» står først, så verbet «er» og subjektet «blodtypen din»."
+    },
+    "w-t372731": {
+      "translations": {
+        "de": "Ich habe nie gehört, dass er gelogen hat."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Aldri» står etter det første verbet «har» og før «hørt». Etter «at» kommer subjektet «han» før verbet."
+    },
+    "w-t372732": {
+      "exclude": true,
+      "note": "Unnatural: 'hendte' and anglicism 'flykræsj'; natural would be 'Hvordan skjedde denne flyulykken?'."
+    },
+    "w-t372735": {
+      "translations": {
+        "de": "Hat dein Zimmer zwei Fenster?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «har» står først, så subjektet «rommet ditt»."
+    },
+    "w-t372749": {
+      "translations": {
+        "de": "Er sah aus, als hätte er ein Gespenst gesehen."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Hovedsetningen «han så ut» kommer først. Etter «som» står subjektet «han» før verbene «hadde sett»."
+    },
+    "w-t372757": {
+      "translations": {
+        "de": "Ich war noch nie in England."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Aldri» står etter det første verbet «har» og før «vært»."
+    },
+    "w-t372761": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Subjektet «min mor» står først, så verbet «sa». «Ofte» kommer rett etter verbet."
+    },
+    "w-t372970": {
+      "translations": {
+        "en": "What is the new class like?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvordan» står først, så verbet «er» og subjektet «den nye klassen»."
+    },
+    "w-t372972": {
+      "translations": {
+        "de": "Kann ich mir dein Telefon ausleihen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så subjektet «jeg»."
+    },
+    "w-t372988": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «finnes» står først, så «det»."
+    },
+    "w-t373164": {
+      "translations": {
+        "de": "Welche Sprache spricht man in Mexiko?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvilket språk» står først, så verbet «snakker» og subjektet «de»."
+    },
+    "w-t373165": {
+      "translations": {
+        "de": "Was war die Ursache der Explosion?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hva» står først, så verbet «var» og subjektet «årsaken til eksplosjonen»."
+    },
+    "w-t373548": {
+      "translations": {
+        "de": "Ich mag diese Uhr nicht."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «liker» i hovedsetningen."
+    },
+    "w-t374611": {
+      "translations": {
+        "de": "Was hältst du von Japanisch?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hva» står først, så verbet «synes» og subjektet «du»."
+    },
+    "w-t375450": {
+      "exclude": true,
+      "note": "Comma after fronted adverbial is wrong in Norwegian, and 'I min erfaring' is an anglicism (Etter min erfaring)."
+    },
+    "w-t375451": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så subjektet «du»."
+    },
+    "w-t375468": {
+      "translations": {
+        "de": "Was versuchst du da?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hva» står først, så «er det». Etter det kommer «du prøver på» med subjektet før verbet."
+    },
+    "w-t375469": {
+      "translations": {
+        "de": "Der Boden ist so schmutzig, dass er geputzt werden muss."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Etter «at» kommer subjektet «det» før verbene «må vaskes»."
+    },
+    "w-t375923": {
+      "alternatives": [
+        "Vanligvis brukes dette verbet bare i tredje person."
+      ],
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Adverbene «vanligvis» og «bare» står etter verbet «brukes».",
+      "note": "Fronting 'vanligvis' with inversion is natural and correct."
+    },
+    "w-t377802": {
+      "alternatives": [
+        "Det var torsdag i går."
+      ],
+      "translations": {
+        "de": "Gestern war Donnerstag."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i går», så verbet «var» kommer før subjektet «det».",
+      "note": "Time adverbial at the end with straight word order is also correct."
+    },
+    "w-t378074": {
+      "translations": {
+        "de": "Warum hast du die Bank rot gestrichen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvorfor» står først, så verbet «malte» og subjektet «du»."
+    },
+    "w-t378192": {
+      "translations": {
+        "de": "Wo ist die nächste Bank?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvor» står først, så verbet «er» og subjektet «nærmeste bank»."
+    },
+    "w-t378640": {
+      "translations": {
+        "de": "Ich hatte lange nichts von ihr gehört."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter det første verbet «hadde» og før «hørt»."
+    },
+    "w-t378641": {
+      "translations": {
+        "de": "Darf ich ein paar Fragen stellen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så subjektet «jeg»."
+    },
+    "w-t378644": {
+      "translations": {
+        "en": "It is doubtful whether he did his homework by himself."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Etter «om» kommer subjektet «han» og så verbene «har gjort»."
+    },
+    "w-t378921": {
+      "alternatives": [
+        "Frank var mannen som ringte for en time siden."
+      ],
+      "translations": {
+        "de": "Der Mann, der vor einer Stunde angerufen hat, war Frank."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Leddsetningen «som ringte for en time siden» forklarer «mannen». Etter hele subjektet kommer verbet «var».",
+      "note": "Reversed identity statement uses the same words and is correct."
+    },
+    "w-t378928": {
+      "translations": {
+        "en": "Can you help me?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så subjektet «du»."
+    },
+    "w-t378933": {
+      "alternatives": [
+        "På den tiden var det ikke mange kvinnelige leger."
+      ],
+      "translations": {
+        "de": "Damals gab es nicht viele Ärztinnen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «var» i hovedsetningen.",
+      "note": "Fronted time adverbial with inversion is equally natural."
+    },
+    "w-t378935": {
+      "translations": {
+        "de": "Ich bin überzeugt, dass du unschuldig bist."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Etter «at» står subjektet «du» før verbet «er»."
+    },
+    "w-t378960": {
+      "translations": {
+        "de": "Wie lange wird dieses Seil halten?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvor lenge» står først, så verbet «vil» og subjektet «dette tauet»."
+    },
+    "w-t378967": {
+      "exclude": true,
+      "note": "'når' for a single past event is wrong in bokmål; should be 'da'."
+    },
+    "w-t378983": {
+      "translations": {
+        "de": "Kannst du mir den Weg zum Hafen sagen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så subjektet «du»."
+    },
+    "w-t378989": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvorfor» står først, så verbet «sluttet» og subjektet «han»."
+    },
+    "w-t378996": {
+      "translations": {
+        "de": "Shakespeare ist als der größte Dramatiker anerkannt."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «Shakespeare» står først, og verbet «er» kommer på plass nummer to."
+    },
+    "w-t380851": {
+      "translations": {
+        "de": "Wie oft hast du den Film gesehen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvor mange ganger» står først, så verbet «så» og subjektet «du»."
+    },
+    "w-t380866": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «tror» står først, så subjektet «du»."
+    },
+    "w-t380880": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «fortalte» står først, så «du». Det korte pronomenet «ham» står før «ikke»."
+    },
+    "w-t380891": {
+      "exclude": true,
+      "note": "Translations say 'again/nochmals' but 'en gang' means 'sometime'; also 'sammen en gang' / 'en gang sammen' both work."
+    },
+    "w-t380907": {
+      "alternatives": [
+        "Faren min er mannen som står der borte."
+      ],
+      "translations": {
+        "en": "The man standing over there is my father."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Leddsetningen «som står der borte» forklarer «mannen». Etter hele subjektet kommer verbet «er».",
+      "note": "Reversed identity statement uses the same words and is correct."
+    },
+    "w-t380930": {
+      "translations": {
+        "de": "Wir konnten seiner Logik nicht folgen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «klarte» og før «å følge»."
+    },
+    "w-t386525": {
+      "translations": {
+        "de": "Ich suchte nach etwas, das es nicht gab."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen «som ikke fantes» står «ikke» før verbet «fantes»."
+    },
+    "w-t386535": {
+      "translations": {
+        "de": "Ich betrachtete Tom als einen Freund."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, så verbet «betraktet» og objektet «Tom»."
+    },
+    "w-t386537": {
+      "alternatives": [
+        "For rundt ti minutter siden kom far hjem."
+      ],
+      "translations": {
+        "de": "Vater ist vor etwa zehn Minuten nach Hause gekommen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «far» står først, så verbet «kom». Tidsuttrykket kommer til slutt.",
+      "note": "Fronted time adverbial with inversion is also correct."
+    },
+    "w-t386542": {
+      "translations": {
+        "de": "Wohin wollt ihr diesen Sommer fahren?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvor» står først, så verbet «vil» og subjektet «dere»."
+    },
+    "w-t386550": {
+      "translations": {
+        "de": "Wer zuletzt lacht, lacht am besten."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Leddsetningen «som ler sist» forklarer «den». Etter hele subjektet kommer verbet «ler»."
+    },
+    "w-t386554": {
+      "alternatives": [
+        "Den natten var det ikke en stjerne å se."
+      ],
+      "translations": {
+        "de": "In dieser Nacht war kein einziger Stern zu sehen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «var» i hovedsetningen.",
+      "note": "Fronted time adverbial with inversion is equally natural."
+    },
+    "w-t386557": {
+      "translations": {
+        "de": "Er hat Glück, so eine gute Frau zu haben."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Hovedsetningen «han er heldig» kommer først. Leddsetningen «som har en så god hustru» kommer etter."
+    },
+    "w-t386565": {
+      "exclude": true,
+      "note": "Verbless 'Hvorfor ikke + infinitive' has no verb/subject order to train; atypical pattern."
+    },
+    "w-t386580": {
+      "translations": {
+        "de": "Ich halte diese Bauchschmerzen nicht aus."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «holder» og før partikkelen «ut»."
+    },
+    "w-t386644": {
+      "alternatives": [
+        "Hun jobber på det lokale sykehuset som sykepleier."
+      ],
+      "translations": {
+        "de": "Sie arbeitet als Krankenschwester im örtlichen Krankenhaus."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «hun» står først, så verbet «jobber». Så kommer «som sykepleier» og stedet.",
+      "note": "Swapping the two adverbials is also natural."
+    },
+    "w-t386654": {
+      "translations": {
+        "de": "Ich werde oft mit meinem Bruder verwechselt."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ofte» står etter det første verbet «blir» og før «forvekslet»."
+    },
+    "w-t386655": {
+      "alternatives": [
+        "Hvis du finner ut noe, ring meg."
+      ],
+      "translations": {
+        "de": "Ruf mich an, wenn du etwas herausfindest."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Hovedsetningen «ring meg» kommer først. Etter «hvis» står subjektet «du» før verbet «finner».",
+      "note": "Fronted if-clause before the imperative is also correct."
+    },
+    "w-t386664": {
+      "exclude": true,
+      "note": "Unidiomatic 'ord på'; standard is 'ord for hvor takknemlig'."
+    },
+    "w-t386665": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ofte» står rett etter verbet «spilte» i hovedsetningen."
+    },
+    "w-t386668": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «ligger» står først, så subjektet «skolen din»."
+    },
+    "w-t386672": {
+      "exclude": true,
+      "note": "Profession with article ('en lege') is unnatural; Norwegian says 'Er hun lege?'."
+    },
+    "w-t386673": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvorfor» står først, så verbet «avslo» og subjektet «du»."
+    },
+    "w-t386880": {
+      "alternatives": [
+        "Jeg så Pulp Fiction i går kveld."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i går kveld», så verbet «så» kommer før subjektet «jeg».",
+      "note": "Time adverbial at the end with straight word order is also correct."
+    },
+    "w-t386886": {
+      "translations": {
+        "de": "Ich kann deinen Plan nicht akzeptieren."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter modalverbet «kan» og før infinitiven «godta»."
+    },
+    "w-t386891": {
+      "translations": {
+        "de": "Ich arbeite nicht gern in der Bank."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «liker» og før «å jobbe»."
+    },
+    "w-t386905": {
+      "alternatives": [
+        "Jeg blir hjemme hvis det regner i morgen."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Leddsetningen «hvis det regner i morgen» står først. Derfor kommer verbet «blir» før subjektet «jeg».",
+      "note": "Main clause first with straight word order is also correct."
+    },
+    "w-t386915": {
+      "alternatives": [
+        "Det er første juledag i morgen."
+      ],
+      "translations": {
+        "de": "Morgen ist der erste Weihnachtstag."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i morgen», så verbet «er» kommer før subjektet «det».",
+      "note": "Time adverbial at the end with straight word order is also correct."
+    },
+    "w-t386922": {
+      "translations": {
+        "de": "Wann bist du geboren?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «når» står først, så verbet «er» og subjektet «du»."
+    },
+    "w-t386924": {
+      "translations": {
+        "de": "Hast du abgenommen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «har» står først, så subjektet «du» og «gått»."
+    },
+    "w-t386926": {
+      "translations": {
+        "de": "Wie lange ist er schon weg?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvor lenge» står først, så verbet «har» og subjektet «han»."
+    },
+    "w-t386933": {
+      "translations": {
+        "de": "Sie erwarten, dass du kooperierst."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Etter «at» står subjektet «du» før verbet «samarbeider»."
+    },
+    "w-t386943": {
+      "translations": {
+        "de": "Ich bin in dieser Sache deiner Meinung."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, så verbet «er». Resten kommer etter verbet."
+    },
+    "w-t386946": {
+      "translations": {
+        "de": "Willst du den Nerv entfernen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «skal» står først, så subjektet «du»."
+    },
+    "w-t386953": {
+      "translations": {
+        "de": "Das Zeichen zeigt, dass die Antwort richtig ist."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Etter «at» står subjektet «svaret» før verbet «er»."
+    },
+    "w-t386954": {
+      "translations": {
+        "de": "Sie ist immer gut geschminkt."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Alltid» står rett etter verbet «er» i hovedsetningen."
+    },
+    "w-t386955": {
+      "translations": {
+        "de": "Dieser Aufzug fährt nicht höher als bis zum sechsten Stock."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «går» i hovedsetningen."
+    },
+    "w-t386956": {
+      "translations": {
+        "de": "Was liest du da?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hva» står først, så «er det». Etter det kommer «du leser» med subjektet før verbet."
+    },
+    "w-t386962": {
+      "translations": {
+        "de": "Ich habe noch nie einen roten Kühlschrank gesehen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Aldri» står etter det første verbet «har» og før «sett»."
+    },
+    "w-t386975": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvorfor» står først, så verbet «kunne» og subjektet «han». «Ikke» kommer etter subjektet."
+    },
+    "w-t386977": {
+      "translations": {
+        "de": "Sie wohnte nicht gern in der Stadt."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «likte» og før «å bo»."
+    },
+    "w-t386978": {
+      "exclude": true,
+      "note": "German translation does not match (plural 'die besten Spieler ... sind')."
+    },
+    "w-t387034": {
+      "translations": {
+        "en": "The labour market is not saturated."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «er» i hovedsetningen."
+    },
+    "w-t387040": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «går» og før partikkelen «bort»."
+    },
+    "w-t387041": {
+      "exclude": true,
+      "note": "Two sentences; the inner full stop cannot be added automatically."
+    },
+    "w-t387043": {
+      "translations": {
+        "de": "Ist diese Leiter stabil genug, um mich zu tragen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «er» står først, så subjektet «denne stigen»."
+    },
+    "w-t387169": {
+      "exclude": true,
+      "note": "Mathematical jargon with a single-letter name; not useful for learners."
+    },
+    "w-t387175": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «åt» i hovedsetningen."
+    },
+    "w-t387178": {
+      "exclude": true,
+      "note": "Rare word 'nes', odd 'Der' fronting, and an unnatural translation."
+    },
+    "w-t387180": {
+      "translations": {
+        "de": "Darf ich das hier benutzen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så subjektet «jeg»."
+    },
+    "w-t387182": {
+      "translations": {
+        "de": "Woran erinnert dich dieser Hut?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hva» står først, så verbet «minner» og subjektet «denne hatten». «Om» står til slutt."
+    },
+    "w-t387183": {
+      "alternatives": [
+        "Hvis du vil, kan du bruke bilen min."
+      ],
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Hovedsetningen «du kan bruke bilen min» kommer først. Etter «hvis» står subjektet «du» før verbet «vil».",
+      "note": "Fronted if-clause with inversion is also correct."
+    },
+    "w-t387194": {
+      "translations": {
+        "de": "Hast du beschlossen, nach Japan zu fahren?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «har» står først, så subjektet «du»."
+    },
+    "w-t387197": {
+      "alternatives": [
+        "Hvilken av de to er dyrest?"
+      ],
+      "translations": {
+        "de": "Welcher von beiden ist teurer?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvilken» står først, så verbet «er». «Av de to» kommer til slutt.",
+      "note": "Keeping 'av de to' next to the question word is equally natural."
+    },
+    "w-t387214": {
+      "translations": {
+        "de": "Welches Datum haben wir heute?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvilken dato» står først, så verbet «er» og «det»."
+    },
+    "w-t387381": {
+      "translations": {
+        "de": "Möchtest du noch eine Tasse Tee?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «vil» står først, så subjektet «du»."
+    },
+    "w-t387393": {
+      "translations": {
+        "de": "Hast du eine etwas kleinere?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «har» står først, så subjektet «du»."
+    },
+    "w-t387681": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så subjektet «du» og infinitiven «se»."
+    },
+    "w-t387954": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så subjektet «jeg»."
+    },
+    "w-t387956": {
+      "translations": {
+        "de": "Ich frage mich, was passiert ist."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen «hva som har skjedd» står «som» etter «hva», fordi «hva» er subjekt."
+    },
+    "w-t388152": {
+      "alternatives": [
+        "Pass på ikke å havne i trøbbel."
+      ],
+      "translations": {
+        "de": "Pass auf, dass du nicht in Schwierigkeiten gerätst."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står foran verbet i infinitiv: «å ikke havne». «Ikke å havne» er også riktig.",
+      "note": "Both 'å ikke' and 'ikke å' are accepted bokmål."
+    },
+    "w-t388153": {
+      "alternatives": [
+        "Ikke kast bort et eneste riskorn!"
+      ],
+      "translations": {
+        "de": "Verschwende kein einziges Reiskorn!"
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "I imperativ står «ikke» etter verbet «kast» og før partikkelen «bort». «Ikke kast bort» er også riktig.",
+      "note": "'Ikke' before the imperative is the more common modern form."
+    },
+    "w-t391000": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvem» er subjekt og står først, så verbet «vil»."
+    },
+    "w-t392126": {
+      "alternatives": [
+        "Yuri dro ofte til London på den tiden."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «på den tiden», så verbet «dro» kommer før subjektet «Yuri». «Ofte» står etter subjektet.",
+      "note": "Subject-first order (as in the English) is also correct."
+    },
+    "w-t392127": {
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Etter «at» står subjektet «du» før verbene «skal jobbe»."
+    },
+    "w-t392133": {
+      "translations": {
+        "en": "I have nothing special to say about the matter."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «har» i hovedsetningen."
+    },
+    "w-t392363": {
+      "translations": {
+        "en": "There is hardly any milk in the glass."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Nesten ikke» står rett etter verbet «er» i hovedsetningen."
+    },
+    "w-t392367": {
+      "exclude": true,
+      "note": "Too many correct orders: 'virket ikke mikrofonen'/'virket mikrofonen ikke', subject-first, fronted 'tidligere'."
+    },
+    "w-t392370": {
+      "translations": {
+        "de": "Ist das deine DVD?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «er» står først, så subjektet «dette»."
+    },
+    "w-t392371": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "I hovedsetningen står «ikke» etter verbet «vet». Etter «om» står subjektet «hun» før verbet «kommer»."
+    },
+    "w-t392413": {
+      "translations": {
+        "de": "Alles, was ich weiß, ist, dass sie letzte Woche abgereist ist."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "«Alt jeg vet» er subjekt, så kommer verbet «er». Etter «at» står subjektet «hun» før verbet «dro»."
+    },
+    "w-t392459": {
+      "translations": {
+        "de": "Weißt du, wie man Mahjong spielt?"
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Spørsmålet starter med verbet «vet». I leddsetningen etter «hvordan» står subjektet «du» før verbet «spiller»."
+    },
+    "w-t393122": {
+      "alternatives": [
+        "Han var tre måneder på sjøen i fjor."
+      ],
+      "translations": {
+        "de": "Letztes Jahr war er drei Monate auf See."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i fjor», så verbet «var» kommer før subjektet «han».",
+      "note": "Time adverbial at the end with straight word order is also correct."
+    },
+    "w-t393128": {
+      "translations": {
+        "de": "Meine Haare sind genauso lang wie Janes."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «håret mitt» står først, så verbet «har»."
+    },
+    "w-t393195": {
+      "alternatives": [
+        "På fødselsdagen gir han henne alltid en gave."
+      ],
+      "translations": {
+        "de": "Er gibt ihr zum Geburtstag immer ein Geschenk."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Det korte pronomenet «henne» står rett etter verbet «gir». Så kommer «alltid».",
+      "note": "Fronted time adverbial with inversion is also natural."
+    },
+    "w-t394102": {
+      "translations": {
+        "de": "Das wird nicht passieren."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter modalverbet «vil» og før infinitiven «skje»."
+    },
+    "w-t394103": {
+      "translations": {
+        "de": "Du hast kein Fieber."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «har» i hovedsetningen."
+    },
+    "w-t394104": {
+      "exclude": true,
+      "note": "'lengre' should be the adverb 'lenger'; the English translation also does not match."
+    },
+    "w-t394377": {
+      "translations": {
+        "de": "Was bist du von Beruf?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvilket yrke» står først, så verbet «har» og subjektet «du»."
+    },
+    "w-t394378": {
+      "translations": {
+        "de": "Wo sind deine Sachen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvor» står først, så verbet «er» og subjektet «tingene dine»."
+    },
+    "w-t394380": {
+      "translations": {
+        "de": "Sind deine Hände sauber?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «er» står først, så subjektet «hendene dine»."
+    },
+    "w-t394381": {
+      "alternatives": [
+        "Han lander på månen i morgen."
+      ],
+      "translations": {
+        "de": "Morgen landet er auf dem Mond."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i morgen», så verbet «lander» kommer før subjektet «han».",
+      "note": "Time adverbial can also come last."
+    },
+    "w-t394384": {
+      "translations": {
+        "de": "Sei still, während wir essen."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Først kommer imperativet «vær stille». Så kommer leddsetningen «mens vi spiser» med subjekt før verb."
+    },
+    "w-t394826": {
+      "translations": {
+        "de": "Beachte, dass es nicht immer ein Maximum gibt."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen etter «at» står «ikke alltid» før verbet «finnes»."
+    },
+    "w-t395602": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvem» står først, så verbet «var». «Som skrev …» forteller hvem det gjelder."
+    },
+    "w-t395625": {
+      "alternatives": [
+        "Når det er varmt, holder melk seg ikke lenge."
+      ],
+      "translations": {
+        "de": "Milch hält sich nicht lange, wenn es warm ist."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Pronomenet «seg» står rett etter verbet «holder», og «ikke» kommer etter «seg».",
+      "note": "Subordinate clause can be fronted with inversion."
+    },
+    "w-t396860": {
+      "exclude": true,
+      "note": "Too many acceptable placements of «snart» and the fronted if-clause."
+    },
+    "w-t396865": {
+      "alternatives": [
+        "Denne regelen gjelder også deg."
+      ],
+      "translations": {
+        "de": "Diese Regel gilt auch für dich."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Også» står til slutt, etter objektet «deg». Det betyr «deg i tillegg».",
+      "note": "«også» before the object is equally natural."
+    },
+    "w-t396891": {
+      "exclude": true,
+      "note": "German translation does not match (car 'carried' over the roadside); Norwegian also slightly odd."
+    },
+    "w-t396900": {
+      "translations": {
+        "de": "Wo ist das ganze Brot geblieben?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvor» står først, så verbet «ble» og så «det». «Bli av» betyr «forsvinne»."
+    },
+    "w-t396905": {
+      "alternatives": [
+        "Ofte sier folk at japansk er et vanskelig språk."
+      ],
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ofte» står rett etter verbet «sier». Etter «at» kommer en leddsetning med subjekt før verb.",
+      "note": "Fronting «ofte» with inversion is correct."
+    },
+    "w-t396937": {
+      "translations": {
+        "de": "Hast du einen Stift?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «har» står først, så subjektet «du»."
+    },
+    "w-t397005": {
+      "exclude": true,
+      "note": "«engang» and «selv» can be placed several ways; too many correct orders."
+    },
+    "w-t397222": {
+      "exclude": true,
+      "note": "Proverb with rare word «tarvelig»; guessing game."
+    },
+    "w-t399281": {
+      "translations": {
+        "de": "Er erzählte mir, dass er nach Amerika fahren würde."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Hovedsetningen er «han fortalte meg». Etter «at» kommer leddsetningen med subjekt før verb."
+    },
+    "w-t399282": {
+      "alternatives": [
+        "Mens han sov, snorket han høyt."
+      ],
+      "translations": {
+        "de": "Er schnarchte laut, während er schlief."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Leddsetningen «mens han sov» kommer etter hovedsetningen. Der står subjektet før verbet.",
+      "note": "Fronted subordinate clause with inversion is correct."
+    },
+    "w-t399423": {
+      "alternatives": [
+        "På grunn av bråket får vi ikke sove."
+      ],
+      "translations": {
+        "de": "Wir können wegen des Lärms nicht schlafen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter det første verbet «får» og før «sove».",
+      "note": "Fronting «på grunn av bråket» with inversion is correct."
+    },
+    "w-t399568": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «så» og før objektet «fotgjengeren»."
+    },
+    "w-t399570": {
+      "translations": {
+        "de": "Er schlug vor, dass wir die Abreise verschieben sollten."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Etter «at» kommer leddsetningen: subjektet «vi», så verbene «skulle utsette»."
+    },
+    "w-t399635": {
+      "translations": {
+        "de": "China ist zwanzigmal so groß wie Japan."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «Kina» står først, så verbet «er». «Så stort som Japan» kommer til slutt."
+    },
+    "w-t400064": {
+      "translations": {
+        "de": "Welche CD willst du hören?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvilken CD» står først, så verbet «vil» og subjektet «du». «På» står til slutt."
+    },
+    "w-t400399": {
+      "translations": {
+        "de": "Sie kommt mit Stress nicht zurecht."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «takler»."
+    },
+    "w-t400424": {
+      "translations": {
+        "de": "Hast du vor, ihnen zu helfen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «har» står først, så «du», så «tenkt å hjelpe dem»."
+    },
+    "w-t402407": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «er» står først, så subjektet «dette»."
+    },
+    "w-t402507": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «er». «Lyst nok» kommer etter «ikke»."
+    },
+    "w-t406820": {
+      "exclude": true,
+      "note": "Technical term «Lipschitz-kontinuerlig»; not useful for learners."
+    },
+    "w-t406948": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «når» står først, så verbet «kommer» og subjektet «hun»."
+    },
+    "w-t410168": {
+      "translations": {
+        "de": "Ich kenne das Mädchen, das Tennis spielt."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "«Som spiller tennis» står rett etter «jenta» og forteller hvilken jente."
+    },
+    "w-t413071": {
+      "exclude": true,
+      "note": "Two sentences in one item; punctuation cannot be added automatically."
+    },
+    "w-t413075": {
+      "translations": {
+        "de": "War es jemand anders als Jim, der sie gesehen hat?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «var» står først, så «det». «Som så henne» kommer til slutt."
+    },
+    "w-t413078": {
+      "exclude": true,
+      "note": "Two sentences (greeting + question); punctuation cannot be added automatically."
+    },
+    "w-t413099": {
+      "alternatives": [
+        "For to år siden besøkte hun Kanazawa."
+      ],
+      "translations": {
+        "de": "Sie besuchte Kanazawa vor zwei Jahren."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «hun» står først, så verbet «besøkte». Tiden «for to år siden» står til slutt.",
+      "note": "Fronted time adverbial with inversion is correct."
+    },
+    "w-t413102": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter verbet «har» og før «hørt»."
+    },
+    "w-t417373": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «har». «Ha råd til» betyr å ha penger nok."
+    },
+    "w-t501496": {
+      "alternatives": [
+        "Om sommeren er det ingenting som iskrem."
+      ],
+      "translations": {
+        "de": "Im Sommer geht nichts über Eis."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Setningen starter med «det er». «Som iskrem» betyr «som er like godt som iskrem».",
+      "note": "Fronting «om sommeren» with inversion is correct."
+    },
+    "w-t501498": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Aldri» står etter verbet «hadde» og før «sett»."
+    },
+    "w-t501505": {
+      "translations": {
+        "de": "Es stellt sich heraus, dass er sich irrt."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Hovedsetningen er «det viser seg». Etter «at» står subjektet «han» før verbet «tar»."
+    },
+    "w-t501508": {
+      "exclude": true,
+      "note": "English adds 'last night'; «sent oppe»/«oppe sent» plus fronted clause give too many orders."
+    },
+    "w-t501569": {
+      "alternatives": [
+        "Hvis jeg var deg, ville jeg ikke gått dit."
+      ],
+      "translations": {
+        "de": "Ich würde da nicht hingehen, wenn ich du wäre."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter verbet «ville» og før «gått». Leddsetningen «hvis jeg var deg» kommer til slutt.",
+      "note": "Fronted if-clause with inversion is correct."
+    },
+    "w-t501639": {
+      "alternatives": [
+        "Jeg føler meg bedre og bedre hver dag."
+      ],
+      "translations": {
+        "de": "Jeden Tag fühle ich mich immer besser."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «hver dag», så verbet «føler» kommer før subjektet «jeg».",
+      "note": "Time adverbial can also come last."
+    },
+    "w-t501642": {
+      "exclude": true,
+      "note": "Ungrammatical: idiom is «lett som en plett» (masculine)."
+    },
+    "w-t501644": {
+      "translations": {
+        "de": "Kannst du dich zwingen einzuschlafen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så subjektet «du»."
+    },
+    "w-t501660": {
+      "translations": {
+        "de": "Kannst du das machen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så «du», så «gjøre det»."
+    },
+    "w-t501676": {
+      "translations": {
+        "de": "Ich halte diesen Lärm nicht mehr aus."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «orker». «Lenger» står til slutt."
+    },
+    "w-t501703": {
+      "translations": {
+        "de": "Ich fühle mich nicht so gut."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Pronomenet «meg» står rett etter verbet «føler», og «ikke» kommer etter «meg»."
+    },
+    "w-t501746": {
+      "exclude": true,
+      "note": "English translation does not match (Norwegian means 'we don't have enough of anything')."
+    },
+    "w-t501755": {
+      "translations": {
+        "de": "Hat das Essen geschmeckt?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «falt» står først, så subjektet «maten». «Falle i smak» betyr å like."
+    },
+    "w-t501757": {
+      "translations": {
+        "de": "Rechne nicht damit, dass er dir Geld leiht."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Imperativet starter med «ikke regn med». Etter «at» kommer subjektet «han» før verbet «låner»."
+    },
+    "w-t501763": {
+      "alternatives": [
+        "For syv år siden giftet vi oss."
+      ],
+      "translations": {
+        "de": "Wir haben vor sieben Jahren geheiratet."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «vi» står først, så verbet «giftet» og «oss». Tiden står til slutt.",
+      "note": "Fronted time adverbial with inversion is correct."
+    },
+    "w-t501772": {
+      "translations": {
+        "de": "Wir wissen, dass sie in Kanada geboren wurde."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Etter «at» kommer leddsetningen: subjektet «hun» før verbet «ble født»."
+    },
+    "w-t501786": {
+      "translations": {
+        "de": "Ich habe ihn lange nicht gesehen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter verbet «har». Pronomenet «ham» står etter «sett», og «på lenge» til slutt."
+    },
+    "w-t501787": {
+      "translations": {
+        "de": "Er ist nur ein Amateur."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Bare» står rett etter verbet «er» og før «en amatør»."
+    },
+    "w-t501796": {
+      "translations": {
+        "de": "Es lohnt sich nicht, die Tastatur zu essen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter «lønner seg». «Å spise tastaturet» kommer til slutt."
+    },
+    "w-t501802": {
+      "translations": {
+        "de": "Ich habe das Buch nie gelesen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Aldri» står rett etter verbet «leste» og før objektet «boka»."
+    },
+    "w-t501805": {
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «du» står først, så verbet «burde». «Så tidlig som mulig» står til slutt."
+    },
+    "w-t501807": {
+      "translations": {
+        "de": "Du hast nie Zeit für wichtige Dinge!"
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Aldri» står rett etter verbet «har» og før «tid»."
+    },
+    "w-t501811": {
+      "translations": {
+        "de": "Kannst du mit den Regeln nicht ein bisschen flexibler sein?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så «du», så «ikke»."
+    },
+    "w-t501817": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «har» og før «brede hofter»."
+    },
+    "w-t501820": {
+      "alternatives": [
+        "Jeg fikk mye gratis da jeg var liten."
+      ],
+      "translations": {
+        "de": "Als ich klein war, bekam ich viel umsonst."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Leddsetningen «da jeg var liten» står først. Derfor kommer verbet «fikk» før subjektet «jeg».",
+      "note": "Subordinate clause can also come last."
+    },
+    "w-t501829": {
+      "translations": {
+        "de": "Sie träumte von wilden Jaguaren."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «hun» står først, så verbet «drømte». «Om ville jaguarer» kommer til slutt."
+    },
+    "w-t502240": {
+      "translations": {
+        "de": "Bist du neu hier?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «er» står først, så subjektet «du»."
+    },
+    "w-t502243": {
+      "translations": {
+        "de": "Es ist nicht schwer zu machen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «er» og før «vanskelig»."
+    },
+    "w-t502244": {
+      "alternatives": [
+        "Han irriterte søstera si mens han spiste en pizza."
+      ],
+      "translations": {
+        "de": "Während er eine Pizza aß, ärgerte er seine Schwester."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Leddsetningen «mens han spiste en pizza» står først. Derfor kommer verbet «irriterte» før subjektet «han».",
+      "note": "Subordinate clause can also come last."
+    },
+    "w-t502245": {
+      "translations": {
+        "de": "Ist das dein Regenschirm?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «er» står først, så subjektet «dette»."
+    },
+    "w-t502247": {
+      "translations": {
+        "de": "Er ist nicht nett zu ihr."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «er» og før «grei»."
+    },
+    "w-t508804": {
+      "translations": {
+        "de": "Er schrieb ein Buch über China."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «han» står først, så verbet «skrev», så objektet «en bok om Kina»."
+    },
+    "w-t508819": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvem sin gitar» står først, så verbet «er» og subjektet «dette»."
+    },
+    "w-t508820": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvem» er subjektet. Derfor kommer verbet «eier» rett etter."
+    },
+    "w-t508825": {
+      "translations": {
+        "de": "Wann stehst du normalerweise auf?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «når» står først, så «står du». «Vanligvis» kommer før «opp»."
+    },
+    "w-t509419": {
+      "translations": {
+        "de": "Wer hat die Tür offen gelassen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvem» er subjektet. Derfor kommer verbet «lot» rett etter."
+    },
+    "w-t509553": {
+      "translations": {
+        "de": "Ich kann an seiner Theorie keinen Fehler finden."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter verbet «kan» og før «finne»."
+    },
+    "w-t510019": {
+      "alternatives": [
+        "I morgen reiser han vel til Peru?"
+      ],
+      "translations": {
+        "de": "Er fährt doch morgen nach Peru, oder?"
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Vel» står rett etter verbet «reiser». Setningen ser ut som en påstand, men er et spørsmål.",
+      "note": "Fronted «i morgen» with inversion is correct."
+    },
+    "w-t511427": {
+      "translations": {
+        "de": "Ich trinke nicht so viel Bier."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «drikker»."
+    },
+    "w-t511478": {
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Hovedsetningen er «det var hell i uhell». Etter «at» står subjektet «ingen» før verbet «døde»."
+    },
+    "w-t511497": {
+      "translations": {
+        "de": "Du weißt, dass ich keine Eier mag."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen etter «at» står «ikke» før verbet «liker»."
+    },
+    "w-t511935": {
+      "exclude": true,
+      "note": "Stilted/archaic phrasing («gav … til svar»); low value."
+    },
+    "w-t511963": {
+      "translations": {
+        "de": "Ist es schwierig, mit Stäbchen zu essen?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «er» står først, så «det»."
+    },
+    "w-t512523": {
+      "alternatives": [
+        "Alle går på ski her."
+      ],
+      "translations": {
+        "de": "Hier fahren alle Ski."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «her», så verbet «går» kommer før subjektet «alle».",
+      "note": "Unfronted order is also correct."
+    },
+    "w-t513729": {
+      "exclude": true,
+      "note": "Proverb with cleft order; the plain order uses the same words, so order is not inferable."
+    },
+    "w-t513797": {
+      "translations": {
+        "de": "Ich war bei dem Gespräch nicht dabei."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «var» og før «med»."
+    },
+    "w-t513835": {
+      "translations": {
+        "de": "Jeder weiß, dass der Mond aus Käse ist."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Etter «at» kommer leddsetningen: subjektet «månen» før verbet «er»."
+    },
+    "w-t514880": {
+      "translations": {
+        "de": "Kannst du mir deine Handynummer geben?"
+      },
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «kan» står først, så «du», så «gi meg»."
+    },
+    "w-t514882": {
+      "translations": {
+        "de": "Wer im Glashaus sitzt, sollte nicht mit Steinen werfen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter verbet «skal» og før «kaste»."
+    },
+    "w-t514914": {
+      "translations": {
+        "de": "Der Reis ist schon geerntet."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Allerede» står rett etter verbet «er»."
+    },
+    "w-t514937": {
+      "alternatives": [
+        "Det ble en dårlig rishøst på grunn av oversvømmelsen."
+      ],
+      "translations": {
+        "de": "Wegen der Überschwemmung gab es eine schlechte Reisernte."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «på grunn av oversvømmelsen», så verbet «ble» kommer før «det».",
+      "note": "Unfronted order is also correct."
+    },
+    "w-t514994": {
+      "alternatives": [
+        "Jeg ville ha mislyktes uten din hjelp."
+      ],
+      "translations": {
+        "de": "Ohne deine Hilfe wäre ich gescheitert."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «uten din hjelp», så verbet «ville» kommer før subjektet «jeg».",
+      "note": "Unfronted order is also correct."
+    },
+    "w-t515004": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Spørreordet «hvor» står først, så verbet «er» og subjektet «skolen din»."
+    },
+    "w-t515008": {
+      "alternatives": [
+        "Jeg har aldri sett en så stor vannmelon før."
+      ],
+      "translations": {
+        "de": "Ich habe noch nie so eine große Wassermelone gesehen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Aldri før» står etter verbet «har» og før «sett».",
+      "note": "«før» at the end is equally natural."
+    },
+    "w-t515013": {
+      "exclude": true,
+      "note": "Profanity («faen»)."
+    },
+    "w-t516108": {
+      "tags": [
+        "spørsmål"
+      ],
+      "explanation": "Ja/nei-spørsmål: verbet «liker» står først, så subjektet «du»."
+    },
+    "w-t516442": {
+      "alternatives": [
+        "Jeg kjøpte katta i sekken i går."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «i går», så verbet «kjøpte» kommer før subjektet «jeg».",
+      "note": "Time adverbial can also come last."
+    },
+    "w-t516564": {
+      "alternatives": [
+        "I går kom du ikke på skolen."
+      ],
+      "translations": {
+        "de": "Du bist gestern nicht zur Schule gekommen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «kom». Tiden «i går» står til slutt.",
+      "note": "Fronted «i går» with inversion is correct."
+    },
+    "w-t516566": {
+      "alternatives": [
+        "Enten du vil eller ikke, må du gjøre det."
+      ],
+      "translations": {
+        "de": "Du musst es tun, ob du willst oder nicht."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Hovedsetningen kommer først. I leddsetningen «enten du vil eller ikke» står subjektet før verbet.",
+      "note": "Fronted subordinate clause with inversion is correct."
+    },
+    "w-t516568": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter verbet «burde» og før «gå»."
+    },
+    "w-t519375": {
+      "alternatives": [
+        "Elektrikeren kommer og reparerer strømledningen neste uke."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «neste uke», så verbet «kommer» står før subjektet «elektrikeren».",
+      "note": "Time adverbial can also come last."
+    },
+    "w-t519379": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «husker»."
+    },
+    "w-t519452": {
+      "alternatives": [
+        "Aldri i verden vil hun gifte seg med Satou."
+      ],
+      "translations": {
+        "de": "Sie würde Satou nie im Leben heiraten."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Aldri i verden» står etter verbet «vil» og før «gifte seg».",
+      "note": "Fronted «aldri i verden» with inversion is correct."
+    },
+    "w-t519800": {
+      "alternatives": [
+        "Jeg ble bedt om å vise pass på grensen."
+      ],
+      "translations": {
+        "de": "An der Grenze wurde ich gebeten, meinen Pass zu zeigen."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «på grensen», så verbet «ble» kommer før subjektet «jeg».",
+      "note": "Unfronted order is also correct."
+    },
+    "w-t521321": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Kun» står rett etter verbet «tenker» og før «på seg selv»."
+    },
+    "w-t521342": {
+      "translations": {
+        "de": "Stör mich nicht, während ich lerne."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Først kommer «ikke forstyrr meg». I leddsetningen «mens jeg studerer» står subjektet før verbet."
+    },
+    "w-t523388": {
+      "translations": {
+        "de": "Mary hat schon angefangen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Allerede» står etter verbet «har» og før «begynt»."
+    },
+    "w-t523391": {
+      "translations": {
+        "de": "Mary ist schon gegangen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Allerede» står etter verbet «har» og før «dratt»."
+    },
+    "w-t526115": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «har» og før «hode»."
+    },
+    "w-t529755": {
+      "alternatives": [
+        "To ganger om dagen pusser jeg tennene."
+      ],
+      "translations": {
+        "de": "Ich putze mir zweimal am Tag die Zähne."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, så verbet «pusser» og objektet «tennene». Tiden står til slutt.",
+      "note": "Fronted frequency adverbial with inversion is correct."
+    },
+    "w-t530624": {
+      "alternatives": [
+        "Han har ikke lest boken enda."
+      ],
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Enda ikke» står etter verbet «har» og før «lest».",
+      "note": "«enda» at the end is equally natural."
+    },
+    "w-t532804": {
+      "alternatives": [
+        "Ulykkesårsaken er ikke klar ennå."
+      ],
+      "translations": {
+        "de": "Die Unfallursache ist noch nicht klar."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ennå ikke» står rett etter verbet «er» og før «klar».",
+      "note": "«ennå» at the end is equally natural."
+    },
+    "w-t532808": {
+      "translations": {
+        "de": "Ich weiß nicht, ob ich Zeit habe."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "«Ikke» står etter «vet». Leddsetningen «om jeg får tid» har subjektet før verbet."
+    },
+    "w-t532815": {
+      "translations": {
+        "de": "Diese Sache beunruhigt mich überhaupt nicht."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Pronomenet «meg» står etter verbet «bekymrer», og «ikke» kommer etter «meg»."
+    },
+    "w-t534288": {
+      "exclude": true,
+      "note": "Proverb; English translation does not match the Norwegian wording."
+    },
+    "w-t535468": {
+      "alternatives": [
+        "Det lever ikke fisk i denne elven lenger."
+      ],
+      "translations": {
+        "de": "In diesem Fluss leben keine Fische mehr."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke lenger» står rett etter verbet «lever». «Det» er formelt subjekt.",
+      "note": "«lenger» at the end is equally natural."
+    },
+    "w-t536661": {
+      "alternatives": [
+        "Bare ved synet av en slange blir hun dårlig."
+      ],
+      "translations": {
+        "de": "Schon beim Anblick einer Schlange wird ihr schlecht."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Bare» står foran «ved synet av en slange» og betyr «allerede».",
+      "note": "Fronted adverbial with inversion is correct."
+    },
+    "w-t561096": {
+      "exclude": true,
+      "note": "Rare words («heimkunnskap», «trolldeig»); guessing game."
+    },
+    "w-t613713": {
+      "exclude": true,
+      "note": "English translation wrong: «søskenbarn» is cousin, not nephew."
+    },
+    "w-t613719": {
+      "translations": {
+        "de": "Der Zug ist noch nicht gekommen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter verbet «har» og før «kommet». «Ennå» står til slutt."
+    },
+    "w-t613781": {
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «sa» og før «et ord»."
+    },
+    "w-t613782": {
+      "alternatives": [
+        "I går kveld viste han seg ikke på festen."
+      ],
+      "translations": {
+        "de": "Er ist gestern Abend nicht auf der Party aufgetaucht."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Pronomenet «seg» står etter verbet «viste», og «ikke» kommer etter «seg».",
+      "note": "Fronted time adverbial with inversion is correct."
+    },
+    "w-t622021": {
+      "exclude": true,
+      "note": "Ungrammatical: indirect question needs «hva klokka er»."
+    },
+    "w-t734448": {
+      "translations": {
+        "de": "Du hättest nicht so früh kommen müssen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter verbet «hadde» og før «trengt»."
+    },
+    "w-t737212": {
+      "alternatives": [
+        "Om en time skal flyet lande."
+      ],
+      "translations": {
+        "de": "Das Flugzeug landet in einer Stunde."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «flyet» står først, så verbet «skal». Tiden «om en time» står til slutt.",
+      "note": "Fronted time adverbial with inversion is correct."
+    },
+    "w-t815752": {
+      "translations": {
+        "de": "Ich sehe ihn oft."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Pronomenet «ham» står rett etter verbet «ser», og «ofte» kommer etter «ham»."
+    },
+    "w-t815757": {
+      "alternatives": [
+        "Ved bordet bør du ikke prate med munnen full.",
+        "Du bør ikke prate ved bordet med munnen full."
+      ],
+      "translations": {
+        "de": "Du solltest bei Tisch nicht mit vollem Mund sprechen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står etter verbet «bør» og før «prate».",
+      "note": "Fronted «ved bordet» and swapped adverbials are correct."
+    },
+    "w-t815758": {
+      "translations": {
+        "de": "Ich spreche kein Klingonisch."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «snakker»."
+    },
+    "w-t815780": {
+      "translations": {
+        "de": "Du musst drei Monatsmieten als Kaution zahlen."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «du» står først, så verbet «må», så «gi tre måneders leie»."
+    },
+    "w-t815785": {
+      "translations": {
+        "de": "Ich bin sicher, dass sie die Prüfung bestehen."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Hovedsetningen er «jeg er sikker på». Etter «at» står subjektet «de» før verbet «består»."
+    },
+    "w-t815788": {
+      "exclude": true,
+      "note": "Fragment without a verb; no word-order rule to train."
+    },
+    "w-t815819": {
+      "translations": {
+        "de": "Das ist das Mädchen, das ich gut kenne."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "«Som jeg kjenner godt» står rett etter «jenta». I leddsetningen står «jeg» før verbet."
+    },
+    "w-t815824": {
+      "translations": {
+        "en": "He is always worried about his daughter."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Alltid» står rett etter verbet «er» og før «bekymret»."
+    },
+    "w-t815859": {
+      "exclude": true,
+      "note": "Unnatural Norwegian («ikke så ærlig i det hele tatt»)."
+    },
+    "w-t815866": {
+      "translations": {
+        "de": "Die Hälfte der Klasse sagt, dass sie Kaffee trinkt."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "Hovedsetningen er «halvparten av klassen sier». Etter «at» står «de» før verbet «drikker»."
+    },
+    "w-t815876": {
+      "alternatives": [
+        "I dag drar faren min ikke til Tokyo.",
+        "I dag drar ikke faren min til Tokyo."
+      ],
+      "translations": {
+        "de": "Mein Vater fährt heute nicht nach Tokio."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke» står rett etter verbet «drar». Tiden «i dag» står til slutt.",
+      "note": "Fronted «i dag»; full-noun subject may stand before or after «ikke»."
+    },
+    "w-t815879": {
+      "translations": {
+        "de": "Ruf mich um sieben Uhr morgens an."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Imperativet «ring» står først, så «meg». Tiden «klokka syv om morgenen» står til slutt."
+    },
+    "w-t815895": {
+      "alternatives": [
+        "Han ba meg om ikke å se bak meg."
+      ],
+      "translations": {
+        "de": "Er bat mich, nicht hinter mich zu schauen."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "I en infinitiv med «å» kan «ikke» stå før eller etter «å»: «om å ikke se» eller «om ikke å se».",
+      "note": "'ikke å' and 'å ikke' are both standard bokmål"
+    },
+    "w-t815898": {
+      "translations": {
+        "de": "Du bist nicht mehr bloß ein Kind."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Ikke lenger» står rett etter verbet «er». «Bare» står foran «et barn»."
+    },
+    "w-t815906": {
+      "exclude": true,
+      "note": "Imperative after non-inverting 'uansett' clause; also 'stol ikke', clause order swappable: too many orders"
+    },
+    "w-t815918": {
+      "alternatives": [
+        "Han kommer til å mestre fransk før eller siden."
+      ],
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «før eller siden», så verbet «kommer» står før subjektet «han».",
+      "note": "Time adverbial can also go last"
+    },
+    "w-t815925": {
+      "translations": {
+        "de": "Du musst einsehen, dass Reichtum nicht ewig währt."
+      },
+      "tags": [
+        "leddsetning"
+      ],
+      "explanation": "I leddsetningen etter «at» står «ikke» før verbet: «at rikdom ikke varer»."
+    },
+    "w-t815930": {
+      "alternatives": [
+        "Togtrafikken har blitt avbrutt på grunn av snøen."
+      ],
+      "translations": {
+        "de": "Wegen des Schnees ist der Zugverkehr unterbrochen worden."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Setningen starter med «på grunn av snøen», så verbet «har» står før subjektet «togtrafikken».",
+      "note": "Adverbial can also go last"
+    },
+    "w-t815936": {
+      "translations": {
+        "de": "Ich warnte ihn vor den Gefahren."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «jeg» står først, så verbet «advarte», så objektet «ham» og «om farene»."
+    },
+    "w-t815937": {
+      "exclude": true,
+      "note": "'til poenget' is an English calque, unnatural Norwegian"
+    },
+    "w-t815939": {
+      "translations": {
+        "de": "Er hat es nicht erwähnt."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "Et lite pronomen som «det» står før «ikke»: «nevnte det ikke»."
+    },
+    "w-t815946": {
+      "translations": {
+        "de": "Es ist die Bildung, die der Schlüssel zum Erfolg ist."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Utbrytning: «Det er … som …». «Utdanning» står etter «det er»."
+    },
+    "w-t815948": {
+      "translations": {
+        "de": "Sie ist die Höflichkeit selbst."
+      },
+      "tags": [
+        "rett ordstilling"
+      ],
+      "explanation": "Subjektet «hun» står først, så verbet «er», så «høfligheten selv»."
+    },
+    "w-t816108": {
+      "translations": {
+        "de": "Das wird nur eine endlose Debatte bedeuten."
+      },
+      "tags": [
+        "setningsadverb"
+      ],
+      "explanation": "«Bare» står rett etter det første verbet «kommer»: «kommer bare til å bety»."
+    },
+    "w-t816110": {
+      "translations": {
+        "de": "Obwohl Natto furchtbar riecht, schmeckt es super."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Leddsetningen «selv om natto lukter fælt» står først, så verbet «smaker» kommer før «det»."
+    },
+    "w-t816113": {
+      "alternatives": [
+        "Noen må bryte isen når alle gruppemedlemmene er stille."
+      ],
+      "translations": {
+        "de": "Wenn alle Gruppenmitglieder still sind, muss jemand das Eis brechen."
+      },
+      "tags": [
+        "inversjon"
+      ],
+      "explanation": "Leddsetningen med «når» står først, så verbet «må» kommer før subjektet «noen».",
+      "note": "Subordinate clause can also go last"
+    }
+  }
+}

@@ -29,3 +29,8 @@ export function pickTranslation(exercise: Exercise, preference: TranslationLangu
 
   return { lang: other, text: fallback };
 }
+
+/** Word order is prompted by the translation, so it shows one even when the learner turned hints off. */
+export function promptTranslation(exercise: Exercise, preference: TranslationLanguage): ShownTranslation | null {
+  return pickTranslation(exercise, preference === 'none' ? 'de' : preference);
+}

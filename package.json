@@ -16,7 +16,8 @@
     "fetch:data": "tsx scripts/fetch-data.ts",
     "build:prepositions": "tsx scripts/build-prepositions.ts",
     "build:adjectives": "tsx scripts/build-adjectives.ts",
-    "data": "pnpm run fetch:data && pnpm run build:prepositions && pnpm run build:adjectives",
+    "build:word-order": "tsx scripts/build-word-order.ts",
+    "data": "pnpm run fetch:data && pnpm run build:prepositions && pnpm run build:adjectives && pnpm run build:word-order",
     "review:export": "tsx scripts/review/export.ts",
     "review:merge": "tsx scripts/review/merge.ts",
     "verify": "pnpm run typecheck && pnpm run test && pnpm run build"

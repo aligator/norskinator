@@ -1,20 +1,25 @@
 /**
  * Renders one exercise: the prompt with its gap, an optional translation hint
- * and the answer input for the exercise's kind. Emits `answer` with the
- * learner's choice; grading happens in the store.
+ * and the answer input for the exercise's kind. Word order is the exception:
+ * its Norwegian sentence is the answer, so the translation is the prompt until
+ * the learner has answered. Emits `answer` with the learner's choice; grading
+ * happens in the store.
  *
  * Adding an exercise kind: add a case to `#renderInput`.
  */
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
-import { gapParts, type GapParts } from '../../../core/checker.ts';
+import { gapParts, solutionText, type GapParts } from '../../../core/checker.ts';
 import type { Feedback } from '../../../core/store.ts';
 import type { TranslationLanguage } from '../../../core/storage.ts';
 import type { Exercise } from '../../../core/types.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
-import './exercise-credits.ts';
+import type { TilePicker } from '../../components/tile-picker.ts';
 import { translationStyles } from './practice-styles.ts';
-import { pickTranslation } from './translation.ts';
+import { pickTranslation, promptTranslation } from './translation.ts';
+
+import '../../components/tile-picker.ts';
+import './exercise-credits.ts';
 
 /** Above this length options get a full row each instead of a 2×2 grid. */
 const LONG_OPTION = 12;
@@ -23,6 +28,10 @@ const LONG_OPTION = 12;
 const TYPED_GAP = 7;
 
 const NORWEGIAN_LETTERS = ['æ', 'ø', 'å'] as const;
+
+function isStringList(value: unknown): value is string[] {
+  return Array.isArray(value) && value.every((entry) => typeof entry === 'string');
+}
 
 export class ExerciseCard extends LitElement {
   static override properties = {
@@ -80,6 +89,26 @@ export class ExerciseCard extends LitElement {
         white-space: nowrap;
       }
 
+      .instruction {
+        color: var(--fg-muted);
+        font-weight: 600;
+      }
+
+      .prompt .lang-tag {
+        vertical-align: middle;
+        color: var(--fg-muted);
+      }
+
+      .sentence.filled {
+        padding: 0 var(--sp-1);
+        border-radius: var(--r-sm);
+        background: var(--correct-bg);
+        color: var(--correct);
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        animation: settle var(--dur-base) var(--ease-out);
+      }
+
       .gap.filled {
         border-radius: var(--r-sm);
         border-bottom-color: transparent;
@@ -89,12 +118,12 @@ export class ExerciseCard extends LitElement {
         animation: settle var(--dur-base) var(--ease-out);
       }
 
-
       .spacer {
         flex: 1;
       }
 
-      fieldset {
+      fieldset,
+      .input-area {
         margin: 0;
         padding: var(--sp-4) var(--sp-4) calc(var(--sp-4) + env(safe-area-inset-bottom));
         border: 0;
@@ -190,7 +219,8 @@ export class ExerciseCard extends LitElement {
       }
 
       @media (prefers-reduced-motion: reduce) {
-        .gap.filled {
+        .gap.filled,
+        .sentence.filled {
           animation: none;
         }
       }
@@ -224,6 +254,19 @@ export class ExerciseCard extends LitElement {
     return input !== null;
   }
 
+  /** Keyboard shortcuts of a word-order exercise, called by the practice view. */
+  pickTile(index: number): void {
+    this.#tilePicker()?.pick(index);
+  }
+
+  undoTile(): void {
+    this.#tilePicker()?.undo();
+  }
+
+  submitTiles(): void {
+    this.#tilePicker()?.submit();
+  }
+
   /** Called by the practice view for the `T` shortcut. */
   toggleTranslation(): void {
     this.showTranslation = !this.showTranslation;
@@ -241,8 +284,7 @@ export class ExerciseCard extends LitElement {
             ? nothing
             : html`<exercise-credits .source=${this.exercise.source}></exercise-credits>`}
         </div>
-        <p class="prompt" lang="nb">${this.#renderPrompt()}</p>
-        ${this.#renderTranslation()}
+        ${this.exercise.kind === 'word-order' ? this.#renderSentencePrompt() : this.#renderClozePrompt()}
       </div>
       <div class="spacer"></div>
       ${this.feedback === null ? this.#renderInput() : nothing}
@@ -262,7 +304,32 @@ export class ExerciseCard extends LitElement {
     return `min-width: ${longest + 1}ch`;
   }
 
-  #renderPrompt(): TemplateResult {
+  #renderClozePrompt(): TemplateResult {
+    return html`
+      <p class="prompt" lang="nb">${this.#renderGap()}</p>
+      ${this.#renderTranslation()}
+    `;
+  }
+
+  /** Before answering only the translation shows; afterwards the sentence the learner had to build. */
+  #renderSentencePrompt(): TemplateResult | typeof nothing {
+    if (this.feedback !== null) {
+      return html`<p class="prompt" lang="nb"><span class="sentence filled">${solutionText(this.exercise)}</span></p>`;
+    }
+
+    const translation = promptTranslation(this.exercise, this.translationLanguage);
+
+    return html`
+      <p class="instruction">Sett ordene i riktig rekkefølge</p>
+      ${translation === null
+        ? nothing
+        : html`<p class="prompt" lang=${translation.lang}>
+            <span class="lang-tag">${translation.lang.toUpperCase()}</span>${translation.text}
+          </p>`}
+    `;
+  }
+
+  #renderGap(): TemplateResult {
     const parts = gapParts(this.exercise);
 
     if (parts === null) {
@@ -280,7 +347,6 @@ export class ExerciseCard extends LitElement {
 
     return html`${parts.before}<span class="gap filled" style=${this.#gapWidth(parts)}>${parts.filled}</span>${parts.after}`;
   }
-
 
   #renderTranslation(): TemplateResult | typeof nothing {
     // After answering, the feedback sheet shows the translation instead.
@@ -321,6 +387,10 @@ export class ExerciseCard extends LitElement {
 
       case 'type-in': {
         return this.#renderTypeIn();
+      }
+
+      case 'word-order': {
+        return this.#renderWordOrder();
       }
     }
   }
@@ -388,6 +458,30 @@ export class ExerciseCard extends LitElement {
       </fieldset>
     `;
   }
+
+  #renderWordOrder(): TemplateResult {
+    return html`
+      <div class="input-area">
+        <ui-tile-picker lang="nb" .tiles=${this.options} @tiles-submit=${this.#onTilesSubmit}></ui-tile-picker>
+      </div>
+    `;
+  }
+
+  #tilePicker(): TilePicker | null {
+    return this.renderRoot.querySelector('ui-tile-picker');
+  }
+
+  #onTilesSubmit = (event: Event): void => {
+    if (!(event instanceof CustomEvent)) {
+      return;
+    }
+
+    const words: unknown = event.detail;
+
+    if (isStringList(words)) {
+      this.#emit(words.join(' '));
+    }
+  };
 
   #onInput = (event: Event): void => {
     if (event.currentTarget instanceof HTMLInputElement) {

@@ -61,11 +61,19 @@ function sameMembers(left: readonly string[], right: readonly string[]): boolean
 }
 
 function optionsOf(exercise: Exercise): readonly string[] {
-  if (exercise.kind !== 'multiple-choice') {
-    return [];
-  }
+  switch (exercise.kind) {
+    case 'multiple-choice': {
+      return exercise.options;
+    }
 
-  return exercise.options;
+    case 'type-in': {
+      return [];
+    }
+
+    case 'word-order': {
+      return exercise.tiles;
+    }
+  }
 }
 
 /**

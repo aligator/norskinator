@@ -22,6 +22,11 @@ export class GoalRing extends LitElement {
       display: inline-block;
     }
 
+    ui-progress-ring {
+      width: 112px;
+      height: 112px;
+    }
+
     :host([compact]) ui-progress-ring {
       width: 48px;
       height: 48px;
@@ -72,11 +77,11 @@ export class GoalRing extends LitElement {
         .value=${ratio}
         .from=${from}
         tone=${reached ? 'success' : 'accent'}
-        label=${`${this.value} av ${this.goal} oppgaver i dag`}
+        label=${reached ? `Dagsmål nådd: ${this.value} av ${this.goal} oppgaver i dag` : `${this.value} av ${this.goal} oppgaver i dag`}
       >
         <span class="content">
           ${reached
-            ? html`<span class="done">${checkIcon(32)}</span><br /><span class="caption">Dagsmål nådd</span>`
+            ? html`<span class="done">${checkIcon(44)}</span>`
             : html`<span class="value">${this.value}</span><br /><span class="caption">/ ${this.goal} i dag</span>`}
         </span>
       </ui-progress-ring>

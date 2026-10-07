@@ -5,20 +5,25 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
+import type { DataKind } from '../../src/core/types.ts';
 import { FORM_CATEGORIES } from '../../src/decks/adjectives/categories.ts';
+import { WORD_ORDER_RULES } from '../../src/decks/word-order/categories.ts';
 import { readTatoebaBundle, type TatoebaBundle } from '../../src/decks/tatoeba-source.ts';
 import { ROOT } from '../tatoeba.ts';
 
 export interface ReviewDeck {
   readonly id: string;
   readonly idPrefix: string;
+  /** Cloze alternatives are single lower-case words; sentence alternatives are whole sentences and keep their case. */
+  readonly dataKind: DataKind;
   /** Allowed values of a reviewer's `category`, which replaces the item's first tag. Empty: no categories. */
   readonly categories: readonly string[];
 }
 
 export const REVIEW_DECKS: readonly ReviewDeck[] = [
-  { id: 'prepositions', idPrefix: 'p-', categories: [] },
-  { id: 'adjectives', idPrefix: 'a-', categories: FORM_CATEGORIES },
+  { id: 'prepositions', idPrefix: 'p-', dataKind: 'cloze', categories: [] },
+  { id: 'adjectives', idPrefix: 'a-', dataKind: 'cloze', categories: FORM_CATEGORIES },
+  { id: 'word-order', idPrefix: 'w-', dataKind: 'sentence', categories: WORD_ORDER_RULES },
 ];
 
 export function deckFromArgs(): ReviewDeck {

@@ -13,15 +13,27 @@
  */
 
 /** Shapes of content. Extend here, then add the item type and task types that can show it. */
-export type DataKind = 'cloze';
+export type DataKind = 'cloze' | 'sentence';
+
+export const DATA_KINDS: readonly DataKind[] = ['cloze', 'sentence'];
 
 /**
- * Ways to present an item. Extend here, then in `tasks.ts`, `checker.ts` and
- * `ui/modules/practice/exercise-card.ts`.
+ * Ways to present an item. Extend here, then in `TASK_DATA_KIND`, `tasks.ts`,
+ * `checker.ts` and `ui/modules/practice/exercise-card.ts`.
  */
-export type ExerciseKind = 'multiple-choice' | 'type-in';
+export type ExerciseKind = 'multiple-choice' | 'type-in' | 'word-order';
 
-export const EXERCISE_KINDS: readonly ExerciseKind[] = ['multiple-choice', 'type-in'];
+export const EXERCISE_KINDS: readonly ExerciseKind[] = ['multiple-choice', 'type-in', 'word-order'];
+
+/**
+ * The data kind each task type shows. Task weights are shares within one data
+ * kind: they decide how a cloze item is asked, never whether a deck is.
+ */
+export const TASK_DATA_KIND: Readonly<Record<ExerciseKind, DataKind>> = {
+  'multiple-choice': 'cloze',
+  'type-in': 'cloze',
+  'word-order': 'sentence',
+};
 
 export type Level = 1 | 2 | 3;
 
@@ -91,7 +103,18 @@ export interface ClozeItem extends Content {
   readonly distractors: readonly string[];
 }
 
-export type DataItem = ClozeItem;
+/** A whole sentence to rebuild from its words, prompted by its translation. */
+export interface SentenceItem extends Content {
+  readonly dataKind: 'sentence';
+  /** The sentence as it should come out, with punctuation. */
+  readonly answer: string;
+  /** Its words in order, without punctuation; the first one lower-cased unless it is a name. */
+  readonly tiles: readonly string[];
+  /** Other orders of the same words that are also correct. */
+  readonly alternatives?: readonly string[];
+}
+
+export type DataItem = ClozeItem | SentenceItem;
 
 /** An item together with the task types its deck practises it with. */
 export type PlayableItem = DataItem & { readonly tasks: readonly ExerciseKind[] };
@@ -114,7 +137,15 @@ export interface TypeInExercise extends ExerciseBase {
   readonly alternatives?: readonly string[];
 }
 
-export type Exercise = MultipleChoiceExercise | TypeInExercise;
+export interface WordOrderExercise extends ExerciseBase {
+  readonly kind: 'word-order';
+  readonly answer: string;
+  /** The words in the right order; the session shuffles them. */
+  readonly tiles: readonly string[];
+  readonly alternatives?: readonly string[];
+}
+
+export type Exercise = MultipleChoiceExercise | TypeInExercise | WordOrderExercise;
 
 /** One pool of items and the task types it is practised with. */
 export interface DeckSource {
@@ -157,7 +188,10 @@ export interface GeneratedItem {
   readonly answer: string;
   /** Other spellings that fill the gap correctly, e.g. «blåe» next to «blå». */
   readonly alternatives?: readonly string[];
-  readonly options: readonly string[];
+  /** Cloze bundles: the answer and wrong choices. */
+  readonly options?: readonly string[];
+  /** Sentence bundles: the words in order, see {@link SentenceItem.tiles}. */
+  readonly tiles?: readonly string[];
   readonly level: Level;
   readonly tags: readonly string[];
   readonly translations?: Translations;

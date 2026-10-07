@@ -16,6 +16,7 @@ import { expandAuthored, parseAuthored } from '../../core/authored.ts';
 import {
   LANGUAGE_CODES,
   type ClozeItem,
+  type DataItem,
   type Deck,
   type DeckSource,
   type ExerciseKind,
@@ -54,7 +55,7 @@ const loadReviewedTatoeba = reviewedTatoebaLoader(
   async () => (await import('./overrides.json')).default,
 );
 
-function clozeSource(load: () => Promise<readonly ClozeItem[]>): DeckSource {
+function clozeSource(load: () => Promise<readonly DataItem[]>): DeckSource {
   return { dataKind: 'cloze', tasks: PRACTICE_TASKS, load };
 }
 
