@@ -31,6 +31,10 @@ function exercise(id: string, level: 1 | 2 | 3 = 1, deckId = 'deck'): Exercise {
   };
 }
 
+function countInDeck(queue: readonly Exercise[], deckId: string): number {
+  return queue.filter((item) => item.deckId === deckId).length;
+}
+
 function cardsOf(entries: readonly CardState[]): Record<string, CardState> {
   return Object.fromEntries(entries.map((card) => [card.exerciseId, card]));
 }
@@ -91,6 +95,65 @@ describe('buildSession', () => {
     const queue = buildSession(pool, {}, { newPerSession: 1, random: () => 0 }, NOW);
 
     expect(queue[0]?.id).toBe('easy');
+  });
+
+  it('mixes the pools of a deck within a level instead of taking the first one', () => {
+    const authored = Array.from({ length: 60 }, (_unused, index) => exercise(`authored-${index}`));
+    const corpus = Array.from({ length: 60 }, (_unused, index) => exercise(`corpus-${index}`));
+    const random = sequence([0.13, 0.71, 0.42, 0.88, 0.05, 0.57, 0.33, 0.96]);
+
+    const queue = buildSession([...authored, ...corpus], {}, { newPerSession: 6, random }, NOW);
+
+    expect(queue.some((item) => item.id.startsWith('corpus-'))).toBe(true);
+    expect(queue.some((item) => item.id.startsWith('authored-'))).toBe(true);
+  });
+
+  it('splits new material evenly across decks', () => {
+    const pool = [
+      ...Array.from({ length: 100 }, (_unused, index) => exercise(`a${index}`, 1, 'big')),
+      ...Array.from({ length: 20 }, (_unused, index) => exercise(`b${index}`, 1, 'small')),
+      ...Array.from({ length: 20 }, (_unused, index) => exercise(`c${index}`, 1, 'other')),
+    ];
+
+    const queue = buildSession(pool, {}, { newPerSession: 9, random: () => 0 }, NOW);
+
+    expect(countInDeck(queue, 'big')).toBe(3);
+    expect(countInDeck(queue, 'small')).toBe(3);
+    expect(countInDeck(queue, 'other')).toBe(3);
+  });
+
+  it('ranks levels within a deck, not across decks', () => {
+    const pool = [
+      ...Array.from({ length: 100 }, (_unused, index) => exercise(`easy${index}`, 1, 'first')),
+      ...Array.from({ length: 10 }, (_unused, index) => exercise(`hard${index}`, 3, 'second')),
+    ];
+
+    const queue = buildSession(pool, {}, { newPerSession: 10, random: () => 0 }, NOW);
+
+    expect(countInDeck(queue, 'second')).toBe(5);
+  });
+
+  it('hands the slots of an exhausted deck to the others', () => {
+    const pool = [
+      exercise('only', 1, 'tiny'),
+      ...Array.from({ length: 20 }, (_unused, index) => exercise(`e${index}`, 1, 'large')),
+    ];
+
+    const queue = buildSession(pool, {}, { newPerSession: 6, random: () => 0 }, NOW);
+
+    expect(queue).toHaveLength(6);
+    expect(countInDeck(queue, 'tiny')).toBe(1);
+  });
+
+  it('rotates which deck gets the remainder of an uneven split', () => {
+    const pool = [
+      ...Array.from({ length: 10 }, (_unused, index) => exercise(`a${index}`, 1, 'first')),
+      ...Array.from({ length: 10 }, (_unused, index) => exercise(`b${index}`, 1, 'second')),
+    ];
+
+    const queue = buildSession(pool, {}, { newPerSession: 3, random: () => 0.99 }, NOW);
+
+    expect(countInDeck(queue, 'second')).toBe(2);
   });
 });
 

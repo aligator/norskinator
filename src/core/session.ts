@@ -73,6 +73,76 @@ function sample<T>(items: readonly T[], count: number, random: () => number): T[
   return pool.slice(0, take);
 }
 
+/** Groups items by deck, in the order the decks first appear. */
+function groupByDeck<Item extends ItemMeta>(items: readonly Item[]): Item[][] {
+  const groups = new Map<string, Item[]>();
+
+  for (const item of items) {
+    const group = groups.get(item.deckId);
+
+    if (group === undefined) {
+      groups.set(item.deckId, [item]);
+    } else {
+      group.push(item);
+    }
+  }
+
+  return [...groups.values()];
+}
+
+/**
+ * Deals `slots` round-robin, beginning at `start`, so every deck gets an equal
+ * share. A deck that runs out passes its turn on, which keeps the total at
+ * `slots` as long as there is material left anywhere.
+ */
+function allocateSlots(capacities: readonly number[], slots: number, start: number): number[] {
+  const quotas = capacities.map(() => 0);
+  const total = capacities.reduce((sum, capacity) => sum + capacity, 0);
+  let remaining = Math.min(slots, total);
+  let deck = start;
+
+  while (remaining > 0) {
+    if (quotas[deck]! < capacities[deck]!) {
+      quotas[deck]! += 1;
+      remaining -= 1;
+    }
+
+    deck = (deck + 1) % capacities.length;
+  }
+
+  return quotas;
+}
+
+/**
+ * Easiest material first, but sampled from a window so sessions still vary.
+ * Shuffling before the (stable) level sort mixes a deck's pools within a
+ * level; otherwise the pool loaded first would fill every window.
+ */
+function pickEasiest<Item extends ItemMeta>(items: readonly Item[], count: number, random: () => number): Item[] {
+  const byLevel = sample(items, items.length, random).sort((left, right) => left.level - right.level);
+  const window = byLevel.slice(0, count * FRESH_WINDOW_FACTOR);
+
+  return sample(window, count, random);
+}
+
+/**
+ * Splits the new slots evenly across decks and ranks difficulty within each
+ * deck. Levels of different decks are not comparable: a global level sort let
+ * the first deck's level-1 items fill every slot until they were used up.
+ * The random start rotates which deck gets the remainder of an uneven split.
+ */
+function pickFresh<Item extends ItemMeta>(fresh: readonly Item[], slots: number, random: () => number): Item[] {
+  const decks = groupByDeck(fresh);
+  const start = Math.min(Math.floor(random() * decks.length), Math.max(decks.length - 1, 0));
+  const quotas = allocateSlots(
+    decks.map((items) => items.length),
+    slots,
+    start,
+  );
+
+  return decks.flatMap((items, index) => pickEasiest(items, quotas[index]!, random));
+}
+
 /** Mixes new items into the review stream rather than appending them. */
 function interleave<Item>(reviews: readonly Item[], fresh: readonly Item[], random: () => number): Item[] {
   const result = [...reviews];
@@ -100,11 +170,7 @@ export function buildSession<Item extends ItemMeta>(
   const reviewPart = due.slice(0, size);
 
   const freshSlots = Math.max(0, Math.min(size - reviewPart.length, options.newPerSession));
-
-  // Easiest material first, but sampled from a window so sessions still vary.
-  const byLevel = [...fresh].sort((left, right) => left.level - right.level);
-  const window = byLevel.slice(0, Math.max(freshSlots * FRESH_WINDOW_FACTOR, freshSlots));
-  const freshPart = sample(window, freshSlots, random);
+  const freshPart = pickFresh(fresh, freshSlots, random);
 
   return interleave(reviewPart, freshPart, random);
 }
