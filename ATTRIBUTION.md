@@ -25,11 +25,16 @@ English translations from [Tatoeba](https://tatoeba.org), a collaborative
 collection of sentences and translations. They are licensed under
 [Creative Commons Attribution 2.0 France (CC BY 2.0 FR)](https://creativecommons.org/licenses/by/2.0/fr/).
 
+Tatoeba licenses every sentence on its own, so each one is credited to its
+contributor. Every generated exercise stores the Tatoeba id, the contributor's
+username and, where it differs from CC BY 2.0 FR, the licence (a few sentences
+are CC0 1.0) of its Norwegian sentence and of each translation shown. The ©
+button on an exercise lists them and links each sentence back to
+`https://tatoeba.org/sentences/show/<id>`. Sentences whose contributor account
+no longer exists on Tatoeba are listed without a name.
+
 Sentences are used as published, apart from blanking out the word an exercise
-asks for. Every generated exercise keeps the Tatoeba id of its Norwegian
-source sentence, and the app links each one back to
-`https://tatoeba.org/sentences/show/<id>`. That page lists the sentence's
-contributor and its linked translations.
+asks for; the © panel says so.
 
 Hand-written exercises (the curated set in `src/decks/`) are original to this
 project.

@@ -14,14 +14,26 @@ export type Level = 1 | 2 | 3;
 
 export type LanguageCode = 'de' | 'en';
 
+export const LANGUAGE_CODES: readonly LanguageCode[] = ['de', 'en'];
+
 export type Translations = Readonly<Partial<Record<LanguageCode, string>>>;
 
-export interface ExerciseSource {
-  /** Human readable corpus name, e.g. "Tatoeba". */
-  readonly name: string;
-  /** Id within that corpus, for attribution and bug reports. */
+/** One corpus sentence: where it lives, who wrote it and how it may be reused. */
+export interface SourceCredit {
+  /** Id within the corpus, for attribution and bug reports. */
   readonly id: string;
   readonly url?: string;
+  /** Contributor's username; absent when the corpus no longer knows it. */
+  readonly author?: string;
+  /** Licence name, e.g. "CC BY 2.0 FR". */
+  readonly license?: string;
+}
+
+export interface ExerciseSource extends SourceCredit {
+  /** Human readable corpus name, e.g. "Tatoeba". */
+  readonly name: string;
+  /** The sentences in `Exercise.translations` have their own authors. */
+  readonly translations?: Readonly<Partial<Record<LanguageCode, SourceCredit>>>;
 }
 
 interface ExerciseBase {
@@ -93,4 +105,17 @@ export interface GeneratedItem {
   readonly tags: readonly string[];
   readonly translations?: Translations;
   readonly sourceId: number;
+  /** Username of the source sentence's contributor; absent for orphaned sentences. */
+  readonly author?: string;
+  /** Only set when it differs from the bundle's licence. */
+  readonly license?: string;
+  readonly translationCredits?: Readonly<Partial<Record<LanguageCode, GeneratedCredit>>>;
+}
+
+/** Attribution of one corpus sentence in a generated bundle. */
+export interface GeneratedCredit {
+  readonly id: number;
+  readonly author?: string;
+  /** Only set when it differs from the bundle's licence. */
+  readonly license?: string;
 }

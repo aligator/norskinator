@@ -18,10 +18,18 @@ const CACHE_DIR = join(ROOT, '.cache');
 
 const BASE = 'https://downloads.tatoeba.org/exports/per_language';
 
+/**
+ * The detailed exports carry each sentence's contributor, whom CC BY requires
+ * us to name. The CC0 lists mark the few sentences released without that
+ * requirement.
+ */
 const DOWNLOADS = [
-  { name: 'nob_sentences.tsv', url: `${BASE}/nob/nob_sentences.tsv.bz2` },
-  { name: 'deu_sentences.tsv', url: `${BASE}/deu/deu_sentences.tsv.bz2` },
-  { name: 'eng_sentences.tsv', url: `${BASE}/eng/eng_sentences.tsv.bz2` },
+  { name: 'nob_sentences_detailed.tsv', url: `${BASE}/nob/nob_sentences_detailed.tsv.bz2` },
+  { name: 'deu_sentences_detailed.tsv', url: `${BASE}/deu/deu_sentences_detailed.tsv.bz2` },
+  { name: 'eng_sentences_detailed.tsv', url: `${BASE}/eng/eng_sentences_detailed.tsv.bz2` },
+  { name: 'nob_sentences_CC0.tsv', url: `${BASE}/nob/nob_sentences_CC0.tsv.bz2` },
+  { name: 'deu_sentences_CC0.tsv', url: `${BASE}/deu/deu_sentences_CC0.tsv.bz2` },
+  { name: 'eng_sentences_CC0.tsv', url: `${BASE}/eng/eng_sentences_CC0.tsv.bz2` },
   { name: 'nob-deu_links.tsv', url: `${BASE}/nob/nob-deu_links.tsv.bz2` },
   { name: 'nob-eng_links.tsv', url: `${BASE}/nob/nob-eng_links.tsv.bz2` },
 ] as const;

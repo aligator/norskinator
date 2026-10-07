@@ -20,13 +20,23 @@ import {
   isPreposition,
   type Preposition,
 } from '../src/decks/prepositions/prepositions.ts';
-import type { GeneratedBundle, GeneratedItem, Level } from '../src/core/types.ts';
+import type {
+  GeneratedBundle,
+  GeneratedCredit,
+  GeneratedItem,
+  LanguageCode,
+  Level,
+} from '../src/core/types.ts';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CACHE_DIR = join(ROOT, '.cache');
 const OUT_FILE = join(ROOT, 'src', 'decks', 'prepositions', 'exercises.json');
 
 const BUNDLE_VERSION = 1;
+
+const BUNDLE_LICENSE = 'CC BY 2.0 FR';
+
+const CC0_LICENSE = 'CC0 1.0';
 
 /** Upper bound per preposition; keeps the shipped bundle small enough for mobile. */
 const MAX_PER_PREPOSITION = 90;
@@ -153,33 +163,82 @@ const DEGREE_WORDS: ReadonlySet<string> = new Set([
   'tett',
 ]);
 
-interface Candidate {
-  readonly id: number;
+interface CorpusSentence {
   readonly text: string;
+  readonly author?: string;
+}
+
+interface Candidate extends CorpusSentence {
+  readonly id: number;
   readonly answer: Preposition;
   readonly words: readonly string[];
 }
 
-function parseSentences(tsv: string): Map<number, string> {
-  const sentences = new Map<number, string>();
+interface TranslationCorpus {
+  readonly lang: LanguageCode;
+  readonly links: ReadonlyMap<number, number>;
+  readonly sentences: ReadonlyMap<number, CorpusSentence>;
+  readonly cc0: ReadonlySet<number>;
+}
+
+/** Tatoeba export prefix per translation language, in the order they are stored. */
+const TRANSLATION_LANGUAGES: readonly { readonly lang: LanguageCode; readonly code: string }[] = [
+  { lang: 'de', code: 'deu' },
+  { lang: 'en', code: 'eng' },
+];
+
+/** Tatoeba writes `\N` when a sentence's contributor account no longer exists. */
+const UNKNOWN_AUTHOR = '\\N';
+
+function idOf(line: string): number {
+  const tab = line.indexOf('\t');
+
+  return tab < 0 ? Number.NaN : Number(line.slice(0, tab));
+}
+
+/** Parses one row of a `*_sentences_detailed.tsv`: id, lang, text, username, added, modified. */
+function parseSentence(line: string): CorpusSentence | null {
+  const [, , text, author] = line.split('\t');
+  const trimmed = text?.trim() ?? '';
+
+  if (trimmed === '') {
+    return null;
+  }
+
+  if (author === undefined || author === '' || author === UNKNOWN_AUTHOR) {
+    return { text: trimmed };
+  }
+
+  return { text: trimmed, author };
+}
+
+function parseSentences(tsv: string): Map<number, CorpusSentence> {
+  const sentences = new Map<number, CorpusSentence>();
 
   for (const line of tsv.split('\n')) {
-    const firstTab = line.indexOf('\t');
-    const secondTab = line.indexOf('\t', firstTab + 1);
+    const id = idOf(line);
+    const sentence = parseSentence(line);
 
-    if (firstTab < 0 || secondTab < 0) {
-      continue;
-    }
-
-    const id = Number(line.slice(0, firstTab));
-    const text = line.slice(secondTab + 1).trim();
-
-    if (Number.isFinite(id) && text !== '') {
-      sentences.set(id, text);
+    if (Number.isFinite(id) && sentence !== null) {
+      sentences.set(id, sentence);
     }
   }
 
   return sentences;
+}
+
+function parseIds(tsv: string): Set<number> {
+  const ids = new Set<number>();
+
+  for (const line of tsv.split('\n')) {
+    const id = idOf(line);
+
+    if (Number.isFinite(id)) {
+      ids.add(id);
+    }
+  }
+
+  return ids;
 }
 
 /**
@@ -462,48 +521,78 @@ async function readCache(name: string): Promise<string> {
  * Reads only the requested ids: the German and English exports are tens of
  * megabytes and we need a few thousand lines of them.
  */
-async function readTranslations(
+async function readWantedSentences(
   file: string,
   wanted: ReadonlySet<number>,
-): Promise<Map<number, string>> {
-  const translations = new Map<number, string>();
+): Promise<Map<number, CorpusSentence>> {
+  const sentences = new Map<number, CorpusSentence>();
 
   if (wanted.size === 0) {
-    return translations;
+    return sentences;
   }
 
   const tsv = await readCache(file);
 
   for (const line of tsv.split('\n')) {
-    const firstTab = line.indexOf('\t');
-
-    if (firstTab < 0) {
-      continue;
-    }
-
-    const id = Number(line.slice(0, firstTab));
+    const id = idOf(line);
 
     if (!wanted.has(id)) {
       continue;
     }
 
-    const secondTab = line.indexOf('\t', firstTab + 1);
+    const sentence = parseSentence(line);
 
-    if (secondTab < 0) {
-      continue;
+    if (sentence !== null) {
+      sentences.set(id, sentence);
     }
-
-    translations.set(id, line.slice(secondTab + 1).trim());
   }
 
-  return translations;
+  return sentences;
 }
 
-function collectCandidates(sentences: ReadonlyMap<number, string>): Candidate[] {
+async function loadTranslationCorpus(
+  lang: LanguageCode,
+  code: string,
+  chosen: readonly Candidate[],
+): Promise<TranslationCorpus> {
+  const links = parseLinks(await readCache(`nob-${code}_links.tsv`));
+  const wanted = new Set<number>();
+
+  for (const candidate of chosen) {
+    const translationId = links.get(candidate.id);
+
+    if (translationId !== undefined) {
+      wanted.add(translationId);
+    }
+  }
+
+  const [sentences, cc0Tsv] = await Promise.all([
+    readWantedSentences(`${code}_sentences_detailed.tsv`, wanted),
+    readCache(`${code}_sentences_CC0.tsv`),
+  ]);
+
+  return { lang, links, sentences, cc0: parseIds(cc0Tsv) };
+}
+
+/** Author and licence of one sentence; the licence is left out when it is the bundle's. */
+function attributionOf(
+  id: number,
+  sentence: CorpusSentence,
+  cc0: ReadonlySet<number>,
+): Omit<GeneratedCredit, 'id'> {
+  return {
+    ...(sentence.author === undefined ? {} : { author: sentence.author }),
+    ...(cc0.has(id) ? { license: CC0_LICENSE } : {}),
+  };
+}
+
+function collectCandidates(sentences: ReadonlyMap<number, CorpusSentence>): Candidate[] {
   const candidates: Candidate[] = [];
   const seenText = new Set<string>();
 
-  for (const [id, text] of sentences) {
+  for (const [id, sentence] of sentences) {
+    const text = sentence.text;
+
     if (!isUsableSentence(text)) {
       continue;
     }
@@ -522,7 +611,7 @@ function collectCandidates(sentences: ReadonlyMap<number, string>): Candidate[] 
     }
 
     seenText.add(lower);
-    candidates.push({ id, text, answer, words });
+    candidates.push({ ...sentence, id, answer, words });
   }
 
   // Map iteration order follows insertion, not sentence id.
@@ -550,10 +639,8 @@ function selectBalanced(candidates: readonly Candidate[]): Candidate[] {
 
 function buildItem(
   candidate: Candidate,
-  german: ReadonlyMap<number, string>,
-  english: ReadonlyMap<number, string>,
-  toGerman: ReadonlyMap<number, number>,
-  toEnglish: ReadonlyMap<number, number>,
+  nobCc0: ReadonlySet<number>,
+  corpora: readonly TranslationCorpus[],
 ): GeneratedItem | null {
   const prompt = blankOut(candidate.text, candidate.answer);
 
@@ -568,25 +655,22 @@ function buildItem(
     return null;
   }
 
-  const germanId = toGerman.get(candidate.id);
-  const englishId = toEnglish.get(candidate.id);
-  const translations: Record<string, string> = {};
+  const translations: Partial<Record<LanguageCode, string>> = {};
+  const translationCredits: Partial<Record<LanguageCode, GeneratedCredit>> = {};
 
-  if (germanId !== undefined) {
-    const text = german.get(germanId);
+  for (const corpus of corpora) {
+    const translationId = corpus.links.get(candidate.id);
+    const translation = translationId === undefined ? undefined : corpus.sentences.get(translationId);
 
-    if (text !== undefined) {
-      translations['de'] = text;
+    if (translationId === undefined || translation === undefined) {
+      continue;
     }
+
+    translations[corpus.lang] = translation.text;
+    translationCredits[corpus.lang] = { id: translationId, ...attributionOf(translationId, translation, corpus.cc0) };
   }
 
-  if (englishId !== undefined) {
-    const text = english.get(englishId);
-
-    if (text !== undefined) {
-      translations['en'] = text;
-    }
-  }
+  const hasTranslations = Object.keys(translations).length > 0;
 
   return {
     id: `t${candidate.id}`,
@@ -597,7 +681,8 @@ function buildItem(
     level: levelFor(candidate.words, candidate.answer),
     tags: [candidate.answer],
     sourceId: candidate.id,
-    ...(Object.keys(translations).length > 0 ? { translations } : {}),
+    ...attributionOf(candidate.id, candidate, nobCc0),
+    ...(hasTranslations ? { translations, translationCredits } : {}),
   };
 }
 
@@ -615,41 +700,21 @@ function summarize(items: readonly GeneratedItem[]): string {
 }
 
 async function main(): Promise<void> {
-  const [nobTsv, deuLinksTsv, engLinksTsv] = await Promise.all([
-    readCache('nob_sentences.tsv'),
-    readCache('nob-deu_links.tsv'),
-    readCache('nob-eng_links.tsv'),
+  const [nobTsv, nobCc0Tsv] = await Promise.all([
+    readCache('nob_sentences_detailed.tsv'),
+    readCache('nob_sentences_CC0.tsv'),
   ]);
 
-  const toGerman = parseLinks(deuLinksTsv);
-  const toEnglish = parseLinks(engLinksTsv);
   const chosen = selectBalanced(collectCandidates(parseSentences(nobTsv)));
-
-  const neededGerman = new Set<number>();
-  const neededEnglish = new Set<number>();
-
-  for (const candidate of chosen) {
-    const germanId = toGerman.get(candidate.id);
-    const englishId = toEnglish.get(candidate.id);
-
-    if (germanId !== undefined) {
-      neededGerman.add(germanId);
-    }
-
-    if (englishId !== undefined) {
-      neededEnglish.add(englishId);
-    }
-  }
-
-  const [german, english] = await Promise.all([
-    readTranslations('deu_sentences.tsv', neededGerman),
-    readTranslations('eng_sentences.tsv', neededEnglish),
-  ]);
+  const nobCc0 = parseIds(nobCc0Tsv);
+  const corpora = await Promise.all(
+    TRANSLATION_LANGUAGES.map(({ lang, code }) => loadTranslationCorpus(lang, code, chosen)),
+  );
 
   const items: GeneratedItem[] = [];
 
   for (const candidate of chosen) {
-    const item = buildItem(candidate, german, english, toGerman, toEnglish);
+    const item = buildItem(candidate, nobCc0, corpora);
 
     if (item !== null) {
       items.push(item);
@@ -659,7 +724,7 @@ async function main(): Promise<void> {
   const bundle: GeneratedBundle = {
     version: BUNDLE_VERSION,
     generatedAt: new Date().toISOString().slice(0, 10),
-    license: 'CC BY 2.0 FR',
+    license: BUNDLE_LICENSE,
     source: 'https://tatoeba.org',
     items,
   };

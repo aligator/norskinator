@@ -1,5 +1,15 @@
 /** Preposition deck: hand-written rules, rule templates and mined Tatoeba sentences. */
-import type { Deck, Exercise, GeneratedItem, Level, MultipleChoiceExercise } from '../../core/types.ts';
+import {
+  LANGUAGE_CODES,
+  type Deck,
+  type Exercise,
+  type GeneratedCredit,
+  type GeneratedItem,
+  type LanguageCode,
+  type Level,
+  type MultipleChoiceExercise,
+  type SourceCredit,
+} from '../../core/types.ts';
 import { CURATED_EXERCISES } from './curated.ts';
 import { TEMPLATE_EXERCISES } from './templates.ts';
 
@@ -31,21 +41,63 @@ function isUsableItem(value: unknown): value is GeneratedItem {
   return isLevel(value['level']) && isUnknownArray(options) && options.length >= 2;
 }
 
-function readItems(bundle: unknown): readonly GeneratedItem[] {
+interface Bundle {
+  readonly license: string;
+  readonly items: readonly GeneratedItem[];
+}
+
+function readBundle(bundle: unknown): Bundle {
   if (!isRecord(bundle) || typeof bundle['version'] !== 'number') {
     throw new Error('exercises.json: missing bundle version');
   }
 
   const items = bundle['items'];
+  const license = bundle['license'];
 
   if (!isUnknownArray(items)) {
     throw new Error('exercises.json: items is not an array');
   }
 
-  return items.filter(isUsableItem);
+  if (typeof license !== 'string') {
+    throw new Error('exercises.json: missing licence');
+  }
+
+  return { license, items: items.filter(isUsableItem) };
 }
 
-function toExercise(item: GeneratedItem): MultipleChoiceExercise {
+function tatoebaCredit(credit: GeneratedCredit, defaultLicense: string): SourceCredit {
+  return {
+    id: String(credit.id),
+    url: `https://tatoeba.org/en/sentences/show/${credit.id}`,
+    ...(credit.author === undefined ? {} : { author: credit.author }),
+    license: credit.license ?? defaultLicense,
+  };
+}
+
+function translationCredits(
+  item: GeneratedItem,
+  defaultLicense: string,
+): Partial<Record<LanguageCode, SourceCredit>> {
+  const credits: Partial<Record<LanguageCode, SourceCredit>> = {};
+
+  for (const lang of LANGUAGE_CODES) {
+    const credit = item.translationCredits?.[lang];
+
+    if (credit !== undefined) {
+      credits[lang] = tatoebaCredit(credit, defaultLicense);
+    }
+  }
+
+  return credits;
+}
+
+function toExercise(item: GeneratedItem, defaultLicense: string): MultipleChoiceExercise {
+  const sentenceCredit: GeneratedCredit = {
+    id: item.sourceId,
+    ...(item.author === undefined ? {} : { author: item.author }),
+    ...(item.license === undefined ? {} : { license: item.license }),
+  };
+
   return {
     kind: 'multiple-choice',
     id: `p-${item.id}`,
@@ -58,8 +110,8 @@ function toExercise(item: GeneratedItem): MultipleChoiceExercise {
     tags: item.tags,
     source: {
       name: 'Tatoeba',
-      id: String(item.sourceId),
-      url: `https://tatoeba.org/en/sentences/show/${item.sourceId}`,
+      ...tatoebaCredit(sentenceCredit, defaultLicense),
+      translations: translationCredits(item, defaultLicense),
     },
     ...(item.translations === undefined ? {} : { translations: item.translations }),
   };
@@ -79,10 +131,12 @@ export const prepositionDeck: Deck = {
       return cache;
     }
 
-    // Dynamic import keeps the ~350 kB corpus out of the initial bundle.
+    // Dynamic import keeps the ~430 kB corpus out of the initial bundle.
     const bundle: unknown = (await import('./exercises.json')).default;
 
-    cache = [...CURATED_EXERCISES, ...TEMPLATE_EXERCISES, ...readItems(bundle).map(toExercise)];
+    const { license, items } = readBundle(bundle);
+
+    cache = [...CURATED_EXERCISES, ...TEMPLATE_EXERCISES, ...items.map((item) => toExercise(item, license))];
 
     return cache;
   },

@@ -12,6 +12,7 @@ import type { Feedback } from '../../../core/store.ts';
 import type { TranslationLanguage } from '../../../core/storage.ts';
 import type { Exercise } from '../../../core/types.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
+import './exercise-credits.ts';
 import { translationStyles } from './practice-styles.ts';
 import { pickTranslation } from './translation.ts';
 
@@ -47,6 +48,13 @@ export class ExerciseCard extends LitElement {
         align-content: start;
         gap: var(--sp-4);
         padding: var(--sp-6) var(--sp-4) var(--sp-4);
+      }
+
+      .meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--sp-2);
       }
 
       .prompt {
@@ -205,7 +213,12 @@ export class ExerciseCard extends LitElement {
 
     return html`
       <div class="prompt-block">
-        <p class="eyebrow">${eyebrow}</p>
+        <div class="meta">
+          <p class="eyebrow">${eyebrow}</p>
+          ${this.exercise.source === undefined
+            ? nothing
+            : html`<exercise-credits .source=${this.exercise.source}></exercise-credits>`}
+        </div>
         <p class="prompt" lang="nb">${this.#renderPrompt()}</p>
         ${this.#renderTranslation()}
       </div>

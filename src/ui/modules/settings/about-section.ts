@@ -31,7 +31,7 @@ export class AboutSection extends LitElement {
       <p>
         Setninger fra <a href="https://tatoeba.org" target="_blank" rel="noopener">Tatoeba</a>, lisens
         <a href="https://creativecommons.org/licenses/by/2.0/fr/" target="_blank" rel="noopener">CC BY 2.0 FR</a>.
-        Skrifter: Literata og Atkinson Hyperlegible (SIL OFL 1.1). Lit (BSD-3-Clause).
+        Forfatteren av hver setning står bak ©-knappen på oppgaven. Skrifter: Literata og Atkinson Hyperlegible (SIL OFL 1.1). Lit (BSD-3-Clause).
       </p>
       <p>
         Fri programvare under

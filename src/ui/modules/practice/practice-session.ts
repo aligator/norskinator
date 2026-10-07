@@ -426,7 +426,7 @@ export class PracticeSession extends LitElement {
       return;
     }
 
-    // Enter on a link (the Tatoeba source) or another control must keep its own meaning.
+    // Enter on a link (a Tatoeba source) or another control must keep its own meaning.
     const onOtherControl = event
       .composedPath()
       .some(

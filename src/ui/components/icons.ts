@@ -42,3 +42,6 @@ export const flameIcon = (size = 18): SVGTemplateResult =>
     svg`<path d="M12 3c.5 3.5 4.5 5.5 4.5 10a4.5 4.5 0 0 1-9 0c0-2.2 1-3.6 2.2-4.8.3 1.6 1 2.6 2 3 .1-3.2-.5-5.6.3-8.2Z" />`,
     size,
   );
+
+export const creditIcon = (size = 18): SVGTemplateResult =>
+  icon(svg`<circle cx="12" cy="12" r="9" /><path d="M14.8 9.6a3.4 3.4 0 1 0 0 4.8" />`, size);

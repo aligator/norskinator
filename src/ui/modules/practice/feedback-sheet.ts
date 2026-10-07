@@ -1,5 +1,5 @@
 /**
- * Result of one answer: verdict, solution, explanation, translation, source
+ * Result of one answer: verdict, solution, explanation, translation
  * and the continue button. Sits in the thumb zone where the options were.
  */
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
@@ -199,15 +199,6 @@ export class FeedbackSheet extends LitElement {
         max-width: 60ch;
       }
 
-      .source {
-        font-size: var(--fs-xs);
-        color: var(--fg-muted);
-      }
-
-      .source a {
-        color: inherit;
-      }
-
       @keyframes rise {
         from {
           transform: translateY(100%);
@@ -325,12 +316,6 @@ export class FeedbackSheet extends LitElement {
                 <span>Nytt merke: ${badge.title}</span>
               </div>`;
         })}
-        ${exercise.source?.url === undefined
-          ? nothing
-          : html`<p class="source">
-              Setning fra <a href=${exercise.source.url} target="_blank" rel="noopener">${exercise.source.name} #${exercise.source.id}</a>
-              (CC BY 2.0 FR)
-            </p>`}
 
         <button class="button primary block continue" aria-keyshortcuts="Enter" @click=${this.#continue}>
           Fortsett <kbd aria-hidden="true">Enter</kbd>
