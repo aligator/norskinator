@@ -6,9 +6,10 @@
  * without further changes.
  */
 import type { Deck } from '../core/types.ts';
+import { adjectiveDeck } from './adjectives/index.ts';
 import { prepositionDeck } from './prepositions/index.ts';
 
-export const DECKS: readonly Deck[] = [prepositionDeck];
+export const DECKS: readonly Deck[] = [prepositionDeck, adjectiveDeck];
 
 export function deckById(id: string): Deck | undefined {
   return DECKS.find((deck) => deck.id === id);

@@ -13,126 +13,20 @@
  *   exclusions on top, since the generated file is overwritten.
  */
 import { expandAuthored, parseAuthored } from '../../core/authored.ts';
-import { applyOverrides, parseOverrides, type Overrides } from '../../core/overrides.ts';
 import {
   LANGUAGE_CODES,
   type ClozeItem,
   type Deck,
   type DeckSource,
   type ExerciseKind,
-  type GeneratedCredit,
-  type GeneratedItem,
   type LanguageCode,
-  type Level,
-  type SourceCredit,
   type TranslationCredit,
 } from '../../core/types.ts';
+import { reviewedTatoebaLoader } from '../tatoeba-source.ts';
 
 const DECK_ID = 'prepositions';
 
 const PRACTICE_TASKS: readonly ExerciseKind[] = ['multiple-choice', 'type-in'];
-
-function isRecord(value: unknown): value is Readonly<Record<string, unknown>> {
-  return typeof value === 'object' && value !== null;
-}
-
-function isUnknownArray(value: unknown): value is readonly unknown[] {
-  return Array.isArray(value);
-}
-
-function isLevel(value: unknown): value is Level {
-  return value === 1 || value === 2 || value === 3;
-}
-
-/**
- * Only checks what would break a session: a level the scheduler cannot place
- * or a question without a choice. The rest is trusted to the generator.
- */
-function isUsableItem(value: unknown): value is GeneratedItem {
-  if (!isRecord(value)) {
-    return false;
-  }
-
-  const options = value['options'];
-
-  return isLevel(value['level']) && isUnknownArray(options) && options.length >= 2;
-}
-
-interface Bundle {
-  readonly license: string;
-  readonly items: readonly GeneratedItem[];
-}
-
-function readBundle(bundle: unknown): Bundle {
-  if (!isRecord(bundle) || typeof bundle['version'] !== 'number') {
-    throw new Error('tatoeba.json: missing bundle version');
-  }
-
-  const items = bundle['items'];
-  const license = bundle['license'];
-
-  if (!isUnknownArray(items)) {
-    throw new Error('tatoeba.json: items is not an array');
-  }
-
-  if (typeof license !== 'string') {
-    throw new Error('tatoeba.json: missing licence');
-  }
-
-  return { license, items: items.filter(isUsableItem) };
-}
-
-function tatoebaCredit(credit: GeneratedCredit, defaultLicense: string): SourceCredit {
-  return {
-    id: String(credit.id),
-    url: `https://tatoeba.org/en/sentences/show/${credit.id}`,
-    ...(credit.author === undefined ? {} : { author: credit.author }),
-    license: credit.license ?? defaultLicense,
-  };
-}
-
-function translationCredits(
-  item: GeneratedItem,
-  defaultLicense: string,
-): Partial<Record<LanguageCode, TranslationCredit>> {
-  const credits: Partial<Record<LanguageCode, TranslationCredit>> = {};
-
-  for (const lang of LANGUAGE_CODES) {
-    const credit = item.translationCredits?.[lang];
-
-    if (credit !== undefined) {
-      credits[lang] = tatoebaCredit(credit, defaultLicense);
-    }
-  }
-
-  return credits;
-}
-
-function toItem(item: GeneratedItem, defaultLicense: string): ClozeItem {
-  const sentenceCredit: GeneratedCredit = {
-    id: item.sourceId,
-    ...(item.author === undefined ? {} : { author: item.author }),
-    ...(item.license === undefined ? {} : { license: item.license }),
-  };
-
-  return {
-    dataKind: 'cloze',
-    id: `p-${item.id}`,
-    deckId: DECK_ID,
-    prompt: item.prompt,
-    solution: item.solution,
-    answer: item.answer,
-    distractors: item.options.filter((option) => option !== item.answer),
-    level: item.level,
-    tags: item.tags,
-    source: {
-      name: 'Tatoeba',
-      ...tatoebaCredit(sentenceCredit, defaultLicense),
-      translations: translationCredits(item, defaultLicense),
-    },
-    ...(item.translations === undefined ? {} : { translations: item.translations }),
-  };
-}
 
 /** Authored sentences and their translations were written with AI for this app. */
 function withOwnSource(item: ClozeItem): ClozeItem {
@@ -153,27 +47,12 @@ async function loadAuthored(): Promise<ClozeItem[]> {
   return expandAuthored(DECK_ID, parseAuthored(raw)).map(withOwnSource);
 }
 
-async function loadTatoeba(): Promise<ClozeItem[]> {
+const loadReviewedTatoeba = reviewedTatoebaLoader(
+  { deckId: DECK_ID, idPrefix: 'p-' },
   // Dynamic import keeps the ~430 kB corpus out of the initial bundle.
-  const bundle: unknown = (await import('./tatoeba.json')).default;
-  const { license, items } = readBundle(bundle);
-
-  return items.map((item) => toItem(item, license));
-}
-
-let overrides: Promise<Overrides> | null = null;
-
-function loadOverrides(): Promise<Overrides> {
-  overrides ??= import('./overrides.json').then((module) => parseOverrides(module.default));
-
-  return overrides;
-}
-
-async function loadReviewedTatoeba(): Promise<ClozeItem[]> {
-  const [items, reviewed] = await Promise.all([loadTatoeba(), loadOverrides()]);
-
-  return applyOverrides(items, reviewed);
-}
+  async () => (await import('./tatoeba.json')).default,
+  async () => (await import('./overrides.json')).default,
+);
 
 function clozeSource(load: () => Promise<readonly ClozeItem[]>): DeckSource {
   return { dataKind: 'cloze', tasks: PRACTICE_TASKS, load };

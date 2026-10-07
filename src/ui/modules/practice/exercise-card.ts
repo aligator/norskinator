@@ -74,6 +74,12 @@ export class ExerciseCard extends LitElement {
         text-align: center;
       }
 
+      .gap .hint {
+        color: var(--fg-subtle);
+        font: 400 var(--fs-sm) / 1 var(--font-ui);
+        white-space: nowrap;
+      }
+
       .gap.filled {
         border-radius: var(--r-sm);
         border-bottom-color: transparent;
@@ -172,6 +178,10 @@ export class ExerciseCard extends LitElement {
         font: 400 var(--fs-lg) var(--font-ui);
       }
 
+      input[type='text']::placeholder {
+        color: var(--fg-subtle);
+      }
+
       /* Colour and opacity only: anything that moves would shift the sentence. */
       @keyframes settle {
         from {
@@ -246,7 +256,8 @@ export class ExerciseCard extends LitElement {
   #gapWidth(parts: GapParts): string {
     // Without options the gap would otherwise give away the answer's length.
     const floor = this.exercise.kind === 'type-in' ? TYPED_GAP : 3;
-    const longest = Math.max(parts.filled.length, ...this.options.map((option) => option.length), floor);
+    const hint = this.exercise.hint?.length ?? 0;
+    const longest = Math.max(parts.filled.length, hint, ...this.options.map((option) => option.length), floor);
 
     return `min-width: ${longest + 1}ch`;
   }
@@ -259,8 +270,11 @@ export class ExerciseCard extends LitElement {
     }
 
     if (this.feedback === null) {
+      const hint = this.exercise.hint;
+      const shown = hint === undefined ? html`&nbsp;` : html`<span class="hint" aria-hidden="true">${hint}</span>`;
+
       return html`${parts.before}<span class="gap" style=${this.#gapWidth(parts)}
-          ><span class="sr-only">luke</span>&nbsp;</span
+          ><span class="sr-only">${this.#gapLabel()}</span>${shown}</span
         >${parts.after}`;
     }
 
@@ -311,8 +325,19 @@ export class ExerciseCard extends LitElement {
     }
   }
 
+  /** How screen readers announce the empty gap, with the hint the sighted learner sees in it. */
+  #gapLabel(): string {
+    const hint = this.exercise.hint;
+
+    return hint === undefined ? 'luke' : `luke, grunnform ${hint}`;
+  }
+
   #legend(): TemplateResult {
-    return html`<legend class="sr-only">${this.exercise.prompt.replace('___', 'luke')}</legend>`;
+    const hint = this.exercise.hint;
+    // Parentheses mark where the hint ends and the sentence goes on.
+    const gap = hint === undefined ? 'luke' : `luke (grunnform ${hint})`;
+
+    return html`<legend class="sr-only">${this.exercise.prompt.replace('___', gap)}</legend>`;
   }
 
   #optionsClass(): string {
@@ -354,6 +379,7 @@ export class ExerciseCard extends LitElement {
             autocomplete="off"
             spellcheck="false"
             aria-label="Ditt svar"
+            placeholder=${this.exercise.hint ?? nothing}
             .value=${this.typed}
             @input=${this.#onInput}
           />

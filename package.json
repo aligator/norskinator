@@ -2,7 +2,7 @@
   "name": "norskinator",
   "version": "1.0.0",
   "private": true,
-  "description": "Static web app for drilling Norwegian (bokmål) prepositions with spaced repetition.",
+  "description": "Static web app for drilling Norwegian (bokmål) grammar with spaced repetition.",
   "license": "AGPL-3.0-or-later",
   "type": "module",
   "packageManager": "pnpm@12.9.1",
@@ -14,8 +14,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "fetch:data": "tsx scripts/fetch-data.ts",
-    "build:exercises": "tsx scripts/build-exercises.ts",
-    "data": "pnpm run fetch:data && pnpm run build:exercises",
+    "build:prepositions": "tsx scripts/build-prepositions.ts",
+    "build:adjectives": "tsx scripts/build-adjectives.ts",
+    "data": "pnpm run fetch:data && pnpm run build:prepositions && pnpm run build:adjectives",
+    "review:export": "tsx scripts/review/export.ts",
+    "review:merge": "tsx scripts/review/merge.ts",
     "verify": "pnpm run typecheck && pnpm run test && pnpm run build"
   },
   "devDependencies": {

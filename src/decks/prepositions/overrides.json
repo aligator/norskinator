@@ -101,6 +101,7 @@
         "de": "Tom sitzt am Fenster."
       }
     },
+    "p-t10943351": {},
     "p-t10943556": {
       "translations": {
         "de": "Wirf mich nicht über Bord."
@@ -151,6 +152,7 @@
         "en": "Tom held the coin between his thumb and index finger."
       }
     },
+    "p-t11923900": {},
     "p-t11923983": {
       "translations": {
         "en": "He hid behind a bush."
@@ -248,6 +250,7 @@
         "de": "Ein großer Junge steht am Tor."
       }
     },
+    "p-t1346456": {},
     "p-t1346460": {
       "translations": {
         "de": "Ihr wurde heiß vor Wut."
@@ -327,6 +330,8 @@
         "de": "Wasch dir vor den Mahlzeiten die Hände."
       }
     },
+    "p-t1407045": {},
+    "p-t1416103": {},
     "p-t1425509": {
       "alternatives": [
         "i"
@@ -341,6 +346,7 @@
         "de": "Ich suche meine Uhr."
       }
     },
+    "p-t1437945": {},
     "p-t1437955": {
       "translations": {
         "en": "I didn't expect Marie to come so early."
@@ -351,11 +357,13 @@
         "de": "Eines ihrer Autos ist blau und die anderen sind rot."
       }
     },
+    "p-t1443674": {},
     "p-t1451088": {
       "translations": {
         "de": "Der Burj Khalifa ist derzeit der höchste Wolkenkratzer der Welt."
       }
     },
+    "p-t1464272": {},
     "p-t1472183": {
       "translations": {
         "en": "The day is drawing to a close."
@@ -467,6 +475,7 @@
         "de": "Die Hälfte des Englischen ist bloß schlechtes Latein."
       }
     },
+    "p-t1680692": {},
     "p-t1680744": {
       "exclude": true,
       "translations": {
@@ -479,6 +488,7 @@
         "de": "Ich sollte dich nicht darum bitten müssen, deine Hausaufgaben zu machen."
       }
     },
+    "p-t1680900": {},
     "p-t1681112": {
       "alternatives": [
         "i"
@@ -498,6 +508,7 @@
         "de": "Wird das von meiner Versicherung abgedeckt?"
       }
     },
+    "p-t1681219": {},
     "p-t1681251": {
       "translations": {
         "de": "Ganz in der Nähe des Waldes steht eine Hütte."
@@ -542,6 +553,7 @@
       },
       "note": "'i' for material ('laget i stein') is idiomatic Norwegian."
     },
+    "p-t1681764": {},
     "p-t1681808": {
       "translations": {
         "de": "Er ging durch den Wald.",
@@ -566,6 +578,7 @@
         "en": "I stayed at home to rest."
       }
     },
+    "p-t1682664": {},
     "p-t1682763": {
       "translations": {
         "de": "Die Kinder spielen hinter dem Haus.",
@@ -759,6 +772,8 @@
         "de": "Tom hat mit seiner Freundin Schluss gemacht."
       }
     },
+    "p-t1688362": {},
+    "p-t1688911": {},
     "p-t1688917": {
       "alternatives": [
         "i"
@@ -788,12 +803,14 @@
         "de": "Bitte sehen Sie vom Rauchen ab."
       }
     },
+    "p-t1693231": {},
     "p-t1699908": {
       "alternatives": [
         "ved"
       ],
       "note": "'utfordringen ved å oversette' is equally idiomatic."
     },
+    "p-t1707519": {},
     "p-t1724769": {
       "translations": {
         "de": "Tom wird des Mordes angeklagt."
@@ -809,16 +826,22 @@
         "en": "Language can seem like a bottomless sea with no boundaries other than the horizon."
       }
     },
+    "p-t1751787": {},
+    "p-t1763512": {},
     "p-t1763533": {
       "translations": {
         "de": "Er starb, bevor der Krankenwagen kam."
       }
     },
+    "p-t1763606": {},
+    "p-t1763795": {},
+    "p-t1763835": {},
     "p-t1789900": {
       "translations": {
         "de": "Ich weiß nichts über Frauen."
       }
     },
+    "p-t1791877": {},
     "p-t1792088": {
       "translations": {
         "en": "Algeria is an important partner for the European Union."
@@ -839,6 +862,7 @@
         "en": "Their place is a terrible mess."
       }
     },
+    "p-t1800337": {},
     "p-t1800574": {
       "translations": {
         "en": "Working, eating, drinking, sleeping, loving: you should do everything in moderation."
@@ -920,11 +944,14 @@
       },
       "note": "V2 word-order error: should be 'Mange prosjekter forblir dessverre ...'."
     },
+    "p-t1865891": {},
+    "p-t1865925": {},
     "p-t1865927": {
       "translations": {
         "de": "Meiner Meinung nach kann er nicht arbeiten."
       }
     },
+    "p-t1866328": {},
     "p-t1866344": {
       "translations": {
         "de": "Möchtest du abgesehen davon noch etwas?"
@@ -952,6 +979,7 @@
         "en": "Family life is threatened by crises, because it is difficult to combine work and family."
       }
     },
+    "p-t1869910": {},
     "p-t1870018": {
       "alternatives": [
         "på"
@@ -974,6 +1002,7 @@
         "en": "We fear that something has gone wrong with the weather."
       }
     },
+    "p-t1906446": {},
     "p-t1906472": {
       "translations": {
         "de": "Daran gibt es keinen Zweifel."
@@ -1001,6 +1030,7 @@
         "en": "I had seen a great deal of what the city had to offer."
       }
     },
+    "p-t1906660": {},
     "p-t1906718": {
       "alternatives": [
         "av"
@@ -1010,12 +1040,15 @@
       },
       "note": "'overrasket av' (surprised by) fits equally well and matches the translations."
     },
+    "p-t1934519": {},
+    "p-t1947810": {},
     "p-t1955683": {
       "alternatives": [
         "på"
       ],
       "note": "'spasere på natten' is as natural as 'om natten'."
     },
+    "p-t1969858": {},
     "p-t1971185": {
       "translations": {
         "de": "Er ist von einem Dämon besessen.",
@@ -1202,6 +1235,7 @@
         "de": "Toms Firma importiert Kaffee aus Brasilien."
       }
     },
+    "p-t1984022": {},
     "p-t1985253": {
       "translations": {
         "de": "Tom ist in wenigen Augenblicken hier."
@@ -1237,6 +1271,7 @@
         "de": "Er verkaufte sein Auto, ohne zu zögern."
       }
     },
+    "p-t2127967": {},
     "p-t2146770": {
       "translations": {
         "en": "He gave his assurance that he was not afraid."
@@ -1266,6 +1301,7 @@
       },
       "note": "'advarte om en meteor' is equally natural; 'om' is an MC option."
     },
+    "p-t2232720": {},
     "p-t2261092": {
       "translations": {
         "en": "We started from scratch."
@@ -1312,6 +1348,7 @@
         "en": "Cyprus is fighting against state bankruptcy."
       }
     },
+    "p-t2349324": {},
     "p-t2364253": {
       "alternatives": [
         "av"
@@ -1337,6 +1374,8 @@
         "en": "The light of the new day is already streaming in through the window."
       }
     },
+    "p-t2418959": {},
+    "p-t2419089": {},
     "p-t2420031": {
       "translations": {
         "en": "The couple is still together after forty years of marriage."
@@ -1372,6 +1411,7 @@
         "en": "I suppose it's about my wording."
       }
     },
+    "p-t2427845": {},
     "p-t2430190": {
       "translations": {
         "en": "Between the two houses stands a very old and very large linden tree."
@@ -1398,6 +1438,7 @@
       ],
       "note": "'sitter ved datamaskinen' (at the computer) is equally natural; matches the English 'at my computer'."
     },
+    "p-t2436599": {},
     "p-t2438174": {
       "translations": {
         "de": "Wir haben über viele Dinge gesprochen."
@@ -1412,6 +1453,7 @@
       "exclude": true,
       "note": "Sentence is unnatural ('Hva er forskjellig fra troen og tillit?') and does not match its translations (difference between faith and trust)."
     },
+    "p-t2439097": {},
     "p-t2439820": {
       "alternatives": [
         "i"
@@ -1450,11 +1492,14 @@
         "en": "Maria is gradually beginning to doubt whether her friend is reliable."
       }
     },
+    "p-t2449156": {},
     "p-t2455801": {
       "translations": {
         "en": "I don't want to learn words without any context."
       }
     },
+    "p-t2456456": {},
+    "p-t2458212": {},
     "p-t2462453": {
       "translations": {
         "de": "Ich habe keine Ahnung, worum es geht.",
@@ -1471,6 +1516,7 @@
         "en": "Let me explain to you what I think about all this."
       }
     },
+    "p-t2474332": {},
     "p-t2476453": {
       "translations": {
         "de": "Tom spielt nicht nach den Regeln."
@@ -1499,6 +1545,7 @@
       ],
       "note": "'arrangert i alfabetisk rekkefølge' is equally (more) natural; 'i' is one of the MC options."
     },
+    "p-t2514439": {},
     "p-t2521766": {
       "translations": {
         "en": "He gets up at ten past seven."
@@ -1521,6 +1568,7 @@
         "en": "He stuck to his opinion."
       }
     },
+    "p-t2573541": {},
     "p-t2573756": {
       "translations": {
         "en": "You can't just disappear like that without further ado."
@@ -1550,6 +1598,7 @@
         "en": "I'm going to start working right after school."
       }
     },
+    "p-t2591318": {},
     "p-t2591732": {
       "translations": {
         "en": "Even anger that isn't directed at me weighs on me."
@@ -1561,6 +1610,7 @@
         "en": "I think about things more than most other people do."
       }
     },
+    "p-t2592537": {},
     "p-t2592548": {
       "translations": {
         "en": "I'm usually among the last to leave a party."
@@ -1578,6 +1628,7 @@
         "en": "She is talking about how we have worked."
       }
     },
+    "p-t2608252": {},
     "p-t2612154": {
       "translations": {
         "en": "My dog is lying at my feet."
@@ -1593,6 +1644,7 @@
         "en": "The whole relationship is suffering from this, after all."
       }
     },
+    "p-t2632778": {},
     "p-t2633920": {
       "translations": {
         "en": "Tom rides his moped every day after school."
@@ -1675,6 +1727,8 @@
         "en": "We were far too different and lived separate lives under the same roof."
       }
     },
+    "p-t2661297": {},
+    "p-t2665407": {},
     "p-t2665580": {
       "translations": {
         "en": "What is it you're really striving for?"
@@ -1784,6 +1838,7 @@
         "de": "Das ist eine Frage des persönlichen Geschmacks."
       }
     },
+    "p-t2816050": {},
     "p-t2818441": {
       "translations": {
         "de": "Ein Leben ohne ihn ist leer."
@@ -1805,6 +1860,7 @@
         "de": "Wir setzen die Sitzung nach der Teepause fort."
       }
     },
+    "p-t2826496": {},
     "p-t2827425": {
       "translations": {
         "de": "Du solltest dich für dein Verhalten schämen."
@@ -1829,6 +1885,8 @@
         "de": "Sie kämpften einen fairen Kampf gegen das feindliche Heer."
       }
     },
+    "p-t2866461": {},
+    "p-t2866531": {},
     "p-t2866902": {
       "translations": {
         "de": "Er verschwand spurlos."
@@ -1911,6 +1969,7 @@
         "en": "Has Bulgaria declared war on Turkey?"
       }
     },
+    "p-t2895274": {},
     "p-t2895339": {
       "translations": {
         "en": "This amulet protects me against all evil."
@@ -1936,6 +1995,7 @@
         "en": "Who knows what is hiding behind the facade?"
       }
     },
+    "p-t2904024": {},
     "p-t2907202": {
       "translations": {
         "de": "Unter der Brücke war es dunkel."
@@ -1951,6 +2011,7 @@
         "de": "Es regnet seit Dienstag."
       }
     },
+    "p-t2916717": {},
     "p-t2916765": {
       "alternatives": [
         "til"
@@ -1960,6 +2021,7 @@
       },
       "note": "'ha time til legen' is very common and means the same; 'til' is an MC option."
     },
+    "p-t2916810": {},
     "p-t2916984": {
       "alternatives": [
         "for",
@@ -1980,6 +2042,8 @@
         "de": "Es war Liebe auf den ersten Blick."
       }
     },
+    "p-t2918142": {},
+    "p-t2918189": {},
     "p-t2918190": {
       "translations": {
         "de": "Ich habe immer noch nichts von ihm gehört."
@@ -2029,6 +2093,7 @@
         "de": "Gibt es etwas, wogegen du allergisch bist?"
       }
     },
+    "p-t2923267": {},
     "p-t2924470": {
       "translations": {
         "de": "Sag Bescheid, wenn du fertig bist."
@@ -2057,6 +2122,7 @@
         "de": "Ich brauche keine Aufenthaltsgenehmigung, weil ich aus Island komme."
       }
     },
+    "p-t2927102": {},
     "p-t2927124": {
       "translations": {
         "de": "Ich bin überrascht, dass du das übersehen hast."
@@ -2108,11 +2174,14 @@
       "exclude": true,
       "note": "Wrong verb form: 'ville ikke ha lykket' should be 'ville ikke ha lyktes'."
     },
+    "p-t2932243": {},
     "p-t2935171": {
       "translations": {
         "de": "Man kann nicht ohne Wasser leben."
       }
     },
+    "p-t2935574": {},
+    "p-t2941265": {},
     "p-t2941303": {
       "translations": {
         "de": "Sie hat nichts dagegen."
@@ -2123,6 +2192,8 @@
         "de": "Jetzt, da der Präsident tot ist, müssen die neuen Richtlinien auf die Genehmigung der Regierung warten."
       }
     },
+    "p-t2942636": {},
+    "p-t2942646": {},
     "p-t2943555": {
       "translations": {
         "de": "Du wirst bald von uns hören."
@@ -2153,6 +2224,8 @@
         "de": "Ist es billiger, nach neun anzurufen?"
       }
     },
+    "p-t2945232": {},
+    "p-t2945248": {},
     "p-t2945257": {
       "alternatives": [
         "overfor"
@@ -2167,6 +2240,7 @@
         "de": "Der Einbrecher kam durch das Fenster herein."
       }
     },
+    "p-t2946042": {},
     "p-t2948954": {
       "translations": {
         "de": "Sie schwamm über den Fluss."
@@ -2264,6 +2338,8 @@
         "en": "He did himself a disservice by speaking his mind out loud."
       }
     },
+    "p-t2974705": {},
+    "p-t2974708": {},
     "p-t2974711": {
       "translations": {
         "de": "Dieser hier ist aus Australien."
@@ -2289,6 +2365,7 @@
         "en": "Is this the dictionary you are looking for?"
       }
     },
+    "p-t2993147": {},
     "p-t2995891": {
       "translations": {
         "de": "Er ist ohne Zweifel viel besser als du."
@@ -2317,6 +2394,7 @@
         "en": "We must help those who are trying to fight addiction."
       }
     },
+    "p-t3071129": {},
     "p-t3083370": {
       "translations": {
         "de": "Er schloss die Tür, die hinter ihm war."
@@ -2421,6 +2499,9 @@
       ],
       "note": "'stolt av' is as common as 'stolt over' in Norwegian and keeps the meaning."
     },
+    "p-t342063": {},
+    "p-t342064": {},
+    "p-t342065": {},
     "p-t342184": {
       "translations": {
         "de": "Du darfst das Auto nicht in dieser Straße parken."
@@ -2490,6 +2571,7 @@
         "de": "Es ist an der Zeit, dass du anfängst, den Tisch abzuwischen."
       }
     },
+    "p-t342230": {},
     "p-t342233": {
       "translations": {
         "de": "Am besten bittet man einen Experten, es zu reparieren."
@@ -2505,6 +2587,7 @@
         "de": "Ich glaube nicht, dass es regnet, aber ich nehme für alle Fälle einen Regenschirm mit."
       }
     },
+    "p-t342239": {},
     "p-t342241": {
       "translations": {
         "de": "Deine Arbeit ist alles andere als zufriedenstellend."
@@ -2520,11 +2603,17 @@
         "de": "Der Schiefe Turm von Pisa ist höher als die Kirche."
       }
     },
+    "p-t342250": {},
+    "p-t342256": {},
+    "p-t342262": {},
+    "p-t342271": {},
     "p-t342273": {
       "translations": {
         "de": "Kann ich bitte Bill sprechen?"
       }
     },
+    "p-t342385": {},
+    "p-t342386": {},
     "p-t342387": {
       "translations": {
         "de": "Er traf seinen Freund, während er im Meer badete."
@@ -2535,6 +2624,8 @@
         "de": "Ich war schlecht in Englisch."
       }
     },
+    "p-t342391": {},
+    "p-t342395": {},
     "p-t342398": {
       "translations": {
         "de": "Ich bin mit den Hausaufgaben noch nicht fertig."
@@ -2575,6 +2666,7 @@
         "de": "Ich glaube, es wird ein schöner Tag."
       }
     },
+    "p-t342420": {},
     "p-t342421": {
       "alternatives": [
         "til"
@@ -2647,11 +2739,14 @@
         "de": "Uns ist fast das Geld ausgegangen."
       }
     },
+    "p-t342531": {},
     "p-t342534": {
       "translations": {
         "de": "Zu meiner Überraschung lehnte er das Angebot ab."
       }
     },
+    "p-t342538": {},
+    "p-t342543": {},
     "p-t342544": {
       "alternatives": [
         "om"
@@ -2676,6 +2771,7 @@
         "de": "Ich freue mich sehr, dich wiederzusehen."
       }
     },
+    "p-t342568": {},
     "p-t342579": {
       "translations": {
         "de": "Ich war schon in Amerika."
@@ -2736,6 +2832,7 @@
         "de": "Sie ist neidisch auf meinen Erfolg."
       }
     },
+    "p-t344178": {},
     "p-t3454572": {
       "alternatives": [
         "på"
@@ -2755,6 +2852,8 @@
         "de": "Der Wind weht aus Norden."
       }
     },
+    "p-t3458433": {},
+    "p-t3458434": {},
     "p-t3458436": {
       "translations": {
         "de": "Es weht aus Osten."
@@ -2839,6 +2938,7 @@
         "de": "Kinder spielen sehr gern am Strand."
       }
     },
+    "p-t348313": {},
     "p-t348314": {
       "translations": {
         "de": "Wir fangen immer mit den schwierigsten Aufgaben an."
@@ -2908,6 +3008,8 @@
         "de": "Es ist überraschend, dass er so etwas über mich gesagt haben soll."
       }
     },
+    "p-t348341": {},
+    "p-t348342": {},
     "p-t348343": {
       "translations": {
         "de": "Habe ich dir nicht gestern Geld geliehen?"
@@ -2947,6 +3049,7 @@
         "de": "Isst du im Klassenzimmer?"
       }
     },
+    "p-t348368": {},
     "p-t348369": {
       "translations": {
         "de": "Allein der Gedanke an Schlangen lässt sie erblassen."
@@ -2962,6 +3065,11 @@
         "de": "Kannst du nicht noch ein bisschen bleiben?"
       }
     },
+    "p-t348373": {},
+    "p-t348374": {},
+    "p-t348377": {},
+    "p-t348378": {},
+    "p-t348382": {},
     "p-t3484298": {
       "translations": {
         "en": "You have the choice between two alternatives."
@@ -3002,12 +3110,15 @@
       },
       "note": "'over mange år' expresses the same span of time."
     },
+    "p-t349689": {},
+    "p-t349693": {},
     "p-t349696": {
       "alternatives": [
         "mot"
       ],
       "note": "'grense mot' is as standard as 'grense til' for bordering a country."
     },
+    "p-t349699": {},
     "p-t3497114": {
       "translations": {
         "de": "Er ist ein Übeltäter, ist dir das klar?"
@@ -3027,6 +3138,7 @@
       },
       "note": "'bekymret for' is equally natural and keeps the meaning."
     },
+    "p-t349847": {},
     "p-t3503579": {
       "translations": {
         "de": "Dieses Schiff hat Kurs auf Vancouver.",
@@ -3040,6 +3152,7 @@
       },
       "note": "Ungrammatical: 'det olje' has wrong gender/form (should be 'den oljen')."
     },
+    "p-t351214": {},
     "p-t3514943": {
       "translations": {
         "de": "Tom sah einige Papiere durch."
@@ -3050,11 +3163,13 @@
         "de": "Suchst du immer noch nach einer Beschäftigung?"
       }
     },
+    "p-t3519447": {},
     "p-t3522444": {
       "translations": {
         "de": "Tom kam bei einem Unfall ums Leben."
       }
     },
+    "p-t3522475": {},
     "p-t3525362": {
       "translations": {
         "de": "Ich kann ohne dich nicht leben."
@@ -3075,6 +3190,7 @@
         "de": "Viele englische Wörter stammen aus dem Lateinischen."
       }
     },
+    "p-t352993": {},
     "p-t3530372": {
       "translations": {
         "de": "Was ist eine Beziehung ohne Sex und Nähe?",
@@ -3101,6 +3217,7 @@
         "en": "This is the only way to ensure that everyone gets legal protection against discrimination."
       }
     },
+    "p-t354625": {},
     "p-t354640": {
       "translations": {
         "de": "Brich die Schokolade in kleine Stücke."
@@ -3116,6 +3233,7 @@
         "de": "Ich kenne keinen von ihnen."
       }
     },
+    "p-t354652": {},
     "p-t354653": {
       "translations": {
         "de": "Ich fragte ihn, warum er so traurig ist."
@@ -3303,11 +3421,13 @@
         "de": "Diese Raupe wird zu einem wunderschönen Schmetterling."
       }
     },
+    "p-t367297": {},
     "p-t367487": {
       "translations": {
         "de": "In einer Demokratie haben alle Bürger die gleichen Rechte."
       }
     },
+    "p-t367488": {},
     "p-t367489": {
       "translations": {
         "de": "Ich war schon dreimal in Kyoto."
@@ -3328,6 +3448,7 @@
         "de": "Gibt es ein entsprechendes Sprichwort auf Japanisch?"
       }
     },
+    "p-t367513": {},
     "p-t367518": {
       "translations": {
         "de": "Der Regen schlug gegen das Fenster."
@@ -3343,6 +3464,7 @@
         "de": "Du solltest besser vor Mitternacht zu Hause sein."
       }
     },
+    "p-t368551": {},
     "p-t368639": {
       "translations": {
         "de": "Ich habe einige Schwierigkeiten, diese Software zu kompilieren."
@@ -3353,11 +3475,13 @@
         "de": "Diese Tasche ist aus Papier."
       }
     },
+    "p-t369761": {},
     "p-t369913": {
       "translations": {
         "de": "Zwei Fliegen mit einer Klappe schlagen."
       }
     },
+    "p-t369935": {},
     "p-t369959": {
       "translations": {
         "de": "Hast du Lust, einen Spaziergang zu machen?"
@@ -3368,6 +3492,7 @@
         "de": "Wir sind nicht die Einzigen, die den Plan unterstützen."
       }
     },
+    "p-t369967": {},
     "p-t370182": {
       "alternatives": [
         "om"
@@ -3419,6 +3544,7 @@
         "de": "Es sieht nach Regen aus."
       }
     },
+    "p-t372307": {},
     "p-t372344": {
       "translations": {
         "de": "Er hatte vor, sie zu heiraten."
@@ -3451,6 +3577,7 @@
         "en": "Japanese people like to travel in groups."
       }
     },
+    "p-t372614": {},
     "p-t372730": {
       "translations": {
         "de": "Ich bin jetzt am Flughafen."
@@ -3488,6 +3615,7 @@
         "de": "Nach der fünfstündigen Reise waren wir völlig erschöpft."
       }
     },
+    "p-t372975": {},
     "p-t372976": {
       "translations": {
         "de": "Er spricht nur Englisch und Deutsch, und ich verstehe keine der beiden Sprachen.",
@@ -3527,6 +3655,7 @@
         "de": "Was war die Ursache der Explosion?"
       }
     },
+    "p-t373354": {},
     "p-t374611": {
       "translations": {
         "de": "Was hältst du von Japanisch?"
@@ -3576,6 +3705,8 @@
         "de": "Es ist schwierig, ein Gedicht in eine andere Sprache zu übersetzen."
       }
     },
+    "p-t375923": {},
+    "p-t376152": {},
     "p-t376153": {
       "translations": {
         "de": "Wir übernachteten in Hakone."
@@ -3917,6 +4048,8 @@
         "en": "People are afraid of war."
       }
     },
+    "p-t380866": {},
+    "p-t380867": {},
     "p-t380876": {
       "translations": {
         "de": "Ich bin ihr zufällig auf der Straße begegnet."
@@ -4012,12 +4145,14 @@
         "en": "My whole body hurts."
       }
     },
+    "p-t386555": {},
     "p-t386556": {
       "translations": {
         "de": "Er hielt sie am Ärmel fest.",
         "en": "He held her by the sleeve."
       }
     },
+    "p-t386558": {},
     "p-t386560": {
       "translations": {
         "de": "Das ist das größte Hotel der Stadt."
@@ -4075,6 +4210,8 @@
         "en": "The old lady got off the bus."
       }
     },
+    "p-t386634": {},
+    "p-t386639": {},
     "p-t386641": {
       "translations": {
         "de": "Zwanzig Menschen kamen bei dem Brand ums Leben.",
@@ -4104,6 +4241,8 @@
       },
       "note": "'ikke ord for' is equally idiomatic (not among the options)."
     },
+    "p-t386665": {},
+    "p-t386668": {},
     "p-t386669": {
       "translations": {
         "de": "Schau dir die schwarzen Wolken an."
@@ -4125,6 +4264,7 @@
         "en": "There was a car accident yesterday."
       }
     },
+    "p-t386880": {},
     "p-t386885": {
       "translations": {
         "de": "Du musst hungrig sein, nachdem du so weit gelaufen bist."
@@ -4161,6 +4301,7 @@
         "de": "Es ist schwer vorherzusagen, wie das Wetter morgen wird."
       }
     },
+    "p-t386905": {},
     "p-t386929": {
       "translations": {
         "de": "Ich gebe dir die Telefonnummer von Dr. Shiegal."
@@ -4171,6 +4312,7 @@
         "de": "Nach dem langen Spaziergang waren wir völlig erschöpft."
       }
     },
+    "p-t386966": {},
     "p-t386970": {
       "translations": {
         "de": "Der Frühling kommt nach dem Winter."
@@ -4227,6 +4369,7 @@
         "de": "Der alte Mann war nicht so mürrisch, wie er aussah."
       }
     },
+    "p-t387181": {},
     "p-t387182": {
       "translations": {
         "de": "Woran erinnert dich dieser Hut?"
@@ -4428,6 +4571,7 @@
       },
       "note": "'en gave til fødselsdagen' (a present for her birthday) is equally natural."
     },
+    "p-t393637": {},
     "p-t394098": {
       "translations": {
         "de": "Bitte zieh deine Socken aus."
@@ -4438,11 +4582,13 @@
         "de": "Sie verkauft Drogen auf Konzerten."
       }
     },
+    "p-t394105": {},
     "p-t394107": {
       "translations": {
         "de": "Niederländisch ist eng mit dem Deutschen verwandt."
       }
     },
+    "p-t394394": {},
     "p-t394784": {
       "translations": {
         "de": "Ich habe sie nicht geheiratet, weil ich sie liebte."
@@ -4477,11 +4623,15 @@
         "de": "Der Beweis wird dem Leser überlassen."
       }
     },
+    "p-t395604": {},
+    "p-t395606": {},
+    "p-t395657": {},
     "p-t395659": {
       "translations": {
         "de": "Du hättest auf mich hören sollen."
       }
     },
+    "p-t395980": {},
     "p-t396009": {
       "translations": {
         "de": "Wir eilten zum Bahnhof."
@@ -4492,6 +4642,7 @@
         "de": "Wo ist das ganze Brot geblieben?"
       }
     },
+    "p-t396947": {},
     "p-t397222": {
       "translations": {
         "de": "Aus billigem Fleisch wird keine gute Suppe."
@@ -4502,6 +4653,7 @@
         "de": "Er sagte mir, dass er nach Amerika fahren würde."
       }
     },
+    "p-t399283": {},
     "p-t399634": {
       "translations": {
         "de": "Ich habe vergessen, eine Briefmarke auf den Umschlag zu kleben."
@@ -4589,6 +4741,9 @@
       },
       "note": "'kjedet seg under talen' (bored during the speech) is fully natural with the same meaning."
     },
+    "p-t413074": {},
+    "p-t413078": {},
+    "p-t413080": {},
     "p-t413087": {
       "translations": {
         "de": "Das Haus mit dem beschädigten Dach ist repariert worden."
@@ -4599,6 +4754,8 @@
         "de": "Die Übersetzung ist dem Original sehr treu."
       }
     },
+    "p-t413092": {},
+    "p-t417373": {},
     "p-t4394599": {
       "translations": {
         "de": "Du kannst dich nicht umbringen, indem du die Luft anhältst."
@@ -4609,6 +4766,7 @@
         "de": "Liebe ist nie ohne Eifersucht."
       }
     },
+    "p-t4398050": {},
     "p-t4398053": {
       "alternatives": [
         "til"
@@ -4631,6 +4789,7 @@
         "de": "Sie ist ein Mensch, ohne den ich nicht leben kann."
       }
     },
+    "p-t4547515": {},
     "p-t4733053": {
       "translations": {
         "de": "Tom hat genug durchgemacht."
@@ -4656,6 +4815,9 @@
       },
       "note": "'snill med' is also standard usage with the same meaning."
     },
+    "p-t4754152": {},
+    "p-t4754163": {},
+    "p-t4779439": {},
     "p-t4935945": {
       "alternatives": [
         "på"
@@ -4665,6 +4827,7 @@
       },
       "note": "'forskjellen på dem' is the common Norwegian collocation, same meaning."
     },
+    "p-t4991944": {},
     "p-t4994846": {
       "translations": {
         "de": "Er sitzt am Tisch."
@@ -4812,6 +4975,7 @@
         "de": "Ich war fast zehn, als meine Eltern mir einen Chemiebaukasten zu Weihnachten schenkten."
       }
     },
+    "p-t501816": {},
     "p-t501829": {
       "translations": {
         "de": "Sie träumte von wilden Jaguaren."
@@ -4842,6 +5006,7 @@
         "de": "Er schrieb ein Buch über China."
       }
     },
+    "p-t508810": {},
     "p-t508813": {
       "alternatives": [
         "om"
@@ -4870,6 +5035,7 @@
         "de": "Ich nahm ein Taxi, um den Zug zu erreichen."
       }
     },
+    "p-t509427": {},
     "p-t509430": {
       "translations": {
         "de": "Ich habe herzlich über ihren Witz gelacht."
@@ -4890,11 +5056,13 @@
         "de": "Zamenhof, der Schöpfer der Plansprache Esperanto, war Augenarzt."
       }
     },
+    "p-t5098216": {},
     "p-t511788": {
       "translations": {
         "de": "Wir sind sehr froh, sie hier zu haben."
       }
     },
+    "p-t511935": {},
     "p-t511963": {
       "translations": {
         "de": "Ist es schwierig, mit Stäbchen zu essen?"
@@ -4915,6 +5083,7 @@
         "de": "Das war mir bewusst."
       }
     },
+    "p-t5145031": {},
     "p-t5145267": {
       "alternatives": [
         "for"
@@ -4925,6 +5094,7 @@
       },
       "note": "'bekymre seg for' is equally natural with the same meaning."
     },
+    "p-t5145327": {},
     "p-t5145353": {
       "translations": {
         "de": "Mein Vater hat während des Abendessens kein einziges Wort gesagt."
@@ -4959,6 +5129,9 @@
         "de": "Was zum Teufel glaubst du, was du da treibst?"
       }
     },
+    "p-t5150929": {},
+    "p-t5153255": {},
+    "p-t5153269": {},
     "p-t5154215": {
       "translations": {
         "de": "Ein Typ namens Tom hat gesagt, dass er dich sucht."
@@ -5028,6 +5201,7 @@
       },
       "note": "Option 'i' is also correct: 'fraktet i sykebil/ambulanse' is common and means the same."
     },
+    "p-t519411": {},
     "p-t519458": {
       "translations": {
         "de": "Es sieht so aus, als würde er nächsten Monat herkommen."
@@ -5053,6 +5227,7 @@
         "de": "Hilf mir, eine Krawatte auszusuchen, die zu diesem Anzug passt."
       }
     },
+    "p-t520124": {},
     "p-t5220735": {
       "translations": {
         "de": "Manchmal spart man Zeit, indem man den längeren Weg nimmt."
@@ -5068,6 +5243,7 @@
         "de": "Um sechs Uhr aufzustehen ist für mich in Ordnung."
       }
     },
+    "p-t526115": {},
     "p-t526617": {
       "translations": {
         "de": "Das Kind wurde Strahlung ausgesetzt.",
@@ -5093,6 +5269,7 @@
         "de": "Was für eine wunderbare Familie!"
       }
     },
+    "p-t530673": {},
     "p-t5339331": {
       "translations": {
         "de": "Putz dir nach jeder Mahlzeit die Zähne."
@@ -5118,6 +5295,9 @@
         "de": "Übersetze diesen Satz ins Englische."
       }
     },
+    "p-t5408828": {},
+    "p-t5408857": {},
+    "p-t5409937": {},
     "p-t5412005": {
       "translations": {
         "de": "Ich habe dich gesucht."
@@ -5128,6 +5308,7 @@
         "de": "Der Hund rannte einem Fuchs hinterher."
       }
     },
+    "p-t5549828": {},
     "p-t5549830": {
       "translations": {
         "en": "Close the door behind you."
@@ -5153,6 +5334,7 @@
         "de": "Sonntag kommt nach Samstag."
       }
     },
+    "p-t5897705": {},
     "p-t5999556": {
       "alternatives": [
         "utover"
@@ -5186,6 +5368,7 @@
         "de": "Haben Sie einen Tisch am Fenster?"
       }
     },
+    "p-t613723": {},
     "p-t613727": {
       "translations": {
         "de": "Tennis ist bei Studenten sehr beliebt."
@@ -5235,6 +5418,7 @@
         "de": "Er kam zurück, nachdem es dunkel geworden war."
       }
     },
+    "p-t6331487": {},
     "p-t6364662": {
       "translations": {
         "de": "Was hätte ich ohne ihn gemacht?"
@@ -5250,6 +5434,7 @@
         "de": "Wir können nach dem Mittagessen gehen."
       }
     },
+    "p-t6366353": {},
     "p-t6366596": {
       "alternatives": [
         "om"
@@ -5266,6 +5451,7 @@
         "de": "Was ist zwischen dir und Tom passiert?"
       }
     },
+    "p-t6404712": {},
     "p-t6441154": {
       "translations": {
         "de": "Er holte die verlorene Zeit auf, indem er schnell lief."
@@ -5277,6 +5463,9 @@
         "en": "I'm hoping against hope."
       }
     },
+    "p-t6558739": {},
+    "p-t6558753": {},
+    "p-t6588536": {},
     "p-t6994930": {
       "translations": {
         "de": "Tom blätterte hektisch durch die Seiten."
@@ -5291,6 +5480,7 @@
       },
       "note": "'ha penger på seg' is the most idiomatic way to say having money on/with you."
     },
+    "p-t7195841": {},
     "p-t7245147": {
       "translations": {
         "de": "Ich habe seit dem Morgen nichts gegessen.",
@@ -5318,11 +5508,13 @@
         "de": "Das Flugzeug landet in einer Stunde."
       }
     },
+    "p-t8138434": {},
     "p-t8138435": {
       "translations": {
         "en": "I'm sitting at the table."
       }
     },
+    "p-t8138521": {},
     "p-t8138858": {
       "exclude": true,
       "note": "'ved' here is the noun 'firewood', not a preposition; in free text many nouns fit the gap ('Tørr ___ brenner godt')."
@@ -5351,6 +5543,7 @@
       },
       "note": "'komme av' (be caused by) is idiomatic and keeps the meaning."
     },
+    "p-t815778": {},
     "p-t815783": {
       "translations": {
         "de": "Die Regierung will die Inflation unbedingt niedrig halten."
@@ -5419,6 +5612,7 @@
         "de": "Der Fahrer ist für die Sicherheit der Fahrgäste verantwortlich."
       }
     },
+    "p-t815834": {},
     "p-t815836": {
       "translations": {
         "de": "Wirst du das als Paket verschicken?"
@@ -5589,6 +5783,7 @@
         "de": "Ich treffe ihn, nachdem ich zurückgekommen bin."
       }
     },
+    "p-t816115": {},
     "p-t816116": {
       "translations": {
         "de": "Kann ich mit Bill sprechen?"
@@ -5633,6 +5828,7 @@
         "de": "Ich will mit Getter Jaani sterben."
       }
     },
+    "p-t9085425": {},
     "p-t9211143": {
       "translations": {
         "de": "Er ging mein Manuskript schnell durch.",

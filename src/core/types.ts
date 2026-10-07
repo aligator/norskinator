@@ -72,6 +72,8 @@ interface Content extends ItemMeta {
    * the prompt is shown as a plain question.
    */
   readonly prompt: string;
+  /** Cue shown in the empty gap, e.g. the dictionary form of the adjective to inflect. */
+  readonly hint?: string;
   /** Complete, correct sentence shown in the feedback step. */
   readonly solution?: string;
   /** Didactic note shown after answering. */
@@ -149,8 +151,12 @@ export interface GeneratedBundle {
 export interface GeneratedItem {
   readonly id: string;
   readonly prompt: string;
+  /** See {@link ClozeItem.hint}. */
+  readonly hint?: string;
   readonly solution: string;
   readonly answer: string;
+  /** Other spellings that fill the gap correctly, e.g. «blåe» next to «blå». */
+  readonly alternatives?: readonly string[];
   readonly options: readonly string[];
   readonly level: Level;
   readonly tags: readonly string[];

@@ -51,6 +51,12 @@ describe('preposition deck', () => {
     expect(missing.map((item) => item.id)).toEqual([]);
   });
 
+  it('reviewed every generated sentence', () => {
+    const unreviewed = corpus.items.map((item) => `p-${item.id}`).filter((id) => !(id in overridesFile.items));
+
+    expect(unreviewed).toEqual([]);
+  });
+
   it('only overrides Tatoeba items that exist', () => {
     // Raw ids, before overrides drop the excluded ones.
     const known = new Set(corpus.items.map((item) => `p-${item.id}`));

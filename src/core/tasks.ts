@@ -41,6 +41,7 @@ function clozeContent(item: ClozeItem): Omit<MultipleChoiceExercise, 'kind' | 'a
     prompt: item.prompt,
     level: item.level,
     tags: item.tags,
+    ...(item.hint === undefined ? {} : { hint: item.hint }),
     ...(item.solution === undefined ? {} : { solution: item.solution }),
     ...(item.explanation === undefined ? {} : { explanation: item.explanation }),
     ...(item.translations === undefined ? {} : { translations: item.translations }),

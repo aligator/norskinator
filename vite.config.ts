@@ -16,7 +16,7 @@ export default defineConfig({
       manifest: {
         name: 'Norskinator — norsk grammatikk',
         short_name: 'Norskinator',
-        description: 'Øv på norske preposisjoner med repetisjon og dagsmål.',
+        description: 'Øv på norsk grammatikk – preposisjoner og adjektivbøying – med repetisjon og dagsmål.',
         lang: 'nb-NO',
         start_url: './',
         scope: './',

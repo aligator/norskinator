@@ -1,7 +1,8 @@
 /**
  * Reviewed corrections layered over deck content without touching the source
- * data: extra accepted answers, missing translations and items to drop. Keyed
- * by item id, so an override survives regenerating a corpus.
+ * data: extra accepted answers, missing translations, corrected tags,
+ * explanations and items to drop. Keyed by item id, so an override survives
+ * regenerating a corpus.
  */
 import {
   LANGUAGE_CODES,
@@ -18,6 +19,10 @@ export interface ItemOverride {
   readonly exclude?: boolean;
   /** Written by AI where the source had none; credited as machine translations. */
   readonly translations?: Translations;
+  /** Replaces the item's tags when non-empty, e.g. when the generator guessed the wrong category. */
+  readonly tags?: readonly string[];
+  /** Didactic note shown after answering; replaces the item's own. */
+  readonly explanation?: string;
   /** Why the override exists, for whoever reviews it next. */
   readonly note?: string;
 }
@@ -69,11 +74,14 @@ export function parseOverrides(raw: unknown): Overrides {
     }
 
     const note = entry['note'];
+    const explanation = entry['explanation'];
 
     overrides.set(id, {
       alternatives: readWords(entry['alternatives']),
       exclude: entry['exclude'] === true,
       translations: readTranslations(entry['translations']),
+      tags: readWords(entry['tags']),
+      ...(typeof explanation === 'string' && explanation.trim() !== '' ? { explanation } : {}),
       ...(typeof note === 'string' ? { note } : {}),
     });
   }
@@ -100,11 +108,14 @@ function applyOverride(item: ClozeItem, override: ItemOverride): ClozeItem {
     (word) => word !== item.answer,
   );
   const hasMachineCredits = Object.keys(machineCredits).length > 0;
+  const tags = override.tags ?? [];
 
   return {
     ...item,
     ...(alternatives.length > 0 ? { alternatives } : {}),
     ...(Object.keys(translations).length > 0 ? { translations } : {}),
+    ...(tags.length > 0 ? { tags } : {}),
+    ...(override.explanation === undefined ? {} : { explanation: override.explanation }),
     ...(item.source !== undefined && hasMachineCredits
       ? { source: { ...item.source, translations: { ...item.source.translations, ...machineCredits } } }
       : {}),

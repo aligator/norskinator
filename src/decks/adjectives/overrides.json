@@ -1,0 +1,6415 @@
+{
+  "version": 1,
+  "items": {
+    "a-t1035127": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«En feber» er et en-ord, så adjektivet står i grunnform: høy.",
+      "translations": {
+        "de": "Ich hatte sehr hohes Fieber."
+      }
+    },
+    "a-t1035144": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "Subjektet («de som var til stede») er flertall, så adjektivet får -e: glade.",
+      "translations": {
+        "de": "Die Anwesenden freuten sich sehr über die Neuigkeiten."
+      }
+    },
+    "a-t1035145": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «det er …» får adjektivet -t: dyrt.",
+      "translations": {
+        "de": "Es ist teuer, in Japan zu leben."
+      }
+    },
+    "a-t1039975": {
+      "exclude": true,
+      "note": "'Fransk' is the language (noun), not an adjective form."
+    },
+    "a-t1041598": {
+      "tags": [
+        "et-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Et spørsmål» er et et-ord, så adjektivet får -t. God blir godt.",
+      "translations": {
+        "de": "Das ist eine gute Frage."
+      }
+    },
+    "a-t10940793": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Gaten» er et en-ord i entall. Etter «er» står grunnformen: smal.",
+      "translations": {
+        "de": "Die Straße ist ziemlich schmal."
+      }
+    },
+    "a-t10940849": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«De» er flere personer, derfor får adjektivet -e: svake.",
+      "translations": {
+        "de": "Sie sind nicht so schwach, wie sie früher waren."
+      }
+    },
+    "a-t10940988": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hender» er flertall, derfor får adjektivet -e: myke hender.",
+      "translations": {
+        "de": "Du hast weiche Hände."
+      }
+    },
+    "a-t10941114": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Han» er én person. Etter «er» står grunnformen: klok.",
+      "translations": {
+        "de": "Er ist sehr weise."
+      }
+    },
+    "a-t10941311": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Setninger» er flertall, derfor -e. Enkel mister e-en: enkle.",
+      "translations": {
+        "de": "Das sind einfache Sätze."
+      }
+    },
+    "a-t10942962": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Tennene» er flertall, derfor får adjektivet -e: gule.",
+      "translations": {
+        "de": "Seine Zähne sind gelb."
+      }
+    },
+    "a-t10943043": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Du» er én person. Etter «blitt» står grunnformen: søt.",
+      "translations": {
+        "de": "Du bist sehr süß geworden."
+      }
+    },
+    "a-t10943260": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Bein» står her i flertall, derfor får adjektivet -e: fine bein.",
+      "translations": {
+        "de": "Rima hatte schöne Beine."
+      }
+    },
+    "a-t10943366": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Filmen» er et en-ord i entall. Etter «var» står grunnformen: morsom.",
+      "translations": {
+        "de": "Der Film war sehr lustig."
+      }
+    },
+    "a-t10943396": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Han» er én person. Etter «er» står grunnformen: sur.",
+      "translations": {
+        "en": "Why is he grumpy?"
+      }
+    },
+    "a-t10943589": {
+      "tags": [
+        "et-ord",
+        "type:vokal"
+      ],
+      "explanation": "«Noe» er som et et-ord, derfor får adjektivet -t: blått. Blå får -tt.",
+      "translations": {
+        "de": "Zieh etwas Blaues an."
+      }
+    },
+    "a-t10943612": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Det» er subjekt uten substantiv, derfor et-form med -t: dyrt.",
+      "translations": {
+        "en": "How expensive was it?"
+      }
+    },
+    "a-t10943755": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Skrivebordet» er et et-ord, og etter «er» får adjektivet -t: lavt.",
+      "translations": {
+        "de": "Dieser Schreibtisch ist etwas zu niedrig für mich."
+      }
+    },
+    "a-t10943834": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Hunden» er et en-ord i entall. Etter «er» står grunnformen: søt.",
+      "translations": {
+        "de": "Unser Hund ist sehr süß."
+      }
+    },
+    "a-t10943840": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Biler» er flertall, derfor får adjektivet -e: dyre.",
+      "translations": {
+        "de": "Autos sind teuer, aber nützlich."
+      }
+    },
+    "a-t10943856": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Vannet» er et et-ord, og etter «er» får adjektivet -t: rent.",
+      "translations": {
+        "de": "Das Wasser in diesem Fluss ist sauber."
+      }
+    },
+    "a-t10943857": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Vannet» er et et-ord, og etter «er» får adjektivet -t: rent.",
+      "translations": {
+        "de": "Das Wasser in diesem Fluss ist sauber."
+      }
+    },
+    "a-t10943901": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Blodtrykket» er et et-ord, og etter «er» får adjektivet -t: lavt.",
+      "translations": {
+        "de": "Dein Blutdruck ist niedrig."
+      }
+    },
+    "a-t10944057": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "Subjektet «du og jeg» er flertall, så adjektivet etter «er» får -e: like høye.",
+      "translations": {
+        "de": "Du und ich sind gleich groß."
+      }
+    },
+    "a-t10946468": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Broren» er et en-ord i entall. Etter «er» står grunnformen: tung."
+    },
+    "a-t10946482": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Jeg» er én person. Etter «blir» står grunnformen: skitten."
+    },
+    "a-t10954155": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Dere» er flere personer, derfor får adjektivet -e: lave.",
+      "translations": {
+        "de": "Ihr seid sehr klein."
+      }
+    },
+    "a-t10958047": {
+      "exclude": true,
+      "note": "'svensk' is the language name (noun), inflection is not the point."
+    },
+    "a-t10958135": {
+      "tags": [
+        "flertall",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Fulle» beskriver «hendene», som er flertall. Derfor -e: fulle.",
+      "translations": {
+        "de": "Ich habe die Hände voll."
+      }
+    },
+    "a-t11064044": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Kontoret» er et et-ord. Etter «er» får adjektivet -t. Gammel får bare -t og beholder -mm-: gammelt (ikke gamle)."
+    },
+    "a-t11064047": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Skrivebordet» er et et-ord. Etter «er» får adjektivet -t: gammelt.",
+      "translations": {
+        "de": "Mein Schreibtisch ist alt."
+      }
+    },
+    "a-t11064048": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Bordet» er et et-ord. Etter «er» får adjektivet -t: gammelt.",
+      "translations": {
+        "de": "Mein Tisch ist alt."
+      }
+    },
+    "a-t11070961": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Genser» er et en-ord i ubestemt form: en stygg genser. Grunnformen uten endelse.",
+      "translations": {
+        "de": "Das ist ein hässlicher Pullover."
+      }
+    },
+    "a-t11071034": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Skjorta» er et ei-ord i entall. Etter «er» står grunnformen: ren.",
+      "translations": {
+        "de": "Das Hemd ist sauber und trocken.",
+        "en": "The shirt is clean and dry."
+      }
+    },
+    "a-t11071086": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «denne» bruker vi bestemt form med -e: denne rike mannen.",
+      "translations": {
+        "de": "Dieser reiche Mann ist gierig."
+      }
+    },
+    "a-t11089065": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Menn» er flertall, derfor får adjektivet -e: rike menn.",
+      "translations": {
+        "de": "Wir sind reiche Männer."
+      }
+    },
+    "a-t1111394": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«En dag» er et en-ord, så adjektivet står i grunnform: fin.",
+      "translations": {
+        "de": "Es ist ein schöner Tag."
+      }
+    },
+    "a-t11148422": {
+      "exclude": true,
+      "note": "Ungrammatical: 'flinke professorene' lacks article, 'holdte', 'interesante'."
+    },
+    "a-t11806497": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«Friske» beskriver «dem», altså flere ting. Derfor flertall med -e: friske.",
+      "translations": {
+        "de": "Kühle sie, um sie so frisch wie möglich zu halten."
+      }
+    },
+    "a-t11923946": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Dopapir» er et et-ord i ubestemt form, derfor får adjektivet -t: mykt.",
+      "translations": {
+        "en": "I only buy soft toilet paper."
+      }
+    },
+    "a-t11923952": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Puta» er et ei-ord i entall. Etter «er» står grunnformen: myk."
+    },
+    "a-t11931749": {
+      "exclude": true,
+      "note": "'lette' is the past tense of the verb 'lete', not the adjective 'lett'."
+    },
+    "a-t11931867": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "Adjektivet beskriver «vinduet», et et-ord, så det får -t: vinduet åpent.",
+      "translations": {
+        "en": "I always sleep with the window open."
+      }
+    },
+    "a-t12218490": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Pute» er et ei-ord i ubestemt form: en myk pute. Grunnformen uten endelse.",
+      "translations": {
+        "de": "Ich suche ein sehr weiches Kissen.",
+        "en": "I'm looking for a very soft pillow."
+      }
+    },
+    "a-t12259706": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Veien» er et en-ord i entall. Etter «er» står grunnformen: smal.",
+      "translations": {
+        "de": "Die Straße ist zu schmal für Autos.",
+        "en": "The road is too narrow for cars."
+      }
+    },
+    "a-t12268157": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Det er …» uten substantiv bruker et-form med -t: morsomt.",
+      "translations": {
+        "de": "Das ist nicht lustig.",
+        "en": "That's not funny."
+      }
+    },
+    "a-t12387325": {
+      "exclude": true,
+      "note": "'dansk' is the language name (noun), inflection is not the point."
+    },
+    "a-t12576175": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«Bøker» er flertall, derfor får adjektivet -e: franske bøker.",
+      "translations": {
+        "de": "Es gibt viele französische Bücher in der Bibliothek."
+      }
+    },
+    "a-t13373929": {
+      "exclude": true,
+      "note": "'lette' is the past tense of the verb 'lete', not the adjective 'lett'."
+    },
+    "a-t1346438": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hun» er én person. Etter «var» står adjektivet i grunnform: syk.",
+      "translations": {
+        "de": "Er sagte mir, dass sie krank sei."
+      }
+    },
+    "a-t1346444": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«En rose» er et en-ord, så adjektivet står i grunnform: vakker.",
+      "translations": {
+        "de": "Was für eine schöne Rose das ist!"
+      }
+    },
+    "a-t1346458": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Læreren» er én person. Etter «virket» står adjektivet i grunnform: sint.",
+      "translations": {
+        "de": "Unser Lehrer wirkte wütend."
+      }
+    },
+    "a-t1346464": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Slektninger» er flertall uten bestemt form, så adjektivet får -e: fjerne."
+    },
+    "a-t1346468": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Det betyr «det er fint at …». Etter «det er» får adjektivet -t: fint.",
+      "translations": {
+        "de": "Wie schön, dass du zurück bist."
+      }
+    },
+    "a-t13567094": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Trapper» er flertall, derfor får adjektivet -e: smale trapper.",
+      "translations": {
+        "de": "Was für schmale Treppen!"
+      }
+    },
+    "a-t13567104": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Hår» er et et-ord i ubestemt form: tykt hår. Dobbel k blir enkel foran -t.",
+      "translations": {
+        "de": "Du hast dickes Haar."
+      }
+    },
+    "a-t1400842": {
+      "exclude": true,
+      "note": "'Øyer' (islands) is almost certainly a mistake for 'øyne' (eyes); sentence is nonsensical."
+    },
+    "a-t14048149": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Blodtrykk» er et et-ord i ubestemt form, derfor får adjektivet -t: lavt.",
+      "translations": {
+        "de": "Ich habe niedrigen Blutdruck."
+      }
+    },
+    "a-t14048156": {
+      "exclude": true,
+      "note": "Source sentence is wrong: 'nedbør' is masculine, should be 'sur nedbør', not 'surt'."
+    },
+    "a-t14048215": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter eiendomsord foran substantivet («hennes») bruker vi bestemt form med -e: mørke.",
+      "translations": {
+        "de": "Ich mag ihre dunklen Augen."
+      }
+    },
+    "a-t14048216": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «de» og bestemt substantiv («øynene») får adjektivet -e: de mørke øynene.",
+      "translations": {
+        "de": "Ich mag ihre dunklen Augen."
+      }
+    },
+    "a-t14048337": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Føttene» er flertall, derfor får adjektivet -e: kalde.",
+      "translations": {
+        "de": "Meine Füße werden kalt."
+      }
+    },
+    "a-t14060332": {
+      "tags": [
+        "flertall",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Vi» er flere personer, derfor får adjektivet -e: trygge.",
+      "translations": {
+        "de": "Wir sind hier völlig sicher."
+      }
+    },
+    "a-t14060354": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Venner» er flertall, derfor får adjektivet -e: nære venner.",
+      "translations": {
+        "de": "Er und ich sind so enge Freunde, dass wir fast die Gedanken des anderen lesen können."
+      }
+    },
+    "a-t14060360": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Kona» er et ei-ord i entall. Etter «er» står grunnformen: pen.",
+      "translations": {
+        "de": "Seine Frau ist sehr hübsch."
+      }
+    },
+    "a-t14060459": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Dere» er flertall, så adjektivet etter «er» får -e. Sikker mister e og en k: sikre.",
+      "translations": {
+        "de": "Seid ihr sicher, dass wir hier schwimmen dürfen?"
+      }
+    },
+    "a-t1428345": {
+      "tags": [
+        "en/ei-ord",
+        "type:vokal"
+      ],
+      "explanation": "«Himmelen» er et en-ord. Etter «er» står adjektivet i grunnform: blå."
+    },
+    "a-t1442735": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Et ord» er et et-ord, så adjektivet får -t: vakkert."
+    },
+    "a-t1443670": {
+      "exclude": true,
+      "note": "'Snakke norsk': 'norsk' is the language (noun), not an adjective form."
+    },
+    "a-t1472575": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "Subjektet er en aktivitet generelt. Da får adjektivet -t, som «grasiøst»: vakkert."
+    },
+    "a-t1512498": {
+      "tags": [
+        "flertall",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Øyne» er flertall, så adjektivet får -e. Svart får ikke ekstra t: svarte."
+    },
+    "a-t1547547": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Vær så snill» sier vi til én person (deg), så grunnform: snill.",
+      "translations": {
+        "de": "Bitte komm. Ich möchte dich sehr gerne treffen."
+      }
+    },
+    "a-t1680035": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Jeg» er én person. Etter «var» står adjektivet i grunnform: sliten.",
+      "translations": {
+        "de": "Ich war heute müde."
+      }
+    },
+    "a-t1680187": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Boarealet» er et et-ord, så adjektivet får -t: stort.",
+      "translations": {
+        "de": "Die durchschnittliche amerikanische Wohnfläche ist doppelt so groß wie die japanische."
+      }
+    },
+    "a-t1680621": {
+      "exclude": true,
+      "note": "'Fransk' is the language (noun), not an adjective form."
+    },
+    "a-t1680809": {
+      "exclude": true,
+      "note": "'Lite' is a quantifier ('very little about'), not inflection of adjective 'liten'."
+    },
+    "a-t1680948": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Været» er et et-ord, så adjektivet får -t: kaldt. (Fuktig er -ig, uten -t.)",
+      "translations": {
+        "de": "Das Wetter war nicht nur kalt, sondern auch feucht.",
+        "en": "The weather was not only cold but also humid."
+      }
+    },
+    "a-t1680953": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Er du snill» sier vi til én person (du), så grunnform: snill.",
+      "translations": {
+        "de": "Weck mich bitte morgen um sieben."
+      }
+    },
+    "a-t1681128": {
+      "tags": [
+        "et-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Noe» er intetkjønn (et-ord), så «annen» blir «annet»: noe annet.",
+      "translations": {
+        "de": "Die Ärzte haben mir nichts anderes als Schlaftabletten angeboten."
+      }
+    },
+    "a-t1681153": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Jeg» er én person, så adjektivet står i grunnform: sliten.",
+      "translations": {
+        "de": "Ich bin zu müde zum Lernen."
+      }
+    },
+    "a-t1681204": {
+      "tags": [
+        "bestemt form",
+        "type:vokal"
+      ],
+      "explanation": "Etter «det» foran substantivet kommer bestemt form. Ny får -e: det nye semesteret.",
+      "translations": {
+        "de": "Das neue Semester beginnt in Japan im April."
+      }
+    },
+    "a-t1681214": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«En restaurant» er et en-ord, så adjektivet står i grunnform: fin."
+    },
+    "a-t1681218": {
+      "tags": [
+        "et-ord",
+        "type:sk"
+      ],
+      "explanation": "«Et ord» er et et-ord, men ord på -sk får ikke -t: tysk."
+    },
+    "a-t1681222": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Det ble …» er upersonlig. Adjektivet får -t: mørkt.",
+      "translations": {
+        "de": "Ich wartete auf sie, bis es dunkel wurde."
+      }
+    },
+    "a-t1681234": {
+      "tags": [
+        "et-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Et skip» er et et-ord. Hvit ender på -t, så vi skriver dobbel t: hvitt.",
+      "translations": {
+        "de": "Wir sahen in der Ferne ein weißes Schiff."
+      }
+    },
+    "a-t1681253": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Teorien» er et en-ord. Etter «er» står adjektivet i grunnform: sann.",
+      "translations": {
+        "de": "Diese Theorie trifft auf Japan zu."
+      }
+    },
+    "a-t1681256": {
+      "tags": [
+        "bestemt form",
+        "type:vokal"
+      ],
+      "explanation": "Etter «den» kommer bestemt form. Ny får -e: den nye bilen.",
+      "translations": {
+        "de": "Mein Bruder ist mit seinem neuen Auto nicht zufrieden."
+      }
+    },
+    "a-t1681260": {
+      "exclude": true,
+      "note": "'Norsk' is the language (noun), not an adjective form."
+    },
+    "a-t1681733": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Kaken» er et en-ord. Etter «er» står adjektivet i grunnform: søt.",
+      "translations": {
+        "de": "Dieser Kuchen ist sehr süß."
+      }
+    },
+    "a-t1681796": {
+      "tags": [
+        "bestemt form",
+        "type:ender-på-t"
+      ],
+      "explanation": "Etter «den» foran substantivet kommer bestemt form med -e: hvite.",
+      "translations": {
+        "de": "Der weiße Sonnenschirm gehört dir.",
+        "en": "The white parasol is yours."
+      }
+    },
+    "a-t1681810": {
+      "tags": [
+        "adverb",
+        "type:sk"
+      ],
+      "explanation": "«Raskt» sier hvordan han løper. Adverb får -t: raskt.",
+      "translations": {
+        "de": "Wie schnell er läuft!",
+        "en": "How fast he runs!"
+      }
+    },
+    "a-t1681814": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Jeg» er én person. Etter «var» står adjektivet i grunnform: rik."
+    },
+    "a-t1681816": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Verden» er et en-ord. Etter «er» står adjektivet i grunnform: full.",
+      "translations": {
+        "de": "Die Welt ist voller Idioten.",
+        "en": "The world is full of idiots."
+      }
+    },
+    "a-t1682612": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Jeg» er én person. I «glad i» står adjektivet i grunnform. Glad får aldri -t.",
+      "translations": {
+        "de": "Ich höre gern Musik.",
+        "en": "I love listening to music."
+      }
+    },
+    "a-t1682676": {
+      "exclude": true,
+      "note": "'Dyr' is the noun 'animals', not the adjective 'dyr' (expensive)."
+    },
+    "a-t1683401": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Arbeid» er et et-ord, så adjektivet får -t: hardt.",
+      "translations": {
+        "de": "Er hat sich den Preis durch harte Arbeit verdient."
+      }
+    },
+    "a-t1683405": {
+      "tags": [
+        "bestemt form",
+        "type:sammentrekning"
+      ],
+      "explanation": "Etter «den» kommer bestemt form. Gammel mister en m: gamle.",
+      "translations": {
+        "de": "Die alte Dame ging langsam den Hügel hinauf."
+      }
+    },
+    "a-t1683407": {
+      "exclude": true,
+      "note": "Gender of 'Taj Mahal' is unclear; both 'vakker' and 'vakkert' are defensible."
+    },
+    "a-t1683428": {
+      "tags": [
+        "bestemt form",
+        "type:uregelmessig"
+      ],
+      "explanation": "Etter eiendomsordet «sin» står adjektivet i bestemt form med -e: sin gode fremgang. God får -e som andre adjektiv.",
+      "translations": {
+        "de": "Er kann dem Glück für seinen guten Fortschritt danken."
+      }
+    },
+    "a-t1683440": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Bagateller» er flertall. Liten er uregelmessig og blir «små» i flertall.",
+      "translations": {
+        "de": "Mein Schwager bricht wegen kleiner Kleinigkeiten in Wut aus."
+      }
+    },
+    "a-t1683516": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«En ting» er et en-ord, så adjektivet står i grunnform: viktig.",
+      "translations": {
+        "de": "Das ist eine wichtige Sache für euch alle."
+      }
+    },
+    "a-t1683658": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «de» står adjektivet i bestemt form og får -e: de mørke skyene."
+    },
+    "a-t1686518": {
+      "tags": [
+        "et-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Eget» viser til «barnet», som er et-ord. «Egen» får -t også etter eiendomsord: hennes eget."
+    },
+    "a-t1686540": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Slips» er et-ord (et slips), så adjektivet får -t: fint slips.",
+      "translations": {
+        "de": "Was für eine schöne Krawatte du trägst."
+      }
+    },
+    "a-t1686573": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «å være» om én person generelt bruker vi grunnformen uten endelse: ung."
+    },
+    "a-t1686630": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Han» er én person, og etter «er» står grunnformen: klok.",
+      "translations": {
+        "de": "Er ist keineswegs klug."
+      }
+    },
+    "a-t1686646": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Man» er én person, så etter «er» står grunnformen: ung.",
+      "translations": {
+        "en": "When you are young, you want to be older."
+      }
+    },
+    "a-t1688343": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "Det handler om «du», én person. Etter «være» står grunnformen: sint.",
+      "translations": {
+        "de": "Du hast nichts, worüber du wütend sein müsstest."
+      }
+    },
+    "a-t1688344": {
+      "exclude": true,
+      "note": "Ungrammatical ('stå' should be 'står'); 'i full fyr' is a fixed expression."
+    },
+    "a-t1688349": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "Subjektet «grunnene» er flertall. Et adjektiv etter «er» som beskriver et flertallsord, får -e: grunnene er gode.",
+      "translations": {
+        "de": "Heutzutage sind die Gründe für eine Ehe nicht unbedingt gut."
+      }
+    },
+    "a-t1688358": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Skoene» er flertall, så adjektivet etter «er» får -e: store.",
+      "translations": {
+        "de": "Diese Schuhe sind etwas zu groß."
+      }
+    },
+    "a-t1688899": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Meldingen» er en-ord, så grunnformen brukes: viktig. Adjektiv på -ig får aldri -t.",
+      "translations": {
+        "de": "Ruf ihn an, wenn die Nachricht so wichtig ist."
+      }
+    },
+    "a-t1688900": {
+      "exclude": true,
+      "note": "'noe annet' = 'anything else', fixed pronoun use, not free adjective inflection."
+    },
+    "a-t1688906": {
+      "tags": [
+        "flertall",
+        "type:vokal"
+      ],
+      "explanation": "«Øynene» er flertall. Blå er lik i flertall: blå (eller blåe)."
+    },
+    "a-t1724766": {
+      "exclude": true,
+      "note": "'ha fri' is a fixed expression; 'fri' is not an inflectable attributive/predicative here."
+    },
+    "a-t1724779": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Utstillingen» er en-ord, så etter «være» står grunnformen: åpen.",
+      "translations": {
+        "de": "Die Ausstellung wird noch einen Monat geöffnet sein."
+      }
+    },
+    "a-t1724799": {
+      "tags": [
+        "bestemt form",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «det» foran substantiv står bestemt form med -e: det dårlige været.",
+      "translations": {
+        "de": "Wir wurden durch das schlechte Wetter daran gehindert, loszufahren."
+      }
+    },
+    "a-t1733036": {
+      "exclude": true,
+      "note": "'ett og annet' is a fixed expression ('a thing or two')."
+    },
+    "a-t1763538": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Stol» er en-ord (en stol), så grunnformen: en hard stol.",
+      "translations": {
+        "de": "Sie saß auf einem harten Stuhl."
+      }
+    },
+    "a-t1763610": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«Setninger» er flertall, så adjektivet får -e: norske."
+    },
+    "a-t1785649": {
+      "exclude": true,
+      "note": "'norsk' is the noun (the language), not an adjective."
+    },
+    "a-t1789903": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«Kvinner» er flertall uten bestemt artikkel, så adjektivet får -e: norske."
+    },
+    "a-t1792088": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Partner» er en-ord (en partner), så grunnformen: en viktig partner.",
+      "translations": {
+        "en": "Algeria is an important partner for the European Union."
+      }
+    },
+    "a-t1797583": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Opphold» er et-ord, men adjektiv på -ig får ikke -t: et hyggelig opphold.",
+      "translations": {
+        "de": "Wir wünschen dir einen angenehmen Aufenthalt!"
+      }
+    },
+    "a-t1799163": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Mann» er en-ord, så grunnformen: en sulten mann.",
+      "translations": {
+        "en": "A hungry man doesn't steal snacks."
+      }
+    },
+    "a-t1805698": {
+      "tags": [
+        "flertall",
+        "type:ig-lig"
+      ],
+      "explanation": "«Svar» står her i flertall uten artikkel, så adjektivet får -e: viktige.",
+      "translations": {
+        "en": "The parents hope that the Facebook investigation can provide important answers."
+      }
+    },
+    "a-t1842578": {
+      "tags": [
+        "et-ord",
+        "type:vokal"
+      ],
+      "explanation": "«Forslag» er et et-ord i ubestemt entall: et nytt forslag. Ny får dobbel t: nytt.",
+      "translations": {
+        "en": "I want to make a new proposal – very different from the first one."
+      }
+    },
+    "a-t1846764": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Teori» er en-ord. «Egen» etter «sin» får ingen -e: sin egen teori.",
+      "translations": {
+        "en": "Each researcher will probably come up with their own theory to explain this phenomenon."
+      }
+    },
+    "a-t1846779": {
+      "exclude": true,
+      "note": "Ungrammatical word order (V2 violated: 'Sannsynligvis hver forsker vil')."
+    },
+    "a-t1846780": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Teori» er en-ord. «Egen» etter «sin» får ingen -e: sin egen teori.",
+      "translations": {
+        "en": "Each researcher will probably come up with their own theory to explain this phenomenon."
+      }
+    },
+    "a-t1847664": {
+      "tags": [
+        "et-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Fenomenet» er et-ord, men lett slutter allerede på -tt, så formen er bare lett."
+    },
+    "a-t1850486": {
+      "exclude": true,
+      "note": "Ungrammatical word order ('Mange prosjekter dessverre forblir' violates V2)."
+    },
+    "a-t1857938": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hardt» sier hvordan du prøver. Adjektiv brukt som adverb får -t: hardt.",
+      "translations": {
+        "en": "You can do it if you try hard enough."
+      }
+    },
+    "a-t1866228": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Stil» er en-ord, så grunnformen: en vakker stil.",
+      "translations": {
+        "de": "Der Autor hat einen schönen Stil."
+      }
+    },
+    "a-t1866365": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hun» er én person, så etter «var» står grunnformen: rik.",
+      "translations": {
+        "en": "They say she was rich."
+      }
+    },
+    "a-t1870202": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Svaret» er et-ord, så adjektivet etter «er» får -t: enkelt.",
+      "translations": {
+        "en": "Unfortunately, the answer is not simple."
+      }
+    },
+    "a-t1876324": {
+      "tags": [
+        "en/ei-ord",
+        "type:sk"
+      ],
+      "explanation": "«Dverg» er en-ord, så grunnformen: en politisk dverg. Adjektiv på -sk får aldri -t.",
+      "translations": {
+        "en": "The economic giant Europe is still a political dwarf."
+      }
+    },
+    "a-t1878196": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Grunner» er ubestemt flertall (mange grunner), så adjektivet får -e: gode grunner.",
+      "translations": {
+        "en": "There are many good reasons to write understandable texts."
+      }
+    },
+    "a-t1904682": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Metode» er en-ord, så etter «er» står grunnformen: enkel."
+    },
+    "a-t1905264": {
+      "tags": [
+        "bestemt form",
+        "type:sk"
+      ],
+      "explanation": "Etter «den» foran substantiv står bestemt form med -e: den politiske betydningen.",
+      "translations": {
+        "en": "It is hardly possible to overestimate the political importance of Turkey in the region."
+      }
+    },
+    "a-t1906547": {
+      "tags": [
+        "bestemt form",
+        "type:sammentrekning"
+      ],
+      "explanation": "Etter «den» står bestemt form. Sulten mister -e- i endelsen: den sultne katten.",
+      "translations": {
+        "de": "Die Maus läuft vor der hungrigen Katze weg."
+      }
+    },
+    "a-t1906598": {
+      "exclude": true,
+      "note": "'svarte' is the past tense of the verb 'svare', not the adjective 'svart'."
+    },
+    "a-t1906626": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«Turistbutikker» er flertall uten artikkel, så adjektivet får -e: typiske.",
+      "translations": {
+        "en": "Even though half the shops were typical tourist shops, the town was fantastic."
+      }
+    },
+    "a-t1910041": {
+      "tags": [
+        "et-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Pulver» er et-ord. Hvit får dobbel t i et-form: et hvitt pulver.",
+      "translations": {
+        "en": "When the letter was opened, it turned out to contain a white powder."
+      }
+    },
+    "a-t1910045": {
+      "tags": [
+        "et-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Pulver» er et-ord. Hvit får dobbel t i et-form: et hvitt pulver.",
+      "translations": {
+        "en": "The letter contains a white powder."
+      }
+    },
+    "a-t1923780": {
+      "exclude": true,
+      "note": "'åpne' is the verb 'to open', not the adjective 'åpen'."
+    },
+    "a-t1955683": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «det er» bruker vi et-formen, men adjektiv på -ig får ikke -t: deilig."
+    },
+    "a-t1959097": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Sted» er et-ord (et sted), så adjektivet får -t: fint.",
+      "translations": {
+        "de": "Ich habe gestern einen sehr schönen Ort gefunden."
+      }
+    },
+    "a-t1971217": {
+      "exclude": true,
+      "note": "'åpne' is the verb 'to open', not the adjective 'åpen'."
+    },
+    "a-t1971237": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Jeg» er én person, så grunnformen: hyggelig. -ig får aldri -t.",
+      "translations": {
+        "de": "Ich habe nur versucht, nett zu sein."
+      }
+    },
+    "a-t1971238": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Jeg» er én person, så grunnformen: hyggelig. -ig får aldri -t.",
+      "translations": {
+        "de": "Ich versuche nur, nett zu sein."
+      }
+    },
+    "a-t1971266": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Venner» er flertall, så adjektivet får -e: ingen nære venner.",
+      "translations": {
+        "de": "Ich habe keine engen Freunde."
+      }
+    },
+    "a-t1971295": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Vi» er flere personer, så adjektivet får flertallsform: unge.",
+      "translations": {
+        "de": "Wir wollen alle ewig jung sein."
+      }
+    },
+    "a-t1971511": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Kart» er et-ord (et kart), så adjektivet får -t: et stort kart.",
+      "translations": {
+        "de": "Hier ist eine große Karte von Deutschland."
+      }
+    },
+    "a-t1971760": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «det er» om vær og situasjon bruker vi -t-formen: kaldt.",
+      "translations": {
+        "de": "Es ist gerade sehr kalt."
+      }
+    },
+    "a-t1972763": {
+      "exclude": true,
+      "note": "'på tysk' uses the noun (the language), not the adjective."
+    },
+    "a-t1974100": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Vann» er et-ord (et vann), så adjektivet får -t: kaldt vann.",
+      "translations": {
+        "de": "Hol mir etwas kaltes Wasser."
+      }
+    },
+    "a-t1974118": {
+      "exclude": true,
+      "note": "'åpne' is the verb 'to open', not the adjective 'åpen'."
+    },
+    "a-t1979632": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Hesten» er en-ord, så etter «er» står grunnformen: svart.",
+      "translations": {
+        "de": "Ist dein Pferd schwarz?"
+      }
+    },
+    "a-t1979644": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Boksene» er flertall, så adjektivet etter «er» får -e: store.",
+      "translations": {
+        "de": "Diese Kisten sind gleich groß."
+      }
+    },
+    "a-t1981793": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hun» er én person, så etter «var» står grunnformen: svak.",
+      "translations": {
+        "de": "Sie war nach der Krankheit noch schwach."
+      }
+    },
+    "a-t1982578": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Grønt» beskriver «huset», et et-ord, og får -t. Grønn mister én n: grønt.",
+      "translations": {
+        "de": "Wir haben das Haus grün gestrichen."
+      }
+    },
+    "a-t1982627": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Problem» er et et-ord i ubestemt entall: et stort problem. Adjektivet får -t.",
+      "translations": {
+        "de": "Getrenntschreibung ist ein großes Problem in Norwegen."
+      }
+    },
+    "a-t1983785": {
+      "exclude": true,
+      "note": "'dyr' is the noun 'animals', not the adjective 'dyr' (expensive)."
+    },
+    "a-t1983801": {
+      "tags": [
+        "adverb",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Sikkert» betyr her «nok, trolig» og står som adverb. Da får det -t.",
+      "translations": {
+        "de": "Toms Frau hätte ihn sicher verlassen, wenn sie die Wahrheit gewusst hätte."
+      }
+    },
+    "a-t1983943": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Ansikt» er et-ord, så adjektivet etter «er» får -t: rødt.",
+      "translations": {
+        "de": "Toms Gesicht ist rot."
+      }
+    },
+    "a-t1983968": {
+      "exclude": true,
+      "note": "'lite' used as quantifier (too little protein), not as inflection of the adjective liten."
+    },
+    "a-t1986110": {
+      "tags": [
+        "et-ord",
+        "type:sk"
+      ],
+      "explanation": "«Språk» er et-ord, men adjektiv på -sk får ikke -t: norsk språk."
+    },
+    "a-t1986185": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«Svenskevitser» er flertall, så adjektivet får -e: norske.",
+      "translations": {
+        "en": "I like Norwegian jokes about Swedes."
+      }
+    },
+    "a-t2059520": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Vi» er flere personer, så adjektivet får -e: glade.",
+      "translations": {
+        "de": "Wir waren arm, aber glücklich."
+      }
+    },
+    "a-t2103133": {
+      "tags": [
+        "adverb",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Enkelt» sier hvordan sykdommen kureres. Adjektiv brukt som adverb får -t.",
+      "translations": {
+        "en": "The disease can be cured quite simply with a blood transfusion from a relative, especially a brother."
+      }
+    },
+    "a-t2112315": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "Subjektet er «det hun gjorde» (et-form), men -ig får aldri -t: riktig.",
+      "translations": {
+        "de": "Ich sage nicht, dass das, was sie getan hat, richtig war."
+      }
+    },
+    "a-t2140879": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Etter «det … være» brukes et-formen. Sann mister én n: sant.",
+      "translations": {
+        "de": "Das kann wahr sein."
+      }
+    },
+    "a-t2146773": {
+      "tags": [
+        "flertall",
+        "type:ig-lig"
+      ],
+      "explanation": "«Spørsmål» står her i flertall uten artikkel, så adjektivet får -e: vanskelige."
+    },
+    "a-t2151878": {
+      "tags": [
+        "adverb",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Sikkert» betyr her «helt sikkert, trolig» og er adverb. Da får det -t.",
+      "translations": {
+        "en": "A shortage of corn, wheat and rice will quite certainly cause social unrest."
+      }
+    },
+    "a-t2160738": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Inntrykk» står her i flertall uten artikkel, så adjektivet får -e: sterke.",
+      "translations": {
+        "en": "A necessary part of emergency workers' job is to process strong emotional impressions."
+      }
+    },
+    "a-t2207000": {
+      "tags": [
+        "adverb",
+        "type:sk"
+      ],
+      "explanation": "«Raskt» sier hvordan de formerer seg. Adjektiv brukt som adverb får -t.",
+      "translations": {
+        "en": "These parasites multiply very quickly."
+      }
+    },
+    "a-t2208209": {
+      "tags": [
+        "et-ord",
+        "type:vokal"
+      ],
+      "explanation": "«Terrorangrep» er et et-ord i ubestemt entall: et nytt terrorangrep. Ny får dobbel t: nytt.",
+      "translations": {
+        "en": "Norway is not ready for a new terrorist attack."
+      }
+    },
+    "a-t2216292": {
+      "exclude": true,
+      "note": "Plural subject with neuter predicative ('dyrt'); 'dyre' is equally correct, so the form is undecidable."
+    },
+    "a-t2226850": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Jeg» er én person, så grunnformen: dum."
+    },
+    "a-t2226854": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Jeg» er én person, så etter «er» står grunnformen: dum.",
+      "translations": {
+        "en": "I may be crazy, but I am not stupid."
+      }
+    },
+    "a-t2233043": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Parker» er flertall. Vakker blir vakre i flertall: vakre parker."
+    },
+    "a-t2263511": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "Subjektet er «det», så adjektivet får -t: naivt og enkelt."
+    },
+    "a-t2263936": {
+      "tags": [
+        "flertall",
+        "type:ig-lig"
+      ],
+      "explanation": "«Beslutninger» er flertall, så adjektivet får -e: vanskelige.",
+      "translations": {
+        "en": "Sometimes you have to have the courage to make difficult decisions."
+      }
+    },
+    "a-t2263937": {
+      "tags": [
+        "flertall",
+        "type:ig-lig"
+      ],
+      "explanation": "«Avgjørelser» er flertall, så adjektivet får -e: vanskelige."
+    },
+    "a-t2279472": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Torg» står i ubestemt flertall (som «gater»). Liten har en egen flertallsform: små torg.",
+      "translations": {
+        "en": "This part of the city is truly a labyrinth of winding streets and small squares."
+      }
+    },
+    "a-t2279552": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Promenade» er en-ord, så grunnformen: en fin promenade.",
+      "translations": {
+        "en": "There you will find a lovely sandy beach lined by a nice promenade."
+      }
+    },
+    "a-t2279558": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «det» og bestemt substantiv (torget) får adjektivet -e: det store torget.",
+      "translations": {
+        "de": "Auf dem großen Platz am Hafen gibt es Cafés und Restaurants.",
+        "en": "On the big square by the harbour there are cafés and restaurants."
+      }
+    },
+    "a-t2311847": {
+      "tags": [
+        "et-ord",
+        "type:vokal"
+      ],
+      "explanation": "«Språk» er et et-ord i ubestemt entall: et nytt språk. Ny får dobbel t: nytt.",
+      "translations": {
+        "de": "Ich habe viel über die verschiedenen Methoden nachgedacht, eine neue Sprache zu lernen.",
+        "en": "I have thought a lot about the different methods of learning a new language."
+      }
+    },
+    "a-t2334870": {
+      "tags": [
+        "flertall",
+        "type:ig-lig"
+      ],
+      "explanation": "«Minner» er flertall, så adjektivet får -e: dårlige minner.",
+      "translations": {
+        "de": "Alles, was ich habe, ist mein verwundeter Körper und eine Handvoll schlechter Erinnerungen."
+      }
+    },
+    "a-t2351410": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Vakkert» beskriver «korset», et et-ord. Derfor -t: vakkert.",
+      "translations": {
+        "de": "Es ist ein Kreuz von goldener Farbe, einfach schön.",
+        "en": "It is a cross of golden colour, simply beautiful."
+      }
+    },
+    "a-t2364604": {
+      "tags": [
+        "adverb",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Sikkert» betyr her «nok, trolig» og står som adverb. Da får det -t."
+    },
+    "a-t2396987": {
+      "tags": [
+        "flertall",
+        "type:vokal"
+      ],
+      "explanation": "«Øyne» er flertall. Blå er lik i flertall: blå (eller blåe)."
+    },
+    "a-t2416821": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Sommerdager» er flertall. Vakker blir vakre i flertall.",
+      "translations": {
+        "en": "On beautiful summer days the children played outside until late in the evening."
+      }
+    },
+    "a-t2417276": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Mye dumt» betyr «mye dumt snakk». Uten substantiv etter «mye» får adjektivet -t.",
+      "translations": {
+        "en": "I've heard a lot of nonsense today, but this takes the cake!"
+      }
+    },
+    "a-t2420227": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Niese» er en-ord, så etter «er» står grunnformen: flink.",
+      "translations": {
+        "en": "My niece, my sister's daughter, is good at school."
+      }
+    },
+    "a-t2420370": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Figur» er en-ord, så grunnformen: en slank figur.",
+      "translations": {
+        "en": "Maria has a slim figure."
+      }
+    },
+    "a-t2420395": {
+      "tags": [
+        "bestemt form",
+        "type:uregelmessig"
+      ],
+      "explanation": "Etter eiendomsordet «sine» står flertallsformen med -e: sine egne forfedre.",
+      "translations": {
+        "en": "Who among us wants to throw stones at their own ancestors?"
+      }
+    },
+    "a-t2421622": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Du» er én person, så etter «er» står grunnformen: sikker.",
+      "translations": {
+        "de": "Bist du sicher, dass du keine maschinellen Übersetzungen benutzt?"
+      }
+    },
+    "a-t2424083": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «det er» bruker vi et-formen, men -ig får aldri -t: farlig.",
+      "translations": {
+        "en": "I fell in love with you without knowing that it is dangerous."
+      }
+    },
+    "a-t2430137": {
+      "tags": [
+        "adverb",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Sikkert» betyr her «nok, trolig» og er adverb. Da får det -t.",
+      "translations": {
+        "en": "Nobody knows when it happened, but it was probably a long time ago."
+      }
+    },
+    "a-t2430728": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Rent» betyr her «helt, bare» og står foran et adjektiv som adverb. Da får det -t.",
+      "translations": {
+        "en": "Policy areas that used to be purely domestic have now taken on an international character."
+      }
+    },
+    "a-t2434725": {
+      "tags": [
+        "adverb",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Sikkert» betyr her «nok, trolig» og er adverb. Da får det -t.",
+      "translations": {
+        "en": "This is a paradox. But the researchers surely have an explanation."
+      }
+    },
+    "a-t2438176": {
+      "tags": [
+        "flertall",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Spørsmål» står her i flertall uten artikkel. Dum får dobbel m: dumme.",
+      "translations": {
+        "de": "Er stellt ständig dumme Fragen."
+      }
+    },
+    "a-t2443886": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter eiendomsordet «mine» står adjektivet med -e: mine varme truser.",
+      "translations": {
+        "en": "Where are my warm knickers?"
+      }
+    },
+    "a-t2444667": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter eiendomsordet «min» foran substantivet står adjektivet i bestemt form med -e: min store drøm.",
+      "translations": {
+        "en": "Help me make my big dream come true!"
+      }
+    },
+    "a-t2456334": {
+      "tags": [
+        "bestemt form",
+        "type:sammentrekning"
+      ],
+      "explanation": "Etter «det» står bestemt form. Enkel mister -e-: det enkle prinsippet.",
+      "translations": {
+        "en": "The basis of the method is the simple principle of imitation."
+      }
+    },
+    "a-t2458038": {
+      "tags": [
+        "adverb",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Sikkert» betyr her «nok, trolig» og er adverb. Da får det -t.",
+      "translations": {
+        "en": "This is surely nonsense."
+      }
+    },
+    "a-t2466388": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "Subjektet er «det», så adjektivet får -t: vakkert.",
+      "translations": {
+        "de": "Wie schön es hier ist!",
+        "en": "How beautiful it is here!"
+      }
+    },
+    "a-t2468574": {
+      "tags": [
+        "adverb",
+        "type:sk"
+      ],
+      "explanation": "«Raskt» sier hvordan vi må reagere. Adjektiv brukt som adverb får -t.",
+      "translations": {
+        "en": "We have to react quickly."
+      }
+    },
+    "a-t2474421": {
+      "exclude": true,
+      "note": "'mørke' is the noun 'darkness', not the adjective 'mørk'."
+    },
+    "a-t2479148": {
+      "tags": [
+        "bestemt form",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Etter «de» står bestemt form. Dum får dobbel m: de dumme spørsmålene.",
+      "translations": {
+        "en": "But now that's enough of the stupid questions!"
+      }
+    },
+    "a-t2480547": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Pent» sier hvordan du skal skrive. Adjektiv brukt som adverb får -t.",
+      "translations": {
+        "de": "Schreib so schön wie möglich."
+      }
+    },
+    "a-t2480551": {
+      "tags": [
+        "adverb",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Enkelt» sier hvordan du skal skrive. Adjektiv brukt som adverb får -t.",
+      "translations": {
+        "de": "Schreib so einfach wie möglich.",
+        "en": "Write as simply as possible."
+      }
+    },
+    "a-t2481146": {
+      "tags": [
+        "bestemt form",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «den» står bestemt form med -e: den riktige løsningen.",
+      "translations": {
+        "en": "Tick the correct solution to the equation."
+      }
+    },
+    "a-t2484322": {
+      "exclude": true,
+      "note": "'svarte' is the past tense of the verb 'svare', not the adjective 'svart'."
+    },
+    "a-t2497709": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Livet» er et-ord, så adjektivet etter «er» får -t: fullt."
+    },
+    "a-t2497743": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Livet» er et-ord, så adjektivet etter «er» får -t: fullt.",
+      "translations": {
+        "en": "Life is full of secrets and riddles."
+      }
+    },
+    "a-t2497746": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Livet» er et-ord, så adjektivet etter «er» får -t: fullt.",
+      "translations": {
+        "en": "Life is full of riddles."
+      }
+    },
+    "a-t2497855": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Livet» er et-ord, så adjektivet etter «er» får -t: fullt.",
+      "translations": {
+        "en": "Life is full of surprises."
+      }
+    },
+    "a-t2498179": {
+      "tags": [
+        "en/ei-ord",
+        "type:sk"
+      ],
+      "explanation": "«Hun» er én person, så etter «er» står grunnformen: frisk.",
+      "translations": {
+        "de": "Liisa sagt, sie ist wieder gesund.",
+        "en": "Liisa says she is healthy again."
+      }
+    },
+    "a-t2498212": {
+      "tags": [
+        "flertall",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Ekornene» er flertall, så adjektivet får -e: søte.",
+      "translations": {
+        "en": "Squirrels look cute and harmless, but they are devilishly cunning creatures."
+      }
+    },
+    "a-t2514466": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Moren» er én person, så grunnformen: trøtt.",
+      "translations": {
+        "en": "My mother works in a factory and is tired when she comes home."
+      }
+    },
+    "a-t2518739": {
+      "tags": [
+        "et-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Rom» er et-ord, så egen får -t: et eget rom.",
+      "translations": {
+        "de": "Ich wünsche mir ein eigenes Zimmer.",
+        "en": "I would like a room of my own."
+      }
+    },
+    "a-t2518766": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Han» er én person, så etter «er» står grunnformen: sulten.",
+      "translations": {
+        "en": "He only screams when he is hungry."
+      }
+    },
+    "a-t2518910": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Høyt» sier hvordan han skriker. Adjektiv brukt som adverb får -t.",
+      "translations": {
+        "en": "My little brother screams very loudly."
+      }
+    },
+    "a-t2518911": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Høyt» sier hvordan hun skriker. Når adjektivet beskriver et verb, er det adverb og får -t.",
+      "translations": {
+        "en": "My little sister screams very loudly."
+      }
+    },
+    "a-t2521713": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Hun» er én person. Etter «er» står grunnformen. Trøtt ender allerede på -t.",
+      "translations": {
+        "en": "She is tired and wants to sleep longer."
+      }
+    },
+    "a-t2568741": {
+      "tags": [
+        "bestemt form",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Etter «den» står bestemt form: tykke. Adjektivet får -e.",
+      "translations": {
+        "de": "Ich muss heute die dicke Jacke anziehen.",
+        "en": "I have to put on the thick jacket today."
+      }
+    },
+    "a-t2571194": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "I uttrykket «ha det travelt» viser adjektivet til «det». Derfor får det -t: travelt.",
+      "translations": {
+        "en": "Now he is busy."
+      }
+    },
+    "a-t2581991": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«En» betyr her «man», altså én person. Etter «blir» står grunnformen: skitten.",
+      "translations": {
+        "en": "Then you get dirty, of course."
+      }
+    },
+    "a-t2582343": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Mennesker» er flertall. Etter «som er» får adjektivet -e: syke."
+    },
+    "a-t2582552": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«En kjole» er en-ord. Svart ender allerede på -t, så formen er bare svart.",
+      "translations": {
+        "en": "It was a black dress with a deep neckline."
+      }
+    },
+    "a-t2582674": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Det er …» gir et-form med -t. Sann → sant (bare én n før -t).",
+      "translations": {
+        "en": "Yes! It's incredible, but true. Captain Nemo has even more books than me."
+      }
+    },
+    "a-t2584357": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Steiner» er flertall uten artikkel. Da får adjektivet -e: skarpe.",
+      "translations": {
+        "en": "Many dreams are like soap bubbles that the wind blows against sharp stones."
+      }
+    },
+    "a-t2584454": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«En mann» er en-ord i ubestemt form. Da står grunnformen: rik.",
+      "translations": {
+        "en": "I want a rich husband."
+      }
+    },
+    "a-t2591544": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«En smerteterskel» er en-ord i ubestemt form. Da står grunnformen: lav.",
+      "translations": {
+        "en": "I have a low pain threshold."
+      }
+    },
+    "a-t2592482": {
+      "exclude": true,
+      "note": "Ambiguous: adverbial 'raskt og spontant' is at least as natural as the depictive 'rask og spontan'."
+    },
+    "a-t2602248": {
+      "tags": [
+        "flertall",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Maria og jeg» er to personer, altså flertall. Derfor får adjektivet -e: sinte.",
+      "translations": {
+        "en": "Maria and I get angry."
+      }
+    },
+    "a-t2607284": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Teen» er en-ord («en te»). Etter «er» står grunnformen: sterk.",
+      "translations": {
+        "de": "Der Tee ist zu stark. Gib etwas Wasser dazu."
+      }
+    },
+    "a-t2613467": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Det er …» med infinitiv etter gir et-form med -t. Morsom → morsomt (én m).",
+      "translations": {
+        "en": "It's fun to go for a walk with my dog."
+      }
+    },
+    "a-t2613671": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «den» og med eiendomsord står bestemt form: gule.",
+      "translations": {
+        "en": "Your yellow blouse shines like the sun."
+      }
+    },
+    "a-t2625836": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Det er …» gir et-form, men adjektiv på -ig får ikke -t: farlig."
+    },
+    "a-t2628319": {
+      "tags": [
+        "adverb",
+        "type:sk"
+      ],
+      "explanation": "«Raskt» sier hvordan du skal løpe. Adverb får -t. Rask er ikke et -isk-ord, så -t kommer.",
+      "translations": {
+        "en": "Run quickly down the slope!"
+      }
+    },
+    "a-t2630118": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Jeg» er én person. Etter «føler meg» står grunnformen: dum.",
+      "translations": {
+        "en": "I feel stupid."
+      }
+    },
+    "a-t2633275": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Kvinne» er en-ord, her uten artikkel. Da står grunnformen: hvit.",
+      "translations": {
+        "en": "Being a white woman in India can have its drawbacks."
+      }
+    },
+    "a-t2633935": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Det er …» gir et-form, men adjektiv på -ig får ikke -t: farlig.",
+      "translations": {
+        "en": "Surely it's not that dangerous."
+      }
+    },
+    "a-t2637370": {
+      "exclude": true,
+      "note": "'svarte' is the past tense of the verb 'svare', not the adjective 'svart'."
+    },
+    "a-t2637677": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Maria» er én person. Etter «blir» står grunnformen: rød.",
+      "translations": {
+        "en": "Maria bites her lip and turns red in the face."
+      }
+    },
+    "a-t2638117": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«En dag» er en-ord i ubestemt form. Da står grunnformen: morsom."
+    },
+    "a-t2638214": {
+      "tags": [
+        "adverb",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Dumt» sier hvordan det ble sagt. Adverb får -t; dum → dumt (én m).",
+      "translations": {
+        "en": "That was a stupid thing to say."
+      }
+    },
+    "a-t2638414": {
+      "exclude": true,
+      "note": "Ungrammatical: 'at de skal være en morsom dag' makes no sense."
+    },
+    "a-t2656743": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Adjektivet viser til «det». Derfor får det -t: fint."
+    },
+    "a-t2656751": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Fint» sier hvordan Maria behandler meg. Adverb får -t."
+    },
+    "a-t2656764": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Adjektivet viser til «det». Etter «hadde vært» får det -t: fint.",
+      "translations": {
+        "en": "That would have been nice."
+      }
+    },
+    "a-t2656766": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Et skip» er et-ord. Da får adjektivet -t: fint.",
+      "translations": {
+        "en": "That's a fine ship."
+      }
+    },
+    "a-t2659576": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Du» er én person. Etter «føle deg» står grunnformen: trygg.",
+      "translations": {
+        "en": "Here you can feel safe."
+      }
+    },
+    "a-t2659610": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Uten eget subjekt tenker vi på én person («man»). Da står grunnformen: trygg.",
+      "translations": {
+        "de": "Sich wohlzufühlen hängt damit zusammen, selbstsicher zu sein.",
+        "en": "Feeling good is connected to being confident in yourself."
+      }
+    },
+    "a-t2659949": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Maria» er én person. Etter «føler seg» står grunnformen: slank.",
+      "translations": {
+        "de": "Maria fühlt sich nicht schlank genug.",
+        "en": "Maria doesn't feel slim enough."
+      }
+    },
+    "a-t2659952": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Maria» er én person. Etter «føler seg» står grunnformen: pen.",
+      "translations": {
+        "de": "Maria fühlt sich nicht hübsch genug.",
+        "en": "Maria doesn't feel pretty enough."
+      }
+    },
+    "a-t2659954": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Maria» er én person. Etter «føler seg» står grunnformen: klok.",
+      "translations": {
+        "de": "Maria fühlt sich nicht klug genug.",
+        "en": "Maria doesn't feel smart enough."
+      }
+    },
+    "a-t2661130": {
+      "exclude": true,
+      "note": "'fjerne' is the verb 'to remove', not the adjective 'fjern'."
+    },
+    "a-t2662130": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Han» er én person. Etter «er» står grunnformen. -ig får aldri -t."
+    },
+    "a-t2669580": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "Adjektivet viser til «det», så det er et-form. Men -ig får ikke -t: hyggelig.",
+      "translations": {
+        "en": "Yes, but it was nice for me too."
+      }
+    },
+    "a-t2673787": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Språk» er et-ord («et språk»). Enkel → enkelt i et-form.",
+      "translations": {
+        "en": "Use clear and simple language that keeps a polite, informative and neutral tone."
+      }
+    },
+    "a-t2673840": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Jentene» er flertall. I «være glad i» får glad -e i flertall: glade.",
+      "translations": {
+        "en": "The girls were always fond of him."
+      }
+    },
+    "a-t2673854": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Faren» er én person. Etter «var» står grunnformen: ensom.",
+      "translations": {
+        "en": "His father was also quiet and lonely."
+      }
+    },
+    "a-t2674362": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Et reisemål» er et-ord. Vakker → vakkert i et-form.",
+      "translations": {
+        "en": "Zurich, Switzerland's largest city, is a beautiful and charming destination."
+      }
+    },
+    "a-t2674803": {
+      "exclude": true,
+      "note": "'barn og unge': 'unge' is a nominalized noun ('young people'), not a free adjective choice."
+    },
+    "a-t2681349": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«De» er flertall. Etter «var» får adjektivet -e: unge.",
+      "translations": {
+        "en": "They were far too young, after all."
+      }
+    },
+    "a-t2683387": {
+      "exclude": true,
+      "note": "'grønt' is a noun here ('frukt og grønt' = fruit and vegetables), not an inflected adjective."
+    },
+    "a-t2683464": {
+      "tags": [
+        "flertall",
+        "type:vokal"
+      ],
+      "explanation": "«Radikaler» er flertall uten artikkel. Fri → frie i flertall.",
+      "translations": {
+        "en": "Free radicals are constantly being formed in the body."
+      }
+    },
+    "a-t2685774": {
+      "exclude": true,
+      "note": "Answer is wrong: singular subject 'vinterskogen' requires 'hvit' (source sentence erroneous)."
+    },
+    "a-t2686115": {
+      "exclude": true,
+      "note": "'varme' is the noun 'warmth' here, not the adjective 'varm'."
+    },
+    "a-t2686686": {
+      "exclude": true,
+      "note": "Second sentence ungrammatical (V2 violated: should be 'Derfor skader ikke frosten dem')."
+    },
+    "a-t2686851": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«En ring» er en-ord i ubestemt form. Da står grunnformen: mørk.",
+      "translations": {
+        "en": "A tree ring consists of a dark and a light ring."
+      }
+    },
+    "a-t2694258": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "alternatives": [
+        "vakkert"
+      ],
+      "explanation": "«Lauv» betyr her mange blader (flertall). Vakker → vakre: e-en faller bort.",
+      "translations": {
+        "en": "When autumn comes, the children tie beautiful leaves into wreaths."
+      },
+      "note": "'lauv' can also be read as a neuter mass noun: 'vakkert lauv'."
+    },
+    "a-t2694282": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Lauvblader» er ubestemt flertall, så adjektivet får -e. Vakker mister e og en k: vakre."
+    },
+    "a-t2697542": {
+      "tags": [
+        "en/ei-ord",
+        "type:sk"
+      ],
+      "explanation": "«Erfaring» er en/ei-ord uten artikkel: grunnform. Ord på -isk får aldri -t.",
+      "translations": {
+        "en": "This book combines theoretical foundations with practical experience."
+      }
+    },
+    "a-t2707352": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Mat» er en-ord. Etter «er» står grunnformen. -ig får aldri -t.",
+      "translations": {
+        "de": "In Deutschland ist Essen billig."
+      }
+    },
+    "a-t2739689": {
+      "exclude": true,
+      "note": "Ungrammatical word order (V2): should be 'følte han seg'."
+    },
+    "a-t2739719": {
+      "tags": [
+        "en/ei-ord",
+        "type:vokal"
+      ],
+      "explanation": "«Maria» er én person. Etter «føler seg» står grunnformen: fri.",
+      "translations": {
+        "en": "Today Maria feels free as a bird."
+      }
+    },
+    "a-t2739836": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Skjebnen» er en-ord. Etter «er» står grunnformen: hard.",
+      "translations": {
+        "en": "I don't understand why fate is so hard on me."
+      }
+    },
+    "a-t2808453": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "Adjektivet viser til «det», så det er et-form. Men -ig får ikke -t: ledig.",
+      "translations": {
+        "de": "Ist hier frei?",
+        "en": "Is this seat free?"
+      }
+    },
+    "a-t2816122": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Du» er én person. Etter «er» står grunnformen: sikker.",
+      "translations": {
+        "de": "Bist du dir da sicher?",
+        "en": "Are you sure about this?"
+      }
+    },
+    "a-t2816136": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter eiendomsordet «sin» står bestemt form: lave.",
+      "translations": {
+        "de": "Er beklagt sich ständig über seinen niedrigen Lohn."
+      }
+    },
+    "a-t2817988": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Du» er én person. Etter «være» står grunnformen. -ig får aldri -t.",
+      "translations": {
+        "de": "Du hast das Recht, glücklich zu sein."
+      }
+    },
+    "a-t2818006": {
+      "exclude": true,
+      "note": "Nominalized colour ('gult' = the colour yellow); form not derivable from the sentence."
+    },
+    "a-t2818433": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«En hatt» er en-ord. Svart ender allerede på -t, så formen er bare svart.",
+      "translations": {
+        "de": "Sie trug einen schwarzen Hut."
+      }
+    },
+    "a-t2818441": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Subjektet «et liv» er et-ord. Etter «er» får tom -t: tomt (én m).",
+      "translations": {
+        "de": "Ein Leben ohne ihn ist leer."
+      }
+    },
+    "a-t2819334": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Hun» er én person. Etter «er» står grunnformen. Smart ender allerede på -t.",
+      "translations": {
+        "de": "Sie ist sehr klug, nicht wahr?",
+        "en": "She's very smart, isn't she?"
+      }
+    },
+    "a-t2824484": {
+      "exclude": true,
+      "note": "'svensk' is the language name (noun), not an inflected adjective."
+    },
+    "a-t2824554": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Adjektivet viser til «det». Derfor får det -t: mykt.",
+      "translations": {
+        "de": "Das war unglaublich weich!"
+      }
+    },
+    "a-t2824606": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Du» er én person. Etter «er» står grunnformen: sikker."
+    },
+    "a-t2826623": {
+      "exclude": true,
+      "note": "'svarte' is the past tense of the verb 'svare', not the adjective 'svart'."
+    },
+    "a-t2827331": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Adjektivet viser til «det». Sann → sant (bare én n før -t).",
+      "translations": {
+        "de": "Das kann nicht wahr sein."
+      }
+    },
+    "a-t2827436": {
+      "tags": [
+        "adverb",
+        "type:vokal"
+      ],
+      "explanation": "«Fritt» sier hvordan du kan snakke. Adverb får -t, og fri får dobbel t: fritt.",
+      "translations": {
+        "de": "Du kannst mit jedem frei sprechen."
+      }
+    },
+    "a-t2847347": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Jeg» er én person. Etter «blir» står grunnformen: sliten.",
+      "translations": {
+        "en": "Lately I get tired very quickly."
+      }
+    },
+    "a-t2866595": {
+      "exclude": true,
+      "note": "Fixed slogan; no subject, inflection is not the point."
+    },
+    "a-t2866599": {
+      "tags": [
+        "adverb",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Sant» sier hvordan man snakker. Adverb får -t; sann → sant (bare én n)."
+    },
+    "a-t2866754": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Lys» er et-ord («et lys»). Da får adjektivet -t: rødt.",
+      "translations": {
+        "de": "Obwohl die Ampel rot war, fuhr das Auto einfach durch."
+      }
+    },
+    "a-t2866896": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Du» er én person. Etter «ser … ut» står grunnformen: dum."
+    },
+    "a-t2866907": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Jeg» er én person. I «gå tom for» står da grunnformen: tom.",
+      "translations": {
+        "de": "Mir gehen langsam die Ideen aus."
+      }
+    },
+    "a-t2866917": {
+      "tags": [
+        "bestemt form",
+        "type:uregelmessig"
+      ],
+      "explanation": "Etter eiendomsordet «mine» står bestemt form: egne (egen → egne).",
+      "translations": {
+        "de": "Ich traue meinen eigenen Augen nicht."
+      }
+    },
+    "a-t2874891": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Du» er én person. Etter «er» står grunnformen: tynn.",
+      "translations": {
+        "de": "Du bist so dünn."
+      }
+    },
+    "a-t2875028": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «den» står bestemt form: røde.",
+      "translations": {
+        "de": "Der rote Pullover steht dir."
+      }
+    },
+    "a-t2875568": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Et spørsmål» er et-ord. Dum → dumt (én m).",
+      "translations": {
+        "de": "Was für eine dumme Frage!"
+      }
+    },
+    "a-t2875658": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hår» er et-ord («et hår»). Da får adjektivet -t: gult.",
+      "translations": {
+        "en": "The king's daughter has yellow hair."
+      }
+    },
+    "a-t2877365": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Jeg» er én person. Etter «er» står grunnformen: flink."
+    },
+    "a-t2879714": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "Adjektivet viser til «det», så det er et-form. Men -ig får ikke -t: billig."
+    },
+    "a-t2879724": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Stolen» er en-ord. Etter «er» står grunnformen: stygg.",
+      "translations": {
+        "de": "Dieser Stuhl ist hässlich."
+      }
+    },
+    "a-t2879729": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "Adjektivet beskriver «meg», én person. Da står grunnformen. -ig får aldri -t.",
+      "translations": {
+        "de": "Du machst mich glücklich."
+      }
+    },
+    "a-t2881894": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Jeg» er én person. Etter «er» står grunnformen: flink.",
+      "translations": {
+        "de": "Ich bin nicht gut im Sport."
+      }
+    },
+    "a-t2881989": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Jeg» er én person. I «gå tom for» står da grunnformen: tom.",
+      "translations": {
+        "de": "Mir gehen langsam die Ideen aus."
+      }
+    },
+    "a-t2882014": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hun» er én person. Etter «er» står grunnformen: sur.",
+      "translations": {
+        "de": "Sie ist sauer auf mich."
+      }
+    },
+    "a-t2882016": {
+      "tags": [
+        "bestemt form",
+        "type:uregelmessig"
+      ],
+      "explanation": "Etter eiendomsordet «mine» står bestemt form: egne (egen → egne).",
+      "translations": {
+        "de": "Ich traue meinen eigenen Augen nicht."
+      }
+    },
+    "a-t2882033": {
+      "tags": [
+        "en/ei-ord",
+        "type:sk"
+      ],
+      "explanation": "«Du» er én person. Etter «ser … ut» står grunnformen: frisk.",
+      "translations": {
+        "de": "Du siehst gesund und munter aus wie immer."
+      }
+    },
+    "a-t2883621": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Høyt» sier hvordan du hopper. Adverb får -t.",
+      "translations": {
+        "de": "Wie hoch kannst du springen?"
+      }
+    },
+    "a-t2887476": {
+      "exclude": true,
+      "note": "Nominalized neuter; 'mellom søt og bitter' agreeing with 'smak' is also possible."
+    },
+    "a-t2888321": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Åpent» beskriver «vinduet», som er et-ord. Derfor -t: åpent.",
+      "translations": {
+        "de": "Hast du das Fenster offen gelassen?"
+      }
+    },
+    "a-t2888322": {
+      "exclude": true,
+      "note": "'tysk' is the language name (noun), not an inflected adjective."
+    },
+    "a-t2894439": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Buksene» er flertall. Skitten → skitne: e-en og én t faller bort."
+    },
+    "a-t2895745": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Vi» er flertall. Etter «er» får adjektivet -e: unge."
+    },
+    "a-t2895911": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Håndklær» er flertall uten artikkel. Da får adjektivet -e: rene."
+    },
+    "a-t2901268": {
+      "tags": [
+        "adverb",
+        "type:ig-lig"
+      ],
+      "explanation": "«Riktig» sier hvordan man forstår. Adverb får vanligvis -t, men -ig-ord får ikke -t."
+    },
+    "a-t2904076": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Et sovemiddel» er et-ord. Da får adjektivet -t: sterkt.",
+      "translations": {
+        "en": "That's a very strong sleeping pill."
+      }
+    },
+    "a-t2907177": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Et rom» er et-ord, men -ig får ikke -t: ledig.",
+      "translations": {
+        "de": "Haben Sie ein freies Zimmer?"
+      }
+    },
+    "a-t2907184": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Banken» er en-ord. Etter «er» står grunnformen: åpen.",
+      "translations": {
+        "de": "Die Bank hat sonntags nicht geöffnet."
+      }
+    },
+    "a-t2907185": {
+      "tags": [
+        "adverb",
+        "type:sammentrekning"
+      ],
+      "explanation": "I uttrykket «ha åpent» står alltid -t-formen, også med en-ord: banken har åpent.",
+      "translations": {
+        "de": "Wie lange hat die Bank geöffnet?"
+      }
+    },
+    "a-t2907187": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Du» er én person. Etter «er» står grunnformen. -ig får aldri -t.",
+      "translations": {
+        "de": "Hast du Freitagnachmittag Zeit?"
+      }
+    },
+    "a-t2907202": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Adjektivet viser til «det». Derfor får det -t: mørkt.",
+      "translations": {
+        "de": "Unter der Brücke war es dunkel."
+      }
+    },
+    "a-t2907221": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Det er …» om vær og temperatur gir -t: kaldt.",
+      "translations": {
+        "de": "Es ist heute Abend furchtbar kalt."
+      }
+    },
+    "a-t2911597": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Dager» er flertall. Etter «noen» får adjektivet -e: varme.",
+      "translations": {
+        "en": "After a few warm days, winter weather was forecast for Thursday."
+      }
+    },
+    "a-t2912355": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Du» er én person. Etter «er» står grunnformen. -ig får aldri -t.",
+      "translations": {
+        "de": "Hast du am Dienstag Zeit?"
+      }
+    },
+    "a-t2916764": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«En jobb» er en-ord. Grunnformen er kjedelig; -ig får aldri -t."
+    },
+    "a-t2916775": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "Adjektivet beskriver «meg», én person. Da står grunnformen. -ig får aldri -t."
+    },
+    "a-t2916778": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Sjokolade» er en-ord, her uten artikkel. Da står grunnformen: mørk.",
+      "translations": {
+        "de": "Ich mag dunkle Schokolade."
+      }
+    },
+    "a-t2916798": {
+      "tags": [
+        "bestemt form",
+        "type:uregelmessig"
+      ],
+      "explanation": "Etter eiendomsordet «mine» står bestemt form: egne (egen → egne).",
+      "translations": {
+        "de": "Ich habe ihn mit meinen eigenen Augen gesehen."
+      }
+    },
+    "a-t2917910": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «noe» får adjektivet et-form med -t: kaldt."
+    },
+    "a-t2918044": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«To mil» er flertall. Engelsk → engelske i flertall.",
+      "translations": {
+        "de": "Der Bahnhof ist zwei englische Meilen entfernt."
+      }
+    },
+    "a-t2918195": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Adjektivet viser til «det». Etter «har blitt» får det -t: mørkt.",
+      "translations": {
+        "de": "Geh nicht raus, wenn es dunkel geworden ist."
+      }
+    },
+    "a-t2924430": {
+      "tags": [
+        "bestemt form",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «de» står bestemt form: dårlige.",
+      "translations": {
+        "de": "Bist du bereit, die schlechten Nachrichten zu hören?"
+      }
+    },
+    "a-t2925507": {
+      "tags": [
+        "flertall",
+        "type:ig-lig"
+      ],
+      "explanation": "«Nyheter» er flertall. Da får adjektivet -e: dårlige."
+    },
+    "a-t2925579": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Frakk» er et en-ord. Da bruker vi grunnformen: en billig frakk.",
+      "translations": {
+        "de": "Ein Bart macht noch keinen Philosophen, und ein billiger Mantel auch nicht."
+      }
+    },
+    "a-t2925970": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Jeg» er én person. Etter «er» bruker vi grunnformen: tykk.",
+      "translations": {
+        "de": "Ich bin so dick."
+      }
+    },
+    "a-t2927190": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Lyder» er flertall. Da får adjektivet -e: høye.",
+      "translations": {
+        "de": "Sie erschrickt bei lauten Geräuschen."
+      }
+    },
+    "a-t2930369": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Duken» er et en-ord. Etter «blir» bruker vi grunnformen: skitten.",
+      "translations": {
+        "de": "Das weißeste Tuch wird zuerst schmutzig.",
+        "en": "The whitest cloth gets dirty first."
+      }
+    },
+    "a-t2930370": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Ingen» og «han» er én person, en-ord. Etter «er» bruker vi grunnformen: stygg.",
+      "translations": {
+        "de": "Niemand ist so hässlich, dass er nie geliebt wird.",
+        "en": "No one is so ugly that he is never loved."
+      }
+    },
+    "a-t2930374": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Flesket» er et et-ord. Etter «er» får adjektivet -t: rent.",
+      "translations": {
+        "de": "Lass das Schwein ruhig dreckig sein, nur der Speck ist sauber.",
+        "en": "Let the pig be dirty, only the bacon is clean."
+      }
+    },
+    "a-t2930392": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«En» betyr her én person. Etter «blir» bruker vi grunnformen: klok.",
+      "translations": {
+        "de": "Man wird erst richtig klug, wenn man dreimal verrückt gewesen ist.",
+        "en": "You don't become truly wise until you have been mad three times."
+      }
+    },
+    "a-t2931817": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Mann» er et en-ord. Da bruker vi grunnformen: en enkel mann.",
+      "translations": {
+        "de": "Er ist ein einfacher Mann."
+      }
+    },
+    "a-t2932243": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "Upersonlig «det blir …» gir -t, men ord på -ig får aldri -t: kjedelig."
+    },
+    "a-t2932250": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Upersonlig «det er …» gir -t. Dobbel l blir enkel foran -t: snilt."
+    },
+    "a-t2932256": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Boken» er et en-ord. Etter «er» bruker vi grunnformen: tung.",
+      "translations": {
+        "de": "Mein Buch ist sehr schwer."
+      }
+    },
+    "a-t2932268": {
+      "tags": [
+        "en/ei-ord",
+        "type:sk"
+      ],
+      "explanation": "«Pasienten» er et en-ord. Etter «ble» bruker vi grunnformen: frisk.",
+      "translations": {
+        "de": "Der Patient wurde wieder ganz gesund."
+      }
+    },
+    "a-t2932280": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Boken» er et en-ord. Etter «er» bruker vi grunnformen: tynn.",
+      "translations": {
+        "de": "Dieses Buch ist sehr dünn."
+      }
+    },
+    "a-t2932285": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Veien» er et en-ord. Etter «er» bruker vi grunnformen: smal."
+    },
+    "a-t2932286": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Fjernsynet» er et et-ord. Etter «er» får adjektivet -t: tungt."
+    },
+    "a-t2934071": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "explanation": "Subjektet «stjernene» er flertall, så adjektivet etter «ser … ut» får -e. Vakker blir vakre.",
+      "translations": {
+        "de": "Die Sterne sehen heute Abend sehr schön aus."
+      }
+    },
+    "a-t2935178": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Øyne» er flertall. Da får adjektivet -e: pene.",
+      "translations": {
+        "de": "Du hast schöne Augen."
+      }
+    },
+    "a-t2935204": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Valg» er et et-ord. Da får adjektivet -t: et klokt valg.",
+      "translations": {
+        "de": "Du hast eine kluge Wahl getroffen."
+      }
+    },
+    "a-t2935262": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Sko» er her flertall. Da får adjektivet -e. Skitten mister e: skitne.",
+      "translations": {
+        "de": "Marys Schuhe sind immer schmutzig."
+      }
+    },
+    "a-t2935347": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Alt» er intetkjønn og gir -t, men ord på -ig får aldri -t: billig."
+    },
+    "a-t2935357": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Upersonlig «det er …» gir -t. Morsom har bare én m foran -t: morsomt.",
+      "translations": {
+        "de": "Findest du das nicht lustig?"
+      }
+    },
+    "a-t2935574": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Dag» er et en-ord. Da bruker vi grunnformen: en travel dag."
+    },
+    "a-t2942606": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Skjorten» er et en-ord. Etter «er» bruker vi grunnformen: skitten.",
+      "translations": {
+        "de": "Das Hemd ist sehr schmutzig. Bevor du zur Schule gehst, muss es gewaschen werden."
+      }
+    },
+    "a-t2943257": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Glis» er et et-ord. Da får adjektivet -t: et bredt glis."
+    },
+    "a-t2943283": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Stemme» er et en-ord. Da bruker vi grunnformen: lav stemme.",
+      "translations": {
+        "de": "Sie spricht immer mit leiser Stimme."
+      }
+    },
+    "a-t2943560": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Den» (katten) er et en-ord. Etter «er» bruker vi grunnformen: søt."
+    },
+    "a-t2943562": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Hus» er et et-ord. Da får adjektivet -t: et gammelt hus.",
+      "translations": {
+        "de": "Ich wohne in einem alten Haus."
+      }
+    },
+    "a-t2943618": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Farger» er flertall. Da får adjektivet -e: mørke."
+    },
+    "a-t2943751": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Selvfølelse» er et en-ord. Da bruker vi grunnformen: lav selvfølelse."
+    },
+    "a-t2945172": {
+      "tags": [
+        "bestemt form",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Etter eiendomsord («dine») får adjektivet -e. Dum dobler m: dumme."
+    },
+    "a-t2945175": {
+      "tags": [
+        "bestemt form",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Etter «disse» får adjektivet -e. Dum dobler m: dumme."
+    },
+    "a-t2946029": {
+      "exclude": true,
+      "note": "'åpne' is the verb (to open), not the adjective."
+    },
+    "a-t2946089": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Vegetasjonen» er et en-ord. Etter «var» bruker vi grunnformen: tykk.",
+      "translations": {
+        "de": "Die Vegetation war dicht und üppig."
+      }
+    },
+    "a-t2946099": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«De» og «venner» er flertall. Da får adjektivet -e: nære.",
+      "translations": {
+        "de": "Sie wurden enge Freunde."
+      }
+    },
+    "a-t2947433": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Han» er én person. Etter «var» bruker vi grunnformen: rød.",
+      "translations": {
+        "de": "Er war rot vor Wut."
+      }
+    },
+    "a-t2947434": {
+      "exclude": true,
+      "note": "'lette' is the verb (to take off), not the adjective 'lett'."
+    },
+    "a-t2948465": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Vintre» er flertall. Da får adjektivet -e: varme.",
+      "translations": {
+        "de": "Ich mag keine warmen Winter."
+      }
+    },
+    "a-t2948484": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Buret» er et et-ord. Etter «var» får adjektivet -t: tomt.",
+      "translations": {
+        "de": "Ich entdeckte, dass der Käfig leer war."
+      }
+    },
+    "a-t2948486": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Glasset» er et et-ord. Etter «var» får adjektivet -t: tomt.",
+      "translations": {
+        "de": "Ich entdeckte, dass das Glas leer war."
+      }
+    },
+    "a-t2948504": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Vinduet» er et et-ord. Adjektivet hører til vinduet og får -t: åpent.",
+      "translations": {
+        "de": "Sie ließ das Fenster offen stehen."
+      }
+    },
+    "a-t2948506": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Liv» er et et-ord. Da får adjektivet -t. Bare én m: ensomt."
+    },
+    "a-t2948964": {
+      "tags": [
+        "et-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Egen» er spesiell: etter eiendomsord følger den kjønnet. «Liv» er et-ord: sitt eget liv."
+    },
+    "a-t2949003": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Farger brukt som substantiv er intetkjønn. Derfor -t: kledd i rødt.",
+      "translations": {
+        "de": "Sie war in Rot gekleidet."
+      }
+    },
+    "a-t2949840": {
+      "exclude": true,
+      "note": "Unnatural: 'Historie' lacks the definite article ('Historien viste seg å være sann')."
+    },
+    "a-t2949931": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «den» bruker vi bestemt form med -e: den unge mannen.",
+      "translations": {
+        "de": "Der junge Mann fährt sehr gern Fahrrad."
+      }
+    },
+    "a-t2950004": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Teppe» er et et-ord. Da får adjektivet -t: et tungt teppe.",
+      "translations": {
+        "de": "Der Boden war von einer schweren Schneedecke bedeckt."
+      }
+    },
+    "a-t2950200": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Mann» er et en-ord. Da bruker vi grunnformen: en ensom mann.",
+      "translations": {
+        "de": "Ich bin ein einsamer Mann."
+      }
+    },
+    "a-t2962127": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«Universiteter» er flertall. Da får adjektivet -e: tyske."
+    },
+    "a-t2970597": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Upersonlig «det virker …» gir -t: dyrt.",
+      "translations": {
+        "de": "Das scheint mir ziemlich teuer."
+      }
+    },
+    "a-t2971679": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Høyt» beskriver hvordan han sier noe. Som adverb får adjektivet -t.",
+      "translations": {
+        "de": "Er erwies sich selbst einen Bärendienst, indem er seine Meinung laut sagte.",
+        "en": "He did himself a disservice by voicing his opinion out loud."
+      }
+    },
+    "a-t2974733": {
+      "tags": [
+        "bestemt form",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «de» bruker vi bestemt form med -e: de lykkelige dager.",
+      "translations": {
+        "en": "I remember the happy days and nights we spent together."
+      }
+    },
+    "a-t2997058": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Retorikk» er et en-ord. Da bruker vi grunnformen: ren retorikk."
+    },
+    "a-t3004005": {
+      "tags": [
+        "bestemt form",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «det» bruker vi bestemt form med -e: det riktige valget."
+    },
+    "a-t3022914": {
+      "tags": [
+        "et-ord",
+        "type:sk"
+      ],
+      "explanation": "Upersonlig «det er …» gir -t, men ord på -sk får ikke -t: praktisk.",
+      "translations": {
+        "en": "It is much more practical that way."
+      }
+    },
+    "a-t3057219": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Land» er et et-ord. Da får adjektivet -t. Dobbel g blir enkel: trygt."
+    },
+    "a-t3071129": {
+      "tags": [
+        "adverb",
+        "type:sk"
+      ],
+      "explanation": "«Raskt» beskriver hvordan spenningen vokser. Som adverb får adjektivet -t."
+    },
+    "a-t3162403": {
+      "tags": [
+        "flertall",
+        "type:ig-lig"
+      ],
+      "explanation": "«Mennesker» er flertall. Da får adjektivet -e: dårlige.",
+      "translations": {
+        "en": "There are many bad people in the world."
+      }
+    },
+    "a-t3214217": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Isen» er et en-ord. Etter «er» bruker vi grunnformen: tynn.",
+      "translations": {
+        "de": "Da das Eis sehr dünn ist, kann es dein Körpergewicht nicht tragen.",
+        "en": "Since the ice is very thin, it can't hold your body weight."
+      }
+    },
+    "a-t3214624": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«De» er flertall. Etter «er» får adjektivet -e: flinke."
+    },
+    "a-t3229517": {
+      "tags": [
+        "bestemt form",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Etter «de» bruker vi bestemt form med -e. Dum dobler m: dumme."
+    },
+    "a-t3242072": {
+      "tags": [
+        "et-ord",
+        "type:vokal"
+      ],
+      "explanation": "Adjektivet beskriver «taket», et et-ord. Derfor -t: blått (blå + tt).",
+      "translations": {
+        "de": "Er strich das Dach blau.",
+        "en": "He painted the roof blue."
+      }
+    },
+    "a-t3296961": {
+      "exclude": true,
+      "note": "Fixed expression 'på det rene'; inflection is not the point."
+    },
+    "a-t3340455": {
+      "exclude": true,
+      "note": "'svensk' is the noun 'Swedish (language)', not an inflectable adjective here."
+    },
+    "a-t3369795": {
+      "exclude": true,
+      "note": "Fixed expression 'det glade vanvidd'; inflection is not the point."
+    },
+    "a-t3373180": {
+      "tags": [
+        "bestemt form",
+        "type:sk"
+      ],
+      "explanation": "Etter «det» bruker vi bestemt form med -e: det franske kjøkken.",
+      "translations": {
+        "de": "Die französische Küche ist ausgezeichnet."
+      }
+    },
+    "a-t341134": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «det er» får adjektivet vanligvis -t. Men ord på -ig får aldri -t: viktig.",
+      "translations": {
+        "de": "Es ist nicht wichtig."
+      }
+    },
+    "a-t342182": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Høyt» sier hvordan man snakker. Adjektiv brukt som adverb får -t: høyt.",
+      "translations": {
+        "de": "Du darfst hier nicht so laut sprechen."
+      }
+    },
+    "a-t342183": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «det er» får adjektivet -t: mørkt.",
+      "translations": {
+        "de": "Es ist zu dunkel, als dass ich lesen könnte."
+      }
+    },
+    "a-t342244": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "alternatives": [
+        "snille"
+      ],
+      "explanation": "Man snakker til én person (du). Etter «vær» står adjektivet i grunnform: snill.",
+      "translations": {
+        "de": "Sei so nett und reich mir das Salz."
+      },
+      "note": "Plural imperative addressing several people ('Vær snille å ...') is also correct; addressee number is not given."
+    },
+    "a-t342245": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Det er varmt ute» handler om været. Etter «det er» får adjektivet -t: varmt.",
+      "translations": {
+        "de": "Ich koche nicht gern, wenn es draußen warm ist."
+      }
+    },
+    "a-t342258": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Gitaren» er et en-ord. Etter «er» står adjektivet i grunnform: dyr."
+    },
+    "a-t342379": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Gang» er et en-ord. Etter «en» bruker vi «annen».",
+      "translations": {
+        "de": "Ich rufe dich ein anderes Mal an."
+      }
+    },
+    "a-t342386": {
+      "tags": [
+        "adverb",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Godt» sier hvor mye man liker noe. Som adverb får «god» -t: godt."
+    },
+    "a-t342391": {
+      "exclude": true,
+      "note": "'lite' is a quantifier (lite penger = little money), not adjective inflection of 'liten'."
+    },
+    "a-t342394": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Service» er et en-ord. Uten artikkel står adjektivet i grunnform: god.",
+      "translations": {
+        "de": "In Japan ist es nicht üblich, für guten Service Trinkgeld zu geben."
+      }
+    },
+    "a-t342395": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «det er» får adjektivet vanligvis -t. Men ord på -ig får aldri -t: vanskelig."
+    },
+    "a-t342417": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Dag» er et en-ord: en fin dag.",
+      "translations": {
+        "de": "Ich glaube, es wird ein schöner Tag."
+      }
+    },
+    "a-t342419": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Park» er et en-ord: en stor park.",
+      "translations": {
+        "de": "Hier war früher ein großer Park."
+      }
+    },
+    "a-t342422": {
+      "tags": [
+        "en/ei-ord",
+        "type:sk"
+      ],
+      "alternatives": [
+        "raske"
+      ],
+      "explanation": "Man snakker til én person (du). Etter «vær» står adjektivet i grunnform: rask.",
+      "translations": {
+        "de": "Gib mir etwas Wasser, und beeil dich."
+      },
+      "note": "Plural imperative addressing several people ('vær raske') is also correct; addressee number is not given."
+    },
+    "a-t342425": {
+      "exclude": true,
+      "note": "'lite' is a quantifier (lite erfaring = little experience), not adjective inflection of 'liten'."
+    },
+    "a-t342489": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Du» er én person. Etter «er» står adjektivet i grunnform: gammel.",
+      "translations": {
+        "de": "Du bist alt genug, um auf dich selbst aufzupassen."
+      }
+    },
+    "a-t342491": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Han» er én person. Etter «er» står adjektivet i grunnform: syk.",
+      "translations": {
+        "de": "Ich frage mich, ob er wirklich krank ist."
+      }
+    },
+    "a-t342511": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Jeg» er én person. Etter «blir» står adjektivet i grunnform: stor.",
+      "translations": {
+        "de": "Wenn ich groß bin, will ich König werden."
+      }
+    },
+    "a-t342531": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Jeg» er én person. Etter «var» står adjektivet i grunnform: varm."
+    },
+    "a-t342551": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Han» er én person, så grunnform: trøtt. Ord som slutter på -tt får ikke en ekstra -t.",
+      "translations": {
+        "de": "Da er so müde war, schlief er schnell ein."
+      }
+    },
+    "a-t342554": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Boks» er et en-ord: en liten boks.",
+      "translations": {
+        "de": "Der Junge sammelte eine Handvoll Erdnüsse und steckte sie in eine kleine Schachtel."
+      }
+    },
+    "a-t342564": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hardt» sier hvordan han jobbet. Adjektiv brukt som adverb får -t: hardt.",
+      "translations": {
+        "de": "Er arbeitete so hart, dass er seine Gesundheit ruinierte."
+      }
+    },
+    "a-t342567": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Jeg» er én person, så grunnform: glad. «Glad» får aldri -t.",
+      "translations": {
+        "de": "Ich freue mich sehr, dich wiederzusehen."
+      }
+    },
+    "a-t342582": {
+      "tags": [
+        "adverb",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Godt» sier hvor mye jeg liker byen. Som adverb får «god» -t: godt.",
+      "translations": {
+        "de": "Nara ist eine Stadt, die ich sehr mag."
+      }
+    },
+    "a-t342610": {
+      "exclude": true,
+      "note": "Fixed expression 'alt annet enn'; inflection is not the point."
+    },
+    "a-t344010": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hval» er et en-ord: en så stor hval.",
+      "translations": {
+        "de": "Ich habe noch nie einen so großen Wal gesehen."
+      }
+    },
+    "a-t344013": {
+      "exclude": true,
+      "note": "'tysk' is the language noun here, not an adjective."
+    },
+    "a-t3456577": {
+      "tags": [
+        "bestemt form",
+        "type:sk"
+      ],
+      "explanation": "Etter «den» bruker vi bestemt form med -e: den norske høsten.",
+      "translations": {
+        "en": "The fantastic Norwegian autumn is approaching."
+      }
+    },
+    "a-t3458450": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Rommet» er et et-ord. Etter «var» får adjektivet -t: fullt.",
+      "translations": {
+        "de": "Der Raum war voller Leute."
+      }
+    },
+    "a-t3458456": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Upersonlig «det var …» gir -t: mørkt.",
+      "translations": {
+        "de": "Es war völlig dunkel im Zimmer."
+      }
+    },
+    "a-t347997": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Jeg» er én person, så grunnform: trøtt. Ord som slutter på -tt får ikke en ekstra -t.",
+      "translations": {
+        "de": "Ich war sehr müde, also bin ich früh ins Bett gegangen."
+      }
+    },
+    "a-t3480619": {
+      "tags": [
+        "flertall",
+        "type:ig-lig"
+      ],
+      "explanation": "«Bjørner» er flertall. Etter «er» får adjektivet -e: farlige."
+    },
+    "a-t3480824": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Rose» er et en-ord. Da bruker vi grunnformen: en rød rose.",
+      "translations": {
+        "de": "In der Vase ist eine rote Rose."
+      }
+    },
+    "a-t3482024": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Kjøtt» er et et-ord. Da får adjektivet -t: rødt kjøtt.",
+      "translations": {
+        "de": "Mary isst kein rotes Fleisch.",
+        "en": "Mary doesn't eat red meat."
+      }
+    },
+    "a-t348311": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Her handler det om været. Etter «det er» får adjektivet -t: varmt.",
+      "translations": {
+        "de": "In Japan ist es im Sommer sehr heiß."
+      }
+    },
+    "a-t348324": {
+      "tags": [
+        "adverb",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Godt» sier hvor mye han liker musikk. Som adverb får «god» -t: godt.",
+      "translations": {
+        "de": "Er mag Musik sehr gern."
+      }
+    },
+    "a-t348329": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Hatt» er et en-ord: en grønn hatt.",
+      "translations": {
+        "de": "Ich erinnere mich, dass sie einen grünen Hut trug."
+      }
+    },
+    "a-t348331": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Mann» er et en-ord: en gammel mann."
+    },
+    "a-t348351": {
+      "exclude": true,
+      "note": "'engelsk' is the language noun here (til engelsk), not an adjective."
+    },
+    "a-t348354": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Innhold» er et et-ord. Uten artikkel får adjektivet -t: høyt vitamininnhold.",
+      "translations": {
+        "de": "Orangen haben einen hohen Vitamingehalt."
+      }
+    },
+    "a-t348359": {
+      "tags": [
+        "en/ei-ord",
+        "type:sk"
+      ],
+      "explanation": "«Han» er én person. Etter «blir» står adjektivet i grunnform: frisk.",
+      "translations": {
+        "de": "Es wird nicht lange dauern, bis er wieder gesund ist."
+      }
+    },
+    "a-t348362": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Her handler det om været. Etter «det var» får adjektivet -t: kaldt."
+    },
+    "a-t3484333": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «den» og bestemt substantiv (sengen) får adjektivet -e: den varme sengen.",
+      "translations": {
+        "en": "Today I feel like staying in my warm bed."
+      }
+    },
+    "a-t3484342": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "Subjektet er «det». Da får adjektivet -t: enkelt.",
+      "translations": {
+        "de": "So einfach ist das.",
+        "en": "It's as simple as that."
+      }
+    },
+    "a-t3484438": {
+      "tags": [
+        "en/ei-ord",
+        "type:sk"
+      ],
+      "explanation": "«Nordmann» er et en-ord. Da bruker vi grunnformen: en typisk nordmann.",
+      "translations": {
+        "en": "Do you like fish pudding? No? I don't think you're a typical Norwegian."
+      }
+    },
+    "a-t3485287": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Spørsmål» er et et-ord. Da får adjektivet -t. Bare én m: dumt."
+    },
+    "a-t3487099": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Han og hun» er to personer, flertall. Da får adjektivet -e: høye.",
+      "translations": {
+        "de": "Er und sie sind gleich groß.",
+        "en": "He and she are equally tall."
+      }
+    },
+    "a-t3495703": {
+      "exclude": true,
+      "note": "Ungrammatical source: subject 'du' requires 'åpen', not 'åpent'."
+    },
+    "a-t349690": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Du» er én person. Adjektivet står i grunnform: stor."
+    },
+    "a-t349695": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «det er» får adjektivet -t: dyrt."
+    },
+    "a-t349847": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Han» er én person. Etter «er» står adjektivet i grunnform: gammel."
+    },
+    "a-t3499330": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Vilje» er et en-ord. Da bruker vi grunnformen: sterk vilje.",
+      "translations": {
+        "de": "Er ist ein Mann mit starkem Willen."
+      }
+    },
+    "a-t3499343": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Erfaring» er et en-ord. Da bruker vi grunnformen: bred erfaring.",
+      "translations": {
+        "de": "Er ist ein Mann mit breiter Erfahrung."
+      }
+    },
+    "a-t3499644": {
+      "exclude": true,
+      "note": "Ungrammatical source: subject 'hun' requires 'morsom', not 'morsomt'."
+    },
+    "a-t3499650": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Upersonlig «det er …» gir -t. Bare én m foran -t: morsomt.",
+      "translations": {
+        "en": "I think it's fun and entertaining."
+      }
+    },
+    "a-t3499693": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Upersonlig «det var …» gir -t. Bare én m foran -t: morsomt.",
+      "translations": {
+        "en": "It was really funny, and we laughed a lot."
+      }
+    },
+    "a-t3500190": {
+      "tags": [
+        "flertall",
+        "type:ig-lig"
+      ],
+      "explanation": "«Skulpturer» er flertall. Etter «er» får adjektivet -e: deilige."
+    },
+    "a-t3500196": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Erfaring» er et en-ord. Da bruker vi grunnformen: bred erfaring.",
+      "translations": {
+        "de": "Er hat breite Erfahrung, und seine Kompetenz erstreckt sich auf mehrere Bereiche."
+      }
+    },
+    "a-t3500874": {
+      "tags": [
+        "flertall",
+        "type:ig-lig"
+      ],
+      "explanation": "«Gutter» er flertall. Etter «er» får adjektivet -e: vanskelige.",
+      "translations": {
+        "en": "Boys at that age are difficult."
+      }
+    },
+    "a-t3501030": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«Bøker» er flertall. Da får adjektivet -e: engelske.",
+      "translations": {
+        "de": "Ich möchte dieses Jahr so viele englische Bücher wie möglich lesen."
+      }
+    },
+    "a-t3501117": {
+      "exclude": true,
+      "note": "Fixed idiom 'gull i grønne skoger'; inflection is not the point."
+    },
+    "a-t3501196": {
+      "exclude": true,
+      "note": "Fixed idiom 'gull og grønne skoger'; inflection is not the point."
+    },
+    "a-t3503987": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Varmebehov» er et et-ord. Da får adjektivet -t: et lavt varmebehov.",
+      "translations": {
+        "en": "These houses have a low heating demand."
+      }
+    },
+    "a-t3518168": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Ulv» er et en-ord. Da bruker vi grunnformen: en ensom ulv."
+    },
+    "a-t3518395": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter eiendomsord («min») får adjektivet -e: min sterke side.",
+      "translations": {
+        "en": "That has never been my strong point."
+      }
+    },
+    "a-t3518758": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«Hender» er flertall. Da får adjektivet -e: raske.",
+      "translations": {
+        "en": "He shaped the clay with quick, practised hands."
+      }
+    },
+    "a-t3519454": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hun» er én person. Etter «er» bruker vi grunnformen: kald."
+    },
+    "a-t352990": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«Ord» står i flertall her (mange ord). I flertall får adjektivet -e: engelske.",
+      "translations": {
+        "de": "Viele englische Wörter stammen aus dem Lateinischen."
+      }
+    },
+    "a-t352992": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hun» er én person. Etter «vært» står adjektivet i grunnform: syk.",
+      "translations": {
+        "de": "Wie lange ist sie schon krank?"
+      }
+    },
+    "a-t3530363": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Relasjoner» er flertall. Da får adjektivet -e. Åpen mister e: åpne.",
+      "translations": {
+        "de": "Was hältst du von offenen Beziehungen?",
+        "en": "What is your opinion on open relationships?"
+      }
+    },
+    "a-t3537458": {
+      "tags": [
+        "et-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Håret» er et et-ord. Etter «var» får adjektivet -t: våt + t = vått.",
+      "translations": {
+        "de": "Ihr langes Haar war völlig nass."
+      }
+    },
+    "a-t3541276": {
+      "tags": [
+        "bestemt form",
+        "type:uregelmessig"
+      ],
+      "explanation": "Etter eiendomsord («sine») og flertall bruker vi formen egne: sine egne lover.",
+      "translations": {
+        "en": "This society follows its own laws."
+      }
+    },
+    "a-t3542154": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Tanker» er ubestemt flertall, så adjektivet får -e: høye tanker.",
+      "translations": {
+        "de": "Ich halte nicht besonders viel von ihm als Musiker."
+      }
+    },
+    "a-t3542249": {
+      "exclude": true,
+      "note": "Unnatural/garbled source sentence ('Men, det vil jeg si at ...')."
+    },
+    "a-t3542672": {
+      "exclude": true,
+      "note": "'sikre' is the verb (to ensure), not the adjective 'sikker'."
+    },
+    "a-t3542679": {
+      "exclude": true,
+      "note": "'sikre' is the verb (to ensure), not the adjective 'sikker'."
+    },
+    "a-t3545866": {
+      "exclude": true,
+      "note": "'fjerne' is the verb (to remove), not the adjective 'fjern'."
+    },
+    "a-t3545868": {
+      "exclude": true,
+      "note": "'fjerne' is the verb (to remove), not the adjective 'fjern'."
+    },
+    "a-t354625": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Han» er én person. Etter «er» står adjektivet i grunnform: flink."
+    },
+    "a-t354640": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Biter» er flertall. Flertall av «liten» er uregelmessig: små.",
+      "translations": {
+        "de": "Brich die Schokolade in kleine Stücke."
+      }
+    },
+    "a-t354655": {
+      "exclude": true,
+      "note": "'engelsk' is the school subject/language noun here, not an adjective."
+    },
+    "a-t3546598": {
+      "tags": [
+        "bestemt form",
+        "type:uregelmessig"
+      ],
+      "explanation": "Etter eiendomsordet «sine» får egen formen egne. Egen mister e: egne, ikke «egene».",
+      "translations": {
+        "de": "Er stellte seine eigenen Annahmen immer so dar, als wären sie unwiderlegbare Tatsachen."
+      }
+    },
+    "a-t354684": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Hun» er én person, så grunnform: glad. «Glad» får aldri -t.",
+      "translations": {
+        "de": "Sie isst sehr gern Kuchen."
+      }
+    },
+    "a-t3547409": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Gutt» er et en-ord. Da bruker vi grunnformen: en smart gutt.",
+      "translations": {
+        "de": "Du bist ein kluger Junge."
+      }
+    },
+    "a-t3547519": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Sixpence» (lue) er et en-ord. Da bruker vi grunnformen: en brun sixpence.",
+      "translations": {
+        "de": "Er trug immer eine braune Schiebermütze.",
+        "en": "He always wore a brown flat cap."
+      }
+    },
+    "a-t3550135": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Adjektivet hører til «blikk», et et-ord. Da får det -t: fullt.",
+      "translations": {
+        "de": "Sie sah mich mit einem Blick voller Liebe an.",
+        "en": "She looked at me with a gaze full of love."
+      }
+    },
+    "a-t3550248": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Jeg» er én person. Etter «blir» bruker vi grunnformen: ensom."
+    },
+    "a-t355092": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Leker» er flertall, så adjektivet får -e. «Gammel» blir da «gamle».",
+      "translations": {
+        "de": "Mein Hobby ist es, altes Spielzeug zu sammeln."
+      }
+    },
+    "a-t355093": {
+      "tags": [
+        "et-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Land» er et et-ord. «Liten» er uregelmessig: et lite land.",
+      "translations": {
+        "de": "Die Niederlande sind ein kleines Land."
+      }
+    },
+    "a-t3565422": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Gang» er et en-ord. Da bruker vi grunnformen: en smal gang.",
+      "translations": {
+        "en": "We walked into a narrow corridor."
+      }
+    },
+    "a-t363396": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Her handler det om været. Etter «det er» får adjektivet -t: varmt.",
+      "translations": {
+        "en": "It's so hot today!"
+      }
+    },
+    "a-t363493": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Mann» er et en-ord: en gammel mann.",
+      "translations": {
+        "de": "Ein alter Mann ruhte sich im Schatten des Baumes aus."
+      }
+    },
+    "a-t363501": {
+      "tags": [
+        "en/ei-ord",
+        "type:vokal"
+      ],
+      "explanation": "«En ny» betyr en ny paraply. «Paraply» er et en-ord: en ny.",
+      "translations": {
+        "de": "Ich habe meinen Regenschirm verloren. Ich muss mir einen neuen kaufen."
+      }
+    },
+    "a-t364319": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Ken» er én person. Etter «er» står adjektivet i grunnform: høy.",
+      "translations": {
+        "de": "Ken ist genauso groß wie Bill."
+      }
+    },
+    "a-t364320": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Han» er én person, så grunnform: sint. Ord som slutter på -t får ikke en ekstra -t.",
+      "translations": {
+        "de": "Ich glaube, er war wütend."
+      }
+    },
+    "a-t366462": {
+      "exclude": true,
+      "note": "'det lille (av penger)' is a nominalised quantity expression, close to quantifier use; unnatural as an inflection drill."
+    },
+    "a-t366496": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Utsikt» er et en-ord. Uten artikkel står adjektivet i grunnform: pen.",
+      "translations": {
+        "de": "Von hier hat man eine schöne Aussicht."
+      }
+    },
+    "a-t366509": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Han» er én person. I «gå tom for» står adjektivet i grunnform: tom.",
+      "translations": {
+        "de": "Früher oder später wird ihm das Glück ausgehen."
+      }
+    },
+    "a-t367287": {
+      "exclude": true,
+      "note": "'nær' is a preposition here (nær huset), not an adjective."
+    },
+    "a-t367290": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Sommerfugl» er et en-ord: en nydelig sommerfugl.",
+      "translations": {
+        "de": "Diese Raupe wird sich in einen wunderschönen Schmetterling verwandeln."
+      }
+    },
+    "a-t367295": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Feber» er et en-ord: en lett feber. Ord på -tt får ikke ekstra -t.",
+      "translations": {
+        "de": "Ich habe leichtes Fieber."
+      }
+    },
+    "a-t367490": {
+      "tags": [
+        "adverb",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Godt» står ved verbet og betyr «gjerne». Som adverb får «god» -t: godt.",
+      "translations": {
+        "de": "Ich kann gern warten."
+      }
+    },
+    "a-t368374": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Teorien» er et en-ord. Etter «er» står adjektivet i grunnform: vanskelig."
+    },
+    "a-t368375": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Du» er én person. Etter «bli» står adjektivet i grunnform: dårlig.",
+      "translations": {
+        "de": "Dir wird schlecht, wenn du so viel isst."
+      }
+    },
+    "a-t369885": {
+      "tags": [
+        "bestemt form",
+        "type:uregelmessig"
+      ],
+      "explanation": "Etter «den» bruker vi bestemt form. «Annen» blir da «andre»: den andre."
+    },
+    "a-t369960": {
+      "tags": [
+        "adverb",
+        "type:ig-lig"
+      ],
+      "explanation": "«Lykkelig» sier hvordan de levde. Det er adverb, men ord på -lig får aldri -t.",
+      "translations": {
+        "de": "Sie lebten glücklich bis ans Ende ihrer Tage."
+      }
+    },
+    "a-t369963": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Du» er én person. Etter «er» står adjektivet i grunnform: rik.",
+      "translations": {
+        "de": "Es ist mir egal, ob du reich oder arm bist."
+      }
+    },
+    "a-t369967": {
+      "tags": [
+        "et-ord",
+        "type:vokal"
+      ],
+      "explanation": "«Intet nytt» betyr «ikke noe nytt». Da får adjektivet -t, og ny blir nytt."
+    },
+    "a-t370180": {
+      "exclude": true,
+      "note": "'fransk' is the language noun here, not an adjective."
+    },
+    "a-t370401": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hun» er én person. Etter «var» står adjektivet i grunnform: syk.",
+      "translations": {
+        "de": "Ich wusste nicht, dass sie krank war."
+      }
+    },
+    "a-t3717909": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Jeg» er én person. Etter «er» bruker vi grunnformen: kald.",
+      "translations": {
+        "de": "Ich habe kalte Füße."
+      }
+    },
+    "a-t3717912": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Jeg» er én person. Etter «er» bruker vi grunnformen: kald."
+    },
+    "a-t372298": {
+      "exclude": true,
+      "note": "Fixed expression 'for fullt'; inflection is not the point."
+    },
+    "a-t372349": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hun» er én person. Etter «er» står adjektivet i grunnform: ung.",
+      "translations": {
+        "de": "Sie ist nicht so jung, wie sie aussieht.",
+        "en": "She is not as young as she looks."
+      }
+    },
+    "a-t372741": {
+      "tags": [
+        "en/ei-ord",
+        "type:vokal"
+      ],
+      "explanation": "«Bil» er et en-ord: en ny bil.",
+      "translations": {
+        "de": "Ich will ein neues Auto kaufen.",
+        "en": "I want to buy a new car."
+      }
+    },
+    "a-t372742": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Brev» står i flertall her (en mengde brev). I flertall blir «gammel» til «gamle».",
+      "translations": {
+        "en": "He threw away a lot of old letters."
+      }
+    },
+    "a-t372748": {
+      "exclude": true,
+      "note": "'engelsk' is the language noun here (til engelsk), not an adjective."
+    },
+    "a-t372760": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Venn» er et en-ord: en nær venn.",
+      "translations": {
+        "de": "Er war ein enger Freund von mir.",
+        "en": "He was a close friend of mine."
+      }
+    },
+    "a-t372970": {
+      "tags": [
+        "bestemt form",
+        "type:vokal"
+      ],
+      "explanation": "Etter «den» bruker vi bestemt form med -e: den nye klassen.",
+      "translations": {
+        "en": "How is the new class?"
+      }
+    },
+    "a-t372988": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Måte» er et en-ord. Da bruker vi «annen»: ingen annen måte."
+    },
+    "a-t373352": {
+      "exclude": true,
+      "note": "Fixed expression 'gå tom for'; with plural subject 'vi' both 'tom' and normative 'tomme' occur, so the form is not decidable."
+    },
+    "a-t373353": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Her handler det om lyset ute. Etter «det blir» får adjektivet -t: mørkt.",
+      "translations": {
+        "de": "Komm nach Hause, bevor es dunkel wird!",
+        "en": "Come home before it gets dark!"
+      }
+    },
+    "a-t375445": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "Etter «det er» får adjektivet -t. «Sikker» blir «sikkert».",
+      "translations": {
+        "de": "Es ist nicht sicher, dass sie weiß, dass wir hier sind."
+      }
+    },
+    "a-t375451": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Du» er én person. Etter «være» står adjektivet i grunnform: snill."
+    },
+    "a-t375456": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Det han sier» er et det-subjekt. Da får adjektivet -t: sann blir sant, med bare én n.",
+      "translations": {
+        "de": "Was er sagt, ist in gewisser Weise wahr."
+      }
+    },
+    "a-t375469": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Gulvet» er et et-ord. Etter «er» får adjektivet -t: skittent.",
+      "translations": {
+        "de": "Der Boden ist so schmutzig, dass er gewischt werden muss."
+      }
+    },
+    "a-t376740": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hardt» sier hvordan trucken svingte. Adjektiv brukt som adverb får -t: hardt.",
+      "translations": {
+        "de": "Der Lastwagen bog scharf nach links ab.",
+        "en": "The truck turned sharply to the left."
+      }
+    },
+    "a-t376741": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Kaffe» er et en-ord. Uten artikkel står adjektivet i grunnform: varm kaffe.",
+      "translations": {
+        "de": "Zucker löst sich in heißem Kaffee auf."
+      }
+    },
+    "a-t376742": {
+      "exclude": true,
+      "note": "'engelsk' is the language noun here (på engelsk), not an adjective."
+    },
+    "a-t378074": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Benken» er et en-ord. Adjektivet sier noe om benken og står i grunnform: rød.",
+      "translations": {
+        "de": "Warum hast du die Bank rot gestrichen?"
+      }
+    },
+    "a-t378107": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Bill» er én person. Etter «var» står adjektivet i grunnform: ung.",
+      "translations": {
+        "de": "Bill war zu jung, um die Stelle anzunehmen."
+      }
+    },
+    "a-t378775": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «det er» får adjektivet -t: dyrt."
+    },
+    "a-t378908": {
+      "exclude": true,
+      "note": "'sulten' is the noun 'hunger' here (sulten hans), not the adjective."
+    },
+    "a-t378912": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Stein» er et en-ord: en liten stein.",
+      "translations": {
+        "de": "Das Kind hob einen kleinen Stein auf."
+      }
+    },
+    "a-t378946": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Idé» er et en-ord: en enkel idé.",
+      "translations": {
+        "de": "Mathematik ist wie Liebe – eine einfache Idee, aber sie kann kompliziert werden."
+      }
+    },
+    "a-t378963": {
+      "tags": [
+        "flertall",
+        "type:ender-på-t"
+      ],
+      "explanation": "«De» er flertall. Etter «er» får adjektivet -e: smarte.",
+      "translations": {
+        "de": "Sie sind nicht klug genug, um das zu verstehen.",
+        "en": "They are not smart enough to understand this."
+      }
+    },
+    "a-t378972": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Avlinger» er flertall. I flertall får adjektivet -e: gode.",
+      "translations": {
+        "de": "Dieses Land bringt gute Ernten hervor."
+      }
+    },
+    "a-t378981": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Her handler det om lyset. Etter «det var» får adjektivet -t: mørkt.",
+      "translations": {
+        "de": "Es war so dunkel, dass sie fast nichts sehen konnten."
+      }
+    },
+    "a-t378997": {
+      "tags": [
+        "bestemt form",
+        "type:vokal"
+      ],
+      "explanation": "Etter «det» bruker vi bestemt form med -e: det nye hovedkontoret.",
+      "translations": {
+        "de": "Unser neuer Hauptsitz ist in Tokio.",
+        "en": "Our new head office is in Tokyo."
+      }
+    },
+    "a-t380850": {
+      "exclude": true,
+      "note": "Fixed expression 'i egen person'; inflection is not the point."
+    },
+    "a-t380858": {
+      "exclude": true,
+      "note": "Fixed expression 'i det fjerne' (nominalised); inflection is not the point."
+    },
+    "a-t380865": {
+      "tags": [
+        "en/ei-ord",
+        "type:vokal"
+      ],
+      "explanation": "«Datamaskin» er et en-ord. Uten artikkel står adjektivet i grunnform: ny.",
+      "translations": {
+        "de": "Ich habe letzten Monat einen neuen Computer gekauft."
+      }
+    },
+    "a-t380882": {
+      "exclude": true,
+      "note": "'det lille (av penger)' is a nominalised quantity expression, close to quantifier use; unnatural as an inflection drill."
+    },
+    "a-t380897": {
+      "exclude": true,
+      "note": "'det lille (av penger)' is a nominalised quantity expression, close to quantifier use; unnatural as an inflection drill."
+    },
+    "a-t380899": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Dressen» er et en-ord. Etter «ser ... ut» står adjektivet i grunnform: dyr.",
+      "translations": {
+        "de": "Dieser Anzug sieht teuer aus.",
+        "en": "This suit looks expensive."
+      }
+    },
+    "a-t380903": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Jeg» er én person. Etter «er» står adjektivet i grunnform: god.",
+      "translations": {
+        "de": "Ich kann gut singen."
+      }
+    },
+    "a-t380917": {
+      "tags": [
+        "bestemt form",
+        "type:sammentrekning"
+      ],
+      "explanation": "Etter et eiendomsord (sine) bruker vi bestemt form: sine gamle templer.",
+      "translations": {
+        "de": "Kyoto ist berühmt für seine alten Tempel."
+      }
+    },
+    "a-t380918": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Tempel» står i flertall her (mange tempel). I flertall blir «gammel» til «gamle».",
+      "translations": {
+        "de": "In Kyoto gibt es viele alte Tempel."
+      }
+    },
+    "a-t380972": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Ann» er én person. Etter «er» står adjektivet i grunnform: god.",
+      "translations": {
+        "de": "Ann ist sehr gut im Tennis."
+      }
+    },
+    "a-t386525": {
+      "exclude": true,
+      "note": "'lette' is the past tense of the verb 'lete' (to search), not the adjective 'lett'."
+    },
+    "a-t386528": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Forskjell» er et en-ord. Uten artikkel står adjektivet i grunnform: liten.",
+      "translations": {
+        "de": "Es macht wenig Unterschied, ob du ein Taxi nimmst oder zu Fuß gehst."
+      }
+    },
+    "a-t386557": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Hustru» er et en-ord: en så god hustru.",
+      "translations": {
+        "de": "Er hat Glück, eine so gute Frau zu haben."
+      }
+    },
+    "a-t386577": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Her handler det om været. Etter «det er» får adjektivet -t: kaldt.",
+      "translations": {
+        "de": "Es ist ziemlich kalt."
+      }
+    },
+    "a-t386623": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Duft» er et en-ord: en sterk duft.",
+      "translations": {
+        "de": "Diese Blume verströmt einen starken Duft.",
+        "en": "This flower gives off a strong scent."
+      }
+    },
+    "a-t386625": {
+      "tags": [
+        "bestemt form",
+        "type:sammentrekning"
+      ],
+      "explanation": "Etter «den» bruker vi bestemt form. «Gammel» blir da «gamle»: den gamle damen.",
+      "translations": {
+        "de": "Die alte Dame stieg aus dem Bus.",
+        "en": "The old lady got off the bus."
+      }
+    },
+    "a-t386634": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «den» bruker vi bestemt form med -e: den syke personen."
+    },
+    "a-t386639": {
+      "tags": [
+        "en/ei-ord",
+        "type:vokal"
+      ],
+      "explanation": "«Ordbok» er et en-ord: en ny ordbok."
+    },
+    "a-t386646": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «det» bruker vi bestemt form med -e: det røde taket.",
+      "translations": {
+        "de": "Sieh dir das Haus mit dem roten Dach an."
+      }
+    },
+    "a-t386666": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Du» er én person. Etter «er» står adjektivet i grunnform: høy.",
+      "translations": {
+        "de": "Du bist groß, aber er ist größer."
+      }
+    },
+    "a-t386669": {
+      "tags": [
+        "bestemt form",
+        "type:ender-på-t"
+      ],
+      "explanation": "Etter «de» bruker vi bestemt form med -e: de svarte skyene.",
+      "translations": {
+        "de": "Sieh dir die schwarzen Wolken an."
+      }
+    },
+    "a-t386674": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Stemme» er et en-ord. Uten artikkel står adjektivet i grunnform: lav stemme.",
+      "translations": {
+        "de": "Der Mann sprach mit leiser Stimme."
+      }
+    },
+    "a-t386885": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Du» er én person. Etter «være» står adjektivet i grunnform: sulten.",
+      "translations": {
+        "de": "Du musst hungrig sein, nachdem du so weit gelaufen bist."
+      }
+    },
+    "a-t386888": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Klær» er flertall. Flertall av «annen» er «andre».",
+      "translations": {
+        "de": "Er hatte keine anderen Kleider als die, die er anhatte."
+      }
+    },
+    "a-t386892": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Han» er én person, så grunnform: glad. «Glad» får aldri -t.",
+      "translations": {
+        "de": "Er mag Baseball sehr gern.",
+        "en": "He really likes baseball."
+      }
+    },
+    "a-t386904": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «det er» får adjektivet vanligvis -t. Men ord på -ig får aldri -t: vanskelig.",
+      "translations": {
+        "de": "Es ist schwer vorherzusagen, wie das Wetter morgen wird."
+      }
+    },
+    "a-t386946": {
+      "exclude": true,
+      "note": "'fjerne' is the verb 'to remove' here, not the adjective 'fjern'."
+    },
+    "a-t386953": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Svaret» er et et-ord, men ord på -ig får aldri -t: riktig.",
+      "translations": {
+        "de": "Das Zeichen zeigt, dass die Antwort richtig ist."
+      }
+    },
+    "a-t386959": {
+      "tags": [
+        "en/ei-ord",
+        "type:vokal"
+      ],
+      "explanation": "«Sykkelen» er et en-ord. Etter «er» står adjektivet i grunnform: blå.",
+      "translations": {
+        "de": "Sein Fahrrad ist blau."
+      }
+    },
+    "a-t386962": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Kjøleskap» er et et-ord: et rødt kjøleskap.",
+      "translations": {
+        "de": "Ich habe noch nie einen roten Kühlschrank gesehen."
+      }
+    },
+    "a-t386963": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Skjorter» er flertall. I flertall får adjektivet -e: røde.",
+      "translations": {
+        "de": "Unser Team hatte rote Trikots."
+      }
+    },
+    "a-t386969": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Sko» står i flertall her (et par sko). I flertall får adjektivet -e: røde.",
+      "translations": {
+        "de": "Nancy möchte ein Paar rote Schuhe."
+      }
+    },
+    "a-t386973": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Boksen» er et en-ord. Etter «er» står adjektivet i grunnform: full.",
+      "translations": {
+        "de": "Diese Kiste ist voller Äpfel."
+      }
+    },
+    "a-t387184": {
+      "tags": [
+        "bestemt form",
+        "type:sammentrekning"
+      ],
+      "explanation": "Etter «dette» bruker vi bestemt form. «Gammel» blir da «gamle»: dette gamle bordet."
+    },
+    "a-t387382": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Jordskjelv» er et et-ord: et stort jordskjelv.",
+      "translations": {
+        "de": "Letzte Nacht gab es ein großes Erdbeben."
+      }
+    },
+    "a-t387387": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Sangen» er et en-ord. Etter «er» står adjektivet i grunnform: lett.",
+      "translations": {
+        "de": "Dieses Lied ist leicht zu lernen."
+      }
+    },
+    "a-t387394": {
+      "tags": [
+        "bestemt form",
+        "type:sk"
+      ],
+      "explanation": "Etter «den» bruker vi bestemt form med -e: Den engelske kanal.",
+      "translations": {
+        "de": "Der Ärmelkanal trennt England und Frankreich."
+      }
+    },
+    "a-t391000": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Sjokolade» er et en-ord. Uten artikkel står adjektivet i grunnform: varm."
+    },
+    "a-t391002": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Her handler det om været. Etter «det er» får adjektivet -t: varmt.",
+      "translations": {
+        "de": "Es ist so heiß, dass man auf einer Motorhaube Eier braten könnte."
+      }
+    },
+    "a-t392189": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Jeg» er én person. Etter «føler meg» står adjektivet i grunnform: dårlig.",
+      "translations": {
+        "de": "Ich fühle mich sehr schlecht. Ich muss mich gleich übergeben."
+      }
+    },
+    "a-t392367": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Grunn» er et en-ord. I «en eller annen» følger «annen» kjønnet: en eller annen grunn.",
+      "translations": {
+        "de": "Aus irgendeinem Grund funktionierte das Mikrofon vorhin nicht."
+      }
+    },
+    "a-t392450": {
+      "exclude": true,
+      "note": "Fixed expression 'gå i rødt' (nominalised colour); inflection is not the point."
+    },
+    "a-t392455": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Oppgave» er et en-ord, så adjektivet står i grunnform. Ord på -ig får aldri -t: vanskelig.",
+      "translations": {
+        "de": "Es wird eine sehr schwierige Aufgabe, das Defizit auszugleichen.",
+        "en": "It will be a very difficult task to correct the deficit."
+      }
+    },
+    "a-t393123": {
+      "tags": [
+        "adverb",
+        "type:vokal"
+      ],
+      "explanation": "«Står fritt til» beskriver hvordan du står: adverb med -t. Fri får dobbel t: fritt.",
+      "translations": {
+        "de": "Es steht dir frei, zu reisen, wohin du willst."
+      }
+    },
+    "a-t393353": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Etter «det er …» får adjektivet -t. Sann mister en n: sant.",
+      "translations": {
+        "de": "Wir glauben immer noch, dass es wahr ist, dass er unschuldig ist."
+      }
+    },
+    "a-t393637": {
+      "tags": [
+        "et-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Språk» er et et-ord. «Egen» følger kjønnet også etter «sitt»: sitt eget språk."
+    },
+    "a-t394099": {
+      "exclude": true,
+      "note": "Fixed expression 'på høy tid'; inflection is not the point."
+    },
+    "a-t394380": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hendene» er flertall. Etter «er» får adjektivet -e: rene.",
+      "translations": {
+        "de": "Sind deine Hände sauber?"
+      }
+    },
+    "a-t394790": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Det er …» om været: adjektivet får -t: varmt.",
+      "translations": {
+        "de": "Es ist heute warm."
+      }
+    },
+    "a-t394828": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Teoremet» er et et-ord. Etter «er» får adjektivet -t. Sann blir sant.",
+      "translations": {
+        "de": "Der Satz ist offensichtlich wahr für endliche Mengen."
+      }
+    },
+    "a-t3949981": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«De» er flertall. Etter «er» får adjektivet -e: rike.",
+      "translations": {
+        "de": "Sie sind nicht reich."
+      }
+    },
+    "a-t395595": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Et pattedyr» er et et-ord, så adjektivet får -t: stort.",
+      "translations": {
+        "de": "Der Wal ist ein sehr großes Säugetier, das im Meer lebt."
+      }
+    },
+    "a-t395603": {
+      "tags": [
+        "flertall",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Bussene» er flertall. Etter «er» får adjektivet -e: fulle.",
+      "translations": {
+        "de": "Alle Busse sind voll."
+      }
+    },
+    "a-t395625": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Når det er …» er upersonlig. Etter «det er» får adjektivet -t: varmt.",
+      "translations": {
+        "de": "Milch hält sich nicht lange, wenn es warm ist."
+      }
+    },
+    "a-t396109": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Jeg» er én person, så adjektivet står i grunnform: sint.",
+      "translations": {
+        "de": "Ich war nicht so sehr traurig, sondern eher wütend."
+      }
+    },
+    "a-t396947": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "I «ha det …» hører adjektivet til «det». Derfor -t: travelt."
+    },
+    "a-t399282": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Høyt» sier hvordan han snorket. Adverb får -t: høyt.",
+      "translations": {
+        "de": "Er schnarchte laut, während er schlief."
+      }
+    },
+    "a-t399426": {
+      "tags": [
+        "adverb",
+        "type:vokal"
+      ],
+      "explanation": "«Fritt» sier hvordan de kan bruke biblioteket. Adverb med -t; fri får dobbel t: fritt."
+    },
+    "a-t399635": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "Landnavn som «Kina» er et-ord. Derfor får adjektivet -t: stort.",
+      "translations": {
+        "de": "China ist zwanzigmal so groß wie Japan."
+      }
+    },
+    "a-t406959": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hardt» sier hvordan hun har jobbet. Adverb får -t: hardt.",
+      "translations": {
+        "de": "Sie hat hart gearbeitet, um Geld zu verdienen."
+      }
+    },
+    "a-t406963": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Venner» er flertall uten bestemt form, så adjektivet får -e: gode.",
+      "translations": {
+        "de": "Seine Schwester und ich werden wohl gute Freunde werden."
+      }
+    },
+    "a-t410163": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Hunden» er et en-ord. Etter «er» står adjektivet i grunnform: hvit.",
+      "translations": {
+        "de": "Ich habe eine Katze und einen Hund. Die Katze ist schwarz und der Hund ist weiß."
+      }
+    },
+    "a-t413071": {
+      "exclude": true,
+      "note": "Pronominal 'noen andre'; 'noen annen' (singular 'someone else') is also grammatical, so the form is not decidable."
+    },
+    "a-t413075": {
+      "exclude": true,
+      "note": "Pronominal 'noen andre enn'; 'noen annen enn' is also grammatical, so the form is not decidable."
+    },
+    "a-t413076": {
+      "tags": [
+        "et-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Noe» er intetkjønn (et-ord), så «annen» blir «annet»: noe annet.",
+      "translations": {
+        "de": "Man kann nichts anderes tun, als seinen Mut zu bewundern."
+      }
+    },
+    "a-t413095": {
+      "tags": [
+        "et-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Et eller …» viser et-ord, så «annen» blir «annet»: et eller annet.",
+      "translations": {
+        "de": "Er murmelte irgendetwas."
+      }
+    },
+    "a-t4394608": {
+      "exclude": true,
+      "note": "'tunge' is the noun 'tongue', not the adjective 'tung'."
+    },
+    "a-t4638660": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Land» er et et-ord i ubestemt entall: et vakkert land. Vakker får -t.",
+      "translations": {
+        "de": "Die Schweiz ist ein schönes Land."
+      }
+    },
+    "a-t4668620": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "I uttrykket «ha det …» viser adjektivet til «det». Da får det -t: travelt.",
+      "translations": {
+        "en": "I'm busy."
+      }
+    },
+    "a-t4674863": {
+      "tags": [
+        "bestemt form",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Etter «den» bruker vi bestemt form med -e: den stygge kandidaten.",
+      "translations": {
+        "de": "Sie stellten den hässlichen Kandidaten ein."
+      }
+    },
+    "a-t4754205": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Huset» er et et-ord, og etter «var» får adjektivet -t: tomt."
+    },
+    "a-t4757717": {
+      "tags": [
+        "adverb",
+        "type:ig-lig"
+      ],
+      "explanation": "«Riktig» beskriver verbet «husker», ikke et substantiv. Ord på -ig får ikke -t: riktig.",
+      "translations": {
+        "de": "Ich erinnere mich nicht richtig, wie meine Großmutter aussieht.",
+        "en": "I don't remember exactly what my grandmother looks like."
+      }
+    },
+    "a-t4784651": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Stedet» er et et-ord, og etter «var» får adjektivet -t: tomt.",
+      "translations": {
+        "de": "Der Ort war völlig leer."
+      }
+    },
+    "a-t4838159": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Det var …» uten substantiv bruker et-form. Men ord på -ig/-lig får ingen -t: kjedelig.",
+      "translations": {
+        "de": "Es war ziemlich langweilig."
+      }
+    },
+    "a-t4991937": {
+      "tags": [
+        "bestemt form",
+        "type:uregelmessig"
+      ],
+      "explanation": "Etter eiendomsordet «mine» får egen formen egne: mine egne hender.",
+      "translations": {
+        "de": "Ich habe Frankenstein mit meinen eigenen Händen erschaffen."
+      }
+    },
+    "a-t4992028": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Venner» er flertall, derfor får adjektivet -e: nære venner."
+    },
+    "a-t5005778": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Du» er én person. Etter «er» står grunnformen uten endelse: tung."
+    },
+    "a-t501484": {
+      "tags": [
+        "en/ei-ord",
+        "type:uregelmessig"
+      ],
+      "explanation": "«En hund» er et en-ord, så adjektivet står i grunnform: liten.",
+      "translations": {
+        "de": "Das ist ein kleiner Hund."
+      }
+    },
+    "a-t501587": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«Grønnsaker» er flertall uten bestemt form, så adjektivet får -e. Ord på -sk: friske.",
+      "translations": {
+        "de": "Iss mehr frisches Gemüse."
+      }
+    },
+    "a-t501642": {
+      "exclude": true,
+      "note": "Solution sentence is ungrammatical ('et plett' should be 'en plett'); also 'lett' is the et-form here, not en/ei."
+    },
+    "a-t501785": {
+      "tags": [
+        "flertall",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Øyne» er flertall. Vakker mister e i flertall: vakre."
+    },
+    "a-t501807": {
+      "tags": [
+        "flertall",
+        "type:ig-lig"
+      ],
+      "explanation": "«Ting» står her i flertall uten artikkel, så adjektivet får -e: viktige.",
+      "translations": {
+        "de": "Du hast nie Zeit für wichtige Dinge!"
+      }
+    },
+    "a-t501816": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«En innsjø» er et en-ord, så adjektivet står i grunnform: vakker."
+    },
+    "a-t501817": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hofter» er flertall, så adjektivet får -e: brede."
+    },
+    "a-t501826": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Et problem» er et et-ord, så adjektivet får -t: stort.",
+      "translations": {
+        "de": "Getrenntschreibungsfehler sind ein großes Problem in Norwegen."
+      }
+    },
+    "a-t501830": {
+      "tags": [
+        "bestemt form",
+        "type:uregelmessig"
+      ],
+      "explanation": "Etter «den» kommer bestemt form. Liten er uregelmessig: den lille jenta.",
+      "translations": {
+        "de": "Das kleine Mädchen stolperte die Treppe hinauf."
+      }
+    },
+    "a-t509419": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "Adjektivet beskriver «døren», et en-ord. Derfor grunnform: åpen.",
+      "translations": {
+        "de": "Wer hat die Tür offen gelassen?"
+      }
+    },
+    "a-t509430": {
+      "tags": [
+        "adverb",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Godt» sier hvordan jeg lo. Adverb får -t: godt.",
+      "translations": {
+        "de": "Ich habe herzlich über ihren Witz gelacht."
+      }
+    },
+    "a-t511788": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Vi» er flere personer, så adjektivet får -e: glade.",
+      "translations": {
+        "de": "Wir sind sehr froh, sie hier zu haben."
+      }
+    },
+    "a-t5145075": {
+      "tags": [
+        "flertall",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Subjektet «vi» er flertall, så adjektivet etter «er» får -e. Dum får dobbel m: dumme.",
+      "translations": {
+        "de": "Wir sind alle dumm, nur auf verschiedenen Gebieten."
+      }
+    },
+    "a-t5145422": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Huset» er et et-ord, og etter «var» får adjektivet -t: tomt."
+    },
+    "a-t5145820": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hår» er et et-ord i ubestemt form, derfor får adjektivet -t: rødt hår.",
+      "translations": {
+        "de": "Ich habe rote Haare."
+      }
+    },
+    "a-t514891": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Framtid» er et en/ei-ord uten bestemt form, så adjektivet står i grunnform: nær.",
+      "translations": {
+        "de": "Dein Wunsch wird in naher Zukunft in Erfüllung gehen."
+      }
+    },
+    "a-t514934": {
+      "tags": [
+        "bestemt form",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «dette» kommer bestemt form, så adjektivet får -e: dårlige.",
+      "translations": {
+        "de": "Dieses schlechte Wetter wird wohl die Ernten beeinflussen."
+      }
+    },
+    "a-t514937": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«En rishøst» er et en-ord, så adjektivet står i grunnform: dårlig.",
+      "translations": {
+        "de": "Wegen der Überschwemmung gab es eine schlechte Reisernte."
+      }
+    },
+    "a-t515243": {
+      "exclude": true,
+      "note": "'Ha fri' is a fixed expression where 'fri' works as a noun; not adjective inflection."
+    },
+    "a-t5153199": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Hun» er én person. Etter «er» står grunnformen: stygg."
+    },
+    "a-t5153255": {
+      "exclude": true,
+      "note": "'noen' can be singular (someone) or plural; both 'glad' and 'glade' are correct."
+    },
+    "a-t5159899": {
+      "exclude": true,
+      "note": "'fjerne' is the verb 'to remove' here, not the adjective 'fjern'."
+    },
+    "a-t5159912": {
+      "tags": [
+        "bestemt form",
+        "type:vokal"
+      ],
+      "explanation": "Etter eiendomsord («mitt») bruker vi bestemt form: gråe. «Grå» er også riktig."
+    },
+    "a-t5159962": {
+      "exclude": true,
+      "note": "'lette' is the past tense of the verb 'lete', not the adjective 'lett'."
+    },
+    "a-t516108": {
+      "tags": [
+        "flertall",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Katter» er flertall, så adjektivet får -e. Svart får ikke ekstra t: svarte."
+    },
+    "a-t516444": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Katten» er et en-ord. Etter «er» står adjektivet i grunnform: hvit.",
+      "translations": {
+        "de": "Sie hat eine Katze. Die Katze ist weiß."
+      }
+    },
+    "a-t5164654": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Du» er én person. Etter «er» står grunnformen: trygg.",
+      "translations": {
+        "de": "Ich will nur, dass du sicher bist."
+      }
+    },
+    "a-t5220569": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Jente» er et en/ei-ord i ubestemt form: en pen jente. Grunnformen uten endelse.",
+      "translations": {
+        "de": "Er hat ein sehr hübsches Mädchen geheiratet.",
+        "en": "He married a very pretty girl."
+      }
+    },
+    "a-t5220831": {
+      "tags": [
+        "et-ord",
+        "type:sk"
+      ],
+      "explanation": "«Asyl» er et et-ord: et politisk asyl. Ord på -isk får ikke -t.",
+      "translations": {
+        "de": "Meine Vorfahren hofften, politisches Asyl zu finden."
+      }
+    },
+    "a-t523380": {
+      "tags": [
+        "flertall",
+        "type:regelmessig"
+      ],
+      "explanation": "«Venner» er flertall uten bestemt form, så adjektivet får -e: nære.",
+      "translations": {
+        "de": "Sie hat fast keine engen Freunde."
+      }
+    },
+    "a-t523381": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Jeg» er én person. Etter «er» står adjektivet i grunnform: sliten.",
+      "translations": {
+        "de": "Nicht so schlimm. Aber ich bin etwas müde."
+      }
+    },
+    "a-t5280628": {
+      "tags": [
+        "flertall",
+        "type:ig-lig"
+      ],
+      "explanation": "«Rolige» beskriver «dem», altså flere personer. Derfor flertall med -e: rolige.",
+      "translations": {
+        "de": "Wir hielten sie ruhig."
+      }
+    },
+    "a-t529781": {
+      "exclude": true,
+      "note": "'Andre' is the ordinal 'second' (andre verdenskrig), not an inflected form of 'annen'."
+    },
+    "a-t530391": {
+      "exclude": true,
+      "note": "Fixed expression 'ta på fersk gjerning'; inflection is not the point."
+    },
+    "a-t530637": {
+      "exclude": true,
+      "note": "'Noen' can be read as singular (dårlig) or plural (dårlige); form not decidable."
+    },
+    "a-t530866": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«En» viser et en-ord (en katt), så adjektivet står i grunnform: hvit.",
+      "translations": {
+        "de": "Wir haben zwei Katzen im Haus, eine weiße und eine schwarze."
+      }
+    },
+    "a-t533367": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Sterkt» sier hvordan det blåser. Adverb får -t: sterkt.",
+      "translations": {
+        "de": "Es weht heute stark."
+      }
+    },
+    "a-t533368": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Vind» er et en-ord uten bestemt form, så adjektivet står i grunnform: sterk.",
+      "translations": {
+        "de": "Heute ist starker Wind."
+      }
+    },
+    "a-t5339237": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«Grønnsaker» er flertall, derfor får adjektivet -e: friske grønnsaker.",
+      "translations": {
+        "de": "Frisches Gemüse und Obst ist gesund.",
+        "en": "Fresh vegetables and fruit are healthy."
+      }
+    },
+    "a-t5339244": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hun» er én person. Etter «er» står grunnformen: sur.",
+      "translations": {
+        "de": "Weißt du, warum sie so schlecht gelaunt ist?",
+        "en": "Do you know why she's so grumpy?"
+      }
+    },
+    "a-t5339288": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Han» er én person. Etter «er» står grunnformen: smart.",
+      "translations": {
+        "de": "Er ist nicht unbedingt ehrlich, nur weil er klug ist.",
+        "en": "He's not necessarily honest just because he's smart."
+      }
+    },
+    "a-t5371126": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Det er …» uten substantiv bruker et-form. Men ord på -ig/-lig får ikke -t: kjedelig."
+    },
+    "a-t560666": {
+      "tags": [
+        "bestemt form",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter eiendomsord som «mine» kommer bestemt form med -e: lykkelige.",
+      "translations": {
+        "de": "Wenn ich dieses Foto sehe, erinnere ich mich immer an meine glücklichen Tage auf dem Land."
+      }
+    },
+    "a-t5618308": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Det var …» uten substantiv bruker et-form med -t: morsomt.",
+      "translations": {
+        "de": "Es war ziemlich lustig."
+      }
+    },
+    "a-t5618309": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Jeg» er én person. Etter «være» står grunnformen: trygg.",
+      "translations": {
+        "de": "Ich will sicher sein."
+      }
+    },
+    "a-t5635748": {
+      "tags": [
+        "bestemt form",
+        "type:ender-på-t"
+      ],
+      "explanation": "Etter «den» og bestemt substantiv («kaninen») får adjektivet -e: den hvite kaninen.",
+      "translations": {
+        "de": "Im Schnee war das weiße Kaninchen nicht zu sehen.",
+        "en": "In the snow, the white rabbit wasn't visible."
+      }
+    },
+    "a-t618618": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Gutter» er flertall. «Annen» blir «andre» i flertall: alle andre gutter."
+    },
+    "a-t6195235": {
+      "tags": [
+        "bestemt form",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «det» og bestemt substantiv («svaret») får adjektivet -e: det riktige svaret.",
+      "translations": {
+        "de": "Das ist ja meilenweit von der richtigen Antwort entfernt."
+      }
+    },
+    "a-t6332860": {
+      "tags": [
+        "flertall",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Vi» er flere personer, derfor får adjektivet -e: smarte."
+    },
+    "a-t6333405": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Etter «noe» står adjektivet i intetkjønn med -t: noe dumt. Bare én m foran -t.",
+      "translations": {
+        "de": "Mach nichts Dummes, während ich weg bin."
+      }
+    },
+    "a-t6364606": {
+      "tags": [
+        "bestemt form",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «det» og bestemt substantiv («paret») får adjektivet -e: det lykkelige paret.",
+      "translations": {
+        "de": "Wer ist das glückliche Paar?"
+      }
+    },
+    "a-t6379953": {
+      "tags": [
+        "bestemt form",
+        "type:sk"
+      ],
+      "explanation": "Etter «den» og bestemt substantiv («jenten») får adjektivet -e: den tyske jenten.",
+      "translations": {
+        "de": "Was ist mit dem deutschen Mädchen passiert?"
+      }
+    },
+    "a-t6387724": {
+      "tags": [
+        "adverb",
+        "type:sk"
+      ],
+      "explanation": "«Raskt» sier hvordan du blir vant til noe. Som adverb får adjektivet -t: raskt."
+    },
+    "a-t6535926": {
+      "tags": [
+        "adverb",
+        "type:sk"
+      ],
+      "explanation": "«Raskt» sier hvordan han spiser. Som adverb får adjektivet -t: raskt."
+    },
+    "a-t6996257": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Flagg» er et et-ord: et stygt flagg. Dobbel g blir enkel foran -t."
+    },
+    "a-t6996263": {
+      "tags": [
+        "et-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Flagg» er et et-ord: et nydelig flagg. Ord på -lig får ikke -t."
+    },
+    "a-t6996270": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Natt» er et en/ei-ord i ubestemt form: en mørk natt. Grunnformen uten endelse.",
+      "translations": {
+        "de": "Hat hier schon einmal jemand den Nachthimmel in einer dunklen Nacht fernab von Lichtverschmutzung gesehen?"
+      }
+    },
+    "a-t6996799": {
+      "tags": [
+        "flertall",
+        "type:uregelmessig"
+      ],
+      "explanation": "«De» er flere personer, derfor får adjektivet -e: glade."
+    },
+    "a-t7053382": {
+      "tags": [
+        "en/ei-ord",
+        "type:sk"
+      ],
+      "explanation": "«Forberedelse» er et en-ord i ubestemt form. Ord på -isk får uansett ikke -t: praktisk.",
+      "translations": {
+        "de": "Der Bedarf an theoretischer und praktischer Vorbereitung ist offensichtlich.",
+        "en": "The need for theoretical and practical preparation is obvious."
+      }
+    },
+    "a-t719090": {
+      "tags": [
+        "flertall",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Ideer» er flertall uten bestemt form, så adjektivet får -e: grønne.",
+      "translations": {
+        "de": "Farblose grüne Ideen schlafen wütend."
+      }
+    },
+    "a-t7195787": {
+      "tags": [
+        "flertall",
+        "type:sk"
+      ],
+      "explanation": "«Biler» er flertall, derfor får adjektivet -e: elektriske biler."
+    },
+    "a-t7344974": {
+      "tags": [
+        "en/ei-ord",
+        "type:vokal"
+      ],
+      "explanation": "«Sommerdag» er et en-ord i ubestemt form: en grå sommerdag. Grunnformen uten endelse."
+    },
+    "a-t7809817": {
+      "tags": [
+        "flertall",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Spørsmål» står her i ubestemt flertall (ingen spørsmål), så adjektivet får -e. Dum får dobbel m: dumme."
+    },
+    "a-t8138896": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Te» er et en-ord i ubestemt form, derfor grunnformen: grønn te."
+    },
+    "a-t8139927": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Land» er et et-ord: et gammelt land. Gammel får -t: gammelt.",
+      "translations": {
+        "en": "Greece is an old country."
+      }
+    },
+    "a-t8142240": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Etter «det» og bestemt substantiv (skiltet) får adjektivet -e: det røde skiltet.",
+      "translations": {
+        "en": "What does it say on the red sign?"
+      }
+    },
+    "a-t8142985": {
+      "tags": [
+        "flertall",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Øyne» er flertall, derfor får adjektivet -e: grønne øyne."
+    },
+    "a-t8143256": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Hesten» er et en-ord i entall. Etter «er» står grunnformen: svart."
+    },
+    "a-t8155725": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Jeg» er én person. «Ser … ut» fungerer som «er»: grunnformen tykk.",
+      "translations": {
+        "en": "Do I look fat?"
+      }
+    },
+    "a-t8155728": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Han» er én person. Etter «blitt» står grunnformen: tykk.",
+      "translations": {
+        "en": "He has gotten fat."
+      }
+    },
+    "a-t815757": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "Adjektivet beskriver «munnen», et en-ord. Derfor grunnform: full.",
+      "translations": {
+        "de": "Du solltest bei Tisch nicht mit vollem Mund reden."
+      }
+    },
+    "a-t815768": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Pent» sier hvordan hun sang. Adverb får -t: pent.",
+      "translations": {
+        "de": "Sie konnte schön singen, als sie ein Kind war."
+      }
+    },
+    "a-t815773": {
+      "tags": [
+        "bestemt form",
+        "type:vokal"
+      ],
+      "explanation": "Etter «den» kommer bestemt form. Ny får -e: den nye bilen.",
+      "translations": {
+        "de": "Ich wette, dass Dave ziemlich viel für sein neues Auto bezahlt hat."
+      }
+    },
+    "a-t815778": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Problemet» er et et-ord. Etter «er» får adjektivet -t: enkelt."
+    },
+    "a-t815785": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "«Jeg» er én person. Etter «er» står adjektivet i grunnform: sikker.",
+      "translations": {
+        "de": "Ich bin sicher, dass sie die Prüfung bestehen."
+      }
+    },
+    "a-t815789": {
+      "exclude": true,
+      "note": "'Nær' is used as a preposition ('near Tokyo Tower'), not as an inflected adjective."
+    },
+    "a-t815794": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Vannet» er et et-ord. Etter «er» får adjektivet -t: hardt.",
+      "translations": {
+        "de": "Das Wasser aus deinem Hahn ist zu hart. Besorg dir einen Wasserenthärter."
+      }
+    },
+    "a-t815802": {
+      "exclude": true,
+      "note": "'Nytt' is the past participle of the verb 'nyte' (enjoy), not adjective 'ny'; also typo 'So'."
+    },
+    "a-t815803": {
+      "exclude": true,
+      "note": "'Åpne' is the verb (infinitive), not the adjective 'åpen'."
+    },
+    "a-t815819": {
+      "tags": [
+        "adverb",
+        "type:uregelmessig"
+      ],
+      "explanation": "«Godt» sier hvordan jeg kjenner henne. Adverb får -t: godt.",
+      "translations": {
+        "de": "Das ist das Mädchen, das ich gut kenne."
+      }
+    },
+    "a-t815820": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Kaffen» er et en-ord. Etter «var» står adjektivet i grunnform: varm.",
+      "translations": {
+        "de": "Der Kaffee war so heiß, dass ich mir fast die Zunge verbrannt habe."
+      }
+    },
+    "a-t815841": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Et håndkle» er et et-ord, så adjektivet får -t: varmt.",
+      "translations": {
+        "de": "Kannst du mir noch ein warmes Handtuch mitbringen?"
+      }
+    },
+    "a-t815867": {
+      "exclude": true,
+      "note": "'Andre' is used pronominally ('others'), not as an adjective form to choose."
+    },
+    "a-t815889": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«En seng» er et en-ord, så adjektivet står i grunnform: myk.",
+      "translations": {
+        "de": "Ich schlafe gern in einem weichen Bett."
+      }
+    },
+    "a-t815903": {
+      "tags": [
+        "adverb",
+        "type:regelmessig"
+      ],
+      "explanation": "«Hardt» sier hvordan du må studere. Adverb får -t: hardt.",
+      "translations": {
+        "de": "Du musst hart lernen und viel lernen."
+      }
+    },
+    "a-t815912": {
+      "exclude": true,
+      "note": "Unnatural calque ('setter i skam') with typo 'motstanderene'."
+    },
+    "a-t815918": {
+      "exclude": true,
+      "note": "'Fransk' is the language (noun), not an adjective form."
+    },
+    "a-t815922": {
+      "exclude": true,
+      "note": "Ungrammatical: 'frekke' with a single addressee; duplicate of a-t815923."
+    },
+    "a-t815923": {
+      "tags": [
+        "bestemt form",
+        "type:regelmessig"
+      ],
+      "explanation": "Når vi snakker til noen («unge dame!»), får adjektivet bestemt form med -e: unge.",
+      "translations": {
+        "de": "Sei nicht frech zu mir, junge Dame!"
+      }
+    },
+    "a-t815929": {
+      "tags": [
+        "bestemt form",
+        "type:vokal"
+      ],
+      "explanation": "Etter «den» kommer bestemt form. Ny får -e: den nye læreren.",
+      "translations": {
+        "de": "Alle Kinder in der Schule mochten den neuen Lehrer."
+      }
+    },
+    "a-t815938": {
+      "tags": [
+        "en/ei-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "Adjektivet beskriver «døren», et en-ord. Derfor grunnform: åpen.",
+      "translations": {
+        "de": "Ich ließ die Tür offen."
+      }
+    },
+    "a-t8160356": {
+      "tags": [
+        "flertall",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Tenner» er flertall, derfor får adjektivet -e: hvite tenner.",
+      "translations": {
+        "de": "Sie hat weiße Zähne."
+      }
+    },
+    "a-t816109": {
+      "tags": [
+        "bestemt form",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «det» foran substantivet kommer bestemt form med -e: det dårlige været.",
+      "translations": {
+        "de": "Ich konnte wegen des schlechten Wetters nicht hinausgehen."
+      }
+    },
+    "a-t8453447": {
+      "tags": [
+        "bestemt form",
+        "type:sk"
+      ],
+      "explanation": "Etter «den» og bestemt substantiv («jenta») får adjektivet -e: den tyske jenta.",
+      "translations": {
+        "de": "Was ist mit dem deutschen Mädchen passiert?",
+        "en": "What happened to the German girl?"
+      }
+    },
+    "a-t8798523": {
+      "exclude": true,
+      "note": "'åpne' is the verb (å åpne seg), not an inflection of the adjective åpen."
+    },
+    "a-t8798538": {
+      "tags": [
+        "en/ei-ord",
+        "type:ender-på-t"
+      ],
+      "explanation": "«Han» er én person. Etter «er» står grunnformen: smart.",
+      "translations": {
+        "de": "Er ist klug, aber faul."
+      }
+    },
+    "a-t8799871": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Det er …» uten substantiv bruker et-form med -t: trygt. Dobbel g blir enkel foran -t.",
+      "translations": {
+        "de": "Es ist nicht sicher, dieses Wasser zu trinken."
+      }
+    },
+    "a-t8825612": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Sola» er et ei-ord i entall. Etter «er» står grunnformen: gul.",
+      "translations": {
+        "de": "Die Sonne ist am Abend nicht gelb. Sie ist orange."
+      }
+    },
+    "a-t8925667": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Vinter» er et en-ord i ubestemt form: en kald vinter. Grunnformen uten endelse.",
+      "translations": {
+        "de": "Es war ein extrem kalter Winter.",
+        "en": "It was an extremely cold winter."
+      }
+    },
+    "a-t8925720": {
+      "tags": [
+        "flertall",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Hyllene» er flertall, derfor får adjektivet -e: tomme. Dobbel m foran -e.",
+      "translations": {
+        "de": "Die meisten Regale im Supermarkt waren leer.",
+        "en": "Most of the shelves in the supermarket were empty."
+      }
+    },
+    "a-t8993809": {
+      "tags": [
+        "et-ord",
+        "type:vokal"
+      ],
+      "explanation": "«Hår» er et et-ord i ubestemt form: grått hår. Grå får -tt.",
+      "translations": {
+        "de": "Er hatte graue Haare.",
+        "en": "He had grey hair."
+      }
+    },
+    "a-t9211127": {
+      "tags": [
+        "en/ei-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Fortellingen» er et en-ord i entall. Etter «er» står grunnformen: sann.",
+      "translations": {
+        "de": "Diese Geschichte ist wahr."
+      }
+    },
+    "a-t9211736": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Det var …» uten substantiv bruker et-form med -t: dyrt.",
+      "translations": {
+        "de": "Es war nicht so teuer."
+      }
+    },
+    "a-t9211885": {
+      "tags": [
+        "et-ord",
+        "type:sammentrekning"
+      ],
+      "explanation": "I uttrykket «ha det travelt» viser adjektivet til «det», derfor får det -t: travelt.",
+      "translations": {
+        "en": "I've been busy."
+      }
+    },
+    "a-t9223152": {
+      "tags": [
+        "en/ei-ord",
+        "type:ig-lig"
+      ],
+      "explanation": "«Kvinne» er et en-ord i ubestemt form: en nydelig kvinne. Ord på -lig får ikke -t.",
+      "translations": {
+        "de": "Sie war eine wunderschöne Frau.",
+        "en": "She was a lovely woman."
+      }
+    },
+    "a-t9410924": {
+      "tags": [
+        "bestemt form",
+        "type:ig-lig"
+      ],
+      "explanation": "Etter «det» og bestemt substantiv («svaret») får adjektivet -e: det riktige svaret.",
+      "translations": {
+        "de": "Du musst die richtige Antwort ankreuzen.",
+        "en": "You have to tick the correct answer."
+      }
+    },
+    "a-t9442839": {
+      "tags": [
+        "en/ei-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Svak» beskriver «hun», én person. Da står grunnformen: svak.",
+      "translations": {
+        "de": "Jetzt liegt sie geschwächt im Bett.",
+        "en": "Now she is lying weak in bed."
+      }
+    },
+    "a-t9450975": {
+      "tags": [
+        "et-ord",
+        "type:dobbel-konsonant"
+      ],
+      "explanation": "«Tak» er et et-ord: et grønt tak. Dobbel n blir enkel foran -t.",
+      "translations": {
+        "de": "Das Haus mit dem grünen Dach ist meins."
+      }
+    },
+    "a-t9932315": {
+      "tags": [
+        "et-ord",
+        "type:regelmessig"
+      ],
+      "explanation": "«Vær» er et et-ord i ubestemt form, derfor får adjektivet -t: pent vær.",
+      "translations": {
+        "de": "Heute wird es schönes Wetter geben.",
+        "en": "It's going to be nice weather today."
+      }
+    }
+  }
+}
