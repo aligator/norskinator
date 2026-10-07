@@ -154,15 +154,23 @@ describe('recordSessionCompleted', () => {
 });
 
 describe('levelInfo', () => {
-  it('takes a whole good session to reach level 2, and more than one for level 3', () => {
+  it('takes two good sessions to reach level 2, and many more for level 3', () => {
     let progress = withProgress({ dailyGoal: 1000 });
 
     // 20 answers, 17 right: two short slips break the combo.
-    for (let answer = 0; answer < 20; answer += 1) {
-      const correct = answer !== 6 && answer !== 13 && answer !== 19;
+    const playSession = (): void => {
+      for (let answer = 0; answer < 20; answer += 1) {
+        const correct = answer !== 6 && answer !== 13 && answer !== 19;
 
-      progress = recordAnswer(progress, correct, DAY_ONE).progress;
-    }
+        progress = recordAnswer(progress, correct, DAY_ONE).progress;
+      }
+    };
+
+    playSession();
+
+    expect(levelInfo(progress.xp).level).toBe(1);
+
+    playSession();
 
     expect(levelInfo(progress.xp).level).toBe(2);
     expect(progress.xp).toBeLessThan(xpForLevel(3));

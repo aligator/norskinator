@@ -73,10 +73,10 @@ export const XP_GOAL_BONUS = 50;
 /**
  * XP needed to reach level n is LEVEL_SPAN * (n - 1)^2. A typical session
  * (20 answers, ~85 % right) earns ~270 XP, so with one session a day:
- * level 2 after the first session, 4 after a week, 5 after two weeks,
- * 10 after about two months.
+ * level 2 on the second day, 3 after a week, 5 after about three weeks,
+ * 10 after about four months.
  */
-const LEVEL_SPAN = 200;
+const LEVEL_SPAN = 400;
 
 export interface LevelInfo {
   readonly level: number;
