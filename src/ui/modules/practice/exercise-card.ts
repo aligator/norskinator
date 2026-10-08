@@ -180,9 +180,20 @@ export class ExerciseCard extends LitElement {
         gap: var(--sp-3);
       }
 
+      /* One row for letters and submit: with the keyboard open, every row pushes the prompt off screen. */
+      .type-in-actions {
+        display: flex;
+        gap: var(--sp-2);
+      }
+
       .letters {
         display: flex;
         gap: var(--sp-2);
+      }
+
+      .type-in-actions .submit {
+        flex: 1;
+        min-height: var(--hit);
       }
 
       .letters button {
@@ -437,11 +448,6 @@ export class ExerciseCard extends LitElement {
       <fieldset>
         ${this.#legend()}
         <form class="type-in" @submit=${this.#submitTyped}>
-          <div class="letters" role="group" aria-label="Norske bokstaver">
-            ${NORWEGIAN_LETTERS.map(
-              (letter) => html`<button type="button" @click=${() => this.#insertLetter(letter)}>${letter}</button>`,
-            )}
-          </div>
           <input
             type="text"
             lang="nb"
@@ -453,7 +459,14 @@ export class ExerciseCard extends LitElement {
             .value=${this.typed}
             @input=${this.#onInput}
           />
-          <button class="button primary block" type="submit" ?disabled=${this.typed.trim() === ''}>Sjekk</button>
+          <div class="type-in-actions">
+            <div class="letters" role="group" aria-label="Norske bokstaver">
+              ${NORWEGIAN_LETTERS.map(
+                (letter) => html`<button type="button" @click=${() => this.#insertLetter(letter)}>${letter}</button>`,
+              )}
+            </div>
+            <button class="button primary submit" type="submit" ?disabled=${this.typed.trim() === ''}>Sjekk</button>
+          </div>
         </form>
       </fieldset>
     `;
