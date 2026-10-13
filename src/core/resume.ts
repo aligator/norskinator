@@ -37,6 +37,7 @@ export function snapshotSession(session: SessionState, feedback: Feedback | null
     gardenStart: session.gardenStart,
     startedAt: session.startedAt,
     deckIds: session.deckIds,
+    mode: session.mode,
     feedback:
       feedback === null
         ? null
@@ -179,6 +180,7 @@ export function restoreSession(
       startedAt: persisted.startedAt,
       questionShownAt: now,
       deckIds: persisted.deckIds,
+      mode: persisted.mode,
     },
   };
 }

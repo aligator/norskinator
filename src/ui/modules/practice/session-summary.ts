@@ -10,6 +10,7 @@ import { flameIcon } from '../../components/icons.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { formatNumber, pluralDays } from '../shared/format.ts';
 import { playSound } from '../audio/sound-effects.ts';
+import { PRACTICE_NOTE } from '../shared/session-start.ts';
 import { store } from '../shared/store.ts';
 
 import '../gamification/badge-medal.ts';
@@ -81,6 +82,10 @@ export class SessionSummary extends LitElement {
 
       .stats span {
         font-size: var(--fs-sm);
+        color: var(--fg-muted);
+      }
+
+      .note {
         color: var(--fg-muted);
       }
 
@@ -185,7 +190,7 @@ export class SessionSummary extends LitElement {
           </li>
           <li><strong>${session.bestCombo}</strong> <span>beste kombo</span></li>
         </ul>
-        ${this.#renderGarden()}
+        ${session.mode === 'practice' ? html`<p class="note">Fri øving. ${PRACTICE_NOTE}</p>` : this.#renderGarden()}
         ${this.session.streakExtended
           ? html`<p class="streak">${flameIcon()}<span>${this.#streakText()}</span></p>`
           : nothing}

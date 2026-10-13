@@ -207,6 +207,29 @@ export function buildSession<Item extends ItemMeta>(
   return interleave(reviewPart, freshPart, random);
 }
 
+/**
+ * A review session grows the garden. A practice session is the fallback when
+ * nothing is due and no seed may be sown: it changes no card and pays little.
+ */
+export const SESSION_MODES = ['review', 'practice'] as const;
+
+export type SessionMode = (typeof SESSION_MODES)[number];
+
+/**
+ * Random items for a practice session. Known items only, so the learner never
+ * meets a new item outside the seed gate; every item when nothing is known yet.
+ */
+export function buildPracticeSession<Item extends ItemMeta>(
+  items: readonly Item[],
+  cards: Readonly<Record<string, CardState>>,
+  options: Pick<SessionOptions, 'sessionSize' | 'random'>,
+): Item[] {
+  const known = items.filter((item) => cards[item.id] !== undefined);
+  const pool = known.length > 0 ? known : items;
+
+  return sample(pool, options.sessionSize ?? SESSION_SIZE, options.random ?? Math.random);
+}
+
 /** Re-inserts a failed exercise a few steps later in the same session. */
 export function requeue<Item>(queue: readonly Item[], index: number, item: Item): Item[] {
   const next = [...queue];

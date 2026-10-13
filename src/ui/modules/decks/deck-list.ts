@@ -116,13 +116,11 @@ export class DeckList extends LitElement {
       return html`<li><div class="skeleton" aria-hidden="true"></div></li>`;
     }
 
-    const nothingToDo = counts === undefined || (counts.due === 0 && counts.unseen === 0);
-
     return html`
       <li>
         <button
           class="deck"
-          ?disabled=${disabled || nothingToDo}
+          ?disabled=${disabled || counts === undefined}
           @click=${() => startSession(this, [deck.id])}
         >
           <span class="icon" aria-hidden="true">${deck.icon}</span>

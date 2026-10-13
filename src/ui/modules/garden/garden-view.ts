@@ -12,7 +12,7 @@ import type { Deck, PlayableItem } from '../../../core/types.ts';
 import { DECKS } from '../../../decks/registry.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { formatNumber } from '../shared/format.ts';
-import { startSession } from '../shared/session-start.ts';
+import { PRACTICE_NOTE, startSession } from '../shared/session-start.ts';
 import { StoreController, store } from '../shared/store.ts';
 import { gardenMemory } from './garden-memory.ts';
 
@@ -192,9 +192,11 @@ export class GardenView extends LitElement {
 
     return html`<div class="action">
       ${canPractise
-        ? html`<button class="button primary block" @click=${() => startSession(this, [deck.id])}>${label}</button>`
-        : html`<p class="meta">🌤️ Hagen har det fint. Kom tilbake senere.</p>`}
-      <small>${seedText(preview)}</small>
+        ? html`<button class="button primary block" @click=${() => startSession(this, [deck.id])}>${label}</button>
+            <small>${seedText(preview)}</small>`
+        : html`<p class="meta">🌤️ Hagen har det fint. ${seedText(preview)}</p>
+            <button class="button secondary block" @click=${() => startSession(this, [deck.id])}>Øv fritt</button>
+            <small>${PRACTICE_NOTE}</small>`}
     </div>`;
   }
 

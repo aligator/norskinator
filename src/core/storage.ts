@@ -7,6 +7,7 @@
  */
 import { INITIAL_PROGRESS, clampDailyGoal, type Progress } from './gamification.ts';
 import { DEFAULT_SEED_LIMITS, PLANT_STAGES, SEED, type Plant } from './garden.ts';
+import { SESSION_MODES, type SessionMode } from './session.ts';
 import { DEFAULT_SPECIES, INITIAL_GARDEN, SPECIES_IDS, type GardenState, type SpeciesId } from './species.ts';
 import { MAX_EASE, MIN_EASE, START_EASE, type CardState, type Grade } from './srs.ts';
 import { DEFAULT_TASK_WEIGHTS, parseTaskWeights, type TaskWeights } from './task-weights.ts';
@@ -482,6 +483,7 @@ export interface PersistedSession {
   readonly gardenStart: Readonly<Record<string, Plant>>;
   readonly startedAt: number;
   readonly deckIds: readonly string[];
+  readonly mode: SessionMode;
   readonly feedback: PersistedFeedback | null;
 }
 
@@ -618,6 +620,7 @@ export function parseSession(raw: string | null): PersistedSession | null {
     gardenStart: readPlants(parsed['gardenStart']),
     startedAt,
     deckIds: readStringArray(parsed['deckIds']),
+    mode: readEnum(parsed['mode'], SESSION_MODES, 'review'),
     feedback: parseFeedback(parsed['feedback']),
   };
 }

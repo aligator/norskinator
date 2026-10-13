@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import { INITIAL_PROGRESS } from './gamification.ts';
+import { INITIAL_PROGRESS, PRACTICE_XP_CORRECT } from './gamification.ts';
 import { MAX_RESUME_AGE_MS } from './resume.ts';
 import { Store } from './store.ts';
 import { SESSION_STORAGE_KEY, type StorageLike } from './storage.ts';
@@ -244,7 +244,7 @@ describe('Store', () => {
     }
   });
 
-  it('starts an empty session when nothing is due', async () => {
+  it('starts a practice session when nothing is due', async () => {
     const { store, setNow } = await createHarness([item('a')]);
     store.startSession();
     store.answer('i');
@@ -253,7 +253,29 @@ describe('Store', () => {
     setNow(NOW + 60_000);
     store.startSession();
 
-    expect(store.state.session).toBeNull();
+    expect(store.state.session?.mode).toBe('practice');
+    expect(store.currentExercise?.id).toBe('a');
+  });
+
+  it('leaves cards and garden alone in a practice session and pays little', async () => {
+    const { store, setNow } = await createHarness([item('a')]);
+    store.startSession();
+    store.answer('i');
+    store.next();
+
+    const { cards, garden } = store.state;
+    const xpBefore = store.state.progress.xp;
+
+    setNow(NOW + 60_000);
+    store.startSession();
+    store.answer('i');
+
+    expect(store.state.cards).toBe(cards);
+    expect(store.state.garden).toBe(garden);
+    expect(store.state.progress.xp - xpBefore).toBe(PRACTICE_XP_CORRECT);
+    expect(store.state.feedback?.plantAfter).toEqual(store.state.feedback?.plantBefore);
+    expect(store.state.session?.seedsSown).toBe(0);
+    expect(store.state.session?.gardenStart).toEqual({});
   });
 
   it('clears progress and session on reset but keeps settings and the daily goal', async () => {

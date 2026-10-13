@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   INITIAL_PROGRESS,
+  PRACTICE_XP_CORRECT,
   currentStreak,
   dayKey,
   recordAnswer,
@@ -102,6 +103,19 @@ describe('recordAnswer', () => {
     expect(wrong.goalJustReached).toBe(false);
     expect(right.progress.answersToday).toBe(3);
     expect(right.goalJustReached).toBe(true);
+  });
+
+  it('pays a practice answer the token amount and keeps it out of the daily goal', () => {
+    const almost = withProgress({ dailyGoal: 3, answersToday: 2, combo: 4, lastActiveDay: dayKey(DAY_ONE) });
+
+    const right = recordAnswer(almost, true, DAY_ONE, undefined, 'practice');
+    const wrong = recordAnswer(almost, false, DAY_ONE, undefined, 'practice');
+
+    expect(right.xpGained).toBe(PRACTICE_XP_CORRECT);
+    expect(right.progress.answersToday).toBe(2);
+    expect(right.goalJustReached).toBe(false);
+    expect(right.progress.totalAnswers).toBe(1);
+    expect(wrong.xpGained).toBe(0);
   });
 
   it('resets the daily counter on a new day', () => {

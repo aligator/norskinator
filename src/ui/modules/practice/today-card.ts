@@ -7,7 +7,7 @@ import { sessionOptions, sessionPreview, type SessionPreview } from '../../../co
 import { spendableXp } from '../../../core/species.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { formatNumber } from '../shared/format.ts';
-import { startSession } from '../shared/session-start.ts';
+import { PRACTICE_NOTE, startSession } from '../shared/session-start.ts';
 import { StoreController, store } from '../shared/store.ts';
 
 import '../gamification/goal-ring.ts';
@@ -200,11 +200,14 @@ export class TodayCard extends LitElement {
       return html`
         <div class="done">
           <p>Alt er repetert for i dag.</p>
-          ${unseen > 0 && seedRoom > 0
-            ? html`<button class="button secondary block" @click=${() => startSession(this)}>Øv ekstra</button>`
-            : nothing}
           ${unseen > 0 && seedRoom === 0
             ? html`<p>Nye frø kommer når spirene i <a href="#hage">hagen</a> har vokst.</p>`
+            : nothing}
+          ${store.state.items.length > 0
+            ? html`<button class="button secondary block cta" @click=${() => startSession(this)}>
+                <span>Øv fritt</span>
+                <small>${PRACTICE_NOTE}</small>
+              </button>`
             : nothing}
         </div>
       `;

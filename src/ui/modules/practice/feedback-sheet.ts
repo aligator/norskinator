@@ -14,6 +14,7 @@ import { speak } from '../audio/speech.ts';
 import { VoiceController } from '../audio/voice-controller.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { plantNews } from '../garden/plant-news.ts';
+import { PRACTICE_NOTE, PRACTICE_PLANT_NEWS } from '../shared/session-start.ts';
 import { formatComesBack, pluralTimes } from '../shared/format.ts';
 import { translationStyles } from './practice-styles.ts';
 import { pickTranslation } from './translation.ts';
@@ -60,6 +61,7 @@ export class FeedbackSheet extends LitElement {
     feedback: { attribute: false },
     translationLanguage: { attribute: false },
     dailyGoal: { attribute: false },
+    practice: { type: Boolean },
   };
 
   static override styles = [
@@ -289,11 +291,14 @@ export class FeedbackSheet extends LitElement {
   declare feedback: Feedback;
   declare translationLanguage: TranslationLanguage;
   declare dailyGoal: number;
+  /** A practice answer leaves the plant alone; its due date and reps say nothing new. */
+  declare practice: boolean;
 
   constructor() {
     super();
     this.translationLanguage = 'de';
     this.dailyGoal = 20;
+    this.practice = false;
   }
 
   /** An answer can be right in more than one way; show the ones the learner did not use. */
@@ -372,12 +377,17 @@ export class FeedbackSheet extends LitElement {
             .species=${feedback.species}
             .size=${56}
           ></plant-sprite>
-          <div>
-            <p class="plant-news">${plantNews(feedback.plantBefore, feedback.plantAfter)}</p>
-            <p class="plant-facts">
-              Kommer igjen ${formatComesBack(feedback.nextDue, Date.now())} · øvd ${pluralTimes(feedback.reps)}
-            </p>
-          </div>
+          ${this.practice
+            ? html`<div>
+                <p class="plant-news">${PRACTICE_PLANT_NEWS}</p>
+                <p class="plant-facts">${PRACTICE_NOTE}</p>
+              </div>`
+            : html`<div>
+                <p class="plant-news">${plantNews(feedback.plantBefore, feedback.plantAfter)}</p>
+                <p class="plant-facts">
+                  Kommer igjen ${formatComesBack(feedback.nextDue, Date.now())} · øvd ${pluralTimes(feedback.reps)}
+                </p>
+              </div>`}
         </div>
 
         ${feedback.correct

@@ -16,6 +16,7 @@ import { playSound, type SoundKind } from '../audio/sound-effects.ts';
 import { speak, stopSpeaking } from '../audio/speech.ts';
 import { plantNews } from '../garden/plant-news.ts';
 import { announce } from '../shared/announce.ts';
+import { PRACTICE_PLANT_NEWS } from '../shared/session-start.ts';
 import { StoreController, store } from '../shared/store.ts';
 import type { ExerciseCard } from './exercise-card.ts';
 import type { FeedbackSheet } from './feedback-sheet.ts';
@@ -187,6 +188,7 @@ export class PracticeSession extends LitElement {
             .feedback=${feedback}
             .translationLanguage=${settings.translationLanguage}
             .dailyGoal=${store.state.progress.dailyGoal}
+            ?practice=${session.mode === 'practice'}
             @continue=${this.#continue}
           ></feedback-sheet>`}
     `;
@@ -364,7 +366,10 @@ export class PracticeSession extends LitElement {
       }
     }
 
-    const news = plantNews(feedback.plantBefore, feedback.plantAfter);
+    const news =
+      store.state.session?.mode === 'practice'
+        ? PRACTICE_PLANT_NEWS
+        : plantNews(feedback.plantBefore, feedback.plantAfter);
 
     parts.push(news.endsWith('!') ? news : `${news}.`);
 

@@ -194,6 +194,7 @@ const SESSION: PersistedSession = {
   gardenStart: { b: { stage: 'plant', wilted: false, growth: 0.25 } },
   startedAt: 1_000,
   deckIds: ['deck'],
+  mode: 'practice',
   feedback: {
     exerciseId: 'b',
     given: 'på',
@@ -220,6 +221,13 @@ describe('parseSession', () => {
     delete legacy['kinds'];
 
     expect(parseSession(JSON.stringify(legacy))?.kinds).toEqual(['multiple-choice', 'multiple-choice', 'multiple-choice']);
+  });
+
+  it('reads a session saved before practice sessions existed as a review', () => {
+    const legacy: Record<string, unknown> = { ...SESSION };
+    delete legacy['mode'];
+
+    expect(parseSession(JSON.stringify(legacy))?.mode).toBe('review');
   });
 
   it('returns null for missing, unparsable or non-object data', () => {

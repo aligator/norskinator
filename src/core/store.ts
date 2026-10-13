@@ -10,7 +10,16 @@ import { clampDailyGoal, recordAnswer, recordSessionCompleted, type Progress } f
 import { plantChange, plantOf, type Plant } from './garden.ts';
 import { DEFAULT_SPECIES, buySpecies, sow, type GardenState, type SpeciesId } from './species.ts';
 import { restoreSession, snapshotSession } from './resume.ts';
-import { buildSession, canRequeue, requeue, sessionOptions, shuffleOptions, shuffleTiles } from './session.ts';
+import {
+  buildPracticeSession,
+  buildSession,
+  canRequeue,
+  requeue,
+  sessionOptions,
+  shuffleOptions,
+  shuffleTiles,
+  type SessionMode,
+} from './session.ts';
 import { createCard, gradeFromAnswer, review, type CardState, type Grade } from './srs.ts';
 import {
   INITIAL_STATE,
@@ -74,6 +83,7 @@ export interface SessionState {
   readonly startedAt: number;
   readonly questionShownAt: number;
   readonly deckIds: readonly string[];
+  readonly mode: SessionMode;
 }
 
 export interface AppState {
@@ -192,12 +202,12 @@ export class Store {
     const scope = deckIds ?? this.#decks.map((deck) => deck.id);
     const pool = this.#state.items.filter((item) => scope.includes(item.deckId));
 
-    const picked = buildSession(
-      pool,
-      this.#state.cards,
-      { ...sessionOptions(this.#state.settings), random: this.#random },
-      now,
-    );
+    const options = { ...sessionOptions(this.#state.settings), random: this.#random };
+    const scheduled = buildSession(pool, this.#state.cards, options, now);
+
+    // Nothing to review and no room for seeds still leaves something to practise.
+    const mode: SessionMode = scheduled.length > 0 ? 'review' : 'practice';
+    const picked = mode === 'review' ? scheduled : buildPracticeSession(pool, this.#state.cards, options);
 
     const queue = picked.flatMap((item) => {
       const exercise = presentItem(item, this.#state.settings.taskWeights, this.#random);
@@ -232,6 +242,7 @@ export class Store {
         startedAt: now,
         questionShownAt: now,
         deckIds: scope,
+        mode,
       },
     });
   }
@@ -253,14 +264,16 @@ export class Store {
     const now = this.#now();
     const correct = isCorrect(exercise, given);
     const grade = gradeFromAnswer(correct, now - session.questionShownAt);
+    const practice = session.mode === 'practice';
 
-    const existing = this.#state.cards[exercise.id] ?? createCard(exercise.id, exercise.deckId, now);
-    const card = review(existing, grade, now);
-    const cards = { ...this.#state.cards, [exercise.id]: card };
-    const garden = sow(this.#state.garden, exercise.id, this.#random);
-    const outcome = recordAnswer(this.#state.progress, correct, now, { cards, garden });
+    // Practice leaves the card alone: its plant neither grows nor wilts, and no seed is sown.
+    const previous = this.#state.cards[exercise.id];
+    const card = practice ? previous : review(previous ?? createCard(exercise.id, exercise.deckId, now), grade, now);
+    const cards = practice || card === undefined ? this.#state.cards : { ...this.#state.cards, [exercise.id]: card };
+    const garden = practice ? this.#state.garden : sow(this.#state.garden, exercise.id, this.#random);
+    const outcome = recordAnswer(this.#state.progress, correct, now, { cards, garden }, session.mode);
 
-    const plantBefore = plantOf(this.#state.cards[exercise.id]);
+    const plantBefore = plantOf(previous);
     const plantAfter = plantOf(card);
     const change = plantChange(plantBefore, plantAfter);
 
@@ -279,11 +292,11 @@ export class Store {
         xpEarned: session.xpEarned + outcome.xpGained,
         bestCombo: Math.max(session.bestCombo, outcome.progress.combo),
         badgesEarned: [...session.badgesEarned, ...outcome.newBadges],
-        seedsSown: session.seedsSown + (plantBefore.stage === 'seed' ? 1 : 0),
+        seedsSown: session.seedsSown + (!practice && plantBefore.stage === 'seed' ? 1 : 0),
         plantsGrown: session.plantsGrown + (change === 'grown' ? 1 : 0),
         plantsWilted: session.plantsWilted + (change === 'wilted' ? 1 : 0),
         gardenStart:
-          exercise.id in session.gardenStart
+          practice || exercise.id in session.gardenStart
             ? session.gardenStart
             : { ...session.gardenStart, [exercise.id]: plantBefore },
       },
@@ -298,8 +311,8 @@ export class Store {
         plantBefore,
         plantAfter,
         species: garden.species[exercise.id] ?? DEFAULT_SPECIES,
-        nextDue: card.due,
-        reps: card.reps,
+        nextDue: card?.due ?? now,
+        reps: card?.reps ?? 0,
       },
     });
 

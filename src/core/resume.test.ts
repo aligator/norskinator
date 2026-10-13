@@ -47,6 +47,7 @@ function persisted(overrides: Partial<PersistedSession> = {}): PersistedSession 
     gardenStart: { b: { stage: 'plant', wilted: false, growth: 0.25 } },
     startedAt: NOW - 60_000,
     deckIds: ['deck'],
+    mode: 'review',
     feedback: null,
     ...overrides,
   };
@@ -90,6 +91,7 @@ describe('snapshotSession', () => {
       startedAt: NOW - 1_000,
       questionShownAt: NOW - 500,
       deckIds: ['deck'],
+      mode: 'practice',
     };
     const feedback: Feedback = {
       exercise: exercise('b'),

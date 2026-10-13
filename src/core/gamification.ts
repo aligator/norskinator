@@ -8,6 +8,7 @@
  */
 
 import { unlockBadges, type BadgeWorld } from './badges.ts';
+import type { SessionMode } from './session.ts';
 import { INITIAL_GARDEN } from './species.ts';
 
 /** For callers that only track progress, e.g. tests: no plants, no purchases. */
@@ -81,6 +82,9 @@ const XP_PER_COMBO_STEP = 1;
 const MAX_COMBO_BONUS = 5;
 export const XP_GOAL_BONUS = 50;
 
+/** A practice session repeats known items at will, so it pays a token amount and no bonuses. */
+export const PRACTICE_XP_CORRECT = 1;
+
 /** Local calendar day, not UTC: the streak follows the learner's own clock. */
 export function dayKey(timestamp: number): string {
   const date = new Date(timestamp);
@@ -131,24 +135,35 @@ function nextStreak(progress: Progress, today: string): number {
   return 1;
 }
 
-/** `world` is the state after this answer, for badges about the garden and the shop. */
+function reviewXp(correct: boolean, combo: number, goalJustReached: boolean): number {
+  const comboBonus = correct ? Math.min((combo - 1) * XP_PER_COMBO_STEP, MAX_COMBO_BONUS) : 0;
+
+  return (correct ? BASE_XP_CORRECT + comboBonus : 0) + (goalJustReached ? XP_GOAL_BONUS : 0);
+}
+
+/**
+ * `world` is the state after this answer, for badges about the garden and the
+ * shop. A practice answer neither counts towards the daily goal nor pays more
+ * than {@link PRACTICE_XP_CORRECT}.
+ */
 export function recordAnswer(
   progress: Progress,
   correct: boolean,
   now: number,
   world: BadgeWorld = NO_WORLD,
+  mode: SessionMode = 'review',
 ): AnswerOutcome {
   const today = dayKey(now);
   const sameDay = progress.lastActiveDay === today;
+  const practice = mode === 'practice';
 
-  const answersToday = (sameDay ? progress.answersToday : 0) + (correct ? 1 : 0);
+  const answersToday = (sameDay ? progress.answersToday : 0) + (correct && !practice ? 1 : 0);
   const combo = correct ? progress.combo + 1 : 0;
 
-  const comboBonus = correct ? Math.min((combo - 1) * XP_PER_COMBO_STEP, MAX_COMBO_BONUS) : 0;
-  const goalJustReached = correct && answersToday >= progress.dailyGoal && progress.goalReachedDay !== today;
+  const goalJustReached =
+    correct && !practice && answersToday >= progress.dailyGoal && progress.goalReachedDay !== today;
 
-  const xpGained =
-    (correct ? BASE_XP_CORRECT + comboBonus : 0) + (goalJustReached ? XP_GOAL_BONUS : 0);
+  const xpGained = practice ? (correct ? PRACTICE_XP_CORRECT : 0) : reviewXp(correct, combo, goalJustReached);
 
   const updated: Progress = {
     ...progress,

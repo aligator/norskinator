@@ -1,6 +1,14 @@
 import { describe, expect, it } from 'vitest';
 
-import { buildSession, canRequeue, countDue, requeue, sessionPreview, shuffleOptions } from './session.ts';
+import {
+  buildPracticeSession,
+  buildSession,
+  canRequeue,
+  countDue,
+  requeue,
+  sessionPreview,
+  shuffleOptions,
+} from './session.ts';
 import { DAY_MS, createCard, type CardState } from './srs.ts';
 import type { Exercise } from './types.ts';
 
@@ -209,6 +217,23 @@ describe('buildSession', () => {
     const queue = buildSession(pool, {}, { newPerSession: 3, random: () => 0.99 }, NOW);
 
     expect(countInDeck(queue, 'second')).toBe(2);
+  });
+});
+
+describe('buildPracticeSession', () => {
+  it('picks known items only, even when they are not due', () => {
+    const pool = [exercise('known-a'), exercise('known-b'), exercise('fresh')];
+    const later = (id: string): CardState => ({ ...createCard(id, 'deck', NOW), due: NOW + DAY_MS });
+
+    const queue = buildPracticeSession(pool, cardsOf([later('known-a'), later('known-b')]), { random: () => 0 });
+
+    expect(queue.map((item) => item.id).sort()).toEqual(['known-a', 'known-b']);
+  });
+
+  it('falls back to every item when nothing is known yet', () => {
+    const pool = Array.from({ length: 30 }, (_unused, index) => exercise(`e${index}`));
+
+    expect(buildPracticeSession(pool, {}, { sessionSize: 8, random: () => 0.5 })).toHaveLength(8);
   });
 });
 
