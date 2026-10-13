@@ -290,7 +290,7 @@ export class WelcomeTour extends LitElement {
               <span class="chip">${flameIcon(16)} Rekke</span> Fullfør <strong>en hel økt</strong> hver dag for å holde
               rekka. Avbrutte økter teller ikke.
             </li>
-            <li><strong>Dagsmålet</strong> er et antall svar per dag. Ringen på forsiden viser hvor langt du har kommet.</li>
+            <li><strong>Dagsmålet</strong> er et antall riktige svar per dag. Ringen på forsiden viser hvor langt du har kommet.</li>
             <li>Riktige svar gir <strong>XP</strong>, og mange riktige på rad gir bonus. Nok XP gir nytt nivå og merker.</li>
           </ul>
         `;
@@ -319,7 +319,7 @@ export class WelcomeTour extends LitElement {
         @change=${this.#onTranslation}
       ></ui-segmented>
       <ui-segmented
-        label="Dagsmål (svar per dag)"
+        label="Dagsmål (riktige svar per dag)"
         .options=${DAILY_GOALS}
         .value=${String(store.state.progress.dailyGoal)}
         @change=${this.#onGoal}

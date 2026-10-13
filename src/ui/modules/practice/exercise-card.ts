@@ -265,6 +265,13 @@ export class ExerciseCard extends LitElement {
     return input !== null;
   }
 
+  /** Scrolls the focused text field into view, e.g. once the keyboard has opened. */
+  revealAnswerField(): void {
+    const input = this.renderRoot.querySelector<HTMLInputElement>('input[type="text"]:focus');
+
+    input?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+
   /** Keyboard shortcuts of a word-order exercise, called by the practice view. */
   pickTile(index: number): void {
     this.#tilePicker()?.pick(index);

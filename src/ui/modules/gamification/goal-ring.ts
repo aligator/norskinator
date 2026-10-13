@@ -77,7 +77,7 @@ export class GoalRing extends LitElement {
         .value=${ratio}
         .from=${from}
         tone=${reached ? 'success' : 'accent'}
-        label=${reached ? `Dagsmål nådd: ${this.value} av ${this.goal} oppgaver i dag` : `${this.value} av ${this.goal} oppgaver i dag`}
+        label=${reached ? `Dagsmål nådd: ${this.value} av ${this.goal} riktige svar i dag` : `${this.value} av ${this.goal} riktige svar i dag`}
       >
         <span class="content">
           ${reached

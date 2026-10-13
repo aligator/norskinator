@@ -18,6 +18,7 @@ import { announce } from '../shared/announce.ts';
 import { StoreController, store } from '../shared/store.ts';
 import type { ExerciseCard } from './exercise-card.ts';
 import type { FeedbackSheet } from './feedback-sheet.ts';
+import { overlayKeyboard } from './keyboard-overlay.ts';
 import { COMBO_VISIBLE_FROM } from './session-top-bar.ts';
 import type { SessionSummary } from './session-summary.ts';
 
@@ -57,6 +58,9 @@ export class PracticeSession extends LitElement {
         display: flex;
         flex-direction: column;
         min-height: 100dvh;
+        /* Room for the overlaid keyboard; animated so the answer field slides up with it. */
+        padding-bottom: env(keyboard-inset-height, 0px);
+        transition: padding-bottom var(--dur-slow) var(--ease-out);
         /* The feedback sheet slides in from below; without clipping, its start
            position extends the page and the browser scrolls to it. */
         overflow: clip;
@@ -104,6 +108,7 @@ export class PracticeSession extends LitElement {
 
   #feedbackShownAt = 0;
   #lastFocusedKey = '';
+  #restoreKeyboard = (): void => {};
 
   constructor() {
     super();
@@ -113,10 +118,14 @@ export class PracticeSession extends LitElement {
   override connectedCallback(): void {
     super.connectedCallback();
     globalThis.addEventListener('keydown', this.#onKeyDown);
+    this.addEventListener('transitionend', this.#onKeyboardSpaceChanged);
+    this.#restoreKeyboard = overlayKeyboard();
   }
 
   override disconnectedCallback(): void {
     globalThis.removeEventListener('keydown', this.#onKeyDown);
+    this.removeEventListener('transitionend', this.#onKeyboardSpaceChanged);
+    this.#restoreKeyboard();
     stopSpeaking();
     super.disconnectedCallback();
   }
@@ -404,6 +413,15 @@ export class PracticeSession extends LitElement {
       announce(this, 'Ingen flere oppgaver akkurat nå.');
       this.#exit();
     }
+  };
+
+  /** An overlaid keyboard doesn't scroll for us; on short screens the field can end up beneath it. */
+  #onKeyboardSpaceChanged = (event: TransitionEvent): void => {
+    if (event.target !== this || event.propertyName !== 'padding-bottom') {
+      return;
+    }
+
+    this.renderRoot.querySelector<ExerciseCard>('exercise-card')?.revealAnswerField();
   };
 
   #onKeyDown = (event: KeyboardEvent): void => {

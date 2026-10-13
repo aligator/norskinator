@@ -185,6 +185,11 @@ body {
 
 /* Keeps focused or scrolled-to elements clear of the sticky bottom tab bar.
    Practice has no tab bar; there the padding would scroll the prompt away when the keyboard opens. */
+/* In practice the on-screen keyboard can overlay the page instead; scrolling then has to keep clear of it. */
+html:has(app-root[immersive]) {
+  scroll-padding-bottom: env(keyboard-inset-height, 0px);
+}
+
 @media (max-width: 899px) {
   html:has(app-root:not([immersive])) {
     scroll-padding-bottom: calc(var(--tabbar-h) + env(safe-area-inset-bottom) + var(--sp-4));
