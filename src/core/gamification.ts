@@ -1,10 +1,17 @@
 /**
- * XP, daily streak and badges. XP only ever grows: it rewards practice,
- * while what the learner knows shows in the garden (`garden.ts`).
+ * XP, daily streak and goal. XP only ever grows: it rewards practice, while
+ * what the learner knows shows in the garden (`garden.ts`). Badges are ruled
+ * in `badges.ts`.
  *
  * Pure functions over a {@link Progress} snapshot so the rules can be tested
  * and tuned without touching storage or UI.
  */
+
+import { unlockBadges, type BadgeWorld } from './badges.ts';
+import { INITIAL_GARDEN } from './species.ts';
+
+/** For callers that only track progress, e.g. tests: no plants, no purchases. */
+const NO_WORLD: BadgeWorld = { cards: {}, garden: INITIAL_GARDEN };
 
 export interface Progress {
   readonly xp: number;
@@ -124,7 +131,13 @@ function nextStreak(progress: Progress, today: string): number {
   return 1;
 }
 
-export function recordAnswer(progress: Progress, correct: boolean, now: number): AnswerOutcome {
+/** `world` is the state after this answer, for badges about the garden and the shop. */
+export function recordAnswer(
+  progress: Progress,
+  correct: boolean,
+  now: number,
+  world: BadgeWorld = NO_WORLD,
+): AnswerOutcome {
   const today = dayKey(now);
   const sameDay = progress.lastActiveDay === today;
 
@@ -150,7 +163,7 @@ export function recordAnswer(progress: Progress, correct: boolean, now: number):
     goalReachedDay: goalJustReached ? today : progress.goalReachedDay,
   };
 
-  const { progress: withBadges, newBadges } = unlockBadges(progress, updated);
+  const { progress: withBadges, newBadges } = unlockBadges({ ...world, progress: updated });
 
   return { progress: withBadges, xpGained, newBadges, goalJustReached };
 }
@@ -163,7 +176,7 @@ export interface SessionOutcome {
 }
 
 /** Counts a finished session towards the daily streak. Quitting early never calls this. */
-export function recordSessionCompleted(progress: Progress, now: number): SessionOutcome {
+export function recordSessionCompleted(progress: Progress, now: number, world: BadgeWorld = NO_WORLD): SessionOutcome {
   const today = dayKey(now);
   const streakDays = nextStreak(progress, today);
   const streakExtended = progress.lastSessionDay !== today;
@@ -175,19 +188,9 @@ export function recordSessionCompleted(progress: Progress, now: number): Session
     bestStreakDays: Math.max(progress.bestStreakDays, streakDays),
   };
 
-  const { progress: withBadges, newBadges } = unlockBadges(progress, updated);
+  const { progress: withBadges, newBadges } = unlockBadges({ ...world, progress: updated });
 
   return { progress: withBadges, newBadges, streakExtended };
-}
-
-function unlockBadges(before: Progress, after: Progress): { progress: Progress; newBadges: string[] } {
-  const newBadges = badgesFor(after).filter((badge) => !before.unlockedBadges.includes(badge));
-
-  if (newBadges.length === 0) {
-    return { progress: after, newBadges };
-  }
-
-  return { progress: { ...after, unlockedBadges: [...before.unlockedBadges, ...newBadges] }, newBadges };
 }
 
 /**
@@ -228,108 +231,4 @@ export function accuracy(progress: Progress): number {
   }
 
   return progress.correctAnswers / progress.totalAnswers;
-}
-
-export interface Badge {
-  readonly id: string;
-  readonly title: string;
-  readonly description: string;
-  readonly icon: string;
-  readonly earned: (progress: Progress) => boolean;
-}
-
-export const BADGES: readonly Badge[] = [
-  {
-    id: 'first-steps',
-    title: 'Første steg',
-    description: 'Svar riktig på din første oppgave.',
-    icon: '🌱',
-    earned: (progress) => progress.correctAnswers >= 1,
-  },
-  {
-    id: 'fifty-answers',
-    title: 'Femti svar',
-    description: 'Svar på 50 oppgaver.',
-    icon: '📚',
-    earned: (progress) => progress.totalAnswers >= 50,
-  },
-  {
-    id: 'five-hundred',
-    title: 'Fem hundre svar',
-    description: 'Svar på 500 oppgaver.',
-    icon: '🏔️',
-    earned: (progress) => progress.totalAnswers >= 500,
-  },
-  {
-    id: 'combo-10',
-    title: 'Ti på rad',
-    description: 'Ti riktige svar etter hverandre.',
-    icon: '🔥',
-    earned: (progress) => progress.bestCombo >= 10,
-  },
-  {
-    id: 'combo-25',
-    title: 'Tjuefem på rad',
-    description: 'Tjuefem riktige svar etter hverandre.',
-    icon: '⚡',
-    earned: (progress) => progress.bestCombo >= 25,
-  },
-  {
-    id: 'streak-3',
-    title: 'Tre dager',
-    description: 'Øv tre dager på rad.',
-    icon: '🌿',
-    earned: (progress) => progress.bestStreakDays >= 3,
-  },
-  {
-    id: 'streak-7',
-    title: 'En uke',
-    description: 'Øv sju dager på rad.',
-    icon: '🗓️',
-    earned: (progress) => progress.bestStreakDays >= 7,
-  },
-  {
-    id: 'streak-30',
-    title: 'En måned',
-    description: 'Øv tretti dager på rad.',
-    icon: '🏆',
-    earned: (progress) => progress.bestStreakDays >= 30,
-  },
-  {
-    id: 'goal-5',
-    title: 'Fem dagsmål',
-    description: 'Nå dagsmålet fem ganger.',
-    icon: '🎯',
-    earned: (progress) => progress.goalDaysReached >= 5,
-  },
-  {
-    // Ids kept from the former levels 5 and 10, at the XP those levels needed.
-    id: 'level-5',
-    title: 'Erfaren',
-    description: 'Tjen 6 400 kr til sammen.',
-    icon: '⭐',
-    earned: (progress) => progress.xp >= 6400,
-  },
-  {
-    id: 'level-10',
-    title: 'Mester',
-    description: 'Tjen 32 400 kr til sammen.',
-    icon: '🌟',
-    earned: (progress) => progress.xp >= 32_400,
-  },
-  {
-    id: 'sharpshooter',
-    title: 'Skarpskytter',
-    description: '90 % riktige av minst 100 svar.',
-    icon: '🎖️',
-    earned: (progress) => progress.totalAnswers >= 100 && accuracy(progress) >= 0.9,
-  },
-];
-
-export function badgesFor(progress: Progress): string[] {
-  return BADGES.filter((badge) => badge.earned(progress)).map((badge) => badge.id);
-}
-
-export function badgeById(id: string): Badge | undefined {
-  return BADGES.find((badge) => badge.id === id);
 }

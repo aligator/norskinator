@@ -5,6 +5,7 @@
  * but the rules live here and can be driven from tests without a DOM.
  */
 import { isCorrect } from './checker.ts';
+import { unlockBadges } from './badges.ts';
 import { clampDailyGoal, recordAnswer, recordSessionCompleted, type Progress } from './gamification.ts';
 import { plantChange, plantOf, type Plant } from './garden.ts';
 import { DEFAULT_SPECIES, buySpecies, sow, type GardenState, type SpeciesId } from './species.ts';
@@ -131,11 +132,14 @@ export class Store {
 
     this.#pendingResume = loadSession(this.#storage);
 
+    // Badges added in a newer build are earned at once by a garden that already qualifies.
+    const { progress } = unlockBadges(persisted);
+
     this.#state = {
       status: 'idle',
       error: null,
       items: [],
-      progress: persisted.progress,
+      progress,
       cards: persisted.cards,
       settings: persisted.settings,
       garden: persisted.garden,
@@ -252,17 +256,18 @@ export class Store {
 
     const existing = this.#state.cards[exercise.id] ?? createCard(exercise.id, exercise.deckId, now);
     const card = review(existing, grade, now);
-    const outcome = recordAnswer(this.#state.progress, correct, now);
+    const cards = { ...this.#state.cards, [exercise.id]: card };
+    const garden = sow(this.#state.garden, exercise.id, this.#random);
+    const outcome = recordAnswer(this.#state.progress, correct, now, { cards, garden });
 
     const plantBefore = plantOf(this.#state.cards[exercise.id]);
     const plantAfter = plantOf(card);
     const change = plantChange(plantBefore, plantAfter);
-    const garden = sow(this.#state.garden, exercise.id, this.#random);
 
     const requeued = !correct && canRequeue(session.requeuedIds, exercise.id);
 
     this.#patch({
-      cards: { ...this.#state.cards, [exercise.id]: card },
+      cards,
       progress: outcome.progress,
       garden,
       session: {
@@ -329,7 +334,8 @@ export class Store {
   }
 
   #complete(session: SessionState, index: number): void {
-    const outcome = recordSessionCompleted(this.#state.progress, this.#now());
+    const { cards, garden } = this.#state;
+    const outcome = recordSessionCompleted(this.#state.progress, this.#now(), { cards, garden });
 
     this.#patch({
       feedback: null,
@@ -391,16 +397,23 @@ export class Store {
     clearSession(this.#storage);
   }
 
-  /** Buys a plant species with XP; does nothing when it is owned already or too expensive. */
-  buySpecies(id: SpeciesId): void {
+  /**
+   * Buys a plant species with XP and returns the badges the purchase earned;
+   * does nothing when it is owned already or too expensive.
+   */
+  buySpecies(id: SpeciesId): readonly string[] {
     const garden = buySpecies(this.#state.progress.xp, this.#state.garden, id);
 
     if (garden === null) {
-      return;
+      return [];
     }
 
-    this.#patch({ garden });
+    const { progress, newBadges } = unlockBadges({ progress: this.#state.progress, cards: this.#state.cards, garden });
+
+    this.#patch({ garden, progress });
     this.#persist();
+
+    return newBadges;
   }
 
   /**

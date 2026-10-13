@@ -4,7 +4,8 @@
  */
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
-import { XP_GOAL_BONUS, badgeById } from '../../../core/gamification.ts';
+import { badgeById } from '../../../core/badges.ts';
+import { XP_GOAL_BONUS } from '../../../core/gamification.ts';
 import { gapParts, isCorrect, normalizeAnswer, solutionText } from '../../../core/checker.ts';
 import type { Feedback } from '../../../core/store.ts';
 import type { TranslationLanguage } from '../../../core/storage.ts';
@@ -18,6 +19,7 @@ import { translationStyles } from './practice-styles.ts';
 import { pickTranslation } from './translation.ts';
 
 import '../../components/coin-icon.ts';
+import '../gamification/badge-medal.ts';
 import '../gamification/goal-ring.ts';
 import '../garden/plant-sprite.ts';
 
@@ -172,10 +174,20 @@ export class FeedbackSheet extends LitElement {
         background: var(--surface);
         color: var(--fg);
         font-weight: 600;
+        animation: banner-in 500ms var(--ease-spring) both;
       }
 
-      .badge-icon {
-        font-size: 28px;
+      @keyframes banner-in {
+        from {
+          opacity: 0;
+          transform: scale(0.85);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .banner.badge {
+          animation: none;
+        }
       }
 
       .solution {
@@ -394,7 +406,7 @@ export class FeedbackSheet extends LitElement {
           return badge === undefined
             ? nothing
             : html`<div class="banner badge">
-                <span class="badge-icon" aria-hidden="true">${badge.icon}</span>
+                <badge-medal .badge=${badge} pop .delay=${200} .size=${40}></badge-medal>
                 <span>Nytt merke: ${badge.title}</span>
               </div>`;
         })}

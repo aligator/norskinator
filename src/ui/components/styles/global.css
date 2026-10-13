@@ -31,6 +31,7 @@
   --coin: #e8b22a;
   --coin-dark: #b07f12;
   --coin-light: #ffe28a;
+  --shine: rgb(255 255 255 / 0.55);
   --plant-leaf: #3d9a58;
   --plant-leaf-dark: #2a7342;
   --plant-leaf-light: #7cc77f;
@@ -171,6 +172,7 @@
     --coin: #f2c140;
     --coin-dark: #b8871c;
     --coin-light: #fff0b0;
+    --shine: rgb(255 255 255 / 0.3);
     --plant-leaf: #5cbf77;
     --plant-leaf-dark: #3e9a5a;
     --plant-leaf-light: #9ee0a0;
@@ -258,6 +260,7 @@
   --coin: #f2c140;
   --coin-dark: #b8871c;
   --coin-light: #fff0b0;
+  --shine: rgb(255 255 255 / 0.3);
   --plant-leaf: #5cbf77;
   --plant-leaf-dark: #3e9a5a;
   --plant-leaf-light: #9ee0a0;

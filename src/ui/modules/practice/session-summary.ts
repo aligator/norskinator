@@ -1,7 +1,8 @@
 /** End-of-session screen: result, XP, best combo, what happened in the garden and badges earned. */
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
-import { badgeById, type Progress } from '../../../core/gamification.ts';
+import { badgeById } from '../../../core/badges.ts';
+import type { Progress } from '../../../core/gamification.ts';
 import { plantChange, plantOf, type PlantChange } from '../../../core/garden.ts';
 import { speciesOf } from '../../../core/species.ts';
 import type { SessionState } from '../../../core/store.ts';
@@ -11,6 +12,7 @@ import { formatNumber, pluralDays } from '../shared/format.ts';
 import { playSound } from '../audio/sound-effects.ts';
 import { store } from '../shared/store.ts';
 
+import '../gamification/badge-medal.ts';
 import '../gamification/money-amount.ts';
 
 import '../garden/plant-sprite.ts';
@@ -90,10 +92,13 @@ export class SessionSummary extends LitElement {
       }
 
       .earned span {
-        padding: var(--sp-2) var(--sp-3);
-        border-radius: var(--r-lg);
-        background: var(--gold-bg);
+        display: grid;
+        justify-items: center;
+        gap: var(--sp-1);
+        max-width: 7rem;
+        font-size: var(--fs-sm);
         font-weight: 600;
+        text-align: center;
       }
 
       .today {
@@ -187,7 +192,12 @@ export class SessionSummary extends LitElement {
         ${badges.length === 0
           ? nothing
           : html`<div class="earned" role="group" aria-label="Nye merker">
-              ${badges.map((badge) => html`<span>${badge.icon} ${badge.title}</span>`)}
+              ${badges.map(
+                (badge, index) => html`<span>
+                  <badge-medal .badge=${badge} pop .delay=${600 + index * 200} .size=${52}></badge-medal>
+                  ${badge.title}
+                </span>`,
+              )}
             </div>`}
       </div>
       <div class="actions">

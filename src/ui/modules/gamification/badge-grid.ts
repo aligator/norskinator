@@ -1,10 +1,14 @@
-/** All badges: earned first in unlock order, then locked ones with their hint. */
+/** All badges by category: earned ones first, then locked ones with their hint. */
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
-import { BADGES, badgeById, type Badge } from '../../../core/gamification.ts';
+import { BADGES, BADGE_CATEGORY_LABELS, badgeById, type Badge, type BadgeCategory } from '../../../core/badges.ts';
 import { lockIcon } from '../../components/icons.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { StoreController, store } from '../shared/store.ts';
+
+import './badge-medal.ts';
+
+const BADGE_CATEGORIES: readonly BadgeCategory[] = ['garden', 'money', 'practice'];
 
 /** UI-only memory of which badges the learner has already looked at. */
 const SEEN_BADGES_KEY = 'norskinator.seenBadges';
@@ -41,12 +45,28 @@ function writeSeenBadges(ids: readonly string[]): void {
   }
 }
 
+/** Delay between two new medals popping in, in ms. */
+const POP_STEP_MS = 150;
+
 export class BadgeGrid extends LitElement {
   static override styles = [
     sharedStyles,
     css`
       :host {
-        display: block;
+        display: grid;
+        gap: var(--sp-6);
+      }
+
+      section {
+        display: grid;
+        gap: var(--sp-3);
+      }
+
+      h3 {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        font-size: var(--fs-md);
       }
 
       ul {
@@ -63,8 +83,8 @@ export class BadgeGrid extends LitElement {
         display: grid;
         justify-items: center;
         align-content: start;
-        gap: var(--sp-1);
-        padding: var(--sp-4);
+        gap: var(--sp-2);
+        padding: var(--sp-4) var(--sp-3);
         border-radius: var(--r-lg);
         background: var(--surface);
         text-align: center;
@@ -73,16 +93,6 @@ export class BadgeGrid extends LitElement {
       li.locked {
         background: var(--surface-2);
         color: var(--fg-muted);
-      }
-
-      .emoji {
-        font-size: 32px;
-        line-height: 1.2;
-      }
-
-      .locked .emoji {
-        filter: grayscale(1);
-        opacity: 0.35;
       }
 
       .title {
@@ -124,25 +134,41 @@ export class BadgeGrid extends LitElement {
 
   protected override render(): TemplateResult {
     const unlocked = store.state.progress.unlockedBadges;
-    const earned = unlocked.map((id) => badgeById(id)).filter((badge) => badge !== undefined);
-    const locked = BADGES.filter((badge) => !unlocked.includes(badge.id));
+    const total = unlocked.filter((id) => badgeById(id) !== undefined).length;
+    let popped = 0;
 
     return html`
-      <h2 class="section-title">Merker <span class="tabular">${earned.length} / ${BADGES.length}</span></h2>
-      <ul>
-        ${earned.map((badge) => this.#renderBadge(badge, true))} ${locked.map((badge) => this.#renderBadge(badge, false))}
-      </ul>
+      <h2 class="section-title">Merker <span class="tabular">${total} / ${BADGES.length}</span></h2>
+      ${BADGE_CATEGORIES.map((category) => {
+        const badges = BADGES.filter((badge) => badge.category === category);
+        const earned = badges.filter((badge) => unlocked.includes(badge.id));
+        const locked = badges.filter((badge) => !unlocked.includes(badge.id));
+
+        return html`<section aria-labelledby=${`badges-${category}`}>
+          <h3 id=${`badges-${category}`}>
+            ${BADGE_CATEGORY_LABELS[category]}
+            <span class="tabular description">${earned.length} / ${badges.length}</span>
+          </h3>
+          <ul>
+            ${earned.map((badge) => {
+              const isNew = !this.#seenAtOpen.has(badge.id);
+              const delay = isNew ? popped++ * POP_STEP_MS : 0;
+
+              return this.#renderBadge(badge, true, isNew, delay);
+            })}
+            ${locked.map((badge) => this.#renderBadge(badge, false, false, 0))}
+          </ul>
+        </section>`;
+      })}
     `;
   }
 
-  #renderBadge(badge: Badge, earned: boolean): TemplateResult {
-    const isNew = earned && !this.#seenAtOpen.has(badge.id);
-
+  #renderBadge(badge: Badge, earned: boolean, isNew: boolean, delay: number): TemplateResult {
     return html`
       <li class=${earned ? '' : 'locked'}>
         ${earned ? nothing : html`<span class="corner" role="img" aria-label="Låst">${lockIcon()}</span>`}
         ${isNew ? html`<span class="corner new">NY</span>` : nothing}
-        <span class="emoji" aria-hidden="true">${badge.icon}</span>
+        <badge-medal .badge=${badge} .earned=${earned} .pop=${isNew} .delay=${delay} .size=${60}></badge-medal>
         <span class="title">${badge.title}</span>
         <span class="description">${badge.description}</span>
       </li>

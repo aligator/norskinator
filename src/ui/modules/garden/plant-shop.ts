@@ -6,6 +6,7 @@ import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 import { keyed } from 'lit/directives/keyed.js';
 
 import { SEED } from '../../../core/garden.ts';
+import { badgeById, type Badge } from '../../../core/badges.ts';
 import { SPECIES, canBuy, spendableXp, type Species } from '../../../core/species.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { playSound } from '../audio/sound-effects.ts';
@@ -14,6 +15,7 @@ import { formatNumber } from '../shared/format.ts';
 import { StoreController, store } from '../shared/store.ts';
 
 import '../../components/coin-icon.ts';
+import '../gamification/badge-medal.ts';
 import '../gamification/money-amount.ts';
 import './plant-sprite.ts';
 
@@ -33,6 +35,7 @@ const BLOSSOM = { stage: 'blossom', wilted: false, growth: 1 } as const;
 export class PlantShop extends LitElement {
   static override properties = {
     justBought: { state: true },
+    newBadges: { state: true },
   };
 
   static override styles = [
@@ -150,6 +153,22 @@ export class PlantShop extends LitElement {
         }
       }
 
+      .badges {
+        display: grid;
+        gap: var(--sp-2);
+      }
+
+      .badges p {
+        display: flex;
+        align-items: center;
+        gap: var(--sp-3);
+        padding: var(--sp-2) var(--sp-4);
+        border-radius: var(--r-lg);
+        background: var(--surface);
+        color: var(--fg);
+        font-weight: 600;
+      }
+
       .have {
         margin-top: var(--sp-2);
         color: var(--correct);
@@ -161,10 +180,12 @@ export class PlantShop extends LitElement {
   protected readonly storeController = new StoreController(this);
 
   declare justBought: string | null;
+  declare newBadges: readonly Badge[];
 
   constructor() {
     super();
     this.justBought = null;
+    this.newBadges = [];
   }
 
   protected override render(): TemplateResult {
@@ -176,6 +197,15 @@ export class PlantShop extends LitElement {
         <strong><money-amount .value=${available} memory="balance"></money-amount></strong>
         <small>å bruke · tjent totalt: ${formatNumber(progress.xp)} kr</small>
       </div>
+      ${this.newBadges.length === 0
+        ? nothing
+        : html`<div class="badges" role="status">
+            ${this.newBadges.map(
+              (badge) => html`<p>
+                <badge-medal .badge=${badge} pop .delay=${500} .size=${40}></badge-medal>Nytt merke: ${badge.title}
+              </p>`,
+            )}
+          </div>`}
       <p>Nye frø spirer som en tilfeldig art av dem du har.</p>
       <ul>
         ${SPECIES.map((species) => this.#renderSpecies(species, available))}
@@ -224,7 +254,9 @@ export class PlantShop extends LitElement {
   }
 
   #buy(species: Species): void {
-    store.buySpecies(species.id);
+    const earned = store.buySpecies(species.id);
+
+    this.newBadges = earned.map((id) => badgeById(id)).filter((badge) => badge !== undefined);
 
     if (store.state.garden.unlocked.includes(species.id)) {
       this.justBought = species.id;

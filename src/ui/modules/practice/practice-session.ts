@@ -6,7 +6,7 @@
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 import { keyed } from 'lit/directives/keyed.js';
 
-import { badgeById } from '../../../core/gamification.ts';
+import { badgeById } from '../../../core/badges.ts';
 import { plantChange } from '../../../core/garden.ts';
 import { solutionText } from '../../../core/checker.ts';
 import type { Feedback } from '../../../core/store.ts';

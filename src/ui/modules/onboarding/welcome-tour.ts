@@ -256,7 +256,10 @@ export class WelcomeTour extends LitElement {
         return html`
           <span class="emoji" aria-hidden="true">🧭</span>
           <h2 id="tour-title" tabindex="-1">Velkommen til Norskinator</h2>
-          <p>Her øver du på norsk grammatikk – først preposisjoner som <em>i, på, til</em> og <em>av</em>.</p>
+          <p>
+            Her øver du på norsk grammatikk: preposisjoner som <em>i, på, til</em> og <em>av</em>, adjektivbøying og
+            ordstilling.
+          </p>
           <p>
             Det du svarer feil på, kommer snart igjen. Det du kan godt, kommer sjeldnere. Litt hver dag gir mest.
           </p>
@@ -275,8 +278,12 @@ export class WelcomeTour extends LitElement {
           <ul>
             <li>Trykk på preposisjonen som passer i luka. Med tastatur: <strong>1–4</strong>.</li>
             <li>Etter svaret ser du hele setningen og en kort forklaring. Trykk <strong>Fortsett</strong> (tastatur: Enter).</li>
+            <li>Andre oppgaver skriver du inn selv, eller du setter ordene i riktig rekkefølge.</li>
             <li>Står du fast, trykk <strong>Vis oversettelse</strong> under setningen (tastatur: T).</li>
-            <li>En økt er rundt 20 oppgaver. Du kan avslutte når som helst – fremgangen lagres.</li>
+            <li>
+              En økt er ${store.state.settings.sessionSize} oppgaver (kan endres i innstillingene). Du kan avslutte når
+              som helst – fremgangen lagres.
+            </li>
           </ul>
         `;
       }
@@ -299,6 +306,7 @@ export class WelcomeTour extends LitElement {
               Riktige svar gir <strong>penger</strong>, og mange riktige på rad gir bonus. For pengene kjøper du nye
               plantearter i frøbutikken.
             </li>
+            <li><strong>Merker</strong> får du for milepæler i øvingen, i hagen og med pengene.</li>
           </ul>
         `;
       }
