@@ -110,8 +110,8 @@ sentence item.
   (no reviews, no room for seeds), the store starts a session in mode
   `practice` (`buildPracticeSession`): random known items, no card is
   reviewed, no seed sown, so plants neither grow nor wilt. A correct answer
-  pays `PRACTICE_XP_CORRECT` and does not count towards the daily goal; a
-  completed practice session still keeps the streak.
+  pays only `PRACTICE_XP_CORRECT` (no combo bonus), but counts towards the
+  daily goal and its bonus; a completed practice session keeps the streak.
 - XP is pure gamification and only grows. The UI calls it money («kr», `formatMoney`);
   code and stored data keep the name `xp`. There are no levels; the badges
   `level-5`/`level-10` keep their ids and now mean 6 400 / 32 400 XP.
