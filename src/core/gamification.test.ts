@@ -94,6 +94,18 @@ describe('recordAnswer', () => {
     expect(today.progress.goalDaysReached).toBe(2);
   });
 
+  it('counts only correct answers towards the daily goal', () => {
+    const almost = withProgress({ dailyGoal: 3, answersToday: 2, lastActiveDay: dayKey(DAY_ONE) });
+
+    const wrong = recordAnswer(almost, false, DAY_ONE);
+    const right = recordAnswer(wrong.progress, true, DAY_ONE);
+
+    expect(wrong.progress.answersToday).toBe(2);
+    expect(wrong.goalJustReached).toBe(false);
+    expect(right.progress.answersToday).toBe(3);
+    expect(right.goalJustReached).toBe(true);
+  });
+
   it('resets the daily counter on a new day', () => {
     const yesterday = withProgress({ answersToday: 12, lastActiveDay: dayKey(DAY_ONE) });
 

@@ -21,7 +21,10 @@ export interface Progress {
   readonly lastSessionDay: string | null;
   readonly streakDays: number;
   readonly bestStreakDays: number;
-  /** Answers given on `lastActiveDay`. */
+  /**
+   * Correct answers given on `lastActiveDay`; they alone count towards the
+   * daily goal. The name predates that rule and is kept for stored data.
+   */
   readonly answersToday: number;
   readonly dailyGoal: number;
   readonly goalDaysReached: number;
@@ -159,11 +162,11 @@ export function recordAnswer(progress: Progress, correct: boolean, now: number):
   const today = dayKey(now);
   const sameDay = progress.lastActiveDay === today;
 
-  const answersToday = (sameDay ? progress.answersToday : 0) + 1;
+  const answersToday = (sameDay ? progress.answersToday : 0) + (correct ? 1 : 0);
   const combo = correct ? progress.combo + 1 : 0;
 
   const comboBonus = correct ? Math.min((combo - 1) * XP_PER_COMBO_STEP, MAX_COMBO_BONUS) : 0;
-  const goalJustReached = answersToday >= progress.dailyGoal && progress.goalReachedDay !== today;
+  const goalJustReached = correct && answersToday >= progress.dailyGoal && progress.goalReachedDay !== today;
 
   const xpGained =
     (correct ? BASE_XP_CORRECT + comboBonus : 0) + (goalJustReached ? XP_GOAL_BONUS : 0);
