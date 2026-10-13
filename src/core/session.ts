@@ -73,41 +73,68 @@ function sample<T>(items: readonly T[], count: number, random: () => number): T[
   return pool.slice(0, take);
 }
 
-/** Groups items by deck, in the order the decks first appear. */
-function groupByDeck<Item extends ItemMeta>(items: readonly Item[]): Item[][] {
-  const groups = new Map<string, Item[]>();
+interface DeckPool<Item> {
+  readonly due: Item[];
+  readonly fresh: Item[];
+}
+
+/** Splits both pools by deck, in the order the decks first appear among `items`. */
+function poolsByDeck<Item extends ItemMeta>(items: readonly Item[], { due, fresh }: Pools<Item>): DeckPool<Item>[] {
+  const pools = new Map<string, DeckPool<Item>>();
 
   for (const item of items) {
-    const group = groups.get(item.deckId);
-
-    if (group === undefined) {
-      groups.set(item.deckId, [item]);
-    } else {
-      group.push(item);
+    if (!pools.has(item.deckId)) {
+      pools.set(item.deckId, { due: [], fresh: [] });
     }
   }
 
-  return [...groups.values()];
+  for (const item of due) {
+    pools.get(item.deckId)?.due.push(item);
+  }
+
+  for (const item of fresh) {
+    pools.get(item.deckId)?.fresh.push(item);
+  }
+
+  return [...pools.values()];
+}
+
+interface Quota {
+  due: number;
+  fresh: number;
 }
 
 /**
- * Deals `slots` round-robin, beginning at `start`, so every deck gets an equal
- * share. A deck that runs out passes its turn on, which keeps the total at
- * `slots` as long as there is material left anywhere.
+ * Deals `slots` round-robin across decks, beginning at `start`, so a deck with
+ * a large backlog cannot crowd the others out of a session. On its turn a deck
+ * takes one of its reviews, or, with none left, a new item while `newBudget`
+ * lasts; a deck with neither passes its turn on.
  */
-function allocateSlots(capacities: readonly number[], slots: number, start: number): number[] {
-  const quotas = capacities.map(() => 0);
-  const total = capacities.reduce((sum, capacity) => sum + capacity, 0);
-  let remaining = Math.min(slots, total);
+function allocateSlots(pools: readonly DeckPool<unknown>[], slots: number, newBudget: number, start: number): Quota[] {
+  const quotas = pools.map((): Quota => ({ due: 0, fresh: 0 }));
+  let remaining = slots;
+  let budget = Math.max(0, newBudget);
   let deck = start;
+  let idleTurns = 0;
 
-  while (remaining > 0) {
-    if (quotas[deck]! < capacities[deck]!) {
-      quotas[deck]! += 1;
+  while (remaining > 0 && idleTurns < pools.length) {
+    const pool = pools[deck]!;
+    const quota = quotas[deck]!;
+
+    if (quota.due < pool.due.length) {
+      quota.due += 1;
       remaining -= 1;
+      idleTurns = 0;
+    } else if (budget > 0 && quota.fresh < pool.fresh.length) {
+      quota.fresh += 1;
+      budget -= 1;
+      remaining -= 1;
+      idleTurns = 0;
+    } else {
+      idleTurns += 1;
     }
 
-    deck = (deck + 1) % capacities.length;
+    deck = (deck + 1) % pools.length;
   }
 
   return quotas;
@@ -123,24 +150,6 @@ function pickEasiest<Item extends ItemMeta>(items: readonly Item[], count: numbe
   const window = byLevel.slice(0, count * FRESH_WINDOW_FACTOR);
 
   return sample(window, count, random);
-}
-
-/**
- * Splits the new slots evenly across decks and ranks difficulty within each
- * deck. Levels of different decks are not comparable: a global level sort let
- * the first deck's level-1 items fill every slot until they were used up.
- * The random start rotates which deck gets the remainder of an uneven split.
- */
-function pickFresh<Item extends ItemMeta>(fresh: readonly Item[], slots: number, random: () => number): Item[] {
-  const decks = groupByDeck(fresh);
-  const start = Math.min(Math.floor(random() * decks.length), Math.max(decks.length - 1, 0));
-  const quotas = allocateSlots(
-    decks.map((items) => items.length),
-    slots,
-    start,
-  );
-
-  return decks.flatMap((items, index) => pickEasiest(items, quotas[index]!, random));
 }
 
 /** Mixes new items into the review stream rather than appending them. */
@@ -166,11 +175,17 @@ export function buildSession<Item extends ItemMeta>(
   const random = options.random ?? Math.random;
   const size = options.sessionSize ?? SESSION_SIZE;
 
-  const { due, fresh } = splitPools(items, cards, now);
-  const reviewPart = due.slice(0, size);
+  const split = splitPools(items, cards, now);
+  const pools = poolsByDeck(items, split);
 
-  const freshSlots = Math.max(0, Math.min(size - reviewPart.length, options.newPerSession));
-  const freshPart = pickFresh(fresh, freshSlots, random);
+  // A random first deck rotates which deck gets the remainder of an uneven split.
+  const start = Math.min(Math.floor(random() * pools.length), Math.max(pools.length - 1, 0));
+  const quotas = allocateSlots(pools, size, options.newPerSession, start);
+
+  // Levels of different decks are not comparable, so difficulty is ranked within each deck.
+  const chosenReviews = new Set(pools.flatMap((pool, index) => pool.due.slice(0, quotas[index]!.due)));
+  const reviewPart = split.due.filter((item) => chosenReviews.has(item));
+  const freshPart = pools.flatMap((pool, index) => pickEasiest(pool.fresh, quotas[index]!.fresh, random));
 
   return interleave(reviewPart, freshPart, random);
 }
@@ -253,16 +268,22 @@ export interface SessionPreview {
   readonly totalDue: number;
 }
 
-/** What `buildSession` would pick right now, without building the queue. */
+/**
+ * What `buildSession` would pick right now, without building the queue. With
+ * several decks the session starts at a random deck, so its split between
+ * reviews and new items can differ from this one by one per deck.
+ */
 export function sessionPreview(
   items: readonly ItemMeta[],
   cards: Readonly<Record<string, CardState>>,
   newPerSession: number,
   now: number,
 ): SessionPreview {
-  const { due, fresh } = splitPools(items, cards, now);
-  const sessionDue = Math.min(due.length, SESSION_SIZE);
-  const sessionFresh = Math.max(0, Math.min(fresh.length, newPerSession, SESSION_SIZE - sessionDue));
+  const split = splitPools(items, cards, now);
+  const quotas = allocateSlots(poolsByDeck(items, split), SESSION_SIZE, newPerSession, 0);
 
-  return { due: sessionDue, fresh: sessionFresh, unseen: fresh.length, totalDue: due.length };
+  const sessionDue = quotas.reduce((sum, quota) => sum + quota.due, 0);
+  const sessionFresh = quotas.reduce((sum, quota) => sum + quota.fresh, 0);
+
+  return { due: sessionDue, fresh: sessionFresh, unseen: split.fresh.length, totalDue: split.due.length };
 }

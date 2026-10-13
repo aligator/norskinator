@@ -145,6 +145,41 @@ describe('buildSession', () => {
     expect(countInDeck(queue, 'tiny')).toBe(1);
   });
 
+  it('keeps room for other decks when one deck has a large review backlog', () => {
+    const backlog = Array.from({ length: 40 }, (_unused, index) => exercise(`a${index}`, 1, 'backlog'));
+    const quiet = Array.from({ length: 20 }, (_unused, index) => exercise(`b${index}`, 1, 'quiet'));
+    const cards = backlog.map((item) => ({ ...createCard(item.id, 'backlog', NOW), due: NOW - DAY_MS }));
+
+    const queue = buildSession([...backlog, ...quiet], cardsOf(cards), { newPerSession: 10, random: () => 0 }, NOW);
+
+    expect(queue).toHaveLength(20);
+    expect(countInDeck(queue, 'backlog')).toBe(10);
+    expect(countInDeck(queue, 'quiet')).toBe(10);
+  });
+
+  it('shares review slots across decks', () => {
+    const large = Array.from({ length: 40 }, (_unused, index) => exercise(`a${index}`, 1, 'large'));
+    const small = Array.from({ length: 5 }, (_unused, index) => exercise(`b${index}`, 1, 'small'));
+    const cards = [...large, ...small].map((item) => ({
+      ...createCard(item.id, item.deckId, NOW),
+      due: NOW - DAY_MS,
+    }));
+
+    const queue = buildSession([...large, ...small], cardsOf(cards), { newPerSession: 0, random: () => 0 }, NOW);
+
+    expect(countInDeck(queue, 'small')).toBe(5);
+    expect(countInDeck(queue, 'large')).toBe(15);
+  });
+
+  it('takes the reviews of a deck before its new material', () => {
+    const pool = [exercise('seen', 1, 'first'), exercise('fresh', 1, 'first'), exercise('other', 1, 'second')];
+    const due = { ...createCard('seen', 'first', NOW), due: NOW - DAY_MS };
+
+    const queue = buildSession(pool, cardsOf([due]), { newPerSession: 5, sessionSize: 2, random: () => 0 }, NOW);
+
+    expect(queue.map((item) => item.id).sort()).toEqual(['other', 'seen']);
+  });
+
   it('rotates which deck gets the remainder of an uneven split', () => {
     const pool = [
       ...Array.from({ length: 10 }, (_unused, index) => exercise(`a${index}`, 1, 'first')),
