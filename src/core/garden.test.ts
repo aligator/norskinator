@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { MAX_YOUNG_PLANTS, gardenBeds, plantChange, plantOf, seedAllowance, totalCounts } from './garden.ts';
+import { DEFAULT_SEED_LIMITS, gardenBeds, plantChange, plantOf, seedAllowance, totalCounts } from './garden.ts';
 import { DAY_MS, createCard, review, type CardState } from './srs.ts';
 import type { ItemMeta } from './types.ts';
 
@@ -64,7 +64,7 @@ describe('seedAllowance', () => {
     const youngCards = items.slice(0, 10).map((entry) => reviewed(entry.id, 2));
     const cards = Object.fromEntries(youngCards.map((card) => [card.exerciseId, card]));
 
-    expect(seedAllowance(items, cards)).toBe(MAX_YOUNG_PLANTS - 10);
+    expect(seedAllowance(items, cards)).toBe(DEFAULT_SEED_LIMITS.maxYoung - 10);
   });
 
   it('does not count grown plants or the plants of other decks', () => {
@@ -75,7 +75,17 @@ describe('seedAllowance', () => {
       elsewhere: reviewed('elsewhere', 1),
     };
 
-    expect(seedAllowance(items, cards)).toBe(MAX_YOUNG_PLANTS - 1);
+    expect(seedAllowance(items, cards)).toBe(DEFAULT_SEED_LIMITS.maxYoung - 1);
+  });
+});
+
+describe('seedAllowance with custom limits', () => {
+  it('follows the limit and age the learner chose', () => {
+    const items = Array.from({ length: 10 }, (_unused, index) => item(`e${index}`));
+    const cards = Object.fromEntries(items.map((entry) => [entry.id, reviewed(entry.id, 5)]));
+
+    expect(seedAllowance(items, cards, { maxYoung: 30, youngDays: 7 })).toBe(20);
+    expect(seedAllowance(items, cards, { maxYoung: 30, youngDays: 3 })).toBe(30);
   });
 });
 

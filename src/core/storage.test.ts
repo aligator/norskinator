@@ -36,6 +36,22 @@ describe('parseState', () => {
     expect(state.settings.newPerSession).toBe(50);
   });
 
+  it('reads the pace settings, with defaults for state saved before they existed', () => {
+    const old = parseState(JSON.stringify({ settings: { newPerSession: 5 } }));
+    const custom = parseState(
+      JSON.stringify({ settings: { sessionSize: 999, maxYoungPlants: 30, youngIntervalDays: 14 } }),
+    );
+    const broken = parseState(JSON.stringify({ settings: { sessionSize: 'x', youngIntervalDays: 5 } }));
+
+    expect(old.settings.sessionSize).toBe(DEFAULT_SETTINGS.sessionSize);
+    expect(old.settings.maxYoungPlants).toBe(DEFAULT_SETTINGS.maxYoungPlants);
+    expect(custom.settings.sessionSize).toBe(50);
+    expect(custom.settings.maxYoungPlants).toBe(30);
+    expect(custom.settings.youngIntervalDays).toBe(14);
+    expect(broken.settings.sessionSize).toBe(DEFAULT_SETTINGS.sessionSize);
+    expect(broken.settings.youngIntervalDays).toBe(7);
+  });
+
   it('drops cards that are not usable and keeps the rest', () => {
     const raw = JSON.stringify({
       cards: {

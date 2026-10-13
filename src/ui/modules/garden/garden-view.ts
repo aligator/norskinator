@@ -7,7 +7,7 @@ import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 import { keyed } from 'lit/directives/keyed.js';
 
 import { gardenBeds, type GardenBed } from '../../../core/garden.ts';
-import { sessionPreview, type SessionPreview } from '../../../core/session.ts';
+import { sessionOptions, sessionPreview, type SessionPreview } from '../../../core/session.ts';
 import type { Deck, PlayableItem } from '../../../core/types.ts';
 import { DECKS } from '../../../decks/registry.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
@@ -158,7 +158,7 @@ export class GardenView extends LitElement {
     }
 
     const items = state.items.filter((item) => item.deckId === deck.id);
-    const preview = sessionPreview(items, state.cards, state.settings.newPerSession, now);
+    const preview = sessionPreview(items, state.cards, sessionOptions(state.settings), now);
 
     return html`
       ${decks.length > 1

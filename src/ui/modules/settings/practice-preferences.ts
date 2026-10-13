@@ -1,8 +1,14 @@
-/** What and how much to practise: translation hint, task mix, session size and daily goal. */
+/** What and how much to practise: translation hint, task mix, session size, garden pace and daily goal. */
 import { LitElement, html, nothing, type TemplateResult } from 'lit';
 
 import { DAILY_GOAL_BOUNDS } from '../../../core/gamification.ts';
-import { NEW_PER_SESSION_BOUNDS, type Settings, type TranslationLanguage } from '../../../core/storage.ts';
+import {
+  PACE_BOUNDS,
+  YOUNG_DAY_OPTIONS,
+  type Settings,
+  type TranslationLanguage,
+  type YoungDays,
+} from '../../../core/storage.ts';
 import { kindsOf, rebalance } from '../../../core/task-weights.ts';
 import { TASK_TYPES } from '../../../core/tasks.ts';
 import { DATA_KINDS, EXERCISE_KINDS, type DataKind, type ExerciseKind } from '../../../core/types.ts';
@@ -35,9 +41,18 @@ const DAILY_GOALS: readonly SegmentOption[] = [10, 20, 30, 50]
   .filter((goal) => goal >= DAILY_GOAL_BOUNDS.min && goal <= DAILY_GOAL_BOUNDS.max)
   .map((goal) => ({ value: String(goal), label: String(goal) }));
 
-/** The stepper stops below the stored maximum; bigger sessions get tiring on a phone. */
-const NEW_MAX_IN_UI = Math.min(30, NEW_PER_SESSION_BOUNDS.max);
-const NEW_STEP = 5;
+/** The stepper stops below the stored maximum; more new items per session get tiring on a phone. */
+const NEW_MAX_IN_UI = Math.min(30, PACE_BOUNDS.newPerSession.max);
+const STEP = 5;
+
+const YOUNG_DAYS: readonly SegmentOption[] = YOUNG_DAY_OPTIONS.map((days) => ({
+  value: String(days),
+  label: `${days} dager`,
+}));
+
+function isYoungDays(value: number): value is YoungDays {
+  return YOUNG_DAY_OPTIONS.some((option) => option === value);
+}
 
 function isTranslationLanguage(value: string): value is TranslationLanguage {
   return TRANSLATIONS.some((option) => option.value === value);
@@ -89,13 +104,43 @@ export class PracticePreferences extends LitElement {
       <section>
         <h2 class="eyebrow">Økt</h2>
         <ui-stepper
+          label="Oppgaver per økt"
+          .value=${settings.sessionSize}
+          .min=${PACE_BOUNDS.sessionSize.min}
+          .max=${PACE_BOUNDS.sessionSize.max}
+          .step=${STEP}
+          @change=${(event: Event) => this.#onNumber(event, 'sessionSize')}
+        ></ui-stepper>
+        <ui-stepper
           label="Nye oppgaver per økt"
           .value=${settings.newPerSession}
-          .min=${NEW_PER_SESSION_BOUNDS.min}
+          .min=${PACE_BOUNDS.newPerSession.min}
           .max=${NEW_MAX_IN_UI}
-          .step=${NEW_STEP}
-          @change=${this.#onNewPerSession}
+          .step=${STEP}
+          @change=${(event: Event) => this.#onNumber(event, 'newPerSession')}
         ></ui-stepper>
+      </section>
+
+      <section>
+        <h2 class="eyebrow">Hagen</h2>
+        <ui-stepper
+          label="Maks unge planter"
+          .value=${settings.maxYoungPlants}
+          .min=${PACE_BOUNDS.maxYoungPlants.min}
+          .max=${PACE_BOUNDS.maxYoungPlants.max}
+          .step=${STEP}
+          @change=${(event: Event) => this.#onNumber(event, 'maxYoungPlants')}
+        ></ui-stepper>
+        <ui-segmented
+          label="En plante er ung i"
+          .options=${YOUNG_DAYS}
+          .value=${String(settings.youngIntervalDays)}
+          @change=${this.#onYoungDays}
+        ></ui-segmented>
+        <p class="hint">
+          Nye oppgaver kommer bare når færre enn ${settings.maxYoungPlants} planter er yngre enn
+          ${settings.youngIntervalDays} dager. Høyere tall gir flere nye oppgaver, men også flere repetisjoner.
+        </p>
       </section>
 
       <ui-segmented
@@ -157,9 +202,17 @@ export class PracticePreferences extends LitElement {
     }
   };
 
-  #onNewPerSession = (event: Event): void => {
+  #onNumber(event: Event, key: 'sessionSize' | 'newPerSession' | 'maxYoungPlants'): void {
     if (event instanceof CustomEvent && typeof event.detail === 'number') {
-      saveSettings(this, { newPerSession: event.detail });
+      saveSettings(this, { [key]: event.detail });
+    }
+  }
+
+  #onYoungDays = (event: Event): void => {
+    const days = Number(stringDetail(event));
+
+    if (isYoungDays(days)) {
+      saveSettings(this, { youngIntervalDays: days });
     }
   };
 

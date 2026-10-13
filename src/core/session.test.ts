@@ -282,7 +282,7 @@ describe('sessionPreview', () => {
     const due = { ...createCard('e0', 'deck', NOW), due: NOW - DAY_MS };
     const cards = cardsOf([due]);
 
-    const preview = sessionPreview(pool, cards, 5, NOW);
+    const preview = sessionPreview(pool, cards, { newPerSession: 5 }, NOW);
     const queue = buildSession(pool, cards, { newPerSession: 5, random: () => 0 }, NOW);
 
     expect(preview).toEqual({ due: 1, fresh: 5, unseen: 29, totalDue: 1, seedRoom: 15 });

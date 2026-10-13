@@ -1,8 +1,9 @@
 /** How the garden works, on a page of its own so the garden itself stays uncluttered. */
 import { LitElement, css, html, type TemplateResult } from 'lit';
 
-import { MAX_YOUNG_PLANTS, PLANT_STAGE_LABELS, STAGE_START_DAYS, YOUNG_INTERVAL_DAYS } from '../../../core/garden.ts';
+import { PLANT_STAGE_LABELS, STAGE_START_DAYS } from '../../../core/garden.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
+import { StoreController, store } from '../shared/store.ts';
 
 import './plant-sprite.ts';
 
@@ -44,7 +45,11 @@ export class GardenRules extends LitElement {
     `,
   ];
 
+  protected readonly storeController = new StoreController(this);
+
   protected override render(): TemplateResult {
+    const { maxYoungPlants, youngIntervalDays } = store.state.settings;
+
     return html`
       <ul class="stages" aria-label="Stadiene">
         ${STAGES.map(
@@ -61,8 +66,9 @@ export class GardenRules extends LitElement {
         <li>Et feil svar får planten til å visne. Den starter som spire igjen.</li>
         <li>💧 En tørst plante er klar for repetisjon. Vann den ved å øve.</li>
         <li>
-          Nye frø kommer bare når færre enn ${MAX_YOUNG_PLANTS} unge planter (under ${YOUNG_INTERVAL_DAYS} dager)
-          trenger stell. Slik lærer du ikke mer enn du klarer å huske.
+          Nye frø kommer bare når færre enn ${maxYoungPlants} unge planter (under ${youngIntervalDays} dager)
+          trenger stell. Slik lærer du ikke mer enn du klarer å huske. Begge tallene kan du endre under
+          Innstillinger → Øving.
         </li>
       </ul>
     `;

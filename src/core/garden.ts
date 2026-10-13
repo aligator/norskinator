@@ -47,13 +47,16 @@ export const FULL_GROWN_DAYS = 180;
 const GROWN_STAGES = ['sprout', 'plant', 'bush', 'tree', 'blossom'] as const;
 
 /**
- * Plants below this interval are still young. Anki calls a card mature from
- * 21 days; a week is enough to say it no longer needs close care.
+ * New seeds are only sown while fewer than `maxYoung` plants are younger
+ * than `youngDays` (interval in days). Both are learner settings.
  */
-export const YOUNG_INTERVAL_DAYS = 7;
+export interface SeedLimits {
+  readonly maxYoung: number;
+  readonly youngDays: number;
+}
 
-/** New seeds are only sown while fewer young plants than this need care. */
-export const MAX_YOUNG_PLANTS = 15;
+/** Anki calls a card mature from 21 days; a week is enough to say it no longer needs close care. */
+export const DEFAULT_SEED_LIMITS: SeedLimits = { maxYoung: 15, youngDays: 7 };
 
 export function plantOf(card: CardState | undefined): Plant {
   if (card === undefined || card.reps === 0) {
@@ -111,22 +114,26 @@ export function plantChange(before: Plant, after: Plant): PlantChange {
   return stageRank(after.stage) > stageRank(before.stage) ? 'grown' : 'unchanged';
 }
 
-function isYoung(card: CardState): boolean {
-  return card.reps > 0 && card.intervalDays < YOUNG_INTERVAL_DAYS;
+function isYoung(card: CardState, youngDays: number): boolean {
+  return card.reps > 0 && card.intervalDays < youngDays;
 }
 
 /**
  * How many new items the learner may start now. Only the given items count,
  * so the young plants of a disabled deck can never block the others.
  */
-export function seedAllowance(items: readonly ItemMeta[], cards: Readonly<Record<string, CardState>>): number {
+export function seedAllowance(
+  items: readonly ItemMeta[],
+  cards: Readonly<Record<string, CardState>>,
+  limits: SeedLimits = DEFAULT_SEED_LIMITS,
+): number {
   const young = items.filter((item) => {
     const card = cards[item.id];
 
-    return card !== undefined && isYoung(card);
+    return card !== undefined && isYoung(card, limits.youngDays);
   }).length;
 
-  return Math.max(0, MAX_YOUNG_PLANTS - young);
+  return Math.max(0, limits.maxYoung - young);
 }
 
 export type StageCounts = Record<PlantStage, number>;

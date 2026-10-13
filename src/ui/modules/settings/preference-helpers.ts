@@ -15,6 +15,20 @@ export const preferenceStyles = css`
     margin-bottom: var(--sp-3);
   }
 
+  /* Controls in one section get breathing room; the gap replaces the heading's margin. */
+  section {
+    display: grid;
+    gap: var(--sp-4);
+  }
+
+  section > .eyebrow {
+    margin-bottom: 0;
+  }
+
+  section > .hint {
+    margin-top: 0;
+  }
+
   .switch-row {
     display: flex;
     align-items: center;

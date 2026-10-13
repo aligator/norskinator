@@ -3,7 +3,7 @@ import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
 import { answersToday, currentStreak, sessionCompletedToday } from '../../../core/gamification.ts';
 import { PLANT_STAGES, PLANT_STAGE_LABELS, gardenBeds, totalCounts, type StageCounts } from '../../../core/garden.ts';
-import { EXTRA_SESSION_NEW, sessionPreview, type SessionPreview } from '../../../core/session.ts';
+import { sessionOptions, sessionPreview, type SessionPreview } from '../../../core/session.ts';
 import { spendableXp } from '../../../core/species.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { formatNumber } from '../shared/format.ts';
@@ -138,7 +138,7 @@ export class TodayCard extends LitElement {
     const now = Date.now();
     const counts = totalCounts(gardenBeds(state.items, state.cards, now));
 
-    const preview = sessionPreview(state.items, state.cards, state.settings.newPerSession, now);
+    const preview = sessionPreview(state.items, state.cards, sessionOptions(state.settings), now);
 
     return html`
       <div class="grid">
@@ -201,7 +201,7 @@ export class TodayCard extends LitElement {
         <div class="done">
           <p>Alt er repetert for i dag.</p>
           ${unseen > 0 && seedRoom > 0
-            ? html`<button class="button secondary block" @click=${() => startSession(this, undefined, EXTRA_SESSION_NEW)}>Øv ekstra</button>`
+            ? html`<button class="button secondary block" @click=${() => startSession(this)}>Øv ekstra</button>`
             : nothing}
           ${unseen > 0 && seedRoom === 0
             ? html`<p>Nye frø kommer når spirene i <a href="#hage">hagen</a> har vokst.</p>`

@@ -9,12 +9,12 @@ import { clampDailyGoal, recordAnswer, recordSessionCompleted, type Progress } f
 import { plantChange, plantOf, type Plant } from './garden.ts';
 import { DEFAULT_SPECIES, buySpecies, sow, type GardenState, type SpeciesId } from './species.ts';
 import { restoreSession, snapshotSession } from './resume.ts';
-import { buildSession, canRequeue, requeue, shuffleOptions, shuffleTiles } from './session.ts';
+import { buildSession, canRequeue, requeue, sessionOptions, shuffleOptions, shuffleTiles } from './session.ts';
 import { createCard, gradeFromAnswer, review, type CardState, type Grade } from './srs.ts';
 import {
   INITIAL_STATE,
   STATE_VERSION,
-  clampNewPerSession,
+  clampPace,
   clearSession,
   defaultStorage,
   loadSession,
@@ -92,11 +92,6 @@ export interface AppState {
    * the page is reloaded.
    */
   readonly newerVersionStored: boolean;
-}
-
-export interface StartOptions {
-  /** Overrides the configured limit, e.g. for "Øv ekstra" after the daily work is done. */
-  readonly newPerSession?: number;
 }
 
 export interface StoreDependencies {
@@ -188,7 +183,7 @@ export class Store {
   }
 
   /** Starts a session over the given decks, or over all enabled decks. */
-  startSession(deckIds?: readonly string[], options: StartOptions = {}): void {
+  startSession(deckIds?: readonly string[]): void {
     const now = this.#now();
     const scope = deckIds ?? this.#decks.map((deck) => deck.id);
     const pool = this.#state.items.filter((item) => scope.includes(item.deckId));
@@ -196,10 +191,7 @@ export class Store {
     const picked = buildSession(
       pool,
       this.#state.cards,
-      {
-        newPerSession: options.newPerSession ?? this.#state.settings.newPerSession,
-        random: this.#random,
-      },
+      { ...sessionOptions(this.#state.settings), random: this.#random },
       now,
     );
 
@@ -361,7 +353,7 @@ export class Store {
   updateSettings(patch: Partial<Settings>): void {
     const previous = this.#state.settings;
     const merged = { ...previous, ...patch };
-    const settings = { ...merged, newPerSession: clampNewPerSession(merged.newPerSession) };
+    const settings = clampPace(merged);
 
     this.#patch({ settings });
     this.#persist();

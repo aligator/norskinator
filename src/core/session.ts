@@ -4,14 +4,11 @@
  * Pure helpers: the store owns the mutable queue, these functions only decide
  * what to study and in which order.
  */
-import { seedAllowance } from './garden.ts';
+import { seedAllowance, type SeedLimits } from './garden.ts';
 import { dueCards, isDue, type CardState } from './srs.ts';
 import type { ItemMeta } from './types.ts';
 
 export const SESSION_SIZE = 20;
-
-/** New exercises offered by "Øv ekstra" once the daily work is done. */
-export const EXTRA_SESSION_NEW = 10;
 
 /** How many other items a failed exercise is pushed back by. */
 const REQUEUE_GAP = 3;
@@ -23,6 +20,7 @@ export interface SessionOptions {
   /** Upper bound for new items; the garden's room for young plants can lower it. */
   readonly newPerSession: number;
   readonly sessionSize?: number;
+  readonly seedLimits?: SeedLimits;
   /** Injectable for deterministic tests. */
   readonly random?: () => number;
 }
@@ -167,6 +165,22 @@ function interleave<Item>(reviews: readonly Item[], fresh: readonly Item[], rand
   return result;
 }
 
+/** The learner's pace settings, as `Settings` stores them. */
+export interface PaceSettings {
+  readonly newPerSession: number;
+  readonly sessionSize: number;
+  readonly maxYoungPlants: number;
+  readonly youngIntervalDays: number;
+}
+
+export function sessionOptions(pace: PaceSettings): Omit<SessionOptions, 'random'> {
+  return {
+    newPerSession: pace.newPerSession,
+    sessionSize: pace.sessionSize,
+    seedLimits: { maxYoung: pace.maxYoungPlants, youngDays: pace.youngIntervalDays },
+  };
+}
+
 /** Picks the items of a session; the caller decides how each one is presented. */
 export function buildSession<Item extends ItemMeta>(
   items: readonly Item[],
@@ -182,7 +196,7 @@ export function buildSession<Item extends ItemMeta>(
 
   // A random first deck rotates which deck gets the remainder of an uneven split.
   const start = Math.min(Math.floor(random() * pools.length), Math.max(pools.length - 1, 0));
-  const newBudget = Math.min(options.newPerSession, seedAllowance(items, cards));
+  const newBudget = Math.min(options.newPerSession, seedAllowance(items, cards, options.seedLimits));
   const quotas = allocateSlots(pools, size, newBudget, start);
 
   // Levels of different decks are not comparable, so difficulty is ranked within each deck.
@@ -281,12 +295,13 @@ export interface SessionPreview {
 export function sessionPreview(
   items: readonly ItemMeta[],
   cards: Readonly<Record<string, CardState>>,
-  newPerSession: number,
+  options: Omit<SessionOptions, 'random'>,
   now: number,
 ): SessionPreview {
   const split = splitPools(items, cards, now);
-  const seedRoom = seedAllowance(items, cards);
-  const quotas = allocateSlots(poolsByDeck(items, split), SESSION_SIZE, Math.min(newPerSession, seedRoom), 0);
+  const seedRoom = seedAllowance(items, cards, options.seedLimits);
+  const budget = Math.min(options.newPerSession, seedRoom);
+  const quotas = allocateSlots(poolsByDeck(items, split), options.sessionSize ?? SESSION_SIZE, budget, 0);
 
   const sessionDue = quotas.reduce((sum, quota) => sum + quota.due, 0);
   const sessionFresh = quotas.reduce((sum, quota) => sum + quota.fresh, 0);

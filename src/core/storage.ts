@@ -6,7 +6,7 @@
  * future changes can migrate instead of wiping progress.
  */
 import { INITIAL_PROGRESS, clampDailyGoal, type Progress } from './gamification.ts';
-import { PLANT_STAGES, SEED, type Plant } from './garden.ts';
+import { DEFAULT_SEED_LIMITS, PLANT_STAGES, SEED, type Plant } from './garden.ts';
 import { DEFAULT_SPECIES, INITIAL_GARDEN, SPECIES_IDS, type GardenState, type SpeciesId } from './species.ts';
 import { MAX_EASE, MIN_EASE, START_EASE, type CardState, type Grade } from './srs.ts';
 import { DEFAULT_TASK_WEIGHTS, parseTaskWeights, type TaskWeights } from './task-weights.ts';
@@ -16,6 +16,9 @@ export const STORAGE_KEY = 'norskinator.state';
 export const STATE_VERSION = 1;
 
 export type TranslationLanguage = 'de' | 'en' | 'none';
+
+export const YOUNG_DAY_OPTIONS = [3, 7, 14] as const;
+export type YoungDays = (typeof YOUNG_DAY_OPTIONS)[number];
 export type ThemePreference = 'auto' | 'light' | 'dark';
 
 export interface Settings {
@@ -23,6 +26,12 @@ export interface Settings {
   readonly theme: ThemePreference;
   /** How many unseen exercises a session may introduce. */
   readonly newPerSession: number;
+  /** Exercises in one session. */
+  readonly sessionSize: number;
+  /** New exercises wait while this many plants are still young. */
+  readonly maxYoungPlants: number;
+  /** A plant counts as young below this interval in days. */
+  readonly youngIntervalDays: YoungDays;
   readonly disabledDeckIds: readonly string[];
   /** Short synthesised feedback sounds for answers, level-ups and the daily goal. */
   readonly soundEffects: boolean;
@@ -36,6 +45,9 @@ export const DEFAULT_SETTINGS: Settings = {
   translationLanguage: 'de',
   theme: 'auto',
   newPerSession: 10,
+  sessionSize: 20,
+  maxYoungPlants: DEFAULT_SEED_LIMITS.maxYoung,
+  youngIntervalDays: 7,
   disabledDeckIds: [],
   soundEffects: false,
   speakSolution: false,
@@ -200,15 +212,33 @@ function parseCards(value: unknown): Record<string, CardState> {
   return cards;
 }
 
-/** How many new exercises a session may introduce, as a whole number in a sane range. */
-export const NEW_PER_SESSION_BOUNDS = { min: 0, max: 50 } as const;
+/** Sane ranges for the pace settings, as whole numbers. */
+export const PACE_BOUNDS = {
+  newPerSession: { min: 0, max: 50 },
+  sessionSize: { min: 5, max: 50 },
+  maxYoungPlants: { min: 5, max: 100 },
+} as const;
 
-export function clampNewPerSession(value: number): number {
+function clampToBounds(value: number, bounds: { readonly min: number; readonly max: number }, fallback: number): number {
   if (!Number.isFinite(value)) {
-    return DEFAULT_SETTINGS.newPerSession;
+    return fallback;
   }
 
-  return Math.min(NEW_PER_SESSION_BOUNDS.max, Math.max(NEW_PER_SESSION_BOUNDS.min, Math.round(value)));
+  return Math.min(bounds.max, Math.max(bounds.min, Math.round(value)));
+}
+
+function isYoungDays(value: unknown): value is YoungDays {
+  return YOUNG_DAY_OPTIONS.some((option) => option === value);
+}
+
+/** Brings every numeric pace setting into its range, e.g. after a partial update. */
+export function clampPace(settings: Settings): Settings {
+  return {
+    ...settings,
+    newPerSession: clampToBounds(settings.newPerSession, PACE_BOUNDS.newPerSession, DEFAULT_SETTINGS.newPerSession),
+    sessionSize: clampToBounds(settings.sessionSize, PACE_BOUNDS.sessionSize, DEFAULT_SETTINGS.sessionSize),
+    maxYoungPlants: clampToBounds(settings.maxYoungPlants, PACE_BOUNDS.maxYoungPlants, DEFAULT_SETTINGS.maxYoungPlants),
+  };
 }
 
 function parseSettings(value: unknown): Settings {
@@ -216,19 +246,24 @@ function parseSettings(value: unknown): Settings {
     return DEFAULT_SETTINGS;
   }
 
-  return {
+  return clampPace({
     translationLanguage: readEnum(
       value['translationLanguage'],
       ['de', 'en', 'none'] as const,
       DEFAULT_SETTINGS.translationLanguage,
     ),
     theme: readEnum(value['theme'], ['auto', 'light', 'dark'] as const, DEFAULT_SETTINGS.theme),
-    newPerSession: clampNewPerSession(readNumber(value['newPerSession'], DEFAULT_SETTINGS.newPerSession)),
+    newPerSession: readNumber(value['newPerSession'], DEFAULT_SETTINGS.newPerSession),
+    sessionSize: readNumber(value['sessionSize'], DEFAULT_SETTINGS.sessionSize),
+    maxYoungPlants: readNumber(value['maxYoungPlants'], DEFAULT_SETTINGS.maxYoungPlants),
+    youngIntervalDays: isYoungDays(value['youngIntervalDays'])
+      ? value['youngIntervalDays']
+      : DEFAULT_SETTINGS.youngIntervalDays,
     disabledDeckIds: readStringArray(value['disabledDeckIds']),
     soundEffects: readBoolean(value['soundEffects'], DEFAULT_SETTINGS.soundEffects),
     speakSolution: readBoolean(value['speakSolution'], DEFAULT_SETTINGS.speakSolution),
     taskWeights: parseTaskWeights(value['taskWeights']),
-  };
+  });
 }
 
 type Migration = (raw: Record<string, unknown>) => Record<string, unknown>;

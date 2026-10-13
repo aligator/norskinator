@@ -13,7 +13,8 @@ import { blossomArt, stageArt } from './species-art.ts';
 const EFFECT_MS = 1400;
 
 /** `water` plays on every right answer, `grow` when that also reached a new stage. */
-type Effect = 'water' | 'grow' | 'wilt' | null;
+/** `poke` plays when the plant is tapped. */
+type Effect = 'water' | 'grow' | 'wilt' | 'poke' | null;
 
 const SPARKLES: readonly (readonly [number, number])[] = [
   [14, 22],
@@ -157,6 +158,10 @@ export class PlantSprite extends LitElement {
 
     .growth {
       transition: transform 1100ms var(--ease-spring);
+    }
+
+    .effect-poke .bounce {
+      animation: wiggle 650ms var(--ease-out);
     }
 
     .effect-water .bounce,
@@ -570,6 +575,29 @@ export class PlantSprite extends LitElement {
       }
     }
 
+    @keyframes wiggle {
+      0%,
+      100% {
+        transform: rotate(0deg) scale(1);
+      }
+
+      15% {
+        transform: rotate(-9deg) scale(1.06, 0.94);
+      }
+
+      35% {
+        transform: rotate(7deg) scale(0.97, 1.05);
+      }
+
+      55% {
+        transform: rotate(-4deg);
+      }
+
+      75% {
+        transform: rotate(2deg);
+      }
+    }
+
     @keyframes bounce {
       0%,
       100% {
@@ -704,6 +732,12 @@ export class PlantSprite extends LitElement {
     this.delay = 0;
     this.shown = SEED;
     this.effect = null;
+    this.addEventListener('pointerdown', () => this.poke());
+  }
+
+  /** A tap: the plant wiggles and sparkles; a wilted one only shakes. */
+  poke(): void {
+    this.#play('poke');
   }
 
   override disconnectedCallback(): void {
@@ -754,6 +788,17 @@ export class PlantSprite extends LitElement {
 
   #play(effect: Effect): void {
     clearTimeout(this.#effectTimer);
+
+    // Setting the same class again would not restart its animation, so drop it for a frame.
+    if (effect !== null && this.effect === effect) {
+      this.effect = null;
+      void this.updateComplete.then(() => {
+        this.#frame = requestAnimationFrame(() => this.#play(effect));
+      });
+
+      return;
+    }
+
     this.effect = effect;
     this.#effectTimer = setTimeout(() => {
       this.effect = null;
@@ -803,7 +848,9 @@ export class PlantSprite extends LitElement {
           </g>
         </g>
         ${this.effect === 'water' || this.effect === 'grow' ? svg`<g>${RAIN.map(raindrop)}</g>` : nothing}
-        ${this.effect === 'grow' ? svg`<g>${SPARKLES.map(sparkle)}</g>` : nothing}
+        ${this.effect === 'grow' || (this.effect === 'poke' && !this.shown.wilted)
+          ? svg`<g>${SPARKLES.map(sparkle)}</g>`
+          : nothing}
         ${this.effect === 'wilt' ? svg`<g>${FALLING_LEAVES.map(fallingLeaf)}</g>` : nothing}
         ${this.thirsty
           ? svg`<path class="drop" d="M54 2c3 4 4.5 6.3 4.5 8.2a4.5 4.5 0 0 1-9 0c0-1.9 1.5-4.2 4.5-8.2z" />`

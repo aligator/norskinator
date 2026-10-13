@@ -9,7 +9,6 @@ import { keyed } from 'lit/directives/keyed.js';
 import { badgeById } from '../../../core/gamification.ts';
 import { plantChange } from '../../../core/garden.ts';
 import { solutionText } from '../../../core/checker.ts';
-import { EXTRA_SESSION_NEW } from '../../../core/session.ts';
 import type { Feedback } from '../../../core/store.ts';
 import { deckById } from '../../../decks/registry.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
@@ -409,7 +408,7 @@ export class PracticeSession extends LitElement {
   };
 
   #practiseMore = (): void => {
-    store.startSession(store.state.session?.deckIds, { newPerSession: EXTRA_SESSION_NEW });
+    store.startSession(store.state.session?.deckIds);
 
     if (store.state.session === null) {
       announce(this, 'Ingen flere oppgaver akkurat nå.');

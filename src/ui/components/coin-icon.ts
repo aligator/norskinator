@@ -1,7 +1,8 @@
 /**
  * A gold krone coin, with the hole of the Norwegian one-krone piece. Sized by
  * the surrounding font unless `--coin-size` is set. `spin()` flips it
- * once; the `spin` attribute flips it as soon as it appears.
+ * once; the `spin` attribute flips it as soon as it appears, and a tap
+ * flips it with a little hop.
  */
 import { LitElement, css, html, type TemplateResult } from 'lit';
 
@@ -10,6 +11,18 @@ const SPIN: Keyframe[] = [
   { transform: 'rotateY(180deg) scale(1.25)', offset: 0.5 },
   { transform: 'rotateY(360deg) scale(1)' },
 ];
+
+const HOP: Keyframe[] = [
+  { transform: 'translateY(0) rotateY(0deg)' },
+  { transform: 'translateY(-60%) rotateY(180deg)', offset: 0.4 },
+  { transform: 'translateY(0) rotateY(360deg) scale(1.12, 0.88)', offset: 0.78 },
+  { transform: 'translateY(-8%) rotateY(360deg) scale(0.97, 1.03)', offset: 0.9 },
+  { transform: 'translateY(0) rotateY(360deg) scale(1)' },
+];
+
+function reducedMotion(): boolean {
+  return globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
 
 export class CoinIcon extends LitElement {
   static override properties = {
@@ -20,6 +33,7 @@ export class CoinIcon extends LitElement {
     :host {
       display: inline-block;
       flex: none;
+      touch-action: manipulation;
       width: var(--coin-size, 1.1em);
       height: var(--coin-size, 1.1em);
       vertical-align: -0.2em;
@@ -86,6 +100,7 @@ export class CoinIcon extends LitElement {
   constructor() {
     super();
     this.spinOnLoad = false;
+    this.addEventListener('pointerdown', () => this.hop());
   }
 
   protected override firstUpdated(): void {
@@ -95,11 +110,20 @@ export class CoinIcon extends LitElement {
   }
 
   spin(): void {
-    if (globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (reducedMotion()) {
       return;
     }
 
     this.animate(SPIN, { duration: 650, easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)' });
+  }
+
+  /** A tap: jumps, flips once and lands with a small bounce. */
+  hop(): void {
+    if (reducedMotion()) {
+      return;
+    }
+
+    this.animate(HOP, { duration: 1100, easing: 'ease-in-out' });
   }
 
   /**

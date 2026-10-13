@@ -63,6 +63,13 @@ export class MoneyAmount extends LitElement {
     this.sign = false;
     this.memory = null;
     this.shown = 0;
+
+    // Tapping the number, not only the coin, makes the coin hop.
+    this.addEventListener('pointerdown', (event) => {
+      if (event.target === this) {
+        this.renderRoot.querySelector<CoinIcon>('ui-coin')?.hop();
+      }
+    });
   }
 
   override disconnectedCallback(): void {
