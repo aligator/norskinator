@@ -49,7 +49,7 @@ export class ResetProgress extends LitElement {
       ${this.confirming
         ? html`
             <div class="confirm" role="alertdialog" aria-labelledby="reset-text">
-              <p id="reset-text">Dette sletter XP, rekker, merker og all repetisjonshistorikk. Innstillingene og dagsmålet beholdes. Kan ikke angres.</p>
+              <p id="reset-text">Dette sletter penger, rekker, merker, hagen og all repetisjonshistorikk. Innstillingene og dagsmålet beholdes. Kan ikke angres.</p>
               <div class="actions">
                 <button class="button secondary" @click=${this.#cancel}>Avbryt</button>
                 <button class="button danger-filled" @click=${this.#reset}>Slett alt</button>

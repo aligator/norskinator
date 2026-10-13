@@ -6,6 +6,8 @@
  * future changes can migrate instead of wiping progress.
  */
 import { INITIAL_PROGRESS, clampDailyGoal, type Progress } from './gamification.ts';
+import { PLANT_STAGES, SEED, type Plant } from './garden.ts';
+import { DEFAULT_SPECIES, INITIAL_GARDEN, SPECIES_IDS, type GardenState, type SpeciesId } from './species.ts';
 import { MAX_EASE, MIN_EASE, START_EASE, type CardState, type Grade } from './srs.ts';
 import { DEFAULT_TASK_WEIGHTS, parseTaskWeights, type TaskWeights } from './task-weights.ts';
 import { EXERCISE_KINDS, type ExerciseKind } from './types.ts';
@@ -45,6 +47,7 @@ export interface PersistedState {
   readonly progress: Progress;
   readonly cards: Readonly<Record<string, CardState>>;
   readonly settings: Settings;
+  readonly garden: GardenState;
 }
 
 export const INITIAL_STATE: PersistedState = {
@@ -52,6 +55,7 @@ export const INITIAL_STATE: PersistedState = {
   progress: INITIAL_PROGRESS,
   cards: {},
   settings: DEFAULT_SETTINGS,
+  garden: INITIAL_GARDEN,
 };
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -294,6 +298,26 @@ export function storedVersion(storage: StorageLike = defaultStorage()): number |
   return typeof version === 'number' && Number.isFinite(version) ? version : null;
 }
 
+function isSpeciesId(value: unknown): value is SpeciesId {
+  return SPECIES_IDS.some((known) => known === value);
+}
+
+/** State saved before the shop existed has no garden: it starts with the free species. */
+function parseGarden(value: unknown): GardenState {
+  if (!isRecord(value)) {
+    return INITIAL_GARDEN;
+  }
+
+  const unlocked = Array.isArray(value['unlocked']) ? value['unlocked'].filter(isSpeciesId) : [];
+  const species = isRecord(value['species']) ? value['species'] : {};
+
+  return {
+    unlocked: [...new Set<SpeciesId>([DEFAULT_SPECIES, ...unlocked])],
+    spentXp: readCount(value['spentXp']),
+    species: Object.fromEntries(Object.entries(species).filter((entry): entry is [string, SpeciesId] => isSpeciesId(entry[1]))),
+  };
+}
+
 export function parseState(raw: string | null): PersistedState {
   if (raw === null) {
     return INITIAL_STATE;
@@ -318,6 +342,7 @@ export function parseState(raw: string | null): PersistedState {
     progress: parseProgress(migrated['progress']),
     cards: parseCards(migrated['cards']),
     settings: parseSettings(migrated['settings']),
+    garden: parseGarden(migrated['garden']),
   };
 }
 
@@ -394,8 +419,11 @@ export interface PersistedFeedback {
   readonly xpGained: number;
   readonly newBadges: readonly string[];
   readonly goalJustReached: boolean;
-  readonly levelBefore: number;
-  readonly levelAfter: number;
+  readonly plantBefore: Plant;
+  readonly plantAfter: Plant;
+  readonly species: SpeciesId;
+  readonly nextDue: number;
+  readonly reps: number;
 }
 
 /** A running session, stored by exercise ids so it survives a reload. */
@@ -413,6 +441,10 @@ export interface PersistedSession {
   readonly requeuedIds: readonly string[];
   readonly completed: boolean;
   readonly streakExtended: boolean;
+  readonly seedsSown: number;
+  readonly plantsGrown: number;
+  readonly plantsWilted: number;
+  readonly gardenStart: Readonly<Record<string, Plant>>;
   readonly startedAt: number;
   readonly deckIds: readonly string[];
   readonly feedback: PersistedFeedback | null;
@@ -426,6 +458,26 @@ function isGrade(value: unknown): value is Grade {
 
 function isStringArray(value: unknown): value is string[] {
   return Array.isArray(value) && value.every((entry) => typeof entry === 'string');
+}
+
+function readPlant(value: unknown): Plant {
+  if (!isRecord(value)) {
+    return SEED;
+  }
+
+  return {
+    stage: readEnum(value['stage'], PLANT_STAGES, 'seed'),
+    wilted: readBoolean(value['wilted'], false),
+    growth: Math.min(1, readNumber(value['growth'], 0)),
+  };
+}
+
+function readPlants(value: unknown): Record<string, Plant> {
+  if (!isRecord(value)) {
+    return {};
+  }
+
+  return Object.fromEntries(Object.entries(value).map(([id, plant]) => [id, readPlant(plant)]));
 }
 
 function parseFeedback(value: unknown): PersistedFeedback | null {
@@ -454,8 +506,11 @@ function parseFeedback(value: unknown): PersistedFeedback | null {
     xpGained: readCount(value['xpGained']),
     newBadges: readStringArray(value['newBadges']),
     goalJustReached: readBoolean(value['goalJustReached'], false),
-    levelBefore: Math.max(1, readCount(value['levelBefore'])),
-    levelAfter: Math.max(1, readCount(value['levelAfter'])),
+    plantBefore: readPlant(value['plantBefore']),
+    plantAfter: readPlant(value['plantAfter']),
+    species: readEnum(value['species'], SPECIES_IDS, DEFAULT_SPECIES),
+    nextDue: readNumber(value['nextDue'], 0),
+    reps: readCount(value['reps']),
   };
 }
 
@@ -522,6 +577,10 @@ export function parseSession(raw: string | null): PersistedSession | null {
     requeuedIds: readStringArray(parsed['requeuedIds']),
     completed: readBoolean(parsed['completed'], false),
     streakExtended: readBoolean(parsed['streakExtended'], false),
+    seedsSown: readCount(parsed['seedsSown']),
+    plantsGrown: readCount(parsed['plantsGrown']),
+    plantsWilted: readCount(parsed['plantsWilted']),
+    gardenStart: readPlants(parsed['gardenStart']),
     startedAt,
     deckIds: readStringArray(parsed['deckIds']),
     feedback: parseFeedback(parsed['feedback']),

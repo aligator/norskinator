@@ -4,11 +4,9 @@ import {
   INITIAL_PROGRESS,
   currentStreak,
   dayKey,
-  levelInfo,
   recordAnswer,
   recordSessionCompleted,
   sessionCompletedToday,
-  xpForLevel,
   type Progress,
 } from './gamification.ts';
 
@@ -162,45 +160,6 @@ describe('recordSessionCompleted', () => {
     const progress = withProgress({ lastSessionDay: dayKey(DAY_ONE), streakDays: 2, bestStreakDays: 2 });
 
     expect(recordSessionCompleted(progress, DAY_TWO).newBadges).toContain('streak-3');
-  });
-});
-
-describe('levelInfo', () => {
-  it('takes two good sessions to reach level 2, and many more for level 3', () => {
-    let progress = withProgress({ dailyGoal: 1000 });
-
-    // 20 answers, 17 right: two short slips break the combo.
-    const playSession = (): void => {
-      for (let answer = 0; answer < 20; answer += 1) {
-        const correct = answer !== 6 && answer !== 13 && answer !== 19;
-
-        progress = recordAnswer(progress, correct, DAY_ONE).progress;
-      }
-    };
-
-    playSession();
-
-    expect(levelInfo(progress.xp).level).toBe(1);
-
-    playSession();
-
-    expect(levelInfo(progress.xp).level).toBe(2);
-    expect(progress.xp).toBeLessThan(xpForLevel(3));
-  });
-
-  it('starts at level 1 and matches the level thresholds', () => {
-    expect(levelInfo(0).level).toBe(1);
-    expect(levelInfo(xpForLevel(5)).level).toBe(5);
-    expect(levelInfo(xpForLevel(5) - 1).level).toBe(4);
-  });
-
-  it('reports progress within the current level as a 0..1 ratio', () => {
-    const halfway = (xpForLevel(3) + xpForLevel(4)) / 2;
-    const info = levelInfo(halfway);
-
-    expect(info.level).toBe(3);
-    expect(info.ratio).toBeGreaterThan(0.4);
-    expect(info.ratio).toBeLessThan(0.6);
   });
 });
 

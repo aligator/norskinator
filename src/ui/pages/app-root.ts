@@ -1,22 +1,28 @@
 /** Base page: navigation, routing, theme, the live region and the store lifecycle. */
 import { LitElement, css, html, nothing, type SVGTemplateResult, type TemplateResult } from 'lit';
 
+import { firstAffordable, spendableXp } from '../../core/species.ts';
 import { STORAGE_KEY, type ThemePreference } from '../../core/storage.ts';
-import { homeIcon, settingsIcon, statsIcon } from '../components/icons.ts';
+import { gardenIcon, homeIcon, settingsIcon, statsIcon } from '../components/icons.ts';
 import { sharedStyles } from '../components/styles/shared.ts';
 import { ANNOUNCE_EVENT } from '../modules/shared/announce.ts';
-import { TOUR_REQUESTED_EVENT, tourDone } from '../modules/onboarding/tour-state.ts';
+import { TOUR_REQUESTED_EVENT, markShopTourDone, shopTourDone, tourDone } from '../modules/onboarding/tour-state.ts';
 import { StoreController, store } from '../modules/shared/store.ts';
 import { startUpdateWatch } from '../modules/update/app-update.ts';
 import { ROUTE_TITLES, currentRoute, navigate, tabOf, type Route } from './router.ts';
 
+import '../modules/garden/shop-tour.ts';
 import '../modules/onboarding/welcome-tour.ts';
 import '../modules/update/update-banner.ts';
+import './garden-info-page.ts';
+import './garden-page.ts';
 import './home-page.ts';
 import './legal-page.ts';
+import './plant-page.ts';
 import './practice-page.ts';
 import './settings-page.ts';
 import './settings-subpages.ts';
+import './shop-page.ts';
 import './stats-page.ts';
 
 interface Tab {
@@ -27,6 +33,7 @@ interface Tab {
 
 const TABS: readonly Tab[] = [
   { route: 'hjem', label: 'Hjem', icon: homeIcon },
+  { route: 'hage', label: 'Hagen', icon: gardenIcon },
   { route: 'statistikk', label: 'Statistikk', icon: statsIcon },
   { route: 'innstillinger', label: 'Innstillinger', icon: settingsIcon },
 ];
@@ -86,7 +93,7 @@ export class AppRoot extends LitElement {
         bottom: 0;
         z-index: 5;
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
         height: calc(var(--tabbar-h) + env(safe-area-inset-bottom));
         padding-bottom: env(safe-area-inset-bottom);
         border-top: 1px solid var(--border);
@@ -200,6 +207,7 @@ export class AppRoot extends LitElement {
   }
 
   #appliedTheme: ThemePreference | null = null;
+  #shopTourSeen = shopTourDone();
 
   protected override willUpdate(): void {
     // Store changes arrive on every answer; touching the document root each time would restyle the page.
@@ -221,7 +229,29 @@ export class AppRoot extends LitElement {
       <div class="sr-only" role="status" aria-live="polite" aria-atomic="true">${this.message}</div>
       <update-banner ?quiet=${immersive}></update-banner>
       ${this.touring ? html`<welcome-tour @tour-closed=${this.#onTourClosed}></welcome-tour>` : nothing}
+      ${this.#renderShopTour(immersive)}
     `;
+  }
+
+  /** Once, when the first species becomes affordable; never during practice or over the welcome tour. */
+  #renderShopTour(immersive: boolean): TemplateResult | typeof nothing {
+    const { status, progress, garden } = store.state;
+
+    if (immersive || this.touring || this.#shopTourSeen || status !== 'ready' || this.route === 'hage/butikk') {
+      return nothing;
+    }
+
+    const species = firstAffordable(progress.xp, garden);
+
+    if (species === null) {
+      return nothing;
+    }
+
+    return html`<shop-tour
+      .species=${species}
+      .money=${spendableXp(progress.xp, garden)}
+      @shop-tour-closed=${this.#onShopTourClosed}
+    ></shop-tour>`;
   }
 
   #renderRoute(): TemplateResult {
@@ -232,6 +262,22 @@ export class AppRoot extends LitElement {
 
       case 'ovelse': {
         return html`<practice-page></practice-page>`;
+      }
+
+      case 'hage': {
+        return html`<garden-page></garden-page>`;
+      }
+
+      case 'hage/info': {
+        return html`<garden-info-page></garden-info-page>`;
+      }
+
+      case 'hage/butikk': {
+        return html`<shop-page></shop-page>`;
+      }
+
+      case 'plante': {
+        return html`<plant-page></plant-page>`;
       }
 
       case 'statistikk': {
@@ -274,6 +320,16 @@ export class AppRoot extends LitElement {
       </nav>
     `;
   }
+
+  #onShopTourClosed = (event: Event): void => {
+    markShopTourDone();
+    this.#shopTourSeen = true;
+    this.requestUpdate();
+
+    if (event instanceof CustomEvent && event.detail?.openShop === true) {
+      navigate('hage/butikk');
+    }
+  };
 
   #onTourRequested = (): void => {
     this.touring = true;

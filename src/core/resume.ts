@@ -31,6 +31,10 @@ export function snapshotSession(session: SessionState, feedback: Feedback | null
     requeuedIds: session.requeuedIds,
     completed: session.completed,
     streakExtended: session.streakExtended,
+    seedsSown: session.seedsSown,
+    plantsGrown: session.plantsGrown,
+    plantsWilted: session.plantsWilted,
+    gardenStart: session.gardenStart,
     startedAt: session.startedAt,
     deckIds: session.deckIds,
     feedback:
@@ -44,8 +48,11 @@ export function snapshotSession(session: SessionState, feedback: Feedback | null
             xpGained: feedback.xpGained,
             newBadges: feedback.newBadges,
             goalJustReached: feedback.goalJustReached,
-            levelBefore: feedback.levelBefore,
-            levelAfter: feedback.levelAfter,
+            plantBefore: feedback.plantBefore,
+            plantAfter: feedback.plantAfter,
+            species: feedback.species,
+            nextDue: feedback.nextDue,
+            reps: feedback.reps,
           },
   };
 }
@@ -131,8 +138,11 @@ export function restoreSession(
         xpGained: pending.xpGained,
         newBadges: pending.newBadges,
         goalJustReached: pending.goalJustReached,
-        levelBefore: pending.levelBefore,
-        levelAfter: pending.levelAfter,
+        plantBefore: pending.plantBefore,
+        plantAfter: pending.plantAfter,
+        species: pending.species,
+        nextDue: pending.nextDue,
+        reps: pending.reps,
       };
     } else {
       // The shown exercise was already graded, so it must not be asked again.
@@ -162,6 +172,10 @@ export function restoreSession(
       requeuedIds: persisted.requeuedIds,
       completed: false,
       streakExtended: persisted.streakExtended,
+      seedsSown: persisted.seedsSown,
+      plantsGrown: persisted.plantsGrown,
+      plantsWilted: persisted.plantsWilted,
+      gardenStart: persisted.gardenStart,
       startedAt: persisted.startedAt,
       questionShownAt: now,
       deckIds: persisted.deckIds,

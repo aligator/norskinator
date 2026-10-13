@@ -5,7 +5,9 @@
  * but the rules live here and can be driven from tests without a DOM.
  */
 import { isCorrect } from './checker.ts';
-import { clampDailyGoal, levelInfo, recordAnswer, recordSessionCompleted, type Progress } from './gamification.ts';
+import { clampDailyGoal, recordAnswer, recordSessionCompleted, type Progress } from './gamification.ts';
+import { plantChange, plantOf, type Plant } from './garden.ts';
+import { DEFAULT_SPECIES, buySpecies, sow, type GardenState, type SpeciesId } from './species.ts';
 import { restoreSession, snapshotSession } from './resume.ts';
 import { buildSession, canRequeue, requeue, shuffleOptions, shuffleTiles } from './session.ts';
 import { createCard, gradeFromAnswer, review, type CardState, type Grade } from './srs.ts';
@@ -38,8 +40,13 @@ export interface Feedback {
   readonly xpGained: number;
   readonly newBadges: readonly string[];
   readonly goalJustReached: boolean;
-  readonly levelBefore: number;
-  readonly levelAfter: number;
+  readonly plantBefore: Plant;
+  readonly plantAfter: Plant;
+  readonly species: SpeciesId;
+  /** Epoch ms the item comes back. */
+  readonly nextDue: number;
+  /** Times the item was answered, this answer included. */
+  readonly reps: number;
 }
 
 export interface SessionState {
@@ -57,6 +64,12 @@ export interface SessionState {
   /** Set once the queue is worked through; quitting early leaves it false. */
   readonly completed: boolean;
   readonly streakExtended: boolean;
+  /** Items answered for the first time. */
+  readonly seedsSown: number;
+  readonly plantsGrown: number;
+  readonly plantsWilted: number;
+  /** Each answered item's plant before its first answer this session, for the summary. */
+  readonly gardenStart: Readonly<Record<string, Plant>>;
   readonly startedAt: number;
   readonly questionShownAt: number;
   readonly deckIds: readonly string[];
@@ -70,6 +83,7 @@ export interface AppState {
   readonly progress: Progress;
   readonly cards: Readonly<Record<string, CardState>>;
   readonly settings: Settings;
+  readonly garden: GardenState;
   readonly session: SessionState | null;
   readonly feedback: Feedback | null;
   /**
@@ -129,6 +143,7 @@ export class Store {
       progress: persisted.progress,
       cards: persisted.cards,
       settings: persisted.settings,
+      garden: persisted.garden,
       session: null,
       feedback: null,
       newerVersionStored: this.#hasNewerData(),
@@ -214,6 +229,10 @@ export class Store {
         requeuedIds: [],
         completed: false,
         streakExtended: false,
+        seedsSown: 0,
+        plantsGrown: 0,
+        plantsWilted: 0,
+        gardenStart: {},
         startedAt: now,
         questionShownAt: now,
         deckIds: scope,
@@ -243,11 +262,17 @@ export class Store {
     const card = review(existing, grade, now);
     const outcome = recordAnswer(this.#state.progress, correct, now);
 
+    const plantBefore = plantOf(this.#state.cards[exercise.id]);
+    const plantAfter = plantOf(card);
+    const change = plantChange(plantBefore, plantAfter);
+    const garden = sow(this.#state.garden, exercise.id, this.#random);
+
     const requeued = !correct && canRequeue(session.requeuedIds, exercise.id);
 
     this.#patch({
       cards: { ...this.#state.cards, [exercise.id]: card },
       progress: outcome.progress,
+      garden,
       session: {
         ...session,
         queue: requeued ? requeue(session.queue, session.index, exercise) : session.queue,
@@ -257,6 +282,13 @@ export class Store {
         xpEarned: session.xpEarned + outcome.xpGained,
         bestCombo: Math.max(session.bestCombo, outcome.progress.combo),
         badgesEarned: [...session.badgesEarned, ...outcome.newBadges],
+        seedsSown: session.seedsSown + (plantBefore.stage === 'seed' ? 1 : 0),
+        plantsGrown: session.plantsGrown + (change === 'grown' ? 1 : 0),
+        plantsWilted: session.plantsWilted + (change === 'wilted' ? 1 : 0),
+        gardenStart:
+          exercise.id in session.gardenStart
+            ? session.gardenStart
+            : { ...session.gardenStart, [exercise.id]: plantBefore },
       },
       feedback: {
         exercise,
@@ -266,8 +298,11 @@ export class Store {
         xpGained: outcome.xpGained,
         newBadges: outcome.newBadges,
         goalJustReached: outcome.goalJustReached,
-        levelBefore: levelInfo(this.#state.progress.xp).level,
-        levelAfter: levelInfo(outcome.progress.xp).level,
+        plantBefore,
+        plantAfter,
+        species: garden.species[exercise.id] ?? DEFAULT_SPECIES,
+        nextDue: card.due,
+        reps: card.reps,
       },
     });
 
@@ -355,12 +390,25 @@ export class Store {
     this.#patch({
       progress: { ...INITIAL_STATE.progress, dailyGoal: this.#state.progress.dailyGoal },
       cards: {},
+      garden: INITIAL_STATE.garden,
       session: null,
       feedback: null,
     });
 
     this.#writeNow();
     clearSession(this.#storage);
+  }
+
+  /** Buys a plant species with XP; does nothing when it is owned already or too expensive. */
+  buySpecies(id: SpeciesId): void {
+    const garden = buySpecies(this.#state.progress.xp, this.#state.garden, id);
+
+    if (garden === null) {
+      return;
+    }
+
+    this.#patch({ garden });
+    this.#persist();
   }
 
   /**
@@ -382,6 +430,7 @@ export class Store {
       progress: persisted.progress,
       cards: persisted.cards,
       settings: persisted.settings,
+      garden: persisted.garden,
       newerVersionStored: this.#hasNewerData(),
     });
 
@@ -561,6 +610,7 @@ export class Store {
       progress: this.#state.progress,
       cards: this.#state.cards,
       settings: this.#state.settings,
+      garden: this.#state.garden,
     };
 
     saveState(snapshot, this.#storage);

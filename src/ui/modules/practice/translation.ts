@@ -1,6 +1,6 @@
 /** Picks the translation to show, falling back to the other language when one is missing. */
 import type { TranslationLanguage } from '../../../core/storage.ts';
-import type { Exercise, LanguageCode } from '../../../core/types.ts';
+import type { DataItem, Exercise, LanguageCode } from '../../../core/types.ts';
 
 export interface ShownTranslation {
   readonly lang: LanguageCode;
@@ -9,7 +9,10 @@ export interface ShownTranslation {
 
 const FALLBACK: Readonly<Record<LanguageCode, LanguageCode>> = { de: 'en', en: 'de' };
 
-export function pickTranslation(exercise: Exercise, preference: TranslationLanguage): ShownTranslation | null {
+export function pickTranslation(
+  exercise: Pick<Exercise | DataItem, 'translations'>,
+  preference: TranslationLanguage,
+): ShownTranslation | null {
   if (preference === 'none' || exercise.translations === undefined) {
     return null;
   }

@@ -3,7 +3,6 @@ import { LitElement, css, html, type TemplateResult } from 'lit';
 import { pageStyles } from './page-styles.ts';
 
 import '../modules/gamification/badge-grid.ts';
-import '../modules/gamification/level-summary.ts';
 import '../modules/stats/key-figures.ts';
 import '../modules/stats/mastery-list.ts';
 
@@ -37,7 +36,6 @@ export class StatsPage extends LitElement {
   protected override render(): TemplateResult {
     return html`
       <h1>Statistikk</h1>
-      <level-summary role="region" aria-label="Nivå"></level-summary>
       <key-figures role="region" aria-label="Nøkkeltall"></key-figures>
       <div class="columns">
         <mastery-list></mastery-list>

@@ -4,6 +4,7 @@
  * Pure helpers: the store owns the mutable queue, these functions only decide
  * what to study and in which order.
  */
+import { seedAllowance } from './garden.ts';
 import { dueCards, isDue, type CardState } from './srs.ts';
 import type { ItemMeta } from './types.ts';
 
@@ -19,6 +20,7 @@ const REQUEUE_GAP = 3;
 const FRESH_WINDOW_FACTOR = 6;
 
 export interface SessionOptions {
+  /** Upper bound for new items; the garden's room for young plants can lower it. */
   readonly newPerSession: number;
   readonly sessionSize?: number;
   /** Injectable for deterministic tests. */
@@ -180,7 +182,8 @@ export function buildSession<Item extends ItemMeta>(
 
   // A random first deck rotates which deck gets the remainder of an uneven split.
   const start = Math.min(Math.floor(random() * pools.length), Math.max(pools.length - 1, 0));
-  const quotas = allocateSlots(pools, size, options.newPerSession, start);
+  const newBudget = Math.min(options.newPerSession, seedAllowance(items, cards));
+  const quotas = allocateSlots(pools, size, newBudget, start);
 
   // Levels of different decks are not comparable, so difficulty is ranked within each deck.
   const chosenReviews = new Set(pools.flatMap((pool, index) => pool.due.slice(0, quotas[index]!.due)));
@@ -266,6 +269,8 @@ export interface SessionPreview {
   readonly unseen: number;
   /** Due cards in total, which can exceed one session. */
   readonly totalDue: number;
+  /** New items the garden has room for; 0 means the young plants need care first. */
+  readonly seedRoom: number;
 }
 
 /**
@@ -280,10 +285,17 @@ export function sessionPreview(
   now: number,
 ): SessionPreview {
   const split = splitPools(items, cards, now);
-  const quotas = allocateSlots(poolsByDeck(items, split), SESSION_SIZE, newPerSession, 0);
+  const seedRoom = seedAllowance(items, cards);
+  const quotas = allocateSlots(poolsByDeck(items, split), SESSION_SIZE, Math.min(newPerSession, seedRoom), 0);
 
   const sessionDue = quotas.reduce((sum, quota) => sum + quota.due, 0);
   const sessionFresh = quotas.reduce((sum, quota) => sum + quota.fresh, 0);
 
-  return { due: sessionDue, fresh: sessionFresh, unseen: split.fresh.length, totalDue: split.due.length };
+  return {
+    due: sessionDue,
+    fresh: sessionFresh,
+    unseen: split.fresh.length,
+    totalDue: split.due.length,
+    seedRoom,
+  };
 }

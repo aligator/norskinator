@@ -1,5 +1,5 @@
 /** Answer checking per exercise kind. Add a case here when adding a kind. */
-import type { Exercise } from './types.ts';
+import type { DataItem, Exercise } from './types.ts';
 
 /** Case- and whitespace-insensitive, and trailing punctuation never fails an answer. */
 export function normalizeAnswer(value: string): string {
@@ -47,7 +47,8 @@ export function isCorrect(exercise: Exercise, given: string): boolean {
 }
 
 /** Sentence shown in feedback, with the gap filled in. */
-export function solutionText(exercise: Exercise): string {
+/** Works on items too, so the garden can show the sentence behind a plant. */
+export function solutionText(exercise: Pick<Exercise | DataItem, 'solution' | 'prompt' | 'answer'>): string {
   if (exercise.solution !== undefined) {
     return exercise.solution;
   }

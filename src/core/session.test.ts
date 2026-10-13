@@ -180,6 +180,26 @@ describe('buildSession', () => {
     expect(queue.map((item) => item.id).sort()).toEqual(['other', 'seen']);
   });
 
+  it('sows no new items while the garden is full of young plants', () => {
+    const young = Array.from({ length: 15 }, (_unused, index) => exercise(`y${index}`));
+    const fresh = Array.from({ length: 10 }, (_unused, index) => exercise(`f${index}`));
+    const cards = young.map((item) => ({ ...createCard(item.id, 'deck', NOW), reps: 1, intervalDays: 1, due: NOW + DAY_MS }));
+
+    const queue = buildSession([...young, ...fresh], cardsOf(cards), { newPerSession: 10, random: () => 0 }, NOW);
+
+    expect(queue).toHaveLength(0);
+  });
+
+  it('sows only as many new items as there is room for', () => {
+    const young = Array.from({ length: 12 }, (_unused, index) => exercise(`y${index}`));
+    const fresh = Array.from({ length: 10 }, (_unused, index) => exercise(`f${index}`));
+    const cards = young.map((item) => ({ ...createCard(item.id, 'deck', NOW), reps: 1, intervalDays: 2, due: NOW + DAY_MS }));
+
+    const queue = buildSession([...young, ...fresh], cardsOf(cards), { newPerSession: 10, random: () => 0 }, NOW);
+
+    expect(queue).toHaveLength(3);
+  });
+
   it('rotates which deck gets the remainder of an uneven split', () => {
     const pool = [
       ...Array.from({ length: 10 }, (_unused, index) => exercise(`a${index}`, 1, 'first')),
@@ -265,7 +285,7 @@ describe('sessionPreview', () => {
     const preview = sessionPreview(pool, cards, 5, NOW);
     const queue = buildSession(pool, cards, { newPerSession: 5, random: () => 0 }, NOW);
 
-    expect(preview).toEqual({ due: 1, fresh: 5, unseen: 29, totalDue: 1 });
+    expect(preview).toEqual({ due: 1, fresh: 5, unseen: 29, totalDue: 1, seedRoom: 15 });
     expect(queue).toHaveLength(preview.due + preview.fresh);
   });
 });

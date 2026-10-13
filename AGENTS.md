@@ -31,7 +31,7 @@ Hard rules, enforced in review:
 
 ## Architecture
 
-- `src/core/` — domain types, task types, SRS, gamification, session
+- `src/core/` — domain types, task types, SRS, garden, gamification, session
   building, storage, store, stats. Pure and unit-tested.
 - `src/decks/` — content. One folder per topic, registered in
   `src/decks/registry.ts`.
@@ -93,6 +93,29 @@ tiles; its first tag is a rule from `categories.ts`.
 `src/decks/tatoeba-source.ts` maps a generated bundle to items for all three
 decks: a bundle item with `options` becomes a cloze item, one with `tiles` a
 sentence item.
+
+### Garden, sessions and XP
+
+- The garden (`src/core/garden.ts`) is how progress shows: every item is a
+  plant whose stage is read from its SRS interval (seed, sprout, plant, bush
+  from 7 days, tree from 21, blossom from 60). A wrong answer wilts it. Nothing
+  about plants is stored; they follow the cards.
+- New items are gated: a session only sows new seeds while fewer than
+  `MAX_YOUNG_PLANTS` items are younger than `YOUNG_INTERVAL_DAYS`
+  (`seedAllowance`), so learners cannot start more than they can keep.
+- `buildSession` deals the slots round-robin across decks; each deck takes
+  its own reviews first, then new items while the new budget lasts. One deck's
+  backlog never crowds out the others.
+- XP is pure gamification and only grows. The UI calls it money («kr», `formatMoney`);
+  code and stored data keep the name `xp`. There are no levels; the badges
+  `level-5`/`level-10` keep their ids and now mean 6 400 / 32 400 XP.
+- Plant species (`src/core/species.ts`) are bought with XP in the seed shop
+  (`#hage/butikk`). The shop tracks `spentXp` in the stored `garden`, so total
+  XP never drops. An item gets a random owned species when it is first
+  answered; that mapping is stored too and never changes. Drawings per
+  species live in `src/ui/modules/garden/species-art.ts`.
+- Garden routes: `#hage` (one screen, the bed pages sideways), `#plante/<id>`,
+  `#hage/info`, `#hage/butikk`. Modules link with `modules/shared/links.ts`.
 
 ### Updating corpus data (Tatoeba → deck)
 
@@ -160,7 +183,7 @@ localStorage, so every deploy must keep it readable:
   (`newerVersionStored`) and asks for a reload, so an old tab never overwrites
   newer data.
 - localStorage keys (`norskinator.state`, `.session`, `.seenBadges`,
-  `.tourDone`) are permanent once released: renaming one wipes every
+  `.tourDone`, `.shopTourDone`) are permanent once released: renaming one wipes every
   learner's progress unless a migration copies the old key first.
 - The running session is stored separately (`norskinator.session`) and resumed
   after a reload.

@@ -1,10 +1,12 @@
-/** Accuracy, answer count, best combo and longest streak. */
+/** Money earned, accuracy, answer count, best combo, longest streak and goal days. */
 import { LitElement, css, html, type TemplateResult } from 'lit';
 
 import { accuracy } from '../../../core/gamification.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { formatNumber, formatPercent, pluralDays } from '../shared/format.ts';
 import { StoreController, store } from '../shared/store.ts';
+
+import '../gamification/money-amount.ts';
 
 export class KeyFigures extends LitElement {
   static override styles = [
@@ -33,14 +35,14 @@ export class KeyFigures extends LitElement {
 
       @media (min-width: 600px) {
         dl {
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(3, 1fr);
         }
 
         div:nth-child(odd) {
           border-right: 0;
         }
 
-        div:not(:last-child) {
+        div:not(:nth-child(3n)) {
           border-right: 1px solid var(--border);
         }
       }
@@ -55,10 +57,12 @@ export class KeyFigures extends LitElement {
 
     return html`
       <dl>
+        <div><dt class="eyebrow">Penger tjent</dt><dd><money-amount .value=${progress.xp}></money-amount></dd></div>
         <div><dt class="eyebrow">Treffsikkerhet</dt><dd>${hitRate}</dd></div>
         <div><dt class="eyebrow">Svar totalt</dt><dd>${formatNumber(progress.totalAnswers)}</dd></div>
         <div><dt class="eyebrow">Beste kombo</dt><dd>${formatNumber(progress.bestCombo)}</dd></div>
         <div><dt class="eyebrow">Lengste rekke</dt><dd>${pluralDays(progress.bestStreakDays)}</dd></div>
+        <div><dt class="eyebrow">Dagsmål nådd</dt><dd>${pluralDays(progress.goalDaysReached)}</dd></div>
       </dl>
     `;
   }

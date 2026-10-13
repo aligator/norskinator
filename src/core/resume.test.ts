@@ -41,6 +41,10 @@ function persisted(overrides: Partial<PersistedSession> = {}): PersistedSession 
     requeuedIds: [],
     completed: false,
     streakExtended: false,
+    seedsSown: 1,
+    plantsGrown: 2,
+    plantsWilted: 1,
+    gardenStart: { b: { stage: 'plant', wilted: false, growth: 0.25 } },
     startedAt: NOW - 60_000,
     deckIds: ['deck'],
     feedback: null,
@@ -56,8 +60,11 @@ const PENDING_FEEDBACK: PersistedFeedback = {
   xpGained: 0,
   newBadges: [],
   goalJustReached: false,
-  levelBefore: 1,
-  levelAfter: 1,
+  plantBefore: { stage: 'plant', wilted: false, growth: 0.5 },
+  plantAfter: { stage: 'sprout', wilted: true, growth: 0 },
+  species: 'cactus',
+  nextDue: 2_000,
+  reps: 3,
 };
 
 const reshuffle = (): readonly string[] => ['reshuffled'];
@@ -76,6 +83,10 @@ describe('snapshotSession', () => {
       requeuedIds: ['b'],
       completed: false,
       streakExtended: false,
+      seedsSown: 1,
+      plantsGrown: 2,
+      plantsWilted: 1,
+      gardenStart: { b: { stage: 'plant', wilted: false, growth: 0.25 } },
       startedAt: NOW - 1_000,
       questionShownAt: NOW - 500,
       deckIds: ['deck'],
@@ -88,8 +99,11 @@ describe('snapshotSession', () => {
       xpGained: 0,
       newBadges: [],
       goalJustReached: false,
-      levelBefore: 1,
-      levelAfter: 1,
+      plantBefore: { stage: 'plant', wilted: false, growth: 0.5 },
+      plantAfter: { stage: 'sprout', wilted: true, growth: 0 },
+      species: 'cactus',
+      nextDue: 2_000,
+      reps: 3,
     };
 
     const snapshot = snapshotSession(session, feedback);

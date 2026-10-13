@@ -12,11 +12,14 @@ import { checkIcon, crossIcon, speakerIcon } from '../../components/icons.ts';
 import { speak } from '../audio/speech.ts';
 import { VoiceController } from '../audio/voice-controller.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
+import { plantNews } from '../garden/plant-news.ts';
+import { formatComesBack, pluralTimes } from '../shared/format.ts';
 import { translationStyles } from './practice-styles.ts';
 import { pickTranslation } from './translation.ts';
 
+import '../../components/coin-icon.ts';
 import '../gamification/goal-ring.ts';
-import '../gamification/level-badge.ts';
+import '../garden/plant-sprite.ts';
 
 function headline(feedback: Feedback): string {
   if (!feedback.correct) {
@@ -110,6 +113,9 @@ export class FeedbackSheet extends LitElement {
 
       .xp {
         position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
         margin-left: auto;
         padding: 2px var(--sp-3);
         border-radius: var(--r-pill);
@@ -139,14 +145,22 @@ export class FeedbackSheet extends LitElement {
         font-weight: 700;
       }
 
-      .banner.level {
-        background: var(--gold-bg);
-        color: var(--gold);
-        font-size: var(--fs-xl);
+      .plant-row {
+        display: flex;
+        align-items: center;
+        gap: var(--sp-3);
+        padding: var(--sp-2) var(--sp-3);
+        border-radius: var(--r-lg);
+        background: var(--surface);
       }
 
-      .banner.level level-badge {
-        animation: grow var(--dur-slow) var(--ease-spring);
+      .plant-news {
+        font-weight: 700;
+      }
+
+      .plant-facts {
+        font-size: var(--fs-sm);
+        color: var(--fg-muted);
       }
 
       .banner.goal {
@@ -240,19 +254,12 @@ export class FeedbackSheet extends LitElement {
         }
       }
 
-      @keyframes grow {
-        from {
-          transform: scale(0.6);
-        }
-      }
-
       @media (prefers-reduced-motion: reduce) {
         .sheet {
           animation: fade var(--dur-fast) linear;
         }
 
-        .xp::after,
-        .banner.level level-badge {
+        .xp::after {
           animation: none;
         }
 
@@ -328,20 +335,13 @@ export class FeedbackSheet extends LitElement {
     const feedback = this.feedback;
     const exercise = feedback.exercise;
     const translation = pickTranslation(exercise, this.translationLanguage);
-    const levelUp = feedback.levelAfter > feedback.levelBefore;
 
     return html`
       <section class=${`sheet ${feedback.correct ? 'correct' : 'wrong'}`} aria-labelledby="verdict">
-        ${levelUp
-          ? html`<div class="banner level">
-              <level-badge decorative .level=${feedback.levelAfter}></level-badge>
-              <span>Nivå ${feedback.levelAfter}!</span>
-            </div>`
-          : nothing}
         ${feedback.goalJustReached
           ? html`<div class="banner goal">
               <goal-ring compact .value=${this.dailyGoal} .goal=${this.dailyGoal}></goal-ring>
-              <span>Dagsmål nådd! +${XP_GOAL_BONUS} XP</span>
+              <span>Dagsmål nådd! <ui-coin spin></ui-coin> +${XP_GOAL_BONUS}</span>
             </div>`
           : nothing}
 
@@ -349,9 +349,24 @@ export class FeedbackSheet extends LitElement {
           ${feedback.correct ? checkIcon(24) : crossIcon(24)}
           <span>${headline(feedback)}</span>
           ${feedback.xpGained > 0
-            ? html`<span class="xp" data-xp=${`+${feedback.xpGained}`} aria-hidden="true">+${feedback.xpGained} XP</span>`
+            ? html`<span class="xp" data-xp=${`+${feedback.xpGained}`} aria-hidden="true"><ui-coin spin></ui-coin>+${feedback.xpGained}</span>`
             : nothing}
         </h2>
+
+        <div class="plant-row">
+          <plant-sprite
+            .from=${feedback.plantBefore}
+            .plant=${feedback.plantAfter}
+            .species=${feedback.species}
+            .size=${56}
+          ></plant-sprite>
+          <div>
+            <p class="plant-news">${plantNews(feedback.plantBefore, feedback.plantAfter)}</p>
+            <p class="plant-facts">
+              Kommer igjen ${formatComesBack(feedback.nextDue, Date.now())} · øvd ${pluralTimes(feedback.reps)}
+            </p>
+          </div>
+        </div>
 
         ${feedback.correct
           ? nothing

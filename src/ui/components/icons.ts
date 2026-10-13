@@ -19,6 +19,9 @@ function icon(body: SVGTemplateResult, size = 24): SVGTemplateResult {
 export const homeIcon = (): SVGTemplateResult =>
   icon(svg`<path d="M3 10.5 12 3l9 7.5" /><path d="M5 9.5V20h5v-6h4v6h5V9.5" />`);
 
+export const gardenIcon = (): SVGTemplateResult =>
+  icon(svg`<path d="M12 21v-9" /><path d="M12 12c0-4 3-7 7-7 0 4-3 7-7 7Z" /><path d="M12 15c0-3-2.5-5.5-6-5.5 0 3 2.5 5.5 6 5.5Z" /><path d="M7 21h10" />`);
+
 export const statsIcon = (): SVGTemplateResult =>
   icon(svg`<path d="M4 20V10" /><path d="M10 20V4" /><path d="M16 20v-7" /><path d="M22 20H2" />`);
 

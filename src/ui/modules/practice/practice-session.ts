@@ -7,6 +7,7 @@ import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 import { keyed } from 'lit/directives/keyed.js';
 
 import { badgeById } from '../../../core/gamification.ts';
+import { plantChange } from '../../../core/garden.ts';
 import { solutionText } from '../../../core/checker.ts';
 import { EXTRA_SESSION_NEW } from '../../../core/session.ts';
 import type { Feedback } from '../../../core/store.ts';
@@ -14,6 +15,7 @@ import { deckById } from '../../../decks/registry.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { playSound, type SoundKind } from '../audio/sound-effects.ts';
 import { speak, stopSpeaking } from '../audio/speech.ts';
+import { plantNews } from '../garden/plant-news.ts';
 import { announce } from '../shared/announce.ts';
 import { StoreController, store } from '../shared/store.ts';
 import type { ExerciseCard } from './exercise-card.ts';
@@ -35,8 +37,8 @@ const CONTINUE_GUARD_MS = 400;
 
 /** One sound per answer; the rarer celebration wins over plain right/wrong. */
 function soundFor(feedback: Feedback): SoundKind {
-  if (feedback.levelAfter > feedback.levelBefore) {
-    return 'level-up';
+  if (plantChange(feedback.plantBefore, feedback.plantAfter) === 'grown') {
+    return 'grow';
   }
 
   if (feedback.goalJustReached) {
@@ -330,7 +332,7 @@ export class PracticeSession extends LitElement {
       parts.push('Riktig.');
 
       if (feedback.xpGained > 0) {
-        parts.push(`+${feedback.xpGained} XP.`);
+        parts.push(`+${feedback.xpGained} kroner.`);
       }
 
       if (combo >= COMBO_VISIBLE_FROM) {
@@ -363,9 +365,9 @@ export class PracticeSession extends LitElement {
       }
     }
 
-    if (feedback.levelAfter > feedback.levelBefore) {
-      parts.push(`Nivå ${feedback.levelAfter}.`);
-    }
+    const news = plantNews(feedback.plantBefore, feedback.plantAfter);
+
+    parts.push(news.endsWith('!') ? news : `${news}.`);
 
     return parts.join(' ');
   }

@@ -284,14 +284,21 @@ export class WelcomeTour extends LitElement {
       case 2: {
         return html`
           <span class="emoji" aria-hidden="true">🔥</span>
-          <h2 id="tour-title" tabindex="-1">Rekke, dagsmål og nivå</h2>
+          <h2 id="tour-title" tabindex="-1">Rekke, dagsmål og hagen</h2>
           <ul>
             <li>
               <span class="chip">${flameIcon(16)} Rekke</span> Fullfør <strong>en hel økt</strong> hver dag for å holde
               rekka. Avbrutte økter teller ikke.
             </li>
             <li><strong>Dagsmålet</strong> er et antall riktige svar per dag. Ringen på forsiden viser hvor langt du har kommet.</li>
-            <li>Riktige svar gir <strong>XP</strong>, og mange riktige på rad gir bonus. Nok XP gir nytt nivå og merker.</li>
+            <li>
+              I <strong>hagen</strong> er hver setning en plante. Den vokser når du husker den, og visner når du svarer
+              feil. Nye frø kommer når de unge plantene har vokst.
+            </li>
+            <li>
+              Riktige svar gir <strong>penger</strong>, og mange riktige på rad gir bonus. For pengene kjøper du nye
+              plantearter i frøbutikken.
+            </li>
           </ul>
         `;
       }

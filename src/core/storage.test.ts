@@ -172,6 +172,10 @@ const SESSION: PersistedSession = {
   requeuedIds: ['a'],
   completed: false,
   streakExtended: false,
+  seedsSown: 1,
+  plantsGrown: 2,
+  plantsWilted: 1,
+  gardenStart: { b: { stage: 'plant', wilted: false, growth: 0.25 } },
   startedAt: 1_000,
   deckIds: ['deck'],
   feedback: {
@@ -182,8 +186,11 @@ const SESSION: PersistedSession = {
     xpGained: 0,
     newBadges: [],
     goalJustReached: false,
-    levelBefore: 1,
-    levelAfter: 1,
+    plantBefore: { stage: 'plant', wilted: false, growth: 0.5 },
+    plantAfter: { stage: 'sprout', wilted: true, growth: 0 },
+    species: 'cactus',
+    nextDue: 2_000,
+    reps: 3,
   },
 };
 

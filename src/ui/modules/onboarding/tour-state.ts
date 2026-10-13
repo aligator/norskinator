@@ -5,6 +5,8 @@
 
 const TOUR_DONE_KEY = 'norskinator.tourDone';
 
+const SHOP_TOUR_DONE_KEY = 'norskinator.shopTourDone';
+
 export const TOUR_REQUESTED_EVENT = 'tour-requested';
 
 export function tourDone(): boolean {
@@ -21,6 +23,23 @@ export function markTourDone(): void {
     globalThis.localStorage.setItem(TOUR_DONE_KEY, '1');
   } catch {
     // The tour simply shows again next time.
+  }
+}
+
+/** Whether the shop tutorial, shown once the first species is affordable, was seen. */
+export function shopTourDone(): boolean {
+  try {
+    return globalThis.localStorage.getItem(SHOP_TOUR_DONE_KEY) === '1';
+  } catch {
+    return true;
+  }
+}
+
+export function markShopTourDone(): void {
+  try {
+    globalThis.localStorage.setItem(SHOP_TOUR_DONE_KEY, '1');
+  } catch {
+    // The tutorial simply shows again next time.
   }
 }
 

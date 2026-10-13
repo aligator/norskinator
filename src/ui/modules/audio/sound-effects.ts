@@ -5,7 +5,7 @@
  * stopping an oscillator at full volume is what makes the audible click.
  */
 
-export type SoundKind = 'correct' | 'wrong' | 'level-up' | 'goal';
+export type SoundKind = 'correct' | 'wrong' | 'grow' | 'goal' | 'coin';
 
 interface Note {
   readonly frequency: number;
@@ -42,8 +42,8 @@ const SOUNDS: Readonly<Record<SoundKind, Sound>> = {
     peakGain: 0.12,
     notes: [{ frequency: 220, offset: 0, duration: 0.2, wave: 'triangle' }],
   },
-  // C major arpeggio up to the octave.
-  'level-up': {
+  // C major arpeggio up to the octave, for a plant reaching its next stage.
+  grow: {
     peakGain: 0.13,
     notes: [
       { frequency: 523.25, offset: 0, duration: 0.12, wave: 'triangle' },
@@ -52,7 +52,15 @@ const SOUNDS: Readonly<Record<SoundKind, Sound>> = {
       { frequency: 1046.5, offset: 0.27, duration: 0.23, wave: 'triangle' },
     ],
   },
-  // G major, softer sine timbre so it is distinguishable from a level-up.
+  // Two bright notes, like a coin landing: earning and spending money.
+  coin: {
+    peakGain: 0.1,
+    notes: [
+      { frequency: 987.77, offset: 0, duration: 0.08, wave: 'triangle' },
+      { frequency: 1318.51, offset: 0.07, duration: 0.22, wave: 'triangle' },
+    ],
+  },
+  // G major, softer sine timbre so it is distinguishable from growth.
   goal: {
     peakGain: 0.14,
     notes: [

@@ -1,16 +1,20 @@
-/** Today's work: goal ring, due and new counts, level and the start button. */
+/** Today's work: goal ring, due and new counts, a glance at the garden, XP and the start button. */
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
-import { answersToday, currentStreak, levelInfo, sessionCompletedToday } from '../../../core/gamification.ts';
-import { EXTRA_SESSION_NEW, sessionPreview } from '../../../core/session.ts';
+import { answersToday, currentStreak, sessionCompletedToday } from '../../../core/gamification.ts';
+import { PLANT_STAGES, PLANT_STAGE_LABELS, gardenBeds, totalCounts, type StageCounts } from '../../../core/garden.ts';
+import { EXTRA_SESSION_NEW, sessionPreview, type SessionPreview } from '../../../core/session.ts';
+import { spendableXp } from '../../../core/species.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { formatNumber } from '../shared/format.ts';
 import { startSession } from '../shared/session-start.ts';
 import { StoreController, store } from '../shared/store.ts';
 
 import '../gamification/goal-ring.ts';
-import '../gamification/level-badge.ts';
-import '../gamification/xp-bar.ts';
+import '../gamification/money-amount.ts';
+import '../garden/plant-sprite.ts';
+
+const GROWN_STAGES = PLANT_STAGES.filter((stage) => stage !== 'seed');
 
 /** «3 repetisjoner · 10 nye», leaving out a part that is zero. */
 function startSummary(due: number, fresh: number): string {
@@ -62,14 +66,28 @@ export class TodayCard extends LitElement {
         font: 700 var(--fs-xl) / 1 var(--font-num);
       }
 
-      .level-row {
+      .glance {
         display: flex;
-        align-items: center;
-        gap: var(--sp-3);
+        justify-content: space-around;
+        gap: var(--sp-2);
+        padding: var(--sp-2);
+        border-radius: var(--r-lg);
+        background: var(--surface-2);
+        color: var(--fg);
+        text-decoration: none;
+        transition: background var(--dur-fast) var(--ease-out);
       }
 
-      .level-row xp-bar {
-        flex: 1;
+      .glance:hover {
+        background: var(--correct-bg);
+      }
+
+      .glance span {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+        font: 600 var(--fs-sm) var(--font-num);
       }
 
       .cta {
@@ -118,7 +136,7 @@ export class TodayCard extends LitElement {
   protected override render(): TemplateResult {
     const state = store.state;
     const now = Date.now();
-    const info = levelInfo(state.progress.xp);
+    const counts = totalCounts(gardenBeds(state.items, state.cards, now));
 
     const preview = sessionPreview(state.items, state.cards, state.settings.newPerSession, now);
 
@@ -128,13 +146,13 @@ export class TodayCard extends LitElement {
         <div class="figures">
           <p class="figure"><strong>${formatNumber(preview.totalDue)}</strong> til repetisjon</p>
           <p class="figure"><strong>${formatNumber(preview.fresh)}</strong> nye</p>
-          <div class="level-row">
-            <level-badge .level=${info.level}></level-badge>
-            <xp-bar .xp=${state.progress.xp}></xp-bar>
-          </div>
+          <p class="figure">
+            <strong><money-amount .value=${spendableXp(state.progress.xp, state.garden)} memory="balance"></money-amount></strong>
+          </p>
         </div>
       </div>
-      ${this.#renderStart(preview.due, preview.fresh, preview.unseen)} ${this.#renderStreakHint(now)}
+      ${this.#renderGlance(counts)}
+      ${this.#renderStart(preview)} ${this.#renderStreakHint(now)}
     `;
   }
 
@@ -152,7 +170,19 @@ export class TodayCard extends LitElement {
     return html`<p class="streak-hint">${text}</p>`;
   }
 
-  #renderStart(due: number, fresh: number, unseen: number): TemplateResult {
+  #renderGlance(counts: StageCounts): TemplateResult {
+    const label = GROWN_STAGES.map((stage) => `${PLANT_STAGE_LABELS[stage]}: ${formatNumber(counts[stage])}`).join(', ');
+
+    return html`<a class="glance" href="#hage" aria-label=${`Til hagen. ${label}`}>
+      ${GROWN_STAGES.map(
+        (stage) => html`<span>
+          <plant-sprite .plant=${{ stage, wilted: false, growth: 1 }} .size=${32}></plant-sprite>${formatNumber(counts[stage])}
+        </span>`,
+      )}
+    </a>`;
+  }
+
+  #renderStart({ due, fresh, unseen, seedRoom }: SessionPreview): TemplateResult {
     const status = store.state.status;
 
     if (status === 'error') {
@@ -170,8 +200,11 @@ export class TodayCard extends LitElement {
       return html`
         <div class="done">
           <p>Alt er repetert for i dag.</p>
-          ${unseen > 0
+          ${unseen > 0 && seedRoom > 0
             ? html`<button class="button secondary block" @click=${() => startSession(this, undefined, EXTRA_SESSION_NEW)}>Øv ekstra</button>`
+            : nothing}
+          ${unseen > 0 && seedRoom === 0
+            ? html`<p>Nye frø kommer når spirene i <a href="#hage">hagen</a> har vokst.</p>`
             : nothing}
         </div>
       `;

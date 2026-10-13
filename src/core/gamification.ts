@@ -1,5 +1,6 @@
 /**
- * XP, levels, daily streak and badges.
+ * XP, daily streak and badges. XP only ever grows: it rewards practice,
+ * while what the learner knows shows in the garden (`garden.ts`).
  *
  * Pure functions over a {@link Progress} snapshot so the rules can be tested
  * and tuned without touching storage or UI.
@@ -66,47 +67,12 @@ export const INITIAL_PROGRESS: Progress = {
   unlockedBadges: [],
 };
 
-const BASE_XP_CORRECT = 10;
+export const BASE_XP_CORRECT = 10;
 
 /** A streak of right answers adds a little, but never outweighs answering at all. */
 const XP_PER_COMBO_STEP = 1;
 const MAX_COMBO_BONUS = 5;
 export const XP_GOAL_BONUS = 50;
-
-/**
- * XP needed to reach level n is LEVEL_SPAN * (n - 1)^2. A typical session
- * (20 answers, ~85 % right) earns ~270 XP, so with one session a day:
- * level 2 on the second day, 3 after a week, 5 after about three weeks,
- * 10 after about four months.
- */
-const LEVEL_SPAN = 400;
-
-export interface LevelInfo {
-  readonly level: number;
-  readonly xpIntoLevel: number;
-  readonly xpForNextLevel: number;
-  /** 0..1 progress towards the next level. */
-  readonly ratio: number;
-}
-
-export function xpForLevel(level: number): number {
-  return LEVEL_SPAN * (level - 1) ** 2;
-}
-
-export function levelInfo(xp: number): LevelInfo {
-  const safeXp = Math.max(xp, 0);
-  const level = Math.floor(Math.sqrt(safeXp / LEVEL_SPAN)) + 1;
-
-  const start = xpForLevel(level);
-  const span = xpForLevel(level + 1) - start;
-
-  return {
-    level,
-    xpIntoLevel: safeXp - start,
-    xpForNextLevel: span,
-    ratio: span === 0 ? 0 : (safeXp - start) / span,
-  };
-}
 
 /** Local calendar day, not UTC: the streak follows the learner's own clock. */
 export function dayKey(timestamp: number): string {
@@ -337,18 +303,19 @@ export const BADGES: readonly Badge[] = [
     earned: (progress) => progress.goalDaysReached >= 5,
   },
   {
+    // Ids kept from the former levels 5 and 10, at the XP those levels needed.
     id: 'level-5',
-    title: 'Nivå 5',
-    description: 'Nå nivå 5.',
+    title: 'Erfaren',
+    description: 'Tjen 6 400 kr til sammen.',
     icon: '⭐',
-    earned: (progress) => levelInfo(progress.xp).level >= 5,
+    earned: (progress) => progress.xp >= 6400,
   },
   {
     id: 'level-10',
-    title: 'Nivå 10',
-    description: 'Nå nivå 10.',
+    title: 'Mester',
+    description: 'Tjen 32 400 kr til sammen.',
     icon: '🌟',
-    earned: (progress) => levelInfo(progress.xp).level >= 10,
+    earned: (progress) => progress.xp >= 32_400,
   },
   {
     id: 'sharpshooter',
