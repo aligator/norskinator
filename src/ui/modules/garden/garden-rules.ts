@@ -62,8 +62,8 @@ export class GardenRules extends LitElement {
       </ul>
       <ul class="rules">
         <li>Hver oppgave er et frø. Første gang du løser den riktig, spirer den.</li>
-        <li>Dagene er tiden til neste repetisjon. Den vokser bare når du husker svaret, og planten vokser med den.</li>
-        <li>Et feil svar får planten til å visne. Den starter som spire igjen.</li>
+        <li>Dagene viser hvor lenge du husker svaret med 90 % sikkerhet. De vokser bare når du husker svaret, og planten vokser med dem.</li>
+        <li>Et feil svar får planten til å visne. Svarer du riktig neste gang, vokser den tilbake, men ikke like høyt som før.</li>
         <li>💧 En tørst plante er klar for repetisjon. Vann den ved å øve.</li>
         <li>
           Nye frø kommer bare når færre enn ${maxYoungPlants} unge planter (under ${youngIntervalDays} dager)

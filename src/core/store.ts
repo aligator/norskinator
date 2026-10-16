@@ -20,7 +20,7 @@ import {
   shuffleTiles,
   type SessionMode,
 } from './session.ts';
-import { createCard, gradeFromAnswer, review, type CardState, type Grade } from './srs.ts';
+import { createCard, ratingOptions, review, type CardState, type Grade, type RatingOption } from './srs.ts';
 import {
   INITIAL_STATE,
   STATE_VERSION,
@@ -37,7 +37,7 @@ import {
   type Settings,
   type StorageLike,
 } from './storage.ts';
-import { loadDeck, presentAs, presentItem } from './tasks.ts';
+import { gradeFromAnswer, loadDeck, presentAs, presentItem } from './tasks.ts';
 import type { Deck, Exercise, ExerciseKind, PlayableItem } from './types.ts';
 
 export type LoadStatus = 'idle' | 'loading' | 'ready' | 'error';
@@ -57,6 +57,11 @@ export interface Feedback {
   readonly nextDue: number;
   /** Times the item was answered, this answer included. */
   readonly reps: number;
+  /**
+   * Set while a right answer waits for the learner's rating (`manualRating`);
+   * the card is not reviewed and nothing is paid before `rate`.
+   */
+  readonly ratingOptions: readonly RatingOption[] | null;
 }
 
 export interface SessionState {
@@ -263,7 +268,65 @@ export class Store {
 
     const now = this.#now();
     const correct = isCorrect(exercise, given);
-    const grade = gradeFromAnswer(correct, now - session.questionShownAt);
+    const practice = session.mode === 'practice';
+    const previous = this.#state.cards[exercise.id];
+
+    // A right answer in a review session waits for the learner's own rating.
+    if (correct && !practice && this.#state.settings.manualRating) {
+      const plant = plantOf(previous);
+
+      this.#patch({
+        feedback: {
+          exercise,
+          given,
+          correct,
+          grade: 'good',
+          xpGained: 0,
+          newBadges: [],
+          goalJustReached: false,
+          plantBefore: plant,
+          plantAfter: plant,
+          species: this.#state.garden.species[exercise.id] ?? DEFAULT_SPECIES,
+          nextDue: previous?.due ?? now,
+          reps: previous?.reps ?? 0,
+          ratingOptions: ratingOptions(previous ?? createCard(exercise.id, exercise.deckId, now), now),
+        },
+      });
+
+      return;
+    }
+
+    const grade = gradeFromAnswer(
+      exercise.kind,
+      correct,
+      now - session.questionShownAt,
+      previous?.phase ?? 'new',
+    );
+
+    this.#settle(session, exercise, given, grade, now);
+    this.#persist();
+  }
+
+  /** Rates the right answer that is waiting for it and moves the session into its feedback step. */
+  rate(grade: RatingOption['grade']): void {
+    const session = this.#state.session;
+    const pending = this.#state.feedback;
+
+    if (session === null || pending === null || pending.ratingOptions === null) {
+      return;
+    }
+
+    if (!pending.ratingOptions.some((option) => option.grade === grade)) {
+      return;
+    }
+
+    this.#settle(session, pending.exercise, pending.given, grade, this.#now());
+    this.#persist();
+  }
+
+  /** Reviews the card, pays the answer and shows its feedback. */
+  #settle(session: SessionState, exercise: Exercise, given: string, grade: Grade, now: number): void {
+    const correct = grade !== 'again';
     const practice = session.mode === 'practice';
 
     // Practice leaves the card alone: its plant neither grows nor wilts, and no seed is sown.
@@ -313,17 +376,17 @@ export class Store {
         species: garden.species[exercise.id] ?? DEFAULT_SPECIES,
         nextDue: card?.due ?? now,
         reps: card?.reps ?? 0,
+        ratingOptions: null,
       },
     });
-
-    this.#persist();
   }
 
   /** Moves to the next exercise; an index equal to the queue length means the session is done. */
   next(): void {
     const session = this.#state.session;
 
-    if (session === null || this.#state.feedback === null) {
+    // A right answer has to be rated before the session moves on.
+    if (session === null || this.#state.feedback === null || this.#state.feedback.ratingOptions !== null) {
       return;
     }
 

@@ -7,6 +7,7 @@
  *
  * Adding a task type: extend `ExerciseKind`, add an entry to `TASK_TYPES`.
  */
+import type { CardPhase, Grade } from './srs.ts';
 import type { TaskWeights } from './task-weights.ts';
 import type {
   DataItem,
@@ -21,11 +22,24 @@ import type {
   WordOrderExercise,
 } from './types.ts';
 
+/**
+ * How fast a right answer has to come to count as easy or hard. What is quick
+ * depends on the work: picking a choice takes seconds, typing or building a
+ * sentence takes longer.
+ */
+export interface AnswerTiming {
+  /** At most this long (ms) is `easy`. */
+  readonly easyWithinMs: number;
+  /** At least this long (ms) is `hard`. */
+  readonly hardAfterMs: number;
+}
+
 export interface TaskType {
   readonly kind: ExerciseKind;
   readonly dataKind: DataKind;
   /** Name shown in the settings. */
   readonly label: string;
+  readonly timing: AnswerTiming;
   /** Null when this item cannot be shown this way. */
   build(item: DataItem): Exercise | null;
 }
@@ -95,10 +109,70 @@ function buildWordOrder(item: DataItem): WordOrderExercise | null {
 }
 
 export const TASK_TYPES: Readonly<Record<ExerciseKind, TaskType>> = {
-  'multiple-choice': { kind: 'multiple-choice', dataKind: 'cloze', label: 'Flervalg', build: buildChoice },
-  'type-in': { kind: 'type-in', dataKind: 'cloze', label: 'Skriv inn', build: buildTypeIn },
-  'word-order': { kind: 'word-order', dataKind: 'sentence', label: 'Ordstilling', build: buildWordOrder },
+  'multiple-choice': {
+    kind: 'multiple-choice',
+    dataKind: 'cloze',
+    label: 'Flervalg',
+    timing: { easyWithinMs: 4000, hardAfterMs: 15_000 },
+    build: buildChoice,
+  },
+  'type-in': {
+    kind: 'type-in',
+    dataKind: 'cloze',
+    label: 'Skriv inn',
+    timing: { easyWithinMs: 8000, hardAfterMs: 25_000 },
+    build: buildTypeIn,
+  },
+  'word-order': {
+    kind: 'word-order',
+    dataKind: 'sentence',
+    label: 'Ordstilling',
+    timing: { easyWithinMs: 12_000, hardAfterMs: 35_000 },
+    build: buildWordOrder,
+  },
 };
+
+/**
+ * Beyond this the learner most likely switched tabs or walked away, so the
+ * time says nothing about difficulty and must not force `hard`. A negative
+ * span (clock moved backwards) is just as meaningless; both grade as `good`.
+ */
+const UNMEASURED_AFTER_MS = 60_000;
+
+/**
+ * Grades an answer without asking the learner: response time stands in for
+ * self-assessment. Fast and right means easy, slow and right keeps the
+ * interval short. The time thresholds depend on the task type.
+ *
+ * A card failed moments ago is answered from short-term memory, so a quick
+ * right answer must not earn the long `easy` head start.
+ */
+export function gradeFromAnswer(
+  kind: ExerciseKind,
+  correct: boolean,
+  elapsedMs: number,
+  phase: CardPhase,
+): Grade {
+  if (!correct) {
+    return 'again';
+  }
+
+  if (elapsedMs < 0 || elapsedMs > UNMEASURED_AFTER_MS) {
+    return 'good';
+  }
+
+  const { easyWithinMs, hardAfterMs } = TASK_TYPES[kind].timing;
+
+  if (elapsedMs <= easyWithinMs) {
+    return phase === 'learning' || phase === 'relearning' ? 'good' : 'easy';
+  }
+
+  if (elapsedMs >= hardAfterMs) {
+    return 'hard';
+  }
+
+  return 'good';
+}
 
 function assertSourceFits(deck: Deck, source: DeckSource): void {
   for (const kind of source.tasks) {

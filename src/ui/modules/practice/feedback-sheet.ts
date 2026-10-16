@@ -24,9 +24,14 @@ import '../gamification/badge-medal.ts';
 import '../gamification/goal-ring.ts';
 import '../garden/plant-sprite.ts';
 
-function headline(feedback: Feedback): string {
+/** The grade says something about speed only when the app set it; a learner's own rating is not praise or blame. */
+function headline(feedback: Feedback, manualRating: boolean): string {
   if (!feedback.correct) {
     return 'Ikke helt';
+  }
+
+  if (manualRating) {
+    return 'Riktig!';
   }
 
   switch (feedback.grade) {
@@ -62,6 +67,7 @@ export class FeedbackSheet extends LitElement {
     translationLanguage: { attribute: false },
     dailyGoal: { attribute: false },
     practice: { type: Boolean },
+    manualRating: { type: Boolean },
   };
 
   static override styles = [
@@ -293,12 +299,15 @@ export class FeedbackSheet extends LitElement {
   declare dailyGoal: number;
   /** A practice answer leaves the plant alone; its due date and reps say nothing new. */
   declare practice: boolean;
+  /** The learner rated the answer, so its grade says nothing about speed. */
+  declare manualRating: boolean;
 
   constructor() {
     super();
     this.translationLanguage = 'de';
     this.dailyGoal = 20;
     this.practice = false;
+    this.manualRating = false;
   }
 
   /** An answer can be right in more than one way; show the ones the learner did not use. */
@@ -364,7 +373,7 @@ export class FeedbackSheet extends LitElement {
 
         <h2 id="verdict" class="headline">
           ${feedback.correct ? checkIcon(24) : crossIcon(24)}
-          <span>${headline(feedback)}</span>
+          <span>${headline(feedback, this.manualRating)}</span>
           ${feedback.xpGained > 0
             ? html`<span class="xp" data-xp=${`+${feedback.xpGained}`} aria-hidden="true"><ui-coin spin></ui-coin>+${feedback.xpGained}</span>`
             : nothing}

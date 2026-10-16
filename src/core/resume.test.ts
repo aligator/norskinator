@@ -66,6 +66,7 @@ const PENDING_FEEDBACK: PersistedFeedback = {
   species: 'cactus',
   nextDue: 2_000,
   reps: 3,
+  ratingOptions: null,
 };
 
 const reshuffle = (): readonly string[] => ['reshuffled'];
@@ -106,6 +107,7 @@ describe('snapshotSession', () => {
       species: 'cactus',
       nextDue: 2_000,
       reps: 3,
+      ratingOptions: null,
     };
 
     const snapshot = snapshotSession(session, feedback);
@@ -175,5 +177,17 @@ describe('restoreSession', () => {
     const restored = restoreSession(persisted({ options: ['i', 'av'] }), lookup(POOL), NOW, reshuffle);
 
     expect(restored?.session.options).toEqual(['reshuffled']);
+  });
+
+  it('brings back a right answer that still waits for its rating', () => {
+    const ratingOptions = [
+      { grade: 'good', delayMs: 2 * 86_400_000 },
+      { grade: 'easy', delayMs: 8 * 86_400_000 },
+    ] as const;
+    const feedback = { ...PENDING_FEEDBACK, correct: true, grade: 'good' as const, ratingOptions };
+
+    const restored = restoreSession(persisted({ feedback }), lookup(POOL), NOW, reshuffle);
+
+    expect(restored?.feedback?.ratingOptions).toEqual(ratingOptions);
   });
 });

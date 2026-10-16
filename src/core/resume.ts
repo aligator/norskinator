@@ -54,6 +54,7 @@ export function snapshotSession(session: SessionState, feedback: Feedback | null
             species: feedback.species,
             nextDue: feedback.nextDue,
             reps: feedback.reps,
+            ratingOptions: feedback.ratingOptions,
           },
   };
 }
@@ -144,6 +145,7 @@ export function restoreSession(
         species: pending.species,
         nextDue: pending.nextDue,
         reps: pending.reps,
+        ratingOptions: pending.ratingOptions,
       };
     } else {
       // The shown exercise was already graded, so it must not be asked again.

@@ -9,12 +9,12 @@ import { INITIAL_PROGRESS, clampDailyGoal, type Progress } from './gamification.
 import { DEFAULT_SEED_LIMITS, PLANT_STAGES, SEED, type Plant } from './garden.ts';
 import { SESSION_MODES, type SessionMode } from './session.ts';
 import { DEFAULT_SPECIES, INITIAL_GARDEN, SPECIES_IDS, type GardenState, type SpeciesId } from './species.ts';
-import { MAX_EASE, MIN_EASE, START_EASE, type CardState, type Grade } from './srs.ts';
+import { CARD_PHASES, type CardState, type Grade, type RatingOption } from './srs.ts';
 import { DEFAULT_TASK_WEIGHTS, parseTaskWeights, type TaskWeights } from './task-weights.ts';
 import { EXERCISE_KINDS, type ExerciseKind } from './types.ts';
 
 export const STORAGE_KEY = 'norskinator.state';
-export const STATE_VERSION = 1;
+export const STATE_VERSION = 2;
 
 export type TranslationLanguage = 'de' | 'en' | 'none';
 
@@ -40,6 +40,8 @@ export interface Settings {
   readonly speakSolution: boolean;
   /** Share of each task type in percent, adding up to 100. */
   readonly taskWeights: TaskWeights;
+  /** Rate every right answer yourself (hard, good, easy) instead of by response time. */
+  readonly manualRating: boolean;
 }
 
 export const DEFAULT_SETTINGS: Settings = {
@@ -53,6 +55,7 @@ export const DEFAULT_SETTINGS: Settings = {
   soundEffects: false,
   speakSolution: false,
   taskWeights: DEFAULT_TASK_WEIGHTS,
+  manualRating: false,
 };
 
 export interface PersistedState {
@@ -159,6 +162,10 @@ function parseProgress(value: unknown): Progress {
   };
 }
 
+const MIN_STABILITY = 0.01;
+const MIN_DIFFICULTY = 1;
+const MAX_DIFFICULTY = 10;
+
 function parseCard(id: string, value: unknown): CardState | null {
   if (!isRecord(value)) {
     return null;
@@ -172,13 +179,19 @@ function parseCard(id: string, value: unknown): CardState | null {
 
   const lastReviewed = value['lastReviewed'];
   const lapses = readCount(value['lapses']);
+  const phase = readEnum(value['phase'], CARD_PHASES, 'new');
+
+  // The scheduler rejects a memory state outside its range, so an answered card is kept inside it.
+  const stability = Math.max(0, readNumber(value['stability'], 0));
+  const difficulty = Math.min(MAX_DIFFICULTY, Math.max(0, readNumber(value['difficulty'], 0)));
 
   return {
     exerciseId: id,
     deckId,
-    phase: readEnum(value['phase'], ['new', 'learning', 'review'] as const, 'new'),
-    ease: Math.min(MAX_EASE, Math.max(MIN_EASE, readNumber(value['ease'], START_EASE))),
-    intervalDays: readCount(value['intervalDays']),
+    phase,
+    stability: phase === 'new' ? stability : Math.max(MIN_STABILITY, stability),
+    difficulty: phase === 'new' ? difficulty : Math.max(MIN_DIFFICULTY, difficulty),
+    learningStep: readCount(value['learningStep']),
     due: readNumber(value['due'], 0),
     reps: readCount(value['reps']),
     lapses,
@@ -264,13 +277,65 @@ function parseSettings(value: unknown): Settings {
     soundEffects: readBoolean(value['soundEffects'], DEFAULT_SETTINGS.soundEffects),
     speakSolution: readBoolean(value['speakSolution'], DEFAULT_SETTINGS.speakSolution),
     taskWeights: parseTaskWeights(value['taskWeights']),
+    manualRating: readBoolean(value['manualRating'], DEFAULT_SETTINGS.manualRating),
   });
 }
 
 type Migration = (raw: Record<string, unknown>) => Record<string, unknown>;
 
-/** Step `n` upgrades raw data from version `n` to `n + 1`. Empty while only v1 exists. */
-const MIGRATIONS: Readonly<Partial<Record<number, Migration>>> = {};
+/** SM-2 ease range of version 1, which maps onto the FSRS difficulty range. */
+const V1_EASE = { min: 1.3, max: 2.8, start: 2.5 } as const;
+const FSRS_DIFFICULTY = { easiest: 1, hardest: 10 } as const;
+
+/** Stability for a v1 card that was failed and had no interval yet. */
+const V1_LEARNING_STABILITY_DAYS = 0.5;
+
+/**
+ * An SM-2 card becomes an FSRS card. At 90 % retention the interval is the
+ * stability, so the interval carries over as is. A high ease (easy card)
+ * becomes a low difficulty, linearly across both ranges.
+ */
+function migrateCardV1(value: unknown): unknown {
+  if (!isRecord(value)) {
+    return value;
+  }
+
+  const { intervalDays, ease, phase, lapses, ...kept } = value;
+  const days = readNumber(intervalDays, 0);
+  const easeShare =
+    (Math.min(V1_EASE.max, Math.max(V1_EASE.min, readNumber(ease, V1_EASE.start))) - V1_EASE.min) /
+    (V1_EASE.max - V1_EASE.min);
+  const answered = readCount(kept['reps']) > 0;
+
+  return {
+    ...kept,
+    lapses,
+    // A failed card with earlier lapses was a graduated card forgotten.
+    phase: phase === 'learning' && readCount(lapses) > 0 ? 'relearning' : phase,
+    stability: answered ? Math.max(days, V1_LEARNING_STABILITY_DAYS) : 0,
+    difficulty: answered
+      ? FSRS_DIFFICULTY.hardest - easeShare * (FSRS_DIFFICULTY.hardest - FSRS_DIFFICULTY.easiest)
+      : 0,
+    learningStep: 0,
+  };
+}
+
+/** Version 1 → 2: SM-2 cards (ease, interval) become FSRS cards (stability, difficulty). */
+function migrateV1(raw: Record<string, unknown>): Record<string, unknown> {
+  const cards = raw['cards'];
+
+  if (!isRecord(cards)) {
+    return raw;
+  }
+
+  return {
+    ...raw,
+    cards: Object.fromEntries(Object.entries(cards).map(([id, card]) => [id, migrateCardV1(card)])),
+  };
+}
+
+/** Step `n` upgrades raw data from version `n` to `n + 1`. */
+const MIGRATIONS: Readonly<Partial<Record<number, Migration>>> = { 1: migrateV1 };
 
 /**
  * Applies upgrade steps `from` → `to`, one version at a time. Pure, so the
@@ -460,6 +525,8 @@ export interface PersistedFeedback {
   readonly species: SpeciesId;
   readonly nextDue: number;
   readonly reps: number;
+  /** Set while the right answer still waits for the learner's rating. */
+  readonly ratingOptions: readonly RatingOption[] | null;
 }
 
 /** A running session, stored by exercise ids so it survives a reload. */
@@ -548,7 +615,30 @@ function parseFeedback(value: unknown): PersistedFeedback | null {
     species: readEnum(value['species'], SPECIES_IDS, DEFAULT_SPECIES),
     nextDue: readNumber(value['nextDue'], 0),
     reps: readCount(value['reps']),
+    ratingOptions: readRatingOptions(value['ratingOptions']),
   };
+}
+
+const RATED_GRADES: readonly RatingOption['grade'][] = ['hard', 'good', 'easy'];
+
+function readRatingOptions(value: unknown): RatingOption[] | null {
+  if (!Array.isArray(value)) {
+    return null;
+  }
+
+  const options: RatingOption[] = [];
+
+  for (const entry of value) {
+    if (!isRecord(entry)) {
+      continue;
+    }
+
+    const grade = readEnum(entry['grade'], RATED_GRADES, 'good');
+
+    options.push({ grade, delayMs: Math.max(0, readNumber(entry['delayMs'], 0)) });
+  }
+
+  return options.length === 0 ? null : options;
 }
 
 /** Sessions saved before task types existed have no `kinds`: everything was multiple choice then. */

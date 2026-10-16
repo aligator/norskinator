@@ -1,75 +1,87 @@
 /**
- * Spaced repetition — a trimmed SM-2.
+ * Spaced repetition — FSRS through `ts-fsrs`.
  *
  * Deliberately pure and deck-agnostic: every function takes the current card
- * state plus a timestamp and returns a new state. No storage, no globals, so
- * the scheduling rules stay unit-testable.
+ * state plus a timestamp and returns a new state. No storage, no globals, no
+ * fuzz, so the scheduling rules stay unit-testable. The memory model itself
+ * lives in the library; this file only maps our card to its card and back.
  */
+import { Rating, State, fsrs, generatorParameters, type Card } from 'ts-fsrs';
 
 export const DAY_MS = 86_400_000;
 
 export type Grade = 'again' | 'hard' | 'good' | 'easy';
 
-export type CardPhase = 'new' | 'learning' | 'review';
+/** `learning` and `relearning` are the phases of a card that was just failed or is still being learned. */
+export type CardPhase = 'new' | 'learning' | 'review' | 'relearning';
+
+export const CARD_PHASES: readonly CardPhase[] = ['new', 'learning', 'review', 'relearning'];
 
 export interface CardState {
   readonly exerciseId: string;
   readonly deckId: string;
   readonly phase: CardPhase;
-  readonly ease: number;
-  /** Current interval in days; 0 while the card is still being learned. */
-  readonly intervalDays: number;
+  /** Days until the chance of remembering drops to 90 %; 0 for a card never answered. */
+  readonly stability: number;
+  /** 1 (easy) to 10 (hard); 0 for a card never answered. */
+  readonly difficulty: number;
+  /** Position in the (re)learning steps while the card is not in review. */
+  readonly learningStep: number;
   /** Epoch ms when the card becomes due. */
   readonly due: number;
   readonly reps: number;
-  /** Times a graduated card was forgotten (Anki semantics). */
+  /** Times a graduated card was forgotten. */
   readonly lapses: number;
   /** Every wrong answer, including those before graduation; drives accuracy stats. */
   readonly failures: number;
   readonly lastReviewed: number | null;
 }
 
-export const MIN_EASE = 1.3;
-export const MAX_EASE = 2.8;
-export const START_EASE = 2.5;
-const MAX_INTERVAL_DAYS = 365;
+export const MAX_INTERVAL_DAYS = 365;
 
-/** Re-ask a failed card after this long — short enough to stay in the session. */
-const RELEARN_DELAY_MS = 60_000;
+/** A failed card is re-asked after a minute — short enough to stay in the session. */
+const RELEARN_STEP = '1m';
 
-const EASE_DELTA: Readonly<Record<Grade, number>> = {
-  again: -0.2,
-  hard: -0.15,
-  good: 0,
-  easy: 0.15,
+const scheduler = fsrs(
+  generatorParameters({
+    request_retention: 0.9,
+    maximum_interval: MAX_INTERVAL_DAYS,
+    enable_fuzz: false,
+    enable_short_term: true,
+    learning_steps: [RELEARN_STEP],
+    relearning_steps: [RELEARN_STEP],
+  }),
+);
+
+const RATINGS = {
+  again: Rating.Again,
+  hard: Rating.Hard,
+  good: Rating.Good,
+  easy: Rating.Easy,
+} as const;
+
+const PHASE_OF_STATE: Readonly<Record<State, CardPhase>> = {
+  [State.New]: 'new',
+  [State.Learning]: 'learning',
+  [State.Review]: 'review',
+  [State.Relearning]: 'relearning',
 };
 
-const INTERVAL_FACTOR: Readonly<Record<'good' | 'easy', number>> = {
-  good: 1,
-  easy: 1.3,
+const STATE_OF_PHASE: Readonly<Record<CardPhase, State>> = {
+  new: State.New,
+  learning: State.Learning,
+  review: State.Review,
+  relearning: State.Relearning,
 };
-
-/** Anki's hard multiplier: grows the interval a little instead of shrinking it. */
-const HARD_INTERVAL_FACTOR = 1.2;
-
-/** First interval in days for a card graduating out of the learning phase. */
-const FIRST_INTERVAL_DAYS: Readonly<Record<Exclude<Grade, 'again'>, number>> = {
-  hard: 1,
-  good: 1,
-  easy: 3,
-};
-
-function clamp(value: number, min: number, max: number): number {
-  return Math.min(max, Math.max(min, value));
-}
 
 export function createCard(exerciseId: string, deckId: string, now: number): CardState {
   return {
     exerciseId,
     deckId,
     phase: 'new',
-    ease: START_EASE,
-    intervalDays: 0,
+    stability: 0,
+    difficulty: 0,
+    learningStep: 0,
     due: now,
     reps: 0,
     lapses: 0,
@@ -78,87 +90,69 @@ export function createCard(exerciseId: string, deckId: string, now: number): Car
   };
 }
 
-function nextInterval(card: CardState, grade: Exclude<Grade, 'again'>, ease: number): number {
-  const graduated = card.phase === 'review' && card.intervalDays > 0;
+function toFsrsCard(card: CardState): Card {
+  const scheduledDays =
+    card.lastReviewed === null ? 0 : Math.max(0, Math.round((card.due - card.lastReviewed) / DAY_MS));
 
-  if (!graduated) {
-    return FIRST_INTERVAL_DAYS[grade];
-  }
+  return {
+    due: new Date(card.due),
+    stability: card.stability,
+    difficulty: card.difficulty,
+    elapsed_days: 0,
+    scheduled_days: scheduledDays,
+    learning_steps: card.learningStep,
+    reps: card.reps,
+    lapses: card.lapses,
+    state: STATE_OF_PHASE[card.phase],
+    ...(card.lastReviewed === null ? {} : { last_review: new Date(card.lastReviewed) }),
+  };
+}
 
-  const grown =
-    grade === 'hard'
-      ? Math.max(card.intervalDays + 1, Math.round(card.intervalDays * HARD_INTERVAL_FACTOR))
-      : Math.round(card.intervalDays * ease * INTERVAL_FACTOR[grade]);
-
-  return clamp(grown, 1, MAX_INTERVAL_DAYS);
+/**
+ * A card that is still being learned only graduates on a right answer, so
+ * `hard` is read as `good` there: a hard first answer must not keep the
+ * plant wilted.
+ */
+function effectiveGrade(card: CardState, requested: Grade): Grade {
+  return requested === 'hard' && card.phase !== 'review' ? 'good' : requested;
 }
 
 export function review(card: CardState, requested: Grade, now: number): CardState {
-  // A card failed moments ago is answered from short-term memory, so a quick
-  // right answer must not earn the long `easy` head start.
-  const grade = card.phase === 'learning' && requested === 'easy' ? 'good' : requested;
-  const ease = clamp(card.ease + EASE_DELTA[grade], MIN_EASE, MAX_EASE);
-
-  if (grade === 'again') {
-    return {
-      ...card,
-      phase: 'learning',
-      ease,
-      intervalDays: 0,
-      due: now + RELEARN_DELAY_MS,
-      reps: card.reps + 1,
-      lapses: card.lapses + (card.phase === 'review' ? 1 : 0),
-      failures: card.failures + 1,
-      lastReviewed: now,
-    };
-  }
-
-  const intervalDays = nextInterval(card, grade, ease);
+  const grade = effectiveGrade(card, requested);
+  const next = scheduler.next(toFsrsCard(card), new Date(now), RATINGS[grade]).card;
 
   return {
     ...card,
-    phase: 'review',
-    ease,
-    intervalDays,
-    due: now + intervalDays * DAY_MS,
-    reps: card.reps + 1,
+    phase: PHASE_OF_STATE[next.state],
+    stability: next.stability,
+    difficulty: next.difficulty,
+    learningStep: next.learning_steps,
+    due: next.due.getTime(),
+    reps: next.reps,
+    lapses: next.lapses,
+    failures: card.failures + (grade === 'again' ? 1 : 0),
     lastReviewed: now,
   };
 }
 
-export function isDue(card: CardState, now: number): boolean {
-  return card.due <= now;
+/** A right answer the learner can choose, and how long until the card comes back. */
+export interface RatingOption {
+  readonly grade: Exclude<Grade, 'again'>;
+  readonly delayMs: number;
 }
 
 /**
- * Beyond this the learner most likely switched tabs or walked away, so the
- * time says nothing about difficulty and must not force `hard`. A negative
- * span (clock moved backwards) is just as meaningless; both grade as `good`.
+ * The ratings offered for a right answer, each with the delay it would give.
+ * A card still being learned has no `hard`; see `effectiveGrade`.
  */
-const UNMEASURED_AFTER_MS = 60_000;
+export function ratingOptions(card: CardState, now: number): RatingOption[] {
+  const grades = card.phase === 'review' ? (['hard', 'good', 'easy'] as const) : (['good', 'easy'] as const);
 
-/**
- * Multiple choice gives no self-assessment, so response time stands in for it:
- * fast and right means easy, slow and right keeps the interval short.
- */
-export function gradeFromAnswer(correct: boolean, elapsedMs: number): Grade {
-  if (!correct) {
-    return 'again';
-  }
+  return grades.map((grade) => ({ grade, delayMs: review(card, grade, now).due - now }));
+}
 
-  if (elapsedMs < 0 || elapsedMs > UNMEASURED_AFTER_MS) {
-    return 'good';
-  }
-
-  if (elapsedMs <= 4000) {
-    return 'easy';
-  }
-
-  if (elapsedMs >= 15_000) {
-    return 'hard';
-  }
-
-  return 'good';
+export function isDue(card: CardState, now: number): boolean {
+  return card.due <= now;
 }
 
 export function dueCards(cards: readonly CardState[], now: number): CardState[] {

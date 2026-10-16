@@ -9,6 +9,7 @@ import { keyed } from 'lit/directives/keyed.js';
 import { badgeById } from '../../../core/badges.ts';
 import { plantChange } from '../../../core/garden.ts';
 import { solutionText } from '../../../core/checker.ts';
+import type { RatingOption } from '../../../core/srs.ts';
 import type { Feedback } from '../../../core/store.ts';
 import { deckById } from '../../../decks/registry.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
@@ -21,11 +22,13 @@ import { StoreController, store } from '../shared/store.ts';
 import type { ExerciseCard } from './exercise-card.ts';
 import type { FeedbackSheet } from './feedback-sheet.ts';
 import { overlayKeyboard } from './keyboard-overlay.ts';
+import type { RatingSheet } from './rating-sheet.ts';
 import { COMBO_VISIBLE_FROM } from './session-top-bar.ts';
 import type { SessionSummary } from './session-summary.ts';
 
 import './exercise-card.ts';
 import './feedback-sheet.ts';
+import './rating-sheet.ts';
 import './session-summary.ts';
 import './session-top-bar.ts';
 
@@ -181,17 +184,39 @@ export class PracticeSession extends LitElement {
           @answer=${this.#onAnswer}
         ></exercise-card>`,
       )}
-      ${feedback === null
-        ? nothing
-        : html`<feedback-sheet
+      ${feedback?.ratingOptions
+        ? html`<rating-sheet
             ?inert=${this.confirmingQuit}
             .feedback=${feedback}
-            .translationLanguage=${settings.translationLanguage}
-            .dailyGoal=${store.state.progress.dailyGoal}
-            ?practice=${session.mode === 'practice'}
-            @continue=${this.#continue}
-          ></feedback-sheet>`}
+            .options=${feedback.ratingOptions}
+            @rate=${this.#onRate}
+          ></rating-sheet>`
+        : feedback === null
+          ? nothing
+          : html`<feedback-sheet
+              ?inert=${this.confirmingQuit}
+              .feedback=${feedback}
+              .translationLanguage=${settings.translationLanguage}
+              .dailyGoal=${store.state.progress.dailyGoal}
+              ?practice=${session.mode === 'practice'}
+              ?manualRating=${settings.manualRating}
+              @continue=${this.#continue}
+            ></feedback-sheet>`}
     `;
+  }
+
+  #phase(): 'summary' | 'question' | 'rating' | 'feedback' {
+    if (store.sessionFinished) {
+      return 'summary';
+    }
+
+    const feedback = store.state.feedback;
+
+    if (feedback === null) {
+      return 'question';
+    }
+
+    return feedback.ratingOptions === null ? 'feedback' : 'rating';
   }
 
   /** Moves focus once per question and once per feedback, never on unrelated re-renders. */
@@ -211,7 +236,7 @@ export class PracticeSession extends LitElement {
       return;
     }
 
-    const phase = store.sessionFinished ? 'summary' : store.state.feedback === null ? 'question' : 'feedback';
+    const phase = this.#phase();
     const key = `${session.startedAt}:${session.index}:${session.queue.length}:${phase}`;
 
     if (key === this.#lastFocusedKey) {
@@ -226,6 +251,16 @@ export class PracticeSession extends LitElement {
 
         void summary?.updateComplete.then(() => {
           summary.focusHeading();
+        });
+
+        return;
+      }
+
+      case 'rating': {
+        const sheet = this.renderRoot.querySelector<RatingSheet>('rating-sheet');
+
+        void sheet?.updateComplete.then(() => {
+          sheet.focusDefault();
         });
 
         return;
@@ -295,7 +330,9 @@ export class PracticeSession extends LitElement {
   };
 
   #submit(value: string): void {
-    if (store.state.feedback !== null) {
+    const alreadyAnswered = store.state.feedback !== null;
+
+    if (alreadyAnswered) {
       return;
     }
 
@@ -305,6 +342,35 @@ export class PracticeSession extends LitElement {
     const feedback = store.state.feedback;
 
     if (feedback === null) {
+      return;
+    }
+
+    if (feedback.ratingOptions !== null) {
+      announce(this, 'Riktig. Hvor lett var det? Velg vanskelig, bra eller lett.');
+
+      return;
+    }
+
+    announce(this, this.#describe(feedback));
+    this.#playFeedbackAudio(feedback);
+  }
+
+  #onRate = (event: Event): void => {
+    const options = store.state.feedback?.ratingOptions;
+    const option = options?.find((candidate) => event instanceof CustomEvent && candidate.grade === event.detail);
+
+    if (option !== undefined) {
+      this.#rate(option.grade);
+    }
+  };
+
+  #rate(grade: RatingOption['grade']): void {
+    store.rate(grade);
+    this.#feedbackShownAt = performance.now();
+
+    const feedback = store.state.feedback;
+
+    if (feedback === null || feedback.ratingOptions !== null) {
       return;
     }
 
@@ -453,7 +519,15 @@ export class PracticeSession extends LitElement {
       return;
     }
 
-    if (store.state.feedback !== null) {
+    const feedback = store.state.feedback;
+
+    if (feedback?.ratingOptions) {
+      this.#handleRatingKey(event, feedback.ratingOptions);
+
+      return;
+    }
+
+    if (feedback !== null) {
       this.#handleFeedbackKey(event);
 
       return;
@@ -466,6 +540,18 @@ export class PracticeSession extends LitElement {
       this.#handleQuestionKey(event);
     }
   };
+
+  /** Digits pick the n-th button; Enter and Space stay with the focused button. */
+  #handleRatingKey(event: KeyboardEvent, options: readonly RatingOption[]): void {
+    const option = options[Number.parseInt(event.key, 10) - 1];
+
+    if (option === undefined) {
+      return;
+    }
+
+    event.preventDefault();
+    this.#rate(option.grade);
+  }
 
   #handleFeedbackKey(event: KeyboardEvent): void {
     const advances = event.key === 'Enter' || event.key === ' ' || event.key === 'ArrowRight';

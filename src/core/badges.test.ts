@@ -7,8 +7,8 @@ import { DAY_MS, createCard, type CardState } from './srs.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 
-function grown(id: string, intervalDays: number, overrides: Partial<CardState> = {}): CardState {
-  return { ...createCard(id, 'deck', NOW), phase: 'review', reps: 4, intervalDays, due: NOW + DAY_MS, ...overrides };
+function grown(id: string, stability: number, overrides: Partial<CardState> = {}): CardState {
+  return { ...createCard(id, 'deck', NOW), phase: 'review', reps: 4, stability, difficulty: 5, due: NOW + DAY_MS, ...overrides };
 }
 
 function state(overrides: Partial<BadgeState> = {}): BadgeState {

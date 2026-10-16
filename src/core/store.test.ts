@@ -484,4 +484,145 @@ describe('Store', () => {
     expect(store.state.session).toBeNull();
     expect(storage.getItem(SESSION_STORAGE_KEY)).not.toBeNull();
   });
+
+  describe('manual rating', () => {
+    async function manualHarness(exercises: readonly DataItem[]): Promise<Harness> {
+      const harness = await createHarness(exercises);
+
+      harness.store.updateSettings({ manualRating: true });
+
+      return harness;
+    }
+
+    it('holds a right answer back until it is rated', async () => {
+      const { store } = await manualHarness([item('a'), item('b')]);
+      store.startSession();
+
+      store.answer('i');
+
+      expect(store.state.feedback?.correct).toBe(true);
+      expect(store.state.feedback?.ratingOptions?.map((option) => option.grade)).toEqual(['good', 'easy']);
+      expect(store.state.cards['a']).toBeUndefined();
+      expect(store.state.progress.xp).toBe(0);
+      expect(store.state.progress.totalAnswers).toBe(0);
+      expect(store.state.session?.answered).toBe(0);
+    });
+
+    it('does not move on before the rating', async () => {
+      const { store } = await manualHarness([item('a'), item('b')]);
+      store.startSession();
+      store.answer('i');
+
+      store.next();
+
+      expect(store.state.session?.index).toBe(0);
+      expect(store.state.feedback).not.toBeNull();
+    });
+
+    it('reviews the card with the chosen rating', async () => {
+      const easy = await manualHarness([item('a')]);
+      const good = await manualHarness([item('a')]);
+
+      easy.store.startSession();
+      easy.store.answer('i');
+      easy.store.rate('easy');
+      good.store.startSession();
+      good.store.answer('i');
+      good.store.rate('good');
+
+      expect(easy.store.state.feedback?.grade).toBe('easy');
+      expect(easy.store.state.feedback?.ratingOptions).toBeNull();
+      expect(easy.store.state.cards['a']?.reps).toBe(1);
+      expect(easy.store.state.cards['a']?.due).toBeGreaterThan(good.store.state.cards['a']?.due ?? 0);
+      expect(easy.store.state.progress.xp).toBeGreaterThan(0);
+      expect(easy.store.state.session?.answered).toBe(1);
+
+      easy.store.next();
+
+      expect(easy.store.sessionFinished).toBe(true);
+    });
+
+    it('shows the delay each button will give', async () => {
+      const { store } = await manualHarness([item('a')]);
+      store.startSession();
+      store.answer('i');
+
+      const options = store.state.feedback?.ratingOptions ?? [];
+      const easy = options.find((option) => option.grade === 'easy');
+
+      store.rate('easy');
+
+      expect(store.state.cards['a']?.due).toBe(NOW + (easy?.delayMs ?? -1));
+    });
+
+    it('ignores a rating that was not offered or no answer is waiting for', async () => {
+      const { store } = await manualHarness([item('a')]);
+      store.startSession();
+
+      store.rate('good');
+
+      expect(store.state.cards['a']).toBeUndefined();
+
+      store.answer('i');
+      store.rate('hard');
+
+      expect(store.state.feedback?.ratingOptions).not.toBeNull();
+      expect(store.state.cards['a']).toBeUndefined();
+    });
+
+    it('always rates a wrong answer as again, without asking', async () => {
+      const { store } = await manualHarness([item('a')]);
+      store.startSession();
+
+      store.answer('på');
+
+      expect(store.state.feedback?.grade).toBe('again');
+      expect(store.state.feedback?.ratingOptions).toBeNull();
+      expect(store.state.cards['a']?.failures).toBe(1);
+      expect(store.state.session?.queue).toHaveLength(2);
+    });
+
+    it('does not ask in a practice session', async () => {
+      const { store } = await manualHarness([item('a')]);
+      store.startSession();
+      store.answer('i');
+      store.rate('good');
+      store.next();
+      store.startSession();
+
+      expect(store.state.session?.mode).toBe('practice');
+
+      store.answer('i');
+
+      expect(store.state.feedback?.ratingOptions).toBeNull();
+    });
+
+    it('keeps the pending rating over a reload', async () => {
+      const exercises = [item('a'), item('b')];
+      const { store, storage } = await manualHarness(exercises);
+      store.startSession();
+      store.answer('i');
+      store.flush();
+
+      const answered = store.currentExercise?.id ?? '';
+      const revived = await reopen(storage, exercises, NOW + 60_000);
+
+      expect(revived.state.feedback?.ratingOptions).toEqual(store.state.feedback?.ratingOptions);
+      expect(revived.state.cards[answered]).toBeUndefined();
+
+      revived.rate('good');
+
+      expect(revived.state.cards[answered]?.reps).toBe(1);
+    });
+
+    it('grades automatically while the setting is off', async () => {
+      const { store } = await createHarness([item('a')]);
+      store.startSession();
+
+      store.answer('i');
+
+      expect(store.state.feedback?.ratingOptions).toBeNull();
+      expect(store.state.cards['a']?.reps).toBe(1);
+    });
+  });
 });

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { loadDeck, presentAs, presentItem } from './tasks.ts';
+import { TASK_TYPES, gradeFromAnswer, loadDeck, presentAs, presentItem } from './tasks.ts';
 import type { ClozeItem, Deck, PlayableItem } from './types.ts';
 
 const ITEM: PlayableItem = {
@@ -73,5 +73,43 @@ describe('loadDeck', () => {
     const items = await loadDeck(deck(item));
 
     expect(items.map((entry) => entry.tasks)).toEqual([['type-in']]);
+  });
+});
+
+describe('gradeFromAnswer', () => {
+  it('treats a wrong answer as a lapse regardless of speed', () => {
+    expect(gradeFromAnswer('multiple-choice', false, 500, 'review')).toBe('again');
+  });
+
+  it('rewards a fast correct answer and penalises a slow one', () => {
+    expect(gradeFromAnswer('multiple-choice', true, 2000, 'review')).toBe('easy');
+    expect(gradeFromAnswer('multiple-choice', true, 8000, 'review')).toBe('good');
+    expect(gradeFromAnswer('multiple-choice', true, 20_000, 'review')).toBe('hard');
+  });
+
+  it('allows more time for the task types that take more work', () => {
+    expect(gradeFromAnswer('multiple-choice', true, 10_000, 'review')).toBe('good');
+    expect(gradeFromAnswer('type-in', true, 6000, 'review')).toBe('easy');
+    expect(gradeFromAnswer('type-in', true, 20_000, 'review')).toBe('good');
+    expect(gradeFromAnswer('word-order', true, 10_000, 'review')).toBe('easy');
+    expect(gradeFromAnswer('word-order', true, 30_000, 'review')).toBe('good');
+    expect(gradeFromAnswer('word-order', true, 40_000, 'review')).toBe('hard');
+  });
+
+  it('keeps the thresholds ordered for every task type', () => {
+    for (const task of Object.values(TASK_TYPES)) {
+      expect(task.timing.easyWithinMs).toBeLessThan(task.timing.hardAfterMs);
+    }
+  });
+
+  it('does not read a backgrounded tab or a clock change as difficulty', () => {
+    expect(gradeFromAnswer('type-in', true, 10 * 60_000, 'review')).toBe('good');
+    expect(gradeFromAnswer('type-in', true, -5000, 'review')).toBe('good');
+  });
+
+  it('caps a quick right answer right after a failure at good', () => {
+    expect(gradeFromAnswer('multiple-choice', true, 1000, 'learning')).toBe('good');
+    expect(gradeFromAnswer('multiple-choice', true, 1000, 'relearning')).toBe('good');
+    expect(gradeFromAnswer('multiple-choice', true, 1000, 'new')).toBe('easy');
   });
 });

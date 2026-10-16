@@ -22,6 +22,7 @@ import { preferenceStyles, saveSettings, stringDetail } from './preference-helpe
 import '../../components/segmented-control.ts';
 import '../../components/share-sliders.ts';
 import '../../components/stepper.ts';
+import '../../components/toggle-switch.ts';
 
 const TRANSLATIONS: readonly SegmentOption[] = [
   { value: 'de', label: 'Tysk' },
@@ -100,6 +101,22 @@ export class PracticePreferences extends LitElement {
         .value=${settings.translationLanguage}
         @change=${this.#onTranslation}
       ></ui-segmented>
+
+      <section>
+        <h2 class="eyebrow">Vurdering</h2>
+        <div class="switch-row">
+          <span>Vurder riktige svar selv</span>
+          <ui-switch
+            label="Vurder riktige svar selv"
+            .checked=${settings.manualRating}
+            @change=${this.#onManualRating}
+          ></ui-switch>
+        </div>
+        <p class="hint">
+          Etter et riktig svar velger du vanskelig, bra eller lett og ser når oppgaven kommer igjen. Av: appen
+          vurderer etter hvor raskt du svarer.
+        </p>
+      </section>
 
       <section>
         <h2 class="eyebrow">Økt</h2>
@@ -207,6 +224,12 @@ export class PracticePreferences extends LitElement {
       saveSettings(this, { [key]: event.detail });
     }
   }
+
+  #onManualRating = (event: Event): void => {
+    if (event instanceof CustomEvent && typeof event.detail === 'boolean') {
+      saveSettings(this, { manualRating: event.detail });
+    }
+  };
 
   #onYoungDays = (event: Event): void => {
     const days = Number(stringDetail(event));

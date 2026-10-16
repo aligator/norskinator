@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { DEFAULT_SEED_LIMITS, gardenBeds, plantChange, plantOf, seedAllowance, totalCounts } from './garden.ts';
+import { DEFAULT_SEED_LIMITS, gardenBeds, plantChange, plantOf, seedAllowance, stageRank, totalCounts } from './garden.ts';
 import { DAY_MS, createCard, review, type CardState } from './srs.ts';
 import type { ItemMeta } from './types.ts';
 
@@ -10,8 +10,8 @@ function item(id: string, deckId = 'deck'): ItemMeta {
   return { id, deckId, level: 1, tags: [] };
 }
 
-function reviewed(id: string, intervalDays: number, overrides: Partial<CardState> = {}): CardState {
-  return { ...createCard(id, 'deck', NOW), phase: 'review', reps: 3, intervalDays, due: NOW + DAY_MS, ...overrides };
+function reviewed(id: string, stability: number, overrides: Partial<CardState> = {}): CardState {
+  return { ...createCard(id, 'deck', NOW), phase: 'review', reps: 3, stability, difficulty: 5, due: NOW + DAY_MS, ...overrides };
 }
 
 describe('plantOf', () => {
@@ -33,13 +33,21 @@ describe('plantOf', () => {
     expect(plantOf(reviewed('a', 400)).growth).toBe(1);
   });
 
-  it('wilts on a wrong answer and recovers as a sprout', () => {
+  it('wilts on a wrong answer and grows back smaller once it is remembered', () => {
     const tree = reviewed('a', 30);
     const failed = review(tree, 'again', NOW);
-    const recovered = review(failed, 'good', NOW + 120_000);
+    const recovered = review(failed, 'good', failed.due);
 
     expect(plantOf(failed)).toEqual({ stage: 'sprout', wilted: true, growth: 0 });
-    expect(plantOf(recovered)).toEqual({ stage: 'sprout', wilted: false, growth: 0 });
+    expect(plantOf(recovered).wilted).toBe(false);
+    expect(stageRank(plantOf(recovered).stage)).toBeLessThan(stageRank('tree'));
+    expect(stageRank(plantOf(recovered).stage)).toBeGreaterThan(stageRank('sprout'));
+  });
+
+  it('wilts a card that is relearning just like one that is learning', () => {
+    const relearning = reviewed('a', 5, { phase: 'relearning', reps: 4 });
+
+    expect(plantOf(relearning)).toEqual({ stage: 'sprout', wilted: true, growth: 0 });
   });
 });
 

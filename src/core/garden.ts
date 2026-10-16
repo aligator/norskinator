@@ -1,7 +1,7 @@
 /**
  * The garden: every item is a plant whose stage follows its SRS card.
  *
- * Nothing here is stored. A plant is read from the card's interval, so it
+ * Nothing here is stored. A plant is read from the card's stability, so it
  * grows exactly as fast as the learner remembers and wilts when they forget.
  */
 import { DEFAULT_SPECIES, type SpeciesId } from './species.ts';
@@ -32,7 +32,11 @@ export interface Plant {
 
 export const SEED: Plant = { stage: 'seed', wilted: false, growth: 0 };
 
-/** Interval in days at which a reviewed card reaches each stage, in growth order. */
+/**
+ * Stability in days at which a reviewed card reaches each stage, in growth
+ * order. Stability is the interval at 90 % retention, so these are also the
+ * days a plant can go without water.
+ */
 export const STAGE_START_DAYS: Readonly<Record<Exclude<PlantStage, 'seed'>, number>> = {
   sprout: 1,
   plant: 3,
@@ -41,14 +45,14 @@ export const STAGE_START_DAYS: Readonly<Record<Exclude<PlantStage, 'seed'>, numb
   blossom: 60,
 };
 
-/** A blossoming tree keeps filling out until this interval. */
+/** A blossoming tree keeps filling out until this stability. */
 export const FULL_GROWN_DAYS = 180;
 
 const GROWN_STAGES = ['sprout', 'plant', 'bush', 'tree', 'blossom'] as const;
 
 /**
  * New seeds are only sown while fewer than `maxYoung` plants are younger
- * than `youngDays` (interval in days). Both are learner settings.
+ * than `youngDays` (stability in days). Both are learner settings.
  */
 export interface SeedLimits {
   readonly maxYoung: number;
@@ -63,15 +67,15 @@ export function plantOf(card: CardState | undefined): Plant {
     return SEED;
   }
 
-  // Only a wrong answer puts a card back into learning, so this is a wilted plant.
-  if (card.phase === 'learning') {
+  // Only a wrong answer puts a card back into (re)learning, so this is a wilted plant.
+  if (card.phase === 'learning' || card.phase === 'relearning') {
     return { stage: 'sprout', wilted: true, growth: 0 };
   }
 
   let position = 0;
 
   for (const [index, candidate] of GROWN_STAGES.entries()) {
-    if (card.intervalDays >= STAGE_START_DAYS[candidate]) {
+    if (card.stability >= STAGE_START_DAYS[candidate]) {
       position = index;
     }
   }
@@ -81,7 +85,7 @@ export function plantOf(card: CardState | undefined): Plant {
 
   const start = STAGE_START_DAYS[stage];
   const end = next === undefined ? FULL_GROWN_DAYS : STAGE_START_DAYS[next];
-  const growth = Math.min(1, Math.max(0, (card.intervalDays - start) / (end - start)));
+  const growth = Math.min(1, Math.max(0, (card.stability - start) / (end - start)));
 
   return { stage, wilted: false, growth };
 }
@@ -115,7 +119,7 @@ export function plantChange(before: Plant, after: Plant): PlantChange {
 }
 
 function isYoung(card: CardState, youngDays: number): boolean {
-  return card.reps > 0 && card.intervalDays < youngDays;
+  return card.reps > 0 && card.stability < youngDays;
 }
 
 /**

@@ -28,16 +28,17 @@ import './plant-sprite.ts';
 
 function growthText(plant: Plant, card: CardState): string {
   const next = nextStage(plant.stage);
+  const days = Math.floor(card.stability);
 
   if (next === null) {
-    return card.intervalDays >= FULL_GROWN_DAYS
+    return days >= FULL_GROWN_DAYS
       ? 'Fullt utvokst'
-      : `Fyller kronen · ${formatNumber(card.intervalDays)} av ${pluralDays(FULL_GROWN_DAYS)}`;
+      : `Fyller kronen · ${formatNumber(days)} av ${pluralDays(FULL_GROWN_DAYS)}`;
   }
 
   const target = next === 'seed' ? 0 : STAGE_START_DAYS[next];
 
-  return `Vokser mot ${PLANT_STAGE_LABELS[next].toLocaleLowerCase('nb-NO')} · ${formatNumber(card.intervalDays)} av ${pluralDays(target)}`;
+  return `Vokser mot ${PLANT_STAGE_LABELS[next].toLocaleLowerCase('nb-NO')} · ${formatNumber(days)} av ${pluralDays(target)}`;
 }
 
 export class PlantDetail extends LitElement {
@@ -192,8 +193,8 @@ export class PlantDetail extends LitElement {
           ${thirsty ? nothing : html`<dd>${formatDate(card.due)}</dd>`}
         </div>
         <div>
-          <dt class="eyebrow">Intervall</dt>
-          <dd>${pluralDays(card.intervalDays)}</dd>
+          <dt class="eyebrow">Husker i</dt>
+          <dd>${pluralDays(Math.max(1, Math.round(card.stability)))}</dd>
         </div>
         <div>
           <dt class="eyebrow">Øvd</dt>

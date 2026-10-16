@@ -96,13 +96,28 @@ sentence item.
 
 ### Garden, sessions and XP
 
+- Scheduling is FSRS (`ts-fsrs` 5.x, wrapped in `src/core/srs.ts`, retention
+  0.9, no fuzz). A card holds `stability` (days until the chance of
+  remembering drops to 90 %, i.e. the interval) and `difficulty`; `now` is
+  always passed in. A failed card is re-asked after a minute (one learning and
+  one relearning step of `1m`), which keeps the in-session retry.
+  `hard` on a card still being learned counts as `good`.
 - The garden (`src/core/garden.ts`) is how progress shows: every item is a
-  plant whose stage is read from its SRS interval (seed, sprout, plant, bush
-  from 7 days, tree from 21, blossom from 60). A wrong answer wilts it. Nothing
-  about plants is stored; they follow the cards.
+  plant whose stage is read from the card's **stability** (seed, sprout,
+  plant, bush from 7 days, tree from 21, blossom from 60). A wrong answer wilts
+  it; after a right one it grows back to the stage its remaining stability
+  supports, which is lower than before. Nothing about plants is stored; they
+  follow the cards.
 - New items are gated: a session only sows new seeds while fewer than
-  `MAX_YOUNG_PLANTS` items are younger than `YOUNG_INTERVAL_DAYS`
+  `MAX_YOUNG_PLANTS` items have a stability under `YOUNG_INTERVAL_DAYS`
   (`seedAllowance`), so learners cannot start more than they can keep.
+- A right answer is rated automatically from the response time
+  (`gradeFromAnswer`, thresholds per task type in `TASK_TYPES[kind].timing`).
+  With the setting `manualRating` the learner rates it instead (hard, good,
+  easy, each with its next delay): `answer()` then only stores the pending
+  rating in the feedback (`ratingOptions`, saved with the session), and the
+  card is reviewed and the answer paid in `rate()`. Wrong answers are always
+  `again`; practice mode never asks.
 - `buildSession` deals the slots round-robin across decks; each deck takes
   its own reviews first, then new items while the new budget lasts. One deck's
   backlog never crowds out the others.
@@ -184,7 +199,9 @@ localStorage, so every deploy must keep it readable:
   `parse*` function in `src/core/storage.ts`. No version bump.
 - **Breaking changes** (rename, restructure, changed meaning): bump
   `STATE_VERSION` and add a step to `MIGRATIONS` that upgrades raw data from
-  the previous version. Add a test with old data.
+  the previous version. Add a test with old data. Version 2 replaced the SM-2
+  card fields (`ease`, `intervalDays`) by FSRS ones (`stability`,
+  `difficulty`, `learningStep`).
 - A build that finds data from a *newer* version stops saving
   (`newerVersionStored`) and asks for a reload, so an old tab never overwrites
   newer data.

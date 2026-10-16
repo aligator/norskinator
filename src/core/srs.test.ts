@@ -1,55 +1,83 @@
 import { describe, expect, it } from 'vitest';
 
-import { DAY_MS, createCard, dueCards, gradeFromAnswer, isDue, review } from './srs.ts';
+import { DAY_MS, createCard, dueCards, isDue, ratingOptions, review, type CardState } from './srs.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 
+function reviewedGood(steps: number): CardState {
+  let card = createCard('a', 'deck', NOW);
+
+  for (let step = 0; step < steps; step += 1) {
+    card = review(card, 'good', card.due);
+  }
+
+  return card;
+}
+
 describe('review', () => {
-  it('schedules a new card one day ahead on first success', () => {
+  it('graduates a new card on the first right answer', () => {
     const card = review(createCard('a', 'deck', NOW), 'good', NOW);
 
     expect(card.phase).toBe('review');
-    expect(card.intervalDays).toBe(1);
-    expect(card.due).toBe(NOW + DAY_MS);
+    expect(card.reps).toBe(1);
+    expect(card.lastReviewed).toBe(NOW);
+    expect(card.stability).toBeGreaterThan(0);
+    expect(card.due).toBeGreaterThanOrEqual(NOW + DAY_MS);
   });
 
-  it('gives an easy first answer a longer head start', () => {
-    const card = review(createCard('a', 'deck', NOW), 'easy', NOW);
+  it('gives an easy first answer a longer head start than a good one', () => {
+    const good = review(createCard('a', 'deck', NOW), 'good', NOW);
+    const easy = review(createCard('a', 'deck', NOW), 'easy', NOW);
 
-    expect(card.intervalDays).toBe(3);
+    expect(easy.due).toBeGreaterThan(good.due);
+    expect(easy.stability).toBeGreaterThan(good.stability);
   });
 
-  it('grows the interval by the ease factor on repeated success', () => {
-    const first = review(createCard('a', 'deck', NOW), 'good', NOW);
+  it('is deterministic: the same card and time schedule the same way', () => {
+    const card = reviewedGood(3);
+
+    expect(review(card, 'good', card.due)).toEqual(review(card, 'good', card.due));
+  });
+
+  it('grows the stability and the wait on repeated success', () => {
+    const first = reviewedGood(1);
     const second = review(first, 'good', first.due);
 
-    expect(second.intervalDays).toBe(Math.round(first.intervalDays * first.ease));
-    expect(second.intervalDays).toBeGreaterThan(first.intervalDays);
+    expect(second.stability).toBeGreaterThan(first.stability);
+    expect(second.due - first.due).toBeGreaterThan(first.due - NOW);
   });
 
-  it('sends a failed card back into learning within the session', () => {
-    const learned = review(createCard('a', 'deck', NOW), 'good', NOW);
-    const failed = review(learned, 'again', NOW + DAY_MS);
+  it('sends a failed card back into relearning within the session', () => {
+    const learned = reviewedGood(1);
+    const failed = review(learned, 'again', learned.due);
+
+    expect(failed.phase).toBe('relearning');
+    expect(failed.lapses).toBe(1);
+    expect(failed.due - learned.due).toBeLessThanOrEqual(60_000);
+  });
+
+  it('sends a failed new card into learning within the session', () => {
+    const failed = review(createCard('a', 'deck', NOW), 'again', NOW);
 
     expect(failed.phase).toBe('learning');
-    expect(failed.intervalDays).toBe(0);
-    expect(failed.lapses).toBe(1);
-    expect(failed.due - (NOW + DAY_MS)).toBeLessThanOrEqual(60_000);
+    expect(failed.lapses).toBe(0);
+    expect(failed.due - NOW).toBeLessThanOrEqual(60_000);
   });
 
-  it('restarts from a short interval after a lapse instead of resuming the old one', () => {
-    let card = createCard('a', 'deck', NOW);
+  it('graduates a failed card again on the next right answer', () => {
+    const grown = reviewedGood(3);
+    const failed = review(grown, 'again', grown.due);
+    const recovered = review(failed, 'good', failed.due);
 
-    for (let step = 0; step < 4; step += 1) {
-      card = review(card, 'good', card.due);
-    }
+    expect(recovered.phase).toBe('review');
+    expect(recovered.due - failed.due).toBeGreaterThanOrEqual(DAY_MS);
+  });
 
-    const beforeLapse = card.intervalDays;
-    const lapsed = review(card, 'again', card.due);
-    const relearned = review(lapsed, 'good', lapsed.due);
+  it('remembers less after a lapse than before it', () => {
+    const grown = reviewedGood(4);
+    const lapsed = review(grown, 'again', grown.due);
 
-    expect(beforeLapse).toBeGreaterThan(5);
-    expect(relearned.intervalDays).toBe(1);
+    expect(lapsed.stability).toBeLessThan(grown.stability);
   });
 
   it('counts a lapse only when a graduated card is forgotten', () => {
@@ -60,56 +88,52 @@ describe('review', () => {
     expect(failedAgain.failures).toBe(2);
   });
 
-  it('caps a quick right answer right after a failure at good', () => {
-    const failed = review(createCard('a', 'deck', NOW), 'again', NOW);
-    const relearned = review(failed, 'easy', failed.due);
+  it('reads a hard answer on a card still being learned as good', () => {
+    const fresh = createCard('a', 'deck', NOW);
+    const failed = review(fresh, 'again', NOW);
 
-    expect(relearned.intervalDays).toBe(1);
+    expect(review(fresh, 'hard', NOW)).toEqual(review(fresh, 'good', NOW));
+    expect(review(failed, 'hard', failed.due)).toEqual(review(failed, 'good', failed.due));
   });
 
-  it('grows the interval a little on hard instead of shrinking it', () => {
-    const graduated = { ...review(createCard('a', 'deck', NOW), 'good', NOW), intervalDays: 10 };
-    const short = { ...graduated, intervalDays: 2 };
+  it('keeps hard on a graduated card shorter than good', () => {
+    const card = reviewedGood(3);
 
-    expect(review(graduated, 'hard', NOW).intervalDays).toBe(12);
-    expect(review(short, 'hard', NOW).intervalDays).toBe(3);
+    expect(review(card, 'hard', card.due).due).toBeLessThan(review(card, 'good', card.due).due);
   });
 
-  it('never lets the ease factor drop below the SM-2 floor', () => {
-    let card = createCard('a', 'deck', NOW);
-
-    for (let step = 0; step < 20; step += 1) {
-      card = review(card, 'again', NOW);
-    }
-
-    expect(card.ease).toBeCloseTo(1.3, 5);
-  });
-
-  it('caps the interval at a year', () => {
+  it('keeps the wait near a year however well it is known', () => {
     let card = createCard('a', 'deck', NOW);
 
     for (let step = 0; step < 30; step += 1) {
       card = review(card, 'easy', card.due);
     }
 
-    expect(card.intervalDays).toBe(365);
+    // The library keeps hard < good < easy even at the cap, so easy may pass it by two days.
+    expect(card.due - (card.lastReviewed ?? 0)).toBeLessThanOrEqual(367 * DAY_MS);
   });
 });
 
-describe('gradeFromAnswer', () => {
-  it('treats a wrong answer as a lapse regardless of speed', () => {
-    expect(gradeFromAnswer(false, 500)).toBe('again');
+describe('ratingOptions', () => {
+  it('offers hard, good and easy on a graduated card, each longer than the one before', () => {
+    const card = reviewedGood(2);
+    const options = ratingOptions(card, card.due);
+
+    expect(options.map((option) => option.grade)).toEqual(['hard', 'good', 'easy']);
+    expect(options[0]!.delayMs).toBeLessThan(options[1]!.delayMs);
+    expect(options[1]!.delayMs).toBeLessThan(options[2]!.delayMs);
   });
 
-  it('rewards a fast correct answer and penalises a slow one', () => {
-    expect(gradeFromAnswer(true, 2000)).toBe('easy');
-    expect(gradeFromAnswer(true, 8000)).toBe('good');
-    expect(gradeFromAnswer(true, 20_000)).toBe('hard');
+  it('offers no hard on a card still being learned', () => {
+    expect(ratingOptions(createCard('a', 'deck', NOW), NOW).map((option) => option.grade)).toEqual(['good', 'easy']);
   });
 
-  it('does not read a backgrounded tab or a clock change as difficulty', () => {
-    expect(gradeFromAnswer(true, 10 * 60_000)).toBe('good');
-    expect(gradeFromAnswer(true, -5000)).toBe('good');
+  it('shows exactly the wait the review will give', () => {
+    const card = reviewedGood(2);
+
+    for (const option of ratingOptions(card, card.due)) {
+      expect(review(card, option.grade, card.due).due).toBe(card.due + option.delayMs);
+    }
   });
 });
 
