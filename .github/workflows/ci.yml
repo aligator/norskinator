@@ -124,10 +124,15 @@ jobs:
         uses: docker/metadata-action@v6
         with:
           images: ${{ steps.registry.outputs.host }}/${{ github.repository }}
+          # release-sha-<sha7> is what the cluster deploys: Argo follows the
+          # protected `release` branch and pins this tag for its head commit
+          # (aligator/gitops, applicationsets/norskinator.yaml). This job only
+          # runs on tags, so an untagged commit on `release` has no image.
           tags: |
             type=raw,value=latest
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
+            type=sha,prefix=release-sha-,format=short
 
       - uses: docker/build-push-action@v7
         with:
