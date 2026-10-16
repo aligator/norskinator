@@ -96,37 +96,25 @@ jobs:
   # Needs secrets REGISTRY_USER and REGISTRY_TOKEN (`write:package`).
   image-forgejo:
     name: Docker image (Forgejo)
-    if: github.server_url != 'https://github.com'
+    if: github.server_url != 'https://github.com' && startsWith(github.ref, 'refs/tags/v')
     needs: verify
     runs-on: docker
     # The default image has no Docker CLI new enough for the daemon.
     container:
       image: docker:29.9.0-cli@sha256:1a4c7cb63513f349bdad01fcc6e0f3f2f67d37b9da86f14dc0d4a0942eecda00
-    env:
-      PUBLISH: ${{ github.event_name != 'pull_request' }}
     steps:
-      - run: apk add --no-cache nodejs git bash
+      - run: apk add --no-cache nodejs git
 
       - id: registry
         run: echo "host=${GITHUB_SERVER_URL#*://}" >> "$GITHUB_OUTPUT"
 
       - uses: actions/checkout@v7
 
-      - id: version
-        shell: bash
-        run: |
-          if [ "$GITHUB_REF_TYPE" = "tag" ]; then
-            echo "value=$GITHUB_REF_NAME" >> "$GITHUB_OUTPUT"
-          else
-            echo "value=${GITHUB_REF_NAME//\//-}-${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
-          fi
-
       - uses: docker/setup-buildx-action@v4
         with:
           driver: docker
 
-      - if: env.PUBLISH == 'true'
-        uses: docker/login-action@v4
+      - uses: docker/login-action@v4
         with:
           registry: ${{ steps.registry.outputs.host }}
           username: ${{ secrets.REGISTRY_USER }}
@@ -137,20 +125,18 @@ jobs:
         with:
           images: ${{ steps.registry.outputs.host }}/${{ github.repository }}
           tags: |
-            type=raw,value=latest,enable={{is_default_branch}}
+            type=raw,value=latest
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
-            type=sha
-            type=ref,event=pr
 
       - uses: docker/build-push-action@v7
         with:
           context: .
-          push: ${{ env.PUBLISH == 'true' }}
+          push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
           # The docker driver cannot produce provenance attestations.
           provenance: false
           build-args: |
             SOURCE_URL=${{ github.server_url }}/${{ github.repository }}
-            APP_VERSION=${{ steps.version.outputs.value }}
+            APP_VERSION=${{ github.ref_name }}

@@ -59,24 +59,15 @@ Appen kjører da på <http://localhost:8080>. Bygget bruker relative stier, så
 den kan også ligge bak en reverse proxy under en undermappe. `GET /healthz`
 svarer `ok` for helsesjekker. Konfigurasjonen ligger i `docker/nginx.conf`.
 
-### Ferdig image
+### Ferdig image fra GitHub
 
 `.github/workflows/ci.yml` kjører typesjekk, tester og bygg på hver push og
-pull request, både på GitHub og på Forgejo. Ved push til `main` og ved tags
-`v*` publiserer hver av dem imaget til sitt eget registry:
-
-- GitHub: `amd64` og `arm64` til `ghcr.io/aligator/norskinator`.
-- Forgejo: bare `amd64` til Forgejo-instansens eget registry.
-  Krever repo-secretene `REGISTRY_USER` og `REGISTRY_TOKEN` (access token med
-  `write:package`).
+pull request. Ved push til `main` og ved tags `v*` publiseres imaget for
+`amd64` og `arm64` til GitHub Container Registry:
 
 ```bash
 docker pull ghcr.io/aligator/norskinator:latest   # eller :1.2.3, :sha-abc1234
 ```
-
-Pakken er privat første gang den publiseres. Gjør den offentlig under
-*Packages → norskinator → Package settings* hvis klyngen skal hente den uten
-innlogging.
 
 ### Valgfri innlogging (basic auth)
 
