@@ -45,8 +45,9 @@ export class Stepper extends LitElement {
       outline-offset: 2px;
     }
 
+    /* Fixed width, so the buttons stay put as the value grows and every stepper lines up. */
     output {
-      min-width: 2.5ch;
+      width: 4ch;
       text-align: center;
       font: 500 var(--fs-lg) var(--font-num);
     }
