@@ -110,10 +110,23 @@ describe('review', () => {
     }
   });
 
-  it('counts the learning step of a new card from the clock', () => {
-    const card = createCard('a', 'deck', NOW);
+  it('counts a new card with a last review in the future from the clock', () => {
+    const card = { ...createCard('a', 'deck', NOW), lastReviewed: NOW + DAY_MS };
 
-    expect(review(card, 'good', NOW - 5 * DAY_MS).due).toBe(NOW - 5 * DAY_MS + MINUTE_MS * 10);
+    expect(() => review(card, 'good', NOW)).not.toThrow();
+    expect(review(card, 'good', NOW).lastReviewed).toBe(NOW);
+    expect(review(card, 'good', NOW).due).toBe(NOW + 10 * MINUTE_MS);
+  });
+
+  it('counts a learning card with a last review in the future from the clock', () => {
+    const first = answeredGood(1);
+    const behind = first.lastReviewed! - DAY_MS;
+    const next = review(first, 'good', behind);
+
+    expect(first.phase).toBe('learning');
+    expect(next.lastReviewed).toBe(behind);
+    expect(next.due).toBeGreaterThan(behind);
+    expect(next.due - behind).toBe(review({ ...first, lastReviewed: behind }, 'good', behind).due - behind);
   });
 
   it('records the answer on the card', () => {
@@ -202,12 +215,13 @@ describe('ratingOptions with the clock set back', () => {
     }
   });
 
-  it('keeps the wait after again short for a card reviewed in the future', () => {
+  it('offers the same delays as for a card last reviewed at the clock', () => {
     const card = graduated();
     const behind = card.lastReviewed! - 3 * DAY_MS;
+    const reviewedNow = { ...card, lastReviewed: behind, due: behind + (card.due - card.lastReviewed!) };
 
-    expect(review(card, 'again', behind).due - behind).toBe(10 * MINUTE_MS);
-    expect(ratingOptions(card, behind)[0]!.delayMs).toBeLessThan(DAY_MS * 30);
+    expect(ratingOptions(card, behind)).toEqual(ratingOptions(reviewedNow, behind));
+    expect(ratingOptions(card, behind)[0]!.delayMs).toBeGreaterThan(0);
   });
 });
 

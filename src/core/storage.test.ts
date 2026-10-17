@@ -495,7 +495,7 @@ describe('pending rating in a stored session', () => {
   });
 });
 
-describe('verifier probes of the v1 migration and stored rating options', () => {
+describe('v1 migration limits and stored rating options', () => {
   it('clamps a migrated new items limit and works without settings or cards', () => {
     const huge = parseState(JSON.stringify({ version: 1, settings: { newPerSession: 999 } }));
     const noSettings = parseState(
