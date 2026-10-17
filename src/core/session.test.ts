@@ -51,7 +51,7 @@ describe('buildSession', () => {
   it('introduces at most the configured number of new exercises', () => {
     const pool = Array.from({ length: 50 }, (_unused, index) => exercise(`e${index}`));
 
-    const queue = buildSession(pool, {}, { newPerSession: 5, random: () => 0 }, NOW);
+    const queue = buildSession(pool, {}, { newLeft: 5, reviewsLeft: 1000, random: () => 0 }, NOW);
 
     expect(queue).toHaveLength(5);
   });
@@ -60,7 +60,7 @@ describe('buildSession', () => {
     const pool = [exercise('seen'), exercise('fresh-a'), exercise('fresh-b')];
     const due = { ...createCard('seen', 'deck', NOW), due: NOW - DAY_MS };
 
-    const queue = buildSession(pool, cardsOf([due]), { newPerSession: 1, random: () => 0 }, NOW);
+    const queue = buildSession(pool, cardsOf([due]), { newLeft: 1, reviewsLeft: 1000, random: () => 0 }, NOW);
 
     expect(queue.map((item) => item.id)).toContain('seen');
     expect(queue).toHaveLength(2);
@@ -70,7 +70,7 @@ describe('buildSession', () => {
     const pool = [exercise('later')];
     const future = { ...createCard('later', 'deck', NOW), due: NOW + DAY_MS };
 
-    const queue = buildSession(pool, cardsOf([future]), { newPerSession: 0, random: () => 0 }, NOW);
+    const queue = buildSession(pool, cardsOf([future]), { newLeft: 0, reviewsLeft: 1000, random: () => 0 }, NOW);
 
     expect(queue).toHaveLength(0);
   });
@@ -78,7 +78,7 @@ describe('buildSession', () => {
   it('ignores stored cards whose exercise no longer exists', () => {
     const orphan = { ...createCard('removed', 'deck', NOW), due: NOW - DAY_MS };
 
-    const queue = buildSession([], cardsOf([orphan]), { newPerSession: 5, random: () => 0 }, NOW);
+    const queue = buildSession([], cardsOf([orphan]), { newLeft: 5, reviewsLeft: 1000, random: () => 0 }, NOW);
 
     expect(queue).toHaveLength(0);
   });
@@ -90,7 +90,7 @@ describe('buildSession', () => {
     const queue = buildSession(
       pool,
       cardsOf(cards),
-      { newPerSession: 10, sessionSize: 20, random: () => 0 },
+      { newLeft: 10, reviewsLeft: 1000, sessionSize: 20, random: () => 0 },
       NOW,
     );
 
@@ -100,7 +100,7 @@ describe('buildSession', () => {
   it('draws new material from the easiest levels first', () => {
     const pool = [exercise('hard', 3), exercise('easy', 1), exercise('medium', 2)];
 
-    const queue = buildSession(pool, {}, { newPerSession: 1, random: () => 0 }, NOW);
+    const queue = buildSession(pool, {}, { newLeft: 1, reviewsLeft: 1000, random: () => 0 }, NOW);
 
     expect(queue[0]?.id).toBe('easy');
   });
@@ -110,7 +110,7 @@ describe('buildSession', () => {
     const corpus = Array.from({ length: 60 }, (_unused, index) => exercise(`corpus-${index}`));
     const random = sequence([0.13, 0.71, 0.42, 0.88, 0.05, 0.57, 0.33, 0.96]);
 
-    const queue = buildSession([...authored, ...corpus], {}, { newPerSession: 6, random }, NOW);
+    const queue = buildSession([...authored, ...corpus], {}, { newLeft: 6, reviewsLeft: 1000, random }, NOW);
 
     expect(queue.some((item) => item.id.startsWith('corpus-'))).toBe(true);
     expect(queue.some((item) => item.id.startsWith('authored-'))).toBe(true);
@@ -123,7 +123,7 @@ describe('buildSession', () => {
       ...Array.from({ length: 20 }, (_unused, index) => exercise(`c${index}`, 1, 'other')),
     ];
 
-    const queue = buildSession(pool, {}, { newPerSession: 9, random: () => 0 }, NOW);
+    const queue = buildSession(pool, {}, { newLeft: 9, reviewsLeft: 1000, random: () => 0 }, NOW);
 
     expect(countInDeck(queue, 'big')).toBe(3);
     expect(countInDeck(queue, 'small')).toBe(3);
@@ -136,7 +136,7 @@ describe('buildSession', () => {
       ...Array.from({ length: 10 }, (_unused, index) => exercise(`hard${index}`, 3, 'second')),
     ];
 
-    const queue = buildSession(pool, {}, { newPerSession: 10, random: () => 0 }, NOW);
+    const queue = buildSession(pool, {}, { newLeft: 10, reviewsLeft: 1000, random: () => 0 }, NOW);
 
     expect(countInDeck(queue, 'second')).toBe(5);
   });
@@ -147,7 +147,7 @@ describe('buildSession', () => {
       ...Array.from({ length: 20 }, (_unused, index) => exercise(`e${index}`, 1, 'large')),
     ];
 
-    const queue = buildSession(pool, {}, { newPerSession: 6, random: () => 0 }, NOW);
+    const queue = buildSession(pool, {}, { newLeft: 6, reviewsLeft: 1000, random: () => 0 }, NOW);
 
     expect(queue).toHaveLength(6);
     expect(countInDeck(queue, 'tiny')).toBe(1);
@@ -158,11 +158,10 @@ describe('buildSession', () => {
     const quiet = Array.from({ length: 20 }, (_unused, index) => exercise(`b${index}`, 1, 'quiet'));
     const cards = backlog.map((item) => ({ ...createCard(item.id, 'backlog', NOW), due: NOW - DAY_MS }));
 
-    const queue = buildSession([...backlog, ...quiet], cardsOf(cards), { newPerSession: 10, random: () => 0 }, NOW);
+    const queue = buildSession([...backlog, ...quiet], cardsOf(cards), { newLeft: 10, reviewsLeft: 1000, random: () => 0 }, NOW);
 
     expect(queue).toHaveLength(20);
-    expect(countInDeck(queue, 'backlog')).toBe(10);
-    expect(countInDeck(queue, 'quiet')).toBe(10);
+    expect(countInDeck(queue, 'quiet')).toBeGreaterThan(0);
   });
 
   it('shares review slots across decks', () => {
@@ -173,39 +172,72 @@ describe('buildSession', () => {
       due: NOW - DAY_MS,
     }));
 
-    const queue = buildSession([...large, ...small], cardsOf(cards), { newPerSession: 0, random: () => 0 }, NOW);
+    const queue = buildSession([...large, ...small], cardsOf(cards), { newLeft: 0, reviewsLeft: 1000, random: () => 0 }, NOW);
 
     expect(countInDeck(queue, 'small')).toBe(5);
     expect(countInDeck(queue, 'large')).toBe(15);
   });
 
-  it('takes the reviews of a deck before its new material', () => {
-    const pool = [exercise('seen', 1, 'first'), exercise('fresh', 1, 'first'), exercise('other', 1, 'second')];
-    const due = { ...createCard('seen', 'first', NOW), due: NOW - DAY_MS };
+  it('mixes new items and reviews in proportion to what is available today', () => {
+    const seen = Array.from({ length: 30 }, (_unused, index) => exercise(`s${index}`));
+    const fresh = Array.from({ length: 30 }, (_unused, index) => exercise(`f${index}`));
+    const cards = seen.map((item) => ({ ...createCard(item.id, 'deck', NOW), phase: 'review' as const, due: NOW - DAY_MS }));
 
-    const queue = buildSession(pool, cardsOf([due]), { newPerSession: 5, sessionSize: 2, random: () => 0 }, NOW);
+    const queue = buildSession([...seen, ...fresh], cardsOf(cards), { newLeft: 10, reviewsLeft: 30, random: () => 0 }, NOW);
+    const newOnes = queue.filter((item) => item.id.startsWith('f')).length;
 
-    expect(queue.map((item) => item.id).sort()).toEqual(['other', 'seen']);
+    expect(queue).toHaveLength(20);
+    expect(newOnes).toBe(5);
   });
 
-  it('sows no new items while the garden is full of young plants', () => {
-    const young = Array.from({ length: 15 }, (_unused, index) => exercise(`y${index}`));
-    const fresh = Array.from({ length: 10 }, (_unused, index) => exercise(`f${index}`));
-    const cards = young.map((item) => ({ ...createCard(item.id, 'deck', NOW), reps: 1, stability: 1, due: NOW + DAY_MS }));
+  it('does not let a backlog keep new items out', () => {
+    const seen = Array.from({ length: 200 }, (_unused, index) => exercise(`s${index}`));
+    const fresh = Array.from({ length: 30 }, (_unused, index) => exercise(`f${index}`));
+    const cards = seen.map((item) => ({ ...createCard(item.id, 'deck', NOW), phase: 'review' as const, due: NOW - DAY_MS }));
 
-    const queue = buildSession([...young, ...fresh], cardsOf(cards), { newPerSession: 10, random: () => 0 }, NOW);
+    const queue = buildSession([...seen, ...fresh], cardsOf(cards), { newLeft: 10, reviewsLeft: 100, random: () => 0 }, NOW);
 
-    expect(queue).toHaveLength(0);
+    expect(queue.some((item) => item.id.startsWith('f'))).toBe(true);
   });
 
-  it('sows only as many new items as there is room for', () => {
-    const young = Array.from({ length: 12 }, (_unused, index) => exercise(`y${index}`));
+  it('takes no more graduated cards than today\'s review limit allows', () => {
+    const pool = Array.from({ length: 40 }, (_unused, index) => exercise(`e${index}`));
+    const cards = pool.map((item) => ({ ...createCard(item.id, 'deck', NOW), phase: 'review' as const, due: NOW - DAY_MS }));
+
+    const queue = buildSession(pool, cardsOf(cards), { newLeft: 0, reviewsLeft: 5, random: () => 0 }, NOW);
+
+    expect(queue).toHaveLength(5);
+  });
+
+  it('keeps the earliest due cards when the review limit cuts the rest', () => {
+    const pool = [exercise('late'), exercise('early')];
+    const cards = [
+      { ...createCard('late', 'deck', NOW), phase: 'review' as const, due: NOW - 1000 },
+      { ...createCard('early', 'deck', NOW), phase: 'review' as const, due: NOW - DAY_MS },
+    ];
+
+    const queue = buildSession(pool, cardsOf(cards), { newLeft: 0, reviewsLeft: 1, random: () => 0 }, NOW);
+
+    expect(queue.map((item) => item.id)).toEqual(['early']);
+  });
+
+  it('always takes cards still being learned, whatever the review limit', () => {
+    const pool = [exercise('failed'), exercise('relearning'), exercise('graduated')];
+    const cards = [
+      { ...createCard('failed', 'deck', NOW), phase: 'learning' as const, due: NOW - 1000 },
+      { ...createCard('relearning', 'deck', NOW), phase: 'relearning' as const, due: NOW - 1000 },
+      { ...createCard('graduated', 'deck', NOW), phase: 'review' as const, due: NOW - 1000 },
+    ];
+
+    const queue = buildSession(pool, cardsOf(cards), { newLeft: 0, reviewsLeft: 0, random: () => 0 }, NOW);
+
+    expect(queue.map((item) => item.id).sort()).toEqual(['failed', 'relearning']);
+  });
+
+  it('introduces no new items once today\'s limit is used up', () => {
     const fresh = Array.from({ length: 10 }, (_unused, index) => exercise(`f${index}`));
-    const cards = young.map((item) => ({ ...createCard(item.id, 'deck', NOW), reps: 1, stability: 2, due: NOW + DAY_MS }));
 
-    const queue = buildSession([...young, ...fresh], cardsOf(cards), { newPerSession: 10, random: () => 0 }, NOW);
-
-    expect(queue).toHaveLength(3);
+    expect(buildSession(fresh, {}, { newLeft: 0, reviewsLeft: 100, random: () => 0 }, NOW)).toHaveLength(0);
   });
 
   it('rotates which deck gets the remainder of an uneven split', () => {
@@ -214,7 +246,7 @@ describe('buildSession', () => {
       ...Array.from({ length: 10 }, (_unused, index) => exercise(`b${index}`, 1, 'second')),
     ];
 
-    const queue = buildSession(pool, {}, { newPerSession: 3, random: () => 0.99 }, NOW);
+    const queue = buildSession(pool, {}, { newLeft: 3, reviewsLeft: 1000, random: () => 0.99 }, NOW);
 
     expect(countInDeck(queue, 'second')).toBe(2);
   });
@@ -307,10 +339,21 @@ describe('sessionPreview', () => {
     const due = { ...createCard('e0', 'deck', NOW), due: NOW - DAY_MS };
     const cards = cardsOf([due]);
 
-    const preview = sessionPreview(pool, cards, { newPerSession: 5 }, NOW);
-    const queue = buildSession(pool, cards, { newPerSession: 5, random: () => 0 }, NOW);
+    const preview = sessionPreview(pool, cards, { newLeft: 5, reviewsLeft: 1000 }, NOW);
+    const queue = buildSession(pool, cards, { newLeft: 5, reviewsLeft: 1000, random: () => 0 }, NOW);
 
-    expect(preview).toEqual({ due: 1, fresh: 5, unseen: 29, totalDue: 1, seedRoom: 15 });
+    expect(preview).toEqual({ due: 1, fresh: 5, unseen: 29, totalDue: 1, heldBack: 0, newLeft: 5 });
     expect(queue).toHaveLength(preview.due + preview.fresh);
+  });
+
+  it('reports the due cards the review limit holds back', () => {
+    const pool = Array.from({ length: 10 }, (_unused, index) => exercise(`e${index}`));
+    const cards = cardsOf(
+      pool.map((item) => ({ ...createCard(item.id, 'deck', NOW), phase: 'review' as const, due: NOW - DAY_MS })),
+    );
+
+    const preview = sessionPreview(pool, cards, { newLeft: 0, reviewsLeft: 4 }, NOW);
+
+    expect(preview).toMatchObject({ due: 4, totalDue: 4, heldBack: 6 });
   });
 });

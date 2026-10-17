@@ -6,7 +6,7 @@
  * future changes can migrate instead of wiping progress.
  */
 import { INITIAL_PROGRESS, clampDailyGoal, type Progress } from './gamification.ts';
-import { DEFAULT_SEED_LIMITS, PLANT_STAGES, SEED, type Plant } from './garden.ts';
+import { PLANT_STAGES, SEED, type Plant } from './garden.ts';
 import { SESSION_MODES, type SessionMode } from './session.ts';
 import { DEFAULT_SPECIES, INITIAL_GARDEN, SPECIES_IDS, type GardenState, type SpeciesId } from './species.ts';
 import { CARD_PHASES, type CardState, type Grade, type RatingOption } from './srs.ts';
@@ -18,21 +18,17 @@ export const STATE_VERSION = 2;
 
 export type TranslationLanguage = 'de' | 'en' | 'none';
 
-export const YOUNG_DAY_OPTIONS = [3, 7, 14] as const;
-export type YoungDays = (typeof YOUNG_DAY_OPTIONS)[number];
 export type ThemePreference = 'auto' | 'light' | 'dark';
 
 export interface Settings {
   readonly translationLanguage: TranslationLanguage;
   readonly theme: ThemePreference;
-  /** How many unseen exercises a session may introduce. */
-  readonly newPerSession: number;
-  /** Exercises in one session. */
+  /** How many unseen exercises may be introduced per day. */
+  readonly newPerDay: number;
+  /** How many graduated cards may be reviewed per day; learning cards are not counted. */
+  readonly reviewsPerDay: number;
+  /** Exercises in one session, drawn from what is left of today's limits. */
   readonly sessionSize: number;
-  /** New exercises wait while this many plants are still young. */
-  readonly maxYoungPlants: number;
-  /** A plant counts as young below this interval in days. */
-  readonly youngIntervalDays: YoungDays;
   readonly disabledDeckIds: readonly string[];
   /** Short synthesised feedback sounds for answers, level-ups and the daily goal. */
   readonly soundEffects: boolean;
@@ -47,10 +43,9 @@ export interface Settings {
 export const DEFAULT_SETTINGS: Settings = {
   translationLanguage: 'de',
   theme: 'auto',
-  newPerSession: 10,
+  newPerDay: 10,
+  reviewsPerDay: 100,
   sessionSize: 20,
-  maxYoungPlants: DEFAULT_SEED_LIMITS.maxYoung,
-  youngIntervalDays: 7,
   disabledDeckIds: [],
   soundEffects: false,
   speakSolution: false,
@@ -159,6 +154,9 @@ function parseProgress(value: unknown): Progress {
     goalDaysReached: readCount(value['goalDaysReached']),
     goalReachedDay: typeof rawGoalReachedDay === 'string' ? rawGoalReachedDay : legacyGoalDay,
     unlockedBadges: readStringArray(value['unlockedBadges']),
+    limitsDay: readNullableString(value['limitsDay']),
+    newToday: readCount(value['newToday']),
+    reviewsToday: readCount(value['reviewsToday']),
   };
 }
 
@@ -198,6 +196,7 @@ function parseCard(id: string, value: unknown): CardState | null {
     // Older state counted every miss as a lapse, so that is the best estimate.
     failures: readCount(value['failures'] ?? lapses),
     lastReviewed: typeof lastReviewed === 'number' ? lastReviewed : null,
+    lastGrade: isGrade(value['lastGrade']) ? value['lastGrade'] : null,
   };
 }
 
@@ -228,9 +227,9 @@ function parseCards(value: unknown): Record<string, CardState> {
 
 /** Sane ranges for the pace settings, as whole numbers. */
 export const PACE_BOUNDS = {
-  newPerSession: { min: 0, max: 50 },
+  newPerDay: { min: 0, max: 100 },
+  reviewsPerDay: { min: 10, max: 1000 },
   sessionSize: { min: 5, max: 50 },
-  maxYoungPlants: { min: 5, max: 100 },
 } as const;
 
 function clampToBounds(value: number, bounds: { readonly min: number; readonly max: number }, fallback: number): number {
@@ -241,17 +240,13 @@ function clampToBounds(value: number, bounds: { readonly min: number; readonly m
   return Math.min(bounds.max, Math.max(bounds.min, Math.round(value)));
 }
 
-function isYoungDays(value: unknown): value is YoungDays {
-  return YOUNG_DAY_OPTIONS.some((option) => option === value);
-}
-
 /** Brings every numeric pace setting into its range, e.g. after a partial update. */
 export function clampPace(settings: Settings): Settings {
   return {
     ...settings,
-    newPerSession: clampToBounds(settings.newPerSession, PACE_BOUNDS.newPerSession, DEFAULT_SETTINGS.newPerSession),
+    newPerDay: clampToBounds(settings.newPerDay, PACE_BOUNDS.newPerDay, DEFAULT_SETTINGS.newPerDay),
+    reviewsPerDay: clampToBounds(settings.reviewsPerDay, PACE_BOUNDS.reviewsPerDay, DEFAULT_SETTINGS.reviewsPerDay),
     sessionSize: clampToBounds(settings.sessionSize, PACE_BOUNDS.sessionSize, DEFAULT_SETTINGS.sessionSize),
-    maxYoungPlants: clampToBounds(settings.maxYoungPlants, PACE_BOUNDS.maxYoungPlants, DEFAULT_SETTINGS.maxYoungPlants),
   };
 }
 
@@ -267,12 +262,9 @@ function parseSettings(value: unknown): Settings {
       DEFAULT_SETTINGS.translationLanguage,
     ),
     theme: readEnum(value['theme'], ['auto', 'light', 'dark'] as const, DEFAULT_SETTINGS.theme),
-    newPerSession: readNumber(value['newPerSession'], DEFAULT_SETTINGS.newPerSession),
+    newPerDay: readNumber(value['newPerDay'], DEFAULT_SETTINGS.newPerDay),
+    reviewsPerDay: readNumber(value['reviewsPerDay'], DEFAULT_SETTINGS.reviewsPerDay),
     sessionSize: readNumber(value['sessionSize'], DEFAULT_SETTINGS.sessionSize),
-    maxYoungPlants: readNumber(value['maxYoungPlants'], DEFAULT_SETTINGS.maxYoungPlants),
-    youngIntervalDays: isYoungDays(value['youngIntervalDays'])
-      ? value['youngIntervalDays']
-      : DEFAULT_SETTINGS.youngIntervalDays,
     disabledDeckIds: readStringArray(value['disabledDeckIds']),
     soundEffects: readBoolean(value['soundEffects'], DEFAULT_SETTINGS.soundEffects),
     speakSolution: readBoolean(value['speakSolution'], DEFAULT_SETTINGS.speakSolution),
@@ -317,6 +309,8 @@ function migrateCardV1(value: unknown): unknown {
       ? FSRS_DIFFICULTY.hardest - easeShare * (FSRS_DIFFICULTY.hardest - FSRS_DIFFICULTY.easiest)
       : 0,
     learningStep: 0,
+    // A failed card is a card whose last answer was wrong.
+    lastGrade: phase === 'learning' ? 'again' : null,
   };
 }
 

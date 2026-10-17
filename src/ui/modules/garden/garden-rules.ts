@@ -48,7 +48,7 @@ export class GardenRules extends LitElement {
   protected readonly storeController = new StoreController(this);
 
   protected override render(): TemplateResult {
-    const { maxYoungPlants, youngIntervalDays } = store.state.settings;
+    const { newPerDay, reviewsPerDay } = store.state.settings;
 
     return html`
       <ul class="stages" aria-label="Stadiene">
@@ -66,9 +66,8 @@ export class GardenRules extends LitElement {
         <li>Et feil svar får planten til å visne. Svarer du riktig neste gang, vokser den tilbake, men ikke like høyt som før.</li>
         <li>💧 En tørst plante er klar for repetisjon. Vann den ved å øve.</li>
         <li>
-          Nye frø kommer bare når færre enn ${maxYoungPlants} unge planter (under ${youngIntervalDays} dager)
-          trenger stell. Slik lærer du ikke mer enn du klarer å huske. Begge tallene kan du endre under
-          Innstillinger → Øving.
+          Hver dag kommer opptil ${newPerDay} nye frø og ${reviewsPerDay} repetisjoner. Slik lærer du ikke mer enn du
+          klarer å huske. Begge tallene kan du endre under Innstillinger → Øving.
         </li>
       </ul>
     `;

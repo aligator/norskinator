@@ -41,6 +41,11 @@ export const preferenceStyles = css`
     font-size: var(--fs-sm);
     color: var(--fg-muted);
   }
+
+  .hint.warning {
+    color: var(--wrong);
+    font-weight: 600;
+  }
 `;
 
 export function stringDetail(event: Event): string | null {

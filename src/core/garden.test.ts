@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { DEFAULT_SEED_LIMITS, gardenBeds, plantChange, plantOf, seedAllowance, stageRank, totalCounts } from './garden.ts';
+import { gardenBeds, plantChange, plantOf, stageRank, totalCounts } from './garden.ts';
 import { DAY_MS, createCard, review, type CardState } from './srs.ts';
 import type { ItemMeta } from './types.ts';
 
@@ -44,10 +44,19 @@ describe('plantOf', () => {
     expect(stageRank(plantOf(recovered).stage)).toBeGreaterThan(stageRank('sprout'));
   });
 
-  it('wilts a card that is relearning just like one that is learning', () => {
-    const relearning = reviewed('a', 5, { phase: 'relearning', reps: 4 });
+  it('wilts after a wrong answer whatever phase the card is in', () => {
+    expect(plantOf(reviewed('a', 5, { phase: 'relearning', lastGrade: 'again' }))).toEqual({
+      stage: 'sprout',
+      wilted: true,
+      growth: 0,
+    });
+    expect(plantOf(reviewed('a', 0.2, { phase: 'learning', reps: 1, lastGrade: 'again' })).wilted).toBe(true);
+  });
 
-    expect(plantOf(relearning)).toEqual({ stage: 'sprout', wilted: true, growth: 0 });
+  it('does not wilt a card that is still being learned after a right answer', () => {
+    const learning = reviewed('a', 2.3, { phase: 'learning', learningStep: 1, reps: 1, lastGrade: 'good' });
+
+    expect(plantOf(learning)).toMatchObject({ stage: 'sprout', wilted: false });
   });
 });
 
@@ -63,37 +72,6 @@ describe('plantChange', () => {
     expect(plantChange(bush, bush)).toBe('unchanged');
     expect(plantChange(bush, wilted)).toBe('wilted');
     expect(plantChange(wilted, sprout)).toBe('recovered');
-  });
-});
-
-describe('seedAllowance', () => {
-  it('leaves room for new items until the young plants reach the limit', () => {
-    const items = Array.from({ length: 20 }, (_unused, index) => item(`e${index}`));
-    const youngCards = items.slice(0, 10).map((entry) => reviewed(entry.id, 2));
-    const cards = Object.fromEntries(youngCards.map((card) => [card.exerciseId, card]));
-
-    expect(seedAllowance(items, cards)).toBe(DEFAULT_SEED_LIMITS.maxYoung - 10);
-  });
-
-  it('does not count grown plants or the plants of other decks', () => {
-    const items = [item('grown'), item('young')];
-    const cards = {
-      grown: reviewed('grown', 10),
-      young: reviewed('young', 1),
-      elsewhere: reviewed('elsewhere', 1),
-    };
-
-    expect(seedAllowance(items, cards)).toBe(DEFAULT_SEED_LIMITS.maxYoung - 1);
-  });
-});
-
-describe('seedAllowance with custom limits', () => {
-  it('follows the limit and age the learner chose', () => {
-    const items = Array.from({ length: 10 }, (_unused, index) => item(`e${index}`));
-    const cards = Object.fromEntries(items.map((entry) => [entry.id, reviewed(entry.id, 5)]));
-
-    expect(seedAllowance(items, cards, { maxYoung: 30, youngDays: 7 })).toBe(20);
-    expect(seedAllowance(items, cards, { maxYoung: 30, youngDays: 3 })).toBe(30);
   });
 });
 

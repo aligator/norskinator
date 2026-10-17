@@ -2,13 +2,8 @@
 import { LitElement, html, nothing, type TemplateResult } from 'lit';
 
 import { DAILY_GOAL_BOUNDS } from '../../../core/gamification.ts';
-import {
-  PACE_BOUNDS,
-  YOUNG_DAY_OPTIONS,
-  type Settings,
-  type TranslationLanguage,
-  type YoungDays,
-} from '../../../core/storage.ts';
+import { recommendedReviewLimit } from '../../../core/daily.ts';
+import { PACE_BOUNDS, type Settings, type TranslationLanguage } from '../../../core/storage.ts';
 import { kindsOf, rebalance } from '../../../core/task-weights.ts';
 import { TASK_TYPES } from '../../../core/tasks.ts';
 import { DATA_KINDS, EXERCISE_KINDS, type DataKind, type ExerciseKind } from '../../../core/types.ts';
@@ -43,17 +38,9 @@ const DAILY_GOALS: readonly SegmentOption[] = [10, 20, 30, 50]
   .map((goal) => ({ value: String(goal), label: String(goal) }));
 
 /** The stepper stops below the stored maximum; more new items per session get tiring on a phone. */
-const NEW_MAX_IN_UI = Math.min(30, PACE_BOUNDS.newPerSession.max);
+const NEW_MAX_IN_UI = Math.min(50, PACE_BOUNDS.newPerDay.max);
 const STEP = 5;
-
-const YOUNG_DAYS: readonly SegmentOption[] = YOUNG_DAY_OPTIONS.map((days) => ({
-  value: String(days),
-  label: `${days} dager`,
-}));
-
-function isYoungDays(value: number): value is YoungDays {
-  return YOUNG_DAY_OPTIONS.some((option) => option === value);
-}
+const REVIEW_STEP = 25;
 
 function isTranslationLanguage(value: string): value is TranslationLanguage {
   return TRANSLATIONS.some((option) => option.value === value);
@@ -119,6 +106,27 @@ export class PracticePreferences extends LitElement {
       </section>
 
       <section>
+        <h2 class="eyebrow">Hver dag</h2>
+        <ui-stepper
+          label="Nye oppgaver per dag"
+          .value=${settings.newPerDay}
+          .min=${PACE_BOUNDS.newPerDay.min}
+          .max=${NEW_MAX_IN_UI}
+          .step=${STEP}
+          @change=${(event: Event) => this.#onNumber(event, 'newPerDay')}
+        ></ui-stepper>
+        <ui-stepper
+          label="Repetisjoner per dag"
+          .value=${settings.reviewsPerDay}
+          .min=${PACE_BOUNDS.reviewsPerDay.min}
+          .max=${PACE_BOUNDS.reviewsPerDay.max}
+          .step=${REVIEW_STEP}
+          @change=${(event: Event) => this.#onNumber(event, 'reviewsPerDay')}
+        ></ui-stepper>
+        ${this.#renderReviewHint(settings)}
+      </section>
+
+      <section>
         <h2 class="eyebrow">Økt</h2>
         <ui-stepper
           label="Oppgaver per økt"
@@ -128,36 +136,7 @@ export class PracticePreferences extends LitElement {
           .step=${STEP}
           @change=${(event: Event) => this.#onNumber(event, 'sessionSize')}
         ></ui-stepper>
-        <ui-stepper
-          label="Nye oppgaver per økt"
-          .value=${settings.newPerSession}
-          .min=${PACE_BOUNDS.newPerSession.min}
-          .max=${NEW_MAX_IN_UI}
-          .step=${STEP}
-          @change=${(event: Event) => this.#onNumber(event, 'newPerSession')}
-        ></ui-stepper>
-      </section>
-
-      <section>
-        <h2 class="eyebrow">Hagen</h2>
-        <ui-stepper
-          label="Maks unge planter"
-          .value=${settings.maxYoungPlants}
-          .min=${PACE_BOUNDS.maxYoungPlants.min}
-          .max=${PACE_BOUNDS.maxYoungPlants.max}
-          .step=${STEP}
-          @change=${(event: Event) => this.#onNumber(event, 'maxYoungPlants')}
-        ></ui-stepper>
-        <ui-segmented
-          label="En plante er ung i"
-          .options=${YOUNG_DAYS}
-          .value=${String(settings.youngIntervalDays)}
-          @change=${this.#onYoungDays}
-        ></ui-segmented>
-        <p class="hint">
-          Nye oppgaver kommer bare når færre enn ${settings.maxYoungPlants} planter er yngre enn
-          ${settings.youngIntervalDays} dager. Høyere tall gir flere nye oppgaver, men også flere repetisjoner.
-        </p>
+        <p class="hint">En økt tar fra det som er igjen av dagens grenser.</p>
       </section>
 
       <ui-segmented
@@ -167,6 +146,17 @@ export class PracticePreferences extends LitElement {
         @change=${this.#onGoal}
       ></ui-segmented>
     `;
+  }
+
+  /** The rule of thumb for how many reviews to allow, so they do not pile up; a warning when it is not met. */
+  #renderReviewHint(settings: Settings): TemplateResult {
+    const recommended = recommendedReviewLimit(settings.newPerDay);
+    const tooFew = settings.reviewsPerDay < recommended;
+
+    return html`<p class=${tooFew ? 'hint warning' : 'hint'} role=${tooFew ? 'status' : 'note'}>
+      Tommelregel: minst ti ganger så mange repetisjoner som nye oppgaver
+      ${tooFew ? html`(her ${recommended})` : nothing}, ellers hoper repetisjonene seg opp.
+    </p>`;
   }
 
   #renderTaskShares(settings: Settings): TemplateResult | typeof nothing {
@@ -219,7 +209,7 @@ export class PracticePreferences extends LitElement {
     }
   };
 
-  #onNumber(event: Event, key: 'sessionSize' | 'newPerSession' | 'maxYoungPlants'): void {
+  #onNumber(event: Event, key: 'sessionSize' | 'newPerDay' | 'reviewsPerDay'): void {
     if (event instanceof CustomEvent && typeof event.detail === 'number') {
       saveSettings(this, { [key]: event.detail });
     }
@@ -228,14 +218,6 @@ export class PracticePreferences extends LitElement {
   #onManualRating = (event: Event): void => {
     if (event instanceof CustomEvent && typeof event.detail === 'boolean') {
       saveSettings(this, { manualRating: event.detail });
-    }
-  };
-
-  #onYoungDays = (event: Event): void => {
-    const days = Number(stringDetail(event));
-
-    if (isYoungDays(days)) {
-      saveSettings(this, { youngIntervalDays: days });
     }
   };
 

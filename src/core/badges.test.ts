@@ -32,7 +32,7 @@ describe('badges', () => {
   });
 
   it('do not count a wilted plant as grown, but reward it once it recovers', () => {
-    const wilted = { a: grown('a', 0, { phase: 'learning', lapses: 1 }) };
+    const wilted = { a: grown('a', 0.2, { phase: 'relearning', lapses: 1, lastGrade: 'again' }) };
     const recovered = { a: grown('a', 1, { lapses: 1 }) };
 
     expect(unlockBadges(state({ cards: wilted })).newBadges).not.toContain('first-sprout');

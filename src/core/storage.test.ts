@@ -22,7 +22,7 @@ describe('parseState', () => {
   it('keeps valid values and repairs invalid ones', () => {
     const raw = JSON.stringify({
       progress: { ...INITIAL_PROGRESS, xp: 420, streakDays: -3, dailyGoal: 0, unlockedBadges: ['x', 7] },
-      settings: { translationLanguage: 'klingon', theme: 'dark', newPerSession: 999 },
+      settings: { translationLanguage: 'klingon', theme: 'dark', newPerDay: 999 },
       cards: {},
     });
 
@@ -34,23 +34,44 @@ describe('parseState', () => {
     expect(state.progress.unlockedBadges).toEqual(['x']);
     expect(state.settings.translationLanguage).toBe(DEFAULT_SETTINGS.translationLanguage);
     expect(state.settings.theme).toBe('dark');
-    expect(state.settings.newPerSession).toBe(50);
+    expect(state.settings.newPerDay).toBe(100);
   });
 
   it('reads the pace settings, with defaults for state saved before they existed', () => {
-    const old = parseState(JSON.stringify({ settings: { newPerSession: 5 } }));
+    const old = parseState(JSON.stringify({ settings: { newPerDay: 5 } }));
     const custom = parseState(
-      JSON.stringify({ settings: { sessionSize: 999, maxYoungPlants: 30, youngIntervalDays: 14 } }),
+      JSON.stringify({ settings: { sessionSize: 999, newPerDay: 30, reviewsPerDay: 300 } }),
     );
-    const broken = parseState(JSON.stringify({ settings: { sessionSize: 'x', youngIntervalDays: 5 } }));
+    const broken = parseState(JSON.stringify({ settings: { sessionSize: 'x', reviewsPerDay: 1 } }));
 
     expect(old.settings.sessionSize).toBe(DEFAULT_SETTINGS.sessionSize);
-    expect(old.settings.maxYoungPlants).toBe(DEFAULT_SETTINGS.maxYoungPlants);
+    expect(old.settings.newPerDay).toBe(5);
+    expect(old.settings.reviewsPerDay).toBe(DEFAULT_SETTINGS.reviewsPerDay);
     expect(custom.settings.sessionSize).toBe(50);
-    expect(custom.settings.maxYoungPlants).toBe(30);
-    expect(custom.settings.youngIntervalDays).toBe(14);
+    expect(custom.settings.newPerDay).toBe(30);
+    expect(custom.settings.reviewsPerDay).toBe(300);
     expect(broken.settings.sessionSize).toBe(DEFAULT_SETTINGS.sessionSize);
-    expect(broken.settings.youngIntervalDays).toBe(7);
+    expect(broken.settings.reviewsPerDay).toBe(10);
+  });
+
+  it('ignores the per-session settings and the young-plant gate of earlier builds', () => {
+    const state = parseState(
+      JSON.stringify({ settings: { newPerSession: 40, maxYoungPlants: 99, youngIntervalDays: 14 } }),
+    );
+
+    expect(state.settings.newPerDay).toBe(DEFAULT_SETTINGS.newPerDay);
+    expect(state.settings).not.toHaveProperty('maxYoungPlants');
+    expect(state.settings).not.toHaveProperty('newPerSession');
+  });
+
+  it('reads the daily counters, from zero when none are stored', () => {
+    const stored = parseState(
+      JSON.stringify({ progress: { limitsDay: '2026-01-15', newToday: 4.7, reviewsToday: 12 } }),
+    ).progress;
+    const old = parseState(JSON.stringify({ progress: {} })).progress;
+
+    expect(stored).toMatchObject({ limitsDay: '2026-01-15', newToday: 4, reviewsToday: 12 });
+    expect(old).toMatchObject({ limitsDay: null, newToday: 0, reviewsToday: 0 });
   });
 
   it('drops cards that are not usable and keeps the rest', () => {
@@ -353,6 +374,7 @@ describe('migration from version 1', () => {
     const { mature, hardWon } = migrated().cards;
 
     expect(mature).toMatchObject({ due: 1_000, reps: 9, lapses: 1, failures: 3, lastReviewed: 500, phase: 'review' });
+    expect(mature?.lastGrade).toBeNull();
     expect(hardWon).toMatchObject({ due: 2_000, reps: 5, lapses: 2, failures: 4, lastReviewed: 600 });
   });
 
@@ -373,8 +395,8 @@ describe('migration from version 1', () => {
   it('gives a failed card a small stability and the phase that matches its history', () => {
     const { wilted, failedNew } = migrated().cards;
 
-    expect(wilted).toMatchObject({ phase: 'relearning', stability: 0.5 });
-    expect(failedNew).toMatchObject({ phase: 'learning', stability: 0.5 });
+    expect(wilted).toMatchObject({ phase: 'relearning', stability: 0.5, lastGrade: 'again' });
+    expect(failedNew).toMatchObject({ phase: 'learning', stability: 0.5, lastGrade: 'again' });
   });
 
   it('keeps ids and everything else in the state', () => {

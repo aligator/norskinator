@@ -4,7 +4,7 @@
  * Pure helpers: the store owns the mutable queue, these functions only decide
  * what to study and in which order.
  */
-import { seedAllowance, type SeedLimits } from './garden.ts';
+import type { DailyRoom } from './daily.ts';
 import { dueCards, isDue, type CardState } from './srs.ts';
 import type { ItemMeta } from './types.ts';
 
@@ -16,11 +16,8 @@ const REQUEUE_GAP = 3;
 /** New material is sampled from a window this many times the slot count. */
 const FRESH_WINDOW_FACTOR = 6;
 
-export interface SessionOptions {
-  /** Upper bound for new items; the garden's room for young plants can lower it. */
-  readonly newPerSession: number;
+export interface SessionOptions extends DailyRoom {
   readonly sessionSize?: number;
-  readonly seedLimits?: SeedLimits;
   /** Injectable for deterministic tests. */
   readonly random?: () => number;
 }
@@ -30,21 +27,38 @@ interface Pools<Item> {
   readonly fresh: Item[];
 }
 
+/**
+ * Splits the items into what is due and what was never seen, soonest due
+ * first. Cards still being learned always come; graduated cards only up to
+ * `reviewsLeft`, and unseen items only up to `newLeft` (picked later).
+ */
 function splitPools<Item extends ItemMeta>(
   items: readonly Item[],
   cards: Readonly<Record<string, CardState>>,
   now: number,
+  reviewsLeft: number,
 ): Pools<Item> {
   const byId = new Map(items.map((item) => [item.id, item]));
   const due: Item[] = [];
+  let graduated = 0;
 
   for (const card of dueCards(Object.values(cards), now)) {
     const item = byId.get(card.exerciseId);
 
     // The item can be gone after a deck was disabled or data regenerated.
-    if (item !== undefined) {
-      due.push(item);
+    if (item === undefined) {
+      continue;
     }
+
+    if (card.phase === 'review') {
+      if (graduated >= reviewsLeft) {
+        continue;
+      }
+
+      graduated += 1;
+    }
+
+    due.push(item);
   }
 
   const fresh = items.filter((item) => cards[item.id] === undefined);
@@ -104,40 +118,60 @@ interface Quota {
   fresh: number;
 }
 
-/**
- * Deals `slots` round-robin across decks, beginning at `start`, so a deck with
- * a large backlog cannot crowd the others out of a session. On its turn a deck
- * takes one of its reviews, or, with none left, a new item while `newBudget`
- * lasts; a deck with neither passes its turn on.
- */
-function allocateSlots(pools: readonly DeckPool<unknown>[], slots: number, newBudget: number, start: number): Quota[] {
-  const quotas = pools.map((): Quota => ({ due: 0, fresh: 0 }));
+/** Deals `slots` round-robin across decks, beginning at `start`; a deck that has run out passes its turn on. */
+function deal(available: readonly number[], slots: number, start: number): number[] {
+  const taken = available.map(() => 0);
   let remaining = slots;
-  let budget = Math.max(0, newBudget);
   let deck = start;
   let idleTurns = 0;
 
-  while (remaining > 0 && idleTurns < pools.length) {
-    const pool = pools[deck]!;
-    const quota = quotas[deck]!;
-
-    if (quota.due < pool.due.length) {
-      quota.due += 1;
-      remaining -= 1;
-      idleTurns = 0;
-    } else if (budget > 0 && quota.fresh < pool.fresh.length) {
-      quota.fresh += 1;
-      budget -= 1;
+  while (remaining > 0 && idleTurns < available.length) {
+    if (taken[deck]! < available[deck]!) {
+      taken[deck] = taken[deck]! + 1;
       remaining -= 1;
       idleTurns = 0;
     } else {
       idleTurns += 1;
     }
 
-    deck = (deck + 1) % pools.length;
+    deck = (deck + 1) % available.length;
   }
 
-  return quotas;
+  return taken;
+}
+
+/**
+ * Splits `slots` between reviews and new items in proportion to what is
+ * available today, so neither starves the other: a backlog does not keep new
+ * items out, and the day's new items do not crowd out reviews. Each kind is
+ * then dealt round-robin across decks, so a deck with a large backlog cannot
+ * crowd the others out of a session. `newBudget` is today's room for new items.
+ */
+function allocateSlots(
+  pools: readonly DeckPool<unknown>[],
+  slots: number,
+  newBudget: number,
+  start: number,
+): Quota[] {
+  const dueTotal = pools.reduce((sum, pool) => sum + pool.due.length, 0);
+  const freshTotal = Math.min(
+    Math.max(0, newBudget),
+    pools.reduce((sum, pool) => sum + pool.fresh.length, 0),
+  );
+  const total = dueTotal + freshTotal;
+
+  const freshShare = total === 0 ? 0 : Math.round((slots * freshTotal) / total);
+  const dueSlots = Math.min(dueTotal, slots - Math.min(freshTotal, freshShare));
+  const freshSlots = Math.min(freshTotal, slots - dueSlots);
+
+  const due = deal(pools.map((pool) => pool.due.length), dueSlots, start);
+  const fresh = deal(
+    pools.map((pool) => pool.fresh.length),
+    freshSlots,
+    start,
+  );
+
+  return pools.map((_pool, index): Quota => ({ due: due[index]!, fresh: fresh[index]! }));
 }
 
 /**
@@ -167,18 +201,11 @@ function interleave<Item>(reviews: readonly Item[], fresh: readonly Item[], rand
 
 /** The learner's pace settings, as `Settings` stores them. */
 export interface PaceSettings {
-  readonly newPerSession: number;
   readonly sessionSize: number;
-  readonly maxYoungPlants: number;
-  readonly youngIntervalDays: number;
 }
 
-export function sessionOptions(pace: PaceSettings): Omit<SessionOptions, 'random'> {
-  return {
-    newPerSession: pace.newPerSession,
-    sessionSize: pace.sessionSize,
-    seedLimits: { maxYoung: pace.maxYoungPlants, youngDays: pace.youngIntervalDays },
-  };
+export function sessionOptions(pace: PaceSettings, room: DailyRoom): Omit<SessionOptions, 'random'> {
+  return { ...room, sessionSize: pace.sessionSize };
 }
 
 /** Picks the items of a session; the caller decides how each one is presented. */
@@ -191,13 +218,12 @@ export function buildSession<Item extends ItemMeta>(
   const random = options.random ?? Math.random;
   const size = options.sessionSize ?? SESSION_SIZE;
 
-  const split = splitPools(items, cards, now);
+  const split = splitPools(items, cards, now, options.reviewsLeft);
   const pools = poolsByDeck(items, split);
 
   // A random first deck rotates which deck gets the remainder of an uneven split.
   const start = Math.min(Math.floor(random() * pools.length), Math.max(pools.length - 1, 0));
-  const newBudget = Math.min(options.newPerSession, seedAllowance(items, cards, options.seedLimits));
-  const quotas = allocateSlots(pools, size, newBudget, start);
+  const quotas = allocateSlots(pools, size, options.newLeft, start);
 
   // Levels of different decks are not comparable, so difficulty is ranked within each deck.
   const chosenReviews = new Set(pools.flatMap((pool, index) => pool.due.slice(0, quotas[index]!.due)));
@@ -298,16 +324,18 @@ export function shuffleTiles(tiles: readonly string[], random: () => number = Ma
 }
 
 export interface SessionPreview {
-  /** Review cards the next session will contain. */
+  /** Reviews the next session will contain. */
   readonly due: number;
   /** Unseen exercises the next session will introduce. */
   readonly fresh: number;
   /** Unseen exercises left in total, for offering an extra session. */
   readonly unseen: number;
-  /** Due cards in total, which can exceed one session. */
+  /** Due cards that today's review limit allows, which can exceed one session. */
   readonly totalDue: number;
-  /** New items the garden has room for; 0 means the young plants need care first. */
-  readonly seedRoom: number;
+  /** Due cards today's review limit keeps for another day. */
+  readonly heldBack: number;
+  /** New items today's limit still allows; 0 with unseen items left means the limit is reached. */
+  readonly newLeft: number;
 }
 
 /**
@@ -321,10 +349,9 @@ export function sessionPreview(
   options: Omit<SessionOptions, 'random'>,
   now: number,
 ): SessionPreview {
-  const split = splitPools(items, cards, now);
-  const seedRoom = seedAllowance(items, cards, options.seedLimits);
-  const budget = Math.min(options.newPerSession, seedRoom);
-  const quotas = allocateSlots(poolsByDeck(items, split), options.sessionSize ?? SESSION_SIZE, budget, 0);
+  const split = splitPools(items, cards, now, options.reviewsLeft);
+  const everyDue = splitPools(items, cards, now, Number.POSITIVE_INFINITY).due.length;
+  const quotas = allocateSlots(poolsByDeck(items, split), options.sessionSize ?? SESSION_SIZE, options.newLeft, 0);
 
   const sessionDue = quotas.reduce((sum, quota) => sum + quota.due, 0);
   const sessionFresh = quotas.reduce((sum, quota) => sum + quota.fresh, 0);
@@ -334,6 +361,7 @@ export function sessionPreview(
     fresh: sessionFresh,
     unseen: split.fresh.length,
     totalDue: split.due.length,
-    seedRoom,
+    heldBack: everyDue - split.due.length,
+    newLeft: options.newLeft,
   };
 }

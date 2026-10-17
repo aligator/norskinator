@@ -38,6 +38,7 @@ import {
   type StorageLike,
 } from './storage.ts';
 import { gradeFromAnswer, loadDeck, presentAs, presentItem } from './tasks.ts';
+import { dailyRoom, recordCounted } from './daily.ts';
 import type { Deck, Exercise, ExerciseKind, PlayableItem } from './types.ts';
 
 export type LoadStatus = 'idle' | 'loading' | 'ready' | 'error';
@@ -118,6 +119,15 @@ export interface StoreDependencies {
 }
 
 const PERSIST_DEBOUNCE_MS = 250;
+
+/** The first answer of an item and the review of a graduated card use up today's limits; learning steps do not. */
+function countAgainstLimits(progress: Progress, previous: CardState | undefined, now: number): Progress {
+  if (previous === undefined) {
+    return recordCounted(progress, 'new', now);
+  }
+
+  return previous.phase === 'review' ? recordCounted(progress, 'review', now) : progress;
+}
 
 function sameIds(left: readonly string[], right: readonly string[]): boolean {
   return left.length === right.length && left.every((id) => right.includes(id));
@@ -207,7 +217,8 @@ export class Store {
     const scope = deckIds ?? this.#decks.map((deck) => deck.id);
     const pool = this.#state.items.filter((item) => scope.includes(item.deckId));
 
-    const options = { ...sessionOptions(this.#state.settings), random: this.#random };
+    const room = dailyRoom(this.#state.progress, this.#state.settings, now);
+    const options = { ...sessionOptions(this.#state.settings, room), random: this.#random };
     const scheduled = buildSession(pool, this.#state.cards, options, now);
 
     // Nothing to review and no room for seeds still leaves something to practise.
@@ -296,12 +307,7 @@ export class Store {
       return;
     }
 
-    const grade = gradeFromAnswer(
-      exercise.kind,
-      correct,
-      now - session.questionShownAt,
-      previous?.phase ?? 'new',
-    );
+    const grade = gradeFromAnswer(exercise.kind, correct, now - session.questionShownAt);
 
     this.#settle(session, exercise, given, grade, now);
     this.#persist();
@@ -335,6 +341,7 @@ export class Store {
     const cards = practice || card === undefined ? this.#state.cards : { ...this.#state.cards, [exercise.id]: card };
     const garden = practice ? this.#state.garden : sow(this.#state.garden, exercise.id, this.#random);
     const outcome = recordAnswer(this.#state.progress, correct, now, { cards, garden }, session.mode);
+    const progress = practice ? outcome.progress : countAgainstLimits(outcome.progress, previous, now);
 
     const plantBefore = plantOf(previous);
     const plantAfter = plantOf(card);
@@ -344,7 +351,7 @@ export class Store {
 
     this.#patch({
       cards,
-      progress: outcome.progress,
+      progress,
       garden,
       session: {
         ...session,

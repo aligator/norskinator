@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 
+import { dailyRoom } from './daily.ts';
 import { INITIAL_PROGRESS, PRACTICE_XP_CORRECT } from './gamification.ts';
 import { MAX_RESUME_AGE_MS } from './resume.ts';
 import { Store } from './store.ts';
@@ -280,7 +281,7 @@ describe('Store', () => {
 
   it('clears progress and session on reset but keeps settings and the daily goal', async () => {
     const { store, storage } = await createHarness([item('a')]);
-    store.updateSettings({ theme: 'dark', newPerSession: 5 });
+    store.updateSettings({ theme: 'dark', newPerDay: 5 });
     store.setDailyGoal(40);
     store.startSession();
     store.answer('i');
@@ -297,7 +298,7 @@ describe('Store', () => {
 
     expect(revived.state.progress.totalAnswers).toBe(0);
     expect(revived.state.progress.dailyGoal).toBe(40);
-    expect(revived.state.settings.newPerSession).toBe(5);
+    expect(revived.state.settings.newPerDay).toBe(5);
   });
 
   it('ignores next() until the current exercise is answered', async () => {
@@ -311,14 +312,16 @@ describe('Store', () => {
     expect(store.sessionFinished).toBe(false);
   });
 
-  it('clamps the number of new exercises per session', async () => {
+  it('clamps the daily limits', async () => {
     const { store } = await createHarness([item('a')]);
 
-    store.updateSettings({ newPerSession: 999 });
-    expect(store.state.settings.newPerSession).toBe(50);
+    store.updateSettings({ newPerDay: 999, reviewsPerDay: 99_999 });
+    expect(store.state.settings.newPerDay).toBe(100);
+    expect(store.state.settings.reviewsPerDay).toBe(1000);
 
-    store.updateSettings({ newPerSession: -4.6 });
-    expect(store.state.settings.newPerSession).toBe(0);
+    store.updateSettings({ newPerDay: -4.6, reviewsPerDay: 0 });
+    expect(store.state.settings.newPerDay).toBe(0);
+    expect(store.state.settings.reviewsPerDay).toBe(10);
   });
 
   it('keeps the newest deck selection when an older load finishes last', async () => {
@@ -501,7 +504,7 @@ describe('Store', () => {
       store.answer('i');
 
       expect(store.state.feedback?.correct).toBe(true);
-      expect(store.state.feedback?.ratingOptions?.map((option) => option.grade)).toEqual(['good', 'easy']);
+      expect(store.state.feedback?.ratingOptions?.map((option) => option.grade)).toEqual(['hard', 'good', 'easy']);
       expect(store.state.cards['a']).toBeUndefined();
       expect(store.state.progress.xp).toBe(0);
       expect(store.state.progress.totalAnswers).toBe(0);
@@ -564,7 +567,7 @@ describe('Store', () => {
       expect(store.state.cards['a']).toBeUndefined();
 
       store.answer('i');
-      store.rate('hard');
+      store.rate('again' as never);
 
       expect(store.state.feedback?.ratingOptions).not.toBeNull();
       expect(store.state.cards['a']).toBeUndefined();
@@ -623,6 +626,102 @@ describe('Store', () => {
 
       expect(store.state.feedback?.ratingOptions).toBeNull();
       expect(store.state.cards['a']?.reps).toBe(1);
+    });
+  });
+
+  describe('daily limits', () => {
+    const many = (count: number): ClozeItem[] => Array.from({ length: count }, (_unused, index) => item(`e${index}`));
+
+    async function finish(store: Store): Promise<void> {
+      while (store.state.session !== null && !store.sessionFinished) {
+        store.answer('i');
+        store.next();
+      }
+    }
+
+    it('introduces no more new items than the day allows, however many sessions are started', async () => {
+      const { store } = await createHarness(many(30));
+
+      store.updateSettings({ newPerDay: 4, sessionSize: 5 });
+      store.startSession();
+      await finish(store);
+      store.endSession();
+      store.startSession();
+
+      expect(Object.keys(store.state.cards)).toHaveLength(4);
+      expect(store.state.session?.mode).toBe('practice');
+    });
+
+    it('allows the full limit again on the next day', async () => {
+      const { store, setNow } = await createHarness(many(30));
+
+      store.updateSettings({ newPerDay: 4, sessionSize: 5 });
+      store.startSession();
+      await finish(store);
+      store.endSession();
+      setNow(NOW + 24 * 3_600_000);
+      store.startSession();
+
+      expect(store.state.session?.mode).toBe('review');
+      expect(store.state.session?.queue.length).toBeGreaterThan(0);
+    });
+
+    it('counts the first answer of an item as new and the answer of a graduated card as a review', async () => {
+      const { store, setNow } = await createHarness([item('a')]);
+      const day = 24 * 3_600_000;
+
+      /** Starts a session at `start` and answers right after eight seconds, which rates `good`. */
+      const answerGood = (start: number): void => {
+        setNow(start);
+        store.startSession();
+        setNow(start + 8000);
+        store.answer('i');
+        store.next();
+      };
+
+      answerGood(NOW);
+
+      expect(store.state.cards['a']?.phase).toBe('learning');
+      expect(store.state.progress).toMatchObject({ newToday: 1, reviewsToday: 0 });
+
+      // The second right answer graduates the card; a learning step is no review.
+      answerGood(NOW + day);
+
+      expect(store.state.cards['a']?.phase).toBe('review');
+      expect(dailyRoom(store.state.progress, store.state.settings, NOW + day)).toEqual({ newLeft: 10, reviewsLeft: 100 });
+
+      const later = NOW + 30 * day;
+
+      answerGood(later);
+
+      expect(dailyRoom(store.state.progress, store.state.settings, later)).toEqual({ newLeft: 10, reviewsLeft: 99 });
+    });
+
+    it('does not count practice answers', async () => {
+      const { store } = await createHarness([item('a')]);
+
+      store.startSession();
+      store.answer('i');
+      store.next();
+      store.startSession();
+      store.answer('i');
+
+      expect(store.state.session?.mode).toBe('practice');
+      expect(store.state.progress).toMatchObject({ newToday: 1, reviewsToday: 0 });
+    });
+
+    it('keeps a pending manual rating out of the counters until it is rated', async () => {
+      const { store } = await createHarness([item('a')]);
+
+      store.updateSettings({ manualRating: true });
+      store.startSession();
+      store.answer('i');
+
+      expect(store.state.progress.newToday).toBe(0);
+
+      store.rate('good');
+
+      expect(store.state.progress.newToday).toBe(1);
     });
   });
 });

@@ -7,6 +7,7 @@ import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 import { keyed } from 'lit/directives/keyed.js';
 
 import { gardenBeds, type GardenBed } from '../../../core/garden.ts';
+import { dailyRoom } from '../../../core/daily.ts';
 import { sessionOptions, sessionPreview, type SessionPreview } from '../../../core/session.ts';
 import type { Deck, PlayableItem } from '../../../core/types.ts';
 import { DECKS } from '../../../decks/registry.ts';
@@ -23,16 +24,16 @@ function plural(count: number, one: string, many: string): string {
   return `${formatNumber(count)} ${count === 1 ? one : many}`;
 }
 
-function seedText({ seedRoom, unseen }: SessionPreview): string {
+function seedText({ newLeft, unseen }: SessionPreview): string {
   if (unseen === 0) {
     return 'Alle frøene er sådd.';
   }
 
-  if (seedRoom === 0) {
-    return 'Nye frø kommer når spirene har vokst.';
+  if (newLeft === 0) {
+    return 'Dagens nye frø er sådd.';
   }
 
-  return `Plass til ${plural(seedRoom, 'nytt frø', 'nye frø')}.`;
+  return `Plass til ${plural(newLeft, 'nytt frø', 'nye frø')} i dag.`;
 }
 
 export class GardenView extends LitElement {
@@ -158,7 +159,12 @@ export class GardenView extends LitElement {
     }
 
     const items = state.items.filter((item) => item.deckId === deck.id);
-    const preview = sessionPreview(items, state.cards, sessionOptions(state.settings), now);
+    const preview = sessionPreview(
+      items,
+      state.cards,
+      sessionOptions(state.settings, dailyRoom(state.progress, state.settings, now)),
+      now,
+    );
 
     return html`
       ${decks.length > 1

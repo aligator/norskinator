@@ -22,7 +22,7 @@ function exercise(id: string, tag: string, deckId = 'deck'): Exercise {
 describe('tagMastery', () => {
   it('splits each tag into review, learning and unseen cards', () => {
     const exercises = [exercise('a', 'i'), exercise('b', 'i'), exercise('c', 'i')];
-    const learned = review(createCard('a', 'deck', NOW), 'good', NOW);
+    const learned = review(createCard('a', 'deck', NOW), 'easy', NOW);
     const failed = review(createCard('b', 'deck', NOW), 'again', NOW);
 
     const [mastery] = tagMastery(exercises, { a: learned, b: failed });

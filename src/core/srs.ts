@@ -35,23 +35,16 @@ export interface CardState {
   /** Every wrong answer, including those before graduation; drives accuracy stats. */
   readonly failures: number;
   readonly lastReviewed: number | null;
+  /** How the last answer was rated; `again` is what wilts the plant. */
+  readonly lastGrade: Grade | null;
 }
 
-export const MAX_INTERVAL_DAYS = 365;
-
-/** A failed card is re-asked after a minute — short enough to stay in the session. */
-const RELEARN_STEP = '1m';
-
-const scheduler = fsrs(
-  generatorParameters({
-    request_retention: 0.9,
-    maximum_interval: MAX_INTERVAL_DAYS,
-    enable_fuzz: false,
-    enable_short_term: true,
-    learning_steps: [RELEARN_STEP],
-    relearning_steps: [RELEARN_STEP],
-  }),
-);
+/**
+ * The library's defaults as FSRS intends them: 90 % retention, learning steps
+ * of 1 and 10 minutes, relearning after a lapse in 10, short-term memory
+ * modelled. Only fuzz is off, so scheduling stays deterministic.
+ */
+const scheduler = fsrs(generatorParameters({ enable_fuzz: false }));
 
 const RATINGS = {
   again: Rating.Again,
@@ -87,6 +80,7 @@ export function createCard(exerciseId: string, deckId: string, now: number): Car
     lapses: 0,
     failures: 0,
     lastReviewed: null,
+    lastGrade: null,
   };
 }
 
@@ -108,17 +102,7 @@ function toFsrsCard(card: CardState): Card {
   };
 }
 
-/**
- * A card that is still being learned only graduates on a right answer, so
- * `hard` is read as `good` there: a hard first answer must not keep the
- * plant wilted.
- */
-function effectiveGrade(card: CardState, requested: Grade): Grade {
-  return requested === 'hard' && card.phase !== 'review' ? 'good' : requested;
-}
-
-export function review(card: CardState, requested: Grade, now: number): CardState {
-  const grade = effectiveGrade(card, requested);
+export function review(card: CardState, grade: Grade, now: number): CardState {
   const next = scheduler.next(toFsrsCard(card), new Date(now), RATINGS[grade]).card;
 
   return {
@@ -132,6 +116,7 @@ export function review(card: CardState, requested: Grade, now: number): CardStat
     lapses: next.lapses,
     failures: card.failures + (grade === 'again' ? 1 : 0),
     lastReviewed: now,
+    lastGrade: grade,
   };
 }
 
@@ -141,12 +126,9 @@ export interface RatingOption {
   readonly delayMs: number;
 }
 
-/**
- * The ratings offered for a right answer, each with the delay it would give.
- * A card still being learned has no `hard`; see `effectiveGrade`.
- */
+/** The ratings offered for a right answer, each with the delay it would give. */
 export function ratingOptions(card: CardState, now: number): RatingOption[] {
-  const grades = card.phase === 'review' ? (['hard', 'good', 'easy'] as const) : (['good', 'easy'] as const);
+  const grades = ['hard', 'good', 'easy'] as const;
 
   return grades.map((grade) => ({ grade, delayMs: review(card, grade, now).due - now }));
 }

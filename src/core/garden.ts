@@ -50,25 +50,12 @@ export const FULL_GROWN_DAYS = 180;
 
 const GROWN_STAGES = ['sprout', 'plant', 'bush', 'tree', 'blossom'] as const;
 
-/**
- * New seeds are only sown while fewer than `maxYoung` plants are younger
- * than `youngDays` (stability in days). Both are learner settings.
- */
-export interface SeedLimits {
-  readonly maxYoung: number;
-  readonly youngDays: number;
-}
-
-/** Anki calls a card mature from 21 days; a week is enough to say it no longer needs close care. */
-export const DEFAULT_SEED_LIMITS: SeedLimits = { maxYoung: 15, youngDays: 7 };
-
 export function plantOf(card: CardState | undefined): Plant {
   if (card === undefined || card.reps === 0) {
     return SEED;
   }
 
-  // Only a wrong answer puts a card back into (re)learning, so this is a wilted plant.
-  if (card.phase === 'learning' || card.phase === 'relearning') {
+  if (card.lastGrade === 'again') {
     return { stage: 'sprout', wilted: true, growth: 0 };
   }
 
@@ -116,28 +103,6 @@ export function plantChange(before: Plant, after: Plant): PlantChange {
   }
 
   return stageRank(after.stage) > stageRank(before.stage) ? 'grown' : 'unchanged';
-}
-
-function isYoung(card: CardState, youngDays: number): boolean {
-  return card.reps > 0 && card.stability < youngDays;
-}
-
-/**
- * How many new items the learner may start now. Only the given items count,
- * so the young plants of a disabled deck can never block the others.
- */
-export function seedAllowance(
-  items: readonly ItemMeta[],
-  cards: Readonly<Record<string, CardState>>,
-  limits: SeedLimits = DEFAULT_SEED_LIMITS,
-): number {
-  const young = items.filter((item) => {
-    const card = cards[item.id];
-
-    return card !== undefined && isYoung(card, limits.youngDays);
-  }).length;
-
-  return Math.max(0, limits.maxYoung - young);
 }
 
 export type StageCounts = Record<PlantStage, number>;

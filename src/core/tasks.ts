@@ -7,7 +7,7 @@
  *
  * Adding a task type: extend `ExerciseKind`, add an entry to `TASK_TYPES`.
  */
-import type { CardPhase, Grade } from './srs.ts';
+import type { Grade } from './srs.ts';
 import type { TaskWeights } from './task-weights.ts';
 import type {
   DataItem,
@@ -143,16 +143,8 @@ const UNMEASURED_AFTER_MS = 60_000;
  * Grades an answer without asking the learner: response time stands in for
  * self-assessment. Fast and right means easy, slow and right keeps the
  * interval short. The time thresholds depend on the task type.
- *
- * A card failed moments ago is answered from short-term memory, so a quick
- * right answer must not earn the long `easy` head start.
  */
-export function gradeFromAnswer(
-  kind: ExerciseKind,
-  correct: boolean,
-  elapsedMs: number,
-  phase: CardPhase,
-): Grade {
+export function gradeFromAnswer(kind: ExerciseKind, correct: boolean, elapsedMs: number): Grade {
   if (!correct) {
     return 'again';
   }
@@ -164,7 +156,7 @@ export function gradeFromAnswer(
   const { easyWithinMs, hardAfterMs } = TASK_TYPES[kind].timing;
 
   if (elapsedMs <= easyWithinMs) {
-    return phase === 'learning' || phase === 'relearning' ? 'good' : 'easy';
+    return 'easy';
   }
 
   if (elapsedMs >= hardAfterMs) {

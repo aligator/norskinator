@@ -3,6 +3,7 @@ import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
 import { answersToday, currentStreak, sessionCompletedToday } from '../../../core/gamification.ts';
 import { PLANT_STAGES, PLANT_STAGE_LABELS, gardenBeds, totalCounts, type StageCounts } from '../../../core/garden.ts';
+import { dailyRoom } from '../../../core/daily.ts';
 import { sessionOptions, sessionPreview, type SessionPreview } from '../../../core/session.ts';
 import { spendableXp } from '../../../core/species.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
@@ -138,7 +139,12 @@ export class TodayCard extends LitElement {
     const now = Date.now();
     const counts = totalCounts(gardenBeds(state.items, state.cards, now));
 
-    const preview = sessionPreview(state.items, state.cards, sessionOptions(state.settings), now);
+    const preview = sessionPreview(
+      state.items,
+      state.cards,
+      sessionOptions(state.settings, dailyRoom(state.progress, state.settings, now)),
+      now,
+    );
 
     return html`
       <div class="grid">
@@ -182,7 +188,7 @@ export class TodayCard extends LitElement {
     </a>`;
   }
 
-  #renderStart({ due, fresh, unseen, seedRoom }: SessionPreview): TemplateResult {
+  #renderStart({ due, fresh, unseen, newLeft, heldBack }: SessionPreview): TemplateResult {
     const status = store.state.status;
 
     if (status === 'error') {
@@ -199,9 +205,10 @@ export class TodayCard extends LitElement {
     if (due === 0 && fresh === 0) {
       return html`
         <div class="done">
-          <p>Alt er repetert for i dag.</p>
-          ${unseen > 0 && seedRoom === 0
-            ? html`<p>Nye frø kommer når spirene i <a href="#hage">hagen</a> har vokst.</p>`
+          <p>${heldBack > 0 ? 'Dagens repetisjoner er gjort.' : 'Alt er repetert for i dag.'}</p>
+          ${heldBack > 0 ? html`<p>${heldBack} venter til i morgen. Grensen kan du endre under Innstillinger.</p>` : nothing}
+          ${unseen > 0 && newLeft === 0
+            ? html`<p>Dagens grense for nye oppgaver er nådd.</p>`
             : nothing}
           ${store.state.items.length > 0
             ? html`<button class="button secondary block cta" @click=${() => startSession(this)}>

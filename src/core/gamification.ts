@@ -43,6 +43,12 @@ export interface Progress {
    */
   readonly goalReachedDay: string | null;
   readonly unlockedBadges: readonly string[];
+  /** Local date `newToday` and `reviewsToday` count; older days start from zero. */
+  readonly limitsDay: string | null;
+  /** New items introduced on `limitsDay`; see `daily.ts`. */
+  readonly newToday: number;
+  /** Graduated cards reviewed on `limitsDay`. */
+  readonly reviewsToday: number;
 }
 
 export const DEFAULT_DAILY_GOAL = 20;
@@ -73,6 +79,9 @@ export const INITIAL_PROGRESS: Progress = {
   goalDaysReached: 0,
   goalReachedDay: null,
   unlockedBadges: [],
+  limitsDay: null,
+  newToday: 0,
+  reviewsToday: 0,
 };
 
 export const BASE_XP_CORRECT = 10;
