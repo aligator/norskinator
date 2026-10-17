@@ -591,7 +591,6 @@ describe('Store', () => {
 
       expect(revived.state.cards[answered]?.reps).toBe(1);
     });
-
   });
 
   describe('daily limits', () => {
