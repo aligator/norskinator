@@ -94,11 +94,9 @@ jobs:
 
   # amd64 only: the runner cannot emulate arm64.
   # Needs secrets REGISTRY_USER and REGISTRY_TOKEN (`write:package`).
-  # Tags publish the release; pull requests publish the image their Argo
-  # preview deploys (aligator/gitops, applicationsets/norskinator.yaml).
   image-forgejo:
     name: Docker image (Forgejo)
-    if: github.server_url != 'https://github.com' && (startsWith(github.ref, 'refs/tags/v') || github.event_name == 'pull_request')
+    if: github.server_url != 'https://github.com' && startsWith(github.ref, 'refs/tags/v')
     needs: verify
     runs-on: docker
     # The default image has no Docker CLI new enough for the daemon.
@@ -110,23 +108,7 @@ jobs:
       - id: registry
         run: echo "host=${GITHUB_SERVER_URL#*://}" >> "$GITHUB_OUTPUT"
 
-      # Must match the preview's pr-{{.number}}-{{.head_short_sha}}, the first
-      # 8 characters of the PR head. Tags get their version as APP_VERSION.
-      - id: version
-        env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-        run: |
-          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
-            echo "value=pr-${PR_NUMBER}-$(echo "$PR_HEAD_SHA" | cut -c1-8)" >> "$GITHUB_OUTPUT"
-          else
-            echo "value=$GITHUB_REF_NAME" >> "$GITHUB_OUTPUT"
-          fi
-
-      # The PR head, not a merge commit: the tag names the head's SHA.
       - uses: actions/checkout@v7
-        with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - uses: docker/setup-buildx-action@v4
         with:
@@ -144,14 +126,13 @@ jobs:
           images: ${{ steps.registry.outputs.host }}/${{ github.repository }}
           # release-sha-<sha7> is what the cluster deploys: Argo follows the
           # protected `release` branch and pins this tag for its head commit
-          # (aligator/gitops, applicationsets/norskinator.yaml). Only tag runs
-          # build it, so an untagged commit on `release` has no image.
+          # (aligator/gitops, applicationsets/norskinator.yaml). This job only
+          # runs on tags, so an untagged commit on `release` has no image.
           tags: |
-            type=raw,value=latest,enable=${{ github.event_name != 'pull_request' }}
+            type=raw,value=latest
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}
-            type=sha,prefix=release-sha-,format=short,enable=${{ github.event_name != 'pull_request' }}
-            type=raw,value=${{ steps.version.outputs.value }},enable=${{ github.event_name == 'pull_request' }}
+            type=sha,prefix=release-sha-,format=short
 
       - uses: docker/build-push-action@v7
         with:
@@ -163,4 +144,4 @@ jobs:
           provenance: false
           build-args: |
             SOURCE_URL=${{ github.server_url }}/${{ github.repository }}
-            APP_VERSION=${{ steps.version.outputs.value }}
+            APP_VERSION=${{ github.ref_name }}

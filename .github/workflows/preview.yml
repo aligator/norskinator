@@ -1,0 +1,70 @@
+name: Preview image
+
+# Builds the image an Argo PR preview deploys (aligator/gitops,
+# applicationsets/norskinator.yaml): pr-<number>-<head sha8>, WireGuard-only,
+# never prod.
+#
+# pull_request_target, not pull_request: Forgejo withholds secrets from pull
+# requests out of forks and AGit (`refs/for/main`), which is how the claude bot
+# opens them. pull_request_target runs this file as it is on the base branch,
+# with secrets, so a pull request cannot change these steps. Its code runs
+# only inside `docker build`, which never sees the registry login. Do not add
+# steps that run the checked-out code (pnpm install, scripts) to this job.
+on:
+  pull_request_target:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  image:
+    name: Preview image (Forgejo)
+    if: github.server_url != 'https://github.com'
+    runs-on: docker
+    # The default image has no Docker CLI new enough for the daemon.
+    container:
+      image: docker:29.9.0-cli@sha256:1a4c7cb63513f349bdad01fcc6e0f3f2f67d37b9da86f14dc0d4a0942eecda00
+    steps:
+      - run: apk add --no-cache nodejs git
+
+      # No credentials left in .git/config: the build context must not carry
+      # a token into an image the pull request controls.
+      - uses: actions/checkout@v7
+        with:
+          ref: refs/pull/${{ github.event.pull_request.number }}/head
+          persist-credentials: false
+
+      # Tagged with what was actually checked out, so the tag always names its
+      # content even if the PR moved on since the event.
+      - id: meta
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          echo "host=${GITHUB_SERVER_URL#*://}" >> "$GITHUB_OUTPUT"
+          head=$(git -c safe.directory='*' rev-parse HEAD)
+          echo "tag=pr-${PR_NUMBER}-$(echo "$head" | cut -c1-8)" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-buildx-action@v4
+        with:
+          driver: docker
+
+      - uses: docker/login-action@v4
+        with:
+          registry: ${{ steps.meta.outputs.host }}
+          username: ${{ secrets.REGISTRY_USER }}
+          password: ${{ secrets.REGISTRY_TOKEN }}
+
+      - uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.host }}/${{ github.repository }}:${{ steps.meta.outputs.tag }}
+          # The docker driver cannot produce provenance attestations.
+          provenance: false
+          build-args: |
+            SOURCE_URL=${{ github.server_url }}/${{ github.repository }}
+            APP_VERSION=${{ steps.meta.outputs.tag }}
