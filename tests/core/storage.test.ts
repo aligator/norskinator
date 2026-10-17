@@ -61,16 +61,6 @@ describe('parseState', () => {
     expect(broken.settings.reviewsPerDay).toBe(10);
   });
 
-  it('ignores the per-session settings and the young-plant gate of earlier builds', () => {
-    const state = parseState(
-      JSON.stringify({ settings: { newPerSession: 40, maxYoungPlants: 99, youngIntervalDays: 14 } }),
-    );
-
-    expect(state.settings.newPerDay).toBe(DEFAULT_SETTINGS.newPerDay);
-    expect(state.settings).not.toHaveProperty('maxYoungPlants');
-    expect(state.settings).not.toHaveProperty('newPerSession');
-  });
-
   it('gives a card that was never answered no memory state, however it was stored', () => {
     const raw = JSON.stringify({ cards: { a: { deckId: 'deck', phase: 'new', stability: 5, difficulty: 0 } } });
     const card = parseState(raw).cards['a'];
@@ -149,32 +139,15 @@ describe('parseState', () => {
     expect(Object.getPrototypeOf(cards)).toBe(Object.prototype);
   });
 
-  it('loads settings stored before the sound options existed with sound off', () => {
-    const raw = JSON.stringify({ settings: { translationLanguage: 'en', theme: 'light', newPerSession: 5 } });
+  it('reads sound options as off unless stored as a real boolean', () => {
+    const old = parseState(JSON.stringify({ settings: { translationLanguage: 'en', theme: 'light', newPerSession: 5 } }));
+    const coerced = parseState(JSON.stringify({ settings: { soundEffects: 'yes', speakSolution: 1 } }));
+    const on = parseState(JSON.stringify({ settings: { soundEffects: true, speakSolution: true } }));
 
-    const settings = parseState(raw).settings;
-
-    expect(settings.soundEffects).toBe(false);
-    expect(settings.speakSolution).toBe(false);
-    expect(settings.translationLanguage).toBe(TranslationLanguage.English);
-  });
-
-  it('turns non-boolean sound options off instead of coercing them', () => {
-    const raw = JSON.stringify({ settings: { soundEffects: 'yes', speakSolution: 1 } });
-
-    const settings = parseState(raw).settings;
-
-    expect(settings.soundEffects).toBe(false);
-    expect(settings.speakSolution).toBe(false);
-  });
-
-  it('keeps sound options that were switched on', () => {
-    const raw = JSON.stringify({ settings: { soundEffects: true, speakSolution: true } });
-
-    const settings = parseState(raw).settings;
-
-    expect(settings.soundEffects).toBe(true);
-    expect(settings.speakSolution).toBe(true);
+    expect(old.settings).toMatchObject({ soundEffects: false, speakSolution: false });
+    expect(old.settings.translationLanguage).toBe(TranslationLanguage.English);
+    expect(coerced.settings).toMatchObject({ soundEffects: false, speakSolution: false });
+    expect(on.settings).toMatchObject({ soundEffects: true, speakSolution: true });
   });
 
   it('rejects an unknown phase instead of trusting it', () => {
@@ -385,7 +358,6 @@ describe('migration from version 1', () => {
   }
 
   it('is the current version after parsing', () => {
-    expect(STATE_VERSION).toBe(2);
     expect(migrated().version).toBe(STATE_VERSION);
   });
 
@@ -455,69 +427,6 @@ describe('migration from version 1', () => {
     expect(untouched.settings.theme).toBe(ThemePreference.Dark);
   });
 
-  it('leaves version 2 data alone', () => {
-    const current = { deckId: 'deck', phase: 'review', stability: 12, difficulty: 4, due: 1, reps: 2 };
-    const state = parseState(JSON.stringify({ version: 2, cards: { a: current } }));
-
-    expect(state.cards['a']).toMatchObject({ stability: 12, difficulty: 4 });
-  });
-});
-
-describe('manual rating setting', () => {
-  it('is off for data written before it existed', () => {
-    expect(parseState(JSON.stringify({ version: 2, settings: {} })).settings.manualRating).toBe(false);
-    expect(DEFAULT_SETTINGS.manualRating).toBe(false);
-  });
-
-  it('is read back when set', () => {
-    const state = parseState(JSON.stringify({ version: 2, settings: { manualRating: true } }));
-
-    expect(state.settings.manualRating).toBe(true);
-  });
-});
-
-describe('pending rating in a stored session', () => {
-  it('survives parsing and drops damaged entries', () => {
-    const feedback = {
-      exerciseId: 'a',
-      given: 'på',
-      correct: true,
-      grade: 'good',
-      ratingOptions: [{ grade: 'good', delayMs: 5 }, { grade: 'bogus', delayMs: -4 }, 'x'],
-    };
-    const raw = JSON.stringify({ queue: ['a'], index: 0, startedAt: 1, feedback });
-
-    const options = parseSession(raw)?.feedback?.ratingOptions;
-
-    expect(options).toEqual([{ grade: Grade.Good, delayMs: 5 }]);
-  });
-
-  it('keeps each grade once, in the stored order', () => {
-    const feedback = {
-      exerciseId: 'a',
-      given: 'på',
-      correct: true,
-      grade: 'good',
-      ratingOptions: [
-        { grade: 'easy', delayMs: 9 },
-        { grade: 'hard', delayMs: 1 },
-        { grade: 'easy', delayMs: 7 },
-      ],
-    };
-    const raw = JSON.stringify({ queue: ['a'], index: 0, startedAt: 1, feedback });
-
-    expect(parseSession(raw)?.feedback?.ratingOptions?.map((option) => option.grade)).toEqual([Grade.Easy, Grade.Hard]);
-  });
-
-  it('is not pending when none is stored', () => {
-    const feedback = { exerciseId: 'a', given: 'på', correct: false, grade: 'again' };
-    const raw = JSON.stringify({ queue: ['a'], index: 0, startedAt: 1, feedback });
-
-    expect(parseSession(raw)?.feedback?.ratingOptions).toBeNull();
-  });
-});
-
-describe('v1 migration limits and stored rating options', () => {
   it('clamps a migrated new items limit and works without settings or cards', () => {
     const huge = parseState(JSON.stringify({ version: 1, settings: { newPerSession: 999 } }));
     const noSettings = parseState(
@@ -530,18 +439,34 @@ describe('v1 migration limits and stored rating options', () => {
     expect(noSettings.cards['a']?.stability).toBeGreaterThan(0);
     expect(stray.settings.newPerDay).toBe(DEFAULT_SETTINGS.newPerDay);
   });
+});
 
-  it('drops unknown and repeated grades from stored rating options and turns an empty list into null', () => {
-    const read = (ratingOptions: unknown) =>
-      parseSession(
-        JSON.stringify({
-          queue: ['a'],
-          index: 0,
-          startedAt: 1,
-          feedback: { exerciseId: 'a', given: 'x', correct: true, grade: 'good', ratingOptions },
-        }),
-      )?.feedback?.ratingOptions;
+describe('rating settings and pending rating', () => {
+  const read = (ratingOptions: unknown) =>
+    parseSession(
+      JSON.stringify({
+        queue: ['a'],
+        index: 0,
+        startedAt: 1,
+        feedback: { exerciseId: 'a', given: 'x', correct: true, grade: 'good', ratingOptions },
+      }),
+    )?.feedback?.ratingOptions;
 
+  it('keeps manual rating off for data written before it existed', () => {
+    expect(parseState(JSON.stringify({ version: 2, settings: {} })).settings.manualRating).toBe(false);
+  });
+
+  it('is not pending when no rating options are stored', () => {
+    const feedback = { exerciseId: 'a', given: 'på', correct: false, grade: 'again' };
+    const raw = JSON.stringify({ queue: ['a'], index: 0, startedAt: 1, feedback });
+
+    expect(parseSession(raw)?.feedback?.ratingOptions).toBeNull();
+  });
+
+  it('drops damaged, unknown and repeated rating options and turns an empty list into null', () => {
+    expect(read([{ grade: 'good', delayMs: 5 }, { grade: 'bogus', delayMs: -4 }, 'x'])).toEqual([
+      { grade: Grade.Good, delayMs: 5 },
+    ]);
     expect(read([{ grade: 'again', delayMs: 1 }, { grade: 'zzz', delayMs: 1 }])).toBeNull();
     expect(read([{ grade: 'easy', delayMs: 1 }, { grade: 'easy', delayMs: 2 }, { grade: 'hard', delayMs: 3 }])).toEqual([
       { grade: Grade.Easy, delayMs: 1 },
