@@ -2,15 +2,17 @@
 import { LitElement, html, nothing, type TemplateResult } from 'lit';
 
 import { isEnumValue } from '../../../core/enums.ts';
-import { ThemePreference } from '../../../core/storage.ts';
+import { SPEECH_RATE_BOUNDS, ThemePreference } from '../../../core/storage.ts';
 import type { SegmentOption } from '../../components/segmented-control.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { VoiceController } from '../audio/voice-controller.ts';
 import { SoundKind, playSound } from '../audio/sound-effects.ts';
+import { speak } from '../audio/speech.ts';
 import { StoreController, store } from '../shared/store.ts';
 import { preferenceStyles, saveSettings, stringDetail } from './preference-helpers.ts';
 
 import '../../components/segmented-control.ts';
+import '../../components/stepper.ts';
 import '../../components/toggle-switch.ts';
 
 const THEMES: readonly SegmentOption[] = [
@@ -18,6 +20,11 @@ const THEMES: readonly SegmentOption[] = [
   { value: ThemePreference.Light, label: 'Lys' },
   { value: ThemePreference.Dark, label: 'Mørk' },
 ];
+
+/** The stepper counts whole percent; the stored rate is a factor of the voice's normal pace. */
+const RATE_PERCENT = { min: SPEECH_RATE_BOUNDS.min * 100, max: SPEECH_RATE_BOUNDS.max * 100, step: 5 } as const;
+
+const RATE_SAMPLE = 'Fem ville elger spiste fem fete fisker, og ingen av dem sa et ord.';
 
 export class DisplayPreferences extends LitElement {
   static override styles = [sharedStyles, preferenceStyles];
@@ -45,7 +52,15 @@ export class DisplayPreferences extends LitElement {
                 .checked=${settings.speakSolution}
                 @change=${this.#onSpeakSolution}
               ></ui-switch>
-            </div>`
+            </div>
+            <ui-stepper
+              label="Tempo for opplesing (%)"
+              .value=${Math.round(settings.speechRate * 100)}
+              .min=${RATE_PERCENT.min}
+              .max=${RATE_PERCENT.max}
+              .step=${RATE_PERCENT.step}
+              @change=${this.#onSpeechRate}
+            ></ui-stepper>`
           : nothing}
         ${this.#voice.available
           ? html`<p class="hint">På iPhone må ringebryteren være på for lydeffekter.</p>`
@@ -79,6 +94,19 @@ export class DisplayPreferences extends LitElement {
     if (event instanceof CustomEvent && typeof event.detail === 'boolean') {
       saveSettings(this, { speakSolution: event.detail });
     }
+  };
+
+  #onSpeechRate = (event: Event): void => {
+    if (!(event instanceof CustomEvent) || typeof event.detail !== 'number') {
+      return;
+    }
+
+    const speechRate = event.detail / 100;
+
+    saveSettings(this, { speechRate });
+
+    // A sample right away lets the learner hear the new pace.
+    speak(RATE_SAMPLE, speechRate);
   };
 }
 

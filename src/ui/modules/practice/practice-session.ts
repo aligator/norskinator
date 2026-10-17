@@ -202,6 +202,7 @@ export class PracticeSession extends LitElement {
               .dailyGoal=${store.state.progress.dailyGoal}
               ?practice=${session.mode === SessionMode.Practice}
               ?manualRating=${settings.manualRating}
+              .speechRate=${settings.speechRate}
               @continue=${this.#continue}
             ></feedback-sheet>`}
     `;
@@ -389,7 +390,7 @@ export class PracticeSession extends LitElement {
     }
 
     if (settings.speakSolution) {
-      speak(solutionText(feedback.exercise));
+      speak(solutionText(feedback.exercise), settings.speechRate);
     }
   }
 

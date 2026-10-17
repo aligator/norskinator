@@ -7,14 +7,9 @@
  * or key handler.
  */
 import { pickNorwegianVoice } from './voice-choice.ts';
+import { createVoiceWaiter } from './voice-waiter.ts';
 
 const FALLBACK_LANG = 'nb-NO';
-const DEFAULT_RATE = 0.95;
-
-export interface SpeakOptions {
-  /** 1 is the voice's normal pace; learners follow slightly slower speech more easily. */
-  readonly rate?: number;
-}
 
 /** Missing in tests, during prerendering and in some embedded webviews. */
 function synthesis(): SpeechSynthesis | null {
@@ -29,7 +24,7 @@ export function speechSupported(): boolean {
   return synthesis() !== null;
 }
 
-/** Chrome returns an empty list until voices have loaded; subscribe with `onVoicesReady`. */
+/** Chrome returns an empty list until voices have loaded; call `warmUpVoices` early and subscribe with `onVoicesReady`. */
 export function findNorwegianVoice(): SpeechSynthesisVoice | null {
   const speech = synthesis();
 
@@ -62,25 +57,22 @@ export function onVoicesReady(callback: () => void): () => void {
   };
 }
 
-export function speak(text: string, options: SpeakOptions = {}): void {
-  const speech = synthesis();
-  const trimmed = text.trim();
+/**
+ * Chrome only starts loading voices when `getVoices` is first called, and then
+ * takes a moment. Calling this at app start has them ready by the first sentence.
+ */
+export function warmUpVoices(): void {
+  synthesis()?.getVoices();
+}
 
-  if (speech === null || trimmed === '') {
-    return;
-  }
+const voiceWaiter = createVoiceWaiter<SpeechSynthesisVoice>({ find: findNorwegianVoice, subscribe: onVoicesReady });
 
-  const voice = pickNorwegianVoice(speech.getVoices());
-
-  if (voice === null) {
-    return;
-  }
-
-  const utterance = new SpeechSynthesisUtterance(trimmed);
+function say(speech: SpeechSynthesis, voice: SpeechSynthesisVoice, text: string, rate: number): void {
+  const utterance = new SpeechSynthesisUtterance(text);
 
   utterance.voice = voice;
   utterance.lang = voice.lang.replaceAll('_', '-') || FALLBACK_LANG;
-  utterance.rate = options.rate ?? DEFAULT_RATE;
+  utterance.rate = rate;
 
   speech.cancel();
 
@@ -92,6 +84,25 @@ export function speak(text: string, options: SpeakOptions = {}): void {
   speech.speak(utterance);
 }
 
+/**
+ * Reads `text` aloud. `rate` 1 is the voice's normal pace. When the browser
+ * has not loaded its voices yet, the sentence is read as soon as they arrive;
+ * a newer `speak` or `stopSpeaking` replaces it.
+ */
+export function speak(text: string, rate: number): void {
+  const speech = synthesis();
+  const trimmed = text.trim();
+
+  if (speech === null || trimmed === '') {
+    return;
+  }
+
+  voiceWaiter.whenReady((voice) => {
+    say(speech, voice, trimmed, rate);
+  });
+}
+
 export function stopSpeaking(): void {
+  voiceWaiter.cancel();
   synthesis()?.cancel();
 }

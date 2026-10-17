@@ -9,6 +9,7 @@ import { DEFAULT_TASK_WEIGHTS } from '../../src/core/task-weights.ts';
 import {
   DEFAULT_SETTINGS,
   INITIAL_STATE,
+  SPEECH_RATE_BOUNDS,
   STATE_VERSION,
   ThemePreference,
   TranslationLanguage,
@@ -162,6 +163,20 @@ describe('parseState', () => {
     const restored = parseState(JSON.stringify({ ...INITIAL_STATE, progress })).progress;
 
     expect(restored.lastSessionDay).toBeNull();
+  });
+
+  it('reads the speech rate, with the default for state saved before it existed', () => {
+    const old = parseState(JSON.stringify({ settings: { speakSolution: true } }));
+    const custom = parseState(JSON.stringify({ settings: { speechRate: 0.7 } }));
+    const tooFast = parseState(JSON.stringify({ settings: { speechRate: 9 } }));
+    const tooSlow = parseState(JSON.stringify({ settings: { speechRate: 0 } }));
+    const broken = parseState(JSON.stringify({ settings: { speechRate: 'fast' } }));
+
+    expect(old.settings.speechRate).toBe(DEFAULT_SETTINGS.speechRate);
+    expect(custom.settings.speechRate).toBe(0.7);
+    expect(tooFast.settings.speechRate).toBe(SPEECH_RATE_BOUNDS.max);
+    expect(tooSlow.settings.speechRate).toBe(SPEECH_RATE_BOUNDS.min);
+    expect(broken.settings.speechRate).toBe(DEFAULT_SETTINGS.speechRate);
   });
 
   it('loads settings stored before task types existed with the default mix', () => {
@@ -579,8 +594,10 @@ const V2_SESSION = {
 };
 
 describe('stored data of version 2', () => {
-  it('parses state unchanged', () => {
-    expect(JSON.parse(JSON.stringify(parseState(JSON.stringify(V2_STATE))))).toEqual(V2_STATE);
+  it('parses state unchanged, plus the defaults of settings added since', () => {
+    const expected = { ...V2_STATE, settings: { ...V2_STATE.settings, speechRate: DEFAULT_SETTINGS.speechRate } };
+
+    expect(JSON.parse(JSON.stringify(parseState(JSON.stringify(V2_STATE))))).toEqual(expected);
   });
 
   it('parses a session unchanged', () => {
