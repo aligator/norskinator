@@ -78,13 +78,42 @@ describe('review', () => {
     expect(review(card, 'good', card.due)).toEqual(review(card, 'good', card.due));
   });
 
-  it('does not throw when the clock was set back behind the last review', () => {
+  it('schedules from the clock the learner sees when it was set back behind the last review', () => {
     const card = graduated();
-    const behind = card.due - 3 * DAY_MS;
+    const behind = card.lastReviewed! - 3 * DAY_MS;
+    const again = review(card, 'again', behind);
 
     expect(() => review(card, 'good', behind)).not.toThrow();
-    expect(review(card, 'good', behind).lastReviewed).toBe(card.lastReviewed);
-    expect(review(card, 'again', behind).due).toBeGreaterThan(card.lastReviewed!);
+    expect(again.lastReviewed).toBe(behind);
+    expect(again.due).toBe(behind + 10 * MINUTE_MS);
+    expect(review(card, 'good', behind).lastReviewed).toBe(behind);
+  });
+
+  it('does not throw for any phase and grade with the clock behind the last review', () => {
+    const learning = answeredGood(1);
+    const relearning = review(graduated(), 'again', graduated().due);
+    const cards = [review(createCard('a', 'deck', NOW), 'good', NOW), learning, graduated(), relearning];
+    const offsets = [MINUTE_MS, 3 * DAY_MS, 400 * DAY_MS, 5 * 365 * DAY_MS];
+
+    expect(cards.map((card) => card.phase)).toEqual(['learning', 'learning', 'review', 'relearning']);
+
+    for (const card of cards) {
+      for (const offset of offsets) {
+        for (const grade of ['again', 'hard', 'good', 'easy'] as const) {
+          const behind = card.lastReviewed! - offset;
+          const next = review(card, grade, behind);
+
+          expect(next.lastReviewed).toBe(behind);
+          expect(next.due).toBeGreaterThan(behind);
+        }
+      }
+    }
+  });
+
+  it('counts the learning step of a new card from the clock', () => {
+    const card = createCard('a', 'deck', NOW);
+
+    expect(review(card, 'good', NOW - 5 * DAY_MS).due).toBe(NOW - 5 * DAY_MS + MINUTE_MS * 10);
   });
 
   it('records the answer on the card', () => {
@@ -159,6 +188,26 @@ describe('ratingOptions', () => {
     for (const option of ratingOptions(card, card.due)) {
       expect(review(card, option.grade, card.due).due).toBe(card.due + option.delayMs);
     }
+  });
+});
+
+describe('ratingOptions with the clock set back', () => {
+  it('measures every delay from the clock the learner sees', () => {
+    const card = graduated();
+    const behind = card.lastReviewed! - 3 * DAY_MS;
+
+    for (const option of ratingOptions(card, behind)) {
+      expect(option.delayMs).toBe(review(card, option.grade, behind).due - behind);
+      expect(option.delayMs).toBeGreaterThan(0);
+    }
+  });
+
+  it('keeps the wait after again short for a card reviewed in the future', () => {
+    const card = graduated();
+    const behind = card.lastReviewed! - 3 * DAY_MS;
+
+    expect(review(card, 'again', behind).due - behind).toBe(10 * MINUTE_MS);
+    expect(ratingOptions(card, behind)[0]!.delayMs).toBeLessThan(DAY_MS * 30);
   });
 });
 

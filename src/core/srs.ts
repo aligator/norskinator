@@ -84,7 +84,12 @@ export function createCard(exerciseId: string, deckId: string, now: number): Car
   };
 }
 
-function toFsrsCard(card: CardState): Card {
+/**
+ * The library's view of a card at `now`. The last review is clamped to `now`,
+ * so a clock set back never yields a negative span; the scheduled interval
+ * still comes from the stored dates.
+ */
+function toFsrsCard(card: CardState, now: number): Card {
   const scheduledDays =
     card.lastReviewed === null ? 0 : Math.max(0, Math.round((card.due - card.lastReviewed) / DAY_MS));
 
@@ -98,14 +103,15 @@ function toFsrsCard(card: CardState): Card {
     reps: card.reps,
     lapses: card.lapses,
     state: STATE_OF_PHASE[card.phase],
-    ...(card.lastReviewed === null ? {} : { last_review: new Date(card.lastReviewed) }),
+    ...(card.lastReviewed === null ? {} : { last_review: new Date(Math.min(card.lastReviewed, now)) }),
   };
 }
 
 export function review(card: CardState, grade: Grade, now: number): CardState {
-  // A clock set back must not put the review before the last one: the scheduler rejects a negative span.
-  const reviewedAt = Math.max(now, card.lastReviewed ?? now);
-  const next = scheduler.next(toFsrsCard(card), new Date(reviewedAt), RATINGS[grade]).card;
+  // The scheduler rejects a review before the last one. With the clock set back, the
+  // card counts as last reviewed at `now`, so the next due date is measured from the
+  // clock the learner sees and not from a last review that lies in their future.
+  const next = scheduler.next(toFsrsCard(card, now), new Date(now), RATINGS[grade]).card;
 
   return {
     ...card,
@@ -117,7 +123,7 @@ export function review(card: CardState, grade: Grade, now: number): CardState {
     reps: next.reps,
     lapses: next.lapses,
     failures: card.failures + (grade === 'again' ? 1 : 0),
-    lastReviewed: reviewedAt,
+    lastReviewed: now,
     lastGrade: grade,
   };
 }
