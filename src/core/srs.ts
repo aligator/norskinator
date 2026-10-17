@@ -103,7 +103,9 @@ function toFsrsCard(card: CardState): Card {
 }
 
 export function review(card: CardState, grade: Grade, now: number): CardState {
-  const next = scheduler.next(toFsrsCard(card), new Date(now), RATINGS[grade]).card;
+  // A clock set back must not put the review before the last one: the scheduler rejects a negative span.
+  const reviewedAt = Math.max(now, card.lastReviewed ?? now);
+  const next = scheduler.next(toFsrsCard(card), new Date(reviewedAt), RATINGS[grade]).card;
 
   return {
     ...card,
@@ -115,7 +117,7 @@ export function review(card: CardState, grade: Grade, now: number): CardState {
     reps: next.reps,
     lapses: next.lapses,
     failures: card.failures + (grade === 'again' ? 1 : 0),
-    lastReviewed: now,
+    lastReviewed: reviewedAt,
     lastGrade: grade,
   };
 }

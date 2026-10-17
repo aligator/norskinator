@@ -179,16 +179,17 @@ function parseCard(id: string, value: unknown): CardState | null {
   const lapses = readCount(value['lapses']);
   const phase = readEnum(value['phase'], CARD_PHASES, 'new');
 
-  // The scheduler rejects a memory state outside its range, so an answered card is kept inside it.
-  const stability = Math.max(0, readNumber(value['stability'], 0));
-  const difficulty = Math.min(MAX_DIFFICULTY, Math.max(0, readNumber(value['difficulty'], 0)));
+  // The scheduler rejects a memory state outside its range: an answered card is kept inside it, a new one has none.
+  const stability = phase === 'new' ? 0 : Math.max(MIN_STABILITY, readNumber(value['stability'], 0));
+  const difficulty =
+    phase === 'new' ? 0 : Math.min(MAX_DIFFICULTY, Math.max(MIN_DIFFICULTY, readNumber(value['difficulty'], 0)));
 
   return {
     exerciseId: id,
     deckId,
     phase,
-    stability: phase === 'new' ? stability : Math.max(MIN_STABILITY, stability),
-    difficulty: phase === 'new' ? difficulty : Math.max(MIN_DIFFICULTY, difficulty),
+    stability,
+    difficulty,
     learningStep: readCount(value['learningStep']),
     due: readNumber(value['due'], 0),
     reps: readCount(value['reps']),
@@ -314,17 +315,27 @@ function migrateCardV1(value: unknown): unknown {
   };
 }
 
+/** The per-session limit of new items is the per-day limit now; 0 (new items paused) stays 0. */
+function migrateSettingsV1(value: unknown): unknown {
+  if (!isRecord(value) || value['newPerSession'] === undefined) {
+    return value;
+  }
+
+  const { newPerSession, ...kept } = value;
+
+  return { ...kept, newPerDay: newPerSession };
+}
+
 /** Version 1 → 2: SM-2 cards (ease, interval) become FSRS cards (stability, difficulty). */
 function migrateV1(raw: Record<string, unknown>): Record<string, unknown> {
   const cards = raw['cards'];
 
-  if (!isRecord(cards)) {
-    return raw;
-  }
-
   return {
     ...raw,
-    cards: Object.fromEntries(Object.entries(cards).map(([id, card]) => [id, migrateCardV1(card)])),
+    settings: migrateSettingsV1(raw['settings']),
+    cards: isRecord(cards)
+      ? Object.fromEntries(Object.entries(cards).map(([id, card]) => [id, migrateCardV1(card)]))
+      : cards,
   };
 }
 
@@ -627,7 +638,11 @@ function readRatingOptions(value: unknown): RatingOption[] | null {
       continue;
     }
 
-    const grade = readEnum(entry['grade'], RATED_GRADES, 'good');
+    const grade = RATED_GRADES.find((known) => known === entry['grade']);
+
+    if (grade === undefined || options.some((option) => option.grade === grade)) {
+      continue;
+    }
 
     options.push({ grade, delayMs: Math.max(0, readNumber(entry['delayMs'], 0)) });
   }

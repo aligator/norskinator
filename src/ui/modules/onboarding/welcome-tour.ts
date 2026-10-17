@@ -300,7 +300,7 @@ export class WelcomeTour extends LitElement {
             <li><strong>Dagsmålet</strong> er et antall riktige svar per dag. Ringen på forsiden viser hvor langt du har kommet.</li>
             <li>
               I <strong>hagen</strong> er hver setning en plante. Den vokser når du husker den, og visner når du svarer
-              feil. Nye frø kommer når de unge plantene har vokst.
+              feil. Hver dag kommer det en begrenset mengde nye frø.
             </li>
             <li>
               Riktige svar gir <strong>penger</strong>, og mange riktige på rad gir bonus. For pengene kjøper du nye

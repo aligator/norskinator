@@ -78,6 +78,15 @@ describe('review', () => {
     expect(review(card, 'good', card.due)).toEqual(review(card, 'good', card.due));
   });
 
+  it('does not throw when the clock was set back behind the last review', () => {
+    const card = graduated();
+    const behind = card.due - 3 * DAY_MS;
+
+    expect(() => review(card, 'good', behind)).not.toThrow();
+    expect(review(card, 'good', behind).lastReviewed).toBe(card.lastReviewed);
+    expect(review(card, 'again', behind).due).toBeGreaterThan(card.lastReviewed!);
+  });
+
   it('records the answer on the card', () => {
     const card = review(createCard('a', 'deck', NOW), 'hard', NOW);
 

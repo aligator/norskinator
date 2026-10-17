@@ -64,6 +64,13 @@ describe('parseState', () => {
     expect(state.settings).not.toHaveProperty('newPerSession');
   });
 
+  it('gives a card that was never answered no memory state, however it was stored', () => {
+    const raw = JSON.stringify({ cards: { a: { deckId: 'deck', phase: 'new', stability: 5, difficulty: 0 } } });
+    const card = parseState(raw).cards['a'];
+
+    expect(card).toMatchObject({ stability: 0, difficulty: 0 });
+  });
+
   it('reads the daily counters, from zero when none are stored', () => {
     const stored = parseState(
       JSON.stringify({ progress: { limitsDay: '2026-01-15', newToday: 4.7, reviewsToday: 12 } }),
@@ -110,19 +117,20 @@ describe('parseState', () => {
     expect(parseState(raw).progress.goalReachedDay).toBe('2026-01-15');
   });
 
-  it('keeps difficulty in the FSRS range and stability positive', () => {
+  it('keeps the memory state of an answered card inside the range the scheduler accepts', () => {
     const raw = JSON.stringify({
       cards: {
-        low: { deckId: 'deck', difficulty: -3, stability: -1 },
-        high: { deckId: 'deck', difficulty: 99 },
+        low: { deckId: 'deck', phase: 'review', difficulty: -3, stability: -1 },
+        high: { deckId: 'deck', phase: 'review', difficulty: 99, stability: 4 },
       },
     });
 
     const cards = parseState(raw).cards;
 
-    expect(cards['low']?.difficulty).toBe(0);
-    expect(cards['low']?.stability).toBe(0);
+    expect(cards['low']?.difficulty).toBe(1);
+    expect(cards['low']?.stability).toBeGreaterThan(0);
     expect(cards['high']?.difficulty).toBe(10);
+    expect(cards['high']?.stability).toBe(4);
   });
 
   it('ignores card ids that would reach the prototype chain', () => {
@@ -414,6 +422,17 @@ describe('migration from version 1', () => {
     expect(card).not.toHaveProperty('intervalDays');
   });
 
+  it('carries the new items limit over, so paused stays paused', () => {
+    const paused = parseState(JSON.stringify({ version: 1, settings: { newPerSession: 0 } }));
+    const custom = parseState(JSON.stringify({ version: 1, settings: { newPerSession: 5 } }));
+    const untouched = parseState(JSON.stringify({ version: 1, settings: { theme: 'dark' } }));
+
+    expect(paused.settings.newPerDay).toBe(0);
+    expect(custom.settings.newPerDay).toBe(5);
+    expect(untouched.settings.newPerDay).toBe(DEFAULT_SETTINGS.newPerDay);
+    expect(untouched.settings.theme).toBe('dark');
+  });
+
   it('leaves version 2 data alone', () => {
     const current = { deckId: 'deck', phase: 'review', stability: 12, difficulty: 4, due: 1, reps: 2 };
     const state = parseState(JSON.stringify({ version: 2, cards: { a: current } }));
@@ -448,10 +467,24 @@ describe('pending rating in a stored session', () => {
 
     const options = parseSession(raw)?.feedback?.ratingOptions;
 
-    expect(options).toEqual([
-      { grade: 'good', delayMs: 5 },
-      { grade: 'good', delayMs: 0 },
-    ]);
+    expect(options).toEqual([{ grade: 'good', delayMs: 5 }]);
+  });
+
+  it('keeps each grade once, in the stored order', () => {
+    const feedback = {
+      exerciseId: 'a',
+      given: 'på',
+      correct: true,
+      grade: 'good',
+      ratingOptions: [
+        { grade: 'easy', delayMs: 9 },
+        { grade: 'hard', delayMs: 1 },
+        { grade: 'easy', delayMs: 7 },
+      ],
+    };
+    const raw = JSON.stringify({ queue: ['a'], index: 0, startedAt: 1, feedback });
+
+    expect(parseSession(raw)?.feedback?.ratingOptions?.map((option) => option.grade)).toEqual(['easy', 'hard']);
   });
 
   it('is not pending when none is stored', () => {
