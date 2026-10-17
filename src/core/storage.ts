@@ -6,19 +6,28 @@
  * future changes can migrate instead of wiping progress.
  */
 import { INITIAL_PROGRESS, clampDailyGoal, type Progress } from './gamification.ts';
-import { PLANT_STAGES, SEED, type Plant } from './garden.ts';
-import { SESSION_MODES, type SessionMode } from './session.ts';
-import { DEFAULT_SPECIES, INITIAL_GARDEN, SPECIES_IDS, type GardenState, type SpeciesId } from './species.ts';
-import { CARD_PHASES, type CardState, type Grade, type RatingOption } from './srs.ts';
+import { isEnumValue } from './enums.ts';
+import { PlantStage, SEED, type Plant } from './garden.ts';
+import { SessionMode } from './session.ts';
+import { DEFAULT_SPECIES, INITIAL_GARDEN, SpeciesId, type GardenState } from './species.ts';
+import { CardPhase, Grade, type CardState, type RatingOption } from './srs.ts';
 import { DEFAULT_TASK_WEIGHTS, parseTaskWeights, type TaskWeights } from './task-weights.ts';
-import { EXERCISE_KINDS, type ExerciseKind } from './types.ts';
+import { ExerciseKind } from './types.ts';
 
 export const STORAGE_KEY = 'norskinator.state';
 export const STATE_VERSION = 2;
 
-export type TranslationLanguage = 'de' | 'en' | 'none';
+export enum TranslationLanguage {
+  German = 'de',
+  English = 'en',
+  None = 'none',
+}
 
-export type ThemePreference = 'auto' | 'light' | 'dark';
+export enum ThemePreference {
+  Auto = 'auto',
+  Light = 'light',
+  Dark = 'dark',
+}
 
 export interface Settings {
   readonly translationLanguage: TranslationLanguage;
@@ -41,8 +50,8 @@ export interface Settings {
 }
 
 export const DEFAULT_SETTINGS: Settings = {
-  translationLanguage: 'de',
-  theme: 'auto',
+  translationLanguage: TranslationLanguage.German,
+  theme: ThemePreference.Auto,
   newPerDay: 10,
   reviewsPerDay: 100,
   sessionSize: 20,
@@ -94,12 +103,16 @@ function readBoolean(value: unknown, fallback: boolean): boolean {
   return value;
 }
 
-function readEnum<T extends string>(value: unknown, allowed: readonly T[], fallback: T): T {
-  if (typeof value !== 'string' || !(allowed as readonly string[]).includes(value)) {
+function readEnum<Value extends string>(
+  value: unknown,
+  enumObject: Readonly<Record<string, Value>>,
+  fallback: Value,
+): Value {
+  if (!isEnumValue(enumObject, value)) {
     return fallback;
   }
 
-  return value as T;
+  return value;
 }
 
 function readStringArray(value: unknown): string[] {
@@ -177,12 +190,12 @@ function parseCard(id: string, value: unknown): CardState | null {
 
   const lastReviewed = value['lastReviewed'];
   const lapses = readCount(value['lapses']);
-  const phase = readEnum(value['phase'], CARD_PHASES, 'new');
+  const phase = readEnum(value['phase'], CardPhase, CardPhase.New);
 
   // The scheduler rejects a memory state outside its range: an answered card is kept inside it, a new one has none.
-  const stability = phase === 'new' ? 0 : Math.max(MIN_STABILITY, readNumber(value['stability'], 0));
+  const stability = phase === CardPhase.New ? 0 : Math.max(MIN_STABILITY, readNumber(value['stability'], 0));
   const difficulty =
-    phase === 'new' ? 0 : Math.min(MAX_DIFFICULTY, Math.max(MIN_DIFFICULTY, readNumber(value['difficulty'], 0)));
+    phase === CardPhase.New ? 0 : Math.min(MAX_DIFFICULTY, Math.max(MIN_DIFFICULTY, readNumber(value['difficulty'], 0)));
 
   return {
     exerciseId: id,
@@ -257,12 +270,8 @@ function parseSettings(value: unknown): Settings {
   }
 
   return clampPace({
-    translationLanguage: readEnum(
-      value['translationLanguage'],
-      ['de', 'en', 'none'] as const,
-      DEFAULT_SETTINGS.translationLanguage,
-    ),
-    theme: readEnum(value['theme'], ['auto', 'light', 'dark'] as const, DEFAULT_SETTINGS.theme),
+    translationLanguage: readEnum(value['translationLanguage'], TranslationLanguage, DEFAULT_SETTINGS.translationLanguage),
+    theme: readEnum(value['theme'], ThemePreference, DEFAULT_SETTINGS.theme),
     newPerDay: readNumber(value['newPerDay'], DEFAULT_SETTINGS.newPerDay),
     reviewsPerDay: readNumber(value['reviewsPerDay'], DEFAULT_SETTINGS.reviewsPerDay),
     sessionSize: readNumber(value['sessionSize'], DEFAULT_SETTINGS.sessionSize),
@@ -286,7 +295,9 @@ const V1_LEARNING_STABILITY_DAYS = 0.5;
 /**
  * An SM-2 card becomes an FSRS card. At 90 % retention the interval is the
  * stability, so the interval carries over as is. A high ease (easy card)
- * becomes a low difficulty, linearly across both ranges.
+ * becomes a low difficulty, linearly across both ranges. It reads raw v1 data
+ * and writes raw v2 data, so its strings are the stored values of those
+ * versions and must not follow later changes to the enums.
  */
 function migrateCardV1(value: unknown): unknown {
   if (!isRecord(value)) {
@@ -405,7 +416,7 @@ export function storedVersion(storage: StorageLike = defaultStorage()): number |
 }
 
 function isSpeciesId(value: unknown): value is SpeciesId {
-  return SPECIES_IDS.some((known) => known === value);
+  return isEnumValue(SpeciesId, value);
 }
 
 /** State saved before the shop existed has no garden: it starts with the free species. */
@@ -559,10 +570,8 @@ export interface PersistedSession {
   readonly feedback: PersistedFeedback | null;
 }
 
-const GRADES: readonly Grade[] = ['again', 'hard', 'good', 'easy'];
-
 function isGrade(value: unknown): value is Grade {
-  return GRADES.some((known) => known === value);
+  return isEnumValue(Grade, value);
 }
 
 function isStringArray(value: unknown): value is string[] {
@@ -575,7 +584,7 @@ function readPlant(value: unknown): Plant {
   }
 
   return {
-    stage: readEnum(value['stage'], PLANT_STAGES, 'seed'),
+    stage: readEnum(value['stage'], PlantStage, PlantStage.Seed),
     wilted: readBoolean(value['wilted'], false),
     growth: Math.min(1, readNumber(value['growth'], 0)),
   };
@@ -617,14 +626,14 @@ function parseFeedback(value: unknown): PersistedFeedback | null {
     goalJustReached: readBoolean(value['goalJustReached'], false),
     plantBefore: readPlant(value['plantBefore']),
     plantAfter: readPlant(value['plantAfter']),
-    species: readEnum(value['species'], SPECIES_IDS, DEFAULT_SPECIES),
+    species: readEnum(value['species'], SpeciesId, DEFAULT_SPECIES),
     nextDue: readNumber(value['nextDue'], 0),
     reps: readCount(value['reps']),
     ratingOptions: readRatingOptions(value['ratingOptions']),
   };
 }
 
-const RATED_GRADES: readonly RatingOption['grade'][] = ['hard', 'good', 'easy'];
+const RATED_GRADES: readonly RatingOption['grade'][] = [Grade.Hard, Grade.Good, Grade.Easy];
 
 function readRatingOptions(value: unknown): RatingOption[] | null {
   if (!Array.isArray(value)) {
@@ -655,7 +664,7 @@ function readKinds(value: unknown, length: number): ExerciseKind[] {
   const stored: readonly unknown[] = Array.isArray(value) ? value : [];
 
   return Array.from({ length }, (_unused, position) =>
-    readEnum(stored[position], EXERCISE_KINDS, 'multiple-choice'),
+    readEnum(stored[position], ExerciseKind, ExerciseKind.MultipleChoice),
   );
 }
 
@@ -719,7 +728,7 @@ export function parseSession(raw: string | null): PersistedSession | null {
     gardenStart: readPlants(parsed['gardenStart']),
     startedAt,
     deckIds: readStringArray(parsed['deckIds']),
-    mode: readEnum(parsed['mode'], SESSION_MODES, 'review'),
+    mode: readEnum(parsed['mode'], SessionMode, SessionMode.Review),
     feedback: parseFeedback(parsed['feedback']),
   };
 }

@@ -5,7 +5,7 @@
 import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
-import type { DataKind } from '../../src/core/types.ts';
+import { DataKind } from '../../src/core/types.ts';
 import { FORM_CATEGORIES } from '../../src/decks/adjectives/categories.ts';
 import { WORD_ORDER_RULES } from '../../src/decks/word-order/categories.ts';
 import { readTatoebaBundle, type TatoebaBundle } from '../../src/decks/tatoeba-source.ts';
@@ -21,9 +21,9 @@ export interface ReviewDeck {
 }
 
 export const REVIEW_DECKS: readonly ReviewDeck[] = [
-  { id: 'prepositions', idPrefix: 'p-', dataKind: 'cloze', categories: [] },
-  { id: 'adjectives', idPrefix: 'a-', dataKind: 'cloze', categories: FORM_CATEGORIES },
-  { id: 'word-order', idPrefix: 'w-', dataKind: 'sentence', categories: WORD_ORDER_RULES },
+  { id: 'prepositions', idPrefix: 'p-', dataKind: DataKind.Cloze, categories: [] },
+  { id: 'adjectives', idPrefix: 'a-', dataKind: DataKind.Cloze, categories: FORM_CATEGORIES },
+  { id: 'word-order', idPrefix: 'w-', dataKind: DataKind.Sentence, categories: WORD_ORDER_RULES },
 ];
 
 export function deckFromArgs(): ReviewDeck {

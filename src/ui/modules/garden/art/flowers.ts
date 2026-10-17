@@ -1,6 +1,7 @@
 /** Flowers, herbs and small shrubs: they grow wider and bloom more instead of growing tall. */
 import { svg } from 'lit';
 
+import { SpeciesId } from '../../../../core/species.ts';
 import {
   berry,
   bud,
@@ -226,16 +227,16 @@ const hydrangea: SpeciesArt = {
 };
 
 export const FLOWER_ART = {
-  dandelion,
-  wheat,
-  daisy,
-  tulip,
-  heather,
-  fern,
-  poppy,
-  strawberry: strawberryArt,
-  blueberry,
-  pumpkin: pumpkinArt,
-  rose,
-  hydrangea,
-} as const satisfies Record<string, SpeciesArt>;
+  [SpeciesId.Dandelion]: dandelion,
+  [SpeciesId.Wheat]: wheat,
+  [SpeciesId.Daisy]: daisy,
+  [SpeciesId.Tulip]: tulip,
+  [SpeciesId.Heather]: heather,
+  [SpeciesId.Fern]: fern,
+  [SpeciesId.Poppy]: poppy,
+  [SpeciesId.Strawberry]: strawberryArt,
+  [SpeciesId.Blueberry]: blueberry,
+  [SpeciesId.Pumpkin]: pumpkinArt,
+  [SpeciesId.Rose]: rose,
+  [SpeciesId.Hydrangea]: hydrangea,
+} as const satisfies Partial<Record<SpeciesId, SpeciesArt>>;

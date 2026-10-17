@@ -2,6 +2,7 @@
 import { LitElement, css, html, type TemplateResult } from 'lit';
 
 import { tagMastery, type TagMastery } from '../../../core/stats.ts';
+import { LoadStatus } from '../../../core/store.ts';
 import { deckById } from '../../../decks/registry.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { formatPercent } from '../shared/format.ts';
@@ -103,7 +104,7 @@ export class MasteryList extends LitElement {
   protected readonly storeController = new StoreController(this);
 
   protected override render(): TemplateResult {
-    if (store.state.status !== 'ready') {
+    if (store.state.status !== LoadStatus.Ready) {
       return html`<p class="empty">Laster …</p>`;
     }
 

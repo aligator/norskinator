@@ -3,13 +3,17 @@
  * task types of one data kind always add up to 100 (multiple choice and
  * type-in for cloze items); moving one moves the others the opposite way.
  */
-import { DATA_KINDS, EXERCISE_KINDS, TASK_DATA_KIND, type DataKind, type ExerciseKind } from './types.ts';
+import { DATA_KINDS, EXERCISE_KINDS, ExerciseKind, TASK_DATA_KIND, type DataKind } from './types.ts';
 
 export type TaskWeights = Readonly<Record<ExerciseKind, number>>;
 
 export const WEIGHT_TOTAL = 100;
 
-export const DEFAULT_TASK_WEIGHTS: TaskWeights = { 'multiple-choice': 70, 'type-in': 30, 'word-order': 100 };
+export const DEFAULT_TASK_WEIGHTS: TaskWeights = {
+  [ExerciseKind.MultipleChoice]: 70,
+  [ExerciseKind.TypeIn]: 30,
+  [ExerciseKind.WordOrder]: 100,
+};
 
 /**
  * Splits `total` into whole numbers proportional to `shares` (largest

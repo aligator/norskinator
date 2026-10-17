@@ -7,7 +7,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import type { GeneratedBundle, GeneratedCredit, GeneratedItem, LanguageCode } from '../src/core/types.ts';
+import { LanguageCode, type GeneratedBundle, type GeneratedCredit, type GeneratedItem } from '../src/core/types.ts';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -41,8 +41,8 @@ export interface NorwegianCorpus {
 
 /** Tatoeba export prefix per translation language, in the order they are stored. */
 const TRANSLATION_LANGUAGES: readonly { readonly lang: LanguageCode; readonly code: string }[] = [
-  { lang: 'de', code: 'deu' },
-  { lang: 'en', code: 'eng' },
+  { lang: LanguageCode.German, code: 'deu' },
+  { lang: LanguageCode.English, code: 'eng' },
 ];
 
 /** Tatoeba writes `\N` when a sentence's contributor account no longer exists. */

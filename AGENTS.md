@@ -28,6 +28,12 @@ Hard rules, enforced in review:
 6. TypeScript only, `strict` plus `noUncheckedIndexedAccess`. No `any`.
 7. Core logic (`src/core/`) stays framework-free so it is testable without a
    DOM. Lit is only used in `src/ui/`.
+8. A closed set of strings the code branches on is a string enum with
+   PascalCase members (`enum Grade { Again = 'again' }`), defined in the file
+   that owns the type. A string from storage, JSON or an event passes
+   `isEnumValue` or `readEnum` before it is used as one. Content-defined
+   strings (tags, deck categories, topics) stay strings, and so do unions
+   that carry a payload (`Route`) or live inside one component.
 
 ## Architecture
 

@@ -27,7 +27,10 @@ export function dailyRoom(progress: Progress, limits: DailyLimits, now: number):
   };
 }
 
-export type CountedAnswer = 'new' | 'review';
+export enum CountedAnswer {
+  New = 'new',
+  Review = 'review',
+}
 
 /** Counts an answer that used up today's room: an item seen for the first time, or a graduated card. */
 export function recordCounted(progress: Progress, kind: CountedAnswer, now: number): Progress {
@@ -39,8 +42,8 @@ export function recordCounted(progress: Progress, kind: CountedAnswer, now: numb
   return {
     ...progress,
     limitsDay: today,
-    newToday: newToday + (kind === 'new' ? 1 : 0),
-    reviewsToday: reviewsToday + (kind === 'review' ? 1 : 0),
+    newToday: newToday + (kind === CountedAnswer.New ? 1 : 0),
+    reviewsToday: reviewsToday + (kind === CountedAnswer.Review ? 1 : 0),
   };
 }
 

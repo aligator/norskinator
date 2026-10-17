@@ -8,7 +8,7 @@
  */
 
 import { unlockBadges, type BadgeWorld } from './badges.ts';
-import type { SessionMode } from './session.ts';
+import { SessionMode } from './session.ts';
 import { INITIAL_GARDEN } from './species.ts';
 
 /** For callers that only track progress, e.g. tests: no plants, no purchases. */
@@ -154,7 +154,7 @@ export function recordAnswer(
   correct: boolean,
   now: number,
   world: BadgeWorld = NO_WORLD,
-  mode: SessionMode = 'review',
+  mode: SessionMode = SessionMode.Review,
 ): AnswerOutcome {
   const today = dayKey(now);
   const sameDay = progress.lastActiveDay === today;
@@ -163,7 +163,7 @@ export function recordAnswer(
   const combo = correct ? progress.combo + 1 : 0;
 
   const comboBonus = correct ? Math.min((combo - 1) * XP_PER_COMBO_STEP, MAX_COMBO_BONUS) : 0;
-  const answerXp = mode === 'practice' ? PRACTICE_XP_CORRECT : BASE_XP_CORRECT + comboBonus;
+  const answerXp = mode === SessionMode.Practice ? PRACTICE_XP_CORRECT : BASE_XP_CORRECT + comboBonus;
   const goalJustReached = correct && answersToday >= progress.dailyGoal && progress.goalReachedDay !== today;
 
   const xpGained = (correct ? answerXp : 0) + (goalJustReached ? XP_GOAL_BONUS : 0);

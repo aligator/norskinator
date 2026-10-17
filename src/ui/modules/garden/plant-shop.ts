@@ -5,11 +5,11 @@
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 import { keyed } from 'lit/directives/keyed.js';
 
-import { SEED } from '../../../core/garden.ts';
+import { PlantStage, SEED } from '../../../core/garden.ts';
 import { badgeById, type Badge } from '../../../core/badges.ts';
 import { SPECIES, canBuy, spendableXp, type Species } from '../../../core/species.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
-import { playSound } from '../audio/sound-effects.ts';
+import { SoundKind, playSound } from '../audio/sound-effects.ts';
 import { announce } from '../shared/announce.ts';
 import { formatNumber } from '../shared/format.ts';
 import { StoreController, store } from '../shared/store.ts';
@@ -30,7 +30,7 @@ const BURST: readonly (readonly [number, number])[] = [
   [34, -30],
 ];
 
-const BLOSSOM = { stage: 'blossom', wilted: false, growth: 1 } as const;
+const BLOSSOM = { stage: PlantStage.Blossom, wilted: false, growth: 1 } as const;
 
 export class PlantShop extends LitElement {
   static override properties = {
@@ -263,7 +263,7 @@ export class PlantShop extends LitElement {
       announce(this, `${species.name} er nå i hagen din.`);
 
       if (store.state.settings.soundEffects) {
-        playSound('coin');
+        playSound(SoundKind.Coin);
       }
     }
   }

@@ -2,6 +2,7 @@
 import { LitElement, css, html, type TemplateResult } from 'lit';
 
 import { checkIcon } from '../../components/icons.ts';
+import { ProgressTone } from '../../components/progress-ring.ts';
 import '../../components/progress-ring.ts';
 
 /**
@@ -76,7 +77,7 @@ export class GoalRing extends LitElement {
       <ui-progress-ring
         .value=${ratio}
         .from=${from}
-        tone=${reached ? 'success' : 'accent'}
+        tone=${reached ? ProgressTone.Success : ProgressTone.Accent}
         label=${reached ? `Dagsmål nådd: ${this.value} av ${this.goal} riktige svar i dag` : `${this.value} av ${this.goal} riktige svar i dag`}
       >
         <span class="content">

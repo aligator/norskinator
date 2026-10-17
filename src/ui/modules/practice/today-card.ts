@@ -2,10 +2,18 @@
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
 import { answersToday, currentStreak, sessionCompletedToday } from '../../../core/gamification.ts';
-import { PLANT_STAGES, PLANT_STAGE_LABELS, gardenBeds, totalCounts, type StageCounts } from '../../../core/garden.ts';
+import {
+  PLANT_STAGES,
+  PLANT_STAGE_LABELS,
+  PlantStage,
+  gardenBeds,
+  totalCounts,
+  type StageCounts,
+} from '../../../core/garden.ts';
 import { dailyRoom } from '../../../core/daily.ts';
 import { sessionOptions, sessionPreview, type SessionPreview } from '../../../core/session.ts';
 import { spendableXp } from '../../../core/species.ts';
+import { LoadStatus } from '../../../core/store.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { formatNumber } from '../shared/format.ts';
 import { PRACTICE_NOTE, startSession } from '../shared/session-start.ts';
@@ -15,7 +23,7 @@ import '../gamification/goal-ring.ts';
 import '../gamification/money-amount.ts';
 import '../garden/plant-sprite.ts';
 
-const GROWN_STAGES = PLANT_STAGES.filter((stage) => stage !== 'seed');
+const GROWN_STAGES = PLANT_STAGES.filter((stage) => stage !== PlantStage.Seed);
 
 /** «3 repetisjoner · 10 nye», leaving out a part that is zero. */
 function startSummary(due: number, fresh: number): string {
@@ -166,7 +174,7 @@ export class TodayCard extends LitElement {
   #renderStreakHint(now: number): TemplateResult | typeof nothing {
     const progress = store.state.progress;
 
-    if (store.state.status !== 'ready' || sessionCompletedToday(progress, now)) {
+    if (store.state.status !== LoadStatus.Ready || sessionCompletedToday(progress, now)) {
       return nothing;
     }
 
@@ -191,14 +199,14 @@ export class TodayCard extends LitElement {
   #renderStart({ due, fresh, unseen, newLeft, heldBack }: SessionPreview): TemplateResult {
     const status = store.state.status;
 
-    if (status === 'error') {
+    if (status === LoadStatus.Error) {
       return html`
         <p class="error" role="alert">Kunne ikke laste oppgavene: ${store.state.error}</p>
         <button class="button secondary block" @click=${() => void store.init()}>Prøv igjen</button>
       `;
     }
 
-    if (status !== 'ready') {
+    if (status !== LoadStatus.Ready) {
       return html`<button class="button primary block cta" disabled aria-busy="true">Laster oppgaver …</button>`;
     }
 

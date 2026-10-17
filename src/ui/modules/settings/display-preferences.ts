@@ -1,11 +1,12 @@
 /** How the app looks and sounds: theme, sound effects and reading the solution aloud. */
 import { LitElement, html, nothing, type TemplateResult } from 'lit';
 
-import type { ThemePreference } from '../../../core/storage.ts';
+import { isEnumValue } from '../../../core/enums.ts';
+import { ThemePreference } from '../../../core/storage.ts';
 import type { SegmentOption } from '../../components/segmented-control.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { VoiceController } from '../audio/voice-controller.ts';
-import { playSound } from '../audio/sound-effects.ts';
+import { SoundKind, playSound } from '../audio/sound-effects.ts';
 import { StoreController, store } from '../shared/store.ts';
 import { preferenceStyles, saveSettings, stringDetail } from './preference-helpers.ts';
 
@@ -13,14 +14,10 @@ import '../../components/segmented-control.ts';
 import '../../components/toggle-switch.ts';
 
 const THEMES: readonly SegmentOption[] = [
-  { value: 'auto', label: 'Auto' },
-  { value: 'light', label: 'Lys' },
-  { value: 'dark', label: 'Mørk' },
+  { value: ThemePreference.Auto, label: 'Auto' },
+  { value: ThemePreference.Light, label: 'Lys' },
+  { value: ThemePreference.Dark, label: 'Mørk' },
 ];
-
-function isTheme(value: string): value is ThemePreference {
-  return THEMES.some((option) => option.value === value);
-}
 
 export class DisplayPreferences extends LitElement {
   static override styles = [sharedStyles, preferenceStyles];
@@ -60,7 +57,7 @@ export class DisplayPreferences extends LitElement {
   #onTheme = (event: Event): void => {
     const value = stringDetail(event);
 
-    if (value !== null && isTheme(value)) {
+    if (isEnumValue(ThemePreference, value)) {
       saveSettings(this, { theme: value });
     }
   };
@@ -74,7 +71,7 @@ export class DisplayPreferences extends LitElement {
 
     // A sample right away lets the learner hear what they switched on (and unlocks audio on iOS).
     if (event.detail) {
-      playSound('correct');
+      playSound(SoundKind.Correct);
     }
   };
 

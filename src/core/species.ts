@@ -5,34 +5,35 @@
  * keeps its own tally of what was spent.
  */
 
-export type SpeciesId =
-  | 'apple'
-  | 'dandelion'
-  | 'sunflower'
-  | 'wheat'
-  | 'daisy'
-  | 'tulip'
-  | 'heather'
-  | 'fern'
-  | 'poppy'
-  | 'spruce'
-  | 'strawberry'
-  | 'blueberry'
-  | 'rose'
-  | 'pumpkin'
-  | 'cactus'
-  | 'pine'
-  | 'rowan'
-  | 'oak'
-  | 'cherry'
-  | 'bamboo'
-  | 'maple'
-  | 'palm'
-  | 'birch'
-  | 'hydrangea'
-  | 'lavender'
-  | 'bonsai'
-  | 'aurora';
+export enum SpeciesId {
+  Apple = 'apple',
+  Dandelion = 'dandelion',
+  Sunflower = 'sunflower',
+  Wheat = 'wheat',
+  Daisy = 'daisy',
+  Tulip = 'tulip',
+  Heather = 'heather',
+  Fern = 'fern',
+  Poppy = 'poppy',
+  Spruce = 'spruce',
+  Strawberry = 'strawberry',
+  Blueberry = 'blueberry',
+  Rose = 'rose',
+  Pumpkin = 'pumpkin',
+  Cactus = 'cactus',
+  Pine = 'pine',
+  Rowan = 'rowan',
+  Oak = 'oak',
+  Cherry = 'cherry',
+  Bamboo = 'bamboo',
+  Maple = 'maple',
+  Palm = 'palm',
+  Birch = 'birch',
+  Hydrangea = 'hydrangea',
+  Lavender = 'lavender',
+  Bonsai = 'bonsai',
+  Aurora = 'aurora',
+}
 
 export interface Species {
   readonly id: SpeciesId;
@@ -44,39 +45,37 @@ export interface Species {
 
 /** Cheapest first, the order the shop shows them in. */
 export const SPECIES: readonly Species[] = [
-  { id: 'apple', name: 'Epletre', description: 'Rund krone og rosa blomster.', price: 0 },
-  { id: 'dandelion', name: 'Løvetann', description: 'Gul blomst som blir til en luftig fnokk.', price: 200 },
-  { id: 'sunflower', name: 'Solsikke', description: 'Vender ansiktet mot sola.', price: 300 },
-  { id: 'wheat', name: 'Hvete', description: 'Gylne aks som vaier i vinden.', price: 350 },
-  { id: 'daisy', name: 'Prestekrage', description: 'Hvite kronblader rundt en gul midte.', price: 400 },
-  { id: 'tulip', name: 'Tulipan', description: 'Røde, gule og rosa begre om våren.', price: 500 },
-  { id: 'heather', name: 'Røsslyng', description: 'Lilla lyng fra de norske heiene.', price: 600 },
-  { id: 'fern', name: 'Bregne', description: 'Grønne blader som ruller seg ut.', price: 700 },
-  { id: 'poppy', name: 'Valmue', description: 'Knallrøde kronblader.', price: 750 },
-  { id: 'spruce', name: 'Gran', description: 'Grønn hele året, med kongler.', price: 800 },
-  { id: 'strawberry', name: 'Jordbær', description: 'Først hvite blomster, så søte bær.', price: 900 },
-  { id: 'blueberry', name: 'Blåbær', description: 'Blå bær fra skogen.', price: 1000 },
-  { id: 'rose', name: 'Rose', description: 'Den klassiske røde rosen.', price: 1200 },
-  { id: 'pumpkin', name: 'Gresskar', description: 'Store, oransje gresskar på ranker.', price: 1400 },
-  { id: 'cactus', name: 'Kaktus', description: 'Tåler alt og blomstrer rødt.', price: 1500 },
-  { id: 'pine', name: 'Furu', description: 'Høy stamme med kronen på toppen.', price: 1700 },
-  { id: 'rowan', name: 'Rogn', description: 'Klaser med røde bær om høsten.', price: 2000 },
-  { id: 'oak', name: 'Eik', description: 'Bred krone som bærer eikenøtter.', price: 2200 },
-  { id: 'cherry', name: 'Kirsebærtre', description: 'Et hav av lyserosa blomster.', price: 2500 },
-  { id: 'bamboo', name: 'Bambus', description: 'Vokser i høyden, ledd for ledd.', price: 2800 },
-  { id: 'maple', name: 'Lønn', description: 'Brenner i rødt og oransje.', price: 3200 },
-  { id: 'palm', name: 'Palme', description: 'Kokosnøtter under bladene.', price: 3800 },
-  { id: 'birch', name: 'Bjørk', description: 'Hvit stamme, lett krone. Norges nasjonaltre.', price: 4000 },
-  { id: 'hydrangea', name: 'Hortensia', description: 'Store kuler av blå blomster.', price: 4500 },
-  { id: 'lavender', name: 'Lavendel', description: 'Lilla aks som dufter.', price: 6000 },
-  { id: 'bonsai', name: 'Bonsai', description: 'Et lite tre i potte, formet med tålmodighet.', price: 7000 },
-  { id: 'aurora', name: 'Nordlystre', description: 'Lyser som nordlyset. Bare for de flittigste.', price: 10_000 },
+  { id: SpeciesId.Apple, name: 'Epletre', description: 'Rund krone og rosa blomster.', price: 0 },
+  { id: SpeciesId.Dandelion, name: 'Løvetann', description: 'Gul blomst som blir til en luftig fnokk.', price: 200 },
+  { id: SpeciesId.Sunflower, name: 'Solsikke', description: 'Vender ansiktet mot sola.', price: 300 },
+  { id: SpeciesId.Wheat, name: 'Hvete', description: 'Gylne aks som vaier i vinden.', price: 350 },
+  { id: SpeciesId.Daisy, name: 'Prestekrage', description: 'Hvite kronblader rundt en gul midte.', price: 400 },
+  { id: SpeciesId.Tulip, name: 'Tulipan', description: 'Røde, gule og rosa begre om våren.', price: 500 },
+  { id: SpeciesId.Heather, name: 'Røsslyng', description: 'Lilla lyng fra de norske heiene.', price: 600 },
+  { id: SpeciesId.Fern, name: 'Bregne', description: 'Grønne blader som ruller seg ut.', price: 700 },
+  { id: SpeciesId.Poppy, name: 'Valmue', description: 'Knallrøde kronblader.', price: 750 },
+  { id: SpeciesId.Spruce, name: 'Gran', description: 'Grønn hele året, med kongler.', price: 800 },
+  { id: SpeciesId.Strawberry, name: 'Jordbær', description: 'Først hvite blomster, så søte bær.', price: 900 },
+  { id: SpeciesId.Blueberry, name: 'Blåbær', description: 'Blå bær fra skogen.', price: 1000 },
+  { id: SpeciesId.Rose, name: 'Rose', description: 'Den klassiske røde rosen.', price: 1200 },
+  { id: SpeciesId.Pumpkin, name: 'Gresskar', description: 'Store, oransje gresskar på ranker.', price: 1400 },
+  { id: SpeciesId.Cactus, name: 'Kaktus', description: 'Tåler alt og blomstrer rødt.', price: 1500 },
+  { id: SpeciesId.Pine, name: 'Furu', description: 'Høy stamme med kronen på toppen.', price: 1700 },
+  { id: SpeciesId.Rowan, name: 'Rogn', description: 'Klaser med røde bær om høsten.', price: 2000 },
+  { id: SpeciesId.Oak, name: 'Eik', description: 'Bred krone som bærer eikenøtter.', price: 2200 },
+  { id: SpeciesId.Cherry, name: 'Kirsebærtre', description: 'Et hav av lyserosa blomster.', price: 2500 },
+  { id: SpeciesId.Bamboo, name: 'Bambus', description: 'Vokser i høyden, ledd for ledd.', price: 2800 },
+  { id: SpeciesId.Maple, name: 'Lønn', description: 'Brenner i rødt og oransje.', price: 3200 },
+  { id: SpeciesId.Palm, name: 'Palme', description: 'Kokosnøtter under bladene.', price: 3800 },
+  { id: SpeciesId.Birch, name: 'Bjørk', description: 'Hvit stamme, lett krone. Norges nasjonaltre.', price: 4000 },
+  { id: SpeciesId.Hydrangea, name: 'Hortensia', description: 'Store kuler av blå blomster.', price: 4500 },
+  { id: SpeciesId.Lavender, name: 'Lavendel', description: 'Lilla aks som dufter.', price: 6000 },
+  { id: SpeciesId.Bonsai, name: 'Bonsai', description: 'Et lite tre i potte, formet med tålmodighet.', price: 7000 },
+  { id: SpeciesId.Aurora, name: 'Nordlystre', description: 'Lyser som nordlyset. Bare for de flittigste.', price: 10_000 },
 ];
 
-export const SPECIES_IDS: readonly SpeciesId[] = SPECIES.map((species) => species.id);
-
 /** Plants sown before species existed grow as this one. */
-export const DEFAULT_SPECIES: SpeciesId = 'apple';
+export const DEFAULT_SPECIES: SpeciesId = SpeciesId.Apple;
 
 export interface GardenState {
   readonly unlocked: readonly SpeciesId[];

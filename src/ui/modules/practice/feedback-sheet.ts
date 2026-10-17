@@ -7,8 +7,10 @@ import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 import { badgeById } from '../../../core/badges.ts';
 import { XP_GOAL_BONUS } from '../../../core/gamification.ts';
 import { gapParts, isCorrect, normalizeAnswer, solutionText } from '../../../core/checker.ts';
+import { Grade } from '../../../core/srs.ts';
 import type { Feedback } from '../../../core/store.ts';
-import type { TranslationLanguage } from '../../../core/storage.ts';
+import { TranslationLanguage } from '../../../core/storage.ts';
+import { ExerciseKind } from '../../../core/types.ts';
 import { checkIcon, crossIcon, speakerIcon } from '../../components/icons.ts';
 import { speak } from '../audio/speech.ts';
 import { VoiceController } from '../audio/voice-controller.ts';
@@ -35,11 +37,11 @@ function headline(feedback: Feedback, manualRating: boolean): string {
   }
 
   switch (feedback.grade) {
-    case 'easy': {
+    case Grade.Easy: {
       return 'Lynraskt!';
     }
 
-    case 'hard': {
+    case Grade.Hard: {
       return 'Riktig – men tok litt tid';
     }
 
@@ -51,7 +53,7 @@ function headline(feedback: Feedback, manualRating: boolean): string {
 
 /** A built word order is shown as a sentence: capital letter and a full stop, like the solution. */
 function givenText(feedback: Feedback): string {
-  if (feedback.exercise.kind !== 'word-order' || feedback.given === '') {
+  if (feedback.exercise.kind !== ExerciseKind.WordOrder || feedback.given === '') {
     return feedback.given;
   }
 
@@ -304,7 +306,7 @@ export class FeedbackSheet extends LitElement {
 
   constructor() {
     super();
-    this.translationLanguage = 'de';
+    this.translationLanguage = TranslationLanguage.German;
     this.dailyGoal = 20;
     this.practice = false;
     this.manualRating = false;
@@ -315,11 +317,11 @@ export class FeedbackSheet extends LitElement {
     const exercise = this.feedback.exercise;
 
     switch (exercise.kind) {
-      case 'multiple-choice': {
+      case ExerciseKind.MultipleChoice: {
         return nothing;
       }
 
-      case 'type-in': {
+      case ExerciseKind.TypeIn: {
         // The solution line already shows the main answer, so it only repeats here when another word was accepted.
         const given = normalizeAnswer(this.feedback.given);
         const others = [exercise.answer, ...(exercise.alternatives ?? [])].filter(
@@ -333,7 +335,7 @@ export class FeedbackSheet extends LitElement {
         return html`<p class="also-correct">Også riktig: <span lang="nb">${others.join(', ')}</span></p>`;
       }
 
-      case 'word-order': {
+      case ExerciseKind.WordOrder: {
         // Checked against one sentence at a time, so the comparison is exactly the grader's.
         const others = (exercise.alternatives ?? []).filter(
           (sentence) => !isCorrect({ ...exercise, answer: sentence, alternatives: [] }, this.feedback.given),

@@ -7,13 +7,15 @@ import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 import { keyed } from 'lit/directives/keyed.js';
 
 import { badgeById } from '../../../core/badges.ts';
-import { plantChange } from '../../../core/garden.ts';
+import { PlantChange, plantChange } from '../../../core/garden.ts';
 import { solutionText } from '../../../core/checker.ts';
+import { SessionMode } from '../../../core/session.ts';
 import type { RatingOption } from '../../../core/srs.ts';
 import type { Feedback } from '../../../core/store.ts';
+import { ExerciseKind } from '../../../core/types.ts';
 import { deckById } from '../../../decks/registry.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
-import { playSound, type SoundKind } from '../audio/sound-effects.ts';
+import { SoundKind, playSound } from '../audio/sound-effects.ts';
 import { speak, stopSpeaking } from '../audio/speech.ts';
 import { plantNews } from '../garden/plant-news.ts';
 import { announce } from '../shared/announce.ts';
@@ -40,15 +42,15 @@ const CONTINUE_GUARD_MS = 400;
 
 /** One sound per answer; the rarer celebration wins over plain right/wrong. */
 function soundFor(feedback: Feedback): SoundKind {
-  if (plantChange(feedback.plantBefore, feedback.plantAfter) === 'grown') {
-    return 'grow';
+  if (plantChange(feedback.plantBefore, feedback.plantAfter) === PlantChange.Grown) {
+    return SoundKind.Grow;
   }
 
   if (feedback.goalJustReached) {
-    return 'goal';
+    return SoundKind.Goal;
   }
 
-  return feedback.correct ? 'correct' : 'wrong';
+  return feedback.correct ? SoundKind.Correct : SoundKind.Wrong;
 }
 
 export class PracticeSession extends LitElement {
@@ -198,7 +200,7 @@ export class PracticeSession extends LitElement {
               .feedback=${feedback}
               .translationLanguage=${settings.translationLanguage}
               .dailyGoal=${store.state.progress.dailyGoal}
-              ?practice=${session.mode === 'practice'}
+              ?practice=${session.mode === SessionMode.Practice}
               ?manualRating=${settings.manualRating}
               @continue=${this.#continue}
             ></feedback-sheet>`}
@@ -410,7 +412,7 @@ export class PracticeSession extends LitElement {
 
       // A word-order answer is the whole sentence; saying it twice adds nothing.
       parts.push(
-        exercise.kind === 'word-order'
+        exercise.kind === ExerciseKind.WordOrder
           ? `Feil. Riktig svar: ${solutionText(exercise)}`
           : `Feil. Riktig svar: ${exercise.answer}. ${solutionText(exercise)}`,
       );
@@ -433,7 +435,7 @@ export class PracticeSession extends LitElement {
     }
 
     const news =
-      store.state.session?.mode === 'practice'
+      store.state.session?.mode === SessionMode.Practice
         ? PRACTICE_PLANT_NEWS
         : plantNews(feedback.plantBefore, feedback.plantAfter);
 
@@ -586,19 +588,19 @@ export class PracticeSession extends LitElement {
     }
 
     switch (exercise.kind) {
-      case 'multiple-choice': {
+      case ExerciseKind.MultipleChoice: {
         this.#handleChoiceKey(event, card);
 
         return;
       }
 
-      case 'type-in': {
+      case ExerciseKind.TypeIn: {
         this.#handleTranslationKey(event, card);
 
         return;
       }
 
-      case 'word-order': {
+      case ExerciseKind.WordOrder: {
         this.#handleWordOrderKey(event, card);
       }
     }

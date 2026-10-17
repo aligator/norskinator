@@ -1,29 +1,40 @@
 /** Picks the translation to show, falling back to the other language when one is missing. */
-import type { TranslationLanguage } from '../../../core/storage.ts';
-import type { DataItem, Exercise, LanguageCode } from '../../../core/types.ts';
+import { TranslationLanguage } from '../../../core/storage.ts';
+import { LanguageCode, type DataItem, type Exercise } from '../../../core/types.ts';
 
 export interface ShownTranslation {
   readonly lang: LanguageCode;
   readonly text: string;
 }
 
-const FALLBACK: Readonly<Record<LanguageCode, LanguageCode>> = { de: 'en', en: 'de' };
+type ShownLanguage = Exclude<TranslationLanguage, TranslationLanguage.None>;
+
+const LANGUAGE_OF: Readonly<Record<ShownLanguage, LanguageCode>> = {
+  [TranslationLanguage.German]: LanguageCode.German,
+  [TranslationLanguage.English]: LanguageCode.English,
+};
+
+const FALLBACK: Readonly<Record<LanguageCode, LanguageCode>> = {
+  [LanguageCode.German]: LanguageCode.English,
+  [LanguageCode.English]: LanguageCode.German,
+};
 
 export function pickTranslation(
   exercise: Pick<Exercise | DataItem, 'translations'>,
   preference: TranslationLanguage,
 ): ShownTranslation | null {
-  if (preference === 'none' || exercise.translations === undefined) {
+  if (preference === TranslationLanguage.None || exercise.translations === undefined) {
     return null;
   }
 
-  const preferred = exercise.translations[preference];
+  const lang = LANGUAGE_OF[preference];
+  const preferred = exercise.translations[lang];
 
   if (preferred !== undefined) {
-    return { lang: preference, text: preferred };
+    return { lang, text: preferred };
   }
 
-  const other = FALLBACK[preference];
+  const other = FALLBACK[lang];
   const fallback = exercise.translations[other];
 
   if (fallback === undefined) {
@@ -35,5 +46,5 @@ export function pickTranslation(
 
 /** Word order is prompted by the translation, so it shows one even when the learner turned hints off. */
 export function promptTranslation(exercise: Exercise, preference: TranslationLanguage): ShownTranslation | null {
-  return pickTranslation(exercise, preference === 'none' ? 'de' : preference);
+  return pickTranslation(exercise, preference === TranslationLanguage.None ? TranslationLanguage.German : preference);
 }

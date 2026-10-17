@@ -8,6 +8,7 @@
  */
 import { applyOverrides, parseOverrides, type Overrides } from '../core/overrides.ts';
 import {
+  DataKind,
   LANGUAGE_CODES,
   type DataItem,
   type GeneratedCredit,
@@ -131,12 +132,12 @@ function toItem(item: GeneratedItem, defaultLicense: string, ids: TatoebaDeckIds
   };
 
   if (item.tiles !== undefined) {
-    return { ...content, dataKind: 'sentence', tiles: item.tiles };
+    return { ...content, dataKind: DataKind.Sentence, tiles: item.tiles };
   }
 
   return {
     ...content,
-    dataKind: 'cloze',
+    dataKind: DataKind.Cloze,
     distractors: (item.options ?? []).filter((option) => option !== item.answer),
   };
 }

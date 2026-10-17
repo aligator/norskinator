@@ -1,15 +1,19 @@
 import { describe, expect, it } from 'vitest';
 
+import { PlantStage } from './garden.ts';
 import { MAX_RESUME_AGE_MS, restoreSession, snapshotSession } from './resume.ts';
+import { SessionMode } from './session.ts';
+import { SpeciesId } from './species.ts';
+import { Grade } from './srs.ts';
 import type { PersistedFeedback, PersistedSession } from './storage.ts';
 import type { Feedback, SessionState } from './store.ts';
-import type { Exercise, ExerciseKind } from './types.ts';
+import { ExerciseKind, type Exercise } from './types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 
 function exercise(id: string): Exercise {
   return {
-    kind: 'multiple-choice',
+    kind: ExerciseKind.MultipleChoice,
     id,
     deckId: 'deck',
     prompt: 'Jeg bor ___ Norge.',
@@ -30,7 +34,7 @@ function lookup(pool: readonly Exercise[]): (id: string, kind: ExerciseKind) => 
 function persisted(overrides: Partial<PersistedSession> = {}): PersistedSession {
   return {
     queue: ['a', 'b', 'c', 'd'],
-    kinds: ['multiple-choice', 'multiple-choice', 'multiple-choice', 'multiple-choice'],
+    kinds: Array.from({ length: 4 }, () => ExerciseKind.MultipleChoice),
     index: 2,
     options: ['til', 'i', 'på'],
     answered: 2,
@@ -44,10 +48,10 @@ function persisted(overrides: Partial<PersistedSession> = {}): PersistedSession 
     seedsSown: 1,
     plantsGrown: 2,
     plantsWilted: 1,
-    gardenStart: { b: { stage: 'plant', wilted: false, growth: 0.25 } },
+    gardenStart: { b: { stage: PlantStage.Plant, wilted: false, growth: 0.25 } },
     startedAt: NOW - 60_000,
     deckIds: ['deck'],
-    mode: 'review',
+    mode: SessionMode.Review,
     feedback: null,
     ...overrides,
   };
@@ -57,13 +61,13 @@ const PENDING_FEEDBACK: PersistedFeedback = {
   exerciseId: 'c',
   given: 'på',
   correct: false,
-  grade: 'again',
+  grade: Grade.Again,
   xpGained: 0,
   newBadges: [],
   goalJustReached: false,
-  plantBefore: { stage: 'plant', wilted: false, growth: 0.5 },
-  plantAfter: { stage: 'sprout', wilted: true, growth: 0 },
-  species: 'cactus',
+  plantBefore: { stage: PlantStage.Plant, wilted: false, growth: 0.5 },
+  plantAfter: { stage: PlantStage.Sprout, wilted: true, growth: 0 },
+  species: SpeciesId.Cactus,
   nextDue: 2_000,
   reps: 3,
   ratingOptions: null,
@@ -88,23 +92,23 @@ describe('snapshotSession', () => {
       seedsSown: 1,
       plantsGrown: 2,
       plantsWilted: 1,
-      gardenStart: { b: { stage: 'plant', wilted: false, growth: 0.25 } },
+      gardenStart: { b: { stage: PlantStage.Plant, wilted: false, growth: 0.25 } },
       startedAt: NOW - 1_000,
       questionShownAt: NOW - 500,
       deckIds: ['deck'],
-      mode: 'practice',
+      mode: SessionMode.Practice,
     };
     const feedback: Feedback = {
       exercise: exercise('b'),
       given: 'på',
       correct: false,
-      grade: 'again',
+      grade: Grade.Again,
       xpGained: 0,
       newBadges: [],
       goalJustReached: false,
-      plantBefore: { stage: 'plant', wilted: false, growth: 0.5 },
-      plantAfter: { stage: 'sprout', wilted: true, growth: 0 },
-      species: 'cactus',
+      plantBefore: { stage: PlantStage.Plant, wilted: false, growth: 0.5 },
+      plantAfter: { stage: PlantStage.Sprout, wilted: true, growth: 0 },
+      species: SpeciesId.Cactus,
       nextDue: 2_000,
       reps: 3,
       ratingOptions: null,
@@ -164,8 +168,13 @@ describe('restoreSession', () => {
   });
 
   it('rebuilds every entry as the task type it was shown as', () => {
-    const typed: Exercise = { ...exercise('c'), kind: 'type-in', answer: 'i' };
-    const kinds: ExerciseKind[] = ['multiple-choice', 'multiple-choice', 'type-in', 'multiple-choice'];
+    const typed: Exercise = { ...exercise('c'), kind: ExerciseKind.TypeIn, answer: 'i' };
+    const kinds: ExerciseKind[] = [
+      ExerciseKind.MultipleChoice,
+      ExerciseKind.MultipleChoice,
+      ExerciseKind.TypeIn,
+      ExerciseKind.MultipleChoice,
+    ];
 
     const restored = restoreSession(persisted({ kinds }), lookup([...POOL, typed]), NOW, reshuffle);
 
@@ -181,10 +190,10 @@ describe('restoreSession', () => {
 
   it('brings back a right answer that still waits for its rating', () => {
     const ratingOptions = [
-      { grade: 'good', delayMs: 2 * 86_400_000 },
-      { grade: 'easy', delayMs: 8 * 86_400_000 },
+      { grade: Grade.Good, delayMs: 2 * 86_400_000 },
+      { grade: Grade.Easy, delayMs: 8 * 86_400_000 },
     ] as const;
-    const feedback = { ...PENDING_FEEDBACK, correct: true, grade: 'good' as const, ratingOptions };
+    const feedback = { ...PENDING_FEEDBACK, correct: true, grade: Grade.Good, ratingOptions };
 
     const restored = restoreSession(persisted({ feedback }), lookup(POOL), NOW, reshuffle);
 

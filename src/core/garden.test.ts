@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { gardenBeds, plantChange, plantOf, stageRank, totalCounts } from './garden.ts';
-import { DAY_MS, createCard, review, type CardState } from './srs.ts';
+import { PlantChange, PlantStage, gardenBeds, plantChange, plantOf, stageRank, totalCounts } from './garden.ts';
+import { CardPhase, DAY_MS, Grade, createCard, review, type CardState } from './srs.ts';
 import type { ItemMeta } from './types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
@@ -11,20 +11,20 @@ function item(id: string, deckId = 'deck'): ItemMeta {
 }
 
 function reviewed(id: string, stability: number, overrides: Partial<CardState> = {}): CardState {
-  return { ...createCard(id, 'deck', NOW), phase: 'review', reps: 3, stability, difficulty: 5, due: NOW + DAY_MS, ...overrides };
+  return { ...createCard(id, 'deck', NOW), phase: CardPhase.Review, reps: 3, stability, difficulty: 5, due: NOW + DAY_MS, ...overrides };
 }
 
 describe('plantOf', () => {
   it('shows an item never answered as a seed', () => {
-    expect(plantOf(undefined)).toEqual({ stage: 'seed', wilted: false, growth: 0 });
+    expect(plantOf(undefined)).toEqual({ stage: PlantStage.Seed, wilted: false, growth: 0 });
   });
 
   it('grows with the interval', () => {
-    expect(plantOf(reviewed('a', 1)).stage).toBe('sprout');
-    expect(plantOf(reviewed('a', 3)).stage).toBe('plant');
-    expect(plantOf(reviewed('a', 7)).stage).toBe('bush');
-    expect(plantOf(reviewed('a', 21)).stage).toBe('tree');
-    expect(plantOf(reviewed('a', 60)).stage).toBe('blossom');
+    expect(plantOf(reviewed('a', 1)).stage).toBe(PlantStage.Sprout);
+    expect(plantOf(reviewed('a', 3)).stage).toBe(PlantStage.Plant);
+    expect(plantOf(reviewed('a', 7)).stage).toBe(PlantStage.Bush);
+    expect(plantOf(reviewed('a', 21)).stage).toBe(PlantStage.Tree);
+    expect(plantOf(reviewed('a', 60)).stage).toBe(PlantStage.Blossom);
   });
 
   it('grows within a stage until it reaches the next one', () => {
@@ -35,43 +35,43 @@ describe('plantOf', () => {
 
   it('wilts on a wrong answer and grows back smaller once it is remembered', () => {
     const tree = reviewed('a', 30);
-    const failed = review(tree, 'again', NOW);
-    const recovered = review(failed, 'good', failed.due);
+    const failed = review(tree, Grade.Again, NOW);
+    const recovered = review(failed, Grade.Good, failed.due);
 
-    expect(plantOf(failed)).toEqual({ stage: 'sprout', wilted: true, growth: 0 });
+    expect(plantOf(failed)).toEqual({ stage: PlantStage.Sprout, wilted: true, growth: 0 });
     expect(plantOf(recovered).wilted).toBe(false);
-    expect(stageRank(plantOf(recovered).stage)).toBeLessThan(stageRank('tree'));
-    expect(stageRank(plantOf(recovered).stage)).toBeGreaterThan(stageRank('sprout'));
+    expect(stageRank(plantOf(recovered).stage)).toBeLessThan(stageRank(PlantStage.Tree));
+    expect(stageRank(plantOf(recovered).stage)).toBeGreaterThan(stageRank(PlantStage.Sprout));
   });
 
   it('wilts after a wrong answer whatever phase the card is in', () => {
-    expect(plantOf(reviewed('a', 5, { phase: 'relearning', lastGrade: 'again' }))).toEqual({
-      stage: 'sprout',
+    expect(plantOf(reviewed('a', 5, { phase: CardPhase.Relearning, lastGrade: Grade.Again }))).toEqual({
+      stage: PlantStage.Sprout,
       wilted: true,
       growth: 0,
     });
-    expect(plantOf(reviewed('a', 0.2, { phase: 'learning', reps: 1, lastGrade: 'again' })).wilted).toBe(true);
+    expect(plantOf(reviewed('a', 0.2, { phase: CardPhase.Learning, reps: 1, lastGrade: Grade.Again })).wilted).toBe(true);
   });
 
   it('does not wilt a card that is still being learned after a right answer', () => {
-    const learning = reviewed('a', 2.3, { phase: 'learning', learningStep: 1, reps: 1, lastGrade: 'good' });
+    const learning = reviewed('a', 2.3, { phase: CardPhase.Learning, learningStep: 1, reps: 1, lastGrade: Grade.Good });
 
-    expect(plantOf(learning)).toMatchObject({ stage: 'sprout', wilted: false });
+    expect(plantOf(learning)).toMatchObject({ stage: PlantStage.Sprout, wilted: false });
   });
 });
 
 describe('plantChange', () => {
   it('names what an answer did to the plant', () => {
     const seed = plantOf(undefined);
-    const sprout = { stage: 'sprout', wilted: false, growth: 0.5 } as const;
-    const bush = { stage: 'bush', wilted: false, growth: 0.5 } as const;
-    const wilted = { stage: 'sprout', wilted: true, growth: 0 } as const;
+    const sprout = { stage: PlantStage.Sprout, wilted: false, growth: 0.5 } as const;
+    const bush = { stage: PlantStage.Bush, wilted: false, growth: 0.5 } as const;
+    const wilted = { stage: PlantStage.Sprout, wilted: true, growth: 0 } as const;
 
-    expect(plantChange(seed, sprout)).toBe('sown');
-    expect(plantChange(sprout, bush)).toBe('grown');
-    expect(plantChange(bush, bush)).toBe('unchanged');
-    expect(plantChange(bush, wilted)).toBe('wilted');
-    expect(plantChange(wilted, sprout)).toBe('recovered');
+    expect(plantChange(seed, sprout)).toBe(PlantChange.Sown);
+    expect(plantChange(sprout, bush)).toBe(PlantChange.Grown);
+    expect(plantChange(bush, bush)).toBe(PlantChange.Unchanged);
+    expect(plantChange(bush, wilted)).toBe(PlantChange.Wilted);
+    expect(plantChange(wilted, sprout)).toBe(PlantChange.Recovered);
   });
 });
 
@@ -89,7 +89,7 @@ describe('gardenBeds', () => {
     expect(beds.map((bed) => bed.deckId)).toEqual(['deck', 'second']);
     expect(first.plants.map((entry) => entry.item.id)).toEqual(['thirsty', 'tree']);
     expect(first.thirsty).toBe(1);
-    expect(first.counts.seed).toBe(1);
-    expect(totalCounts(beds).seed).toBe(2);
+    expect(first.counts[PlantStage.Seed]).toBe(1);
+    expect(totalCounts(beds)[PlantStage.Seed]).toBe(2);
   });
 });
