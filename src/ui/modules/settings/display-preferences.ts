@@ -24,7 +24,7 @@ const THEMES: readonly SegmentOption[] = [
 /** The stepper counts whole percent; the stored rate is a factor of the voice's normal pace. */
 const RATE_PERCENT = { min: SPEECH_RATE_BOUNDS.min * 100, max: SPEECH_RATE_BOUNDS.max * 100, step: 5 } as const;
 
-const RATE_SAMPLE = 'Slik høres det ut.';
+const RATE_SAMPLE = 'Fem ville elger spiste fem fete fisker, og ingen av dem sa et ord.';
 
 export class DisplayPreferences extends LitElement {
   static override styles = [sharedStyles, preferenceStyles];
