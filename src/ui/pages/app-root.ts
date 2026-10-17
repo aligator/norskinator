@@ -6,6 +6,7 @@ import { LoadStatus } from '../../core/store.ts';
 import { STORAGE_KEY, ThemePreference } from '../../core/storage.ts';
 import { gardenIcon, homeIcon, settingsIcon, statsIcon } from '../components/icons.ts';
 import { sharedStyles } from '../components/styles/shared.ts';
+import { warmUpVoices } from '../modules/audio/speech.ts';
 import { ANNOUNCE_EVENT } from '../modules/shared/announce.ts';
 import { TOUR_REQUESTED_EVENT, markShopTourDone, shopTourDone, tourDone } from '../modules/onboarding/tour-state.ts';
 import { StoreController, store } from '../modules/shared/store.ts';
@@ -196,6 +197,7 @@ export class AppRoot extends LitElement {
 
     void store.init();
     startUpdateWatch();
+    warmUpVoices();
   }
 
   override disconnectedCallback(): void {

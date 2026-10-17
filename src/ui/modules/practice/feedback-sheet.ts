@@ -9,7 +9,7 @@ import { XP_GOAL_BONUS } from '../../../core/gamification.ts';
 import { gapParts, isCorrect, normalizeAnswer, solutionText } from '../../../core/checker.ts';
 import { Grade } from '../../../core/srs.ts';
 import type { Feedback } from '../../../core/store.ts';
-import { TranslationLanguage } from '../../../core/storage.ts';
+import { DEFAULT_SETTINGS, TranslationLanguage } from '../../../core/storage.ts';
 import { ExerciseKind } from '../../../core/types.ts';
 import { checkIcon, crossIcon, speakerIcon } from '../../components/icons.ts';
 import { speak } from '../audio/speech.ts';
@@ -70,6 +70,7 @@ export class FeedbackSheet extends LitElement {
     dailyGoal: { attribute: false },
     practice: { type: Boolean },
     manualRating: { type: Boolean },
+    speechRate: { attribute: false },
   };
 
   static override styles = [
@@ -303,6 +304,7 @@ export class FeedbackSheet extends LitElement {
   declare practice: boolean;
   /** The learner rated the answer, so its grade says nothing about speed. */
   declare manualRating: boolean;
+  declare speechRate: number;
 
   constructor() {
     super();
@@ -310,6 +312,7 @@ export class FeedbackSheet extends LitElement {
     this.dailyGoal = 20;
     this.practice = false;
     this.manualRating = false;
+    this.speechRate = DEFAULT_SETTINGS.speechRate;
   }
 
   /** An answer can be right in more than one way; show the ones the learner did not use. */
@@ -450,7 +453,7 @@ export class FeedbackSheet extends LitElement {
   }
 
   #listen = (): void => {
-    speak(solutionText(this.feedback.exercise));
+    speak(solutionText(this.feedback.exercise), this.speechRate);
   };
 
   #continue = (): void => {

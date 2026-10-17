@@ -314,6 +314,19 @@ describe('Store', () => {
     expect(store.state.settings.reviewsPerDay).toBe(10);
   });
 
+  it('clamps the speech rate and ignores one that is not a number', async () => {
+    const { store } = await createHarness([item('a')]);
+
+    store.updateSettings({ speechRate: 3 });
+    expect(store.state.settings.speechRate).toBe(1.5);
+
+    store.updateSettings({ speechRate: 0.1 });
+    expect(store.state.settings.speechRate).toBe(0.5);
+
+    store.updateSettings({ speechRate: Number.NaN });
+    expect(store.state.settings.speechRate).toBe(0.95);
+  });
+
   it('keeps the newest deck selection when an older load finishes last', async () => {
     const slow = deferredDeck('slow', [{ ...item('old'), deckId: 'slow' }]);
     const fast = deferredDeck('fast', [{ ...item('new'), deckId: 'fast' }]);

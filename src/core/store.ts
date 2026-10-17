@@ -24,7 +24,7 @@ import { CardPhase, Grade, createCard, ratingOptions, review, type CardState, ty
 import {
   INITIAL_STATE,
   STATE_VERSION,
-  clampPace,
+  clampSettings,
   clearSession,
   defaultStorage,
   loadSession,
@@ -447,7 +447,7 @@ export class Store {
   updateSettings(patch: Partial<Settings>): void {
     const previous = this.#state.settings;
     const merged = { ...previous, ...patch };
-    const settings = clampPace(merged);
+    const settings = clampSettings(merged);
 
     this.#patch({ settings });
     this.#persist();

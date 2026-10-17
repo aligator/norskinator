@@ -43,6 +43,8 @@ export interface Settings {
   readonly soundEffects: boolean;
   /** Read the Norwegian solution aloud after an answer, if the device has a voice. */
   readonly speakSolution: boolean;
+  /** Speed of the read-aloud voice; 1 is the voice's normal pace. See `SPEECH_RATE_BOUNDS`. */
+  readonly speechRate: number;
   /** Share of each task type in percent, adding up to 100. */
   readonly taskWeights: TaskWeights;
   /** Rate every right answer yourself (hard, good, easy) instead of by response time. */
@@ -58,6 +60,8 @@ export const DEFAULT_SETTINGS: Settings = {
   disabledDeckIds: [],
   soundEffects: false,
   speakSolution: false,
+  // Learners follow slightly slower speech more easily.
+  speechRate: 0.95,
   taskWeights: DEFAULT_TASK_WEIGHTS,
   manualRating: false,
 };
@@ -246,21 +250,34 @@ export const PACE_BOUNDS = {
   sessionSize: { min: 5, max: 50 },
 } as const;
 
-function clampToBounds(value: number, bounds: { readonly min: number; readonly max: number }, fallback: number): number {
+/** Range of the speech rate; browsers accept 0.1 to 10, but outside this it is unintelligible or tedious. */
+export const SPEECH_RATE_BOUNDS = { min: 0.5, max: 1.5 } as const;
+
+interface Bounds {
+  readonly min: number;
+  readonly max: number;
+}
+
+function clampToBounds(value: number, bounds: Bounds, fallback: number): number {
   if (!Number.isFinite(value)) {
     return fallback;
   }
 
-  return Math.min(bounds.max, Math.max(bounds.min, Math.round(value)));
+  return Math.min(bounds.max, Math.max(bounds.min, value));
 }
 
-/** Brings every numeric pace setting into its range, e.g. after a partial update. */
-export function clampPace(settings: Settings): Settings {
+function clampToWholeBounds(value: number, bounds: Bounds, fallback: number): number {
+  return clampToBounds(Math.round(value), bounds, fallback);
+}
+
+/** Brings every numeric setting into its range, e.g. after a partial update. */
+export function clampSettings(settings: Settings): Settings {
   return {
     ...settings,
-    newPerDay: clampToBounds(settings.newPerDay, PACE_BOUNDS.newPerDay, DEFAULT_SETTINGS.newPerDay),
-    reviewsPerDay: clampToBounds(settings.reviewsPerDay, PACE_BOUNDS.reviewsPerDay, DEFAULT_SETTINGS.reviewsPerDay),
-    sessionSize: clampToBounds(settings.sessionSize, PACE_BOUNDS.sessionSize, DEFAULT_SETTINGS.sessionSize),
+    speechRate: clampToBounds(settings.speechRate, SPEECH_RATE_BOUNDS, DEFAULT_SETTINGS.speechRate),
+    newPerDay: clampToWholeBounds(settings.newPerDay, PACE_BOUNDS.newPerDay, DEFAULT_SETTINGS.newPerDay),
+    reviewsPerDay: clampToWholeBounds(settings.reviewsPerDay, PACE_BOUNDS.reviewsPerDay, DEFAULT_SETTINGS.reviewsPerDay),
+    sessionSize: clampToWholeBounds(settings.sessionSize, PACE_BOUNDS.sessionSize, DEFAULT_SETTINGS.sessionSize),
   };
 }
 
@@ -269,7 +286,7 @@ function parseSettings(value: unknown): Settings {
     return DEFAULT_SETTINGS;
   }
 
-  return clampPace({
+  return clampSettings({
     translationLanguage: readEnum(value['translationLanguage'], TranslationLanguage, DEFAULT_SETTINGS.translationLanguage),
     theme: readEnum(value['theme'], ThemePreference, DEFAULT_SETTINGS.theme),
     newPerDay: readNumber(value['newPerDay'], DEFAULT_SETTINGS.newPerDay),
@@ -278,6 +295,7 @@ function parseSettings(value: unknown): Settings {
     disabledDeckIds: readStringArray(value['disabledDeckIds']),
     soundEffects: readBoolean(value['soundEffects'], DEFAULT_SETTINGS.soundEffects),
     speakSolution: readBoolean(value['speakSolution'], DEFAULT_SETTINGS.speakSolution),
+    speechRate: readNumber(value['speechRate'], DEFAULT_SETTINGS.speechRate),
     taskWeights: parseTaskWeights(value['taskWeights']),
     manualRating: readBoolean(value['manualRating'], DEFAULT_SETTINGS.manualRating),
   });
