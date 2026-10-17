@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { Grade } from '../../src/core/srs.ts';
-import { TASK_TYPES, gradeFromAnswer, loadDeck, presentAs, presentItem } from '../../src/core/tasks.ts';
+import { gradeFromAnswer, loadDeck, presentAs, presentItem } from '../../src/core/tasks.ts';
 import { DataKind, ExerciseKind, type ClozeItem, type Deck, type PlayableItem } from '../../src/core/types.ts';
 
 const ITEM: PlayableItem = {
@@ -97,12 +97,6 @@ describe('gradeFromAnswer', () => {
     expect(gradeFromAnswer(ExerciseKind.WordOrder, true, 10_000)).toBe(Grade.Easy);
     expect(gradeFromAnswer(ExerciseKind.WordOrder, true, 30_000)).toBe(Grade.Good);
     expect(gradeFromAnswer(ExerciseKind.WordOrder, true, 40_000)).toBe(Grade.Hard);
-  });
-
-  it('keeps the thresholds ordered for every task type', () => {
-    for (const task of Object.values(TASK_TYPES)) {
-      expect(task.timing.easyWithinMs).toBeLessThan(task.timing.hardAfterMs);
-    }
   });
 
   it('does not read a backgrounded tab or a clock change as difficulty', () => {

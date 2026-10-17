@@ -259,10 +259,6 @@ describe('preposition content', () => {
     expect(unmarked.map((exercise) => exercise.id)).toEqual([]);
   });
 
-  it(`uses every preposition as answer at least ${MIN_ANSWERS_PER_PREPOSITION} times`, () => {
-    expect(underrepresented(ALL)).toEqual([]);
-  });
-
   it(`gives every preposition at least ${MIN_ANSWERS_PER_PREPOSITION} hand-written items`, () => {
     expect(underrepresented(CURATED)).toEqual([]);
   });

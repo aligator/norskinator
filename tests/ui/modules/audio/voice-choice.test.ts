@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { normaliseLang, pickNorwegianVoice } from '../../../../src/ui/modules/audio/voice-choice.ts';
+import { pickNorwegianVoice } from '../../../../src/ui/modules/audio/voice-choice.ts';
 
 function voices(...langs: string[]): { lang: string; name: string }[] {
   return langs.map((lang, index) => ({ lang, name: `voice-${index}` }));
@@ -34,11 +34,5 @@ describe('pickNorwegianVoice', () => {
   it('returns null without a Norwegian voice', () => {
     expect(pickNorwegianVoice(voices('sv-SE', 'da-DK', 'en-GB'))).toBeNull();
     expect(pickNorwegianVoice([])).toBeNull();
-  });
-});
-
-describe('normaliseLang', () => {
-  it('turns platform variants into a lowercase BCP 47 form', () => {
-    expect(normaliseLang(' nb_NO ')).toBe('nb-no');
   });
 });

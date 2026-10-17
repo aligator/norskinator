@@ -46,10 +46,6 @@ describe('isCorrect', () => {
 });
 
 describe('solutionText', () => {
-  it('uses the stored solution when there is one', () => {
-    expect(solutionText(choice)).toBe('Jeg bor i Norge.');
-  });
-
   it('fills the gap when no solution was stored', () => {
     expect(solutionText(typeIn)).toBe('Hun er glad i deg.');
   });

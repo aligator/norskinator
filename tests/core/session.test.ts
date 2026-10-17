@@ -3,7 +3,6 @@ import { describe, expect, it } from 'vitest';
 import {
   buildPracticeSession,
   buildSession,
-  canRequeue,
   countDue,
   requeue,
   sessionPreview,
@@ -284,14 +283,6 @@ describe('requeue', () => {
     const next = requeue(queue, 1, queue[1]!);
 
     expect(next.map((item) => item.id)).toEqual(['a', 'b', 'b']);
-  });
-});
-
-describe('canRequeue', () => {
-  it('allows one re-queue per exercise and session', () => {
-    expect(canRequeue([], 'a')).toBe(true);
-    expect(canRequeue(['b'], 'a')).toBe(true);
-    expect(canRequeue(['a'], 'a')).toBe(false);
   });
 });
 

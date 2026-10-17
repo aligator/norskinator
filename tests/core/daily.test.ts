@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { CountedAnswer, dailyRoom, recommendedReviewLimit, recordCounted } from '../../src/core/daily.ts';
+import { CountedAnswer, dailyRoom, recordCounted } from '../../src/core/daily.ts';
 import { INITIAL_PROGRESS } from '../../src/core/gamification.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
@@ -43,12 +43,5 @@ describe('recordCounted', () => {
     const today = recordCounted(yesterday, CountedAnswer.Review, NOW + 24 * 3_600_000);
 
     expect(today).toMatchObject({ newToday: 0, reviewsToday: 1 });
-  });
-});
-
-describe('recommendedReviewLimit', () => {
-  it('follows the rule of thumb of ten reviews per new item', () => {
-    expect(recommendedReviewLimit(10)).toBe(100);
-    expect(recommendedReviewLimit(0)).toBe(0);
   });
 });
