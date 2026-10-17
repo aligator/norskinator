@@ -3,10 +3,11 @@ import { LitElement, html, nothing, type TemplateResult } from 'lit';
 
 import { DAILY_GOAL_BOUNDS } from '../../../core/gamification.ts';
 import { recommendedReviewLimit } from '../../../core/daily.ts';
-import { PACE_BOUNDS, type Settings, type TranslationLanguage } from '../../../core/storage.ts';
+import { isEnumValue } from '../../../core/enums.ts';
+import { PACE_BOUNDS, TranslationLanguage, type Settings } from '../../../core/storage.ts';
 import { kindsOf, rebalance } from '../../../core/task-weights.ts';
 import { TASK_TYPES } from '../../../core/tasks.ts';
-import { DATA_KINDS, EXERCISE_KINDS, type DataKind, type ExerciseKind } from '../../../core/types.ts';
+import { DATA_KINDS, DataKind, ExerciseKind } from '../../../core/types.ts';
 import type { SegmentOption } from '../../components/segmented-control.ts';
 import type { Share } from '../../components/share-sliders.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
@@ -20,14 +21,14 @@ import '../../components/stepper.ts';
 import '../../components/toggle-switch.ts';
 
 const TRANSLATIONS: readonly SegmentOption[] = [
-  { value: 'de', label: 'Tysk' },
-  { value: 'en', label: 'Engelsk' },
-  { value: 'none', label: 'Av' },
+  { value: TranslationLanguage.German, label: 'Tysk' },
+  { value: TranslationLanguage.English, label: 'Engelsk' },
+  { value: TranslationLanguage.None, label: 'Av' },
 ];
 
 const DATA_KIND_LABELS: Readonly<Record<DataKind, string>> = {
-  cloze: 'Luke-oppgaver',
-  sentence: 'Setningsoppgaver',
+  [DataKind.Cloze]: 'Luke-oppgaver',
+  [DataKind.Sentence]: 'Setningsoppgaver',
 };
 
 /** A task type alone in its data kind always gets 100 %, so it has nothing to adjust. */
@@ -41,14 +42,6 @@ const DAILY_GOALS: readonly SegmentOption[] = [10, 20, 30, 50]
 const NEW_MAX_IN_UI = Math.min(50, PACE_BOUNDS.newPerDay.max);
 const STEP = 5;
 const REVIEW_STEP = 25;
-
-function isTranslationLanguage(value: string): value is TranslationLanguage {
-  return TRANSLATIONS.some((option) => option.value === value);
-}
-
-function isExerciseKind(value: string): value is ExerciseKind {
-  return EXERCISE_KINDS.some((kind) => kind === value);
-}
 
 function shareMove(event: Event): { readonly kind: ExerciseKind; readonly value: number } | null {
   if (!(event instanceof CustomEvent)) {
@@ -64,7 +57,7 @@ function shareMove(event: Event): { readonly kind: ExerciseKind; readonly value:
   const id: unknown = Reflect.get(move, 'id');
   const value: unknown = Reflect.get(move, 'value');
 
-  if (typeof id !== 'string' || typeof value !== 'number' || !isExerciseKind(id)) {
+  if (typeof value !== 'number' || !isEnumValue(ExerciseKind, id)) {
     return null;
   }
 
@@ -204,7 +197,7 @@ export class PracticePreferences extends LitElement {
   #onTranslation = (event: Event): void => {
     const value = stringDetail(event);
 
-    if (value !== null && isTranslationLanguage(value)) {
+    if (isEnumValue(TranslationLanguage, value)) {
       saveSettings(this, { translationLanguage: value });
     }
   };

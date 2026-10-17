@@ -14,12 +14,13 @@
  */
 import { expandAuthored, parseAuthored } from '../../core/authored.ts';
 import {
+  DataKind,
+  ExerciseKind,
   LANGUAGE_CODES,
   type ClozeItem,
   type DataItem,
   type Deck,
   type DeckSource,
-  type ExerciseKind,
   type LanguageCode,
   type TranslationCredit,
 } from '../../core/types.ts';
@@ -27,7 +28,7 @@ import { reviewedTatoebaLoader } from '../tatoeba-source.ts';
 
 const DECK_ID = 'prepositions';
 
-const PRACTICE_TASKS: readonly ExerciseKind[] = ['multiple-choice', 'type-in'];
+const PRACTICE_TASKS: readonly ExerciseKind[] = [ExerciseKind.MultipleChoice, ExerciseKind.TypeIn];
 
 /** Authored sentences and their translations were written with AI for this app. */
 function withOwnSource(item: ClozeItem): ClozeItem {
@@ -56,7 +57,7 @@ const loadReviewedTatoeba = reviewedTatoebaLoader(
 );
 
 function clozeSource(load: () => Promise<readonly DataItem[]>): DeckSource {
-  return { dataKind: 'cloze', tasks: PRACTICE_TASKS, load };
+  return { dataKind: DataKind.Cloze, tasks: PRACTICE_TASKS, load };
 }
 
 export const prepositionDeck: Deck = {

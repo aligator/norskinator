@@ -5,7 +5,7 @@
  * what to study and in which order.
  */
 import type { DailyRoom } from './daily.ts';
-import { dueCards, isDue, type CardState } from './srs.ts';
+import { CardPhase, dueCards, isDue, type CardState } from './srs.ts';
 import type { ItemMeta } from './types.ts';
 
 export const SESSION_SIZE = 20;
@@ -50,7 +50,7 @@ function splitPools<Item extends ItemMeta>(
       continue;
     }
 
-    if (card.phase === 'review') {
+    if (card.phase === CardPhase.Review) {
       if (graduated >= reviewsLeft) {
         continue;
       }
@@ -237,9 +237,10 @@ export function buildSession<Item extends ItemMeta>(
  * A review session grows the garden. A practice session is the fallback when
  * nothing is due and today's limit of new items is used up: it changes no card and pays little.
  */
-export const SESSION_MODES = ['review', 'practice'] as const;
-
-export type SessionMode = (typeof SESSION_MODES)[number];
+export enum SessionMode {
+  Review = 'review',
+  Practice = 'practice',
+}
 
 /**
  * Random items for a practice session. Known items only, so the learner never

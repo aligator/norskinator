@@ -5,16 +5,20 @@
  * permanent: rename the title, never the id.
  */
 import type { Progress } from './gamification.ts';
-import { plantOf, stageRank, type PlantStage } from './garden.ts';
-import { SPECIES, spendableXp, type GardenState } from './species.ts';
-import type { CardState } from './srs.ts';
+import { PlantStage, plantOf, stageRank } from './garden.ts';
+import { SPECIES, SpeciesId, spendableXp, type GardenState } from './species.ts';
+import { CardPhase, type CardState } from './srs.ts';
 
-export type BadgeCategory = 'practice' | 'garden' | 'money';
+export enum BadgeCategory {
+  Practice = 'practice',
+  Garden = 'garden',
+  Money = 'money',
+}
 
 export const BADGE_CATEGORY_LABELS: Readonly<Record<BadgeCategory, string>> = {
-  practice: 'Øving',
-  garden: 'Hagen',
-  money: 'Penger',
+  [BadgeCategory.Practice]: 'Øving',
+  [BadgeCategory.Garden]: 'Hagen',
+  [BadgeCategory.Money]: 'Penger',
 };
 
 /** Everything a badge rule may look at. */
@@ -53,7 +57,7 @@ function plantsAtLeast({ cards }: BadgeState, stage: PlantStage): number {
 
 /** A plant that wilted once and has grown back since. */
 function hasRecovered({ cards }: BadgeState): boolean {
-  return Object.values(cards).some((card) => card.lapses > 0 && card.phase === 'review');
+  return Object.values(cards).some((card) => card.lapses > 0 && card.phase === CardPhase.Review);
 }
 
 function gardensPlanted({ cards }: BadgeState): number {
@@ -63,7 +67,7 @@ function gardensPlanted({ cards }: BadgeState): number {
 export const BADGES: readonly Badge[] = [
   {
     id: 'first-steps',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'Første steg',
     description: 'Svar riktig på din første oppgave.',
     icon: '👣',
@@ -71,7 +75,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'fifty-answers',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'Femti svar',
     description: 'Svar på 50 oppgaver.',
     icon: '📚',
@@ -79,7 +83,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'five-hundred',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'Fem hundre svar',
     description: 'Svar på 500 oppgaver.',
     icon: '🏔️',
@@ -87,7 +91,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'thousand',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'Tusen svar',
     description: 'Svar på 1 000 oppgaver.',
     icon: '🎉',
@@ -95,7 +99,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'combo-10',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'Ti på rad',
     description: 'Ti riktige svar etter hverandre.',
     icon: '🔥',
@@ -103,7 +107,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'combo-25',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'Tjuefem på rad',
     description: 'Tjuefem riktige svar etter hverandre.',
     icon: '⚡',
@@ -111,7 +115,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'combo-50',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'Femti på rad',
     description: 'Femti riktige svar etter hverandre.',
     icon: '💥',
@@ -119,7 +123,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'sharpshooter',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'Skarpskytter',
     description: '90 % riktige av minst 100 svar.',
     icon: '🎯',
@@ -127,7 +131,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'streak-3',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'Tre dager',
     description: 'Øv tre dager på rad.',
     icon: '🗓️',
@@ -135,7 +139,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'streak-7',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'En uke',
     description: 'Øv sju dager på rad.',
     icon: '📅',
@@ -143,7 +147,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'streak-30',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'En måned',
     description: 'Øv tretti dager på rad.',
     icon: '🏆',
@@ -151,7 +155,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'streak-100',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'Hundre dager',
     description: 'Øv hundre dager på rad.',
     icon: '💯',
@@ -159,7 +163,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'goal-5',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'Fem dagsmål',
     description: 'Nå dagsmålet fem ganger.',
     icon: '🥉',
@@ -167,7 +171,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'goal-30',
-    category: 'practice',
+    category: BadgeCategory.Practice,
     title: 'Tretti dagsmål',
     description: 'Nå dagsmålet tretti ganger.',
     icon: '🥇',
@@ -175,39 +179,39 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'first-sprout',
-    category: 'garden',
+    category: BadgeCategory.Garden,
     title: 'Første spire',
     description: 'Et frø har spirt i hagen din.',
     icon: '🌱',
-    earned: (state) => plantsAtLeast(state, 'sprout') >= 1,
+    earned: (state) => plantsAtLeast(state, PlantStage.Sprout) >= 1,
   },
   {
     id: 'first-bush',
-    category: 'garden',
+    category: BadgeCategory.Garden,
     title: 'Første busk',
     description: 'En plante har vokst seg til en busk.',
     icon: '🌿',
-    earned: (state) => plantsAtLeast(state, 'bush') >= 1,
+    earned: (state) => plantsAtLeast(state, PlantStage.Bush) >= 1,
   },
   {
     id: 'first-tree',
-    category: 'garden',
+    category: BadgeCategory.Garden,
     title: 'Første tre',
     description: 'En plante har blitt et tre: du har husket den i tre uker.',
     icon: '🌳',
-    earned: (state) => plantsAtLeast(state, 'tree') >= 1,
+    earned: (state) => plantsAtLeast(state, PlantStage.Tree) >= 1,
   },
   {
     id: 'first-blossom',
-    category: 'garden',
+    category: BadgeCategory.Garden,
     title: 'I full blomst',
     description: 'Et tre blomstrer: husket i to måneder.',
     icon: '🌸',
-    earned: (state) => plantsAtLeast(state, 'blossom') >= 1,
+    earned: (state) => plantsAtLeast(state, PlantStage.Blossom) >= 1,
   },
   {
     id: 'plant-doctor',
-    category: 'garden',
+    category: BadgeCategory.Garden,
     title: 'Plantelege',
     description: 'En vissen plante har vokst seg frisk igjen.',
     icon: '🩹',
@@ -215,31 +219,31 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'gardener-25',
-    category: 'garden',
+    category: BadgeCategory.Garden,
     title: 'Gartner',
     description: '25 planter er busker eller større.',
     icon: '🧑‍🌾',
-    earned: (state) => plantsAtLeast(state, 'bush') >= 25,
+    earned: (state) => plantsAtLeast(state, PlantStage.Bush) >= 25,
   },
   {
     id: 'garden-100',
-    category: 'garden',
+    category: BadgeCategory.Garden,
     title: 'Hundre planter',
     description: 'Hundre planter vokser i hagen.',
     icon: '🏡',
-    earned: (state) => plantsAtLeast(state, 'sprout') >= 100,
+    earned: (state) => plantsAtLeast(state, PlantStage.Sprout) >= 100,
   },
   {
     id: 'forest-50',
-    category: 'garden',
+    category: BadgeCategory.Garden,
     title: 'Skog',
     description: '50 planter har blitt trær.',
     icon: '🌲',
-    earned: (state) => plantsAtLeast(state, 'tree') >= 50,
+    earned: (state) => plantsAtLeast(state, PlantStage.Tree) >= 50,
   },
   {
     id: 'all-gardens',
-    category: 'garden',
+    category: BadgeCategory.Garden,
     title: 'Allsidig',
     description: 'Planter i tre ulike hager.',
     icon: '🧭',
@@ -247,7 +251,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'piggy-bank',
-    category: 'money',
+    category: BadgeCategory.Money,
     title: 'Sparegris',
     description: 'Ha 1 000 kr å bruke på en gang.',
     icon: '🐷',
@@ -256,7 +260,7 @@ export const BADGES: readonly Badge[] = [
   {
     // Ids kept from the former levels 5 and 10, at the XP those levels needed.
     id: 'level-5',
-    category: 'money',
+    category: BadgeCategory.Money,
     title: 'Godt spart',
     description: 'Tjen 6 400 kr til sammen.',
     icon: '💰',
@@ -264,7 +268,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'level-10',
-    category: 'money',
+    category: BadgeCategory.Money,
     title: 'Gullgruve',
     description: 'Tjen 32 400 kr til sammen.',
     icon: '👑',
@@ -272,7 +276,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'first-purchase',
-    category: 'money',
+    category: BadgeCategory.Money,
     title: 'Første kjøp',
     description: 'Kjøp en ny planteart i frøbutikken.',
     icon: '🛍️',
@@ -280,7 +284,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'collector-5',
-    category: 'money',
+    category: BadgeCategory.Money,
     title: 'Samler',
     description: 'Ha fem plantearter.',
     icon: '🧺',
@@ -288,7 +292,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'collector-15',
-    category: 'money',
+    category: BadgeCategory.Money,
     title: 'Botaniker',
     description: 'Ha femten plantearter.',
     icon: '🔬',
@@ -296,7 +300,7 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'collector-all',
-    category: 'money',
+    category: BadgeCategory.Money,
     title: 'Hele katalogen',
     description: 'Ha alle plantearter.',
     icon: '🌍',
@@ -304,11 +308,11 @@ export const BADGES: readonly Badge[] = [
   },
   {
     id: 'aurora',
-    category: 'money',
+    category: BadgeCategory.Money,
     title: 'Nordlys',
     description: 'Kjøp nordlystreet.',
     icon: '🌌',
-    earned: ({ garden }) => garden.unlocked.includes('aurora'),
+    earned: ({ garden }) => garden.unlocked.includes(SpeciesId.Aurora),
   },
 ];
 

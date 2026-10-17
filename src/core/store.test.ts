@@ -3,15 +3,17 @@ import { describe, expect, it, vi } from 'vitest';
 import { dailyRoom } from './daily.ts';
 import { INITIAL_PROGRESS, PRACTICE_XP_CORRECT } from './gamification.ts';
 import { MAX_RESUME_AGE_MS } from './resume.ts';
-import { Store } from './store.ts';
-import { SESSION_STORAGE_KEY, type StorageLike } from './storage.ts';
-import type { ClozeItem, DataItem, Deck } from './types.ts';
+import { SessionMode } from './session.ts';
+import { CardPhase, Grade } from './srs.ts';
+import { LoadStatus, Store } from './store.ts';
+import { SESSION_STORAGE_KEY, ThemePreference, type StorageLike } from './storage.ts';
+import { DataKind, ExerciseKind, type ClozeItem, type DataItem, type Deck } from './types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 
 function item(id: string): ClozeItem {
   return {
-    dataKind: 'cloze',
+    dataKind: DataKind.Cloze,
     id,
     deckId: 'test',
     prompt: 'Jeg bor ___ Norge.',
@@ -31,7 +33,7 @@ function deckFrom(id: string, load: () => Promise<readonly DataItem[]>): Deck {
     description: '',
     icon: '🧪',
     tagLabel: 'Tag',
-    sources: [{ dataKind: 'cloze', tasks: ['multiple-choice'], load }],
+    sources: [{ dataKind: DataKind.Cloze, tasks: [ExerciseKind.MultipleChoice], load }],
   };
 }
 
@@ -148,7 +150,7 @@ describe('Store', () => {
   it('loads decks and exposes their items', async () => {
     const { store } = await createHarness([item('a')]);
 
-    expect(store.state.status).toBe('ready');
+    expect(store.state.status).toBe(LoadStatus.Ready);
     expect(store.state.items).toHaveLength(1);
   });
 
@@ -160,7 +162,7 @@ describe('Store', () => {
     const store = new Store({ decks: [failing], storage: fakeStorage(), now: () => NOW });
     await store.init();
 
-    expect(store.state.status).toBe('error');
+    expect(store.state.status).toBe(LoadStatus.Error);
     expect(store.state.error).toBe('nettverk nede');
   });
 
@@ -188,7 +190,7 @@ describe('Store', () => {
     store.answer('på');
 
     expect(store.state.feedback?.correct).toBe(false);
-    expect(store.state.feedback?.grade).toBe('again');
+    expect(store.state.feedback?.grade).toBe(Grade.Again);
     expect(store.state.session?.queue).toHaveLength(2);
     expect(store.state.cards['a']?.failures).toBe(2);
 
@@ -254,7 +256,7 @@ describe('Store', () => {
     setNow(NOW + 60_000);
     store.startSession();
 
-    expect(store.state.session?.mode).toBe('practice');
+    expect(store.state.session?.mode).toBe(SessionMode.Practice);
     expect(store.currentExercise?.id).toBe('a');
   });
 
@@ -281,7 +283,7 @@ describe('Store', () => {
 
   it('clears progress and session on reset but keeps settings and the daily goal', async () => {
     const { store, storage } = await createHarness([item('a')]);
-    store.updateSettings({ theme: 'dark', newPerDay: 5 });
+    store.updateSettings({ theme: ThemePreference.Dark, newPerDay: 5 });
     store.setDailyGoal(40);
     store.startSession();
     store.answer('i');
@@ -291,7 +293,7 @@ describe('Store', () => {
     expect(store.state.progress).toEqual({ ...INITIAL_PROGRESS, dailyGoal: 40 });
     expect(store.state.cards).toEqual({});
     expect(store.state.session).toBeNull();
-    expect(store.state.settings.theme).toBe('dark');
+    expect(store.state.settings.theme).toBe(ThemePreference.Dark);
     expect(storage.getItem(SESSION_STORAGE_KEY)).toBeNull();
 
     const revived = new Store({ decks: [deckOf([item('a')])], storage, now: () => NOW });
@@ -334,7 +336,7 @@ describe('Store', () => {
 
     fast.resolve();
     await vi.waitFor(() => {
-      expect(store.state.status).toBe('ready');
+      expect(store.state.status).toBe(LoadStatus.Ready);
     });
 
     slow.resolve();
@@ -348,7 +350,7 @@ describe('Store', () => {
 
     store.updateSettings({ disabledDeckIds: ['test'] });
     await vi.waitFor(() => {
-      expect(store.state.status).toBe('ready');
+      expect(store.state.status).toBe(LoadStatus.Ready);
     });
 
     store.resetProgress();
@@ -424,7 +426,7 @@ describe('Store', () => {
     const revived = await reopen(storage, exercises, NOW + 3_600_000);
     revived.answer('i');
 
-    expect(revived.state.feedback?.grade).not.toBe('hard');
+    expect(revived.state.feedback?.grade).not.toBe(Grade.Hard);
   });
 
   it('drops a stale session instead of resuming it', async () => {
@@ -504,7 +506,7 @@ describe('Store', () => {
       store.answer('i');
 
       expect(store.state.feedback?.correct).toBe(true);
-      expect(store.state.feedback?.ratingOptions?.map((option) => option.grade)).toEqual(['hard', 'good', 'easy']);
+      expect(store.state.feedback?.ratingOptions?.map((option) => option.grade)).toEqual([Grade.Hard, Grade.Good, Grade.Easy]);
       expect(store.state.cards['a']).toBeUndefined();
       expect(store.state.progress.xp).toBe(0);
       expect(store.state.progress.totalAnswers).toBe(0);
@@ -528,12 +530,12 @@ describe('Store', () => {
 
       easy.store.startSession();
       easy.store.answer('i');
-      easy.store.rate('easy');
+      easy.store.rate(Grade.Easy);
       good.store.startSession();
       good.store.answer('i');
-      good.store.rate('good');
+      good.store.rate(Grade.Good);
 
-      expect(easy.store.state.feedback?.grade).toBe('easy');
+      expect(easy.store.state.feedback?.grade).toBe(Grade.Easy);
       expect(easy.store.state.feedback?.ratingOptions).toBeNull();
       expect(easy.store.state.cards['a']?.reps).toBe(1);
       expect(easy.store.state.cards['a']?.due).toBeGreaterThan(good.store.state.cards['a']?.due ?? 0);
@@ -551,9 +553,9 @@ describe('Store', () => {
       store.answer('i');
 
       const options = store.state.feedback?.ratingOptions ?? [];
-      const easy = options.find((option) => option.grade === 'easy');
+      const easy = options.find((option) => option.grade === Grade.Easy);
 
-      store.rate('easy');
+      store.rate(Grade.Easy);
 
       expect(store.state.cards['a']?.due).toBe(NOW + (easy?.delayMs ?? -1));
     });
@@ -562,12 +564,12 @@ describe('Store', () => {
       const { store } = await manualHarness([item('a')]);
       store.startSession();
 
-      store.rate('good');
+      store.rate(Grade.Good);
 
       expect(store.state.cards['a']).toBeUndefined();
 
       store.answer('i');
-      store.rate('again' as never);
+      store.rate(Grade.Again as never);
 
       expect(store.state.feedback?.ratingOptions).not.toBeNull();
       expect(store.state.cards['a']).toBeUndefined();
@@ -579,7 +581,7 @@ describe('Store', () => {
 
       store.answer('på');
 
-      expect(store.state.feedback?.grade).toBe('again');
+      expect(store.state.feedback?.grade).toBe(Grade.Again);
       expect(store.state.feedback?.ratingOptions).toBeNull();
       expect(store.state.cards['a']?.failures).toBe(1);
       expect(store.state.session?.queue).toHaveLength(2);
@@ -589,11 +591,11 @@ describe('Store', () => {
       const { store } = await manualHarness([item('a')]);
       store.startSession();
       store.answer('i');
-      store.rate('good');
+      store.rate(Grade.Good);
       store.next();
       store.startSession();
 
-      expect(store.state.session?.mode).toBe('practice');
+      expect(store.state.session?.mode).toBe(SessionMode.Practice);
 
       store.answer('i');
 
@@ -613,7 +615,7 @@ describe('Store', () => {
       expect(revived.state.feedback?.ratingOptions).toEqual(store.state.feedback?.ratingOptions);
       expect(revived.state.cards[answered]).toBeUndefined();
 
-      revived.rate('good');
+      revived.rate(Grade.Good);
 
       expect(revived.state.cards[answered]?.reps).toBe(1);
     });
@@ -649,7 +651,7 @@ describe('Store', () => {
       store.startSession();
 
       expect(Object.keys(store.state.cards)).toHaveLength(4);
-      expect(store.state.session?.mode).toBe('practice');
+      expect(store.state.session?.mode).toBe(SessionMode.Practice);
     });
 
     it('allows the full limit again on the next day', async () => {
@@ -662,7 +664,7 @@ describe('Store', () => {
       setNow(NOW + 24 * 3_600_000);
       store.startSession();
 
-      expect(store.state.session?.mode).toBe('review');
+      expect(store.state.session?.mode).toBe(SessionMode.Review);
       expect(store.state.session?.queue.length).toBeGreaterThan(0);
     });
 
@@ -681,13 +683,13 @@ describe('Store', () => {
 
       answerGood(NOW);
 
-      expect(store.state.cards['a']?.phase).toBe('learning');
+      expect(store.state.cards['a']?.phase).toBe(CardPhase.Learning);
       expect(store.state.progress).toMatchObject({ newToday: 1, reviewsToday: 0 });
 
       // The second right answer graduates the card; a learning step is no review.
       answerGood(NOW + day);
 
-      expect(store.state.cards['a']?.phase).toBe('review');
+      expect(store.state.cards['a']?.phase).toBe(CardPhase.Review);
       expect(dailyRoom(store.state.progress, store.state.settings, NOW + day)).toEqual({ newLeft: 10, reviewsLeft: 100 });
 
       const later = NOW + 30 * day;
@@ -706,7 +708,7 @@ describe('Store', () => {
       store.startSession();
       store.answer('i');
 
-      expect(store.state.session?.mode).toBe('practice');
+      expect(store.state.session?.mode).toBe(SessionMode.Practice);
       expect(store.state.progress).toMatchObject({ newToday: 1, reviewsToday: 0 });
     });
 
@@ -719,7 +721,7 @@ describe('Store', () => {
 
       expect(store.state.progress.newToday).toBe(0);
 
-      store.rate('good');
+      store.rate(Grade.Good);
 
       expect(store.state.progress.newToday).toBe(1);
     });

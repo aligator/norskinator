@@ -1,14 +1,14 @@
 /** All badges by category: earned ones first, then locked ones with their hint. */
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
-import { BADGES, BADGE_CATEGORY_LABELS, badgeById, type Badge, type BadgeCategory } from '../../../core/badges.ts';
+import { BADGES, BADGE_CATEGORY_LABELS, BadgeCategory, badgeById, type Badge } from '../../../core/badges.ts';
 import { lockIcon } from '../../components/icons.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { StoreController, store } from '../shared/store.ts';
 
 import './badge-medal.ts';
 
-const BADGE_CATEGORIES: readonly BadgeCategory[] = ['garden', 'money', 'practice'];
+const BADGE_CATEGORIES: readonly BadgeCategory[] = [BadgeCategory.Garden, BadgeCategory.Money, BadgeCategory.Practice];
 
 /** UI-only memory of which badges the learner has already looked at. */
 const SEEN_BADGES_KEY = 'norskinator.seenBadges';

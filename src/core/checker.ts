@@ -1,5 +1,5 @@
 /** Answer checking per exercise kind. Add a case here when adding a kind. */
-import type { DataItem, Exercise } from './types.ts';
+import { ExerciseKind, type DataItem, type Exercise } from './types.ts';
 
 /** Case- and whitespace-insensitive, and trailing punctuation never fails an answer. */
 export function normalizeAnswer(value: string): string {
@@ -22,11 +22,11 @@ export function isCorrect(exercise: Exercise, given: string): boolean {
   const candidate = normalizeAnswer(given);
 
   switch (exercise.kind) {
-    case 'multiple-choice': {
+    case ExerciseKind.MultipleChoice: {
       return candidate === normalizeAnswer(exercise.answer);
     }
 
-    case 'type-in': {
+    case ExerciseKind.TypeIn: {
       if (candidate === normalizeAnswer(exercise.answer)) {
         return true;
       }
@@ -36,7 +36,7 @@ export function isCorrect(exercise: Exercise, given: string): boolean {
       return alternatives.some((alternative) => normalizeAnswer(alternative) === candidate);
     }
 
-    case 'word-order': {
+    case ExerciseKind.WordOrder: {
       const ordered = withoutPunctuation(candidate);
 
       return [exercise.answer, ...(exercise.alternatives ?? [])].some(

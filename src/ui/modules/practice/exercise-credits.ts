@@ -7,15 +7,18 @@ import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
 import {
   LANGUAGE_CODES,
+  LanguageCode,
   type ExerciseSource,
-  type LanguageCode,
   type SourceCredit,
   type TranslationCredit,
 } from '../../../core/types.ts';
 import { creditIcon } from '../../components/icons.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 
-const LANGUAGE_NAMES: Readonly<Record<LanguageCode, string>> = { de: 'Tysk', en: 'Engelsk' };
+const LANGUAGE_NAMES: Readonly<Record<LanguageCode, string>> = {
+  [LanguageCode.German]: 'Tysk',
+  [LanguageCode.English]: 'Engelsk',
+};
 
 export class ExerciseCredits extends LitElement {
   static override properties = {

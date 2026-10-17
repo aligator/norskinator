@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
 import { applyOverrides, parseOverrides } from './overrides.ts';
-import type { ClozeItem } from './types.ts';
+import { DataKind, LanguageCode, type ClozeItem } from './types.ts';
 
 const ITEM: ClozeItem = {
-  dataKind: 'cloze',
+  dataKind: DataKind.Cloze,
   id: 'a-t1',
   deckId: 'deck',
   prompt: 'Vi bor i et ___ hus.',
@@ -15,13 +15,13 @@ const ITEM: ClozeItem = {
   level: 1,
   tags: ['en/ei-ord', 'type:regelmessig'],
   explanation: 'Old note.',
-  translations: { en: 'We live in a big house.' },
+  translations: { [LanguageCode.English]: 'We live in a big house.' },
   source: {
     name: 'Tatoeba',
     id: '1',
     url: 'https://tatoeba.org/en/sentences/show/1',
     license: 'CC BY 2.0 FR',
-    translations: { en: { id: '2', license: 'CC BY 2.0 FR' } },
+    translations: { [LanguageCode.English]: { id: '2', license: 'CC BY 2.0 FR' } },
   },
 };
 
@@ -47,10 +47,13 @@ describe('applyOverrides', () => {
   it('only fills missing translations and credits them as machine translations', () => {
     const [item] = applyOne({ translations: { de: 'Wir wohnen in einem großen Haus.', en: 'Overwritten?' } });
 
-    expect(item?.translations).toEqual({ en: 'We live in a big house.', de: 'Wir wohnen in einem großen Haus.' });
+    expect(item?.translations).toEqual({
+      [LanguageCode.English]: 'We live in a big house.',
+      [LanguageCode.German]: 'Wir wohnen in einem großen Haus.',
+    });
     expect(item?.source?.translations).toEqual({
-      en: { id: '2', license: 'CC BY 2.0 FR' },
-      de: { machine: true },
+      [LanguageCode.English]: { id: '2', license: 'CC BY 2.0 FR' },
+      [LanguageCode.German]: { machine: true },
     });
   });
 

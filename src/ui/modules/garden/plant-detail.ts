@@ -8,6 +8,7 @@ import { solutionText } from '../../../core/checker.ts';
 import {
   FULL_GROWN_DAYS,
   PLANT_STAGE_LABELS,
+  PlantStage,
   STAGE_START_DAYS,
   nextStage,
   plantOf,
@@ -15,6 +16,7 @@ import {
 } from '../../../core/garden.ts';
 import { speciesById, speciesOf } from '../../../core/species.ts';
 import { isDue, type CardState } from '../../../core/srs.ts';
+import { LoadStatus } from '../../../core/store.ts';
 import { DECKS } from '../../../decks/registry.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { pickTranslation } from '../practice/translation.ts';
@@ -36,7 +38,7 @@ function growthText(plant: Plant, card: CardState): string {
       : `Fyller kronen · ${formatNumber(days)} av ${pluralDays(FULL_GROWN_DAYS)}`;
   }
 
-  const target = next === 'seed' ? 0 : STAGE_START_DAYS[next];
+  const target = next === PlantStage.Seed ? 0 : STAGE_START_DAYS[next];
 
   return `Vokser mot ${PLANT_STAGE_LABELS[next].toLocaleLowerCase('nb-NO')} · ${formatNumber(days)} av ${pluralDays(target)}`;
 }
@@ -150,7 +152,7 @@ export class PlantDetail extends LitElement {
   protected override render(): TemplateResult | typeof nothing {
     const state = store.state;
 
-    if (state.status !== 'ready') {
+    if (state.status !== LoadStatus.Ready) {
       return nothing;
     }
 

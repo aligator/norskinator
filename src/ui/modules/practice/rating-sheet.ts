@@ -6,16 +6,16 @@
 import { LitElement, css, html, type TemplateResult } from 'lit';
 
 import { gapParts, solutionText } from '../../../core/checker.ts';
-import type { RatingOption } from '../../../core/srs.ts';
+import { Grade, type RatingOption } from '../../../core/srs.ts';
 import type { Feedback } from '../../../core/store.ts';
 import { checkIcon } from '../../components/icons.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { formatComesBack } from '../shared/format.ts';
 
 const LABELS: Readonly<Record<RatingOption['grade'], string>> = {
-  hard: 'Vanskelig',
-  good: 'Bra',
-  easy: 'Lett',
+  [Grade.Hard]: 'Vanskelig',
+  [Grade.Good]: 'Bra',
+  [Grade.Easy]: 'Lett',
 };
 
 export class RatingSheet extends LitElement {

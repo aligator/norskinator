@@ -4,7 +4,10 @@ import { LitElement, css, html, nothing, svg, type PropertyValues, type Template
 const RADIUS = 56;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
-export type ProgressTone = 'accent' | 'success';
+export enum ProgressTone {
+  Accent = 'accent',
+  Success = 'success',
+}
 
 function clampRatio(value: number): number {
   if (!Number.isFinite(value)) {
@@ -74,7 +77,7 @@ export class ProgressRing extends LitElement {
     super();
     this.value = 0;
     this.from = undefined;
-    this.tone = 'accent';
+    this.tone = ProgressTone.Accent;
     this.label = '';
     this.drawn = 0;
   }

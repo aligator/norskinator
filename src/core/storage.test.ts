@@ -1,16 +1,23 @@
 import { describe, expect, it } from 'vitest';
 
 import { DAILY_GOAL_BOUNDS, INITIAL_PROGRESS } from './gamification.ts';
+import { PlantStage } from './garden.ts';
+import { SessionMode } from './session.ts';
+import { SpeciesId } from './species.ts';
+import { CardPhase, Grade } from './srs.ts';
 import { DEFAULT_TASK_WEIGHTS } from './task-weights.ts';
 import {
   DEFAULT_SETTINGS,
   INITIAL_STATE,
   STATE_VERSION,
+  ThemePreference,
+  TranslationLanguage,
   parseSession,
   parseState,
   runMigrations,
   type PersistedSession,
 } from './storage.ts';
+import { ExerciseKind } from './types.ts';
 
 describe('parseState', () => {
   it('falls back to defaults for missing, unparsable or non-object data', () => {
@@ -33,7 +40,7 @@ describe('parseState', () => {
     expect(state.progress.dailyGoal).toBe(DAILY_GOAL_BOUNDS.min);
     expect(state.progress.unlockedBadges).toEqual(['x']);
     expect(state.settings.translationLanguage).toBe(DEFAULT_SETTINGS.translationLanguage);
-    expect(state.settings.theme).toBe('dark');
+    expect(state.settings.theme).toBe(ThemePreference.Dark);
     expect(state.settings.newPerDay).toBe(100);
   });
 
@@ -149,7 +156,7 @@ describe('parseState', () => {
 
     expect(settings.soundEffects).toBe(false);
     expect(settings.speakSolution).toBe(false);
-    expect(settings.translationLanguage).toBe('en');
+    expect(settings.translationLanguage).toBe(TranslationLanguage.English);
   });
 
   it('turns non-boolean sound options off instead of coercing them', () => {
@@ -173,7 +180,7 @@ describe('parseState', () => {
   it('rejects an unknown phase instead of trusting it', () => {
     const raw = JSON.stringify({ cards: { a: { deckId: 'deck', phase: 'nonsense' } } });
 
-    expect(parseState(raw).cards['a']?.phase).toBe('new');
+    expect(parseState(raw).cards['a']?.phase).toBe(CardPhase.New);
   });
 
   it('keeps a stored null session day instead of treating it as legacy data', () => {
@@ -195,9 +202,9 @@ describe('parseState', () => {
     const settings = { ...DEFAULT_SETTINGS, taskWeights: { 'multiple-choice': 1, 'type-in': 3, unknown: 9 } };
 
     expect(parseState(JSON.stringify({ settings })).settings.taskWeights).toEqual({
-      'multiple-choice': 25,
-      'type-in': 75,
-      'word-order': 100,
+      [ExerciseKind.MultipleChoice]: 25,
+      [ExerciseKind.TypeIn]: 75,
+      [ExerciseKind.WordOrder]: 100,
     });
   });
 
@@ -211,7 +218,7 @@ describe('parseState', () => {
 
 const SESSION: PersistedSession = {
   queue: ['a', 'b', 'a'],
-  kinds: ['multiple-choice', 'type-in', 'type-in'],
+  kinds: [ExerciseKind.MultipleChoice, ExerciseKind.TypeIn, ExerciseKind.TypeIn],
   index: 1,
   options: ['i', 'på'],
   answered: 2,
@@ -225,21 +232,21 @@ const SESSION: PersistedSession = {
   seedsSown: 1,
   plantsGrown: 2,
   plantsWilted: 1,
-  gardenStart: { b: { stage: 'plant', wilted: false, growth: 0.25 } },
+  gardenStart: { b: { stage: PlantStage.Plant, wilted: false, growth: 0.25 } },
   startedAt: 1_000,
   deckIds: ['deck'],
-  mode: 'practice',
+  mode: SessionMode.Practice,
   feedback: {
     exerciseId: 'b',
     given: 'på',
     correct: false,
-    grade: 'again',
+    grade: Grade.Again,
     xpGained: 0,
     newBadges: [],
     goalJustReached: false,
-    plantBefore: { stage: 'plant', wilted: false, growth: 0.5 },
-    plantAfter: { stage: 'sprout', wilted: true, growth: 0 },
-    species: 'cactus',
+    plantBefore: { stage: PlantStage.Plant, wilted: false, growth: 0.5 },
+    plantAfter: { stage: PlantStage.Sprout, wilted: true, growth: 0 },
+    species: SpeciesId.Cactus,
     nextDue: 2_000,
     reps: 3,
     ratingOptions: null,
@@ -255,14 +262,18 @@ describe('parseSession', () => {
     const legacy: Record<string, unknown> = { ...SESSION };
     delete legacy['kinds'];
 
-    expect(parseSession(JSON.stringify(legacy))?.kinds).toEqual(['multiple-choice', 'multiple-choice', 'multiple-choice']);
+    expect(parseSession(JSON.stringify(legacy))?.kinds).toEqual([
+      ExerciseKind.MultipleChoice,
+      ExerciseKind.MultipleChoice,
+      ExerciseKind.MultipleChoice,
+    ]);
   });
 
   it('reads a session saved before practice sessions existed as a review', () => {
     const legacy: Record<string, unknown> = { ...SESSION };
     delete legacy['mode'];
 
-    expect(parseSession(JSON.stringify(legacy))?.mode).toBe('review');
+    expect(parseSession(JSON.stringify(legacy))?.mode).toBe(SessionMode.Review);
   });
 
   it('returns null for missing, unparsable or non-object data', () => {
@@ -381,7 +392,7 @@ describe('migration from version 1', () => {
   it('keeps due, counters and last review of every card', () => {
     const { mature, hardWon } = migrated().cards;
 
-    expect(mature).toMatchObject({ due: 1_000, reps: 9, lapses: 1, failures: 3, lastReviewed: 500, phase: 'review' });
+    expect(mature).toMatchObject({ due: 1_000, reps: 9, lapses: 1, failures: 3, lastReviewed: 500, phase: CardPhase.Review });
     expect(mature?.lastGrade).toBeNull();
     expect(hardWon).toMatchObject({ due: 2_000, reps: 5, lapses: 2, failures: 4, lastReviewed: 600 });
   });
@@ -403,8 +414,8 @@ describe('migration from version 1', () => {
   it('gives a failed card a small stability and the phase that matches its history', () => {
     const { wilted, failedNew } = migrated().cards;
 
-    expect(wilted).toMatchObject({ phase: 'relearning', stability: 0.5, lastGrade: 'again' });
-    expect(failedNew).toMatchObject({ phase: 'learning', stability: 0.5, lastGrade: 'again' });
+    expect(wilted).toMatchObject({ phase: CardPhase.Relearning, stability: 0.5, lastGrade: Grade.Again });
+    expect(failedNew).toMatchObject({ phase: CardPhase.Learning, stability: 0.5, lastGrade: Grade.Again });
   });
 
   it('keeps ids and everything else in the state', () => {
@@ -422,6 +433,17 @@ describe('migration from version 1', () => {
     expect(card).not.toHaveProperty('intervalDays');
   });
 
+  it('writes the same strings as before the enums, and reads its own output unchanged', () => {
+    const saved = JSON.parse(JSON.stringify(migrated()));
+
+    expect(saved.cards.mature).toMatchObject({ phase: 'review', lastGrade: null });
+    expect(saved.cards.wilted).toMatchObject({ phase: 'relearning', lastGrade: 'again' });
+    expect(saved.cards.failedNew).toMatchObject({ phase: 'learning', lastGrade: 'again' });
+    expect(saved.settings).toMatchObject({ translationLanguage: 'de', theme: 'auto' });
+    expect(saved.garden.unlocked).toEqual(['apple']);
+    expect(parseState(JSON.stringify(saved))).toEqual(migrated());
+  });
+
   it('carries the new items limit over, so paused stays paused', () => {
     const paused = parseState(JSON.stringify({ version: 1, settings: { newPerSession: 0 } }));
     const custom = parseState(JSON.stringify({ version: 1, settings: { newPerSession: 5 } }));
@@ -430,7 +452,7 @@ describe('migration from version 1', () => {
     expect(paused.settings.newPerDay).toBe(0);
     expect(custom.settings.newPerDay).toBe(5);
     expect(untouched.settings.newPerDay).toBe(DEFAULT_SETTINGS.newPerDay);
-    expect(untouched.settings.theme).toBe('dark');
+    expect(untouched.settings.theme).toBe(ThemePreference.Dark);
   });
 
   it('leaves version 2 data alone', () => {
@@ -467,7 +489,7 @@ describe('pending rating in a stored session', () => {
 
     const options = parseSession(raw)?.feedback?.ratingOptions;
 
-    expect(options).toEqual([{ grade: 'good', delayMs: 5 }]);
+    expect(options).toEqual([{ grade: Grade.Good, delayMs: 5 }]);
   });
 
   it('keeps each grade once, in the stored order', () => {
@@ -484,7 +506,7 @@ describe('pending rating in a stored session', () => {
     };
     const raw = JSON.stringify({ queue: ['a'], index: 0, startedAt: 1, feedback });
 
-    expect(parseSession(raw)?.feedback?.ratingOptions?.map((option) => option.grade)).toEqual(['easy', 'hard']);
+    expect(parseSession(raw)?.feedback?.ratingOptions?.map((option) => option.grade)).toEqual([Grade.Easy, Grade.Hard]);
   });
 
   it('is not pending when none is stored', () => {
@@ -522,8 +544,121 @@ describe('v1 migration limits and stored rating options', () => {
 
     expect(read([{ grade: 'again', delayMs: 1 }, { grade: 'zzz', delayMs: 1 }])).toBeNull();
     expect(read([{ grade: 'easy', delayMs: 1 }, { grade: 'easy', delayMs: 2 }, { grade: 'hard', delayMs: 3 }])).toEqual([
-      { grade: 'easy', delayMs: 1 },
-      { grade: 'hard', delayMs: 3 },
+      { grade: Grade.Easy, delayMs: 1 },
+      { grade: Grade.Hard, delayMs: 3 },
     ]);
+  });
+});
+
+/** State and session as a version 2 build stores them, with every enum-valued field set. */
+const V2_STATE = {
+  version: 2,
+  progress: { ...INITIAL_PROGRESS, xp: 120, totalAnswers: 4, correctAnswers: 3 },
+  cards: {
+    a: {
+      exerciseId: 'a',
+      deckId: 'deck',
+      phase: 'relearning',
+      stability: 2.5,
+      difficulty: 6.1,
+      learningStep: 0,
+      due: 5_000,
+      reps: 4,
+      lapses: 1,
+      failures: 2,
+      lastReviewed: 4_000,
+      lastGrade: 'again',
+    },
+    b: {
+      exerciseId: 'b',
+      deckId: 'deck',
+      phase: 'review',
+      stability: 30,
+      difficulty: 3,
+      learningStep: 0,
+      due: 9_000,
+      reps: 6,
+      lapses: 0,
+      failures: 0,
+      lastReviewed: 3_000,
+      lastGrade: 'easy',
+    },
+    c: {
+      exerciseId: 'c',
+      deckId: 'deck',
+      phase: 'new',
+      stability: 0,
+      difficulty: 0,
+      learningStep: 0,
+      due: 1_000,
+      reps: 0,
+      lapses: 0,
+      failures: 0,
+      lastReviewed: null,
+      lastGrade: null,
+    },
+  },
+  settings: {
+    translationLanguage: 'en',
+    theme: 'dark',
+    newPerDay: 10,
+    reviewsPerDay: 100,
+    sessionSize: 20,
+    disabledDeckIds: [],
+    soundEffects: true,
+    speakSolution: false,
+    taskWeights: { 'multiple-choice': 60, 'type-in': 40, 'word-order': 100 },
+    manualRating: true,
+  },
+  garden: { unlocked: ['apple', 'cactus'], spentXp: 1500, species: { a: 'cactus', b: 'apple' } },
+};
+
+const V2_SESSION = {
+  queue: ['a', 'b'],
+  kinds: ['type-in', 'word-order'],
+  index: 1,
+  options: [],
+  answered: 1,
+  correct: 1,
+  xpEarned: 10,
+  bestCombo: 1,
+  badgesEarned: [],
+  requeuedIds: [],
+  completed: false,
+  streakExtended: false,
+  seedsSown: 0,
+  plantsGrown: 1,
+  plantsWilted: 0,
+  gardenStart: { a: { stage: 'bush', wilted: false, growth: 0.5 } },
+  startedAt: 1_000,
+  deckIds: ['deck'],
+  mode: 'review',
+  feedback: {
+    exerciseId: 'a',
+    given: 'på',
+    correct: true,
+    grade: 'good',
+    xpGained: 10,
+    newBadges: [],
+    goalJustReached: false,
+    plantBefore: { stage: 'plant', wilted: false, growth: 0.25 },
+    plantAfter: { stage: 'tree', wilted: false, growth: 0 },
+    species: 'cactus',
+    nextDue: 9_000,
+    reps: 4,
+    ratingOptions: [
+      { grade: 'hard', delayMs: 1 },
+      { grade: 'easy', delayMs: 5 },
+    ],
+  },
+};
+
+describe('stored data of version 2', () => {
+  it('parses state unchanged', () => {
+    expect(JSON.parse(JSON.stringify(parseState(JSON.stringify(V2_STATE))))).toEqual(V2_STATE);
+  });
+
+  it('parses a session unchanged', () => {
+    expect(JSON.parse(JSON.stringify(parseSession(JSON.stringify(V2_SESSION))))).toEqual(V2_SESSION);
   });
 });

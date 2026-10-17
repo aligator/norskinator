@@ -7,7 +7,7 @@
  * reviewed alternatives, AI translations, corrected tags, explanations and
  * exclusions on top, since the generated file is overwritten.
  */
-import type { Deck } from '../../core/types.ts';
+import { DataKind, ExerciseKind, type Deck } from '../../core/types.ts';
 import { reviewedTatoebaLoader } from '../tatoeba-source.ts';
 
 const DECK_ID = 'adjectives';
@@ -26,5 +26,11 @@ export const adjectiveDeck: Deck = {
   description: 'stor, stort, store … Bøy adjektivet riktig.',
   icon: '🎨',
   tagLabel: 'Form',
-  sources: [{ dataKind: 'cloze', tasks: ['multiple-choice', 'type-in'], load: loadReviewedTatoeba }],
+  sources: [
+    {
+      dataKind: DataKind.Cloze,
+      tasks: [ExerciseKind.MultipleChoice, ExerciseKind.TypeIn],
+      load: loadReviewedTatoeba,
+    },
+  ],
 };

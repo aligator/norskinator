@@ -8,7 +8,7 @@
  * reviewed rule, explanation, other correct orders, AI translations and
  * exclusions on top, since the generated file is overwritten.
  */
-import type { Deck } from '../../core/types.ts';
+import { DataKind, ExerciseKind, type Deck } from '../../core/types.ts';
 import { reviewedTatoebaLoader } from '../tatoeba-source.ts';
 
 const DECK_ID = 'word-order';
@@ -27,5 +27,5 @@ export const wordOrderDeck: Deck = {
   description: 'Verbet på plass nummer to, inversjon, leddsetninger … Sett ordene i riktig rekkefølge.',
   icon: '🧩',
   tagLabel: 'Regel',
-  sources: [{ dataKind: 'sentence', tasks: ['word-order'], load: loadReviewedTatoeba }],
+  sources: [{ dataKind: DataKind.Sentence, tasks: [ExerciseKind.WordOrder], load: loadReviewedTatoeba }],
 };

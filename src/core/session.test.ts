@@ -9,8 +9,8 @@ import {
   sessionPreview,
   shuffleOptions,
 } from './session.ts';
-import { DAY_MS, createCard, type CardState } from './srs.ts';
-import type { Exercise } from './types.ts';
+import { CardPhase, DAY_MS, createCard, type CardState } from './srs.ts';
+import { ExerciseKind, type Exercise } from './types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 
@@ -28,7 +28,7 @@ function sequence(values: readonly number[]): () => number {
 
 function exercise(id: string, level: 1 | 2 | 3 = 1, deckId = 'deck'): Exercise {
   return {
-    kind: 'multiple-choice',
+    kind: ExerciseKind.MultipleChoice,
     id,
     deckId,
     prompt: `${id} ___`,
@@ -181,7 +181,7 @@ describe('buildSession', () => {
   it('mixes new items and reviews in proportion to what is available today', () => {
     const seen = Array.from({ length: 30 }, (_unused, index) => exercise(`s${index}`));
     const fresh = Array.from({ length: 30 }, (_unused, index) => exercise(`f${index}`));
-    const cards = seen.map((item) => ({ ...createCard(item.id, 'deck', NOW), phase: 'review' as const, due: NOW - DAY_MS }));
+    const cards = seen.map((item) => ({ ...createCard(item.id, 'deck', NOW), phase: CardPhase.Review, due: NOW - DAY_MS }));
 
     const queue = buildSession([...seen, ...fresh], cardsOf(cards), { newLeft: 10, reviewsLeft: 30, random: () => 0 }, NOW);
     const newOnes = queue.filter((item) => item.id.startsWith('f')).length;
@@ -193,7 +193,7 @@ describe('buildSession', () => {
   it('does not let a backlog keep new items out', () => {
     const seen = Array.from({ length: 200 }, (_unused, index) => exercise(`s${index}`));
     const fresh = Array.from({ length: 30 }, (_unused, index) => exercise(`f${index}`));
-    const cards = seen.map((item) => ({ ...createCard(item.id, 'deck', NOW), phase: 'review' as const, due: NOW - DAY_MS }));
+    const cards = seen.map((item) => ({ ...createCard(item.id, 'deck', NOW), phase: CardPhase.Review, due: NOW - DAY_MS }));
 
     const queue = buildSession([...seen, ...fresh], cardsOf(cards), { newLeft: 10, reviewsLeft: 100, random: () => 0 }, NOW);
 
@@ -202,7 +202,7 @@ describe('buildSession', () => {
 
   it('takes no more graduated cards than today\'s review limit allows', () => {
     const pool = Array.from({ length: 40 }, (_unused, index) => exercise(`e${index}`));
-    const cards = pool.map((item) => ({ ...createCard(item.id, 'deck', NOW), phase: 'review' as const, due: NOW - DAY_MS }));
+    const cards = pool.map((item) => ({ ...createCard(item.id, 'deck', NOW), phase: CardPhase.Review, due: NOW - DAY_MS }));
 
     const queue = buildSession(pool, cardsOf(cards), { newLeft: 0, reviewsLeft: 5, random: () => 0 }, NOW);
 
@@ -212,8 +212,8 @@ describe('buildSession', () => {
   it('keeps the earliest due cards when the review limit cuts the rest', () => {
     const pool = [exercise('late'), exercise('early')];
     const cards = [
-      { ...createCard('late', 'deck', NOW), phase: 'review' as const, due: NOW - 1000 },
-      { ...createCard('early', 'deck', NOW), phase: 'review' as const, due: NOW - DAY_MS },
+      { ...createCard('late', 'deck', NOW), phase: CardPhase.Review, due: NOW - 1000 },
+      { ...createCard('early', 'deck', NOW), phase: CardPhase.Review, due: NOW - DAY_MS },
     ];
 
     const queue = buildSession(pool, cardsOf(cards), { newLeft: 0, reviewsLeft: 1, random: () => 0 }, NOW);
@@ -224,9 +224,9 @@ describe('buildSession', () => {
   it('always takes cards still being learned, whatever the review limit', () => {
     const pool = [exercise('failed'), exercise('relearning'), exercise('graduated')];
     const cards = [
-      { ...createCard('failed', 'deck', NOW), phase: 'learning' as const, due: NOW - 1000 },
-      { ...createCard('relearning', 'deck', NOW), phase: 'relearning' as const, due: NOW - 1000 },
-      { ...createCard('graduated', 'deck', NOW), phase: 'review' as const, due: NOW - 1000 },
+      { ...createCard('failed', 'deck', NOW), phase: CardPhase.Learning, due: NOW - 1000 },
+      { ...createCard('relearning', 'deck', NOW), phase: CardPhase.Relearning, due: NOW - 1000 },
+      { ...createCard('graduated', 'deck', NOW), phase: CardPhase.Review, due: NOW - 1000 },
     ];
 
     const queue = buildSession(pool, cardsOf(cards), { newLeft: 0, reviewsLeft: 0, random: () => 0 }, NOW);
@@ -349,7 +349,7 @@ describe('sessionPreview', () => {
   it('reports the due cards the review limit holds back', () => {
     const pool = Array.from({ length: 10 }, (_unused, index) => exercise(`e${index}`));
     const cards = cardsOf(
-      pool.map((item) => ({ ...createCard(item.id, 'deck', NOW), phase: 'review' as const, due: NOW - DAY_MS })),
+      pool.map((item) => ({ ...createCard(item.id, 'deck', NOW), phase: CardPhase.Review, due: NOW - DAY_MS })),
     );
 
     const preview = sessionPreview(pool, cards, { newLeft: 0, reviewsLeft: 4 }, NOW);

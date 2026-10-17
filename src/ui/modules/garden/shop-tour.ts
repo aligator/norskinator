@@ -6,7 +6,7 @@
 import { LitElement, css, html, type TemplateResult } from 'lit';
 
 import { BASE_XP_CORRECT, XP_GOAL_BONUS } from '../../../core/gamification.ts';
-import { SEED } from '../../../core/garden.ts';
+import { PlantStage, SEED } from '../../../core/garden.ts';
 import type { Species } from '../../../core/species.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { formatMoney } from '../shared/format.ts';
@@ -17,7 +17,7 @@ import './plant-sprite.ts';
 
 const STEP_COUNT = 3;
 
-const BLOSSOM = { stage: 'blossom', wilted: false, growth: 1 } as const;
+const BLOSSOM = { stage: PlantStage.Blossom, wilted: false, growth: 1 } as const;
 
 export interface ShopTourClosedDetail {
   readonly openShop: boolean;

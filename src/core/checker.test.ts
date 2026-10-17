@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
 import { gapParts, isCorrect, solutionText } from './checker.ts';
-import type { Exercise } from './types.ts';
+import { ExerciseKind, type Exercise } from './types.ts';
 
 const choice: Exercise = {
-  kind: 'multiple-choice',
+  kind: ExerciseKind.MultipleChoice,
   id: 'a',
   deckId: 'test',
   prompt: 'Jeg bor ___ Norge.',
@@ -16,7 +16,7 @@ const choice: Exercise = {
 };
 
 const typeIn: Exercise = {
-  kind: 'type-in',
+  kind: ExerciseKind.TypeIn,
   id: 'b',
   deckId: 'test',
   prompt: 'Hun er glad ___ deg.',

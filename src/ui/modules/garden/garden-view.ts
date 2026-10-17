@@ -9,6 +9,7 @@ import { keyed } from 'lit/directives/keyed.js';
 import { gardenBeds, type GardenBed } from '../../../core/garden.ts';
 import { dailyRoom } from '../../../core/daily.ts';
 import { sessionOptions, sessionPreview, type SessionPreview } from '../../../core/session.ts';
+import { LoadStatus } from '../../../core/store.ts';
 import type { Deck, PlayableItem } from '../../../core/types.ts';
 import { DECKS } from '../../../decks/registry.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
@@ -144,7 +145,7 @@ export class GardenView extends LitElement {
   protected override render(): TemplateResult | typeof nothing {
     const state = store.state;
 
-    if (state.status !== 'ready') {
+    if (state.status !== LoadStatus.Ready) {
       return nothing;
     }
 

@@ -52,9 +52,9 @@ Nothing else changes: scheduler, stats and UI are deck-agnostic.
 
 ## Adding a question format (task type)
 
-1. Extend `ExerciseKind`, `EXERCISE_KINDS` and `TASK_DATA_KIND` in
+1. Add a member to the `ExerciseKind` enum and to `TASK_DATA_KIND` in
    `src/core/types.ts`, and add the exercise shape to `Exercise`. A new shape
-   of content also needs a `DataKind` and its item type in `DataItem`.
+   of content also needs a `DataKind` member and its item type in `DataItem`.
 2. Add it to `TASK_TYPES` in `src/core/tasks.ts` (data kind, label, builder).
 3. Handle the new case in `src/core/checker.ts`, and in the store's and
    resume's options handling if it shows choices.

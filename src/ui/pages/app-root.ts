@@ -2,7 +2,8 @@
 import { LitElement, css, html, nothing, type SVGTemplateResult, type TemplateResult } from 'lit';
 
 import { firstAffordable, spendableXp } from '../../core/species.ts';
-import { STORAGE_KEY, type ThemePreference } from '../../core/storage.ts';
+import { LoadStatus } from '../../core/store.ts';
+import { STORAGE_KEY, ThemePreference } from '../../core/storage.ts';
 import { gardenIcon, homeIcon, settingsIcon, statsIcon } from '../components/icons.ts';
 import { sharedStyles } from '../components/styles/shared.ts';
 import { ANNOUNCE_EVENT } from '../modules/shared/announce.ts';
@@ -39,7 +40,10 @@ const TABS: readonly Tab[] = [
 ];
 
 /** Browser chrome colour per theme, kept in sync with `--bg`. */
-const THEME_COLORS = { light: '#F4F6F9', dark: '#0D1420' } as const;
+const THEME_COLORS: Readonly<Record<Exclude<ThemePreference, ThemePreference.Auto>, string>> = {
+  [ThemePreference.Light]: '#F4F6F9',
+  [ThemePreference.Dark]: '#0D1420',
+};
 
 export class AppRoot extends LitElement {
   static override properties = {
@@ -237,7 +241,7 @@ export class AppRoot extends LitElement {
   #renderShopTour(immersive: boolean): TemplateResult | typeof nothing {
     const { status, progress, garden } = store.state;
 
-    if (immersive || this.touring || this.#shopTourSeen || status !== 'ready' || this.route === 'hage/butikk') {
+    if (immersive || this.touring || this.#shopTourSeen || status !== LoadStatus.Ready || this.route === 'hage/butikk') {
       return nothing;
     }
 
@@ -414,13 +418,14 @@ export class AppRoot extends LitElement {
 
     this.#appliedTheme = preference;
 
-    if (preference === 'auto') {
+    if (preference === ThemePreference.Auto) {
       root.removeAttribute('data-theme');
     } else {
       root.setAttribute('data-theme', preference);
     }
 
-    const resolved = preference === 'auto' ? (this.#darkQuery.matches ? 'dark' : 'light') : preference;
+    const systemTheme = this.#darkQuery.matches ? ThemePreference.Dark : ThemePreference.Light;
+    const resolved = preference === ThemePreference.Auto ? systemTheme : preference;
 
     for (const meta of document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]')) {
       meta.content = THEME_COLORS[resolved];
@@ -430,7 +435,7 @@ export class AppRoot extends LitElement {
 
 function whenLoaded(): Promise<void> {
   return new Promise((resolve) => {
-    const settled = (): boolean => store.state.status === 'ready' || store.state.status === 'error';
+    const settled = (): boolean => store.state.status === LoadStatus.Ready || store.state.status === LoadStatus.Error;
 
     if (settled()) {
       resolve();

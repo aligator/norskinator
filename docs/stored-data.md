@@ -14,6 +14,10 @@ localStorage, so every deploy must keep it readable:
   simply ignored.
 - **Additive changes** (new optional field): give it a default in the
   `parse*` function in `src/core/storage.ts`. No version bump.
+- **Enum values are stored strings** (card phase, grade, plant stage, task
+  type, session mode, species, theme, translation language). A member may be
+  renamed freely; changing its value is a breaking change. Migrations work on
+  raw data and keep the literal strings of their versions.
 - **Breaking changes** (rename, restructure, changed meaning): bump
   `STATE_VERSION` and add a step to `MIGRATIONS` that upgrades raw data from
   the previous version. Add a test with old data. Version 2 replaced the SM-2

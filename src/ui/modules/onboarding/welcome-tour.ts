@@ -6,11 +6,12 @@
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
 import { DAILY_GOAL_BOUNDS } from '../../../core/gamification.ts';
-import type { TranslationLanguage } from '../../../core/storage.ts';
+import { isEnumValue } from '../../../core/enums.ts';
+import { TranslationLanguage } from '../../../core/storage.ts';
 import { flameIcon, speakerIcon } from '../../components/icons.ts';
 import type { SegmentOption } from '../../components/segmented-control.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
-import { playSound } from '../audio/sound-effects.ts';
+import { SoundKind, playSound } from '../audio/sound-effects.ts';
 import { VoiceController } from '../audio/voice-controller.ts';
 import { StoreController, store } from '../shared/store.ts';
 import { markTourDone } from './tour-state.ts';
@@ -19,9 +20,9 @@ import '../../components/segmented-control.ts';
 import '../../components/toggle-switch.ts';
 
 const TRANSLATIONS: readonly SegmentOption[] = [
-  { value: 'de', label: 'Tysk' },
-  { value: 'en', label: 'Engelsk' },
-  { value: 'none', label: 'Ingen' },
+  { value: TranslationLanguage.German, label: 'Tysk' },
+  { value: TranslationLanguage.English, label: 'Engelsk' },
+  { value: TranslationLanguage.None, label: 'Ingen' },
 ];
 
 const DAILY_GOALS: readonly SegmentOption[] = [10, 20, 30, 50]
@@ -29,10 +30,6 @@ const DAILY_GOALS: readonly SegmentOption[] = [10, 20, 30, 50]
   .map((goal) => ({ value: String(goal), label: String(goal) }));
 
 const STEP_COUNT = 5;
-
-function isTranslationLanguage(value: string): value is TranslationLanguage {
-  return TRANSLATIONS.some((option) => option.value === value);
-}
 
 export interface TourClosedDetail {
   /** True when the learner chose to start the first session right away. */
@@ -410,7 +407,7 @@ export class WelcomeTour extends LitElement {
   };
 
   #onTranslation = (event: Event): void => {
-    if (event instanceof CustomEvent && typeof event.detail === 'string' && isTranslationLanguage(event.detail)) {
+    if (event instanceof CustomEvent && isEnumValue(TranslationLanguage, event.detail)) {
       store.updateSettings({ translationLanguage: event.detail });
     }
   };
@@ -429,7 +426,7 @@ export class WelcomeTour extends LitElement {
     store.updateSettings({ soundEffects: event.detail });
 
     if (event.detail) {
-      playSound('correct');
+      playSound(SoundKind.Correct);
     }
   };
 

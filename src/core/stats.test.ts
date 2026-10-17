@@ -1,14 +1,14 @@
 import { describe, expect, it } from 'vitest';
 
-import { createCard, review, DAY_MS, type CardState } from './srs.ts';
+import { Grade, createCard, review, DAY_MS, type CardState } from './srs.ts';
 import { deckCounts, tagMastery } from './stats.ts';
-import type { Exercise } from './types.ts';
+import { ExerciseKind, type Exercise } from './types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 
 function exercise(id: string, tag: string, deckId = 'deck'): Exercise {
   return {
-    kind: 'multiple-choice',
+    kind: ExerciseKind.MultipleChoice,
     id,
     deckId,
     prompt: '___',
@@ -22,8 +22,8 @@ function exercise(id: string, tag: string, deckId = 'deck'): Exercise {
 describe('tagMastery', () => {
   it('splits each tag into review, learning and unseen cards', () => {
     const exercises = [exercise('a', 'i'), exercise('b', 'i'), exercise('c', 'i')];
-    const learned = review(createCard('a', 'deck', NOW), 'easy', NOW);
-    const failed = review(createCard('b', 'deck', NOW), 'again', NOW);
+    const learned = review(createCard('a', 'deck', NOW), Grade.Easy, NOW);
+    const failed = review(createCard('b', 'deck', NOW), Grade.Again, NOW);
 
     const [mastery] = tagMastery(exercises, { a: learned, b: failed });
 
@@ -33,8 +33,8 @@ describe('tagMastery', () => {
 
   it('lists the weakest practised tag before untouched and strong ones', () => {
     const exercises = [exercise('a', 'på'), exercise('b', 'i'), exercise('c', 'til')];
-    const strong = review(createCard('a', 'deck', NOW), 'good', NOW);
-    const weak = review(createCard('b', 'deck', NOW), 'again', NOW);
+    const strong = review(createCard('a', 'deck', NOW), Grade.Good, NOW);
+    const weak = review(createCard('b', 'deck', NOW), Grade.Again, NOW);
 
     const order = tagMastery(exercises, { a: strong, b: weak }).map((entry) => entry.tag);
 
