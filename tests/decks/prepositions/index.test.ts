@@ -4,11 +4,11 @@
  */
 import { describe, expect, it } from 'vitest';
 
-import { loadDeck } from '../../core/tasks.ts';
-import { ExerciseKind, LANGUAGE_CODES } from '../../core/types.ts';
-import { prepositionDeck } from './index.ts';
-import overridesFile from './overrides.json';
-import corpus from './tatoeba.json';
+import { loadDeck } from '../../../src/core/tasks.ts';
+import { ExerciseKind, LANGUAGE_CODES } from '../../../src/core/types.ts';
+import { prepositionDeck } from '../../../src/decks/prepositions/index.ts';
+import overridesFile from '../../../src/decks/prepositions/overrides.json';
+import corpus from '../../../src/decks/prepositions/tatoeba.json';
 
 const ITEMS = await loadDeck(prepositionDeck);
 

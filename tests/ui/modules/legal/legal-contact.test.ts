@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { parseLegalContact } from './legal-contact.ts';
+import { parseLegalContact } from '../../../../src/ui/modules/legal/legal-contact.ts';
 
 describe('parseLegalContact', () => {
   it('splits the address into lines and keeps an optional e-mail', () => {

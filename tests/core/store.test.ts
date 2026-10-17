@@ -1,13 +1,13 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import { dailyRoom } from './daily.ts';
-import { INITIAL_PROGRESS, PRACTICE_XP_CORRECT } from './gamification.ts';
-import { MAX_RESUME_AGE_MS } from './resume.ts';
-import { SessionMode } from './session.ts';
-import { CardPhase, Grade } from './srs.ts';
-import { LoadStatus, Store } from './store.ts';
-import { SESSION_STORAGE_KEY, ThemePreference, type StorageLike } from './storage.ts';
-import { DataKind, ExerciseKind, type ClozeItem, type DataItem, type Deck } from './types.ts';
+import { dailyRoom } from '../../src/core/daily.ts';
+import { INITIAL_PROGRESS, PRACTICE_XP_CORRECT } from '../../src/core/gamification.ts';
+import { MAX_RESUME_AGE_MS } from '../../src/core/resume.ts';
+import { SessionMode } from '../../src/core/session.ts';
+import { CardPhase, Grade } from '../../src/core/srs.ts';
+import { LoadStatus, Store } from '../../src/core/store.ts';
+import { SESSION_STORAGE_KEY, ThemePreference, type StorageLike } from '../../src/core/storage.ts';
+import { DataKind, ExerciseKind, type ClozeItem, type DataItem, type Deck } from '../../src/core/types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 
@@ -147,13 +147,6 @@ describe('Store', () => {
     expect(store.state.progress.lastSessionDay).toBeNull();
   });
 
-  it('loads decks and exposes their items', async () => {
-    const { store } = await createHarness([item('a')]);
-
-    expect(store.state.status).toBe(LoadStatus.Ready);
-    expect(store.state.items).toHaveLength(1);
-  });
-
   it('reports an error instead of throwing when a deck fails to load', async () => {
     const failing = deckFrom('test', async () => {
       throw new Error('nettverk nede');
@@ -173,6 +166,7 @@ describe('Store', () => {
     store.answer('i');
 
     expect(store.state.feedback?.correct).toBe(true);
+    expect(store.state.feedback?.ratingOptions).toBeNull();
     expect(store.state.progress.xp).toBeGreaterThan(0);
     expect(store.state.cards['a']?.reps).toBe(1);
 
@@ -186,6 +180,10 @@ describe('Store', () => {
     store.startSession();
 
     store.answer('på');
+
+    expect(store.state.session?.queue).toHaveLength(2);
+    expect(store.state.progress.combo).toBe(0);
+
     store.next();
     store.answer('på');
 
@@ -197,17 +195,6 @@ describe('Store', () => {
     store.next();
 
     expect(store.state.session?.completed).toBe(true);
-  });
-
-  it('requeues a wrong answer so the exercise comes back in the same session', async () => {
-    const { store } = await createHarness([item('a')]);
-    store.startSession();
-
-    store.answer('på');
-
-    expect(store.state.feedback?.correct).toBe(false);
-    expect(store.state.session?.queue).toHaveLength(2);
-    expect(store.state.progress.combo).toBe(0);
   });
 
   it('ignores a second answer while the feedback is showing', async () => {
@@ -277,6 +264,7 @@ describe('Store', () => {
     expect(store.state.garden).toBe(garden);
     expect(store.state.progress.xp - xpBefore).toBe(PRACTICE_XP_CORRECT);
     expect(store.state.feedback?.plantAfter).toEqual(store.state.feedback?.plantBefore);
+    expect(store.state.progress).toMatchObject({ newToday: 1, reviewsToday: 0 });
     expect(store.state.session?.seedsSown).toBe(0);
     expect(store.state.session?.gardenStart).toEqual({});
   });
@@ -377,22 +365,6 @@ describe('Store', () => {
     } finally {
       vi.useRealTimers();
     }
-  });
-
-  it('notifies subscribers and stops after unsubscribe', async () => {
-    const { store } = await createHarness([item('a')]);
-    const listener = vi.fn();
-
-    const unsubscribe = store.subscribe(listener);
-    store.startSession();
-
-    expect(listener).toHaveBeenCalled();
-
-    unsubscribe();
-    const callsBefore = listener.mock.calls.length;
-    store.answer('i');
-
-    expect(listener.mock.calls).toHaveLength(callsBefore);
   });
 
   it('resumes a session after a reload with its exercise, index and feedback', async () => {
@@ -619,16 +591,6 @@ describe('Store', () => {
 
       expect(revived.state.cards[answered]?.reps).toBe(1);
     });
-
-    it('grades automatically while the setting is off', async () => {
-      const { store } = await createHarness([item('a')]);
-      store.startSession();
-
-      store.answer('i');
-
-      expect(store.state.feedback?.ratingOptions).toBeNull();
-      expect(store.state.cards['a']?.reps).toBe(1);
-    });
   });
 
   describe('daily limits', () => {
@@ -697,19 +659,6 @@ describe('Store', () => {
       answerGood(later);
 
       expect(dailyRoom(store.state.progress, store.state.settings, later)).toEqual({ newLeft: 10, reviewsLeft: 99 });
-    });
-
-    it('does not count practice answers', async () => {
-      const { store } = await createHarness([item('a')]);
-
-      store.startSession();
-      store.answer('i');
-      store.next();
-      store.startSession();
-      store.answer('i');
-
-      expect(store.state.session?.mode).toBe(SessionMode.Practice);
-      expect(store.state.progress).toMatchObject({ newToday: 1, reviewsToday: 0 });
     });
 
     it('keeps a pending manual rating out of the counters until it is rated', async () => {

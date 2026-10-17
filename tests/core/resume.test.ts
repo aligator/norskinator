@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest';
 
-import { PlantStage } from './garden.ts';
-import { MAX_RESUME_AGE_MS, restoreSession, snapshotSession } from './resume.ts';
-import { SessionMode } from './session.ts';
-import { SpeciesId } from './species.ts';
-import { Grade } from './srs.ts';
-import type { PersistedFeedback, PersistedSession } from './storage.ts';
-import type { Feedback, SessionState } from './store.ts';
-import { ExerciseKind, type Exercise } from './types.ts';
+import { PlantStage } from '../../src/core/garden.ts';
+import { MAX_RESUME_AGE_MS, restoreSession, snapshotSession } from '../../src/core/resume.ts';
+import { SessionMode } from '../../src/core/session.ts';
+import { SpeciesId } from '../../src/core/species.ts';
+import { Grade } from '../../src/core/srs.ts';
+import type { PersistedFeedback, PersistedSession } from '../../src/core/storage.ts';
+import type { Feedback, SessionState } from '../../src/core/store.ts';
+import { ExerciseKind, type Exercise } from '../../src/core/types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 

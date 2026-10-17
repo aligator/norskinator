@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { applyOverrides, parseOverrides } from './overrides.ts';
-import { DataKind, LanguageCode, type ClozeItem } from './types.ts';
+import { applyOverrides, parseOverrides } from '../../src/core/overrides.ts';
+import { DataKind, LanguageCode, type ClozeItem } from '../../src/core/types.ts';
 
 const ITEM: ClozeItem = {
   dataKind: DataKind.Cloze,

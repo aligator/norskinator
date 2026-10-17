@@ -20,7 +20,7 @@ function sourceFiles(directory: string): string[] {
 
     if (statSync(path).isDirectory()) {
       files.push(...sourceFiles(path));
-    } else if (path.endsWith('.ts') && !path.endsWith('.test.ts')) {
+    } else if (path.endsWith('.ts')) {
       files.push(path);
     }
   }

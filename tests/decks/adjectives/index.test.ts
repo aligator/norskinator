@@ -4,12 +4,12 @@
  */
 import { describe, expect, it } from 'vitest';
 
-import { loadDeck, presentAs } from '../../core/tasks.ts';
-import { DataKind, ExerciseKind, LANGUAGE_CODES } from '../../core/types.ts';
-import { isFormCategory } from './categories.ts';
-import { adjectiveDeck } from './index.ts';
-import overridesFile from './overrides.json';
-import corpus from './tatoeba.json';
+import { loadDeck, presentAs } from '../../../src/core/tasks.ts';
+import { DataKind, ExerciseKind, LANGUAGE_CODES } from '../../../src/core/types.ts';
+import { isFormCategory } from '../../../src/decks/adjectives/categories.ts';
+import { adjectiveDeck } from '../../../src/decks/adjectives/index.ts';
+import overridesFile from '../../../src/decks/adjectives/overrides.json';
+import corpus from '../../../src/decks/adjectives/tatoeba.json';
 
 const ITEMS = await loadDeck(adjectiveDeck);
 

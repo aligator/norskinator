@@ -10,8 +10,8 @@ import {
   recordSessionCompleted,
   sessionCompletedToday,
   type Progress,
-} from './gamification.ts';
-import { SessionMode } from './session.ts';
+} from '../../src/core/gamification.ts';
+import { SessionMode } from '../../src/core/session.ts';
 
 /** Local noon, so a timezone shift cannot move these timestamps to another day. */
 function localNoon(year: number, month: number, day: number): number {

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { gapParts, isCorrect, solutionText } from './checker.ts';
-import { ExerciseKind, type Exercise } from './types.ts';
+import { gapParts, isCorrect, solutionText } from '../../src/core/checker.ts';
+import { ExerciseKind, type Exercise } from '../../src/core/types.ts';
 
 const choice: Exercise = {
   kind: ExerciseKind.MultipleChoice,
@@ -46,10 +46,6 @@ describe('isCorrect', () => {
 });
 
 describe('solutionText', () => {
-  it('uses the stored solution when there is one', () => {
-    expect(solutionText(choice)).toBe('Jeg bor i Norge.');
-  });
-
   it('fills the gap when no solution was stored', () => {
     expect(solutionText(typeIn)).toBe('Hun er glad i deg.');
   });

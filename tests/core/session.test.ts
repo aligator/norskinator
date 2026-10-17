@@ -3,14 +3,13 @@ import { describe, expect, it } from 'vitest';
 import {
   buildPracticeSession,
   buildSession,
-  canRequeue,
   countDue,
   requeue,
   sessionPreview,
   shuffleOptions,
-} from './session.ts';
-import { CardPhase, DAY_MS, createCard, type CardState } from './srs.ts';
-import { ExerciseKind, type Exercise } from './types.ts';
+} from '../../src/core/session.ts';
+import { CardPhase, DAY_MS, createCard, type CardState } from '../../src/core/srs.ts';
+import { ExerciseKind, type Exercise } from '../../src/core/types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 
@@ -284,14 +283,6 @@ describe('requeue', () => {
     const next = requeue(queue, 1, queue[1]!);
 
     expect(next.map((item) => item.id)).toEqual(['a', 'b', 'b']);
-  });
-});
-
-describe('canRequeue', () => {
-  it('allows one re-queue per exercise and session', () => {
-    expect(canRequeue([], 'a')).toBe(true);
-    expect(canRequeue(['b'], 'a')).toBe(true);
-    expect(canRequeue(['a'], 'a')).toBe(false);
   });
 });
 

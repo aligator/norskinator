@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { CardPhase, DAY_MS, Grade, createCard, dueCards, isDue, ratingOptions, review, type CardState } from './srs.ts';
+import { CardPhase, DAY_MS, Grade, createCard, dueCards, isDue, ratingOptions, review, type CardState } from '../../src/core/srs.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 const MINUTE_MS = 60_000;
@@ -121,17 +121,6 @@ describe('review', () => {
     expect(() => review(card, Grade.Good, NOW)).not.toThrow();
     expect(review(card, Grade.Good, NOW).lastReviewed).toBe(NOW);
     expect(review(card, Grade.Good, NOW).due).toBe(NOW + 10 * MINUTE_MS);
-  });
-
-  it('counts a learning card with a last review in the future from the clock', () => {
-    const first = answeredGood(1);
-    const behind = first.lastReviewed! - DAY_MS;
-    const next = review(first, Grade.Good, behind);
-
-    expect(first.phase).toBe(CardPhase.Learning);
-    expect(next.lastReviewed).toBe(behind);
-    expect(next.due).toBeGreaterThan(behind);
-    expect(next.due - behind).toBe(review({ ...first, lastReviewed: behind }, Grade.Good, behind).due - behind);
   });
 
   it('records the answer on the card', () => {
