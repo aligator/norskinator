@@ -494,3 +494,36 @@ describe('pending rating in a stored session', () => {
     expect(parseSession(raw)?.feedback?.ratingOptions).toBeNull();
   });
 });
+
+describe('verifier probes of the v1 migration and stored rating options', () => {
+  it('clamps a migrated new items limit and works without settings or cards', () => {
+    const huge = parseState(JSON.stringify({ version: 1, settings: { newPerSession: 999 } }));
+    const noSettings = parseState(
+      JSON.stringify({ version: 1, cards: { a: { deckId: 'deck', phase: 'review', ease: 2.5, intervalDays: 3 } } }),
+    );
+    const stray = parseState(JSON.stringify({ version: 2, settings: { newPerSession: 40 } }));
+
+    expect(huge.settings.newPerDay).toBe(100);
+    expect(noSettings.settings.newPerDay).toBe(DEFAULT_SETTINGS.newPerDay);
+    expect(noSettings.cards['a']?.stability).toBeGreaterThan(0);
+    expect(stray.settings.newPerDay).toBe(DEFAULT_SETTINGS.newPerDay);
+  });
+
+  it('drops unknown and repeated grades from stored rating options and turns an empty list into null', () => {
+    const read = (ratingOptions: unknown) =>
+      parseSession(
+        JSON.stringify({
+          queue: ['a'],
+          index: 0,
+          startedAt: 1,
+          feedback: { exerciseId: 'a', given: 'x', correct: true, grade: 'good', ratingOptions },
+        }),
+      )?.feedback?.ratingOptions;
+
+    expect(read([{ grade: 'again', delayMs: 1 }, { grade: 'zzz', delayMs: 1 }])).toBeNull();
+    expect(read([{ grade: 'easy', delayMs: 1 }, { grade: 'easy', delayMs: 2 }, { grade: 'hard', delayMs: 3 }])).toEqual([
+      { grade: 'easy', delayMs: 1 },
+      { grade: 'hard', delayMs: 3 },
+    ]);
+  });
+});
