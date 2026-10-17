@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { CountedAnswer, dailyRoom, recommendedReviewLimit, recordCounted } from './daily.ts';
-import { INITIAL_PROGRESS } from './gamification.ts';
+import { CountedAnswer, dailyRoom, recommendedReviewLimit, recordCounted } from '../../src/core/daily.ts';
+import { INITIAL_PROGRESS } from '../../src/core/gamification.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 const LIMITS = { newPerDay: 10, reviewsPerDay: 100 };

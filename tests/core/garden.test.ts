@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
-import { PlantChange, PlantStage, gardenBeds, plantChange, plantOf, stageRank, totalCounts } from './garden.ts';
-import { CardPhase, DAY_MS, Grade, createCard, review, type CardState } from './srs.ts';
-import type { ItemMeta } from './types.ts';
+import { PlantChange, PlantStage, gardenBeds, plantChange, plantOf, stageRank, totalCounts } from '../../src/core/garden.ts';
+import { CardPhase, DAY_MS, Grade, createCard, review, type CardState } from '../../src/core/srs.ts';
+import type { ItemMeta } from '../../src/core/types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 

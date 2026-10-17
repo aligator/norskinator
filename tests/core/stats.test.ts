@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
-import { Grade, createCard, review, DAY_MS, type CardState } from './srs.ts';
-import { deckCounts, tagMastery } from './stats.ts';
-import { ExerciseKind, type Exercise } from './types.ts';
+import { Grade, createCard, review, DAY_MS, type CardState } from '../../src/core/srs.ts';
+import { deckCounts, tagMastery } from '../../src/core/stats.ts';
+import { ExerciseKind, type Exercise } from '../../src/core/types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 

@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
 
-import { BADGES, unlockBadges, type BadgeState } from './badges.ts';
-import { INITIAL_PROGRESS } from './gamification.ts';
-import { INITIAL_GARDEN, SpeciesId } from './species.ts';
-import { CardPhase, DAY_MS, Grade, createCard, type CardState } from './srs.ts';
+import { BADGES, unlockBadges, type BadgeState } from '../../src/core/badges.ts';
+import { INITIAL_PROGRESS } from '../../src/core/gamification.ts';
+import { INITIAL_GARDEN, SpeciesId } from '../../src/core/species.ts';
+import { CardPhase, DAY_MS, Grade, createCard, type CardState } from '../../src/core/srs.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 

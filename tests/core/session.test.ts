@@ -8,9 +8,9 @@ import {
   requeue,
   sessionPreview,
   shuffleOptions,
-} from './session.ts';
-import { CardPhase, DAY_MS, createCard, type CardState } from './srs.ts';
-import { ExerciseKind, type Exercise } from './types.ts';
+} from '../../src/core/session.ts';
+import { CardPhase, DAY_MS, createCard, type CardState } from '../../src/core/srs.ts';
+import { ExerciseKind, type Exercise } from '../../src/core/types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 

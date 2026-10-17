@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { gapParts, isCorrect, solutionText } from './checker.ts';
-import { ExerciseKind, type Exercise } from './types.ts';
+import { gapParts, isCorrect, solutionText } from '../../src/core/checker.ts';
+import { ExerciseKind, type Exercise } from '../../src/core/types.ts';
 
 const choice: Exercise = {
   kind: ExerciseKind.MultipleChoice,

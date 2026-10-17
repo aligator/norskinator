@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { normaliseLang, pickNorwegianVoice } from './voice-choice.ts';
+import { normaliseLang, pickNorwegianVoice } from '../../../../src/ui/modules/audio/voice-choice.ts';
 
 function voices(...langs: string[]): { lang: string; name: string }[] {
   return langs.map((lang, index) => ({ lang, name: `voice-${index}` }));

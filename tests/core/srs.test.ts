@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { CardPhase, DAY_MS, Grade, createCard, dueCards, isDue, ratingOptions, review, type CardState } from './srs.ts';
+import { CardPhase, DAY_MS, Grade, createCard, dueCards, isDue, ratingOptions, review, type CardState } from '../../src/core/srs.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 const MINUTE_MS = 60_000;

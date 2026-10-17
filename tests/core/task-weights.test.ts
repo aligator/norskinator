@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { DEFAULT_TASK_WEIGHTS, WEIGHT_TOTAL, apportion, parseTaskWeights, rebalance } from './task-weights.ts';
-import { ExerciseKind } from './types.ts';
+import { DEFAULT_TASK_WEIGHTS, WEIGHT_TOTAL, apportion, parseTaskWeights, rebalance } from '../../src/core/task-weights.ts';
+import { ExerciseKind } from '../../src/core/types.ts';
 
 describe('apportion', () => {
   it('keeps the total exact despite rounding', () => {

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { INITIAL_GARDEN, SPECIES, SpeciesId, buySpecies, canBuy, sow, speciesOf, spendableXp } from './species.ts';
-import { parseState } from './storage.ts';
+import { INITIAL_GARDEN, SPECIES, SpeciesId, buySpecies, canBuy, sow, speciesOf, spendableXp } from '../../src/core/species.ts';
+import { parseState } from '../../src/core/storage.ts';
 
 describe('shop', () => {
   it('spends XP without lowering the total', () => {

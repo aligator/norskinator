@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
-import { Grade } from './srs.ts';
-import { TASK_TYPES, gradeFromAnswer, loadDeck, presentAs, presentItem } from './tasks.ts';
-import { DataKind, ExerciseKind, type ClozeItem, type Deck, type PlayableItem } from './types.ts';
+import { Grade } from '../../src/core/srs.ts';
+import { TASK_TYPES, gradeFromAnswer, loadDeck, presentAs, presentItem } from '../../src/core/tasks.ts';
+import { DataKind, ExerciseKind, type ClozeItem, type Deck, type PlayableItem } from '../../src/core/types.ts';
 
 const ITEM: PlayableItem = {
   dataKind: DataKind.Cloze,

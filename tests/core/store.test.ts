@@ -1,13 +1,13 @@
 import { describe, expect, it, vi } from 'vitest';
 
-import { dailyRoom } from './daily.ts';
-import { INITIAL_PROGRESS, PRACTICE_XP_CORRECT } from './gamification.ts';
-import { MAX_RESUME_AGE_MS } from './resume.ts';
-import { SessionMode } from './session.ts';
-import { CardPhase, Grade } from './srs.ts';
-import { LoadStatus, Store } from './store.ts';
-import { SESSION_STORAGE_KEY, ThemePreference, type StorageLike } from './storage.ts';
-import { DataKind, ExerciseKind, type ClozeItem, type DataItem, type Deck } from './types.ts';
+import { dailyRoom } from '../../src/core/daily.ts';
+import { INITIAL_PROGRESS, PRACTICE_XP_CORRECT } from '../../src/core/gamification.ts';
+import { MAX_RESUME_AGE_MS } from '../../src/core/resume.ts';
+import { SessionMode } from '../../src/core/session.ts';
+import { CardPhase, Grade } from '../../src/core/srs.ts';
+import { LoadStatus, Store } from '../../src/core/store.ts';
+import { SESSION_STORAGE_KEY, ThemePreference, type StorageLike } from '../../src/core/storage.ts';
+import { DataKind, ExerciseKind, type ClozeItem, type DataItem, type Deck } from '../../src/core/types.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 

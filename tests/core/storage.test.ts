@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
 
-import { DAILY_GOAL_BOUNDS, INITIAL_PROGRESS } from './gamification.ts';
-import { PlantStage } from './garden.ts';
-import { SessionMode } from './session.ts';
-import { SpeciesId } from './species.ts';
-import { CardPhase, Grade } from './srs.ts';
-import { DEFAULT_TASK_WEIGHTS } from './task-weights.ts';
+import { DAILY_GOAL_BOUNDS, INITIAL_PROGRESS } from '../../src/core/gamification.ts';
+import { PlantStage } from '../../src/core/garden.ts';
+import { SessionMode } from '../../src/core/session.ts';
+import { SpeciesId } from '../../src/core/species.ts';
+import { CardPhase, Grade } from '../../src/core/srs.ts';
+import { DEFAULT_TASK_WEIGHTS } from '../../src/core/task-weights.ts';
 import {
   DEFAULT_SETTINGS,
   INITIAL_STATE,
@@ -16,8 +16,8 @@ import {
   parseState,
   runMigrations,
   type PersistedSession,
-} from './storage.ts';
-import { ExerciseKind } from './types.ts';
+} from '../../src/core/storage.ts';
+import { ExerciseKind } from '../../src/core/types.ts';
 
 describe('parseState', () => {
   it('falls back to defaults for missing, unparsable or non-object data', () => {
