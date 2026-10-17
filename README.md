@@ -127,7 +127,7 @@ personvern»). Den vises bare når disse variablene er satt:
 
 ## Nye temaer og oppgavetyper
 
-Arkitekturen og kodestilen er beskrevet i [`AGENTS.md`](./AGENTS.md). Kort
+Arkitekturen og kodestilen er beskrevet i [`AGENTS.md`](./AGENTS.md), detaljer i [`docs/`](./docs). Kort
 fortalt:
 
 - **Nytt tema (deck):** lag `src/decks/<tema>/index.ts` som eksporterer en
