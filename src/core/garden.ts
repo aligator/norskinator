@@ -5,21 +5,28 @@
  * grows exactly as fast as the learner remembers and wilts when they forget.
  */
 import { DEFAULT_SPECIES, type SpeciesId } from './species.ts';
-import { isDue, type CardState } from './srs.ts';
+import { Grade, isDue, type CardState } from './srs.ts';
 import type { ItemMeta } from './types.ts';
 
-export type PlantStage = 'seed' | 'sprout' | 'plant' | 'bush' | 'tree' | 'blossom';
-
 /** In growth order; a stage's position is its rank. */
-export const PLANT_STAGES: readonly PlantStage[] = ['seed', 'sprout', 'plant', 'bush', 'tree', 'blossom'];
+export enum PlantStage {
+  Seed = 'seed',
+  Sprout = 'sprout',
+  Plant = 'plant',
+  Bush = 'bush',
+  Tree = 'tree',
+  Blossom = 'blossom',
+}
+
+export const PLANT_STAGES: readonly PlantStage[] = Object.values(PlantStage);
 
 export const PLANT_STAGE_LABELS: Readonly<Record<PlantStage, string>> = {
-  seed: 'Frø',
-  sprout: 'Spire',
-  plant: 'Plante',
-  bush: 'Busk',
-  tree: 'Tre',
-  blossom: 'Blomstrende tre',
+  [PlantStage.Seed]: 'Frø',
+  [PlantStage.Sprout]: 'Spire',
+  [PlantStage.Plant]: 'Plante',
+  [PlantStage.Bush]: 'Busk',
+  [PlantStage.Tree]: 'Tre',
+  [PlantStage.Blossom]: 'Blomstrende tre',
 };
 
 export interface Plant {
@@ -30,33 +37,33 @@ export interface Plant {
   readonly growth: number;
 }
 
-export const SEED: Plant = { stage: 'seed', wilted: false, growth: 0 };
+export const SEED: Plant = { stage: PlantStage.Seed, wilted: false, growth: 0 };
 
 /**
  * Stability in days at which a reviewed card reaches each stage, in growth
  * order. Stability is the interval at 90 % retention, so these are also the
  * days a plant can go without water.
  */
-export const STAGE_START_DAYS: Readonly<Record<Exclude<PlantStage, 'seed'>, number>> = {
-  sprout: 1,
-  plant: 3,
-  bush: 7,
-  tree: 21,
-  blossom: 60,
+export const STAGE_START_DAYS: Readonly<Record<Exclude<PlantStage, PlantStage.Seed>, number>> = {
+  [PlantStage.Sprout]: 1,
+  [PlantStage.Plant]: 3,
+  [PlantStage.Bush]: 7,
+  [PlantStage.Tree]: 21,
+  [PlantStage.Blossom]: 60,
 };
 
 /** A blossoming tree keeps filling out until this stability. */
 export const FULL_GROWN_DAYS = 180;
 
-const GROWN_STAGES = ['sprout', 'plant', 'bush', 'tree', 'blossom'] as const;
+const GROWN_STAGES = [PlantStage.Sprout, PlantStage.Plant, PlantStage.Bush, PlantStage.Tree, PlantStage.Blossom] as const;
 
 export function plantOf(card: CardState | undefined): Plant {
   if (card === undefined || card.reps === 0) {
     return SEED;
   }
 
-  if (card.lastGrade === 'again') {
-    return { stage: 'sprout', wilted: true, growth: 0 };
+  if (card.lastGrade === Grade.Again) {
+    return { stage: PlantStage.Sprout, wilted: true, growth: 0 };
   }
 
   let position = 0;
@@ -86,23 +93,29 @@ export function stageRank(stage: PlantStage): number {
   return PLANT_STAGES.indexOf(stage);
 }
 
-export type PlantChange = 'sown' | 'grown' | 'wilted' | 'recovered' | 'unchanged';
+export enum PlantChange {
+  Sown = 'sown',
+  Grown = 'grown',
+  Wilted = 'wilted',
+  Recovered = 'recovered',
+  Unchanged = 'unchanged',
+}
 
 /** What one answer did to a plant, for feedback and the session summary. */
 export function plantChange(before: Plant, after: Plant): PlantChange {
   if (after.wilted) {
-    return before.wilted ? 'unchanged' : 'wilted';
+    return before.wilted ? PlantChange.Unchanged : PlantChange.Wilted;
   }
 
-  if (before.stage === 'seed') {
-    return 'sown';
+  if (before.stage === PlantStage.Seed) {
+    return PlantChange.Sown;
   }
 
   if (before.wilted) {
-    return 'recovered';
+    return PlantChange.Recovered;
   }
 
-  return stageRank(after.stage) > stageRank(before.stage) ? 'grown' : 'unchanged';
+  return stageRank(after.stage) > stageRank(before.stage) ? PlantChange.Grown : PlantChange.Unchanged;
 }
 
 export type StageCounts = Record<PlantStage, number>;
@@ -129,7 +142,14 @@ export interface GardenBed<Item extends ItemMeta> {
 }
 
 function emptyCounts(): StageCounts {
-  return { seed: 0, sprout: 0, plant: 0, bush: 0, tree: 0, blossom: 0 };
+  return {
+    [PlantStage.Seed]: 0,
+    [PlantStage.Sprout]: 0,
+    [PlantStage.Plant]: 0,
+    [PlantStage.Bush]: 0,
+    [PlantStage.Tree]: 0,
+    [PlantStage.Blossom]: 0,
+  };
 }
 
 /** Wilted and thirsty plants first, they are the ones to look after; then the tallest. */
@@ -165,7 +185,7 @@ export function gardenBeds<Item extends ItemMeta>(
 
     bed.counts[plant.stage] += 1;
 
-    if (card === undefined || plant.stage === 'seed') {
+    if (card === undefined || plant.stage === PlantStage.Seed) {
       continue;
     }
 

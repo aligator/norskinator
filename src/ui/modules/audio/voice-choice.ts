@@ -5,7 +5,7 @@ export interface VoiceLike {
 }
 
 /** Android has reported `nb_NO`, others `nb-NO` or `NB-no`; compare in one canonical form. */
-export function normaliseLang(lang: string): string {
+function normaliseLang(lang: string): string {
   return lang.trim().replaceAll('_', '-').toLowerCase();
 }
 

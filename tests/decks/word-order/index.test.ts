@@ -4,13 +4,13 @@
  */
 import { describe, expect, it } from 'vitest';
 
-import { normalizeAnswer } from '../../core/checker.ts';
-import { loadDeck, presentAs } from '../../core/tasks.ts';
-import { LANGUAGE_CODES } from '../../core/types.ts';
-import { WORD_ORDER_RULES } from './categories.ts';
-import { wordOrderDeck } from './index.ts';
-import overridesFile from './overrides.json';
-import corpus from './tatoeba.json';
+import { normalizeAnswer } from '../../../src/core/checker.ts';
+import { loadDeck, presentAs } from '../../../src/core/tasks.ts';
+import { DataKind, ExerciseKind, LANGUAGE_CODES } from '../../../src/core/types.ts';
+import { WORD_ORDER_RULES } from '../../../src/decks/word-order/categories.ts';
+import { wordOrderDeck } from '../../../src/decks/word-order/index.ts';
+import overridesFile from '../../../src/decks/word-order/overrides.json';
+import corpus from '../../../src/decks/word-order/tatoeba.json';
 
 const ITEMS = await loadDeck(wordOrderDeck);
 
@@ -27,7 +27,7 @@ function wordBag(sentence: string): string {
 describe('word-order deck', () => {
   it('turns every item into a word-order exercise', () => {
     expect(ITEMS.length).toBeGreaterThan(300);
-    expect(ITEMS.filter((item) => presentAs(item, 'word-order') === null).map((item) => item.id)).toEqual([]);
+    expect(ITEMS.filter((item) => presentAs(item, ExerciseKind.WordOrder) === null).map((item) => item.id)).toEqual([]);
   });
 
   it('tags every item with a known rule', () => {
@@ -38,7 +38,7 @@ describe('word-order deck', () => {
 
   it('builds the answer and every alternative from exactly the tiles', () => {
     const problems = ITEMS.flatMap((item) => {
-      if (item.dataKind !== 'sentence') {
+      if (item.dataKind !== DataKind.Sentence) {
         return [`${item.id}: not a sentence item`];
       }
 

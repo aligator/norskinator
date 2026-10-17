@@ -4,19 +4,21 @@
  */
 import { describe, expect, it } from 'vitest';
 
-import { loadDeck, presentAs } from '../../core/tasks.ts';
-import { LANGUAGE_CODES } from '../../core/types.ts';
-import { isFormCategory } from './categories.ts';
-import { adjectiveDeck } from './index.ts';
-import overridesFile from './overrides.json';
-import corpus from './tatoeba.json';
+import { loadDeck, presentAs } from '../../../src/core/tasks.ts';
+import { DataKind, ExerciseKind, LANGUAGE_CODES } from '../../../src/core/types.ts';
+import { isFormCategory } from '../../../src/decks/adjectives/categories.ts';
+import { adjectiveDeck } from '../../../src/decks/adjectives/index.ts';
+import overridesFile from '../../../src/decks/adjectives/overrides.json';
+import corpus from '../../../src/decks/adjectives/tatoeba.json';
 
 const ITEMS = await loadDeck(adjectiveDeck);
 
 describe('adjective deck', () => {
   it('loads with both task types', () => {
     expect(ITEMS.length).toBeGreaterThan(0);
-    expect(ITEMS.every((item) => item.tasks.includes('multiple-choice') && item.tasks.includes('type-in'))).toBe(true);
+    expect(
+      ITEMS.every((item) => item.tasks.includes(ExerciseKind.MultipleChoice) && item.tasks.includes(ExerciseKind.TypeIn)),
+    ).toBe(true);
   });
 
   it('shows the dictionary form as a hint for every item', () => {
@@ -36,14 +38,14 @@ describe('adjective deck', () => {
   });
 
   it('never offers the answer as a wrong choice', () => {
-    const problems = ITEMS.filter((item) => item.dataKind === 'cloze' && item.distractors.includes(item.answer));
+    const problems = ITEMS.filter((item) => item.dataKind === DataKind.Cloze && item.distractors.includes(item.answer));
 
     expect(problems.map((item) => item.id)).toEqual([]);
   });
 
   it('offers multiple choice for nearly every item', () => {
     // An item with too few wrong choices is still practised by typing it in.
-    const typeInOnly = ITEMS.filter((item) => presentAs(item, 'multiple-choice') === null);
+    const typeInOnly = ITEMS.filter((item) => presentAs(item, ExerciseKind.MultipleChoice) === null);
 
     expect(typeInOnly.length).toBeLessThan(ITEMS.length / 10);
   });

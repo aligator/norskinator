@@ -1,14 +1,14 @@
 import { describe, expect, it } from 'vitest';
 
-import { BADGES, unlockBadges, type BadgeState } from './badges.ts';
-import { INITIAL_PROGRESS } from './gamification.ts';
-import { INITIAL_GARDEN } from './species.ts';
-import { DAY_MS, createCard, type CardState } from './srs.ts';
+import { BADGES, unlockBadges, type BadgeState } from '../../src/core/badges.ts';
+import { INITIAL_PROGRESS } from '../../src/core/gamification.ts';
+import { INITIAL_GARDEN, SpeciesId } from '../../src/core/species.ts';
+import { CardPhase, DAY_MS, Grade, createCard, type CardState } from '../../src/core/srs.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 
 function grown(id: string, stability: number, overrides: Partial<CardState> = {}): CardState {
-  return { ...createCard(id, 'deck', NOW), phase: 'review', reps: 4, stability, difficulty: 5, due: NOW + DAY_MS, ...overrides };
+  return { ...createCard(id, 'deck', NOW), phase: CardPhase.Review, reps: 4, stability, difficulty: 5, due: NOW + DAY_MS, ...overrides };
 }
 
 function state(overrides: Partial<BadgeState> = {}): BadgeState {
@@ -32,7 +32,7 @@ describe('badges', () => {
   });
 
   it('do not count a wilted plant as grown, but reward it once it recovers', () => {
-    const wilted = { a: grown('a', 0.2, { phase: 'relearning', lapses: 1, lastGrade: 'again' }) };
+    const wilted = { a: grown('a', 0.2, { phase: CardPhase.Relearning, lapses: 1, lastGrade: Grade.Again }) };
     const recovered = { a: grown('a', 1, { lapses: 1 }) };
 
     expect(unlockBadges(state({ cards: wilted })).newBadges).not.toContain('first-sprout');
@@ -40,7 +40,7 @@ describe('badges', () => {
   });
 
   it('unlock shop badges from the species owned', () => {
-    const garden = { ...INITIAL_GARDEN, unlocked: [...INITIAL_GARDEN.unlocked, 'dandelion' as const] };
+    const garden = { ...INITIAL_GARDEN, unlocked: [...INITIAL_GARDEN.unlocked, SpeciesId.Dandelion] };
 
     expect(unlockBadges(state({ garden })).newBadges).toContain('first-purchase');
   });

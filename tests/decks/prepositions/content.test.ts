@@ -8,11 +8,11 @@
  */
 import { describe, expect, it } from 'vitest';
 
-import { expandAuthored, isTemplate, parseAuthored } from '../../core/authored.ts';
-import type { ClozeItem } from '../../core/types.ts';
-import authoredFile from './authored.json';
-import { isExcludedDistractor, isPreposition, PREPOSITIONS } from './prepositions.ts';
-import { TOPICS } from './topics.ts';
+import { expandAuthored, isTemplate, parseAuthored } from '../../../src/core/authored.ts';
+import type { ClozeItem } from '../../../src/core/types.ts';
+import authoredFile from '../../../src/decks/prepositions/authored.json';
+import { isExcludedDistractor, isPreposition, PREPOSITIONS } from '../../../src/decks/prepositions/prepositions.ts';
+import { TOPICS } from '../../../src/decks/prepositions/topics.ts';
 
 const MIN_ANSWERS_PER_PREPOSITION = 4;
 const KEBAB_CASE = '[a-z0-9]+(?:-[a-z0-9]+)*';
@@ -257,10 +257,6 @@ describe('preposition content', () => {
     const unmarked = TEMPLATES.filter((exercise) => !exercise.tags.includes('kilde:mal'));
 
     expect(unmarked.map((exercise) => exercise.id)).toEqual([]);
-  });
-
-  it(`uses every preposition as answer at least ${MIN_ANSWERS_PER_PREPOSITION} times`, () => {
-    expect(underrepresented(ALL)).toEqual([]);
   });
 
   it(`gives every preposition at least ${MIN_ANSWERS_PER_PREPOSITION} hand-written items`, () => {

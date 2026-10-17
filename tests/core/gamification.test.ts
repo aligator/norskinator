@@ -10,7 +10,8 @@ import {
   recordSessionCompleted,
   sessionCompletedToday,
   type Progress,
-} from './gamification.ts';
+} from '../../src/core/gamification.ts';
+import { SessionMode } from '../../src/core/session.ts';
 
 /** Local noon, so a timezone shift cannot move these timestamps to another day. */
 function localNoon(year: number, month: number, day: number): number {
@@ -109,14 +110,14 @@ describe('recordAnswer', () => {
   it('pays a practice answer the token amount without combo bonus', () => {
     const onCombo = withProgress({ combo: 4, lastActiveDay: dayKey(DAY_ONE) });
 
-    expect(recordAnswer(onCombo, true, DAY_ONE, undefined, 'practice').xpGained).toBe(PRACTICE_XP_CORRECT);
-    expect(recordAnswer(onCombo, false, DAY_ONE, undefined, 'practice').xpGained).toBe(0);
+    expect(recordAnswer(onCombo, true, DAY_ONE, undefined, SessionMode.Practice).xpGained).toBe(PRACTICE_XP_CORRECT);
+    expect(recordAnswer(onCombo, false, DAY_ONE, undefined, SessionMode.Practice).xpGained).toBe(0);
   });
 
   it('counts a practice answer towards the daily goal', () => {
     const almost = withProgress({ dailyGoal: 3, answersToday: 2, lastActiveDay: dayKey(DAY_ONE) });
 
-    const reaching = recordAnswer(almost, true, DAY_ONE, undefined, 'practice');
+    const reaching = recordAnswer(almost, true, DAY_ONE, undefined, SessionMode.Practice);
 
     expect(reaching.progress.answersToday).toBe(3);
     expect(reaching.goalJustReached).toBe(true);

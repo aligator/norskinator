@@ -7,7 +7,7 @@
 import { isCorrect } from './checker.ts';
 import { unlockBadges } from './badges.ts';
 import { clampDailyGoal, recordAnswer, recordSessionCompleted, type Progress } from './gamification.ts';
-import { plantChange, plantOf, type Plant } from './garden.ts';
+import { PlantChange, PlantStage, plantChange, plantOf, type Plant } from './garden.ts';
 import { DEFAULT_SPECIES, buySpecies, sow, type GardenState, type SpeciesId } from './species.ts';
 import { restoreSession, snapshotSession } from './resume.ts';
 import {
@@ -18,13 +18,13 @@ import {
   sessionOptions,
   shuffleOptions,
   shuffleTiles,
-  type SessionMode,
+  SessionMode,
 } from './session.ts';
-import { createCard, ratingOptions, review, type CardState, type Grade, type RatingOption } from './srs.ts';
+import { CardPhase, Grade, createCard, ratingOptions, review, type CardState, type RatingOption } from './srs.ts';
 import {
   INITIAL_STATE,
   STATE_VERSION,
-  clampPace,
+  clampSettings,
   clearSession,
   defaultStorage,
   loadSession,
@@ -38,10 +38,15 @@ import {
   type StorageLike,
 } from './storage.ts';
 import { gradeFromAnswer, loadDeck, presentAs, presentItem } from './tasks.ts';
-import { dailyRoom, recordCounted } from './daily.ts';
-import type { Deck, Exercise, ExerciseKind, PlayableItem } from './types.ts';
+import { CountedAnswer, dailyRoom, recordCounted } from './daily.ts';
+import { ExerciseKind, type Deck, type Exercise, type PlayableItem } from './types.ts';
 
-export type LoadStatus = 'idle' | 'loading' | 'ready' | 'error';
+export enum LoadStatus {
+  Idle = 'idle',
+  Loading = 'loading',
+  Ready = 'ready',
+  Error = 'error',
+}
 
 export interface Feedback {
   readonly exercise: Exercise;
@@ -123,10 +128,10 @@ const PERSIST_DEBOUNCE_MS = 250;
 /** The first answer of an item and the review of a graduated card use up today's limits; learning steps do not. */
 function countAgainstLimits(progress: Progress, previous: CardState | undefined, now: number): Progress {
   if (previous === undefined) {
-    return recordCounted(progress, 'new', now);
+    return recordCounted(progress, CountedAnswer.New, now);
   }
 
-  return previous.phase === 'review' ? recordCounted(progress, 'review', now) : progress;
+  return previous.phase === CardPhase.Review ? recordCounted(progress, CountedAnswer.Review, now) : progress;
 }
 
 function sameIds(left: readonly string[], right: readonly string[]): boolean {
@@ -161,7 +166,7 @@ export class Store {
     const { progress } = unlockBadges(persisted);
 
     this.#state = {
-      status: 'idle',
+      status: LoadStatus.Idle,
       error: null,
       items: [],
       progress,
@@ -204,7 +209,7 @@ export class Store {
 
   /** Loads every enabled deck. Safe to call repeatedly. */
   async init(): Promise<void> {
-    if (this.#state.status === 'loading' || this.#state.status === 'ready') {
+    if (this.#state.status === LoadStatus.Loading || this.#state.status === LoadStatus.Ready) {
       return;
     }
 
@@ -222,8 +227,8 @@ export class Store {
     const scheduled = buildSession(pool, this.#state.cards, options, now);
 
     // Nothing to review and no room for seeds still leaves something to practise.
-    const mode: SessionMode = scheduled.length > 0 ? 'review' : 'practice';
-    const picked = mode === 'review' ? scheduled : buildPracticeSession(pool, this.#state.cards, options);
+    const mode = scheduled.length > 0 ? SessionMode.Review : SessionMode.Practice;
+    const picked = mode === SessionMode.Review ? scheduled : buildPracticeSession(pool, this.#state.cards, options);
 
     const queue = picked.flatMap((item) => {
       const exercise = presentItem(item, this.#state.settings.taskWeights, this.#random);
@@ -279,7 +284,7 @@ export class Store {
 
     const now = this.#now();
     const correct = isCorrect(exercise, given);
-    const practice = session.mode === 'practice';
+    const practice = session.mode === SessionMode.Practice;
     const previous = this.#state.cards[exercise.id];
 
     // A right answer in a review session waits for the learner's own rating.
@@ -291,7 +296,7 @@ export class Store {
           exercise,
           given,
           correct,
-          grade: 'good',
+          grade: Grade.Good,
           xpGained: 0,
           newBadges: [],
           goalJustReached: false,
@@ -332,8 +337,8 @@ export class Store {
 
   /** Reviews the card, pays the answer and shows its feedback. */
   #settle(session: SessionState, exercise: Exercise, given: string, grade: Grade, now: number): void {
-    const correct = grade !== 'again';
-    const practice = session.mode === 'practice';
+    const correct = grade !== Grade.Again;
+    const practice = session.mode === SessionMode.Practice;
 
     // Practice leaves the card alone: its plant neither grows nor wilts, and no seed is sown.
     const previous = this.#state.cards[exercise.id];
@@ -362,9 +367,9 @@ export class Store {
         xpEarned: session.xpEarned + outcome.xpGained,
         bestCombo: Math.max(session.bestCombo, outcome.progress.combo),
         badgesEarned: [...session.badgesEarned, ...outcome.newBadges],
-        seedsSown: session.seedsSown + (!practice && plantBefore.stage === 'seed' ? 1 : 0),
-        plantsGrown: session.plantsGrown + (change === 'grown' ? 1 : 0),
-        plantsWilted: session.plantsWilted + (change === 'wilted' ? 1 : 0),
+        seedsSown: session.seedsSown + (!practice && plantBefore.stage === PlantStage.Seed ? 1 : 0),
+        plantsGrown: session.plantsGrown + (change === PlantChange.Grown ? 1 : 0),
+        plantsWilted: session.plantsWilted + (change === PlantChange.Wilted ? 1 : 0),
         gardenStart:
           practice || exercise.id in session.gardenStart
             ? session.gardenStart
@@ -442,13 +447,13 @@ export class Store {
   updateSettings(patch: Partial<Settings>): void {
     const previous = this.#state.settings;
     const merged = { ...previous, ...patch };
-    const settings = clampPace(merged);
+    const settings = clampSettings(merged);
 
     this.#patch({ settings });
     this.#persist();
 
     if (!sameIds(previous.disabledDeckIds, settings.disabledDeckIds)) {
-      this.#patch({ status: 'idle', items: [], session: null, feedback: null });
+      this.#patch({ status: LoadStatus.Idle, items: [], session: null, feedback: null });
       void this.init();
     }
   }
@@ -524,7 +529,7 @@ export class Store {
 
     // The session keeps its own copies of its exercises, so the pool can be
     // swapped underneath it; idle or failed stores pick up the change on init.
-    if (decksChanged && (this.#state.status === 'ready' || this.#state.status === 'loading')) {
+    if (decksChanged && (this.#state.status === LoadStatus.Ready || this.#state.status === LoadStatus.Loading)) {
       void this.#loadDecks();
     }
   }
@@ -544,8 +549,8 @@ export class Store {
     this.#loadGeneration += 1;
     const generation = this.#loadGeneration;
 
-    if (this.#state.status !== 'ready') {
-      this.#patch({ status: 'loading', error: null });
+    if (this.#state.status !== LoadStatus.Ready) {
+      this.#patch({ status: LoadStatus.Loading, error: null });
     }
 
     try {
@@ -557,7 +562,7 @@ export class Store {
         return;
       }
 
-      this.#patch({ status: 'ready', items: loaded.flat() });
+      this.#patch({ status: LoadStatus.Ready, items: loaded.flat() });
       this.#resumePending();
     } catch (error) {
       if (generation !== this.#loadGeneration) {
@@ -567,7 +572,7 @@ export class Store {
       const message =
         error instanceof Error ? error.message : 'Ukjent feil ved lasting av oppgaver.';
 
-      this.#patch({ status: 'error', error: message });
+      this.#patch({ status: LoadStatus.Error, error: message });
     }
   }
 
@@ -614,15 +619,15 @@ export class Store {
   /** Choices shuffled once per presentation; word-order tiles never start out already solved. */
   #optionsFor(exercise: Exercise): string[] {
     switch (exercise.kind) {
-      case 'multiple-choice': {
+      case ExerciseKind.MultipleChoice: {
         return shuffleOptions(exercise.options, this.#random);
       }
 
-      case 'type-in': {
+      case ExerciseKind.TypeIn: {
         return [];
       }
 
-      case 'word-order': {
+      case ExerciseKind.WordOrder: {
         return shuffleTiles(exercise.tiles, this.#random);
       }
     }

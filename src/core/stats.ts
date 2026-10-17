@@ -1,5 +1,5 @@
 /** Read-only aggregates for the dashboard and statistics views. */
-import { isDue, type CardState } from './srs.ts';
+import { CardPhase, isDue, type CardState } from './srs.ts';
 import type { ItemMeta } from './types.ts';
 
 export interface TagMastery {
@@ -57,7 +57,7 @@ export function tagMastery(
       continue;
     }
 
-    if (card.phase === 'review') {
+    if (card.phase === CardPhase.Review) {
       tally.review += 1;
     } else {
       tally.learning += 1;

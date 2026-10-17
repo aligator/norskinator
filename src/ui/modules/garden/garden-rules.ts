@@ -1,13 +1,13 @@
 /** How the garden works, on a page of its own so the garden itself stays uncluttered. */
 import { LitElement, css, html, type TemplateResult } from 'lit';
 
-import { PLANT_STAGE_LABELS, STAGE_START_DAYS } from '../../../core/garden.ts';
+import { PLANT_STAGE_LABELS, PlantStage, STAGE_START_DAYS } from '../../../core/garden.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { StoreController, store } from '../shared/store.ts';
 
 import './plant-sprite.ts';
 
-const STAGES = ['sprout', 'plant', 'bush', 'tree', 'blossom'] as const;
+const STAGES = [PlantStage.Sprout, PlantStage.Plant, PlantStage.Bush, PlantStage.Tree, PlantStage.Blossom] as const;
 
 export class GardenRules extends LitElement {
   static override styles = [

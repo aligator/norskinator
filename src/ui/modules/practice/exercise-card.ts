@@ -11,8 +11,8 @@ import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
 import { gapParts, solutionText, type GapParts } from '../../../core/checker.ts';
 import type { Feedback } from '../../../core/store.ts';
-import type { TranslationLanguage } from '../../../core/storage.ts';
-import type { Exercise } from '../../../core/types.ts';
+import { TranslationLanguage } from '../../../core/storage.ts';
+import { ExerciseKind, type Exercise } from '../../../core/types.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import type { TilePicker } from '../../components/tile-picker.ts';
 import { translationStyles } from './practice-styles.ts';
@@ -250,7 +250,7 @@ export class ExerciseCard extends LitElement {
     super();
     this.options = [];
     this.feedback = null;
-    this.translationLanguage = 'de';
+    this.translationLanguage = TranslationLanguage.German;
     this.tagLabel = '';
     this.showTranslation = false;
     this.typed = '';
@@ -302,7 +302,7 @@ export class ExerciseCard extends LitElement {
             ? nothing
             : html`<exercise-credits .source=${this.exercise.source}></exercise-credits>`}
         </div>
-        ${this.exercise.kind === 'word-order' ? this.#renderSentencePrompt() : this.#renderClozePrompt()}
+        ${this.exercise.kind === ExerciseKind.WordOrder ? this.#renderSentencePrompt() : this.#renderClozePrompt()}
       </div>
       <div class="spacer"></div>
       ${this.feedback === null ? this.#renderInput() : nothing}
@@ -315,7 +315,7 @@ export class ExerciseCard extends LitElement {
    */
   #gapWidth(parts: GapParts): string {
     // Without options the gap would otherwise give away the answer's length.
-    const floor = this.exercise.kind === 'type-in' ? TYPED_GAP : 3;
+    const floor = this.exercise.kind === ExerciseKind.TypeIn ? TYPED_GAP : 3;
     const hint = this.exercise.hint?.length ?? 0;
     const longest = Math.max(parts.filled.length, hint, ...this.options.map((option) => option.length), floor);
 
@@ -399,15 +399,15 @@ export class ExerciseCard extends LitElement {
 
   #renderInput(): TemplateResult {
     switch (this.exercise.kind) {
-      case 'multiple-choice': {
+      case ExerciseKind.MultipleChoice: {
         return this.#renderChoice();
       }
 
-      case 'type-in': {
+      case ExerciseKind.TypeIn: {
         return this.#renderTypeIn();
       }
 
-      case 'word-order': {
+      case ExerciseKind.WordOrder: {
         return this.#renderWordOrder();
       }
     }

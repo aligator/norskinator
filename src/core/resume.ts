@@ -7,7 +7,7 @@
  */
 import type { PersistedSession } from './storage.ts';
 import type { Feedback, SessionState } from './store.ts';
-import type { Exercise, ExerciseKind } from './types.ts';
+import { ExerciseKind, type Exercise } from './types.ts';
 
 /** A session untouched for longer than this is not resumed; the learner has moved on. */
 export const MAX_RESUME_AGE_MS = 12 * 60 * 60 * 1000;
@@ -71,15 +71,15 @@ function sameMembers(left: readonly string[], right: readonly string[]): boolean
 
 function optionsOf(exercise: Exercise): readonly string[] {
   switch (exercise.kind) {
-    case 'multiple-choice': {
+    case ExerciseKind.MultipleChoice: {
       return exercise.options;
     }
 
-    case 'type-in': {
+    case ExerciseKind.TypeIn: {
       return [];
     }
 
-    case 'word-order': {
+    case ExerciseKind.WordOrder: {
       return exercise.tiles;
     }
   }
@@ -106,7 +106,7 @@ export function restoreSession(
   }
 
   const rebuilt = persisted.queue.map((id, position) =>
-    exerciseFor(id, persisted.kinds[position] ?? 'multiple-choice'),
+    exerciseFor(id, persisted.kinds[position] ?? ExerciseKind.MultipleChoice),
   );
   const queue: Exercise[] = [];
   let index = 0;

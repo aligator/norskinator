@@ -5,7 +5,7 @@
  * of fillers that each make a sentence. Every sentence names its permanent
  * item id in the data, so expanding never invents an id.
  */
-import { LANGUAGE_CODES, type ClozeItem, type LanguageCode, type Level, type Translations } from './types.ts';
+import { DataKind, LANGUAGE_CODES, type ClozeItem, type LanguageCode, type Level, type Translations } from './types.ts';
 
 /** What every sentence carries besides its text. */
 export interface AuthoredSentence {
@@ -193,7 +193,7 @@ function toItem(
     answer === entry.answer ? entry.explanation : (entry.explanationByAnswer?.[answer] ?? entry.explanation);
 
   return {
-    dataKind: 'cloze',
+    dataKind: DataKind.Cloze,
     id: sentence.id,
     deckId,
     prompt,

@@ -1,7 +1,7 @@
 /** One compact row: how many plants of a bed reached each stage. */
 import { LitElement, css, html, type TemplateResult } from 'lit';
 
-import { PLANT_STAGES, PLANT_STAGE_LABELS, type PlantStage, type StageCounts } from '../../../core/garden.ts';
+import { PLANT_STAGES, PLANT_STAGE_LABELS, PlantStage, type StageCounts } from '../../../core/garden.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { formatNumber } from '../shared/format.ts';
 
@@ -10,8 +10,8 @@ import './plant-sprite.ts';
 /** Six narrow columns; two labels get a shorter form there. */
 const SHORT_LABELS: Readonly<Record<PlantStage, string>> = {
   ...PLANT_STAGE_LABELS,
-  seed: 'Frø',
-  blossom: 'I blomst',
+  [PlantStage.Seed]: 'Frø',
+  [PlantStage.Blossom]: 'I blomst',
 };
 
 export class GardenStrip extends LitElement {

@@ -28,6 +28,12 @@ Hard rules, enforced in review:
 6. TypeScript only, `strict` plus `noUncheckedIndexedAccess`. No `any`.
 7. Core logic (`src/core/`) stays framework-free so it is testable without a
    DOM. Lit is only used in `src/ui/`.
+8. A closed set of strings the code branches on is a string enum with
+   PascalCase members (`enum Grade { Again = 'again' }`), defined in the file
+   that owns the type. A string from storage, JSON or an event passes
+   `isEnumValue` or `readEnum` before it is used as one. Content-defined
+   strings (tags, deck categories, topics) stay strings, and so do unions
+   that carry a payload (`Route`) or live inside one component.
 
 ## Architecture
 
@@ -47,11 +53,19 @@ Hard rules, enforced in review:
   - `pages/` — `app-root` (shell, nav, routing, theme, live region) and one
     thin page per route that composes modules.
 - `scripts/` — build-time data pipeline (`tsx`), never shipped to the browser.
-- `tests/` — cross-cutting tests that need Node (`tests/ui-architecture.test.ts`
-  enforces the UI layering above).
+- `tests/` — all tests, mirroring `src/` (`src/core/srs.ts` is tested in
+  `tests/core/srs.test.ts`). No `*.test.ts` in `src/`.
+  `tests/ui-architecture.test.ts` enforces the UI layering above.
 
 `tsconfig.json` covers `src/` without Node types; `tsconfig.node.json` covers
 `scripts/`, `tests/` and `vite.config.ts`.
+
+## Tests
+
+Write a test when it gives real value: logic, edge cases, regressions, stored
+data and migrations, content invariants. Do not write one for every small
+change, nor for getters, constants, wiring or a restatement of the code.
+Delete a test that duplicates another or cannot fail.
 
 ## Rules that always apply
 

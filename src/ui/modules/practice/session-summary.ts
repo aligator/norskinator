@@ -3,13 +3,14 @@ import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
 import { badgeById } from '../../../core/badges.ts';
 import type { Progress } from '../../../core/gamification.ts';
-import { plantChange, plantOf, type PlantChange } from '../../../core/garden.ts';
+import { PlantChange, plantChange, plantOf } from '../../../core/garden.ts';
+import { SessionMode } from '../../../core/session.ts';
 import { speciesOf } from '../../../core/species.ts';
 import type { SessionState } from '../../../core/store.ts';
 import { flameIcon } from '../../components/icons.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
 import { formatNumber, pluralDays } from '../shared/format.ts';
-import { playSound } from '../audio/sound-effects.ts';
+import { SoundKind, playSound } from '../audio/sound-effects.ts';
 import { PRACTICE_NOTE } from '../shared/session-start.ts';
 import { store } from '../shared/store.ts';
 
@@ -21,7 +22,13 @@ import '../garden/plant-sprite.ts';
 /** Plants shown growing in the summary, the most eventful first. */
 const SUMMARY_PLANTS = 12;
 
-const CHANGE_ORDER: readonly PlantChange[] = ['grown', 'sown', 'recovered', 'unchanged', 'wilted'];
+const CHANGE_ORDER: readonly PlantChange[] = [
+  PlantChange.Grown,
+  PlantChange.Sown,
+  PlantChange.Recovered,
+  PlantChange.Unchanged,
+  PlantChange.Wilted,
+];
 
 /** Delay before the first plant grows, then between two plants, in ms. */
 const GROW_START_MS = 400;
@@ -167,7 +174,7 @@ export class SessionSummary extends LitElement {
 
   protected override firstUpdated(): void {
     if (this.session.xpEarned > 0 && store.state.settings.soundEffects) {
-      playSound('coin');
+      playSound(SoundKind.Coin);
     }
   }
 
@@ -190,7 +197,7 @@ export class SessionSummary extends LitElement {
           </li>
           <li><strong>${session.bestCombo}</strong> <span>beste kombo</span></li>
         </ul>
-        ${session.mode === 'practice' ? html`<p class="note">Fri øving. ${PRACTICE_NOTE}</p>` : this.#renderGarden()}
+        ${session.mode === SessionMode.Practice ? html`<p class="note">Fri øving. ${PRACTICE_NOTE}</p>` : this.#renderGarden()}
         ${this.session.streakExtended
           ? html`<p class="streak">${flameIcon()}<span>${this.#streakText()}</span></p>`
           : nothing}

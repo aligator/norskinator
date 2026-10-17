@@ -5,7 +5,7 @@
  */
 import { LitElement, css, html, nothing, svg, type PropertyValues, type SVGTemplateResult, type TemplateResult } from 'lit';
 
-import { SEED, stageRank, type Plant, type PlantStage } from '../../../core/garden.ts';
+import { PlantStage, SEED, stageRank, type Plant } from '../../../core/garden.ts';
 import { DEFAULT_SPECIES, type SpeciesId } from '../../../core/species.ts';
 import { blossomArt, stageArt } from './species-art.ts';
 
@@ -58,7 +58,7 @@ function raindrop([x, y]: readonly [number, number]): SVGTemplateResult {
 }
 
 function growthScale(plant: Plant): number {
-  if (plant.stage === 'seed') {
+  if (plant.stage === PlantStage.Seed) {
     return 1;
   }
 
@@ -825,24 +825,24 @@ export class PlantSprite extends LitElement {
         <g class="growth" style=${`transform: scale(${growthScale(this.shown)})`}>
           <g class="bounce">
             <g class="sway">
-              <g class=${this.#part('seed')}>
+              <g class=${this.#part(PlantStage.Seed)}>
                 <ellipse class="seed" cx="32" cy="55.2" rx="4.6" ry="3.2" />
                 <path class="seed-line" d="M30.4 54.6q1.6-1.6 3.2 0" />
               </g>
-              <g class=${this.#part('sprout')}>
+              <g class=${this.#part(PlantStage.Sprout)}>
                 <path class="stem" d="M32 58V46" />
                 <path class="leaf" d="M32 47c-2-5-8-6-11-4 2 4 7 6 11 4z" />
                 <path class="leaf-light" d="M32 47c2-5 8-6 11-4-2 4-7 6-11 4z" />
               </g>
-              <g class=${this.#part('plant')}>
-                ${stageArt(this.species, 'plant')}
+              <g class=${this.#part(PlantStage.Plant)}>
+                ${stageArt(this.species, PlantStage.Plant)}
               </g>
-              <g class=${this.#part('bush')}>
-                ${stageArt(this.species, 'bush')}
+              <g class=${this.#part(PlantStage.Bush)}>
+                ${stageArt(this.species, PlantStage.Bush)}
               </g>
-              <g class=${this.#part('tree', 'blossom')}>
-                ${stageArt(this.species, 'tree')}
-                <g class=${stage === 'blossom' ? 'blooms open' : 'blooms'}>${blossomArt(this.species)}</g>
+              <g class=${this.#part(PlantStage.Tree, PlantStage.Blossom)}>
+                ${stageArt(this.species, PlantStage.Tree)}
+                <g class=${stage === PlantStage.Blossom ? 'blooms open' : 'blooms'}>${blossomArt(this.species)}</g>
               </g>
             </g>
           </g>

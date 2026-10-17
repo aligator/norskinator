@@ -10,12 +10,20 @@ import { Rating, State, fsrs, generatorParameters, type Card } from 'ts-fsrs';
 
 export const DAY_MS = 86_400_000;
 
-export type Grade = 'again' | 'hard' | 'good' | 'easy';
+export enum Grade {
+  Again = 'again',
+  Hard = 'hard',
+  Good = 'good',
+  Easy = 'easy',
+}
 
 /** `learning` and `relearning` are the phases of a card that was just failed or is still being learned. */
-export type CardPhase = 'new' | 'learning' | 'review' | 'relearning';
-
-export const CARD_PHASES: readonly CardPhase[] = ['new', 'learning', 'review', 'relearning'];
+export enum CardPhase {
+  New = 'new',
+  Learning = 'learning',
+  Review = 'review',
+  Relearning = 'relearning',
+}
 
 export interface CardState {
   readonly exerciseId: string;
@@ -47,31 +55,31 @@ export interface CardState {
 const scheduler = fsrs(generatorParameters({ enable_fuzz: false }));
 
 const RATINGS = {
-  again: Rating.Again,
-  hard: Rating.Hard,
-  good: Rating.Good,
-  easy: Rating.Easy,
+  [Grade.Again]: Rating.Again,
+  [Grade.Hard]: Rating.Hard,
+  [Grade.Good]: Rating.Good,
+  [Grade.Easy]: Rating.Easy,
 } as const;
 
 const PHASE_OF_STATE: Readonly<Record<State, CardPhase>> = {
-  [State.New]: 'new',
-  [State.Learning]: 'learning',
-  [State.Review]: 'review',
-  [State.Relearning]: 'relearning',
+  [State.New]: CardPhase.New,
+  [State.Learning]: CardPhase.Learning,
+  [State.Review]: CardPhase.Review,
+  [State.Relearning]: CardPhase.Relearning,
 };
 
 const STATE_OF_PHASE: Readonly<Record<CardPhase, State>> = {
-  new: State.New,
-  learning: State.Learning,
-  review: State.Review,
-  relearning: State.Relearning,
+  [CardPhase.New]: State.New,
+  [CardPhase.Learning]: State.Learning,
+  [CardPhase.Review]: State.Review,
+  [CardPhase.Relearning]: State.Relearning,
 };
 
 export function createCard(exerciseId: string, deckId: string, now: number): CardState {
   return {
     exerciseId,
     deckId,
-    phase: 'new',
+    phase: CardPhase.New,
     stability: 0,
     difficulty: 0,
     learningStep: 0,
@@ -122,7 +130,7 @@ export function review(card: CardState, grade: Grade, now: number): CardState {
     due: next.due.getTime(),
     reps: next.reps,
     lapses: next.lapses,
-    failures: card.failures + (grade === 'again' ? 1 : 0),
+    failures: card.failures + (grade === Grade.Again ? 1 : 0),
     lastReviewed: now,
     lastGrade: grade,
   };
@@ -130,13 +138,13 @@ export function review(card: CardState, grade: Grade, now: number): CardState {
 
 /** A right answer the learner can choose, and how long until the card comes back. */
 export interface RatingOption {
-  readonly grade: Exclude<Grade, 'again'>;
+  readonly grade: Exclude<Grade, Grade.Again>;
   readonly delayMs: number;
 }
 
 /** The ratings offered for a right answer, each with the delay it would give. */
 export function ratingOptions(card: CardState, now: number): RatingOption[] {
-  const grades = ['hard', 'good', 'easy'] as const;
+  const grades = [Grade.Hard, Grade.Good, Grade.Easy] as const;
 
   return grades.map((grade) => ({ grade, delayMs: review(card, grade, now).due - now }));
 }

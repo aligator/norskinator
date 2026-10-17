@@ -9,7 +9,7 @@
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
-import { LANGUAGE_CODES, type GeneratedItem, type LanguageCode } from '../../src/core/types.ts';
+import { DataKind, LANGUAGE_CODES, type GeneratedItem, type LanguageCode } from '../../src/core/types.ts';
 import { deckFromArgs, overridesPath, readBundle, readOverrideEntries, reviewDir, type ReviewDeck } from './decks.ts';
 
 interface OverrideEntry {
@@ -32,7 +32,7 @@ function readAlternatives(deck: ReviewDeck, value: unknown): string[] {
 
   return value
     .filter((entry): entry is string => typeof entry === 'string')
-    .map((entry) => (deck.dataKind === 'cloze' ? entry.trim().toLowerCase() : entry.trim()))
+    .map((entry) => (deck.dataKind === DataKind.Cloze ? entry.trim().toLowerCase() : entry.trim()))
     .filter((entry) => entry !== '');
 }
 

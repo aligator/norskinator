@@ -13,33 +13,43 @@
  */
 
 /** Shapes of content. Extend here, then add the item type and task types that can show it. */
-export type DataKind = 'cloze' | 'sentence';
+export enum DataKind {
+  Cloze = 'cloze',
+  Sentence = 'sentence',
+}
 
-export const DATA_KINDS: readonly DataKind[] = ['cloze', 'sentence'];
+export const DATA_KINDS: readonly DataKind[] = Object.values(DataKind);
 
 /**
  * Ways to present an item. Extend here, then in `TASK_DATA_KIND`, `tasks.ts`,
  * `checker.ts` and `ui/modules/practice/exercise-card.ts`.
  */
-export type ExerciseKind = 'multiple-choice' | 'type-in' | 'word-order';
+export enum ExerciseKind {
+  MultipleChoice = 'multiple-choice',
+  TypeIn = 'type-in',
+  WordOrder = 'word-order',
+}
 
-export const EXERCISE_KINDS: readonly ExerciseKind[] = ['multiple-choice', 'type-in', 'word-order'];
+export const EXERCISE_KINDS: readonly ExerciseKind[] = Object.values(ExerciseKind);
 
 /**
  * The data kind each task type shows. Task weights are shares within one data
  * kind: they decide how a cloze item is asked, never whether a deck is.
  */
 export const TASK_DATA_KIND: Readonly<Record<ExerciseKind, DataKind>> = {
-  'multiple-choice': 'cloze',
-  'type-in': 'cloze',
-  'word-order': 'sentence',
+  [ExerciseKind.MultipleChoice]: DataKind.Cloze,
+  [ExerciseKind.TypeIn]: DataKind.Cloze,
+  [ExerciseKind.WordOrder]: DataKind.Sentence,
 };
 
 export type Level = 1 | 2 | 3;
 
-export type LanguageCode = 'de' | 'en';
+export enum LanguageCode {
+  German = 'de',
+  English = 'en',
+}
 
-export const LANGUAGE_CODES: readonly LanguageCode[] = ['de', 'en'];
+export const LANGUAGE_CODES: readonly LanguageCode[] = Object.values(LanguageCode);
 
 export type Translations = Readonly<Partial<Record<LanguageCode, string>>>;
 
@@ -96,7 +106,7 @@ interface Content extends ItemMeta {
 
 /** A sentence with one gap, the word that fills it and wrong choices for it. */
 export interface ClozeItem extends Content {
-  readonly dataKind: 'cloze';
+  readonly dataKind: DataKind.Cloze;
   readonly answer: string;
   /** Other words that also fit the gap: accepted when typed, never offered as wrong choices. */
   readonly alternatives?: readonly string[];
@@ -105,7 +115,7 @@ export interface ClozeItem extends Content {
 
 /** A whole sentence to rebuild from its words, prompted by its translation. */
 export interface SentenceItem extends Content {
-  readonly dataKind: 'sentence';
+  readonly dataKind: DataKind.Sentence;
   /** The sentence as it should come out, with punctuation. */
   readonly answer: string;
   /** Its words in order, without punctuation; the first one lower-cased unless it is a name. */
@@ -125,20 +135,20 @@ interface ExerciseBase extends Content {
 }
 
 export interface MultipleChoiceExercise extends ExerciseBase {
-  readonly kind: 'multiple-choice';
+  readonly kind: ExerciseKind.MultipleChoice;
   readonly options: readonly string[];
   readonly answer: string;
 }
 
 export interface TypeInExercise extends ExerciseBase {
-  readonly kind: 'type-in';
+  readonly kind: ExerciseKind.TypeIn;
   readonly answer: string;
   /** Other words accepted as correct. */
   readonly alternatives?: readonly string[];
 }
 
 export interface WordOrderExercise extends ExerciseBase {
-  readonly kind: 'word-order';
+  readonly kind: ExerciseKind.WordOrder;
   readonly answer: string;
   /** The words in the right order; the session shuffles them. */
   readonly tiles: readonly string[];

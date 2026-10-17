@@ -6,16 +6,25 @@
  */
 import { svg, type SVGTemplateResult } from 'lit';
 
-import type { SpeciesId } from '../../../core/species.ts';
+import type { PlantStage } from '../../../core/garden.ts';
+import { SpeciesId } from '../../../core/species.ts';
 import { LEAFY_PLANT, ROUND_BUSH } from './art/common.ts';
 import { FLOWER_ART } from './art/flowers.ts';
 import type { Point, SpeciesArt } from './art/shapes.ts';
 import { TREE_ART } from './art/trees.ts';
 
-export type GrownStage = 'plant' | 'bush' | 'tree';
+/** The stages each species draws its own way; `blossom` adds blooms on top of `tree`. */
+export type GrownStage = PlantStage.Plant | PlantStage.Bush | PlantStage.Tree;
 
 /** The first species, drawn before the art was split into files. */
-type ClassicId = 'apple' | 'sunflower' | 'spruce' | 'cactus' | 'cherry' | 'birch' | 'lavender';
+type ClassicId =
+  | SpeciesId.Apple
+  | SpeciesId.Sunflower
+  | SpeciesId.Spruce
+  | SpeciesId.Cactus
+  | SpeciesId.Cherry
+  | SpeciesId.Birch
+  | SpeciesId.Lavender;
 
 function blooms(points: readonly Point[], petals: string, core: string, radius = 2.8): SVGTemplateResult {
   return svg`${points.map(
@@ -26,7 +35,7 @@ function blooms(points: readonly Point[], petals: string, core: string, radius =
   )}`;
 }
 
-const apple: Record<GrownStage, SVGTemplateResult> = {
+const apple: Omit<SpeciesArt, 'blossom'> = {
   plant: LEAFY_PLANT,
   bush: ROUND_BUSH,
   tree: svg`
@@ -40,7 +49,7 @@ const apple: Record<GrownStage, SVGTemplateResult> = {
   `,
 };
 
-const sunflower: Record<GrownStage, SVGTemplateResult> = {
+const sunflower: Omit<SpeciesArt, 'blossom'> = {
   plant: svg`
     <path class="stem" d="M32 58V30" />
     <path class="leaf" d="M32 50c-4-5-11-5-13-1 4 4 9 4 13 1z" />
@@ -69,7 +78,7 @@ const sunflower: Record<GrownStage, SVGTemplateResult> = {
   `,
 };
 
-const spruce: Record<GrownStage, SVGTemplateResult> = {
+const spruce: Omit<SpeciesArt, 'blossom'> = {
   plant: svg`
     <path class="trunk" d="M31.2 58v-6h1.6v6z" />
     <path class="leaf-dark" d="M32 36l9 17H23z" />
@@ -90,7 +99,7 @@ const spruce: Record<GrownStage, SVGTemplateResult> = {
   `,
 };
 
-const cactus: Record<GrownStage, SVGTemplateResult> = {
+const cactus: Omit<SpeciesArt, 'blossom'> = {
   plant: svg`
     <rect class="cactus" x="28.5" y="42" width="7" height="16" rx="3.5" />
     <path class="cactus-rib" d="M32 44v13" />
@@ -108,7 +117,7 @@ const cactus: Record<GrownStage, SVGTemplateResult> = {
   `,
 };
 
-const cherry: Record<GrownStage, SVGTemplateResult> = {
+const cherry: Omit<SpeciesArt, 'blossom'> = {
   plant: LEAFY_PLANT,
   bush: svg`
     <path class="trunk dark" d="M30.6 58 31 46h2l.4 12z" />
@@ -125,7 +134,7 @@ const cherry: Record<GrownStage, SVGTemplateResult> = {
   `,
 };
 
-const birch: Record<GrownStage, SVGTemplateResult> = {
+const birch: Omit<SpeciesArt, 'blossom'> = {
   plant: svg`
     <path class="bark" d="M31 58V34h2v24z" />
     <path class="leaf-light" d="M33 40c3-3 7-3 8 0-3 2-6 2-8 0z" />
@@ -154,7 +163,7 @@ function lavenderSpike(x: number, top: number): SVGTemplateResult {
   `;
 }
 
-const lavender: Record<GrownStage, SVGTemplateResult> = {
+const lavender: Omit<SpeciesArt, 'blossom'> = {
   plant: svg`
     <path class="lavender-stem" d="M32 58c-1-5-3-9-6-12M32 58c0-6 0-10 0-14M32 58c1-5 3-9 6-12" />
   `,
@@ -171,7 +180,7 @@ const lavender: Record<GrownStage, SVGTemplateResult> = {
 
 /** What appears when the plant blossoms, on top of its tree drawing. */
 const BLOSSOMS: Readonly<Record<ClassicId, SVGTemplateResult>> = {
-  apple: blooms(
+  [SpeciesId.Apple]: blooms(
     [
       [24, 22],
       [37, 14],
@@ -183,7 +192,7 @@ const BLOSSOMS: Readonly<Record<ClassicId, SVGTemplateResult>> = {
     'petals',
     'bloom-core',
   ),
-  sunflower: blooms(
+  [SpeciesId.Sunflower]: blooms(
     [
       [20, 40],
       [44, 34],
@@ -192,14 +201,14 @@ const BLOSSOMS: Readonly<Record<ClassicId, SVGTemplateResult>> = {
     'sun-core',
     3.6,
   ),
-  spruce: svg`${[
+  [SpeciesId.Spruce]: svg`${[
     [24, 44],
     [40, 46],
     [27, 31],
     [38, 30],
     [32, 18],
   ].map(([x, y]) => svg`<g class="bloom"><ellipse class="cone" cx=${x} cy=${y} rx="1.8" ry="3" /></g>`)}`,
-  cactus: blooms(
+  [SpeciesId.Cactus]: blooms(
     [
       [32, 15],
       [20, 25],
@@ -209,7 +218,7 @@ const BLOSSOMS: Readonly<Record<ClassicId, SVGTemplateResult>> = {
     'bloom-core',
     3.4,
   ),
-  cherry: blooms(
+  [SpeciesId.Cherry]: blooms(
     [
       [14, 28],
       [21, 22],
@@ -225,13 +234,13 @@ const BLOSSOMS: Readonly<Record<ClassicId, SVGTemplateResult>> = {
     'bloom-core',
     3,
   ),
-  birch: svg`${[
+  [SpeciesId.Birch]: svg`${[
     [24, 22],
     [40, 26],
     [30, 32],
     [36, 14],
   ].map(([x, y]) => svg`<g class="bloom"><path class="catkin" d=${`M${x} ${y}q1 3 0 6`} /></g>`)}`,
-  lavender: blooms(
+  [SpeciesId.Lavender]: blooms(
     [
       [21, 16],
       [43, 16],
@@ -244,13 +253,13 @@ const BLOSSOMS: Readonly<Record<ClassicId, SVGTemplateResult>> = {
 };
 
 const ART: Readonly<Record<SpeciesId, SpeciesArt>> = {
-  apple: { ...apple, blossom: BLOSSOMS.apple },
-  sunflower: { ...sunflower, blossom: BLOSSOMS.sunflower },
-  spruce: { ...spruce, blossom: BLOSSOMS.spruce },
-  cactus: { ...cactus, blossom: BLOSSOMS.cactus },
-  cherry: { ...cherry, blossom: BLOSSOMS.cherry },
-  birch: { ...birch, blossom: BLOSSOMS.birch },
-  lavender: { ...lavender, blossom: BLOSSOMS.lavender },
+  [SpeciesId.Apple]: { ...apple, blossom: BLOSSOMS[SpeciesId.Apple] },
+  [SpeciesId.Sunflower]: { ...sunflower, blossom: BLOSSOMS[SpeciesId.Sunflower] },
+  [SpeciesId.Spruce]: { ...spruce, blossom: BLOSSOMS[SpeciesId.Spruce] },
+  [SpeciesId.Cactus]: { ...cactus, blossom: BLOSSOMS[SpeciesId.Cactus] },
+  [SpeciesId.Cherry]: { ...cherry, blossom: BLOSSOMS[SpeciesId.Cherry] },
+  [SpeciesId.Birch]: { ...birch, blossom: BLOSSOMS[SpeciesId.Birch] },
+  [SpeciesId.Lavender]: { ...lavender, blossom: BLOSSOMS[SpeciesId.Lavender] },
   ...FLOWER_ART,
   ...TREE_ART,
 };

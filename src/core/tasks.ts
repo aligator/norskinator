@@ -7,19 +7,19 @@
  *
  * Adding a task type: extend `ExerciseKind`, add an entry to `TASK_TYPES`.
  */
-import type { Grade } from './srs.ts';
+import { Grade } from './srs.ts';
 import type { TaskWeights } from './task-weights.ts';
-import type {
-  DataItem,
+import {
   DataKind,
-  Deck,
-  DeckSource,
-  Exercise,
   ExerciseKind,
-  MultipleChoiceExercise,
-  PlayableItem,
-  TypeInExercise,
-  WordOrderExercise,
+  type DataItem,
+  type Deck,
+  type DeckSource,
+  type Exercise,
+  type MultipleChoiceExercise,
+  type PlayableItem,
+  type TypeInExercise,
+  type WordOrderExercise,
 } from './types.ts';
 
 /**
@@ -64,7 +64,7 @@ function sharedContent(item: DataItem): Omit<MultipleChoiceExercise, 'kind' | 'a
 }
 
 function buildChoice(item: DataItem): MultipleChoiceExercise | null {
-  if (item.dataKind !== 'cloze') {
+  if (item.dataKind !== DataKind.Cloze) {
     return null;
   }
 
@@ -75,17 +75,22 @@ function buildChoice(item: DataItem): MultipleChoiceExercise | null {
     return null;
   }
 
-  return { ...sharedContent(item), kind: 'multiple-choice', answer: item.answer, options: [item.answer, ...distractors] };
+  return {
+    ...sharedContent(item),
+    kind: ExerciseKind.MultipleChoice,
+    answer: item.answer,
+    options: [item.answer, ...distractors],
+  };
 }
 
 function buildTypeIn(item: DataItem): TypeInExercise | null {
-  if (item.dataKind !== 'cloze') {
+  if (item.dataKind !== DataKind.Cloze) {
     return null;
   }
 
   return {
     ...sharedContent(item),
-    kind: 'type-in',
+    kind: ExerciseKind.TypeIn,
     answer: item.answer,
     ...(item.alternatives === undefined ? {} : { alternatives: item.alternatives }),
   };
@@ -95,13 +100,13 @@ function buildTypeIn(item: DataItem): TypeInExercise | null {
 const MIN_TILES = 3;
 
 function buildWordOrder(item: DataItem): WordOrderExercise | null {
-  if (item.dataKind !== 'sentence' || item.tiles.length < MIN_TILES) {
+  if (item.dataKind !== DataKind.Sentence || item.tiles.length < MIN_TILES) {
     return null;
   }
 
   return {
     ...sharedContent(item),
-    kind: 'word-order',
+    kind: ExerciseKind.WordOrder,
     answer: item.answer,
     tiles: item.tiles,
     ...(item.alternatives === undefined ? {} : { alternatives: item.alternatives }),
@@ -109,23 +114,23 @@ function buildWordOrder(item: DataItem): WordOrderExercise | null {
 }
 
 export const TASK_TYPES: Readonly<Record<ExerciseKind, TaskType>> = {
-  'multiple-choice': {
-    kind: 'multiple-choice',
-    dataKind: 'cloze',
+  [ExerciseKind.MultipleChoice]: {
+    kind: ExerciseKind.MultipleChoice,
+    dataKind: DataKind.Cloze,
     label: 'Flervalg',
     timing: { easyWithinMs: 4000, hardAfterMs: 15_000 },
     build: buildChoice,
   },
-  'type-in': {
-    kind: 'type-in',
-    dataKind: 'cloze',
+  [ExerciseKind.TypeIn]: {
+    kind: ExerciseKind.TypeIn,
+    dataKind: DataKind.Cloze,
     label: 'Skriv inn',
     timing: { easyWithinMs: 8000, hardAfterMs: 25_000 },
     build: buildTypeIn,
   },
-  'word-order': {
-    kind: 'word-order',
-    dataKind: 'sentence',
+  [ExerciseKind.WordOrder]: {
+    kind: ExerciseKind.WordOrder,
+    dataKind: DataKind.Sentence,
     label: 'Ordstilling',
     timing: { easyWithinMs: 12_000, hardAfterMs: 35_000 },
     build: buildWordOrder,
@@ -146,24 +151,24 @@ const UNMEASURED_AFTER_MS = 60_000;
  */
 export function gradeFromAnswer(kind: ExerciseKind, correct: boolean, elapsedMs: number): Grade {
   if (!correct) {
-    return 'again';
+    return Grade.Again;
   }
 
   if (elapsedMs < 0 || elapsedMs > UNMEASURED_AFTER_MS) {
-    return 'good';
+    return Grade.Good;
   }
 
   const { easyWithinMs, hardAfterMs } = TASK_TYPES[kind].timing;
 
   if (elapsedMs <= easyWithinMs) {
-    return 'easy';
+    return Grade.Easy;
   }
 
   if (elapsedMs >= hardAfterMs) {
-    return 'hard';
+    return Grade.Hard;
   }
 
-  return 'good';
+  return Grade.Good;
 }
 
 function assertSourceFits(deck: Deck, source: DeckSource): void {

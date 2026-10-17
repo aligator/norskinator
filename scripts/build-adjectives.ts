@@ -15,7 +15,7 @@ import { join } from 'node:path';
 
 import type { GeneratedItem, Level } from '../src/core/types.ts';
 import type { FormCategory } from '../src/decks/adjectives/categories.ts';
-import { ADJECTIVES, formsOf, type Adjective } from '../src/decks/adjectives/lexicon.ts';
+import { ADJECTIVES, AdjectiveKind, formsOf, type Adjective } from '../src/decks/adjectives/lexicon.ts';
 import {
   ROOT,
   blankOut,
@@ -203,7 +203,7 @@ function selectBalanced(candidates: readonly Candidate[]): Candidate[] {
 
 /** Spelling rules and irregular words are harder than plain -t/-e, long sentences harder than short ones. */
 function levelFor(candidate: Candidate): Level {
-  const tricky = candidate.adjective.kind !== 'regelmessig';
+  const tricky = candidate.adjective.kind !== AdjectiveKind.Regelmessig;
 
   if (!tricky && candidate.words.length <= 7) {
     return 1;

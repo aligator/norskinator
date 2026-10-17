@@ -5,7 +5,13 @@
  * stopping an oscillator at full volume is what makes the audible click.
  */
 
-export type SoundKind = 'correct' | 'wrong' | 'grow' | 'goal' | 'coin';
+export enum SoundKind {
+  Correct = 'correct',
+  Wrong = 'wrong',
+  Grow = 'grow',
+  Goal = 'goal',
+  Coin = 'coin',
+}
 
 interface Note {
   readonly frequency: number;
@@ -30,7 +36,7 @@ const STOP_TAIL_SECONDS = 0.02;
 
 const SOUNDS: Readonly<Record<SoundKind, Sound>> = {
   // E5 → A5, a light upward "ding-ding".
-  correct: {
+  [SoundKind.Correct]: {
     peakGain: 0.15,
     notes: [
       { frequency: 659.25, offset: 0, duration: 0.09, wave: 'sine' },
@@ -38,12 +44,12 @@ const SOUNDS: Readonly<Record<SoundKind, Sound>> = {
     ],
   },
   // A3, quiet and rounded: a nudge, not a buzzer.
-  wrong: {
+  [SoundKind.Wrong]: {
     peakGain: 0.12,
     notes: [{ frequency: 220, offset: 0, duration: 0.2, wave: 'triangle' }],
   },
   // C major arpeggio up to the octave, for a plant reaching its next stage.
-  grow: {
+  [SoundKind.Grow]: {
     peakGain: 0.13,
     notes: [
       { frequency: 523.25, offset: 0, duration: 0.12, wave: 'triangle' },
@@ -53,7 +59,7 @@ const SOUNDS: Readonly<Record<SoundKind, Sound>> = {
     ],
   },
   // Two bright notes, like a coin landing: earning and spending money.
-  coin: {
+  [SoundKind.Coin]: {
     peakGain: 0.1,
     notes: [
       { frequency: 987.77, offset: 0, duration: 0.08, wave: 'triangle' },
@@ -61,7 +67,7 @@ const SOUNDS: Readonly<Record<SoundKind, Sound>> = {
     ],
   },
   // G major, softer sine timbre so it is distinguishable from growth.
-  goal: {
+  [SoundKind.Goal]: {
     peakGain: 0.14,
     notes: [
       { frequency: 392, offset: 0, duration: 0.14, wave: 'sine' },

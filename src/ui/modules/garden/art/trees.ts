@@ -1,6 +1,7 @@
 /** Trees, palms and the bonsai: they grow tall, and blossom with fruit, cones or light. */
 import { svg } from 'lit';
 
+import { SpeciesId } from '../../../../core/species.ts';
 import { LEAFY_PLANT } from './common.ts';
 import { berry, crown, each, eachBloom, trunk, type Point, type SpeciesArt } from './shapes.ts';
 
@@ -215,12 +216,12 @@ const aurora: SpeciesArt = {
 };
 
 export const TREE_ART = {
-  pine,
-  oak,
-  rowan,
-  maple,
-  bamboo,
-  palm,
-  bonsai,
-  aurora,
-} as const satisfies Record<string, SpeciesArt>;
+  [SpeciesId.Pine]: pine,
+  [SpeciesId.Oak]: oak,
+  [SpeciesId.Rowan]: rowan,
+  [SpeciesId.Maple]: maple,
+  [SpeciesId.Bamboo]: bamboo,
+  [SpeciesId.Palm]: palm,
+  [SpeciesId.Bonsai]: bonsai,
+  [SpeciesId.Aurora]: aurora,
+} as const satisfies Partial<Record<SpeciesId, SpeciesArt>>;

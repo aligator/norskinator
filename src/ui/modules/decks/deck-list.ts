@@ -2,6 +2,7 @@
 import { LitElement, css, html, nothing, type TemplateResult } from 'lit';
 
 import { deckCounts, type DeckCounts } from '../../../core/stats.ts';
+import { LoadStatus } from '../../../core/store.ts';
 import type { Deck } from '../../../core/types.ts';
 import { DECKS } from '../../../decks/registry.ts';
 import { sharedStyles } from '../../components/styles/shared.ts';
@@ -112,7 +113,7 @@ export class DeckList extends LitElement {
 
   #renderDeck(deck: Deck, counts: DeckCounts | undefined, disabled: boolean): TemplateResult {
     // Only the very first load shows skeletons; a reload after a toggle keeps the rows (and focus).
-    if (store.state.items.length === 0 && store.state.status !== 'ready' && !disabled) {
+    if (store.state.items.length === 0 && store.state.status !== LoadStatus.Ready && !disabled) {
       return html`<li><div class="skeleton" aria-hidden="true"></div></li>`;
     }
 
