@@ -26,6 +26,9 @@ jobs:
       - uses: pnpm/action-setup@v6
 
       - uses: actions/setup-node@v7
+        env:
+          # Rootless runners cannot restore the Node archive's original owners.
+          TAR_OPTIONS: --no-same-owner
         with:
           node-version-file: .nvmrc
           cache: pnpm
