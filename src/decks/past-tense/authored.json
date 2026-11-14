@@ -578,20 +578,20 @@
     },
     {
       "id": "pt-snakke-preteritum",
-      "pattern": "Læreren ___ med foreldrene mine etter møtet i går.",
+      "pattern": "Læreren ___ med foreldrene mine i går klokka seks.",
       "answer": "snakket",
       "options": [
         "snakket",
         "har snakket"
       ],
-      "explanation": "«Etter møtet i går» plasserer samtalen i en avsluttet fortid. Vi bruker preteritum, «snakket», framfor presens perfektum med forbindelse til nå.",
+      "explanation": "«I går klokka seks» tidfester selve samtalen til et bestemt tidspunkt i fortiden. Derfor bruker vi preteritum, «snakket», framfor presens perfektum med forbindelse til nå.",
       "level": 1,
       "tags": [
         "preteritum"
       ],
       "translations": {
-        "de": "Die Lehrkraft sprach gestern nach der Besprechung mit meinen Eltern.",
-        "en": "The teacher spoke to my parents after the meeting yesterday."
+        "de": "Die Lehrkraft sprach gestern um sechs Uhr mit meinen Eltern.",
+        "en": "The teacher spoke to my parents at six o'clock yesterday."
       }
     },
     {
