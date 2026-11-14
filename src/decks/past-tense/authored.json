@@ -431,6 +431,438 @@
         "de": "Ich bin diesen Monat bisher achtmal mit dem Bus zur Arbeit gefahren.",
         "en": "I have taken the bus to work eight times so far this month."
       }
+    },
+    {
+      "id": "pt-kjøpe-preteritum",
+      "pattern": "Vi ___ nye sko til barna forrige lørdag.",
+      "answer": "kjøpte",
+      "options": [
+        "kjøpte",
+        "har kjøpt"
+      ],
+      "explanation": "«Forrige lørdag» tidfester kjøpet til en avsluttet dag. Vi bruker preteritum, «kjøpte», framfor presens perfektum med forbindelse til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Wir kauften letzten Samstag neue Schuhe für die Kinder.",
+        "en": "We bought new shoes for the children last Saturday."
+      }
+    },
+    {
+      "id": "pt-kjøpe-presens-perfektum",
+      "pattern": "Vi ___ tre brukte sykler hittil i år.",
+      "answer": "har kjøpt",
+      "options": [
+        "kjøpte",
+        "har kjøpt"
+      ],
+      "explanation": "«Hittil i år» teller kjøpene fra årets begynnelse fram til nå. Presens perfektum, «har kjøpt», passer til denne åpne perioden; preteritum ville plassert kjøpene i en avsluttet fortidig ramme.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Wir haben dieses Jahr bisher drei gebrauchte Fahrräder gekauft.",
+        "en": "We have bought three second-hand bicycles so far this year."
+      }
+    },
+    {
+      "id": "pt-selge-preteritum",
+      "pattern": "Hun ___ bilen sin i april i fjor.",
+      "answer": "solgte",
+      "options": [
+        "solgte",
+        "har solgt"
+      ],
+      "explanation": "«I april i fjor» plasserer salget i en bestemt, avsluttet måned. Derfor velger vi preteritum, «solgte», framfor presens perfektum som knytter salget til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Sie verkaufte ihr Auto im April letzten Jahres.",
+        "en": "She sold her car in April last year."
+      }
+    },
+    {
+      "id": "pt-selge-presens-perfektum",
+      "pattern": "Butikken ___ tjue vinterjakker så langt denne uka.",
+      "answer": "har solgt",
+      "options": [
+        "solgte",
+        "har solgt"
+      ],
+      "explanation": "«Så langt denne uka» summerer salgene fram til nå. Derfor passer presens perfektum, «har solgt». Preteritum ville framstilt salgene innenfor en avsluttet fortidig periode.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Das Geschäft hat diese Woche bisher zwanzig Winterjacken verkauft.",
+        "en": "The shop has sold twenty winter coats so far this week."
+      }
+    },
+    {
+      "id": "pt-lage-preteritum",
+      "pattern": "Pappa ___ vafler da vi kom hjem fra skolen i går.",
+      "answer": "laget",
+      "options": [
+        "laget",
+        "har laget"
+      ],
+      "explanation": "«Da vi kom hjem fra skolen i går» setter vaffellagingen inn i en fortidig fortelling. Vi bruker preteritum, «laget», framfor presens perfektum med forbindelse til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Papa machte Waffeln, als wir gestern von der Schule nach Hause kamen.",
+        "en": "Dad made waffles when we came home from school yesterday."
+      }
+    },
+    {
+      "id": "pt-lage-presens-perfektum",
+      "pattern": "Jeg ___ fire porsjoner suppe hittil i dag.",
+      "answer": "har laget",
+      "options": [
+        "laget",
+        "har laget"
+      ],
+      "explanation": "«Hittil i dag» teller porsjonene som er laget fram til nå. Vi velger presens perfektum, «har laget», framfor preteritum for en avsluttet fortidig ramme.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Ich habe heute bisher vier Portionen Suppe zubereitet.",
+        "en": "I have made four portions of soup so far today."
+      }
+    },
+    {
+      "id": "pt-vente-preteritum",
+      "pattern": "Vi ___ på toget i en halvtime i går før det endelig kom.",
+      "answer": "ventet",
+      "options": [
+        "ventet",
+        "har ventet"
+      ],
+      "explanation": "«I går» og toget som endelig kom, viser en avsluttet ventetid. Preteritum, «ventet», passer her; presens perfektum ville knyttet ventingen til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Wir warteten gestern eine halbe Stunde auf den Zug, bevor er endlich kam.",
+        "en": "We waited half an hour for the train yesterday before it finally arrived."
+      }
+    },
+    {
+      "id": "pt-vente-presens-perfektum",
+      "pattern": "Vi ___ på bussen helt siden klokka sju, og vi står fortsatt på holdeplassen.",
+      "answer": "har ventet",
+      "options": [
+        "ventet",
+        "har ventet"
+      ],
+      "explanation": "«Helt siden klokka sju» og «fortsatt på holdeplassen» viser at ventingen varer fram til nå. Derfor velger vi presens perfektum, «har ventet», framfor preteritum for en avsluttet ventetid.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Wir warten seit sieben Uhr auf den Bus und stehen immer noch an der Haltestelle.",
+        "en": "We have been waiting for the bus since seven, and we are still at the bus stop."
+      }
+    },
+    {
+      "id": "pt-snakke-preteritum",
+      "pattern": "Læreren ___ med foreldrene mine etter møtet i går.",
+      "answer": "snakket",
+      "options": [
+        "snakket",
+        "har snakket"
+      ],
+      "explanation": "«Etter møtet i går» plasserer samtalen i en avsluttet fortid. Vi bruker preteritum, «snakket», framfor presens perfektum med forbindelse til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Die Lehrkraft sprach gestern nach der Besprechung mit meinen Eltern.",
+        "en": "The teacher spoke to my parents after the meeting yesterday."
+      }
+    },
+    {
+      "id": "pt-snakke-presens-perfektum",
+      "pattern": "Legen ___ med seks pasienter hittil i dag.",
+      "answer": "har snakket",
+      "options": [
+        "snakket",
+        "har snakket"
+      ],
+      "explanation": "«Seks pasienter hittil i dag» er en opptelling fram til nå. Presens perfektum, «har snakket», passer til den pågående dagen; preteritum ville plassert samtalene i en avsluttet fortidig ramme.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Die Ärztin hat heute bisher mit sechs Patienten gesprochen.",
+        "en": "The doctor has spoken to six patients so far today."
+      }
+    },
+    {
+      "id": "pt-begynne-preteritum",
+      "pattern": "Kurset ___ den tredje september i fjor.",
+      "answer": "begynte",
+      "options": [
+        "begynte",
+        "har begynt"
+      ],
+      "explanation": "«Den tredje september i fjor» er en bestemt dato i fortiden. Derfor bruker vi preteritum, «begynte», framfor presens perfektum med forbindelse til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Der Kurs begann am dritten September letzten Jahres.",
+        "en": "The course began on the third of September last year."
+      }
+    },
+    {
+      "id": "pt-begynne-presens-perfektum",
+      "pattern": "Vi ___ på tre nye prosjekter hittil i år.",
+      "answer": "har begynt",
+      "options": [
+        "begynte",
+        "har begynt"
+      ],
+      "explanation": "«Hittil i år» teller prosjektstartene fram til nå. Vi velger presens perfektum, «har begynt», framfor preteritum som ville plassert dem i en avsluttet fortidig ramme.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Wir haben dieses Jahr bisher drei neue Projekte begonnen.",
+        "en": "We have started three new projects so far this year."
+      }
+    },
+    {
+      "id": "pt-få-preteritum",
+      "pattern": "Jeg ___ en ordbok av søsteren min til jul i fjor.",
+      "answer": "fikk",
+      "options": [
+        "fikk",
+        "har fått"
+      ],
+      "explanation": "«Til jul i fjor» plasserer gaven i en bestemt, avsluttet fortid. Preteritum, «fikk», passer til denne tidsrammen, framfor presens perfektum med forbindelse til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Ich bekam letztes Jahr zu Weihnachten ein Wörterbuch von meiner Schwester.",
+        "en": "I got a dictionary from my sister for Christmas last year."
+      }
+    },
+    {
+      "id": "pt-få-presens-perfektum",
+      "pattern": "Vi ___ fem svar på invitasjonen så langt.",
+      "answer": "har fått",
+      "options": [
+        "fikk",
+        "har fått"
+      ],
+      "explanation": "«Så langt» summerer svarene som er kommet fram til nå. Derfor bruker vi presens perfektum, «har fått». Preteritum ville plassert mottakelsen i en avsluttet fortidig ramme.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Wir haben bisher fünf Antworten auf die Einladung erhalten.",
+        "en": "We have received five replies to the invitation so far."
+      }
+    },
+    {
+      "id": "pt-finne-preteritum",
+      "pattern": "Han ___ nøklene under sofaen i går kveld.",
+      "answer": "fant",
+      "options": [
+        "fant",
+        "har funnet"
+      ],
+      "explanation": "«I går kveld» tidfester funnet til en avsluttet fortid. Vi bruker preteritum, «fant», framfor presens perfektum som ville framhevet forbindelsen til nå uten denne tidsrammen.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Er fand die Schlüssel gestern Abend unter dem Sofa.",
+        "en": "He found the keys under the sofa yesterday evening."
+      }
+    },
+    {
+      "id": "pt-finne-presens-perfektum",
+      "pattern": "Forskerne ___ to nye arter hittil i år.",
+      "answer": "har funnet",
+      "options": [
+        "fant",
+        "har funnet"
+      ],
+      "explanation": "«Hittil i år» teller funnene fra årets begynnelse fram til nå. Presens perfektum, «har funnet», passer til den åpne perioden; preteritum ville vist til en avsluttet fortidig ramme.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Die Forschenden haben dieses Jahr bisher zwei neue Arten entdeckt.",
+        "en": "The researchers have found two new species so far this year."
+      }
+    },
+    {
+      "id": "pt-møte-preteritum",
+      "pattern": "Jeg ___ den nye naboen for første gang på lørdag. Dagen etter inviterte hun meg på kaffe.",
+      "answer": "møtte",
+      "options": [
+        "møtte",
+        "har møtt"
+      ],
+      "explanation": "«På lørdag» fulgt av «dagen etter» etablerer en fortidig fortelling. Derfor velger vi preteritum, «møtte», framfor presens perfektum med forbindelse til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Ich traf die neue Nachbarin am Samstag zum ersten Mal. Am Tag danach lud sie mich zum Kaffee ein.",
+        "en": "I met the new neighbour for the first time on Saturday. The next day she invited me for coffee."
+      }
+    },
+    {
+      "id": "pt-møte-presens-perfektum",
+      "pattern": "Jeg ___ fire av de nye kollegene mine så langt.",
+      "answer": "har møtt",
+      "options": [
+        "møtte",
+        "har møtt"
+      ],
+      "explanation": "«Så langt» teller kollegene jeg har møtt fram til nå. Vi bruker presens perfektum, «har møtt», framfor preteritum for et møte innenfor en avsluttet fortidig ramme.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Ich habe bisher vier meiner neuen Kollegen kennengelernt.",
+        "en": "I have met four of my new colleagues so far."
+      }
+    },
+    {
+      "id": "pt-hjelpe-preteritum",
+      "pattern": "De ___ oss med flyttingen forrige helg.",
+      "answer": "hjalp",
+      "options": [
+        "hjalp",
+        "har hjulpet"
+      ],
+      "explanation": "«Forrige helg» plasserer hjelpen i en avsluttet periode. Derfor passer preteritum, «hjalp», framfor presens perfektum med forbindelse til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Sie halfen uns letztes Wochenende beim Umzug.",
+        "en": "They helped us move last weekend."
+      }
+    },
+    {
+      "id": "pt-hjelpe-presens-perfektum",
+      "pattern": "Frivillige ___ over hundre familier hittil denne vinteren.",
+      "answer": "har hjulpet",
+      "options": [
+        "hjalp",
+        "har hjulpet"
+      ],
+      "explanation": "«Hittil denne vinteren» summerer hjelpen til familiene fram til nå. Presens perfektum, «har hjulpet», passer til den pågående vinteren; preteritum ville gitt en avsluttet fortidig ramme.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Freiwillige haben diesen Winter bisher über hundert Familien geholfen.",
+        "en": "Volunteers have helped over a hundred families so far this winter."
+      }
+    },
+    {
+      "id": "pt-gå-preteritum",
+      "pattern": "Vi ___ til hytta på søndag. Dagen etter gikk vi hjem igjen.",
+      "answer": "gikk",
+      "options": [
+        "gikk",
+        "har gått"
+      ],
+      "explanation": "«På søndag» og «dagen etter» plasserer turen i en avsluttet fortelling. Vi velger preteritum, «gikk», framfor presens perfektum med forbindelse til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Wir gingen am Sonntag zur Hütte. Am Tag danach gingen wir wieder nach Hause.",
+        "en": "We walked to the cabin on Sunday. The next day we walked home again."
+      }
+    },
+    {
+      "id": "pt-gå-presens-perfektum",
+      "pattern": "Vi ___ åtte kilometer hittil på turen, og vi har to kilometer igjen.",
+      "answer": "har gått",
+      "options": [
+        "gikk",
+        "har gått"
+      ],
+      "explanation": "«Åtte kilometer hittil på turen» måler strekningen fram til nå, og turen er ennå ikke ferdig. Derfor bruker vi presens perfektum, «har gått», framfor preteritum for en avsluttet fortidig ramme.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Wir sind auf der Wanderung bisher acht Kilometer gegangen und haben noch zwei Kilometer vor uns.",
+        "en": "We have walked eight kilometres so far on the hike, and we have two kilometres left."
+      }
+    },
+    {
+      "id": "pt-sove-preteritum",
+      "pattern": "Babyen ___ i to timer i går ettermiddag og våknet klokka fire.",
+      "answer": "sov",
+      "options": [
+        "sov",
+        "har sovet"
+      ],
+      "explanation": "«I går ettermiddag» og oppvåkningen klokka fire avgrenser søvnen i fortiden. Preteritum, «sov», passer til den avsluttede perioden, framfor presens perfektum med forbindelse til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Das Baby schlief gestern Nachmittag zwei Stunden und wachte um vier Uhr auf.",
+        "en": "The baby slept for two hours yesterday afternoon and woke up at four."
+      }
+    },
+    {
+      "id": "pt-sove-presens-perfektum",
+      "pattern": "Babyen ___ siden klokka to og sover fremdeles.",
+      "answer": "har sovet",
+      "options": [
+        "sov",
+        "har sovet"
+      ],
+      "explanation": "«Siden klokka to» og «sover fremdeles» viser at søvnen fortsetter nå. Derfor velger vi presens perfektum, «har sovet», framfor preteritum som ville framstilt søvnperioden som avsluttet.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Das Baby schläft seit zwei Uhr und schläft immer noch.",
+        "en": "The baby has been sleeping since two and is still asleep."
+      }
     }
   ]
 }

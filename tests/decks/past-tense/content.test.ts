@@ -24,15 +24,27 @@ const VERB_FORMS: Readonly<Record<string, readonly string[]>> = {
   skrive: ['skrev', 'har skrevet'],
   se: ['så', 'har sett'],
   ta: ['tok', 'har tatt'],
+  kjøpe: ['kjøpte', 'har kjøpt'],
+  selge: ['solgte', 'har solgt'],
+  lage: ['laget', 'har laget'],
+  vente: ['ventet', 'har ventet'],
+  snakke: ['snakket', 'har snakket'],
+  begynne: ['begynte', 'har begynt'],
+  få: ['fikk', 'har fått'],
+  finne: ['fant', 'har funnet'],
+  møte: ['møtte', 'har møtt'],
+  hjelpe: ['hjalp', 'har hjulpet'],
+  gå: ['gikk', 'har gått'],
+  sove: ['sov', 'har sovet'],
 };
 
 const TYPING_PREFERENCE = parseTaskWeights({ 'multiple-choice': 0, 'type-in': 100, 'word-order': 100 });
 
 describe('past-tense content', () => {
-  it('is discoverable, reads every sentence and balances both tenses across twelve verbs', () => {
+  it('is discoverable, reads every sentence and balances both tenses across the verb set', () => {
     expect(DECKS).toContain(pastTenseDeck);
     expect(ITEMS).toHaveLength(authoredFile.entries.length);
-    expect(ITEMS).toHaveLength(24);
+    expect(ITEMS).toHaveLength(48);
     expect(new Set(ITEMS.map((item) => item.id)).size).toBe(ITEMS.length);
     expect(new Set(ITEMS.map((item) => item.prompt)).size).toBe(ITEMS.length);
 
