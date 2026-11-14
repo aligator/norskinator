@@ -46,6 +46,15 @@ describe('presentAs', () => {
     expect(exercise?.kind === ExerciseKind.TypeIn ? exercise.alternatives : []).toEqual(['på']);
   });
 
+  it('allows exactly two choices only for an explicit contrast', () => {
+    const contrast: PlayableItem = { ...ITEM, choiceCount: 2, distractors: ['til', 'til', 'på'] };
+    const exercise = presentAs(contrast, ExerciseKind.MultipleChoice);
+
+    expect(exercise?.kind === ExerciseKind.MultipleChoice ? exercise.options : []).toEqual(['i', 'til']);
+    expect(presentAs({ ...contrast, distractors: ['på'] }, ExerciseKind.MultipleChoice)).toBeNull();
+    expect(presentAs({ ...contrast, distractors: ['til', 'hos'] }, ExerciseKind.MultipleChoice)).toBeNull();
+  });
+
   it('refuses task types the pool does not allow', () => {
     expect(presentAs({ ...ITEM, tasks: [ExerciseKind.TypeIn] }, ExerciseKind.MultipleChoice)).toBeNull();
   });

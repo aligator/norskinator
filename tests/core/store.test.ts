@@ -8,6 +8,7 @@ import { CardPhase, Grade } from '../../src/core/srs.ts';
 import { LoadStatus, Store } from '../../src/core/store.ts';
 import { SESSION_STORAGE_KEY, ThemePreference, type StorageLike } from '../../src/core/storage.ts';
 import { DataKind, ExerciseKind, type ClozeItem, type DataItem, type Deck } from '../../src/core/types.ts';
+import { pastTenseDeck } from '../../src/decks/past-tense/index.ts';
 
 const NOW = Date.parse('2026-01-15T10:00:00Z');
 
@@ -108,6 +109,43 @@ function deferredDeck(id: string, exercises: readonly DataItem[]): { deck: Deck;
 }
 
 describe('Store', () => {
+  it('shuffles and resumes a two-form contrast with wrong-answer feedback and existing preferences', async () => {
+    const content = await pastTenseDeck.sources[0]!.load();
+    const exercises = content.map((entry) => ({ ...entry, deckId: 'test' }));
+    const { store, storage } = await createHarness(exercises);
+    const taskWeights = { 'multiple-choice': 0, 'type-in': 100, 'word-order': 100 } as const;
+
+    store.updateSettings({ taskWeights });
+    store.flush();
+    store.startSession();
+
+    const current = store.currentExercise;
+
+    if (current?.kind !== ExerciseKind.MultipleChoice) {
+      throw new Error('Expected a two-form choice');
+    }
+
+    expect(current.options).toHaveLength(2);
+    expect(store.state.session?.options).toEqual([...current.options].reverse());
+
+    const resumedQuestion = await reopen(storage, exercises, NOW + 1_000);
+    expect(resumedQuestion.currentExercise).toEqual(current);
+    expect(resumedQuestion.state.session?.options).toEqual(store.state.session?.options);
+    expect(resumedQuestion.state.settings.taskWeights).toEqual(taskWeights);
+
+    const wrong = current.options.find((option) => option !== current.answer)!;
+    resumedQuestion.answer(wrong);
+
+    expect(resumedQuestion.state.feedback?.correct).toBe(false);
+    expect(resumedQuestion.state.feedback?.exercise.solution).toBe(current.prompt.replace('___', current.answer));
+    expect(resumedQuestion.state.feedback?.exercise.explanation).toBe(current.explanation);
+    expect(current.explanation).toBeTruthy();
+
+    const resumedFeedback = await reopen(storage, exercises, NOW + 2_000);
+    expect(resumedFeedback.state.feedback).toEqual(resumedQuestion.state.feedback);
+    expect(resumedFeedback.state.settings.taskWeights).toEqual(taskWeights);
+  });
+
   it('stops saving when a newer app version has written the data', async () => {
     const { store, storage } = await createHarness([item('a')]);
     const newer = JSON.stringify({ version: 99, progress: { xp: 5000 }, futureField: true });

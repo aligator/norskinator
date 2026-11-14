@@ -39,6 +39,12 @@ The word-order deck has one pool of `sentence` items, `tatoeba.json` plus
 `overrides.json`. The learner sees the translation and orders the shuffled
 tiles; its first tag is a rule from `categories.ts`.
 
+The past-tense deck uses authored cloze items to contrast preteritum with
+presens perfektum of the same verb. It offers only multiple choice and sets
+`choiceCount: 2` on its items: this explicit contrast requires exactly one
+distinct wrong choice after accepted answers are removed. Ordinary cloze
+items still require at least two wrong choices. Its first tag is the tense.
+
 `src/decks/tatoeba-source.ts` maps a generated bundle to items for all three
 decks: a bundle item with `options` becomes a cloze item, one with `tiles` a
 sentence item.
