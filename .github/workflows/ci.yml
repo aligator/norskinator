@@ -18,7 +18,7 @@ concurrency:
 jobs:
   verify:
     name: Typecheck, test, build
-    runs-on: ubuntu-latest
+    runs-on: "${{ github.server_url == 'https://github.com' && 'ubuntu-latest' || 'ubuntu' }}"
     steps:
       - uses: actions/checkout@v7
 
@@ -98,7 +98,7 @@ jobs:
     name: Docker image (Forgejo)
     if: github.server_url != 'https://github.com' && startsWith(github.ref, 'refs/tags/v')
     needs: verify
-    runs-on: docker
+    runs-on: [ubuntu, docker]
     # The default image has no Docker CLI new enough for the daemon.
     container:
       image: docker:29.9.0-cli@sha256:1a4c7cb63513f349bdad01fcc6e0f3f2f67d37b9da86f14dc0d4a0942eecda00
