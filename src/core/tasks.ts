@@ -71,7 +71,11 @@ function buildChoice(item: DataItem): MultipleChoiceExercise | null {
   const accepted = new Set([item.answer, ...(item.alternatives ?? [])]);
   const distractors = [...new Set(item.distractors)].filter((distractor) => !accepted.has(distractor));
 
-  if (distractors.length < MIN_DISTRACTORS) {
+  const fitsChoices = item.choiceCount === 2
+    ? distractors.length === 1
+    : distractors.length >= MIN_DISTRACTORS;
+
+  if (!fitsChoices) {
     return null;
   }
 

@@ -107,6 +107,8 @@ interface Content extends ItemMeta {
 /** A sentence with one gap, the word that fills it and wrong choices for it. */
 export interface ClozeItem extends Content {
   readonly dataKind: DataKind.Cloze;
+  /** Explicit two-form contrasts use exactly two choices; ordinary cloze keeps its minimum of three. */
+  readonly choiceCount?: 2;
   readonly answer: string;
   /** Other words that also fit the gap: accepted when typed, never offered as wrong choices. */
   readonly alternatives?: readonly string[];

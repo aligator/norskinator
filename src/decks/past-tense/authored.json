@@ -1,0 +1,436 @@
+{
+  "entries": [
+    {
+      "id": "pt-bo-preteritum",
+      "pattern": "Jeg ___ i Bergen fra 2010 til 2015. Nå bor jeg i Oslo.",
+      "answer": "bodde",
+      "options": [
+        "bodde",
+        "har bodd"
+      ],
+      "explanation": "«Fra 2010 til 2015» avgrenser en avsluttet periode. Derfor bruker vi preteritum, «bodde». Presens perfektum ville knyttet perioden til nåtiden.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Ich wohnte von 2010 bis 2015 in Bergen. Jetzt wohne ich in Oslo.",
+        "en": "I lived in Bergen from 2010 to 2015. Now I live in Oslo."
+      }
+    },
+    {
+      "id": "pt-bo-presens-perfektum",
+      "pattern": "Jeg ___ i Oslo siden 2020, og jeg bor her fortsatt.",
+      "answer": "har bodd",
+      "options": [
+        "bodde",
+        "har bodd"
+      ],
+      "explanation": "«Siden 2020» og «fortsatt» viser at botiden varer fram til nå. Derfor passer presens perfektum, «har bodd». Preteritum ville framstilt botiden som avsluttet.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Ich wohne seit 2020 in Oslo und wohne immer noch hier.",
+        "en": "I have lived in Oslo since 2020, and I still live here."
+      }
+    },
+    {
+      "id": "pt-jobbe-preteritum",
+      "pattern": "Hun ___ på sykehuset i fjor sommer, men sluttet i august.",
+      "answer": "jobbet",
+      "options": [
+        "jobbet",
+        "har jobbet"
+      ],
+      "explanation": "«I fjor sommer» og «sluttet i august» plasserer arbeidet i en avsluttet fortid. Vi velger preteritum, «jobbet», framfor presens perfektum som knytter arbeidet til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Sie arbeitete letzten Sommer im Krankenhaus, hörte aber im August auf.",
+        "en": "She worked at the hospital last summer but left in August."
+      }
+    },
+    {
+      "id": "pt-jobbe-presens-perfektum",
+      "pattern": "Hun ___ på dette sykehuset helt siden 2018 og jobber der fremdeles.",
+      "answer": "har jobbet",
+      "options": [
+        "jobbet",
+        "har jobbet"
+      ],
+      "explanation": "«Helt siden 2018» sammen med «fremdeles» viser et arbeidsforhold som fortsetter nå. Vi bruker presens perfektum, «har jobbet», ikke preteritum for et avsluttet arbeidsforhold.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Sie arbeitet seit 2018 in diesem Krankenhaus und arbeitet immer noch dort.",
+        "en": "She has worked at this hospital since 2018 and still works there."
+      }
+    },
+    {
+      "id": "pt-være-preteritum",
+      "pattern": "Vi ___ i Trondheim på mandag. På tirsdag reiste vi hjem.",
+      "answer": "var",
+      "options": [
+        "var",
+        "har vært"
+      ],
+      "explanation": "Rekkefølgen «på mandag» og «på tirsdag» etablerer en avsluttet fortelling. Preteritum, «var», plasserer oppholdet der; presens perfektum passer ikke til denne daterte fortellingen.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Wir waren am Montag in Trondheim. Am Dienstag fuhren wir nach Hause.",
+        "en": "We were in Trondheim on Monday. On Tuesday we went home."
+      }
+    },
+    {
+      "id": "pt-være-presens-perfektum",
+      "pattern": "Vi ___ her siden klokka åtte, og vi er fortsatt her.",
+      "answer": "har vært",
+      "options": [
+        "var",
+        "har vært"
+      ],
+      "explanation": "Oppholdet begynte klokka åtte og varer fortsatt. Presens perfektum, «har vært», uttrykker forbindelsen fram til nå. Preteritum ville framstilt oppholdet som avsluttet.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Wir sind seit acht Uhr hier und sind immer noch hier.",
+        "en": "We have been here since eight, and we are still here."
+      }
+    },
+    {
+      "id": "pt-ha-preteritum",
+      "pattern": "Jeg ___ en rød sykkel som barn, men solgte den da jeg fylte femten.",
+      "answer": "hadde",
+      "options": [
+        "hadde",
+        "har hatt"
+      ],
+      "explanation": "«Som barn» og salget da jeg fylte femten avgrenser eierskapet i fortiden. Derfor velger vi preteritum, «hadde», ikke presens perfektum med forbindelse til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Als Kind hatte ich ein rotes Fahrrad, verkaufte es aber, als ich fünfzehn wurde.",
+        "en": "I had a red bicycle as a child but sold it when I turned fifteen."
+      }
+    },
+    {
+      "id": "pt-ha-presens-perfektum",
+      "pattern": "Jeg ___ denne sykkelen siden jeg var barn, og jeg bruker den fortsatt.",
+      "answer": "har hatt",
+      "options": [
+        "hadde",
+        "har hatt"
+      ],
+      "explanation": "«Siden jeg var barn» og «fortsatt» knytter eierskapet til nåtiden. Presens perfektum, «har hatt», viser hele perioden fram til nå; preteritum ville framstilt den som avsluttet.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Ich habe dieses Fahrrad seit meiner Kindheit und benutze es immer noch.",
+        "en": "I have had this bicycle since I was a child, and I still use it."
+      }
+    },
+    {
+      "id": "pt-kjenne-preteritum",
+      "pattern": "Bestemor ___ naboen godt da hun bodde i Tromsø i 1995.",
+      "answer": "kjente",
+      "options": [
+        "kjente",
+        "har kjent"
+      ],
+      "explanation": "«Da hun bodde i Tromsø i 1995» er en bestemt fortidig ramme. Vi beskriver forholdet innenfor den rammen med preteritum, «kjente», framfor presens perfektum.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Oma kannte den Nachbarn gut, als sie 1995 in Tromsø wohnte.",
+        "en": "Grandma knew the neighbour well when she lived in Tromsø in 1995."
+      }
+    },
+    {
+      "id": "pt-kjenne-presens-perfektum",
+      "pattern": "Jeg ___ Nora helt siden vi var barn, og vi er fortsatt nære venner.",
+      "answer": "har kjent",
+      "options": [
+        "kjente",
+        "har kjent"
+      ],
+      "explanation": "«Helt siden vi var barn» og vennskapet som fortsetter, viser en periode fram til nå. Derfor bruker vi presens perfektum, «har kjent». Preteritum ville lagt forholdet i fortiden.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Ich kenne Nora seit unserer Kindheit, und wir sind immer noch eng befreundet.",
+        "en": "I have known Nora since we were children, and we are still close friends."
+      }
+    },
+    {
+      "id": "pt-eie-preteritum",
+      "pattern": "De ___ huset fra 2001 til 2009. Så solgte de det.",
+      "answer": "eide",
+      "options": [
+        "eide",
+        "har eid"
+      ],
+      "explanation": "«Fra 2001 til 2009» og salget avslutter eierskapet. Preteritum, «eide», passer til denne avgrensede perioden; presens perfektum ville knyttet den til nåtiden.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Sie besaßen das Haus von 2001 bis 2009. Dann verkauften sie es.",
+        "en": "They owned the house from 2001 to 2009. Then they sold it."
+      }
+    },
+    {
+      "id": "pt-eie-presens-perfektum",
+      "pattern": "De ___ dette huset siden 2001, og de eier det fremdeles.",
+      "answer": "har eid",
+      "options": [
+        "eide",
+        "har eid"
+      ],
+      "explanation": "«Siden 2001» og «fremdeles» viser at eierskapet fortsetter. Presens perfektum, «har eid», dekker perioden fram til nå. Preteritum ville framstilt eierskapet som avsluttet.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Sie besitzen dieses Haus seit 2001 und besitzen es immer noch.",
+        "en": "They have owned this house since 2001, and they still own it."
+      }
+    },
+    {
+      "id": "pt-spise-preteritum",
+      "pattern": "Jeg ___ fisk til middag i går.",
+      "answer": "spiste",
+      "options": [
+        "spiste",
+        "har spist"
+      ],
+      "explanation": "«I går» plasserer middagen i en avsluttet dag. Vi bruker preteritum, «spiste». Presens perfektum brukes her ikke sammen med den bestemte fortidige tidsangivelsen.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Ich aß gestern Fisch zu Abend.",
+        "en": "I ate fish for dinner yesterday."
+      }
+    },
+    {
+      "id": "pt-spise-presens-perfektum",
+      "pattern": "Jeg ___ tre epler hittil i dag.",
+      "answer": "har spist",
+      "options": [
+        "spiste",
+        "har spist"
+      ],
+      "explanation": "«Hittil i dag» teller det jeg har spist fram til nå, i en periode som fortsatt pågår. Derfor velger vi presens perfektum, «har spist», framfor preteritum for en avsluttet fortid.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Ich habe heute bisher drei Äpfel gegessen.",
+        "en": "I have eaten three apples so far today."
+      }
+    },
+    {
+      "id": "pt-drikke-preteritum",
+      "pattern": "Hun ___ te til frokost i går morges.",
+      "answer": "drakk",
+      "options": [
+        "drakk",
+        "har drukket"
+      ],
+      "explanation": "«I går morges» plasserer frokosten på et bestemt, avsluttet tidspunkt. Derfor passer preteritum, «drakk», framfor presens perfektum med forbindelse til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Sie trank gestern Morgen Tee zum Frühstück.",
+        "en": "She drank tea for breakfast yesterday morning."
+      }
+    },
+    {
+      "id": "pt-drikke-presens-perfektum",
+      "pattern": "Hun ___ to kopper te hittil i dag.",
+      "answer": "har drukket",
+      "options": [
+        "drakk",
+        "har drukket"
+      ],
+      "explanation": "«Hittil i dag» summerer antall kopper fram til nå. Presens perfektum, «har drukket», passer til denne åpne perioden, mens preteritum ville plassert drikkingen i en avsluttet fortid.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Sie hat heute bisher zwei Tassen Tee getrunken.",
+        "en": "She has drunk two cups of tea so far today."
+      }
+    },
+    {
+      "id": "pt-lese-preteritum",
+      "pattern": "Han ___ hele boka forrige helg.",
+      "answer": "leste",
+      "options": [
+        "leste",
+        "har lest"
+      ],
+      "explanation": "«Forrige helg» er en avsluttet periode. Vi plasserer lesingen der med preteritum, «leste», framfor presens perfektum som knytter handlingen til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Er las letztes Wochenende das ganze Buch.",
+        "en": "He read the whole book last weekend."
+      }
+    },
+    {
+      "id": "pt-lese-presens-perfektum",
+      "pattern": "Han ___ fem bøker hittil i år.",
+      "answer": "har lest",
+      "options": [
+        "leste",
+        "har lest"
+      ],
+      "explanation": "«Hittil i år» gir en opptelling fra årets begynnelse fram til nå. Vi velger presens perfektum, «har lest». Preteritum ville passet til lesing i en avsluttet fortidig periode.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Er hat dieses Jahr bisher fünf Bücher gelesen.",
+        "en": "He has read five books so far this year."
+      }
+    },
+    {
+      "id": "pt-skrive-preteritum",
+      "pattern": "Hun ___ brevet for to dager siden.",
+      "answer": "skrev",
+      "options": [
+        "skrev",
+        "har skrevet"
+      ],
+      "explanation": "«For to dager siden» tidfester skrivingen i fortiden. Preteritum, «skrev», passer til denne tidsangivelsen, framfor presens perfektum med fokus på forbindelsen til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Sie schrieb den Brief vor zwei Tagen.",
+        "en": "She wrote the letter two days ago."
+      }
+    },
+    {
+      "id": "pt-skrive-presens-perfektum",
+      "pattern": "Hun ___ ti sider hittil denne uka.",
+      "answer": "har skrevet",
+      "options": [
+        "skrev",
+        "har skrevet"
+      ],
+      "explanation": "«Hittil denne uka» summerer skrivingen fram til nå i en uke som fortsatt pågår. Derfor bruker vi presens perfektum, «har skrevet», framfor preteritum for en avsluttet periode.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Sie hat diese Woche bisher zehn Seiten geschrieben.",
+        "en": "She has written ten pages so far this week."
+      }
+    },
+    {
+      "id": "pt-se-preteritum",
+      "pattern": "Vi ___ den filmen på kino i går kveld.",
+      "answer": "så",
+      "options": [
+        "så",
+        "har sett"
+      ],
+      "explanation": "«I går kveld» plasserer kinobesøket i en avsluttet fortid. Vi bruker preteritum, «så», framfor presens perfektum som ville knyttet opplevelsen til nå uten denne tidsrammen.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Wir sahen den Film gestern Abend im Kino.",
+        "en": "We saw that film at the cinema yesterday evening."
+      }
+    },
+    {
+      "id": "pt-se-presens-perfektum",
+      "pattern": "Vi ___ fire filmer hittil denne måneden.",
+      "answer": "har sett",
+      "options": [
+        "så",
+        "har sett"
+      ],
+      "explanation": "«Hittil denne måneden» teller filmene fram til nå. Presens perfektum, «har sett», passer til den åpne perioden. Preteritum ville vist til en avsluttet fortidig ramme.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Wir haben diesen Monat bisher vier Filme gesehen.",
+        "en": "We have seen four films so far this month."
+      }
+    },
+    {
+      "id": "pt-ta-preteritum",
+      "pattern": "Jeg ___ bussen til jobb i går.",
+      "answer": "tok",
+      "options": [
+        "tok",
+        "har tatt"
+      ],
+      "explanation": "«I går» tidfester bussturen til en avsluttet dag. Derfor velger vi preteritum, «tok», framfor presens perfektum med forbindelse til nå.",
+      "level": 1,
+      "tags": [
+        "preteritum"
+      ],
+      "translations": {
+        "de": "Ich nahm gestern den Bus zur Arbeit.",
+        "en": "I took the bus to work yesterday."
+      }
+    },
+    {
+      "id": "pt-ta-presens-perfektum",
+      "pattern": "Jeg ___ bussen til jobb åtte ganger hittil denne måneden.",
+      "answer": "har tatt",
+      "options": [
+        "tok",
+        "har tatt"
+      ],
+      "explanation": "«Åtte ganger hittil denne måneden» er en opptelling fram til nå. Vi bruker presens perfektum, «har tatt», fordi perioden fortsatt pågår, framfor preteritum for en avsluttet fortid.",
+      "level": 1,
+      "tags": [
+        "presens-perfektum"
+      ],
+      "translations": {
+        "de": "Ich bin diesen Monat bisher achtmal mit dem Bus zur Arbeit gefahren.",
+        "en": "I have taken the bus to work eight times so far this month."
+      }
+    }
+  ]
+}

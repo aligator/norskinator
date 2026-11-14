@@ -12,6 +12,8 @@ localStorage, so every deploy must keep it readable:
   (`p-curated-<id>`, `p-tpl-<template>-<filler>`, `p-t<tatoeba id>`,
   `a-t<tatoeba id>`, `w-t<tatoeba id>`). Never reuse or renumber an id; removed exercises are
   simply ignored.
+  Authored past-tense items use `pt-<verb>-<tense>`; these explicit ids are
+  permanent even if the sentence or its tags are revised.
 - **Additive changes** (new optional field): give it a default in the
   `parse*` function in `src/core/storage.ts`. No version bump.
   Example: `speechRate` (read-aloud speed, a factor of the voice's normal pace,

@@ -8,9 +8,10 @@
 import type { Deck } from '../core/types.ts';
 import { adjectiveDeck } from './adjectives/index.ts';
 import { prepositionDeck } from './prepositions/index.ts';
+import { pastTenseDeck } from './past-tense/index.ts';
 import { wordOrderDeck } from './word-order/index.ts';
 
-export const DECKS: readonly Deck[] = [prepositionDeck, adjectiveDeck, wordOrderDeck];
+export const DECKS: readonly Deck[] = [prepositionDeck, adjectiveDeck, wordOrderDeck, pastTenseDeck];
 
 export function deckById(id: string): Deck | undefined {
   return DECKS.find((deck) => deck.id === id);
