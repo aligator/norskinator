@@ -27,7 +27,8 @@ ENV VITE_APP_VERSION=${APP_VERSION}
 RUN pnpm run verify
 
 # --- Runtime: plain nginx serving the static files, running as non-root ------
-FROM nginxinc/nginx-unprivileged:stable-alpine
+# Pin the multi-arch index: nginx 1.30.7 fixes the November 2026 advisories.
+FROM nginx/nginx-unprivileged:1.30.7-alpine-slim@sha256:8432c57ac86f178741af2b89948bd9087cb9df1c415bc1ab4d23735c4f0e3e61
 
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --chmod=755 docker/40-basic-auth.sh /docker-entrypoint.d/40-basic-auth.sh
